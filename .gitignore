@@ -1,5 +1,7 @@
-# 모듈은 각자 자기 리포로 별도 push (이 리포에는 포함하지 않음)
-modules/
+# 외부 리포로 분리 운영되는 모듈만 제외 (market 모듈은 hub repo 안에 직접 호스팅)
+modules/rs/
+modules/chart/
+modules/etf/
 # 잔재
 patches/
 setup.sh

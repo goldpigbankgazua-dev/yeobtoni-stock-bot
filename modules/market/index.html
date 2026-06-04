@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>국내증시현황 — 여비또니 주식봇</title>
+<style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --thead:#f1f5f9; --line:#e2e8f0; --line-soft:#eef2f6;
+  --text:#1a1d24; --text-strong:#0f172a; --muted:#64748b; --muted-2:#94a3b8;
+  --accent:#0ea5e9; --accent-soft:rgba(14,165,233,.10);
+  --kospi:#ef4444; --kosdaq:#3b82f6; --deposits:#10b981; --credit:#f59e0b;
+}
+:root[data-theme="dark"], body.theme-dark {
+  --bg:#0b1220; --card:#121a2b; --thead:#0f1626; --line:#1f2a44; --line-soft:#192238;
+  --text:#cbd5e1; --text-strong:#f1f5f9; --muted:#94a3b8; --muted-2:#64748b;
+  --accent:#22d3ee; --accent-soft:rgba(34,211,238,.12);
+}
+:root[data-theme="green"], body.theme-green {
+  --bg:#ecfdf5; --card:#ffffff; --thead:#f0fdf4; --line:#a7f3d0; --line-soft:#d1fae5;
+  --text:#064e3b; --text-strong:#022c22; --muted:#047857; --muted-2:#10b981;
+  --accent:#059669; --accent-soft:rgba(5,150,105,.12);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { overflow-x:hidden; max-width:100vw; }
+body {
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.55; padding:20px;
+  -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  transition:background .15s ease, color .15s ease;
+}
+.container { max-width:1200px; margin:0 auto; }
+
+header { margin-bottom:14px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+.header-left { flex:1; min-width:200px; }
+h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong); }
+.subtitle { color:var(--muted); font-size:13px; margin:0; }
+.basedate { color:var(--muted); background:var(--card); border:1px solid var(--line);
+  padding:6px 12px; border-radius:8px; font-size:12px; white-space:nowrap; flex-shrink:0; }
+.basedate b { color:var(--accent); }
+
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:18px 18px 14px; margin-bottom:14px; box-shadow:0 1px 3px rgba(15,23,42,.04); }
+.card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
+.card-title { font-size:15px; font-weight:700; color:var(--text-strong); }
+.card-meta { font-size:12px; color:var(--muted); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.card-meta .v-now { font-size:14px; font-weight:700; color:var(--text-strong); }
+.card-meta .v-delta { font-size:12px; font-weight:600; padding:2px 7px; border-radius:6px; }
+.card-meta .v-delta.up   { background:rgba(239,68,68,.10); color:#dc2626; }
+.card-meta .v-delta.down { background:rgba(59,130,246,.10); color:#2563eb; }
+.card-meta .v-delta.flat { background:var(--thead); color:var(--muted); }
+
+.tf-bar { display:flex; gap:6px; flex-wrap:wrap; }
+.tf-btn { appearance:none; border:1px solid var(--line); background:var(--thead); color:var(--muted);
+  font:inherit; font-size:12px; font-weight:600; padding:5px 12px; border-radius:7px; cursor:pointer;
+  transition:all .12s ease; user-select:none; }
+.tf-btn:hover { color:var(--text-strong); border-color:var(--muted-2); }
+.tf-btn.active { background:var(--text-strong); color:var(--card); border-color:var(--text-strong); }
+[data-theme="dark"] .tf-btn.active { background:#e2e8f0; color:#0b1220; border-color:#e2e8f0; }
+
+.mkt-tabs { display:flex; gap:6px; }
+.mkt-tab { appearance:none; border:1px solid var(--line); background:transparent; color:var(--muted);
+  font:inherit; font-size:12px; font-weight:600; padding:5px 12px; border-radius:7px; cursor:pointer;
+  transition:all .12s ease; }
+.mkt-tab.active { color:var(--text-strong); background:var(--thead); border-color:var(--muted-2); }
+
+.chart-wrap { position:relative; height:280px; }
+.chart-wrap canvas { display:block; }
+
+footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px; background:var(--thead);
+  border:1px solid var(--line); border-radius:10px; line-height:1.7; }
+
+@media (max-width:720px) {
+  body { padding:12px; }
+  h1 { font-size:19px; }
+  header { gap:8px; }
+  .basedate { font-size:11px; padding:5px 10px; }
+  .chart-wrap { height:240px; }
+  .card { padding:14px 14px 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="header-left">
+      <h1>국내증시현황</h1>
+      <p class="subtitle">국내증시 예탁금 · 신용융자 · 거래대금 실시간 조회</p>
+    </div>
+    <div class="basedate" id="basedate">기준일 –</div>
+  </header>
+
+  <!-- 1. 투자자예탁금 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">투자자예탁금</div>
+        <div class="card-meta">
+          <span class="v-now" id="depositsNow">–</span>
+          <span class="v-delta flat" id="depositsDelta">–</span>
+          <span>(2거래일 지연)</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="deposits">
+        <button class="tf-btn" data-tf="1M">1M</button>
+        <button class="tf-btn active" data-tf="6M">6M</button>
+        <button class="tf-btn" data-tf="1Y">1Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartDeposits"></div></div>
+  </div>
+
+  <!-- 2. 신용융자잔고 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">신용융자잔고</div>
+        <div class="card-meta">
+          <span class="v-now" id="creditNow">–</span>
+          <span class="v-delta flat" id="creditDelta">–</span>
+          <span>(2거래일 지연)</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <div class="mkt-tabs" data-section="credit">
+          <button class="mkt-tab active" data-mkt="KOSPI">코스피</button>
+          <button class="mkt-tab" data-mkt="KOSDAQ">코스닥</button>
+        </div>
+        <div class="tf-bar" data-section="credit">
+          <button class="tf-btn" data-tf="1M">1M</button>
+          <button class="tf-btn active" data-tf="6M">6M</button>
+          <button class="tf-btn" data-tf="1Y">1Y</button>
+        </div>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartCredit"></div></div>
+  </div>
+
+  <!-- 3. 거래대금 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">거래대금</div>
+        <div class="card-meta">
+          <span class="v-now" id="tradingNow">–</span>
+          <span class="v-delta flat" id="tradingDelta">–</span>
+          <span>(전일)</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <div class="mkt-tabs" data-section="trading">
+          <button class="mkt-tab active" data-mkt="KOSPI">코스피</button>
+          <button class="mkt-tab" data-mkt="KOSDAQ">코스닥</button>
+        </div>
+        <div class="tf-bar" data-section="trading">
+          <button class="tf-btn" data-tf="1M">1M</button>
+          <button class="tf-btn active" data-tf="6M">6M</button>
+          <button class="tf-btn" data-tf="1Y">1Y</button>
+        </div>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartTrading"></div></div>
+  </div>
+
+  <footer>
+    투자자예탁금·신용잔고는 금융투자협회(KOFIA)가 2거래일 지연 발표하며, 거래대금은 KRX 일간 데이터(전일 기준)입니다.<br>
+    데이터 출처: pykrx · KOFIA freesis · 매일 KST 18시 자동 갱신.
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.min.js"></script>
+<script>
+// ============= 허브 테마 브리지 =============
+function applyTheme(t) {
+  if (!["light","dark","green"].includes(t)) t = "light";
+  document.documentElement.setAttribute("data-theme", t);
+  document.body.classList.remove("theme-light","theme-dark","theme-green");
+  document.body.classList.add("theme-" + t);
+  rebuildAllCharts();
+}
+(function(){
+  // URL ?theme= 우선, 없으면 light
+  const p = new URLSearchParams(location.search);
+  applyTheme(p.get("theme") || "light");
+  window.addEventListener("message", function(ev){
+    if (ev && ev.data && ev.data.type === "yeobtoni-theme") applyTheme(ev.data.value);
+  });
+})();
+
+// ============= 상태 =============
+const STATE = {
+  data: null,       // 로드된 JSON
+  tf:    { deposits:"6M", credit:"6M", trading:"6M" },
+  mkt:   { credit:"KOSPI", trading:"KOSPI" },
+  charts:{ deposits:null, credit:null, trading:null },
+};
+
+const TF_DAYS = { "1M":31, "6M":183, "1Y":365 };
+
+function cssVar(name) {
+  return getComputedStyle(document.body).getPropertyValue(name).trim() || "";
+}
+
+function fmtKR(num) {
+  if (num == null || isNaN(num)) return "–";
+  const abs = Math.abs(num);
+  if (abs >= 1e12) return (num/1e12).toFixed(1) + "조";
+  if (abs >= 1e8)  return (num/1e8).toFixed(0)  + "억";
+  if (abs >= 1e4)  return (num/1e4).toFixed(0)  + "만";
+  return num.toLocaleString();
+}
+
+function fmtDelta(prev, now) {
+  if (prev == null || now == null) return { text:"–", cls:"flat" };
+  const diff = now - prev;
+  if (diff === 0) return { text:"±0", cls:"flat" };
+  const pct = (diff / prev) * 100;
+  const sign = diff > 0 ? "+" : "−";
+  const text = sign + fmtKR(Math.abs(diff)) + " (" + sign + Math.abs(pct).toFixed(2) + "%)";
+  return { text, cls: diff > 0 ? "up" : "down" };
+}
+
+// ============= 데이터 로드 =============
+async function loadData() {
+  try {
+    const res = await fetch("data/market.json?ts=" + Date.now());
+    if (!res.ok) throw new Error("fetch failed");
+    STATE.data = await res.json();
+  } catch (e) {
+    console.warn("market.json 로드 실패, 데모 데이터 사용", e);
+    STATE.data = mockData();
+  }
+  document.getElementById("basedate").innerHTML = "기준일 <b>" + (STATE.data.updated_at || "–") + "</b>";
+  rebuildAllCharts();
+  updateNowAndDelta();
+}
+
+// 임시 데모 데이터 (실데이터 들어오기 전까지 차트가 비어보이지 않게)
+function mockData() {
+  const today = new Date();
+  const out = { updated_at: today.toISOString().slice(0,10), deposits:[], credit_kospi:[], credit_kosdaq:[], trading_kospi:[], trading_kosdaq:[] };
+  for (let i = 365; i >= 0; i--) {
+    const d = new Date(today); d.setDate(today.getDate() - i);
+    const key = d.toISOString().slice(0,10);
+    const noise = () => 0.92 + Math.random() * 0.16;
+    out.deposits.push     ({ date: key, value: Math.round((58e12 + i*-3e10) * noise()) });
+    out.credit_kospi.push ({ date: key, value: Math.round((12e12 + i*-1e10) * noise()) });
+    out.credit_kosdaq.push({ date: key, value: Math.round(( 9e12 + i*-8e9)  * noise()) });
+    out.trading_kospi.push ({ date: key, value: Math.round((11e12          ) * noise()) });
+    out.trading_kosdaq.push({ date: key, value: Math.round(( 8e12          ) * noise()) });
+  }
+  return out;
+}
+
+// ============= 차트 =============
+function colors() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  return {
+    grid:   cssVar("--line") || (isDark ? "#1f2a44" : "#e2e8f0"),
+    text:   cssVar("--muted") || "#64748b",
+    bg:     cssVar("--card") || "#ffffff",
+    deposits: cssVar("--deposits") || "#10b981",
+    credit:   cssVar("--credit")   || "#f59e0b",
+    kospi:    cssVar("--kospi")    || "#ef4444",
+    kosdaq:   cssVar("--kosdaq")   || "#3b82f6",
+  };
+}
+
+function buildChart(container) {
+  const c = colors();
+  return LightweightCharts.createChart(container, {
+    autoSize: true,
+    layout: { background: { type: "solid", color: c.bg }, textColor: c.text,
+              fontFamily: "-apple-system,BlinkMacSystemFont,Pretendard,sans-serif" },
+    grid: { vertLines:{color:c.grid}, horzLines:{color:c.grid} },
+    rightPriceScale: { borderColor: c.grid, scaleMargins:{top:0.1, bottom:0.05} },
+    timeScale: { borderColor: c.grid, timeVisible:false, secondsVisible:false, rightOffset:5 },
+    crosshair: { mode: 1 },
+  });
+}
+
+function sliceByTF(series, tf) {
+  if (!series || !series.length) return [];
+  const days = TF_DAYS[tf] || 183;
+  const cutoffMs = Date.now() - days * 86400000;
+  return series.filter(p => new Date(p.date).getTime() >= cutoffMs);
+}
+
+function drawDeposits() {
+  const wrap = document.getElementById("chartDeposits");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  if (STATE.charts.deposits) { try { STATE.charts.deposits.remove(); } catch(_){} }
+  STATE.charts.deposits = buildChart(wrap);
+  const c = colors();
+  const s = STATE.charts.deposits.addAreaSeries({
+    lineColor: c.deposits, topColor: c.deposits + "55", bottomColor: c.deposits + "00",
+    lineWidth: 2, priceLineVisible: false, lastValueVisible: true,
+  });
+  const data = sliceByTF(STATE.data.deposits, STATE.tf.deposits);
+  s.setData(data.map(p => ({ time: p.date, value: p.value })));
+  STATE.charts.deposits.timeScale().fitContent();
+}
+
+function drawCredit() {
+  const wrap = document.getElementById("chartCredit");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  if (STATE.charts.credit) { try { STATE.charts.credit.remove(); } catch(_){} }
+  STATE.charts.credit = buildChart(wrap);
+  const c = colors();
+  const mkt = STATE.mkt.credit;
+  const src = mkt === "KOSPI" ? STATE.data.credit_kospi : STATE.data.credit_kosdaq;
+  const color = mkt === "KOSPI" ? c.kospi : c.kosdaq;
+  const s = STATE.charts.credit.addAreaSeries({
+    lineColor: color, topColor: color + "55", bottomColor: color + "00",
+    lineWidth: 2, priceLineVisible: false, lastValueVisible: true,
+  });
+  const data = sliceByTF(src, STATE.tf.credit);
+  s.setData(data.map(p => ({ time: p.date, value: p.value })));
+  STATE.charts.credit.timeScale().fitContent();
+}
+
+function drawTrading() {
+  const wrap = document.getElementById("chartTrading");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  if (STATE.charts.trading) { try { STATE.charts.trading.remove(); } catch(_){} }
+  STATE.charts.trading = buildChart(wrap);
+  const c = colors();
+  const mkt = STATE.mkt.trading;
+  const src = mkt === "KOSPI" ? STATE.data.trading_kospi : STATE.data.trading_kosdaq;
+  const color = mkt === "KOSPI" ? c.kospi : c.kosdaq;
+  // 일별 막대 — 거래대금은 hist 형태가 더 적합
+  const s = STATE.charts.trading.addHistogramSeries({
+    color: color, priceLineVisible: false, lastValueVisible: true,
+  });
+  const data = sliceByTF(src, STATE.tf.trading);
+  s.setData(data.map(p => ({ time: p.date, value: p.value, color: color })));
+  STATE.charts.trading.timeScale().fitContent();
+}
+
+function rebuildAllCharts() {
+  if (!STATE.data) return;
+  drawDeposits();
+  drawCredit();
+  drawTrading();
+}
+
+function updateNowAndDelta() {
+  if (!STATE.data) return;
+  function last2(arr) {
+    if (!arr || arr.length < 2) return [null, null];
+    return [arr[arr.length-2].value, arr[arr.length-1].value];
+  }
+  let [p, n] = last2(STATE.data.deposits);
+  document.getElementById("depositsNow").textContent = fmtKR(n);
+  const d1 = fmtDelta(p, n);
+  const e1 = document.getElementById("depositsDelta");
+  e1.textContent = d1.text; e1.className = "v-delta " + d1.cls;
+
+  const credSrc = STATE.mkt.credit === "KOSPI" ? STATE.data.credit_kospi : STATE.data.credit_kosdaq;
+  [p, n] = last2(credSrc);
+  document.getElementById("creditNow").textContent = fmtKR(n);
+  const d2 = fmtDelta(p, n);
+  const e2 = document.getElementById("creditDelta");
+  e2.textContent = d2.text; e2.className = "v-delta " + d2.cls;
+
+  const trSrc = STATE.mkt.trading === "KOSPI" ? STATE.data.trading_kospi : STATE.data.trading_kosdaq;
+  [p, n] = last2(trSrc);
+  document.getElementById("tradingNow").textContent = fmtKR(n);
+  const d3 = fmtDelta(p, n);
+  const e3 = document.getElementById("tradingDelta");
+  e3.textContent = d3.text; e3.className = "v-delta " + d3.cls;
+}
+
+// ============= 토글 핸들러 =============
+document.querySelectorAll(".tf-bar").forEach(bar => {
+  bar.addEventListener("click", function(e){
+    const btn = e.target.closest(".tf-btn"); if (!btn) return;
+    const section = bar.dataset.section;
+    bar.querySelectorAll(".tf-btn").forEach(b => b.classList.toggle("active", b === btn));
+    STATE.tf[section] = btn.dataset.tf;
+    if (section === "deposits") drawDeposits();
+    if (section === "credit")   drawCredit();
+    if (section === "trading")  drawTrading();
+  });
+});
+
+document.querySelectorAll(".mkt-tabs").forEach(bar => {
+  bar.addEventListener("click", function(e){
+    const btn = e.target.closest(".mkt-tab"); if (!btn) return;
+    const section = bar.dataset.section;
+    bar.querySelectorAll(".mkt-tab").forEach(b => b.classList.toggle("active", b === btn));
+    STATE.mkt[section] = btn.dataset.mkt;
+    if (section === "credit")  drawCredit();
+    if (section === "trading") drawTrading();
+    updateNowAndDelta();
+  });
+});
+
+// ============= 시작 =============
+loadData();
+</script>
+</body>
+</html>
