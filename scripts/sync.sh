@@ -58,13 +58,19 @@ sync_repo() {
     git pull --rebase --quiet 2>/dev/null
   fi
 
-  # 다시 변경분 체크 → 커밋 → push
+  # 1) uncommitted 변경 → 커밋
   if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
     git add -A 2>/dev/null
     git -c user.email="$EMAIL" -c user.name="$NAME" \
         commit -m "auto-sync: $(date '+%F %H:%M')" --quiet 2>/dev/null
+  fi
+
+  # 2) origin보다 앞선 commit(방금 만들었든 이전 것이든) 있으면 무조건 push
+  local ahead
+  ahead=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo 0)
+  if [ "$ahead" -gt 0 ]; then
     if git push --quiet origin HEAD 2>>"$LOG_FILE"; then
-      log "  ✓ $label pushed"
+      log "  ✓ $label pushed ($ahead commit)"
     else
       log "  ✗ $label push 실패"
     fi
