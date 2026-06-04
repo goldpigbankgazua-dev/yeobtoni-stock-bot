@@ -261,6 +261,7 @@
       <button class="nav-item active" data-target="rs">RS SCREENER</button>
       <button class="nav-item" data-target="chart">STOCK SCREENER</button>
       <button class="nav-item" data-target="etf">ETF 추적기</button>
+      <button class="nav-item" data-target="market">국내증시현황</button>
     </nav>
   </aside>
   <div class="sidebar-backdrop" id="backdrop"></div>
@@ -277,15 +278,19 @@
     <div class="frame-wrap" data-frame="etf">
       <iframe id="frame-etf" data-src="" title="ETF 추적기" loading="lazy" referrerpolicy="no-referrer"></iframe>
     </div>
+    <div class="frame-wrap" data-frame="market">
+      <iframe id="frame-market" data-src="" title="국내증시현황" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
   </section>
 
 </div>
 
 <script>
   const MODULES = {
-    rs:    "https://goldpigbankgazua-dev.github.io/rs-screener-kr/",
-    chart: "https://goldpigbankgazua-dev.github.io/chart-screener/",
-    etf:   "https://goldpigbankgazua-dev.github.io/kr-new-listed-etf/",
+    rs:     "https://goldpigbankgazua-dev.github.io/rs-screener-kr/",
+    chart:  "https://goldpigbankgazua-dev.github.io/chart-screener/",
+    etf:    "https://goldpigbankgazua-dev.github.io/kr-new-listed-etf/",
+    market: "modules/market/",
   };
 
   const THEMES = ["light", "dark", "green"];
@@ -321,9 +326,10 @@
   const nav = document.getElementById("nav");
   const loader = document.getElementById("loader");
   const frames = {
-    rs:    document.getElementById("frame-rs"),
-    chart: document.getElementById("frame-chart"),
-    etf:   document.getElementById("frame-etf"),
+    rs:     document.getElementById("frame-rs"),
+    chart:  document.getElementById("frame-chart"),
+    etf:    document.getElementById("frame-etf"),
+    market: document.getElementById("frame-market"),
   };
   const wraps = document.querySelectorAll(".frame-wrap");
   const loaded = new Set();
@@ -402,7 +408,7 @@
   backdrop.addEventListener("click", closeSidebar);
 
   applyHubTheme(localStorage.getItem("yeobtoni-theme") || "light");
-  const initial = ["rs","chart","etf"].includes(location.hash.slice(1))
+  const initial = ["rs","chart","etf","market"].includes(location.hash.slice(1))
     ? location.hash.slice(1) : "rs";
   switchTo(initial);
 </script>
