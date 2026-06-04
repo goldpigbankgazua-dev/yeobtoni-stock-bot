@@ -1,69 +1,86 @@
 #!/usr/bin/env bash
 # ==========================================================
 # 여비또니 주식봇 — 변경분 자동 동기화
-# 호출 경로: launchd 워처 / 수동 실행 모두 지원
+# launchd 워처 / 수동 실행 모두 지원
 # ==========================================================
-
-set -uo pipefail
-
-# launchd 환경에서도 brew 경로 인식되도록
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
 HUB_DIR="/Users/yeob/Documents/Claude/Projects/여비또니 주식봇"
-LOG="$HUB_DIR/scripts/.sync.log"
+LOG_DIR="$HOME/Library/Application Support/com.yeobtoni.autosync/logs"
+mkdir -p "$LOG_DIR" 2>/dev/null || true
+LOG_FILE="$LOG_DIR/sync.log"
 LOCK="/tmp/yeobtoni-sync.lock"
+EMAIL="goldpigbankgazua@users.noreply.github.com"
+NAME="goldpigbankgazua-dev"
 
-# 동시 실행 방지
-exec 9>"$LOCK"
-flock -n 9 || { echo "[$(date '+%F %T')] 다른 sync 실행 중 — 스킵" >>"$LOG"; exit 0; }
+log() {
+  local msg="[$(date '+%F %T')] $*"
+  echo "$msg"
+  echo "$msg" >> "$LOG_FILE" 2>/dev/null || true
+}
 
-log() { echo "[$(date '+%F %T')] $*" | tee -a "$LOG"; }
+# 동시 실행 방지 (macOS 호환 mkdir 락)
+if ! mkdir "$LOCK" 2>/dev/null; then
+  AGE_MIN=$(( ( $(date +%s) - $(stat -f %m "$LOCK" 2>/dev/null || echo 0) ) / 60 ))
+  if [ "$AGE_MIN" -gt 1 ]; then
+    rm -rf "$LOCK"; mkdir "$LOCK"
+  else
+    log "다른 sync 실행 중 (${AGE_MIN}분 경과) — 스킵"
+    exit 0
+  fi
+fi
+trap 'rm -rf "$LOCK"' EXIT INT TERM
 
 sync_repo() {
-  local dir="$1"
-  local label="$2"
+  local dir="$1" label="$2"
 
-  [ -d "$dir/.git" ] || { log "  skip $label (no .git)"; return; }
+  if [ ! -d "$dir/.git" ]; then
+    log "  $label: .git 없음 — 스킵"
+    return
+  fi
 
-  cd "$dir" || return
+  cd "$dir" || { log "  $label: cd 실패"; return; }
 
-  # 변경 감지 (untracked + modified)
+  # 원격 동기화 시도
+  git fetch origin --quiet 2>/dev/null || log "  $label: fetch 실패 (네트워크?)"
+
+  local branch local_sha remote_sha
+  branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  local_sha=$(git rev-parse HEAD 2>/dev/null)
+  remote_sha=$(git rev-parse "origin/$branch" 2>/dev/null)
+
   local has_changes=0
-  if [ -n "$(git status --porcelain)" ]; then has_changes=1; fi
+  [ -n "$(git status --porcelain 2>/dev/null)" ] && has_changes=1
 
-  # 원격 변경 가져오기
-  git fetch origin --quiet 2>>"$LOG" || true
-
-  local local_sha remote_sha
-  local_sha=$(git rev-parse HEAD 2>/dev/null || echo "none")
-  remote_sha=$(git rev-parse "origin/$(git rev-parse --abbrev-ref HEAD)" 2>/dev/null || echo "none")
-
-  # 원격이 앞서 있으면 rebase
-  if [ "$local_sha" != "$remote_sha" ] && [ "$remote_sha" != "none" ]; then
+  # 원격이 앞서 있으면 rebase (로컬 변경은 stash로 보존)
+  if [ -n "$remote_sha" ] && [ "$local_sha" != "$remote_sha" ]; then
     if [ "$has_changes" -eq 1 ]; then
-      git stash push -u -m "autosync-temp" >/dev/null 2>>"$LOG"
-      git pull --rebase --quiet 2>>"$LOG" || { log "  ✗ $label rebase failed"; git rebase --abort 2>/dev/null; git stash pop 2>/dev/null; return; }
-      git stash pop >/dev/null 2>>"$LOG" || true
+      git stash push -u -m "autosync-tmp" --quiet 2>/dev/null
+      git pull --rebase --quiet 2>/dev/null || { log "  $label: rebase 실패"; git rebase --abort 2>/dev/null; git stash pop --quiet 2>/dev/null; return; }
+      git stash pop --quiet 2>/dev/null
     else
-      git pull --rebase --quiet 2>>"$LOG" || log "  ✗ $label pull failed"
+      git pull --rebase --quiet 2>/dev/null
     fi
   fi
 
-  # 로컬 변경 커밋 + 푸시
-  if [ -n "$(git status --porcelain)" ]; then
+  # 로컬 변경분 커밋·푸시
+  if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
     git add -A
-    git commit -m "auto-sync: $(date '+%F %H:%M')" --quiet 2>>"$LOG" || true
-    if git push --quiet 2>>"$LOG"; then
+    git -c user.email="$EMAIL" -c user.name="$NAME" \
+        commit -m "auto-sync: $(date '+%F %H:%M')" --quiet
+    if git push --quiet origin "$branch" 2>>"$LOG_FILE"; then
       log "  ✓ $label pushed"
     else
-      log "  ✗ $label push failed"
+      log "  ✗ $label push 실패 (자격증명/네트워크 확인)"
     fi
+  else
+    log "  · $label: 변경 없음"
   fi
 }
 
-log "── sync start ──"
+log "── sync 시작 ──"
 sync_repo "$HUB_DIR/modules/rs"    "RS"
 sync_repo "$HUB_DIR/modules/chart" "CHART"
 sync_repo "$HUB_DIR/modules/etf"   "ETF"
 sync_repo "$HUB_DIR"               "HUB"
-log "── sync end ──"
+log "── sync 끝 ──"
