@@ -1,1 +1,12 @@
+# 모듈은 각자 자기 리포로 별도 push (이 리포에는 포함하지 않음)
+modules/
+# 잔재
 patches/
+setup.sh
+# 스크립트 로그·캐시
+scripts/.sync.log
+scripts/.launchd.log
+scripts/.launchd.err
+scripts/.repos.json
+# 시스템
+.DS_Store

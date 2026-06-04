@@ -30,19 +30,35 @@
   }
 
   :root[data-theme="light"] {
-    --bg: #f6f8fa;
+    --bg: #f8fafc;
     --bg-elev: #ffffff;
-    --bg-elev-2: #ffffff;
-    --border: #e5e7eb;
-    --border-strong: #d1d5db;
-    --text: #0d1117;
-    --text-dim: #4b5563;
-    --text-faint: #6b7280;
-    --accent: #059669;
-    --accent-glow: rgba(5, 150, 105, .25);
-    --accent-soft: rgba(5, 150, 105, .08);
+    --bg-elev-2: #f1f5f9;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --text: #0f172a;
+    --text-dim: #475569;
+    --text-faint: #94a3b8;
+    --accent: #0ea5e9;
+    --accent-glow: rgba(14, 165, 233, .22);
+    --accent-soft: rgba(14, 165, 233, .10);
     --danger: #dc2626;
-    --shadow: 0 4px 12px rgba(0,0,0,.08);
+    --shadow: 0 4px 12px rgba(0,0,0,.06);
+  }
+
+  :root[data-theme="green"] {
+    --bg: #ecfdf5;
+    --bg-elev: #ffffff;
+    --bg-elev-2: #f0fdf4;
+    --border: #a7f3d0;
+    --border-strong: #6ee7b7;
+    --text: #064e3b;
+    --text-dim: #047857;
+    --text-faint: #10b981;
+    --accent: #059669;
+    --accent-glow: rgba(5, 150, 105, .22);
+    --accent-soft: rgba(5, 150, 105, .10);
+    --danger: #dc2626;
+    --shadow: 0 4px 12px rgba(0,0,0,.05);
   }
 
   * { box-sizing: border-box; }
@@ -151,11 +167,12 @@
   }
 
   .nav-btn.active {
-    color: #0a0e14;
+    color: #ffffff;
     background: var(--accent);
     box-shadow: 0 0 16px var(--accent-glow);
   }
-  :root[data-theme="light"] .nav-btn.active { color: #fff; }
+  :root[data-theme="dark"] .nav-btn.active,
+  :root:not([data-theme]) .nav-btn.active { color: #0a0e14; }
 
   .nav-btn .dot {
     width: 6px;
@@ -189,6 +206,35 @@
     border-color: var(--border-strong);
   }
   .icon-btn svg { width: 16px; height: 16px; }
+
+  /* ===== Theme bar (3-mode toggle, CHART screener style) ===== */
+  .themebar {
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    background: var(--bg-elev-2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+  }
+  .theme-pill {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--text-dim);
+    font: inherit;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .12s ease;
+    white-space: nowrap;
+  }
+  .theme-pill:hover { color: var(--text); }
+  /* Selected colors — fixed per theme name (CHART style, regardless of current hub theme) */
+  .theme-pill.active[data-pill="light"] { background: #e0f2fe; color: #0f172a; }
+  .theme-pill.active[data-pill="dark"]  { background: #1e2a4a; color: #e2e8f0; }
+  .theme-pill.active[data-pill="green"] { background: #a7f3d0; color: #065f46; }
 
   /* ===== Frame ===== */
   main {
@@ -256,7 +302,8 @@
       font-size: 12px;
     }
     .nav-btn .dot { display: none; }
-    .header-actions { position: absolute; top: 14px; right: 12px; }
+    .header-actions { align-self: flex-end; }
+    .theme-pill { padding: 5px 10px; font-size: 11px; }
   }
 </style>
 </head>
@@ -284,23 +331,25 @@
 
   <nav class="nav" id="nav">
     <button class="nav-btn active" data-target="rs">
-      <span class="dot"></span>RS 스크리너
+      <span class="dot"></span>RS스크리너
     </button>
     <button class="nav-btn" data-target="chart">
-      <span class="dot"></span>CHART 스크리너
+      <span class="dot"></span>차트스크리너
     </button>
     <button class="nav-btn" data-target="etf">
-      <span class="dot"></span>ETF 검색기
+      <span class="dot"></span>ETF 추적기
     </button>
   </nav>
 
   <div class="header-actions">
-    <button class="icon-btn" id="openExternal" title="새 탭에서 열기" aria-label="새 탭에서 열기">
+    <button class="icon-btn" id="openExternal" title="공유하기" aria-label="공유하기">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
     </button>
-    <button class="icon-btn" id="themeToggle" title="테마 전환" aria-label="테마 전환">
-      <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+    <div class="themebar" id="themebar" role="group" aria-label="테마">
+      <button class="theme-pill" data-pill="light">화이트</button>
+      <button class="theme-pill" data-pill="dark">다크</button>
+      <button class="theme-pill" data-pill="green">그린</button>
+    </div>
   </div>
 </header>
 
@@ -308,15 +357,15 @@
   <div class="loader" id="loader"><div class="spinner"></div></div>
 
   <div class="frame-wrap active" data-frame="rs">
-    <iframe id="frame-rs" data-src="" title="RS 스크리너"
+    <iframe id="frame-rs" data-src="" title="RS스크리너"
             loading="eager" referrerpolicy="no-referrer"></iframe>
   </div>
   <div class="frame-wrap" data-frame="chart">
-    <iframe id="frame-chart" data-src="" title="CHART 스크리너"
+    <iframe id="frame-chart" data-src="" title="차트스크리너"
             loading="lazy" referrerpolicy="no-referrer"></iframe>
   </div>
   <div class="frame-wrap" data-frame="etf">
-    <iframe id="frame-etf" data-src="" title="ETF 검색기"
+    <iframe id="frame-etf" data-src="" title="ETF 추적기"
             loading="lazy" referrerpolicy="no-referrer"></iframe>
   </div>
 </main>
@@ -334,15 +383,38 @@
     etf:   "https://goldpigbankgazua-dev.github.io/kr-new-listed-etf/",
   };
 
-  /* ===== Theme ===== */
+  /* ===== Theme (single source of truth — hub controls all modules) ===== */
+  const THEMES = ["light", "dark", "green"];
   const root = document.documentElement;
-  const themeBtn = document.getElementById("themeToggle");
-  const savedTheme = localStorage.getItem("yeobtoni-theme") || "dark";
-  root.setAttribute("data-theme", savedTheme);
-  themeBtn.addEventListener("click", () => {
-    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("yeobtoni-theme", next);
+  const themebar = document.getElementById("themebar");
+
+  function currentTheme() {
+    return root.getAttribute("data-theme") || "light";
+  }
+  function applyHubTheme(t) {
+    if (!THEMES.includes(t)) t = "light";
+    root.setAttribute("data-theme", t);
+    localStorage.setItem("yeobtoni-theme", t);
+    themebar.querySelectorAll(".theme-pill").forEach(p =>
+      p.classList.toggle("active", p.dataset.pill === t)
+    );
+    broadcastTheme(t);
+  }
+  function broadcastTheme(t) {
+    Object.values(frames).forEach(f => {
+      try { f.contentWindow?.postMessage({ type: "yeobtoni-theme", value: t }, "*"); } catch (_) {}
+    });
+  }
+  function withTheme(url, t) {
+    const u = new URL(url, location.href);
+    u.searchParams.set("theme", t);
+    return u.toString();
+  }
+
+  themebar.addEventListener("click", (e) => {
+    const btn = e.target.closest(".theme-pill");
+    if (!btn) return;
+    applyHubTheme(btn.dataset.pill);
   });
 
   /* ===== Tabs + lazy iframe load ===== */
@@ -360,10 +432,13 @@
   function ensureLoaded(key) {
     if (loaded.has(key)) return;
     const f = frames[key];
-    f.src = MODULES[key];
+    f.src = withTheme(MODULES[key], currentTheme());
     loaded.add(key);
     loader.classList.remove("hidden");
-    f.addEventListener("load", () => loader.classList.add("hidden"), { once: true });
+    f.addEventListener("load", () => {
+      loader.classList.add("hidden");
+      try { f.contentWindow?.postMessage({ type: "yeobtoni-theme", value: currentTheme() }, "*"); } catch (_) {}
+    }, { once: true });
     // 안전장치: 8초 후엔 무조건 숨김
     setTimeout(() => loader.classList.add("hidden"), 8000);
   }
@@ -384,11 +459,21 @@
     switchTo(btn.dataset.target);
   });
 
-  document.getElementById("openExternal").addEventListener("click", () => {
-    window.open(MODULES[current], "_blank", "noopener");
+  document.getElementById("openExternal").addEventListener("click", async () => {
+    const url = MODULES[current];
+    try {
+      await navigator.clipboard.writeText(url);
+      const btn = document.getElementById("openExternal");
+      const orig = btn.title;
+      btn.title = "URL 복사됨";
+      setTimeout(() => { btn.title = orig; }, 1200);
+    } catch (_) {
+      window.open(url, "_blank", "noopener");
+    }
   });
 
-  // Initial load — respect hash if present
+  // Initial: theme + tab
+  applyHubTheme(localStorage.getItem("yeobtoni-theme") || "light");
   const initial = ["rs","chart","etf"].includes(location.hash.slice(1))
     ? location.hash.slice(1) : "rs";
   switchTo(initial);
