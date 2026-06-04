@@ -70,6 +70,10 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 
 .chart-wrap { position:relative; height:280px; }
 .chart-wrap canvas { display:block; }
+.chart-empty { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color:var(--muted); font-size:13px; flex-direction:column; gap:6px; pointer-events:none; }
+.chart-empty b { color:var(--text-strong); font-size:14px; font-weight:700; }
+.chart-empty span { font-size:12px; opacity:.7; }
 
 footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px; background:var(--thead);
   border:1px solid var(--line); border-radius:10px; line-height:1.7; }
@@ -290,18 +294,23 @@ function sliceByTF(series, tf) {
   return series.filter(p => new Date(p.date).getTime() >= cutoffMs);
 }
 
+function emptyState(wrap, label) {
+  wrap.innerHTML = '<div class="chart-empty"><b>데이터 준비 중</b><span>' + label + '</span></div>';
+}
+
 function drawDeposits() {
   const wrap = document.getElementById("chartDeposits");
   if (!wrap) return;
   wrap.innerHTML = "";
-  if (STATE.charts.deposits) { try { STATE.charts.deposits.remove(); } catch(_){} }
+  if (STATE.charts.deposits) { try { STATE.charts.deposits.remove(); } catch(_){} STATE.charts.deposits = null; }
+  const data = sliceByTF(STATE.data.deposits, STATE.tf.deposits);
+  if (!data.length) { emptyState(wrap, "KOFIA freesis 연동 작업 중"); return; }
   STATE.charts.deposits = buildChart(wrap);
   const c = colors();
   const s = STATE.charts.deposits.addAreaSeries({
     lineColor: c.deposits, topColor: c.deposits + "55", bottomColor: c.deposits + "00",
     lineWidth: 2, priceLineVisible: false, lastValueVisible: true,
   });
-  const data = sliceByTF(STATE.data.deposits, STATE.tf.deposits);
   s.setData(data.map(p => ({ time: p.date, value: p.value })));
   STATE.charts.deposits.timeScale().fitContent();
 }
@@ -310,17 +319,18 @@ function drawCredit() {
   const wrap = document.getElementById("chartCredit");
   if (!wrap) return;
   wrap.innerHTML = "";
-  if (STATE.charts.credit) { try { STATE.charts.credit.remove(); } catch(_){} }
-  STATE.charts.credit = buildChart(wrap);
-  const c = colors();
+  if (STATE.charts.credit) { try { STATE.charts.credit.remove(); } catch(_){} STATE.charts.credit = null; }
   const mkt = STATE.mkt.credit;
   const src = mkt === "KOSPI" ? STATE.data.credit_kospi : STATE.data.credit_kosdaq;
+  const data = sliceByTF(src, STATE.tf.credit);
+  if (!data.length) { emptyState(wrap, "KOFIA freesis 연동 작업 중"); return; }
+  STATE.charts.credit = buildChart(wrap);
+  const c = colors();
   const color = mkt === "KOSPI" ? c.kospi : c.kosdaq;
   const s = STATE.charts.credit.addAreaSeries({
     lineColor: color, topColor: color + "55", bottomColor: color + "00",
     lineWidth: 2, priceLineVisible: false, lastValueVisible: true,
   });
-  const data = sliceByTF(src, STATE.tf.credit);
   s.setData(data.map(p => ({ time: p.date, value: p.value })));
   STATE.charts.credit.timeScale().fitContent();
 }
@@ -329,17 +339,17 @@ function drawTrading() {
   const wrap = document.getElementById("chartTrading");
   if (!wrap) return;
   wrap.innerHTML = "";
-  if (STATE.charts.trading) { try { STATE.charts.trading.remove(); } catch(_){} }
-  STATE.charts.trading = buildChart(wrap);
-  const c = colors();
+  if (STATE.charts.trading) { try { STATE.charts.trading.remove(); } catch(_){} STATE.charts.trading = null; }
   const mkt = STATE.mkt.trading;
   const src = mkt === "KOSPI" ? STATE.data.trading_kospi : STATE.data.trading_kosdaq;
+  const data = sliceByTF(src, STATE.tf.trading);
+  if (!data.length) { emptyState(wrap, "Naver Stock API 응답 대기 중"); return; }
+  STATE.charts.trading = buildChart(wrap);
+  const c = colors();
   const color = mkt === "KOSPI" ? c.kospi : c.kosdaq;
-  // 일별 막대 — 거래대금은 hist 형태가 더 적합
   const s = STATE.charts.trading.addHistogramSeries({
     color: color, priceLineVisible: false, lastValueVisible: true,
   });
-  const data = sliceByTF(src, STATE.tf.trading);
   s.setData(data.map(p => ({ time: p.date, value: p.value, color: color })));
   STATE.charts.trading.timeScale().fitContent();
 }

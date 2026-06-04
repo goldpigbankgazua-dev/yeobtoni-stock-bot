@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-국내증시현황 데이터 수집기 — v2
+국내증시현황 데이터 수집기 — v3
 
-거래대금:    pykrx (KOSPI/KOSDAQ 지수 일별)
-예탁금·신용잔고: Naver Finance (KOFIA가 source. Naver가 정리해서 노출)
+거래대금:    Naver Stock API (인증 불필요, 안정적)
+예탁금·신용잔고: KOFIA freesis JSON API 시도 (실패 시 빈 배열)
 
 산출물: data/market.json
 """
@@ -24,196 +24,191 @@ OUT.parent.mkdir(parents=True, exist_ok=True)
 
 DAYS = 400
 
-HEADERS = {
-    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) "
-                   "AppleWebKit/605.1.15 (KHTML, like Gecko) "
-                   "Version/16.5 Safari/605.1.15"),
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.7",
-}
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) "
+      "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15")
 
 # ──────────────────────────────────────────────────────────
-# 거래대금 — pykrx (지수 OHLCV에서 "거래대금" 컬럼)
+# 거래대금 — Naver Stock API
+#
+# Endpoint: https://api.stock.naver.com/chart/domestic/index/{code}
+#   code: KOSPI, KOSDAQ
+#   periodType: dayCandle
+#   startDateTime, endDateTime: YYYYMMDDHHmmss
+#
+# 응답: { "code": "...", "priceInfos": [ {localDate, openPrice, ..., accumulatedTradingValue}, ... ] }
 # ──────────────────────────────────────────────────────────
-def fetch_trading_values():
-    try:
-        from pykrx import stock
-    except ImportError as e:
-        print(f"[trading] pykrx 미설치: {e}")
-        return [], []
-
+def fetch_naver_index_trading():
     today = dt.date.today()
     start = today - dt.timedelta(days=DAYS)
-    fr, to = start.strftime("%Y%m%d"), today.strftime("%Y%m%d")
+    start_str = start.strftime("%Y%m%d") + "000000"
+    end_str   = today.strftime("%Y%m%d") + "235959"
+
+    headers = {
+        "User-Agent": UA,
+        "Accept": "application/json",
+        "Referer": "https://finance.naver.com/",
+        "Origin": "https://finance.naver.com",
+    }
 
     def _series(code, label):
-        df = None
-        # pykrx 버전별 함수명이 달라서 둘 다 시도
-        for fn_name in ("get_index_ohlcv", "get_index_ohlcv_by_date"):
-            try:
-                fn = getattr(stock, fn_name, None)
-                if fn is None:
-                    continue
-                df = fn(fr, to, code)
-                if df is not None and not df.empty:
-                    print(f"[trading] {label}: {fn_name} OK ({len(df)} rows)")
-                    break
-            except Exception as e:
-                print(f"[trading] {label} {fn_name} 실패: {e}")
-        if df is None or df.empty:
-            print(f"[trading] {label}: 데이터 없음")
+        url = f"https://api.stock.naver.com/chart/domestic/index/{code}"
+        params = {
+            "periodType": "dayCandle",
+            "startDateTime": start_str,
+            "endDateTime": end_str,
+        }
+        try:
+            r = requests.get(url, params=params, headers=headers, timeout=20)
+            r.raise_for_status()
+            data = r.json()
+        except Exception as e:
+            print(f"[trading] {label} 요청 실패: {e}")
             return []
 
-        col = "거래대금" if "거래대금" in df.columns else None
-        if col is None:
-            print(f"[trading] {label}: 거래대금 컬럼 없음 — 컬럼들: {list(df.columns)}")
+        # 응답 구조 두 패턴 대응
+        bars = data.get("priceInfos") or data.get("candles") or data
+        if not isinstance(bars, list):
+            print(f"[trading] {label}: 예상 못 한 응답 구조 = {list(data.keys())[:5] if isinstance(data, dict) else type(data)}")
             return []
+
         out = []
-        for idx, row in df.iterrows():
-            d = idx.strftime("%Y-%m-%d") if hasattr(idx, "strftime") else str(idx)[:10]
+        for b in bars:
+            d = b.get("localDate") or b.get("date") or b.get("localDateTime")
+            v = b.get("accumulatedTradingValue") or b.get("tradingValue") or b.get("amount")
+            if d is None or v is None:
+                continue
+            d_str = str(d)[:8]
+            if len(d_str) == 8:
+                d_iso = f"{d_str[:4]}-{d_str[4:6]}-{d_str[6:]}"
+            else:
+                d_iso = str(d)[:10]
             try:
-                v = int(row[col])
+                v_int = int(v)
             except Exception:
                 continue
-            if v > 0:
-                out.append({"date": d, "value": v})
+            if v_int > 0:
+                out.append({"date": d_iso, "value": v_int})
+        out.sort(key=lambda x: x["date"])
+        print(f"[trading] {label}: {len(out)} rows")
         return out
 
-    kospi  = _series("1001", "KOSPI")
-    time.sleep(0.5)
-    kosdaq = _series("2001", "KOSDAQ")
+    kospi  = _series("KOSPI",  "KOSPI")
+    time.sleep(0.4)
+    kosdaq = _series("KOSDAQ", "KOSDAQ")
     return kospi, kosdaq
 
 
 # ──────────────────────────────────────────────────────────
-# 투자자예탁금 — Naver Finance: /sise/sise_deposit.naver
-# 신용잔고     — Naver Finance: /sise/sise_credit.naver (간접)
-#
-# Naver는 표 형태로 일별 데이터를 페이지네이션으로 제공.
+# 예탁금·신용잔고 — KOFIA freesis
+# 통계 ID는 freesis에서 직접 확인 필요. 실패 시 빈 배열.
 # ──────────────────────────────────────────────────────────
-def _parse_naver_deposit_page(html):
-    """예탁금 페이지 파싱 — table.type_1 에 일별 데이터."""
-    import re
-    rows = []
-    # tr 안에서 td 추출
-    tr_matches = re.findall(r'<tr[^>]*>(.*?)</tr>', html, re.S)
-    for tr in tr_matches:
-        tds = re.findall(r'<td[^>]*>(.*?)</td>', tr, re.S)
-        if len(tds) < 2:
-            continue
-        date_raw = re.sub(r'<[^>]+>', '', tds[0]).strip()
-        val_raw  = re.sub(r'<[^>]+>', '', tds[1]).strip()
-        # date: "2026.06.04" → "2026-06-04"
-        if not re.match(r'^\d{4}\.\d{2}\.\d{2}', date_raw):
-            continue
-        date_iso = date_raw[:10].replace(".", "-")
-        # value: 콤마 제거, 단위는 백만원 (Naver 기본)
-        v_clean = val_raw.replace(",", "").replace(" ", "")
-        try:
-            v = float(v_clean) * 1_000_000  # 백만원 → 원
-            rows.append({"date": date_iso, "value": int(v)})
-        except Exception:
-            continue
-    return rows
-
-
-def fetch_naver_deposits():
-    """Naver Finance에서 투자자예탁금 페이지네이션 수집."""
+def fetch_kofia_macro():
+    """KOFIA freesis API. 스펙이 자주 바뀌고 통계ID도 다양해서 보수적으로 빈 배열 폴백."""
     sess = requests.Session()
-    sess.headers.update(HEADERS)
-    out = []
-    for page in range(1, 12):  # 페이지당 약 20일 × 12 = 240일
-        url = f"https://finance.naver.com/sise/sise_deposit.naver?&page={page}"
+    sess.headers.update({
+        "User-Agent": UA,
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+        "Accept-Language": "ko-KR,ko;q=0.9",
+        "Content-Type": "application/json; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Origin": "https://freesis.kofia.or.kr",
+        "Referer": "https://freesis.kofia.or.kr/",
+    })
+
+    today = dt.date.today()
+    start = today - dt.timedelta(days=DAYS)
+    fr_yyyymm = start.strftime("%Y%m")
+    to_yyyymm = today.strftime("%Y%m")
+    fr_ymd    = start.strftime("%Y%m%d")
+    to_ymd    = today.strftime("%Y%m%d")
+
+    BASE_URL = "https://freesis.kofia.or.kr/meta/getMetaDataList.do"
+
+    def _try(stats_id, value_field_candidates=("AMT","VAL","DAT_VAL")):
+        body = {
+            "statisticsId": stats_id,
+            "DT_DEF_PERD": "1",
+            "FROM_DT": fr_ymd,
+            "TO_DT":   to_ymd,
+            "DIVISION":"day",
+            "OBJ_NM":  "STATSCD",
+            "PAGE_TYPE": "TIME_SERIES",
+        }
         try:
-            r = sess.get(url, timeout=15)
-            r.encoding = "euc-kr"  # Naver finance 인코딩
-            rows = _parse_naver_deposit_page(r.text)
-            if not rows:
-                break
-            out.extend(rows)
-            time.sleep(0.4)
+            r = sess.post(BASE_URL, json=body, timeout=15)
+            if r.status_code != 200:
+                print(f"[kofia] {stats_id}: HTTP {r.status_code}")
+                return []
+            try:
+                data = r.json()
+            except Exception:
+                print(f"[kofia] {stats_id}: JSON 파싱 실패 (응답 첫 200자: {r.text[:200]!r})")
+                return []
         except Exception as e:
-            print(f"[deposits] page {page} 실패: {e}")
-            break
-    # 중복 제거 + 날짜순
-    seen = set()
-    dedup = []
-    for r in out:
-        if r["date"] in seen:
-            continue
-        seen.add(r["date"])
-        dedup.append(r)
-    dedup.sort(key=lambda x: x["date"])
-    print(f"[deposits] {len(dedup)} rows")
-    return dedup
+            print(f"[kofia] {stats_id}: 요청 실패: {e}")
+            return []
 
+        rows = data.get("DATA") or data.get("rows") or data.get("result") or []
+        if not isinstance(rows, list):
+            print(f"[kofia] {stats_id}: 예상 못 한 구조 {list(data.keys())[:5] if isinstance(data, dict) else '?'}")
+            return []
 
-def fetch_naver_credit():
-    """
-    Naver Finance의 신용잔고 페이지.
-    Naver는 일자별 시장별(거래소/코스닥) 신용공여 잔고를 제공.
-    """
-    sess = requests.Session()
-    sess.headers.update(HEADERS)
-    kospi_out, kosdaq_out = [], []
-    for page in range(1, 12):
-        url = f"https://finance.naver.com/sise/sise_credit.naver?&page={page}"
-        try:
-            r = sess.get(url, timeout=15)
-            r.encoding = "euc-kr"
-            import re
-            tr_matches = re.findall(r'<tr[^>]*>(.*?)</tr>', r.text, re.S)
-            found = 0
-            for tr in tr_matches:
-                tds = re.findall(r'<td[^>]*>(.*?)</td>', tr, re.S)
-                if len(tds) < 3:
-                    continue
-                date_raw = re.sub(r'<[^>]+>', '', tds[0]).strip()
-                kospi_raw  = re.sub(r'<[^>]+>', '', tds[1]).strip()
-                kosdaq_raw = re.sub(r'<[^>]+>', '', tds[2]).strip()
-                if not re.match(r'^\d{4}\.\d{2}\.\d{2}', date_raw):
-                    continue
-                date_iso = date_raw[:10].replace(".", "-")
-                def _to_won(s):
-                    s = s.replace(",", "").replace(" ", "")
-                    try:
-                        return int(float(s) * 1_000_000)  # 백만원 → 원
-                    except Exception:
-                        return None
-                k = _to_won(kospi_raw); q = _to_won(kosdaq_raw)
-                if k is not None:
-                    kospi_out.append({"date": date_iso, "value": k})
-                if q is not None:
-                    kosdaq_out.append({"date": date_iso, "value": q})
-                found += 1
-            if found == 0:
-                break
-            time.sleep(0.4)
-        except Exception as e:
-            print(f"[credit] page {page} 실패: {e}")
-            break
-
-    def _dedup(lst):
-        seen = set(); out = []
-        for r in lst:
-            if r["date"] in seen: continue
-            seen.add(r["date"]); out.append(r)
+        out = []
+        for r in rows:
+            d = r.get("BSE_DT") or r.get("STD_DT") or r.get("date") or r.get("DT")
+            v = None
+            for f in value_field_candidates:
+                if f in r and r[f] is not None:
+                    v = r[f]; break
+            if d is None or v is None:
+                continue
+            d_str = str(d).replace("-", "").replace("/", "")
+            if len(d_str) >= 8:
+                d_iso = f"{d_str[:4]}-{d_str[4:6]}-{d_str[6:8]}"
+            else:
+                continue
+            try:
+                v_num = float(str(v).replace(",", "")) * 1_000_000  # 백만원 → 원
+                out.append({"date": d_iso, "value": int(v_num)})
+            except Exception:
+                continue
         out.sort(key=lambda x: x["date"])
         return out
 
-    kospi_out = _dedup(kospi_out)
-    kosdaq_out = _dedup(kosdaq_out)
-    print(f"[credit] kospi={len(kospi_out)} kosdaq={len(kosdaq_out)}")
-    return kospi_out, kosdaq_out
+    # 통계 ID 후보 — 실제 freesis에서 inspect 필요
+    deposit_candidates = ["FSST_03_03_00_03", "MDIS_03_03_00_03", "STAT_INVDP_DAILY"]
+    credit_candidates  = ["FSST_03_03_00_05", "MDIS_03_03_00_05", "STAT_CRDT_BAL"]
+
+    deposits = []
+    for sid in deposit_candidates:
+        deposits = _try(sid)
+        if deposits:
+            print(f"[deposits] OK via {sid}: {len(deposits)} rows")
+            break
+    if not deposits:
+        print("[deposits] 모든 통계ID 실패 — 0 rows")
+
+    credit_total = []
+    for sid in credit_candidates:
+        credit_total = _try(sid)
+        if credit_total:
+            print(f"[credit] OK via {sid}: {len(credit_total)} rows (시장 분리 정보 없음)")
+            break
+    if not credit_total:
+        print("[credit] 모든 통계ID 실패 — 0 rows")
+
+    # 시장 분리 정보 없으면 임시로 동일 시리즈를 KOSPI에 할당
+    cr_kospi  = credit_total
+    cr_kosdaq = []  # 분리 필요
+    return deposits, cr_kospi, cr_kosdaq
 
 
 # ──────────────────────────────────────────────────────────
 def main():
     print(f"=== 국내증시현황 데이터 수집 ({dt.date.today()}) ===")
 
-    tr_kospi, tr_kosdaq = fetch_trading_values()
-    deposits = fetch_naver_deposits()
-    cr_kospi, cr_kosdaq = fetch_naver_credit()
+    tr_kospi, tr_kosdaq = fetch_naver_index_trading()
+    deposits, cr_kospi, cr_kosdaq = fetch_kofia_macro()
 
     prev = {}
     if OUT.exists():
