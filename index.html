@@ -377,15 +377,19 @@
   }
 
   document.getElementById("openExternal").addEventListener("click", async () => {
-    const url = MODULES[current];
-    // 1) 새 탭에서 모듈 열기 (가장 명확한 동작)
-    window.open(url, "_blank", "noopener");
-    // 2) 동시에 URL 클립보드 복사 시도 (실패해도 무시)
+    // 여비또니 주식봇 허브 URL을 복사 (해시·쿼리 제외)
+    const url = location.origin + location.pathname;
     try {
       await navigator.clipboard.writeText(url);
-      showToast("새 탭으로 열고 URL을 복사했어요");
+      showToast("URL이 클립보드에 복사됐어요");
     } catch (_) {
-      showToast("새 탭에서 모듈을 열었어요");
+      // 클립보드 API 차단 환경(구형 모바일 등) 대비
+      const ta = document.createElement("textarea");
+      ta.value = url; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); showToast("URL이 클립보드에 복사됐어요"); }
+      catch (__) { showToast("복사 실패 — 주소창에서 복사해주세요"); }
+      document.body.removeChild(ta);
     }
   });
 
