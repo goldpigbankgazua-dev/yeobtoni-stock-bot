@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # ==========================================================
-# 여비또니 주식봇 — 변경분 자동 동기화
-# launchd 워처 / 수동 실행 모두 지원
+# 여비또니 주식봇 — 자동 동기화 (좀비 lock 박멸 모드)
 # ==========================================================
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
@@ -19,68 +18,55 @@ log() {
   echo "$msg" >> "$LOG_FILE" 2>/dev/null || true
 }
 
-# 동시 실행 방지 (macOS 호환 mkdir 락)
+# ─── 시작 즉시 좀비 git lock 박멸 (조건 없이 무조건) ───
+# 이게 핵심: 어떤 이유로든 .git/index.lock이 남아 있으면 무조건 제거.
+# 동시 git 실행은 아래 mkdir 락이 막아주므로 안전.
+rm -f "$HUB_DIR/.git/index.lock" 2>/dev/null
+rm -f "$HUB_DIR"/modules/*/.git/index.lock 2>/dev/null
+rm -f "$HUB_DIR"/modules/*/.git/refs/heads/*.lock 2>/dev/null
+rm -f "$HUB_DIR"/modules/*/.git/HEAD.lock 2>/dev/null
+
+# ─── 동시 실행 방지 (sync.sh 자체) ───
 if ! mkdir "$LOCK" 2>/dev/null; then
-  AGE_MIN=$(( ( $(date +%s) - $(stat -f %m "$LOCK" 2>/dev/null || echo 0) ) / 60 ))
-  if [ "$AGE_MIN" -gt 1 ]; then
+  AGE=$(( $(date +%s) - $(stat -f %m "$LOCK" 2>/dev/null || echo 0) ))
+  if [ "$AGE" -gt 120 ]; then
     rm -rf "$LOCK"; mkdir "$LOCK"
   else
-    log "다른 sync 실행 중 (${AGE_MIN}분 경과) — 스킵"
+    log "다른 sync 실행 중 (${AGE}초 경과) — 스킵"
     exit 0
   fi
 fi
-trap 'rm -rf "$LOCK"' EXIT INT TERM
+trap 'rm -rf "$LOCK"' EXIT INT TERM HUP
 
 sync_repo() {
   local dir="$1" label="$2"
-
-  if [ ! -d "$dir/.git" ]; then
-    log "  $label: .git 없음 — 스킵"
-    return
-  fi
-
-  # 자가 치유: 1분 이상 묵은 git lock 제거 (좀비 정리)
-  if [ -f "$dir/.git/index.lock" ]; then
-    local lockage=$(( $(date +%s) - $(stat -f %m "$dir/.git/index.lock" 2>/dev/null || echo 0) ))
-    if [ "$lockage" -gt 60 ]; then
-      rm -f "$dir/.git/index.lock"
-      log "  $label: 좀비 lock 제거 (${lockage}초 묵음)"
-    fi
-  fi
+  [ -d "$dir/.git" ] || { log "  $label: .git 없음 — 스킵"; return; }
 
   cd "$dir" || { log "  $label: cd 실패"; return; }
 
-  # 원격 동기화 시도
-  git fetch origin --quiet 2>/dev/null || log "  $label: fetch 실패 (네트워크?)"
+  # 진입 시점에도 한 번 더 lock 청소 (이중 안전망)
+  rm -f .git/index.lock .git/HEAD.lock 2>/dev/null
 
-  local branch local_sha remote_sha
-  branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  local_sha=$(git rev-parse HEAD 2>/dev/null)
-  remote_sha=$(git rev-parse "origin/$branch" 2>/dev/null)
-
+  # 로컬 변경 여부
   local has_changes=0
   [ -n "$(git status --porcelain 2>/dev/null)" ] && has_changes=1
 
-  # 원격이 앞서 있으면 rebase (로컬 변경은 stash로 보존)
-  if [ -n "$remote_sha" ] && [ "$local_sha" != "$remote_sha" ]; then
-    if [ "$has_changes" -eq 1 ]; then
-      git stash push -u -m "autosync-tmp" --quiet 2>/dev/null
-      git pull --rebase --quiet 2>/dev/null || { log "  $label: rebase 실패"; git rebase --abort 2>/dev/null; git stash pop --quiet 2>/dev/null; return; }
-      git stash pop --quiet 2>/dev/null
-    else
-      git pull --rebase --quiet 2>/dev/null
-    fi
+  # 원격 동기화 — autostash로 로컬 변경 자동 보존
+  if [ "$has_changes" -eq 1 ]; then
+    git pull --rebase --autostash --quiet 2>/dev/null
+  else
+    git pull --rebase --quiet 2>/dev/null
   fi
 
-  # 로컬 변경분 커밋·푸시
+  # 다시 변경분 체크 → 커밋 → push
   if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
-    git add -A
+    git add -A 2>/dev/null
     git -c user.email="$EMAIL" -c user.name="$NAME" \
-        commit -m "auto-sync: $(date '+%F %H:%M')" --quiet
-    if git push --quiet origin "$branch" 2>>"$LOG_FILE"; then
+        commit -m "auto-sync: $(date '+%F %H:%M')" --quiet 2>/dev/null
+    if git push --quiet origin HEAD 2>>"$LOG_FILE"; then
       log "  ✓ $label pushed"
     else
-      log "  ✗ $label push 실패 (자격증명/네트워크 확인)"
+      log "  ✗ $label push 실패"
     fi
   else
     log "  · $label: 변경 없음"
