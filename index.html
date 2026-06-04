@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>여비또니 주식봇</title>
 <meta name="description" content="여비또니 주식봇 — RS 스크리너 · CHART 스크리너 · ETF 검색기를 한 화면에." />
 <meta property="og:title" content="여비또니 주식봇" />
@@ -408,6 +411,8 @@
   function withTheme(url, t) {
     const u = new URL(url, location.href);
     u.searchParams.set("theme", t);
+    // 캐시 버스팅: 분 단위 버전. 새 hub 로드마다(1분 이상 차이 시) iframe도 무조건 새로 받음.
+    u.searchParams.set("v", Math.floor(Date.now() / 60000).toString());
     return u.toString();
   }
 
