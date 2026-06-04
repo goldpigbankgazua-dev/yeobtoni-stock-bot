@@ -358,15 +358,35 @@
     switchTo(btn.dataset.target);
   });
 
+  function showToast(msg) {
+    let t = document.getElementById("yt-toast");
+    if (!t) {
+      t = document.createElement("div");
+      t.id = "yt-toast";
+      t.style.cssText = "position:fixed;left:50%;bottom:32px;transform:translateX(-50%);"
+        + "background:var(--bg-elev-2);color:var(--text);border:1px solid var(--border);"
+        + "padding:10px 18px;border-radius:10px;font-size:13px;font-weight:600;"
+        + "box-shadow:0 4px 16px rgba(0,0,0,.18);z-index:1000;opacity:0;"
+        + "transition:opacity .2s ease;pointer-events:none;white-space:nowrap;";
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    requestAnimationFrame(() => { t.style.opacity = "1"; });
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => { t.style.opacity = "0"; }, 1800);
+  }
+
   document.getElementById("openExternal").addEventListener("click", async () => {
     const url = MODULES[current];
+    // 1) 새 탭에서 모듈 열기 (가장 명확한 동작)
+    window.open(url, "_blank", "noopener");
+    // 2) 동시에 URL 클립보드 복사 시도 (실패해도 무시)
     try {
       await navigator.clipboard.writeText(url);
-      const btn = document.getElementById("openExternal");
-      const orig = btn.title;
-      btn.title = "URL 복사됨";
-      setTimeout(() => { btn.title = orig; }, 1200);
-    } catch (_) { window.open(url, "_blank", "noopener"); }
+      showToast("새 탭으로 열고 URL을 복사했어요");
+    } catch (_) {
+      showToast("새 탭에서 모듈을 열었어요");
+    }
   });
 
   /* 모바일 사이드바 */
