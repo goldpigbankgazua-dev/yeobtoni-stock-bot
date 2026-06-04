@@ -45,9 +45,9 @@ cat > "$PLIST" <<EOF
   <array>
     <string>$HUB_DIR/index.html</string>
     <string>$HUB_DIR/README.md</string>
-    <string>$HUB_DIR/modules/rs</string>
-    <string>$HUB_DIR/modules/chart</string>
-    <string>$HUB_DIR/modules/etf</string>
+    <string>$HUB_DIR/modules/rs/index.html</string>
+    <string>$HUB_DIR/modules/chart/index.html</string>
+    <string>$HUB_DIR/modules/etf/index.html</string>
   </array>
   <key>ThrottleInterval</key>
   <integer>20</integer>
