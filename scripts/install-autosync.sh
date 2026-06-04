@@ -50,7 +50,9 @@ cat > "$PLIST" <<EOF
     <string>$HUB_DIR/modules/etf/index.html</string>
   </array>
   <key>ThrottleInterval</key>
-  <integer>20</integer>
+  <integer>15</integer>
+  <key>StartInterval</key>
+  <integer>30</integer>
   <key>RunAtLoad</key>
   <false/>
   <key>EnvironmentVariables</key>
