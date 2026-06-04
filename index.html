@@ -125,6 +125,7 @@
   .layout {
     flex: 1; display: grid;
     grid-template-columns: var(--sidebar-w) 1fr;
+    grid-template-rows: 1fr;
     min-height: 0;
   }
 
@@ -134,7 +135,12 @@
     padding: 22px 14px;
     overflow-y: auto;
     display: flex; flex-direction: column; gap: 2px;
+    grid-column: 1; grid-row: 1;
+    border-right: 1px solid var(--border);
   }
+
+  /* backdrop은 기본적으로 grid 밖으로 (모바일에서만 표시) */
+  .sidebar-backdrop { display: none; }
   .nav-item {
     appearance: none; border: 0; background: transparent;
     color: var(--text-dim); font: inherit;
@@ -159,7 +165,9 @@
   /* 우측 콘텐츠 */
   .content {
     position: relative; background: var(--bg);
-    overflow: hidden; min-width: 0;
+    overflow: hidden; min-width: 0; min-height: 0;
+    grid-column: 2; grid-row: 1;
+    height: 100%;
   }
   .frame-wrap { position: absolute; inset: 0; display: none; }
   .frame-wrap.active { display: block; }
@@ -194,7 +202,7 @@
     aside.sidebar.open { transform: translateX(0); }
     .sidebar-backdrop {
       position: fixed; top: var(--topbar-h); left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,.45); z-index: 25; display: none;
+      background: rgba(0,0,0,.45); z-index: 25;
     }
     .sidebar-backdrop.show { display: block; }
     .menu-toggle { display: grid; }
