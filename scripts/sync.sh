@@ -39,6 +39,15 @@ sync_repo() {
     return
   fi
 
+  # 자가 치유: 1분 이상 묵은 git lock 제거 (좀비 정리)
+  if [ -f "$dir/.git/index.lock" ]; then
+    local lockage=$(( $(date +%s) - $(stat -f %m "$dir/.git/index.lock" 2>/dev/null || echo 0) ))
+    if [ "$lockage" -gt 60 ]; then
+      rm -f "$dir/.git/index.lock"
+      log "  $label: 좀비 lock 제거 (${lockage}초 묵음)"
+    fi
+  fi
+
   cd "$dir" || { log "  $label: cd 실패"; return; }
 
   # 원격 동기화 시도
