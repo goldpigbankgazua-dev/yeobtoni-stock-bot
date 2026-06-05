@@ -388,7 +388,8 @@ function rebuildAllCharts() {
 function updateNowAndDelta() {
   if (!STATE.data) return;
   function last2(arr) {
-    if (!arr || arr.length < 2) return [null, null];
+    if (!arr || arr.length === 0) return [null, null];
+    if (arr.length === 1) return [null, arr[0].value];
     return [arr[arr.length-2].value, arr[arr.length-1].value];
   }
   let [p, n] = last2(STATE.data.deposits);
