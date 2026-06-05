@@ -178,30 +178,29 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
 
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.min.js"></script>
 <script>
-// ============= 허브 테마 브리지 =============
-function applyTheme(t) {
-  if (!["light","dark","green"].includes(t)) t = "light";
-  document.documentElement.setAttribute("data-theme", t);
-  document.body.classList.remove("theme-light","theme-dark","theme-green");
-  document.body.classList.add("theme-" + t);
-  rebuildAllCharts();
-}
-(function(){
-  // URL ?theme= 우선, 없으면 light
-  const p = new URLSearchParams(location.search);
-  applyTheme(p.get("theme") || "light");
-  window.addEventListener("message", function(ev){
-    if (ev && ev.data && ev.data.type === "yeobtoni-theme") applyTheme(ev.data.value);
-  });
-})();
-
-// ============= 상태 =============
+// ============= 상태 (선언을 모든 함수 위로 — TDZ 회피) =============
 const STATE = {
   data: null,       // 로드된 JSON
   tf:    { deposits:"6M", credit:"6M", trading:"6M" },
   mkt:   { credit:"KOSPI", trading:"KOSPI" },
   charts:{ deposits:null, credit:null, trading:null },
 };
+
+// ============= 허브 테마 브리지 =============
+function applyTheme(t) {
+  if (!["light","dark","green"].includes(t)) t = "light";
+  document.documentElement.setAttribute("data-theme", t);
+  document.body.classList.remove("theme-light","theme-dark","theme-green");
+  document.body.classList.add("theme-" + t);
+  if (STATE.data) rebuildAllCharts();
+}
+(function(){
+  const p = new URLSearchParams(location.search);
+  applyTheme(p.get("theme") || "light");
+  window.addEventListener("message", function(ev){
+    if (ev && ev.data && ev.data.type === "yeobtoni-theme") applyTheme(ev.data.value);
+  });
+})();
 
 const TF_DAYS = { "1M":31, "6M":183, "1Y":365 };
 
