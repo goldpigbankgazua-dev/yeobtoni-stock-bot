@@ -180,6 +180,59 @@ def fetch_kis_index(token, iscd, label, debug=False):
     return out
 
 
+def fetch_kofia_macro_daily():
+    """
+    KOFIA freesis 메인페이지(stat/main.do)에서 어제 발표분 한 줄 추출.
+    매일 1줄씩 누적되도록 main()에서 prev에 append.
+    """
+    import re
+    url = "https://freesis.kofia.or.kr/stat/main.do"
+    try:
+        r = requests.get(url, timeout=15, headers={
+            "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) "
+                           "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15"),
+        })
+        if r.status_code != 200:
+            print(f"[kofia] HTTP {r.status_code}")
+            return None, None
+        html = r.text
+    except Exception as e:
+        print(f"[kofia] 요청 실패: {e}")
+        return None, None
+
+    def _extract(label):
+        m = re.search(label + r'[\s\S]{0,200}?(\d{2}\/\d{2})[\s\S]{0,80}?([\d,]{7,})', html)
+        if not m:
+            print(f"[kofia] '{label}' 패턴 못 찾음")
+            return None
+        mmdd = m.group(1)        # "06/04"
+        val  = m.group(2).replace(",", "")
+        try:
+            # 백만원 단위 → 원
+            v_won = int(val) * 1_000_000
+        except Exception:
+            return None
+        # MM/DD를 올해 ISO 날짜로 (KOFIA는 거래일 기준 그 해 데이터)
+        try:
+            mm, dd = mmdd.split("/")
+            year = dt.date.today().year
+            # 12월이 1월보다 늦으면 작년 데이터
+            today = dt.date.today()
+            cand = dt.date(year, int(mm), int(dd))
+            if cand > today + dt.timedelta(days=1):
+                cand = dt.date(year - 1, int(mm), int(dd))
+            return {"date": cand.strftime("%Y-%m-%d"), "value": v_won}
+        except Exception as e:
+            print(f"[kofia] 날짜 파싱 실패: {e}")
+            return None
+
+    dep = _extract("투자자예탁금")
+    cre = _extract("신용융자")
+    if dep:    print(f"[kofia] 투자자예탁금: {dep['date']} = {dep['value']:,}원")
+    if cre:    print(f"[kofia] 신용융자:     {cre['date']} = {cre['value']:,}원")
+    return dep, cre
+
+
 def main():
     print(f"=== 국내증시현황 데이터 수집 ({dt.date.today()}) ===")
 
@@ -192,7 +245,11 @@ def main():
     else:
         print("토큰 없음 — 거래대금 빈 배열 유지")
 
-    deposits, cr_kospi, cr_kosdaq = [], [], []
+    # KOFIA 어제 발표분 1줄 (누적용)
+    kofia_dep, kofia_cre = fetch_kofia_macro_daily()
+    deposits = [kofia_dep] if kofia_dep else []
+    cr_kospi = [kofia_cre] if kofia_cre else []  # 통합 신용 (KOSPI 컬럼으로 표시)
+    cr_kosdaq = []
 
     prev = {}
     if OUT.exists():
