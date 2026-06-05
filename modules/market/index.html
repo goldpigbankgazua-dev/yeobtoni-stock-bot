@@ -162,6 +162,7 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
           <button class="mkt-tab" data-mkt="KOSDAQ">코스닥</button>
         </div>
         <div class="tf-bar" data-section="trading">
+          <button class="tf-btn" data-tf="1D">1D</button>
           <button class="tf-btn" data-tf="1M">1M</button>
           <button class="tf-btn active" data-tf="6M">6M</button>
           <button class="tf-btn" data-tf="1Y">1Y</button>
@@ -203,7 +204,7 @@ function applyTheme(t) {
   });
 })();
 
-const TF_DAYS = { "1M":31, "6M":183, "1Y":365 };
+const TF_DAYS = { "1D":2, "1M":31, "6M":183, "1Y":365 };
 
 function cssVar(name) {
   return getComputedStyle(document.body).getPropertyValue(name).trim() || "";
