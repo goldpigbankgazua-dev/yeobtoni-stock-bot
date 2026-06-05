@@ -285,6 +285,16 @@ function buildChart(container) {
     rightPriceScale: { borderColor: c.grid, scaleMargins:{top:0.1, bottom:0.05} },
     timeScale: { borderColor: c.grid, timeVisible:false, secondsVisible:false, rightOffset:5 },
     crosshair: { mode: 1 },
+    localization: {
+      priceFormatter: (v) => {
+        if (v == null || isNaN(v)) return "";
+        const abs = Math.abs(v);
+        if (abs >= 1e12) return (v/1e12).toFixed(0) + "조";
+        if (abs >= 1e8)  return (v/1e8).toFixed(0)  + "억";
+        if (abs >= 1e4)  return (v/1e4).toFixed(0)  + "만";
+        return v.toFixed(0);
+      },
+    },
   });
 }
 
@@ -344,14 +354,15 @@ function drawTrading() {
   const mkt = STATE.mkt.trading;
   const src = mkt === "KOSPI" ? STATE.data.trading_kospi : STATE.data.trading_kosdaq;
   const data = sliceByTF(src, STATE.tf.trading);
-  if (!data.length) { emptyState(wrap, "Naver Stock API 응답 대기 중"); return; }
+  if (!data.length) { emptyState(wrap, "KIS API 응답 대기 중"); return; }
   STATE.charts.trading = buildChart(wrap);
   const c = colors();
   const color = mkt === "KOSPI" ? c.kospi : c.kosdaq;
-  const s = STATE.charts.trading.addHistogramSeries({
-    color: color, priceLineVisible: false, lastValueVisible: true,
+  const s = STATE.charts.trading.addAreaSeries({
+    lineColor: color, topColor: color + "55", bottomColor: color + "00",
+    lineWidth: 2, priceLineVisible: false, lastValueVisible: true,
   });
-  s.setData(data.map(p => ({ time: p.date, value: p.value, color: color })));
+  s.setData(data.map(p => ({ time: p.date, value: p.value })));
   STATE.charts.trading.timeScale().fitContent();
 }
 
