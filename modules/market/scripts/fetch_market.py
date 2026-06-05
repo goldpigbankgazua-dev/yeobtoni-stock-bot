@@ -153,7 +153,8 @@ def fetch_kis_index(token, iscd, label, debug=False):
             if not amt:
                 continue
             try:
-                v = int(str(amt).replace(",", ""))
+                # KIS acml_tr_pbmn 단위는 백만원 → 원으로 변환
+                v = int(str(amt).replace(",", "")) * 1_000_000
             except Exception:
                 continue
             if v <= 0:
