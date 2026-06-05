@@ -26,6 +26,9 @@ jobs:
           pip install -r modules/market/scripts/requirements.txt
 
       - name: Run market fetcher
+        env:
+          KIS_APP_KEY:    ${{ secrets.KIS_APP_KEY }}
+          KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
         run: python modules/market/scripts/fetch_market.py
 
       - name: Commit & push
