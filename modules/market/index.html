@@ -225,15 +225,28 @@ function fmtDelta(prev, now) {
   return { text, cls: diff > 0 ? "up" : "down" };
 }
 
-// ============= 데이터 로드 =============
+// ============= 데이터 로드 (market.json + kofia.json 병합) =============
 async function loadData() {
+  const ts = Date.now();
+  // 1) 주요 데이터 (거래대금)
   try {
-    const res = await fetch("data/market.json?ts=" + Date.now());
-    if (!res.ok) throw new Error("fetch failed");
+    const res = await fetch("data/market.json?ts=" + ts);
+    if (!res.ok) throw new Error("market fetch failed");
     STATE.data = await res.json();
   } catch (e) {
-    console.warn("market.json 로드 실패, 데모 데이터 사용", e);
+    console.warn("market.json 로드 실패, mock 사용", e);
     STATE.data = mockData();
+  }
+  // 2) KOFIA 누적 데이터 (예탁금/신용) — VM이 매일 push
+  try {
+    const res = await fetch("data/kofia.json?ts=" + ts);
+    if (res.ok) {
+      const k = await res.json();
+      if (Array.isArray(k.deposits) && k.deposits.length) STATE.data.deposits = k.deposits;
+      if (Array.isArray(k.credit)   && k.credit.length)   STATE.data.credit_kospi = k.credit;
+    }
+  } catch (e) {
+    console.warn("kofia.json 로드 실패", e);
   }
   document.getElementById("basedate").innerHTML = "기준일 <b>" + (STATE.data.updated_at || "–") + "</b>";
   rebuildAllCharts();
