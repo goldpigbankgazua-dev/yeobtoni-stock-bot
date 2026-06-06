@@ -420,7 +420,7 @@
   backdrop.addEventListener("click", closeSidebar);
 
   applyHubTheme(localStorage.getItem("yeobtoni-theme") || "light");
-  const initial = ["rs","chart","etf","market"].includes(location.hash.slice(1))
+  const initial = ["rs","chart","etf","etfstatus","market","report"].includes(location.hash.slice(1))
     ? location.hash.slice(1) : "rs";
   switchTo(initial);
 </script>
