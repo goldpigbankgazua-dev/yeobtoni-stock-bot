@@ -89,6 +89,16 @@ def parse_credit(rows):
         if kd is not None: kosdaq.append({"date": d, "value": kd})
     return total, kospi, kosdaq
 
+def parse_loan(rows):
+    """OBJ_NM=STATSCU0100000140BO 응답 → 대차잔고 금액 [{date,value}]
+    필드: TMPV1=날짜, TMPV2=종목명(전체), TMPV6=잔고 금액(백만원)"""
+    out = []
+    for r in rows:
+        if r.get("TMPV2") != "전체": continue
+        d = to_date(r.get("TMPV1")); v = to_won(r.get("TMPV6"))
+        if d and v is not None: out.append({"date": d, "value": v})
+    return out
+
 def merge_series(existing, new_rows):
     """existing + new_rows → date 유일성 + DAYS_KEEP cutoff."""
     by_date = {p["date"]: p for p in existing}
@@ -133,14 +143,17 @@ def main():
     try:
         dep_rows = fetch_kofia_series("STATSCU0100000060BO", start, today)
         cre_rows = fetch_kofia_series("STATSCU0100000070BO", start, today)
+        loan_rows = fetch_kofia_series("STATSCU0100000140BO", start, today)
     except Exception as e:
         print(f"[kofia] fetch 실패: {e}"); sys.exit(1)
 
     deposits_new = parse_deposits(dep_rows)
     credit_total_new, credit_kospi_new, credit_kosdaq_new = parse_credit(cre_rows)
-    print(f"[fetch] deposits={len(deposits_new)} credit total/kospi/kosdaq={len(credit_total_new)}/{len(credit_kospi_new)}/{len(credit_kosdaq_new)}")
+    loan_new = parse_loan(loan_rows)
+    print(f"[fetch] deposits={len(deposits_new)} credit total/kospi/kosdaq={len(credit_total_new)}/{len(credit_kospi_new)}/{len(credit_kosdaq_new)} loan={len(loan_new)}")
     if deposits_new: print(f"  최신 예탁금: {deposits_new[-1]}")
     if credit_total_new: print(f"  최신 신용 전체: {credit_total_new[-1]}")
+    if loan_new: print(f"  최신 대차잔고: {loan_new[-1]}")
 
     # 2) 기존 파일 GET
     existing, sha = github_get_file()
@@ -156,12 +169,14 @@ def main():
         "t": len(existing.get("credit_total", [])),
         "k": len(existing.get("credit_kospi", [])),
         "kd": len(existing.get("credit_kosdaq", [])),
+        "l": len(existing.get("loan", [])),
     }
     existing["deposits"]      = merge_series(existing.get("deposits", []), deposits_new)
     existing["credit_total"]  = merge_series(existing.get("credit_total", []) or existing.get("credit", []), credit_total_new)
     existing["credit"]        = existing["credit_total"]  # backward compat
     existing["credit_kospi"]  = merge_series(existing.get("credit_kospi", []),  credit_kospi_new)
     existing["credit_kosdaq"] = merge_series(existing.get("credit_kosdaq", []), credit_kosdaq_new)
+    existing["loan"]          = merge_series(existing.get("loan", []), loan_new)
     existing["updated_at"]    = today.strftime("%Y-%m-%d")
 
     after = {
@@ -169,6 +184,7 @@ def main():
         "t": len(existing["credit_total"]),
         "k": len(existing["credit_kospi"]),
         "kd": len(existing["credit_kosdaq"]),
+        "l": len(existing["loan"]),
     }
     print(f"[merge] dep {before['d']}→{after['d']}, cred t/k/kd {before['t']}→{after['t']} / {before['k']}→{after['k']} / {before['kd']}→{after['kd']}")
 

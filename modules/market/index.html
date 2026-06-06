@@ -229,10 +229,7 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
         <button class="tf-btn" data-tf="1Y">1Y</button>
       </div>
     </div>
-    <div class="chart-wrap">
-      <div id="chartLoan"></div>
-      <div class="chart-empty"><b>대차잔고금액 데이터 수집 준비 중</b><span>freesis에서 곧 수집</span></div>
-    </div>
+    <div class="chart-wrap"><div id="chartLoan"></div></div>
   </div>
 
   <footer>
@@ -246,9 +243,9 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
 // ============= 상태 (선언을 모든 함수 위로 — TDZ 회피) =============
 const STATE = {
   data: null,       // 로드된 JSON
-  tf:    { deposits:"6M", credit:"6M", trading:"6M" },
+  tf:    { deposits:"6M", credit:"6M", trading:"6M", loan:"6M" },
   mkt:   { credit:"TOTAL", trading:"KOSPI" },
-  charts:{ deposits:null, credit:null, trading:null },
+  charts:{ deposits:null, credit:null, trading:null, loan:null },
 };
 
 // ============= 허브 테마 브리지 =============
@@ -315,6 +312,8 @@ async function loadData() {
       if (total.length)                                       STATE.data.credit_total = total;
       if (Array.isArray(k.credit_kospi) && k.credit_kospi.length)   STATE.data.credit_kospi = k.credit_kospi;
       if (Array.isArray(k.credit_kosdaq) && k.credit_kosdaq.length) STATE.data.credit_kosdaq = k.credit_kosdaq;
+      // 대차잔고 금액
+      if (Array.isArray(k.loan) && k.loan.length) STATE.data.loan = k.loan;
     }
   } catch (e) {
     console.warn("kofia.json 로드 실패", e);
@@ -452,11 +451,28 @@ function drawTrading() {
   STATE.charts.trading.timeScale().fitContent();
 }
 
+function drawLoan() {
+  const wrap = document.getElementById("chartLoan");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  if (STATE.charts.loan) { try { STATE.charts.loan.remove(); } catch(_){} STATE.charts.loan = null; }
+  const data = sliceByTF(STATE.data.loan, STATE.tf.loan);
+  if (!data.length) { emptyState(wrap, "freesis 응답 대기 중"); return; }
+  STATE.charts.loan = buildChart(wrap);
+  const c = colors();
+  const s = STATE.charts.loan.addLineSeries({
+    color: c.credit, lineWidth: 2, priceLineVisible: false, lastValueVisible: true,
+  });
+  s.setData(data.map(p => ({ time: p.date, value: p.value })));
+  STATE.charts.loan.timeScale().fitContent();
+}
+
 function rebuildAllCharts() {
   if (!STATE.data) return;
   drawDeposits();
   drawCredit();
   drawTrading();
+  drawLoan();
 }
 
 function updateNowAndDelta() {
@@ -487,6 +503,17 @@ function updateNowAndDelta() {
   [p, n] = last2(STATE.data.trading_kosdaq);
   const eKosdaq = document.getElementById("tradingNowKosdaq");
   if (eKosdaq) eKosdaq.textContent = fmtKR(n);
+
+  // 대차잔고
+  [p, n] = last2(STATE.data.loan);
+  const eLoanNow = document.getElementById("loanNow");
+  if (eLoanNow) eLoanNow.textContent = fmtKR(n);
+  const eLoanDelta = document.getElementById("loanDelta");
+  if (eLoanDelta) {
+    const d4 = fmtDelta(p, n);
+    eLoanDelta.textContent = d4.text;
+    eLoanDelta.className = "v-delta " + d4.cls;
+  }
 }
 
 // ============= 토글 핸들러 =============
@@ -499,6 +526,7 @@ document.querySelectorAll(".tf-bar").forEach(bar => {
     if (section === "deposits") drawDeposits();
     if (section === "credit")   drawCredit();
     if (section === "trading")  drawTrading();
+    if (section === "loan")     drawLoan();
   });
 });
 
