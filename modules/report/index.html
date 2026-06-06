@@ -53,7 +53,13 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 /* 결과 테이블 */
 .tbl-card { background:var(--card); border:1px solid var(--line); border-radius:14px;
   overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
-  box-shadow:0 1px 3px rgba(15,23,42,.04); }
+  box-shadow:0 1px 3px rgba(15,23,42,.04);
+  scrollbar-width:thin; scrollbar-color:var(--line) transparent; }
+.tbl-card::-webkit-scrollbar { height:8px; }
+.tbl-card::-webkit-scrollbar-track { background:transparent; }
+.tbl-card::-webkit-scrollbar-thumb { background:var(--line); border-radius:4px;
+  border:2px solid var(--card); background-clip:padding-box; }
+.tbl-card::-webkit-scrollbar-thumb:hover { background:var(--muted); border:2px solid var(--card); background-clip:padding-box; }
 table { width:100%; border-collapse:collapse; min-width:680px; }
 thead th { background:var(--thead); color:var(--muted); font-weight:700; font-size:12px;
   padding:11px 12px; text-align:center; border-bottom:1px solid var(--line);
