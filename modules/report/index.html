@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>보고서 — 여비또니 주식봇</title>
+<title>종목보고서 — 여비또니 주식봇</title>
 <style>
 :root {
   --bg:#f8fafc; --card:#ffffff; --thead:#f1f5f9; --line:#e2e8f0; --line-soft:#eef2f6;
@@ -117,7 +117,10 @@ tbody tr:last-child td { border-bottom:none; }
   .subtitle { font-size:12px; }
   .basedate { font-size:11px; padding:4px 9px; }
   thead th, tbody td { padding:9px 10px; font-size:12px; }
-  .title-text { max-width:200px; }
+  /* 모바일: 종목·제목 가운데 정렬 + 제목 한 줄 강제 */
+  tbody td.stock.left, tbody td.title.left { text-align:center; }
+  tbody td.stock, tbody td.title { white-space:nowrap; }
+  .title-text { max-width:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .viewer-head { padding:8px 12px; }
   .viewer-title { font-size:13px; }
   .viewer-actions .label { display:none; }
@@ -129,7 +132,7 @@ tbody tr:last-child td { border-bottom:none; }
 
   <header>
     <div class="header-left">
-      <h1>보고서</h1>
+      <h1>종목보고서</h1>
       <p class="subtitle">종목 리서치 보고서</p>
     </div>
     <div class="basedate">총 <b id="countText">0</b>건</div>
