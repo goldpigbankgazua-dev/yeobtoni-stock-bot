@@ -175,6 +175,48 @@ async function main() {
   } finally {
     await browser.close();
   }
+
+  // ===== history 누적 저장 =====
+  // 매일 받은 raw를 modules/etfstatus/history/raw/{YYYY-MM-DD}.json 에 백업
+  // 한 파일에 6개 카테고리 통합 (90일 rolling 보관)
+  archiveToHistory();
+}
+
+function archiveToHistory() {
+  const today = new Date().toISOString().slice(0, 10);
+  const HISTORY_DIR = path.resolve(__dirname, '../../modules/etfstatus/history/raw');
+  fs.mkdirSync(HISTORY_DIR, { recursive: true });
+
+  const archive = { date: today, categories: {} };
+  const cats = ['yield', 'investor', 'volume', 'fundflow', 'navchange', 'aum'];
+  for (const cat of cats) {
+    const filePath = path.join(OUT_DIR, `${cat}.json`);
+    if (!fs.existsSync(filePath)) continue;
+    try {
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const rows = data?.raw?.results || [];
+      archive.categories[cat] = rows;
+    } catch (e) {
+      console.error(`[history] ${cat}.json 읽기 실패: ${e.message}`);
+    }
+  }
+
+  const archivePath = path.join(HISTORY_DIR, `${today}.json`);
+  fs.writeFileSync(archivePath, JSON.stringify(archive));
+  console.log(`[history] ✓ archived: ${archivePath} (${Object.keys(archive.categories).length}/6 categories)`);
+
+  // 90일 보다 오래된 파일 정리
+  const cutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  let pruned = 0;
+  for (const f of fs.readdirSync(HISTORY_DIR)) {
+    if (!f.endsWith('.json')) continue;
+    const date = f.slice(0, 10);
+    if (date < cutoff) {
+      fs.unlinkSync(path.join(HISTORY_DIR, f));
+      pruned++;
+    }
+  }
+  if (pruned > 0) console.log(`[history] ${pruned}개 오래된 파일 정리됨 (90일 cutoff)`);
 }
 
 async function scrapeAumVariation(browser, onlyCat) {

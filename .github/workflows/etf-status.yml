@@ -46,11 +46,17 @@ jobs:
         env:
           TZ: Asia/Seoul
 
+      - name: Aggregate (history → 기간별 사전 계산)
+        working-directory: scripts/etf-status
+        run: python3 aggregate.py
+        env:
+          TZ: Asia/Seoul
+
       - name: Commit & push
         run: |
           git config user.name  "etf-status-bot"
           git config user.email "etf-status@yeobtoni.local"
-          git add modules/etfstatus/data/
+          git add modules/etfstatus/data/ modules/etfstatus/history/
           if git diff --cached --quiet; then
             echo "변경 없음 — 스킵"
           else
