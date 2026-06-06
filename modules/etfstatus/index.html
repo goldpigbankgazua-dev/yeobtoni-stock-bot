@@ -54,12 +54,13 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
   .controls-row .period-wrap > .period-bar { width:100%; max-width:none; }
 }
 
-.tabs-wrap { background:var(--card); border:1px solid var(--line); border-radius:14px;
-  padding:8px; margin-bottom:10px; box-shadow:0 1px 3px rgba(15,23,42,.04); overflow-x:auto;
-  -webkit-overflow-scrolling:touch; }
-.tabs { display:flex; gap:4px; min-width:max-content; }
+.tabs-wrap { background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:0 4px; height:36px; box-sizing:border-box; margin-bottom:10px;
+  box-shadow:0 1px 3px rgba(15,23,42,.04); overflow-x:auto;
+  -webkit-overflow-scrolling:touch; display:flex; align-items:center; }
+.tabs { display:flex; gap:2px; min-width:max-content; align-items:center; }
 .tab-btn { appearance:none; border:1px solid transparent; background:transparent; color:var(--muted);
-  font:inherit; font-size:13px; font-weight:600; padding:8px 14px; border-radius:8px;
+  font:inherit; font-size:13px; font-weight:600; padding:5px 12px; border-radius:7px;
   cursor:pointer; transition:all .12s ease; white-space:nowrap; }
 .tab-btn:hover { color:var(--text-strong); background:var(--thead); }
 .tab-btn.active { color:var(--accent); background:var(--accent-soft); }
@@ -207,13 +208,13 @@ const PERIODS = {
   aum:      [],
 };
 
-// 카테고리별 디폴트 기간 (수익률=당일, 나머지=1주, 거래량은 5일평균)
+// 카테고리별 디폴트 기간 — 모두 1일치 (누적 데이터 쌓이기 전까지)
 const DEFAULT_PERIOD = {
   yield: '1d',
-  fundflow: '1w',
-  navchange: '1w',
-  investor: '1w',
-  volume: '5d_avg',
+  fundflow: '1d',
+  navchange: '1d',
+  investor: '1d',
+  volume: '1d',
 };
 
 const lastPeriodByCat = {};
