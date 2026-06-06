@@ -133,7 +133,8 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
         <div class="mkt-tabs" data-section="credit">
-          <button class="mkt-tab active" data-mkt="KOSPI">코스피</button>
+          <button class="mkt-tab active" data-mkt="TOTAL">전체</button>
+          <button class="mkt-tab" data-mkt="KOSPI">코스피</button>
           <button class="mkt-tab" data-mkt="KOSDAQ">코스닥</button>
         </div>
         <div class="tf-bar" data-section="credit">
@@ -180,7 +181,7 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
 const STATE = {
   data: null,       // 로드된 JSON
   tf:    { deposits:"6M", credit:"6M", trading:"6M" },
-  mkt:   { credit:"KOSPI", trading:"KOSPI" },
+  mkt:   { credit:"TOTAL", trading:"KOSPI" },
   charts:{ deposits:null, credit:null, trading:null },
 };
 
@@ -243,7 +244,11 @@ async function loadData() {
     if (res.ok) {
       const k = await res.json();
       if (Array.isArray(k.deposits) && k.deposits.length) STATE.data.deposits = k.deposits;
-      if (Array.isArray(k.credit)   && k.credit.length)   STATE.data.credit_kospi = k.credit;
+      // 신용잔고 — 전체/코스피/코스닥 3분리 (구버전 호환: credit는 전체로 fallback)
+      const total = Array.isArray(k.credit_total) ? k.credit_total : (Array.isArray(k.credit) ? k.credit : []);
+      if (total.length)                                       STATE.data.credit_total = total;
+      if (Array.isArray(k.credit_kospi) && k.credit_kospi.length)   STATE.data.credit_kospi = k.credit_kospi;
+      if (Array.isArray(k.credit_kosdaq) && k.credit_kosdaq.length) STATE.data.credit_kosdaq = k.credit_kosdaq;
     }
   } catch (e) {
     console.warn("kofia.json 로드 실패", e);
@@ -256,12 +261,13 @@ async function loadData() {
 // 임시 데모 데이터 (실데이터 들어오기 전까지 차트가 비어보이지 않게)
 function mockData() {
   const today = new Date();
-  const out = { updated_at: today.toISOString().slice(0,10), deposits:[], credit_kospi:[], credit_kosdaq:[], trading_kospi:[], trading_kosdaq:[] };
+  const out = { updated_at: today.toISOString().slice(0,10), deposits:[], credit_total:[], credit_kospi:[], credit_kosdaq:[], trading_kospi:[], trading_kosdaq:[] };
   for (let i = 365; i >= 0; i--) {
     const d = new Date(today); d.setDate(today.getDate() - i);
     const key = d.toISOString().slice(0,10);
     const noise = () => 0.92 + Math.random() * 0.16;
     out.deposits.push     ({ date: key, value: Math.round((58e12 + i*-3e10) * noise()) });
+    out.credit_total.push ({ date: key, value: Math.round((21e12 + i*-1.8e10) * noise()) });
     out.credit_kospi.push ({ date: key, value: Math.round((12e12 + i*-1e10) * noise()) });
     out.credit_kosdaq.push({ date: key, value: Math.round(( 9e12 + i*-8e9)  * noise()) });
     out.trading_kospi.push ({ date: key, value: Math.round((11e12          ) * noise()) });
@@ -340,7 +346,9 @@ function drawCredit() {
   wrap.innerHTML = "";
   if (STATE.charts.credit) { try { STATE.charts.credit.remove(); } catch(_){} STATE.charts.credit = null; }
   const mkt = STATE.mkt.credit;
-  const src = mkt === "KOSPI" ? STATE.data.credit_kospi : STATE.data.credit_kosdaq;
+  const src = mkt === "TOTAL"  ? STATE.data.credit_total
+            : mkt === "KOSPI"  ? STATE.data.credit_kospi
+            :                    STATE.data.credit_kosdaq;
   const data = sliceByTF(src, STATE.tf.credit);
   if (!data.length) { emptyState(wrap, "KOFIA freesis 연동 작업 중"); return; }
   STATE.charts.credit = buildChart(wrap);
@@ -398,7 +406,9 @@ function updateNowAndDelta() {
   const e1 = document.getElementById("depositsDelta");
   e1.textContent = d1.text; e1.className = "v-delta " + d1.cls;
 
-  const credSrc = STATE.mkt.credit === "KOSPI" ? STATE.data.credit_kospi : STATE.data.credit_kosdaq;
+  const credSrc = STATE.mkt.credit === "TOTAL"  ? STATE.data.credit_total
+                : STATE.mkt.credit === "KOSPI"  ? STATE.data.credit_kospi
+                :                                 STATE.data.credit_kosdaq;
   [p, n] = last2(credSrc);
   document.getElementById("creditNow").textContent = fmtKR(n);
   const d2 = fmtDelta(p, n);
