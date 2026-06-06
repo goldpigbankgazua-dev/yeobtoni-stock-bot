@@ -135,9 +135,11 @@ footer a:hover { text-decoration:underline; }
   .subtitle { font-size:12px; }
   .basedate { font-size:11px; padding:4px 9px; }
   .tab-btn { font-size:12px; padding:6px 10px; }
-  thead th, tbody td { padding:8px 10px; font-size:12px; }
-  /* 모바일에서 종목명 너비 축소 — 좌우 스크롤 허용 */
-  thead th:nth-child(2), tbody td:nth-child(2) { width:220px; }
+  thead th, tbody td { padding:8px 8px; font-size:11px; }
+  /* 모바일: 테이블 전체가 화면에 맞도록 */
+  table { min-width:0; }
+  thead th:nth-child(1), tbody td:nth-child(1) { width:36px; }    /* 순위 */
+  thead th:nth-child(2), tbody td:nth-child(2) { width:120px; }   /* 종목명 */
 }
 </style>
 </head>
