@@ -248,8 +248,8 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'AUM',     label: '순자산총액(억원)', cls: 'num', fmt: 'okwon' },
       { key: 'AUM_VAR', label: '순자산 변화(억원)', cls: 'num', fmt: 'okwonSigned' },
+      { key: 'AUM',     label: '순자산총액(억원)', cls: 'num', fmt: 'okwon' },
     ],
   },
   investor: {
@@ -257,8 +257,8 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'YIELD', label: '수익률', cls: 'num', fmt: 'pctSigned' },
       { key: 'RANK_VALUE', label: '순매수금액(억원)', cls: 'num', fmt: 'okwon' },
+      { key: 'YIELD', label: '수익률', cls: 'num', fmt: 'pctSigned' },
     ],
   },
   aum: {
@@ -267,7 +267,7 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'AUM',     label: '순자산총액(억원)', cls: 'num', fmt: 'okwon' },
+      { key: 'AUM',     label: 'AUM(억원)', cls: 'num', fmt: 'okwon' },
       { key: 'AUM_VAR', label: '순자산 변화(억원)', cls: 'num', fmt: 'okwonSigned' },
     ],
   },
