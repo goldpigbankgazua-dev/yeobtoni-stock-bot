@@ -323,6 +323,33 @@ async function scrapeAumVariation(browser, onlyCat) {
     }
   }
 
+  // MarketCap (시가총액) — page 닫기 전에 axios로 호출
+  let mcap = null;
+  {
+    console.log('[aumvar] MarketCap page axios 시도 (풀 파라미터)');
+    const result = await page.evaluate(async () => {
+      const ax = window.axios;
+      if (!ax) return { _err: 'no axios' };
+      try {
+        const r = await ax.get('/user/etp/getEtpRankListMarketCap?type=ETF&annuityCode=A&ctgLargeCode=A&order=D&orderCol=&invCode=&leverage=&inverse=&coveredCall=&orderBy=DESC&limit=100');
+        return r.data;
+      } catch (e) { return { _err: 'axios: ' + (e.response?.status || e.message) }; }
+    }).catch(e => ({ _err: e.message }));
+    if (result && !result._err) {
+      mcap = result;
+      const rows = result.results || result.data || [];
+      console.log(`[aumvar] MarketCap 성공: ${rows.length} rows`);
+      if (rows.length === 0) {
+        console.log('[aumvar] 응답 구조:', Object.keys(result).join(', '));
+        console.log('[aumvar] 응답 미리보기:', JSON.stringify(result).slice(0, 400));
+      } else {
+        console.log('[aumvar] 첫 행 컬럼:', Object.keys(rows[0]).join(', '));
+      }
+    } else {
+      console.error('[aumvar] MarketCap 실패:', result?._err);
+    }
+  }
+
   await context.close();
 
   if (!aumv || !mast) {
@@ -375,6 +402,34 @@ async function scrapeAumVariation(browser, onlyCat) {
     if (!['navchange','aum'].includes(key)) continue;
     fs.writeFileSync(path.join(OUT_DIR, `${key}.json`), JSON.stringify(aumvPayload));
     console.log(`[${key}] ✓ saved (aumvariation enriched): ${enriched.length} rows`);
+  }
+
+  // MarketCap (시가총액) 별도 파일 저장 — 운용규모 카테고리의 "시가총액" 옵션용
+  if (mcap) {
+    const mcapRows = mcap?.results || mcap?.data || [];
+    if (mcapRows.length) {
+      // 종목명 매핑 (mast에서 보완)
+      const enrichedMcap = mcapRows.map(r => {
+        const t = r.F16013;
+        const m = tickerMap[t] || {};
+        return {
+          F16013: t,
+          F16002: r.F16002 || m.F16002 || '—',
+          F15001: r.F15001 || m.F15001 || '',
+          F15004: r.F15004 || m.F15004 || '',
+          F15015: r.F15015 || m.F15015 || '',
+          MARKET_CAP: r.MARKET_CAP || r.MKTCAP || r.RANK_VALUE || '',
+          // 응답 다른 필드도 그대로
+          ...r,
+        };
+      });
+      fs.writeFileSync(path.join(OUT_DIR, 'aum_market.json'), JSON.stringify({
+        updated_at: today,
+        source_url: 'getEtpRankListMarketCap',
+        raw: { results: enrichedMcap },
+      }));
+      console.log(`[aum_market] ✓ saved (시가총액): ${enrichedMcap.length} rows`);
+    }
   }
 
   // fundflow는 별도 (Inflow endpoint 응답 사용)
