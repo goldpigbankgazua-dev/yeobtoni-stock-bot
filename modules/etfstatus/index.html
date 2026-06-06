@@ -351,7 +351,7 @@ function renderPeriodBar(cat) {
   const opts = PERIODS[cat] || [];
   if (opts.length === 0) {
     periodBar.className = 'period-bar snapshot';
-    periodBar.innerHTML = '현재 시점 스냅샷';
+    periodBar.innerHTML = '현재 시점';
     return;
   }
   // 카테고리별 마지막 선택 → 디폴트 → 첫 옵션 순으로 결정
