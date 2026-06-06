@@ -117,10 +117,7 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
         <button class="tf-btn" data-tf="1Y">1Y</button>
       </div>
     </div>
-    <div class="chart-wrap">
-      <div id="chartKospi"></div>
-      <div class="chart-empty"><b>KOSPI 지수 데이터 수집 준비 중</b><span>곧 추가됩니다</span></div>
-    </div>
+    <div class="chart-wrap"><div id="chartKospi"></div></div>
   </div>
 
   <!-- 2. KOSDAQ 지수 -->
@@ -130,7 +127,7 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
         <div class="card-title">KOSDAQ 지수</div>
         <div class="card-meta">
           <span class="v-now" id="kosdaqNow">–</span>
-          <span class="v-delta flat" id="kosdaqDelta">데이터 수집 준비 중</span>
+          <span class="v-delta flat" id="kosdaqDelta">–</span>
         </div>
       </div>
       <div class="tf-bar" data-section="kosdaq">
@@ -139,10 +136,7 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
         <button class="tf-btn" data-tf="1Y">1Y</button>
       </div>
     </div>
-    <div class="chart-wrap">
-      <div id="chartKosdaq"></div>
-      <div class="chart-empty"><b>KOSDAQ 지수 데이터 수집 준비 중</b><span>곧 추가됩니다</span></div>
-    </div>
+    <div class="chart-wrap"><div id="chartKosdaq"></div></div>
   </div>
 
   <!-- 3. 투자자예탁금 -->
@@ -243,9 +237,9 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
 // ============= 상태 (선언을 모든 함수 위로 — TDZ 회피) =============
 const STATE = {
   data: null,       // 로드된 JSON
-  tf:    { deposits:"6M", credit:"6M", trading:"6M", loan:"6M" },
+  tf:    { kospi:"6M", kosdaq:"6M", deposits:"6M", credit:"6M", trading:"6M", loan:"6M" },
   mkt:   { credit:"TOTAL", trading:"KOSPI" },
-  charts:{ deposits:null, credit:null, trading:null, loan:null },
+  charts:{ kospi:null, kosdaq:null, deposits:null, credit:null, trading:null, loan:null },
 };
 
 // ============= 허브 테마 브리지 =============
@@ -467,8 +461,39 @@ function drawLoan() {
   STATE.charts.loan.timeScale().fitContent();
 }
 
+// 지수 차트 — Y축 정수 포맷 (조 단위 X)
+function drawIndex(section, dataKey, color) {
+  const wrap = document.getElementById(section === "kospi" ? "chartKospi" : "chartKosdaq");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  if (STATE.charts[section]) { try { STATE.charts[section].remove(); } catch(_){} STATE.charts[section] = null; }
+  const data = sliceByTF(STATE.data[dataKey], STATE.tf[section]);
+  if (!data.length) { emptyState(wrap, "KIS API 응답 대기 중"); return; }
+  // 지수는 종가 그대로 — priceFormatter 별도 (조 단위 X)
+  STATE.charts[section] = LightweightCharts.createChart(wrap, {
+    autoSize: true,
+    layout: { background: { color: "transparent" }, textColor: colors().text,
+              fontFamily: "-apple-system,BlinkMacSystemFont,Pretendard,sans-serif" },
+    grid: { vertLines:{color:colors().grid}, horzLines:{color:colors().grid} },
+    rightPriceScale: { borderColor: colors().grid, scaleMargins:{top:0.1, bottom:0.05} },
+    timeScale: { borderColor: colors().grid, timeVisible:false, secondsVisible:false, rightOffset:5 },
+    crosshair: { mode: 1 },
+    localization: { priceFormatter: (v) => v == null || isNaN(v) ? "" : Number(v).toLocaleString('ko-KR', {maximumFractionDigits:2}) },
+  });
+  const s = STATE.charts[section].addLineSeries({
+    color: color, lineWidth: 2, priceLineVisible: false, lastValueVisible: true,
+  });
+  s.setData(data.map(p => ({ time: p.date, value: p.value })));
+  STATE.charts[section].timeScale().fitContent();
+}
+
+function drawKospi()  { drawIndex("kospi",  "index_kospi",  colors().kospi); }
+function drawKosdaq() { drawIndex("kosdaq", "index_kosdaq", colors().kosdaq); }
+
 function rebuildAllCharts() {
   if (!STATE.data) return;
+  drawKospi();
+  drawKosdaq();
   drawDeposits();
   drawCredit();
   drawTrading();
@@ -482,6 +507,36 @@ function updateNowAndDelta() {
     if (arr.length === 1) return [null, arr[0].value];
     return [arr[arr.length-2].value, arr[arr.length-1].value];
   }
+  function fmtIdx(v) { return v == null ? "–" : Number(v).toLocaleString('ko-KR', {maximumFractionDigits:2}); }
+
+  // KOSPI/KOSDAQ 지수
+  let [pK, nK] = last2(STATE.data.index_kospi);
+  const eKospiNow = document.getElementById("kospiNow");
+  if (eKospiNow) eKospiNow.textContent = fmtIdx(nK);
+  const eKospiD = document.getElementById("kospiDelta");
+  if (eKospiD) {
+    const diff = (pK != null && nK != null) ? (nK - pK) : null;
+    const pct = (diff != null && pK) ? (diff / pK * 100) : null;
+    if (diff != null) {
+      const sign = diff > 0 ? "+" : "";
+      eKospiD.textContent = sign + diff.toFixed(2) + " (" + sign + pct.toFixed(2) + "%)";
+      eKospiD.className = "v-delta " + (diff > 0 ? "up" : diff < 0 ? "down" : "flat");
+    }
+  }
+  let [pKQ, nKQ] = last2(STATE.data.index_kosdaq);
+  const eKosdaqNow = document.getElementById("kosdaqNow");
+  if (eKosdaqNow) eKosdaqNow.textContent = fmtIdx(nKQ);
+  const eKosdaqD = document.getElementById("kosdaqDelta");
+  if (eKosdaqD) {
+    const diff = (pKQ != null && nKQ != null) ? (nKQ - pKQ) : null;
+    const pct = (diff != null && pKQ) ? (diff / pKQ * 100) : null;
+    if (diff != null) {
+      const sign = diff > 0 ? "+" : "";
+      eKosdaqD.textContent = sign + diff.toFixed(2) + " (" + sign + pct.toFixed(2) + "%)";
+      eKosdaqD.className = "v-delta " + (diff > 0 ? "up" : diff < 0 ? "down" : "flat");
+    }
+  }
+
   let [p, n] = last2(STATE.data.deposits);
   document.getElementById("depositsNow").textContent = fmtKR(n);
   const d1 = fmtDelta(p, n);
@@ -523,6 +578,8 @@ document.querySelectorAll(".tf-bar").forEach(bar => {
     const section = bar.dataset.section;
     bar.querySelectorAll(".tf-btn").forEach(b => b.classList.toggle("active", b === btn));
     STATE.tf[section] = btn.dataset.tf;
+    if (section === "kospi")    drawKospi();
+    if (section === "kosdaq")   drawKosdaq();
     if (section === "deposits") drawDeposits();
     if (section === "credit")   drawCredit();
     if (section === "trading")  drawTrading();

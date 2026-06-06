@@ -159,7 +159,16 @@ def fetch_kis_index(token, iscd, label, debug=False):
                 continue
             if v <= 0:
                 continue
-            out.append({"date": d_iso, "value": v})
+            # 지수 종가 (선택) — bstp_nmix_prpr
+            close = b.get("bstp_nmix_prpr") or b.get("bstp_nmix_close") or b.get("nmix_prpr")
+            try:
+                close_val = float(str(close).replace(",", "")) if close else None
+            except Exception:
+                close_val = None
+            row = {"date": d_iso, "value": v}
+            if close_val is not None and close_val > 0:
+                row["close"] = close_val
+            out.append(row)
             seen.add(d_iso)
             added += 1
             try:
@@ -237,13 +246,20 @@ def main():
     print(f"=== 국내증시현황 데이터 수집 ({dt.date.today()}) ===")
 
     tr_kospi, tr_kosdaq = [], []
+    idx_kospi, idx_kosdaq = [], []  # 지수 종가 시계열
     token = kis_token()
     if token:
-        tr_kospi  = fetch_kis_index(token, "0001", "KOSPI")
+        raw_kospi  = fetch_kis_index(token, "0001", "KOSPI")
         time.sleep(0.3)
-        tr_kosdaq = fetch_kis_index(token, "1001", "KOSDAQ")
+        raw_kosdaq = fetch_kis_index(token, "1001", "KOSDAQ")
+        # 거래대금/지수 분리
+        tr_kospi  = [{"date": r["date"], "value": r["value"]} for r in raw_kospi]
+        tr_kosdaq = [{"date": r["date"], "value": r["value"]} for r in raw_kosdaq]
+        idx_kospi  = [{"date": r["date"], "value": r["close"]} for r in raw_kospi  if "close" in r]
+        idx_kosdaq = [{"date": r["date"], "value": r["close"]} for r in raw_kosdaq if "close" in r]
+        print(f"[index] KOSPI 종가 {len(idx_kospi)}일치, KOSDAQ 종가 {len(idx_kosdaq)}일치")
     else:
-        print("토큰 없음 — 거래대금 빈 배열 유지")
+        print("토큰 없음 — 거래대금/지수 빈 배열 유지")
 
     # KOFIA 어제 발표분 1줄 (누적용)
     kofia_dep, kofia_cre = fetch_kofia_macro_daily()
@@ -274,6 +290,8 @@ def main():
         "credit_kosdaq":  _merge(prev.get("credit_kosdaq"), cr_kosdaq),
         "trading_kospi":  _merge(prev.get("trading_kospi"), tr_kospi),
         "trading_kosdaq": _merge(prev.get("trading_kosdaq"),tr_kosdaq),
+        "index_kospi":    _merge(prev.get("index_kospi"),   idx_kospi),
+        "index_kosdaq":   _merge(prev.get("index_kosdaq"),  idx_kosdaq),
     }
 
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
