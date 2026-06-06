@@ -101,6 +101,51 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
   </header>
 
   <!-- 1. 투자자예탁금 -->
+  <!-- 1. KOSPI 지수 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">KOSPI 지수</div>
+        <div class="card-meta">
+          <span class="v-now" id="kospiNow">–</span>
+          <span class="v-delta flat" id="kospiDelta">데이터 수집 준비 중</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="kospi">
+        <button class="tf-btn" data-tf="1M">1M</button>
+        <button class="tf-btn active" data-tf="6M">6M</button>
+        <button class="tf-btn" data-tf="1Y">1Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div id="chartKospi"></div>
+      <div class="chart-empty"><b>KOSPI 지수 데이터 수집 준비 중</b><span>곧 추가됩니다</span></div>
+    </div>
+  </div>
+
+  <!-- 2. KOSDAQ 지수 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">KOSDAQ 지수</div>
+        <div class="card-meta">
+          <span class="v-now" id="kosdaqNow">–</span>
+          <span class="v-delta flat" id="kosdaqDelta">데이터 수집 준비 중</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="kosdaq">
+        <button class="tf-btn" data-tf="1M">1M</button>
+        <button class="tf-btn active" data-tf="6M">6M</button>
+        <button class="tf-btn" data-tf="1Y">1Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div id="chartKosdaq"></div>
+      <div class="chart-empty"><b>KOSDAQ 지수 데이터 수집 준비 중</b><span>곧 추가됩니다</span></div>
+    </div>
+  </div>
+
+  <!-- 3. 투자자예탁금 -->
   <div class="card">
     <div class="card-head">
       <div>
@@ -160,13 +205,34 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
         </div>
       </div>
       <div class="tf-bar" data-section="trading">
-        <button class="tf-btn" data-tf="1D">1D</button>
         <button class="tf-btn" data-tf="1M">1M</button>
         <button class="tf-btn active" data-tf="6M">6M</button>
         <button class="tf-btn" data-tf="1Y">1Y</button>
       </div>
     </div>
     <div class="chart-wrap"><div id="chartTrading"></div></div>
+  </div>
+
+  <!-- 6. 대차잔고금액 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">대차잔고금액</div>
+        <div class="card-meta">
+          <span class="v-now" id="loanNow">–</span>
+          <span class="v-delta flat" id="loanDelta">데이터 수집 준비 중</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="loan">
+        <button class="tf-btn" data-tf="1M">1M</button>
+        <button class="tf-btn active" data-tf="6M">6M</button>
+        <button class="tf-btn" data-tf="1Y">1Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div id="chartLoan"></div>
+      <div class="chart-empty"><b>대차잔고금액 데이터 수집 준비 중</b><span>freesis에서 곧 수집</span></div>
+    </div>
   </div>
 
   <footer>
@@ -304,8 +370,8 @@ function buildChart(container) {
       priceFormatter: (v) => {
         if (v == null || isNaN(v)) return "";
         const abs = Math.abs(v);
-        if (abs >= 1e12) return (v/1e12).toFixed(0) + "조";
-        if (abs >= 1e8)  return (v/1e8).toFixed(0)  + "억";
+        if (abs >= 1e12) return (v/1e12).toFixed(1) + "조";
+        if (abs >= 1e8)  return (v/1e8).toFixed(1)  + "억";
         if (abs >= 1e4)  return (v/1e4).toFixed(0)  + "만";
         return v.toFixed(0);
       },
