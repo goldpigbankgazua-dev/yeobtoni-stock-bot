@@ -1,0 +1,59 @@
+name: ETF 현황 일일 스크래핑
+
+on:
+  schedule:
+    # 매일 한국시 8시 (UTC 전날 23시), 평일만
+    - cron: '0 23 * * 0-4'
+  workflow_dispatch:           # 수동 실행 가능
+
+permissions:
+  contents: write              # 같은 리포에 push 권한
+
+concurrency:
+  group: etf-status-daily
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install scraper deps
+        working-directory: scripts/etf-status
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Install Chromium + system deps
+        working-directory: scripts/etf-status
+        run: npx playwright install --with-deps chromium
+
+      - name: Scrape ETF CHECK
+        working-directory: scripts/etf-status
+        run: node scraper.js
+        env:
+          TZ: Asia/Seoul
+
+      - name: Commit & push
+        run: |
+          git config user.name  "etf-status-bot"
+          git config user.email "etf-status@yeobtoni.local"
+          git add modules/etfstatus/data/
+          if git diff --cached --quiet; then
+            echo "변경 없음 — 스킵"
+          else
+            git commit -m "data(etf-status): $(date -u +%F)"
+            git push
+          fi

@@ -108,7 +108,7 @@ footer a:hover { text-decoration:underline; }
   <header>
     <div class="header-left">
       <h1>ETF 현황</h1>
-      <p class="subtitle">ETF 수익률 · 배당 · 자금유입 · 순자산증감 · 투자자 · 운용규모 · 거래량 조회</p>
+      <p class="subtitle">ETF 수익률 · 자금유입 · 순자산증감 · 투자자 · 운용규모 · 거래량 조회</p>
     </div>
     <div class="basedate" id="basedate">기준일 <b id="basedateText">—</b></div>
   </header>
@@ -116,7 +116,6 @@ footer a:hover { text-decoration:underline; }
   <div class="tabs-wrap">
     <div class="tabs" id="tabs">
       <button class="tab-btn active" data-cat="yield">수익률</button>
-      <button class="tab-btn" data-cat="dividend">배당</button>
       <button class="tab-btn" data-cat="fundflow">자금유입</button>
       <button class="tab-btn" data-cat="navchange">순자산증감</button>
       <button class="tab-btn" data-cat="investor">투자자</button>
@@ -171,9 +170,28 @@ const CATEGORIES = {
       { key: 'F15015', label: '거래량', cls: 'num', fmt: 'compactInt' },
     ],
   },
-  dividend:  { label: '배당',     columns: null, status: 'pending' },
-  fundflow:  { label: '자금유입', columns: null, status: 'pending' },
-  navchange: { label: '순자산증감', columns: null, status: 'pending' },
+  fundflow: {
+    label: '자금유입',
+    sortKey: 'AUM_VAR', sortDir: 'desc',
+    columns: [
+      { key: '_rank', label: '순위', cls: 'rank num' },
+      { key: 'F16002', label: '종목명', cls: 'name left' },
+      { key: 'F16013', label: '티커', cls: 'ticker' },
+      { key: 'AUM',     label: '순자산총액',   cls: 'num', fmt: 'compactWon' },
+      { key: 'AUM_VAR', label: '순자산 변화', cls: 'num', fmt: 'compactWonSigned' },
+    ],
+  },
+  navchange: {
+    label: '순자산증감',
+    sortKey: 'AUM_VAR_ABS', sortDir: 'desc',
+    columns: [
+      { key: '_rank', label: '순위', cls: 'rank num' },
+      { key: 'F16002', label: '종목명', cls: 'name left' },
+      { key: 'F16013', label: '티커', cls: 'ticker' },
+      { key: 'AUM',     label: '순자산총액',   cls: 'num', fmt: 'compactWon' },
+      { key: 'AUM_VAR', label: '순자산 변화', cls: 'num', fmt: 'compactWonSigned' },
+    ],
+  },
   investor: {
     label: '투자자',
     columns: [
@@ -184,7 +202,17 @@ const CATEGORIES = {
       { key: 'RANK_VALUE', label: '순매수금액', cls: 'num', fmt: 'compactWon' },
     ],
   },
-  aum:      { label: '운용규모', columns: null, status: 'pending' },
+  aum: {
+    label: '운용규모',
+    sortKey: 'AUM', sortDir: 'desc',
+    columns: [
+      { key: '_rank', label: '순위', cls: 'rank num' },
+      { key: 'F16002', label: '종목명', cls: 'name left' },
+      { key: 'F16013', label: '티커', cls: 'ticker' },
+      { key: 'AUM',     label: '순자산총액',   cls: 'num', fmt: 'compactWon' },
+      { key: 'AUM_VAR', label: '순자산 변화', cls: 'num', fmt: 'compactWonSigned' },
+    ],
+  },
   volume: {
     label: '거래량',
     columns: [
@@ -236,10 +264,22 @@ const F = {
     if (n >= 1e4) return (n/1e4).toFixed(0) + '만';
     return n.toLocaleString('ko-KR');
   },
+  compactWonSigned: v => {
+    const n = Number(v);
+    if (!isFinite(n)) return '—';
+    const sign = n > 0 ? '+' : n < 0 ? '-' : '';
+    const a = Math.abs(n);
+    let body;
+    if (a >= 1e12) body = (a/1e12).toFixed(2) + '조';
+    else if (a >= 1e8) body = (a/1e8).toFixed(0) + '억';
+    else if (a >= 1e4) body = (a/1e4).toFixed(0) + '만';
+    else body = a.toLocaleString('ko-KR');
+    return sign + body;
+  },
 };
 
 function cellClassFor(col, raw) {
-  if (col.fmt === 'pctSigned') {
+  if (col.fmt === 'pctSigned' || col.fmt === 'compactWonSigned') {
     const n = Number(raw);
     if (isFinite(n)) {
       if (n > 0) return col.cls.replace('num','up');
@@ -288,9 +328,21 @@ async function loadCategory(cat) {
   // basedate
   if (payload.updated_at) baseEl.textContent = payload.updated_at;
 
-  const rows = (payload.raw && Array.isArray(payload.raw.results))
+  let rows = (payload.raw && Array.isArray(payload.raw.results))
     ? payload.raw.results
     : (Array.isArray(payload.raw) ? payload.raw : []);
+
+  // 카테고리별 클라이언트 정렬 (sortKey 정의된 경우만)
+  if (def.sortKey) {
+    rows = rows.slice().sort((a, b) => {
+      const getVal = (r) => {
+        if (def.sortKey === 'AUM_VAR_ABS') return Math.abs(Number(r.AUM_VAR) || 0);
+        return Number(r[def.sortKey]) || 0;
+      };
+      return def.sortDir === 'desc' ? getVal(b) - getVal(a) : getVal(a) - getVal(b);
+    }).slice(0, 100); // 상위 100개만
+  }
+
   if (!rows.length) {
     mount.innerHTML = `<div class="empty"><b>표시할 데이터가 없습니다</b></div>`;
     return;
