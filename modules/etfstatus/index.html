@@ -58,17 +58,22 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 .tab-btn[disabled] { opacity:.45; cursor:not-allowed; }
 .tab-btn[disabled]:hover { color:var(--muted); background:transparent; }
 
-/* 기간 토글바 */
-.period-wrap { margin-bottom:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-.period-bar { display:flex; gap:6px; min-width:max-content; }
-.period-btn { appearance:none; border:1px solid var(--line); background:var(--card); color:var(--muted);
-  font:inherit; font-size:12px; font-weight:600; padding:6px 12px; border-radius:7px;
-  cursor:pointer; transition:all .12s ease; white-space:nowrap; }
-.period-btn:hover { color:var(--text-strong); border-color:var(--muted); }
-.period-btn.active { color:var(--card); background:var(--accent); border-color:var(--accent); }
-.period-btn[disabled] { opacity:.4; cursor:not-allowed; }
-.period-btn[disabled]:hover { color:var(--muted); border-color:var(--line); }
-.period-empty { color:var(--muted-2); font-size:11px; padding:6px 4px; }
+/* 기간 드롭다운 (STOCK 스크리너 pill 스타일) */
+.period-wrap { margin-bottom:14px; }
+.period-bar { display:inline-flex; align-items:stretch; background:var(--card); border:1px solid var(--line);
+  border-radius:10px; overflow:hidden; height:36px; min-width:180px; max-width:280px;
+  transition:border-color .12s ease, box-shadow .12s ease; }
+.period-bar:hover { border-color:var(--muted-2); }
+.period-bar:focus-within { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+.period-bar > .lbl { display:flex; align-items:center; flex-shrink:0; padding:0 12px; background:var(--thead);
+  border-right:1px solid var(--line); font-size:12px; font-weight:600; color:var(--muted);
+  white-space:nowrap; user-select:none; }
+.period-bar > select { flex:1; min-width:0; background:transparent; color:var(--text-strong); border:0;
+  padding:0 30px 0 12px; outline:none; font:inherit; font-size:13px; font-weight:600;
+  line-height:34px; appearance:none; -webkit-appearance:none; cursor:pointer;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path fill='none' stroke='%2394a3b8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5l5 5 5-5'/></svg>");
+  background-repeat:no-repeat; background-position:right 10px center; background-size:10px; }
+.period-bar.snapshot { background:var(--thead); color:var(--muted-2); align-items:center; padding:0 14px; font-size:12px; font-weight:600; }
 
 /* 테이블 카드 */
 .tbl-card { background:var(--card); border:1px solid var(--line); border-radius:14px;
@@ -189,7 +194,7 @@ const PERIODS = {
   fundflow: [['1d','전일'], ['1w','1주'], ['1m','1개월'], ['3m','3개월'], ['6m','6개월'], ['ytd','YTD'], ['1y','1년']],
   navchange:[['1d','전일'], ['1w','1주'], ['1m','1개월'], ['3m','3개월'], ['6m','6개월'], ['ytd','YTD'], ['1y','1년']],
   investor: [['1d','전일'], ['1w','1주'], ['1m','1개월'], ['3m','3개월'], ['6m','6개월'], ['ytd','YTD'], ['1y','1년']],
-  volume:   [['1d','당일'], ['5d_avg','5일평균'], ['10d_avg','10일평균']],
+  volume:   [['1d','전일'], ['5d_avg','5일평균'], ['10d_avg','10일평균']],
   aum:      [], // 스냅샷 — 토글 없음
 };
 
@@ -318,20 +323,24 @@ const cache = {};
 function renderPeriodBar(cat) {
   const opts = PERIODS[cat] || [];
   if (opts.length === 0) {
-    periodBar.innerHTML = '<span class="period-empty">현재 시점 스냅샷</span>';
+    periodBar.className = 'period-bar snapshot';
+    periodBar.innerHTML = '현재 시점 스냅샷';
     return;
   }
   if (!opts.find(p => p[0] === currentPeriod)) currentPeriod = opts[0][0];
-  periodBar.innerHTML = opts.map(([key, label]) =>
-    `<button class="period-btn ${key === currentPeriod ? 'active' : ''}" data-period="${key}">${label}</button>`
-  ).join('');
+  periodBar.className = 'period-bar';
+  periodBar.innerHTML = `
+    <span class="lbl">기간</span>
+    <select id="periodSel">
+      ${opts.map(([key, label]) =>
+        `<option value="${key}" ${key === currentPeriod ? 'selected' : ''}>${label}</option>`
+      ).join('')}
+    </select>`;
 }
 
-periodBar.addEventListener('click', (e) => {
-  const btn = e.target.closest('.period-btn');
-  if (!btn || btn.disabled || btn.classList.contains('active')) return;
-  currentPeriod = btn.dataset.period;
-  periodBar.querySelectorAll('.period-btn').forEach(b => b.classList.toggle('active', b === btn));
+periodBar.addEventListener('change', (e) => {
+  if (e.target.id !== 'periodSel') return;
+  currentPeriod = e.target.value;
   const activeCat = document.querySelector('.tab-btn.active')?.dataset.cat || 'yield';
   loadCategory(activeCat);
 });
