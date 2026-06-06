@@ -45,7 +45,15 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
   padding:6px 12px; border-radius:8px; font-size:12px; white-space:nowrap; flex-shrink:0; }
 .basedate b { color:var(--accent); }
 
-/* 카테고리 탭바 */
+/* 카테고리 탭바 + 기간 드롭다운 가로 배치 (데스크탑) / 세로 (모바일) */
+.controls-row { display:flex; gap:10px; align-items:center; margin-bottom:14px; }
+.controls-row .tabs-wrap { flex:1; min-width:0; margin-bottom:0; }
+.controls-row .period-wrap { flex-shrink:0; margin-bottom:0; }
+@media (max-width:720px) {
+  .controls-row { flex-direction:column; align-items:stretch; }
+  .controls-row .period-wrap > .period-bar { width:100%; max-width:none; }
+}
+
 .tabs-wrap { background:var(--card); border:1px solid var(--line); border-radius:14px;
   padding:8px; margin-bottom:10px; box-shadow:0 1px 3px rgba(15,23,42,.04); overflow-x:auto;
   -webkit-overflow-scrolling:touch; }
@@ -141,19 +149,20 @@ footer a:hover { text-decoration:underline; }
     <div class="basedate" id="basedate">기준일 <b id="basedateText">—</b></div>
   </header>
 
-  <div class="tabs-wrap">
-    <div class="tabs" id="tabs">
-      <button class="tab-btn active" data-cat="yield">수익률</button>
-      <button class="tab-btn" data-cat="fundflow">자금유입</button>
-      <button class="tab-btn" data-cat="navchange">순자산증감</button>
-      <button class="tab-btn" data-cat="investor">투자자</button>
-      <button class="tab-btn" data-cat="aum">운용규모</button>
-      <button class="tab-btn" data-cat="volume">거래량</button>
+  <div class="controls-row">
+    <div class="tabs-wrap">
+      <div class="tabs" id="tabs">
+        <button class="tab-btn active" data-cat="yield">수익률</button>
+        <button class="tab-btn" data-cat="fundflow">자금유입</button>
+        <button class="tab-btn" data-cat="navchange">순자산증감</button>
+        <button class="tab-btn" data-cat="investor">투자자</button>
+        <button class="tab-btn" data-cat="aum">운용규모</button>
+        <button class="tab-btn" data-cat="volume">거래량</button>
+      </div>
     </div>
-  </div>
-
-  <div class="period-wrap">
-    <div class="period-bar" id="periodBar"></div>
+    <div class="period-wrap">
+      <div class="period-bar" id="periodBar"></div>
+    </div>
   </div>
 
   <div class="tbl-card">
@@ -195,9 +204,19 @@ const PERIODS = {
   navchange:[['1d','전일'], ['1w','1주'], ['1m','1개월'], ['3m','3개월'], ['6m','6개월'], ['ytd','YTD'], ['1y','1년']],
   investor: [['1d','전일'], ['1w','1주'], ['1m','1개월'], ['3m','3개월'], ['6m','6개월'], ['ytd','YTD'], ['1y','1년']],
   volume:   [['1d','전일'], ['5d_avg','5일평균'], ['10d_avg','10일평균']],
-  aum:      [], // 스냅샷 — 토글 없음
+  aum:      [],
 };
 
+// 카테고리별 디폴트 기간 (수익률=당일, 나머지=1주, 거래량은 5일평균)
+const DEFAULT_PERIOD = {
+  yield: '1d',
+  fundflow: '1w',
+  navchange: '1w',
+  investor: '1w',
+  volume: '5d_avg',
+};
+
+const lastPeriodByCat = {};
 let currentPeriod = '1d';
 
 /* ===== 카테고리 정의 ===== */
@@ -327,6 +346,8 @@ function renderPeriodBar(cat) {
     periodBar.innerHTML = '현재 시점 스냅샷';
     return;
   }
+  // 카테고리별 마지막 선택 → 디폴트 → 첫 옵션 순으로 결정
+  currentPeriod = lastPeriodByCat[cat] || DEFAULT_PERIOD[cat] || opts[0][0];
   if (!opts.find(p => p[0] === currentPeriod)) currentPeriod = opts[0][0];
   periodBar.className = 'period-bar';
   periodBar.innerHTML = `
@@ -342,6 +363,7 @@ periodBar.addEventListener('change', (e) => {
   if (e.target.id !== 'periodSel') return;
   currentPeriod = e.target.value;
   const activeCat = document.querySelector('.tab-btn.active')?.dataset.cat || 'yield';
+  lastPeriodByCat[activeCat] = currentPeriod;
   loadCategory(activeCat);
 });
 
