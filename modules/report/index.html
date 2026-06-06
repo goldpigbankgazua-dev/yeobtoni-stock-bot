@@ -316,6 +316,33 @@ function openViewer(file, title) {
   document.body.style.overflow = 'hidden';
   history.replaceState(null, '', '#' + encodeURIComponent(file));
 }
+
+/* ===== iframe 로드 후 모바일 가로 흔들림 방지 — viewport + 폭 제약 주입 ===== */
+viewerFrame.addEventListener('load', () => {
+  try {
+    const doc = viewerFrame.contentDocument;
+    if (!doc || !doc.head) return;
+    // viewport meta 없으면 추가
+    let meta = doc.querySelector('meta[name="viewport"]');
+    if (!meta) {
+      meta = doc.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, initial-scale=1';
+      doc.head.appendChild(meta);
+    }
+    // 모바일 가로 흔들림 방지 CSS
+    const style = doc.createElement('style');
+    style.textContent = `
+      html, body { max-width:100vw !important; overflow-x:hidden !important; }
+      body { word-wrap:break-word; word-break:break-word; }
+      img, video, svg, iframe { max-width:100% !important; height:auto; }
+      table { max-width:100% !important; }
+      pre, code { white-space:pre-wrap !important; word-wrap:break-word; }
+      * { max-width:100vw; box-sizing:border-box; }
+    `;
+    doc.head.appendChild(style);
+  } catch (e) { /* 크로스 오리진이면 패스 */ }
+});
 function closeViewer() {
   viewer.classList.remove('active');
   viewerFrame.src = 'about:blank';
