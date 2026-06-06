@@ -10,19 +10,19 @@
   --bg:#f8fafc; --card:#ffffff; --thead:#f1f5f9; --line:#e2e8f0; --line-soft:#eef2f6;
   --text:#1a1d24; --text-strong:#0f172a; --muted:#64748b; --muted-2:#94a3b8;
   --accent:#0ea5e9; --accent-soft:rgba(14,165,233,.10);
-  --kospi:#dc2626; --kosdaq:#2563eb;
+  --kospi:#dc2626; --kosdaq:#2563eb; --nasdaq:#059669;
 }
 :root[data-theme="dark"], body.theme-dark {
   --bg:#0b1220; --card:#121a2b; --thead:#0f1626; --line:#1f2a44; --line-soft:#192238;
   --text:#cbd5e1; --text-strong:#f1f5f9; --muted:#94a3b8; --muted-2:#64748b;
   --accent:#22d3ee; --accent-soft:rgba(34,211,238,.12);
-  --kospi:#f87171; --kosdaq:#60a5fa;
+  --kospi:#f87171; --kosdaq:#60a5fa; --nasdaq:#34d399;
 }
 :root[data-theme="green"], body.theme-green {
   --bg:#ecfdf5; --card:#ffffff; --thead:#f0fdf4; --line:#a7f3d0; --line-soft:#d1fae5;
   --text:#064e3b; --text-strong:#022c22; --muted:#047857; --muted-2:#10b981;
   --accent:#059669; --accent-soft:rgba(5,150,105,.12);
-  --kospi:#dc2626; --kosdaq:#1d4ed8;
+  --kospi:#dc2626; --kosdaq:#1d4ed8; --nasdaq:#047857;
 }
 
 * { box-sizing:border-box; margin:0; padding:0; }
@@ -80,6 +80,7 @@ tbody tr:last-child td { border-bottom:none; }
   letter-spacing:.02em; vertical-align:middle; margin-right:6px; }
 .badge.kospi { background:rgba(220,38,38,.12); color:var(--kospi); }
 .badge.kosdaq { background:rgba(37,99,235,.12); color:var(--kosdaq); }
+.badge.nasdaq { background:rgba(5,150,105,.12); color:var(--nasdaq); }
 .badge.rev { background:var(--accent-soft); color:var(--accent); font-size:10px; margin-left:6px; }
 .stock-name { font-weight:700; color:var(--text-strong); }
 .title-text { display:inline-block; max-width:560px; overflow:hidden; text-overflow:ellipsis;
@@ -263,7 +264,7 @@ function render() {
 
   const rows = arr.map(r => {
     const dateDisp = r.date ? r.date.replace(/^20/,'').replace(/-/g,'.') : '—';
-    const mktCls = (r._market === '코스피') ? 'kospi' : (r._market === '코스닥') ? 'kosdaq' : 'kospi';
+    const mktCls = (r._market === '코스피') ? 'kospi' : (r._market === '코스닥') ? 'kosdaq' : (r._market === '나스닥') ? 'nasdaq' : 'kospi';
     const themes = (r.themes || []).join(' · ');
     const revBadge = r.revision ? '<span class="badge rev">보강판</span>' : '';
     const pages = (r.pages != null) ? `${r.pages}p` : '—';

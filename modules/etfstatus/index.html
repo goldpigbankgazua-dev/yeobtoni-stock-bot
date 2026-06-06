@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>ETF 현황 — 여비또니 주식봇</title>
+<title>ETF CHECK — 여비또니 주식봇</title>
 <style>
 :root {
   --bg:#f8fafc; --card:#ffffff; --thead:#f1f5f9; --line:#e2e8f0; --line-soft:#eef2f6;
@@ -144,7 +144,7 @@ footer a:hover { text-decoration:underline; }
 
   <header>
     <div class="header-left">
-      <h1>ETF 현황</h1>
+      <h1>ETF CHECK</h1>
       <p class="subtitle">ETF 수익률 · 자금유입 · 순자산증감 · 투자자 · 운용규모 · 거래량 조회</p>
     </div>
     <div class="basedate" id="basedate">기준일 <b id="basedateText">—</b></div>
@@ -227,8 +227,6 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'F15001', label: '현재가(원)', cls: 'num', fmt: 'comma' },
       { key: 'F15004', label: '등락률', cls: 'num', fmt: 'pctSigned' },
       { key: 'NAV_YIELD', label: 'NAV수익률', cls: 'num', fmt: 'pctSigned' },
     ],
@@ -238,10 +236,8 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'F15001', label: '현재가(원)', cls: 'num', fmt: 'comma' },
-      { key: 'F15004', label: '등락률', cls: 'num', fmt: 'pctSigned' },
       { key: 'INFLOW', label: '자금유입(억원)', cls: 'num', fmt: 'okwon' },
+      { key: 'F15004', label: '등락률', cls: 'num', fmt: 'pctSigned' },
     ],
   },
   navchange: {
@@ -250,7 +246,6 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'F16013', label: '티커', cls: 'ticker' },
       { key: 'AUM',     label: '순자산총액(억원)', cls: 'num', fmt: 'okwon' },
       { key: 'AUM_VAR', label: '순자산 변화(억원)', cls: 'num', fmt: 'okwonSigned' },
     ],
@@ -260,7 +255,6 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'F16013', label: '티커', cls: 'ticker' },
       { key: 'YIELD', label: '수익률', cls: 'num', fmt: 'pctSigned' },
       { key: 'RANK_VALUE', label: '순매수금액(억원)', cls: 'num', fmt: 'okwon' },
     ],
@@ -271,7 +265,6 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'F16013', label: '티커', cls: 'ticker' },
       { key: 'AUM',     label: '순자산총액(억원)', cls: 'num', fmt: 'okwon' },
       { key: 'AUM_VAR', label: '순자산 변화(억원)', cls: 'num', fmt: 'okwonSigned' },
     ],
@@ -281,10 +274,8 @@ const CATEGORIES = {
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'F15001', label: '현재가(원)', cls: 'num', fmt: 'comma' },
-      { key: 'F15004', label: '등락률', cls: 'num', fmt: 'pctSigned' },
       { key: 'F15015', label: '거래량(주)', cls: 'num', fmt: 'comma' },
+      { key: 'F15023', label: '거래대금(억원)', cls: 'num', fmt: 'okwon' },
     ],
   },
 };
