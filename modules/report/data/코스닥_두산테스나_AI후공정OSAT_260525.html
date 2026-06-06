@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>코스닥_두산테스나_AI후공정OSAT_4사목표주가상향1Q26어닝미스_260525</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.ter-quote{background:#fff;border-left:4px solid #8e44ad;padding:10px 14px;margin:10px 0;font-style:italic;color:#4a235a;border-radius:4px}
+.tag-ter{background:#8e44ad;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ol.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>두산테스나 (131970.KQ)</h1>
+<div class="sub">시스템반도체 후공정 OSAT · AI 후공정 슈퍼사이클 + 4,290억 CAPEX(LPU·북미 CIS) + Auto → AI/HPC 체질 전환<br>4사 분석: DS 220k / 한투 211k / 교보 190k / BNK 190k(보유) · 분석일 2026.05.25</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (5/22)</span><span class="snapshot-value">171,600원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">3.32조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 고점대비</span><span class="snapshot-value">-9.7%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER(F, 26E 컨센)</span><span class="snapshot-value">68.9배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR(F)</span><span class="snapshot-value">7.6배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">7.6%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+662.7%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">두산 38.7%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value negative">55억 (미스)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">205,000원<br>(+19.5%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">240,000원<br>(+39.9%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (6사)</span><span class="snapshot-value">176,000원<br>(+2.6%·후행)</span></div>
+</div>
+<div class="snapshot-core"><b>핵심 한줄:</b> 5/15~5/22 <b>4개 증권사가 목표주가를 190,000~220,000원으로 일제 상향</b>(DS 220k·한투 211k·교보 190k·BNK 190k) — 4/28 공시한 <b>4,290억 CAPEX(북미 LPU + 북미 CIS 테스트 장비)</b>가 2027년 실적 폭발(영업이익 +148~174% YoY, OPM 22~25%)로 이어진다는 논리. 동사는 Auto·모바일 의존 OSAT에서 <b>AI/HPC LPU + 고사양 CIS 테스트 업체로 체질 전환</b> 중. 다만 <b>1Q26 영업이익 55억원은 컨센서스를 약 34% 하회한 어닝 미스</b>(모바일 부진·CIS 가동률 50% 하회)였고, 주가는 12개월 +663% 급등해 <b>현재가 171,600원이 6사 컨센 목표주가 176,000원에 거의 도달</b>. BNK는 "밸류 선반영"을 이유로 <b>'보유(Hold)'</b>로 한 발 물러섰다. <b>샘플(5/4, "저평가+분할매수")과 달리 지금은 '2027 성장에 베팅하되 단기 추격은 금지'</b> 국면. Base 205,000원(2027F EPS×40배) / Bull 240,000원.</div>
+</div>
+
+<!-- ===================== 4개 증권사 동시 상향 박스 ===================== -->
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">📊 5/15~5/22 4개 증권사 목표주가 일제 상향 — 단, 1Q26 어닝 미스 직후</h3>
+
+<table style="margin-top:8px;">
+<tr><th>증권사 (애널리스트)</th><th>발간일</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>핵심 포인트</th></tr>
+<tr><td><b>DS투자증권</b> (이수림)</td><td>5/15</td><td>"가슴이 웅장해지는 내년"</td><td class="positive"><b>BUY</b> 신규</td><td class="positive"><b>220,000원</b></td><td>6사 최고치. 2027F EPS 6,069원 × P/E 36배. "Auto → AI/HPC 체질 전환"</td></tr>
+<tr><td><b>한국투자증권</b> (남채민)</td><td>5/18</td><td>"1Q26 Review: 어닝 미스보다 중요한 것"</td><td class="positive"><b>매수</b></td><td class="positive"><b>211,000원</b></td><td>+21.3% 상향. CapEx 매출환산비율 상향. 2027 OP +158% YoY</td></tr>
+<tr><td><b>교보증권</b> (박희철)</td><td>5/20</td><td>"파운드리 확대에 따른 강한 수혜"</td><td class="positive"><b>BUY</b></td><td class="positive"><b>190,000원</b></td><td>2027 매출 5,046억(OPM 22.1%). 대표 OSAT 수준 Re-Rating</td></tr>
+<tr><td><b>BNK투자증권</b> (이민희)</td><td>5/22</td><td>"실적 부진에도 삼성 파운드리 호전 기대는 유효"</td><td class="negative"><b>보유 (Hold)</b></td><td><b>190,000원</b></td><td>TP는 상향했으나 의견 보유. "밸류에이션 상당히 선반영"</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1a5276;"><b>핵심 시그널 3가지:</b><br>
+① <b>목표주가 컨센서스는 계속 상향 중.</b> 샘플 작성 시점(5/4)의 4사 컨센은 160,000~175,000원이었으나, 5월 중순 이후 발간된 4개 리포트는 <b>190,000~220,000원으로 레벨업</b>됐다. 최신 4사 평균 목표주가는 <b>202,750원</b>이며, FnGuide 6사 컨센서스 176,000원은 메리츠(160k)·한화(175k) 등 4월 리포트가 섞인 <b>후행 평균</b>이다.<br>
+② <b>그러나 1Q26은 명백한 어닝 미스였다.</b> 1분기 영업이익 55억원은 컨센서스를 약 34% 하회. 모바일 AP 부진과 CIS 가동률 50% 하회가 원인. 증권사들이 목표주가를 올린 것은 <b>2026년이 아니라 2027년 실적을 근거로 한 것</b> — "지금 싸다"가 아니라 "내년이면 다른 회사"라는 베팅이다.<br>
+③ <b>가장 보수적인 BNK는 '보유'로 한 발 물러섰다.</b> BNK는 목표주가를 19만원으로 올리면서도 투자의견은 매수가 아닌 <b>보유(Hold)</b>로 두었다. 이유는 명확하다 — "긍정적 장기 성장 기대에도 이미 너무 높아진 Valuation 부담을 고려할 때 주가에 상당히 선반영된 것 같다". 현재가 171,600원에서 BNK 목표주가까지 상승여력은 +10.7%에 불과하다.</p>
+</div>
+
+<!-- ===================== DS투자증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#27ae60;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;border:none;">🔥 5/15 DS투자증권 (이수림) — 6사 최고가 220,000원, "가슴이 웅장해지는 내년"</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>DS투자증권 5/15 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"가슴이 웅장해지는 내년" — 부제 "4/28 투자공시로 그려보는 2027년 두산테스나의 미래"</td><td>2026년이 아니라 2027년에 시선을 맞추라는 메시지</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY (커버리지 재개) / 220,000원</b></td><td class="positive">6사 중 최고치. 현재가 171,600원 대비 +28.2%</td></tr>
+<tr><td class="positive"><b>★ 목표주가 산출</b></td><td class="positive">2027F 추정 EPS <b>6,069원</b> × Target P/E <b>36배</b>. "Target P/E는 글로벌 AI/HPC OSAT들의 밸류에이션과 동사의 구조적 이익 체력 변화를 반영"</td><td class="positive">멀티플의 기준 자체를 'Auto 부품 테스터'에서 'AI/HPC OSAT'로 이동</td></tr>
+<tr><td class="positive"><b>★ 2027 실적 점프</b></td><td class="positive">"2027년 동사는 영업이익 <b>1,395억원(+148% YoY, OPM 25%)</b>의 체력을 가진 완전히 다른 회사가 될 것". 2025 적자 → 2026 560억(흑전, OPM 16%) → 2027 폭발</td><td class="positive">3년 만에 적자 → OPM 25%로의 구조적 점프</td></tr>
+<tr><td class="positive"><b>★ 연매출 2,100억+ 증분</b></td><td class="positive">"두 건의 대규모 수주를 통해 연간 2,100억원 이상의 매출 증가가 나타날 것". LPU는 4Q26부터, 북미 CIS는 2Q27부터 매출 반영</td><td class="positive">2025년 매출(3,039억)의 70%에 해당하는 신규 매출축</td></tr>
+<tr><td><b>마진율 상승 논리</b></td><td>"테스트 단가는 [장비 가격] × [테스트 시간]으로 결정. 고사양 장비가 사용되고 테스트 시간이 길어지면 마진율이 높아진다"</td><td>LPU·고화소 CIS는 테스트 시간이 길어 OPM 프리미엄</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1e6e3a;"><b>DS 핵심 시그널:</b> DS투자증권의 메시지는 "동사는 이제 Auto를 넘어 <b>AI/HPC + 고사양 CIS 테스트 업체로의 체질 변화</b>를 시도하고 있다"로 요약된다. 220,000원이라는 목표주가는 두산테스나를 더 이상 한국의 자동차·모바일 칩 테스터로 보지 않고, <b>글로벌 AI/HPC OSAT(KYEC 등)의 밸류에이션 그룹으로 재분류</b>하겠다는 선언이다. 단, 이 목표주가는 철저히 <b>2027년 추정치(EPS 6,069원)</b>에 기반한다 — 2026년이 아니라 2027년을 사는 그림이다.</p>
+</div>
+
+<!-- ===================== BNK 신중론 박스 ===================== -->
+<div class="sk-box">
+<h3 style="margin-top:0;color:#a04000;border:none;">⚖️ 5/22 BNK투자증권 (이민희) — '보유(Hold)'로 한 발 물러선 신중론</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>BNK투자증권 5/22 핵심 코멘트</th><th>의미</th></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="negative"><b>보유(Hold) 유지</b> / 목표주가 190,000원 상향</td><td class="negative">목표주가는 올렸으나 의견은 매수가 아님</td></tr>
+<tr><td><b>상승여력</b></td><td>현재가 171,600원 대비 <b>+10.7%</b></td><td>4사 중 가장 좁은 상승여력</td></tr>
+<tr><td class="negative"><b>★ 1Q26 평가</b></td><td class="negative">"예상보다 더 부진했던 1Q26 실적" — 매출 768억(-10% QoQ), 영업이익 55억(-64% QoQ). 컨센서스를 4%·34% 하회</td><td class="negative">모바일 수요 악화로 CIS 매출 20%중반 QoQ 감소, AP도 부진</td></tr>
+<tr><td><b>추정치 조정</b></td><td>올해(2026) EPS를 <b>34% 하향</b>, 내년(2027) EPS를 <b>35% 상향</b> 조정</td><td>"올해는 더 나쁘게, 내년은 더 좋게" — 실적의 시점 이연</td></tr>
+<tr><td><b>목표주가 기준</b></td><td>목표주가 19만원 = 26E P/B 8배, 27E P/EBIT 45배에 해당</td><td>이미 고배수 영역. 추가 상향은 추정치 상향이 전제</td></tr>
+<tr><td class="negative"><b>★ 핵심 우려</b></td><td class="negative">"긍정적인 장기 성장 기대에도, 이미 너무 높아진 Valuation 부담을 고려할 때 주가에는 <b>상당히 선반영</b>된 것 같다"</td><td class="negative">성장은 인정하나 주가가 그 성장을 이미 반영했다는 판단</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#a04000;"><b>BNK 핵심 시그널:</b> BNK의 '보유' 의견은 본 보고서가 균형을 잡는 데 중요한 닻이다. <b>강세론(DS·한투·교보)과 신중론(BNK)이 공존</b>한다는 것은, 두산테스나의 성장 스토리 자체는 컨센서스이지만 <b>"그 성장을 현재 주가에 얼마나 지불할 것인가"에서 시각이 갈린다</b>는 뜻이다. 1Q26 어닝 미스가 신중론에 힘을 실었다. 매수하더라도 <b>추격이 아니라 조정을 기다리는 분할 접근</b>이 합리적이라는 신호다.</p>
+</div>
+
+<!-- ===================== 테라다인 / GPU 테스트 외부 검증 박스 ===================== -->
+<div class="ter-box">
+<h3 style="margin-top:0;color:#6c3483;border:none;">🔬 외부 검증 ① — 테라다인 + GPU 테스트 시간 급증 (AI 후공정 수요의 구조적 근거)</h3>
+
+<p style="font-size:10pt;color:#4a235a;"><b>왜 이게 결정적인가:</b> 4개 증권사의 목표주가 상향은 "AI 칩 테스트 수요가 구조적으로 늘어난다"는 한 가지 전제 위에 서 있다. 두산테스나는 4/28 양수 공시의 거래상대방인 <b>테라다인의 장비를 직접 받는 OSAT</b>다. 따라서 테라다인의 업황 코멘트와 GPU 테스트 시간 데이터는 두산테스나 매수 논리의 직접적 외부 검증이다.</p>
+
+<table style="margin-top:10px;">
+<tr><th>외부 데이터 (2026)</th><th>두산테스나에 미치는 영향</th><th>강도</th></tr>
+<tr><td><b>① 테라다인, UBS 글로벌 테크 컨퍼런스서 2026 전망 강세 발표 → 주가 +23% 급등</b><br>CEO 그렉 스미스: "업계 전반 수요가 견고해지고 있다"</td><td>장비사가 2026 수요를 강하게 가이드한다는 것은, 그 장비를 받아 가동하는 OSAT(두산테스나)의 매출도 같은 방향. 4/28 양수 1,909억의 입고·가동 일정 신뢰도 보강</td><td class="positive"><b>★★★★★</b></td></tr>
+<tr><td class="positive"><b>② GPU 테스트 시간의 급격한 증가</b><br>Hopper 350초 → Blackwell 700~1,000초 → Rubin 1,200~1,400초 → 차세대 1,800~2,000초</td><td class="positive">테스트 매출 = 단가 × <b>테스트 시간</b>. AI 칩 세대가 올라갈수록 칩 1개당 테스트 시간이 5배 이상 길어진다 = OSAT 매출·가동률의 구조적 증가. DS가 말한 "테스트 시간이 길어지면 마진율이 높아진다"의 산업 데이터 근거</td><td class="positive"><b>★★★★★</b></td></tr>
+<tr><td><b>③ 대만 OSAT 2026 CAPEX 공격적 확대</b><br>첨단 테스트·패키징 캐파 경쟁 격화</td><td>글로벌 OSAT가 동시에 캐파를 늘린다는 것은 AI 후공정 슈퍼사이클의 산업 차원 실증. 두산테스나 4,290억 CAPEX가 외로운 베팅이 아님</td><td class="positive"><b>★★★★</b></td></tr>
+<tr><td><b>④ Morgan Stanley 2026 반도체 전략: "Buy Packaging, Buy Testing"</b></td><td>글로벌 IB가 후공정(패키징·테스트)을 2026 반도체 최선호 영역으로 지목. 두산테스나가 속한 테스트 OSAT의 업종 멀티플 리레이팅 정당성</td><td>★★★</td></tr>
+</table>
+
+<p style="margin-top:14px;margin-bottom:6px;color:#4a235a;font-size:10pt;"><b>핵심 인용:</b></p>
+<div class="ter-quote">
+"AI 칩 테스트 시간이 세대마다 배증되고 있다 — Hopper 350초에서 Blackwell은 700~1,000초, Rubin은 1,200~1,400초로 늘었다. 테스트 캐파 자체가 병목이 되는 중." (디지타임스·업계 종합, 2026)
+</div>
+
+<p style="margin-top:14px;margin-bottom:0;color:#4a235a;font-size:10pt;"><b>종합 결론:</b> AI 칩 1개당 테스트 시간이 세대마다 2배씩 늘어난다는 것은, <b>AI 칩 출하량이 그대로여도 테스트 수요(시간 기준)는 기하급수적으로 증가</b>한다는 뜻이다. 이는 두산테스나의 LPU 테스트 신규 캐파가 단순 한국 호재가 아니라 <b>글로벌 AI 후공정 병목 현상의 한국 분배</b>임을 입증한다. 4개 증권사가 2027년을 근거로 목표주가를 올린 것은 이 산업 데이터에 부합한다.</p>
+</div>
+
+<!-- ===================== 글로벌 OSAT 박스 ===================== -->
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">🌏 외부 검증 ② — 글로벌 OSAT 슈퍼사이클과 두산테스나의 4,290억 베팅</h3>
+
+<p style="font-size:10pt;color:#1a5276;"><b>외부 검증의 의미:</b> 두산테스나의 4,290억 CAPEX(2025년 매출을 초과하는 규모)가 정당한 베팅인지는, 글로벌 OSAT 업계가 같은 방향으로 움직이는지로 검증된다.</p>
+
+<table style="margin-top:10px;">
+<tr><th>글로벌 OSAT 흐름</th><th>두산테스나 시사점</th></tr>
+<tr><td><b>대만 3대 OSAT(ASE·Powertech·KYEC) 2026 CAPEX 사상 최고 수준</b> — AI 패키징·테스트 캐파 경쟁</td><td>두산테스나 4,290억 CAPEX는 글로벌 OSAT 동시 증설 현상의 한국 버전. 4사 증권사 컨센이 산업 사이클로 정합</td></tr>
+<tr><td class="positive"><b>KYEC(대만 테스트 전문 OSAT) — NVIDIA AI칩 테스트 90%+ 점유, AI/HPC 매출 2025년 +95% YoY</b></td><td class="positive">한투가 두산테스나 LPU 매출 환산비율(50%)을 추정할 때 <b>KYEC의 CapEx 대비 매출 증분 비율(24년 37%·25년 54%)을 직접 벤치마크</b>로 사용. KYEC = 두산테스나의 미래 청사진</td></tr>
+<tr><td><b>"테스트 = 패키징보다 본질적 수익성 우위"</b> — 테스트 전문 OSAT의 gross margin이 패키징보다 높음</td><td>두산테스나 2027E OPM 22~25% 추정(교보 22.1%·DS 25%)이 글로벌 산업 차원에서 정당화. 테스트 전문 OSAT 멀티플 적용 근거</td></tr>
+<tr><td class="positive"><b>삼성 파운드리 가동률 회복 + 외주화 확대</b></td><td class="positive">교보 "삼성 파운드리 저변 확대에 가장 직접적 수혜를 받는 OSAT 중 하나". 한국 시스템반도체 OSAT 1위 두산테스나의 구조적 수혜</td></tr>
+</table>
+
+<p style="margin-top:14px;margin-bottom:0;color:#1a5276;font-size:10pt;"><b>종합 결론:</b> 두산테스나의 4,290억 CAPEX는 <b>글로벌 OSAT 슈퍼사이클의 한국 축</b>이다. 한투가 LPU 매출 추정에 KYEC를 직접 벤치마크로 쓴 것은, 두산테스나가 이미 글로벌 AI/HPC OSAT의 성장 경로를 밟기 시작했다는 분석이다. DS가 목표 P/E 36배를 "글로벌 AI/HPC OSAT 밸류에이션"으로 정당화한 것도 같은 맥락이다.</p>
+</div>
+
+<!-- ===================== 밸류업 / 정책 박스 ===================== -->
+<div class="policy-box">
+<h3 style="margin-top:0;color:#7d4f00;border:none;">🏛️ 외부 검증 ③ — 기업가치 제고 계획(밸류업) + 정책 환경</h3>
+
+<p style="font-size:10pt;color:#7d4f00;"><b>배경:</b> 두산테스나는 2026년 <b>기업가치 제고 계획(밸류업)</b>을 공시했다. 핵심은 ① 고성장·고수익 시스템반도체 중심의 성장, ② 운영효율화·원가절감, ③ 성장투자와 재무여건을 고려한 주주환원 방안 추진이다.</p>
+
+<table style="margin-top:10px;">
+<tr><th>구분</th><th>내용</th><th>두산테스나 함의</th></tr>
+<tr><td><b>밸류업 계획</b></td><td>고성장·고수익 시스템반도체 중심 성장 + 운영효율화 + 주주환원</td><td>회사가 자체적으로 "고수익 체질 전환 + 주주가치 제고"를 공식 목표로 제시 — DS·교보의 OPM 22~25% 전망과 같은 방향</td></tr>
+<tr><td><b>주주환원 현황</b></td><td>주당배당금(DPS) 160원 유지. 2025년은 적자 기저로 배당성향이 일시적으로 높게(고배당기업 분류) 잡힘</td><td>배당수익률 자체는 0.1~0.3%로 낮음 — 두산테스나의 본질은 배당이 아니라 <b>성장 재투자</b>(4,290억 CAPEX)</td></tr>
+<tr><td class="positive"><b>★ 정책 환경</b></td><td class="positive">AI 반도체 후공정·소재는 국민성장펀드 등 정책 자금의 잠재 수혜 후보군. 단 두산테스나에 대한 직접투자·저리대출 확정 사례는 아직 없음</td><td class="positive">정책 수혜는 "공짜 옵션(free option)" — 받으면 +α, 안 받아도 펀더멘털 베팅은 유효</td></tr>
+</table>
+
+<p style="margin-top:14px;margin-bottom:0;color:#7d4f00;font-size:10pt;"><b>종합 결론:</b> 밸류업 계획은 회사가 스스로 "고수익 OSAT로의 전환"을 선언했다는 의미이며, 증권사들의 OPM 22~25% 전망과 정합한다. 다만 두산테스나의 주주환원 자체는 미미(배당수익률 0.1~0.3%)하므로, 투자 논리의 무게중심은 어디까지나 <b>4,290억 CAPEX가 만들어낼 2027년 실적 성장</b>에 있다. 정책 자금 수혜는 확정 정보가 아닌 업사이드 옵션으로만 본다.</p>
+</div>
+
+<!-- ===================== Section 1 ===================== -->
+<h2>1. 투자 포인트 — 왜 지금 관심을 가져야 하는가</h2>
+
+<ol class="points">
+
+<li><span class="point-title">★★★★★ 5/15~5/22 4개 증권사 목표주가 190,000~220,000원 일제 상향</span><br>
+DS투자증권(220k)·한국투자증권(211k)·교보증권(190k)·BNK투자증권(190k) 4개사가 8일 사이 목표주가를 일제히 상향. <span class="tag-new">DS, 2026.05.15</span> <span class="tag-new">한투, 2026.05.18</span> <span class="tag-new">교보, 2026.05.20</span> <span class="tag-new">BNK, 2026.05.22</span><br><br>
+<b>왜 핵심인가:</b> 본 보고서의 직전 버전(5/4 작성)에서 4사 컨센은 160,000~175,000원이었다. 3주 만에 최신 4개 리포트가 <b>190,000~220,000원으로 레벨업</b>됐고 평균 목표주가는 <b>202,750원</b>이다. FnGuide 6사 컨센서스 176,000원은 4월 리포트(메리츠 160k·한화 175k)가 섞인 <b>후행 평균</b>이라, 실제 시장 시각은 그보다 위에 있다. 다만 이번 상향의 성격은 직전과 다르다 — 직전이 "공시 임팩트에 따른 동시 상향"이었다면, 이번은 <b>"1Q26 어닝 미스에도 불구하고 2027년을 근거로 한 상향"</b>이다.
+</li>
+
+<li><span class="point-title">★★★★★ 4/28 공시 4,290억 CAPEX — 2025년 매출을 초과하는 AI 후공정 베팅</span><br>
+2026년 4월 28일 DART 공시: ① 신규 테스트 장비 <b>1,908.8억 양수</b>(거래상대방 Teradyne 등, 양수기준일 2026.10.30), ② 기존 1,713.8억 양수의 <b>2,053.1억으로의 정정 증액</b>(+339억, Advantest 등), ③ 평택 2공장 신규시설투자 2,303억(완공 2027.11). <span class="tag-disc">DART, 2026.04.28</span> 합산 약 <b>4,290억원 CAPEX</b>로, 2025년 연간 매출(3,039억)을 초과하는 규모다.<br><br>
+<b>왜 핵심인가:</b> 신규 1,909억은 <b>북미 LPU(Language Processing Unit, 언어처리 가속기) 테스트</b> 대응, 정정 증액분은 <b>북미 빅테크 CIS 신규 고객</b> 대응으로 해석된다. 회사가 한 해 매출을 통째로 쏟아붓는 베팅을 했다는 것은, 그만큼 <b>수주 가시성이 확보됐다</b>는 의미다. 양수기준일(2026.10.30)이 명시돼 있어 4Q26부터 자산 등재·매출 인식이 공시 레벨로 보장된다.
+</li>
+
+<li><span class="point-title">★★★★★ 2027년 실적 폭발 — 영업이익 +148~174% YoY, OPM 22~25%</span><br>
+4개 증권사의 2027년 영업이익 추정: DS <b>1,395억(+148% YoY, OPM 25%)</b> <span class="tag-new">DS</span>, 한투 1,410억(+158% YoY) <span class="tag-new">한투</span>, 교보 1,113억(+174.5% YoY, OPM 22.1%) <span class="tag-new">교보</span>, BNK 860억 <span class="tag-new">BNK</span>.<br><br>
+<b>왜 중요한가:</b> 2025년 영업이익은 -9억원의 적자였다. 그것이 2026년 약 360~586억원의 흑자전환을 거쳐, <b>2027년 860~1,410억원으로 점프</b>한다. 단순 사이클 회복이 아니라 <b>영업이익률이 마이너스에서 22~25%로 구조적으로 올라서는 그림</b>이다. 4Q26 LPU + 1Q27 북미 CIS 신규 캐파의 본격 가동이 그 동력. DS의 표현대로 "2027년 동사는 완전히 다른 회사가 될 것"이다. 단, 추정치 편차(BNK 860억 vs DS 1,395억)가 크다는 점은 유의(Section 8 참조).
+</li>
+
+<li><span class="point-title">★★★★★ 북미 LPU 단독 테스트 수주 — 4Q26부터 매출 인식</span><br>
+4/28 양수 1,909억은 시장에서 거론되는 <b>북미 LPU 고객사향 테스트 수주 대응</b>으로 추정된다. 한투는 SoC(LPU) 테스트 설비 CapEx의 매출액 환산 비율을 <b>50%</b>로 적용해 북미 LPU 연간 매출을 <b>약 950억원</b>으로 추정했다 <span class="tag-new">한투, 2026.05.18</span>. 환산 비율 50%는 KYEC(대만 테스트 전문 OSAT)의 CapEx 대비 매출 증분 비율(2024년 37%·2025년 54%)을 벤치마크한 수치다.<br><br>
+<b>왜 중요한가:</b> LPU는 AI 추론 시장에서 GPU 대비 효율적인 언어처리 가속기로, 미세공정 + 긴 테스트 시간 = OSAT에게 우호적인 고마진 품목이다. 양수기준일 2026.10.30에 맞춰 <b>4Q26부터 매출이 인식되기 시작</b>한다. 먼 미래의 스토리가 아니라 두 분기 뒤 손익계산서에 숫자가 찍히기 시작한다.
+</li>
+
+<li><span class="point-title">★★★★ 북미 CIS 신규 고객 — 2Q27부터 매출, 고객 다변화 동시 진행</span><br>
+정정 증액된 2,053억(Advantest 장비)은 <b>북미 빅테크 CIS(이미지센서) 신규 고객</b> 대응이다. 한투는 CIS 테스트 설비 CapEx의 매출 환산 비율을 30% → <b>40%로 상향</b>하며(북미 CIS가 5,000만 화소의 저화소 제품이라 테스트 시간이 짧다는 점 반영), 2027년 북미 CIS 부문에서 <b>연간 약 800억원의 매출 증분</b>을 전망했다 <span class="tag-new">한투</span>.<br><br>
+<b>왜 중요한가:</b> 두산테스나의 약점은 그간 삼성 MX(모바일 AP) 의존도가 높았다는 점이다. LPU(AI 가속기) + 북미 CIS(신규 빅테크 고객)로 <b>응용처와 고객사가 동시에 다변화</b>되면서 단일 고객 리스크가 구조적으로 축소된다. 북미 CIS는 2Q27부터 본격 반영된다.
+</li>
+
+<li><span class="point-title">★★★★ Auto·모바일 OSAT → AI/HPC + 고사양 CIS 테스트 업체로 체질 전환</span><br>
+DS투자증권의 핵심 통찰: "동사는 이제 Auto를 넘어 <b>AI/HPC + 고사양 CIS 테스트 업체로의 체질 변화</b>를 시도하고 있다" <span class="tag-new">DS, 2026.05.15</span>.<br><br>
+<b>왜 중요한가:</b> 이것이 멀티플 리레이팅의 본질이다. 두산테스나가 자동차·모바일 칩 테스터로 인식되면 PER 10~15배의 성숙주이지만, <b>AI/HPC OSAT로 재분류</b>되면 글로벌 AI 테스트 기업의 멀티플(DS 적용 36배)을 받는다. EPS 성장(분자)과 멀티플 확장(승수)이 곱셈으로 작동하기 때문에 목표주가가 빠르게 올라간다. 단, 이는 양날의 검 — 체질 전환이 지연되거나 의심받으면 멀티플도 빠르게 압축될 수 있다(Section 8 참조).
+</li>
+
+<li><span class="point-title">★★★★ AI 칩 테스트 시간의 구조적 급증 — 출하량이 정체돼도 테스트 수요는 폭증</span><br>
+AI 칩 1개당 테스트 시간이 세대마다 배증되고 있다 — <b>Hopper 350초 → Blackwell 700~1,000초 → Rubin 1,200~1,400초 → 차세대 1,800~2,000초</b>. <span class="tag-ter">업계 데이터, 2026</span><br><br>
+<b>왜 중요한가:</b> 테스트 매출 = 단가 × <b>테스트 시간</b>이다. AI 칩 출하 대수가 그대로여도 칩 세대가 올라가면 테스트 수요(시간 기준)는 5배 이상 늘어난다. 이는 두산테스나의 LPU 테스트 캐파 수주가 일시적 호재가 아니라 <b>AI 후공정 병목 현상의 구조적 수혜</b>임을 입증한다. "테스트 캐파 자체가 병목"이라는 산업 현상이 동사의 4,290억 CAPEX를 정당화한다.
+</li>
+
+<li><span class="point-title">★★★★ 삼성 파운드리 외주화 최대 수혜 — 한국 시스템반도체 OSAT 1위</span><br>
+교보증권: 두산테스나는 "<b>삼성 파운드리의 저변 확대에 가장 직접적인 수혜를 받고 있는 OSAT 중 하나</b>로, 대표 OSAT 수준의 Re-Rating은 필연적" <span class="tag-new">교보, 2026.05.20</span>. 두산테스나는 한국 시스템반도체 OSAT 매출 1위로, 평택·안성·서안성 3개 공장에 평택 2공장(2027.11 완공)을 추가 건설 중이다.<br><br>
+<b>왜 중요한가:</b> 파운드리는 다품종 소량 생산 구조로 변하면서 자체 테스트 라인의 효율이 떨어진다. 자체 라인 신설 대신 외주로 돌리면 CAPEX 부담이 감소하므로 <b>외주화는 일시적 트렌드가 아니라 구조적 변화</b>다. 한국 OSAT 1위인 두산테스나가 이 외주 물량의 1순위 수혜자다.
+</li>
+
+<li><span class="point-title">★★★ 글로벌 AI/HPC OSAT 리레이팅 — KYEC가 두산테스나의 청사진</span><br>
+한투는 두산테스나의 LPU 매출 환산 비율을 추정할 때 <b>KYEC(대만 테스트 전문 OSAT)를 직접 벤치마크</b>로 사용했다. KYEC는 NVIDIA AI칩 테스트의 90% 이상을 점유하며 AI/HPC 매출이 2025년 +95% YoY 성장했다. DS는 목표 P/E 36배를 "글로벌 AI/HPC OSAT들의 밸류에이션"으로 정당화했다 <span class="tag-new">DS</span>.<br><br>
+<b>왜 중요한가:</b> 순수 테스트 전문 OSAT가 AI 사이클에서 어떻게 재평가되는지를 KYEC가 이미 보여줬다. 두산테스나가 LPU·CIS로 트랙레코드를 쌓으면 같은 경로를 밟을 수 있다는 것이 강세론의 핵심 — '한국의 KYEC'가 되는 그림이다.
+</li>
+
+<li><span class="point-title">★★★ ⚠️ (주의) 1Q26 어닝 미스 — 컨센서스 34% 하회</span><br>
+1Q26 영업이익 55억원은 컨센서스를 약 <b>34% 하회</b>한 명백한 어닝 미스였다 <span class="tag-disc">실적발표, 2026.04</span>. 매출 768억(+29.6% YoY, -10.1% QoQ), OPM 7.1%. 원인은 <b>모바일 AP 가동률 하락에 따른 고정비 부담</b>과 <b>CIS 가동률 50% 하회</b>(일부 장비 Off + 중화권 경쟁 심화, 2분기까지 지속 전망)다.<br><br>
+<b>왜 중요한가:</b> 증권사들이 목표주가를 올린 것은 1Q26 실적이 좋아서가 아니라 <b>2027년 추정치를 올렸기 때문</b>이다. 본업(모바일·CIS)이 부진한 상태에서 신규(LPU·북미CIS) 매출 인식 전이라는 <b>'공백 구간'</b>에 있다는 점은 단기 리스크다. 2026년 분기 실적이 계속 컨센을 하회하면 "2027년 스토리"에 대한 신뢰가 흔들릴 수 있다.
+</li>
+
+<li><span class="point-title">★★★ ⚠️ (주의) 밸류에이션 부담 — 현재가가 컨센 목표주가를 따라잡음</span><br>
+현재가 171,600원은 12개월간 +662.7% 급등한 결과로, <b>FnGuide 6사 컨센 목표주가 176,000원과 거의 붙어 있다</b>(상승여력 +2.6%). 2026년 기준 PER은 컨센 EPS로 약 69배, 일부 증권사 추정으로는 80~110배에 달한다. BNK투자증권은 이를 이유로 투자의견을 <b>'보유(Hold)'</b>로 두며 "이미 너무 높아진 Valuation 부담, 주가에 상당히 선반영" <span class="tag-new">BNK, 2026.05.22</span>이라고 지적했다.<br><br>
+<b>왜 중요한가:</b> 직전 보고서(5/4, 현재가 131,900원)는 "저평가 + 컨센 상향" 국면이었다. 지금은 주가가 +30% 더 올라 <b>그 저평가 매력이 상당 부분 해소</b>됐다. 2027년 실적은 강력하지만, 그 실적을 현재 주가에 얼마나 지불할지는 판단의 영역이다 — <b>추격 매수는 피하고 조정을 기다리는 것</b>이 합리적이다.
+</li>
+
+</ol>
+
+<h3>1-A. 투자 의견 — 비중 확대 (Buy) + 철저한 분할 매수</h3>
+
+<div class="bull-box">
+<b>결론: 비중 확대 (Buy) — 단, 추격 금지·분할 매수 필수</b><br>
+<b>이유:</b> ① 4개 증권사 중 3개사(DS·한투·교보)가 매수, 컨센서스 투자의견 Buy 4.0, ② 4,290억 CAPEX가 2027년 영업이익 860~1,410억원(OPM 22~25%)으로 이어지는 경로가 공시·KYEC 벤치마크로 뒷받침, ③ Auto·모바일 → AI/HPC OSAT로의 체질 전환 + 글로벌 멀티플 리레이팅, ④ AI 칩 테스트 시간 급증이라는 산업 구조적 수요.<br>
+<b>단서:</b> 1Q26 어닝 미스 + 12개월 +663% 급등으로 <b>현재가가 컨센 목표주가에 근접</b>했고 BNK는 '보유'로 전환. "지금 싸다"가 아니라 "2027년에 베팅한다"는 성격의 매수임을 분명히 인식해야 한다.
+</div>
+
+<div class="update-box">
+<b>★ 단기 매수 의사결정 — 한 줄 가이드</b><br>
+<b>지금 사야 하나?</b> → <b>NO (추격 금지)</b>. 현재가 171,600원은 6사 컨센(176,000원)에 거의 도달했고 1Q26 어닝 미스 직후다.<br>
+<b>언제 사야 하나?</b> → <b>① 단기 조정 시(150,000원 부근) 1차, ② 2Q26·3Q26 실적으로 본업 바닥 확인 후 2차, ③ 시장 전체 조정 또는 4Q26 LPU 매출 인식 가시화 시 3차</b><br>
+<b>얼마나 사야 하나?</b> → <b>총 자산의 3~7%, 3단계 분할</b>. 변동성(베타 1.02, 12개월 +663%)이 큰 종목이므로 비중·진입 모두 보수적으로.
+</div>
+
+<h3>1-B. 시나리오 테이블</h3>
+
+<table>
+<tr><th>시나리오</th><th>2027F EPS</th><th>적용 PER</th><th>목표가</th><th>현재가 대비</th><th>핵심 가정</th></tr>
+<tr><td><b>Base</b></td><td>5,145원<br>(한투 5,237 + DS 6,069 + BNK 4,129 평균)</td><td><b>40배</b><br>(글로벌 AI/HPC OSAT 평균)</td><td class="positive"><b>205,000원</b></td><td class="positive">+19.5%</td><td>4,290억 CAPEX 정상 가동, LPU 4Q26·북미CIS 2Q27 매출 인식, 2027 OPM 22~25%, <b>최신 4사 평균 목표주가 202,750원에 정합</b></td></tr>
+<tr><td><b>Bull</b></td><td>6,069원<br>(DS 추정 — 수주 풀가동)</td><td><b>40배</b></td><td class="positive"><b>240,000원</b></td><td class="positive">+39.9%</td><td>LPU·CIS 풀가동 + 추가 수주 + AI/HPC OSAT 멀티플 풀 리레이팅. <b>DS 목표주가 220,000원 상회</b></td></tr>
+<tr><td><b>Bear (참고)</b></td><td>—</td><td>26E P/B 8배 수준</td><td class="negative"><b>150,000원 부근</b></td><td class="negative">-12.6%</td><td>2026 분기 실적 연속 미스로 2027 스토리 신뢰 약화 + 멀티플 압축. BNK식 신중 시나리오</td></tr>
+</table>
+
+<p><b>현재가 vs Base TP:</b> 171,600원(5/22 종가)은 Base 205,000원 대비 <b>-16.3% 디스카운트</b> 상태로, 상승여력은 직전 보고서(5/4, -22.4%)보다 좁아졌다. <b>⚠️ 1Q26 어닝 미스 + 12개월 +663% 급등으로 추격 매수는 부적절. 조정 시 분할 매수 권장.</b></p>
+
+<!-- ===================== Section 2 ===================== -->
+<h2>2. 산업 개요 — 시스템반도체 OSAT (후공정 테스트)</h2>
+
+<h3>2-1. TAM/SAM/SOM</h3>
+<p>OSAT(Outsourced Semiconductor Assembly and Test)는 반도체 후공정의 <b>패키징(조립)</b>과 <b>테스트(검사)</b>를 외주로 수행하는 산업이다. 글로벌 OSAT 시장은 약 400억 달러 규모이며, 이 중 두산테스나가 속한 <b>웨이퍼 테스트 + 패키지 테스트</b> 영역이 약 80~100억 달러다. 2026년 글로벌 반도체 시장은 AI·자율주행 확산으로 약 9,098억 달러 규모로 성장할 전망이며, AI 칩 비중이 커질수록 후공정 테스트의 중요도가 구조적으로 상승한다.</p>
+
+<p>한국 시스템반도체 OSAT 영역에서 <b>두산테스나는 매출 1위 사업자</b>다(2025년 별도 매출 3,039억원). 글로벌로는 대만 ASE·KYEC, 미국 Amkor 등 대형사가 외형의 대부분을 차지하지만, <b>삼성 파운드리향 시스템반도체 테스트 외주에서는 두산테스나가 한국 내 압도적 1위</b>다.</p>
+
+<p><b>산업 핵심 Key Factor:</b> 시스템반도체 OSAT의 실적은 <b>① 전방 파운드리(삼성) 가동률, ② 신규 칩 양산 시점, ③ 외주화 비중, ④ AI 칩 비중(테스트 시간 프리미엄)</b> 4가지로 결정된다. 두산테스나는 ①②가 2026년 회복 국면에 진입했고, ④(AI/HPC LPU)가 2027년 본격화되는 길목에 있다.</p>
+
+<h3>2-2. Value Chain</h3>
+
+<table>
+<tr><th>단계</th><th>주요 기업</th><th>역할</th><th>두산테스나 위치</th></tr>
+<tr><td><b>장비 (Upstream)</b></td><td>Teradyne(미), Advantest(일), 세메스(한)</td><td>테스트 장비 공급. 두산테스나 4/28 양수의 거래상대방</td><td>고객사 (장비 매입)</td></tr>
+<tr><td><b>OSAT — 테스트 (한국)</b></td><td class="positive"><b>두산테스나(1위)</b>, SFA반도체, 엘비세미콘, 네패스</td><td>웨이퍼 테스트, 패키지 테스트 수행</td><td class="positive"><b>한국 시스템반도체 테스트 1위</b></td></tr>
+<tr><td><b>OSAT — 글로벌</b></td><td>ASE(대만), Amkor(미), KYEC(대만, 테스트 전문), JCET(중)</td><td>글로벌 패키지·테스트 메이저</td><td>경쟁 / 벤치마크 (KYEC)</td></tr>
+<tr><td><b>파운드리 (Downstream)</b></td><td>삼성파운드리, TSMC</td><td>전공정 생산 후 OSAT에 테스트 위탁</td><td>고객사 (외주 발주)</td></tr>
+<tr><td><b>최종 고객</b></td><td>북미 LPU 고객사, 북미 빅테크(CIS), 삼성전자(MX), 전장 고객</td><td>완제품·시스템 제조</td><td>최종 고객 (간접)</td></tr>
+</table>
+
+<p><b>돈의 흐름:</b> 최종 고객 → 파운드리(삼성) → OSAT(두산테스나) → 장비사(Teradyne·Advantest) 순으로 매출·지급이 흐른다. 두산테스나는 파운드리로부터 테스트 외주 매출을 인식하고, 장비사로부터 테스트 장비를 매입한다. 4/28 양수 공시는 이 '장비 매입' 단계에 해당하며, 그 장비가 가동되면 '외주 매출'로 전환된다.</p>
+
+<h3>2-3. 산업 사이클 — 외주화 + AI 후공정 슈퍼사이클</h3>
+
+<p>두산테스나의 산업 사이클은 두 개의 동력으로 움직인다.</p>
+
+<p><b>동력 1 — 외주화의 구조적 확대:</b> 파운드리는 다품종 소량 생산 구조로 변하면서 자체 테스트 라인의 효율이 떨어진다. 자체 라인 신설 비용을 외주로 돌리면 CAPEX 부담이 감소하므로, <b>테스트 외주는 일시적 트렌드가 아니라 영구적 변화</b>다. 삼성 파운드리의 가동률 회복과 외주 물량 확대는 한국 OSAT 1위 두산테스나의 구조적 베이스를 형성한다.</p>
+
+<p><b>동력 2 — AI 후공정 슈퍼사이클:</b> AI 칩은 ① 테스트 항목이 많고 ② 테스트 시간이 길어, 칩 1개당 후공정 부가가치가 일반 칩보다 훨씬 크다. 앞서 본 대로 AI 칩 테스트 시간은 세대마다 배증된다(Hopper 350초 → Rubin 1,400초). 글로벌 IB(Morgan Stanley)가 2026년 반도체 최선호 영역으로 "Testing"을 지목한 것이 이 흐름을 압축한다.</p>
+
+<table>
+<tr><th>증권사</th><th>산업 사이클 분석</th></tr>
+<tr><td><b>DS</b></td><td>"테스트 단가 = [장비 가격] × [테스트 시간]. 고사양 장비·긴 테스트 시간 → 마진율 상승" — AI 칩이 OSAT 마진을 끌어올리는 구조</td></tr>
+<tr><td><b>한투</b></td><td>KYEC의 CapEx 대비 매출 증분 비율(24년 37%·25년 54%)을 두산테스나 LPU 매출 추정의 벤치마크로 사용 — 글로벌 AI OSAT 사이클과 동조</td></tr>
+<tr><td class="positive"><b>교보</b></td><td class="positive">"삼성 파운드리 저변 확대에 가장 직접적 수혜를 받는 OSAT 중 하나 — 대표 OSAT 수준의 Re-Rating 필연"</td></tr>
+</table>
+
+<h3>2-3.5. 글로벌 OSAT 비교 — KYEC가 두산테스나의 청사진</h3>
+
+<table>
+<tr><th>회사</th><th>국가</th><th>전문 분야</th><th>핵심 고객</th><th>두산테스나 시사점</th></tr>
+<tr><td><b>ASE Technology</b></td><td>대만</td><td>첨단 패키징 + 테스트 통합</td><td>Apple·AMD·Broadcom</td><td>글로벌 OSAT 1위. 2026 CAPEX 사상 최고 수준</td></tr>
+<tr><td class="positive"><b>KYEC</b></td><td>대만</td><td class="positive"><b>테스트 전문 OSAT</b></td><td class="positive">NVIDIA AI칩 90%+ 점유</td><td class="positive"><b>★ 두산테스나 미래 청사진.</b> AI/HPC 매출 25년 +95% YoY. 한투가 두산테스나 추정의 벤치마크로 사용</td></tr>
+<tr><td><b>Amkor</b></td><td>미국</td><td>AI ASIC 패키징</td><td>Apple·Qualcomm</td><td>글로벌 OSAT 2위</td></tr>
+<tr><td class="positive"><b>두산테스나</b></td><td>한국</td><td class="positive"><b>웨이퍼 테스트 (시스템반도체)</b></td><td class="positive">삼성파운드리·북미 LPU·북미 CIS</td><td class="positive"><b>한국 1위. AI/HPC OSAT로 체질 전환 중</b></td></tr>
+</table>
+
+<p><b>★ 핵심 시사점:</b> KYEC는 순수 테스트 전문 OSAT가 AI 사이클에서 어떻게 재평가되는지를 보여준 선례다 — NVIDIA AI칩 테스트 90% 독점, AI/HPC 매출 1년 만에 +95% 성장. 두산테스나가 LPU·고사양 CIS로 트랙레코드를 쌓으면 같은 경로를 밟을 수 있다는 것이 강세론의 토대다. DS가 목표 P/E 36배를 "글로벌 AI/HPC OSAT 밸류에이션"으로 적용한 것, 한투가 KYEC를 직접 벤치마크로 쓴 것 모두 "두산테스나 = 한국의 KYEC 후보"라는 인식을 반영한다.</p>
+
+<h3>2-4. AI 칩 테스트 = 시간 기반 매출 (Q × P)</h3>
+
+<div class="calc-box">
+<b>두산테스나 테스트 매출 공식 (DS·한투 공통):</b><br>
+매출 = (시간당 테스트 단가 P) × (테스트 시간 Q) × (가동률)<br>
+<br>
+<b>AI 칩(LPU)이 매출·마진에 유리한 이유:</b><br>
+- P(단가): 고사양 장비(Teradyne UltraFLEXplus 등) 필요 → 시간당 단가 ↑<br>
+- Q(시간): AI 칩은 테스트 항목·결함검사 많음 → 칩당 테스트 시간 ↑<br>
+&nbsp;&nbsp;(Hopper 350초 → Blackwell 700~1,000초 → Rubin 1,200~1,400초)<br>
+- P와 Q가 동시에 커지므로 일반 SoC(OPM 15~18%) 대비 AI 칩 테스트 OPM 25~30% 가능<br>
+<br>
+<b>핵심 변수: 가동률.</b> 1Q26 어닝 미스의 원인이 바로 모바일 AP·CIS 가동률 하락이었다.<br>
+<b>2027 반등 동력:</b> LPU(4Q26~) + 북미 CIS(2Q27~) 신규 캐파가 가동되며 가동률·믹스 동시 개선 → OPM 마이너스 → 22~25%로 점프.
+</div>
+
+<!-- ===================== Section 3 ===================== -->
+<h2>3. 기업 개요</h2>
+
+<h3>3-1. 프로필</h3>
+<table>
+<tr><td style="width:30%;background:#f8f9fa"><b>회사명</b></td><td>두산테스나 (Doosan Tesna Co., Ltd.)</td></tr>
+<tr><td style="background:#f8f9fa"><b>티커</b></td><td>131970.KQ (코스닥, KQ150)</td></tr>
+<tr><td style="background:#f8f9fa"><b>설립 / 인수</b></td><td>2002년 TESNA Inc. 설립 · 2022년 두산그룹 인수, '두산테스나'로 사명 변경</td></tr>
+<tr><td style="background:#f8f9fa"><b>본사 / 공장</b></td><td>경기 평택시 · 평택·안성·서안성 3개 공장 + 평택 2공장 건설 중(2027.11 완공)</td></tr>
+<tr><td style="background:#f8f9fa"><b>사업 영역</b></td><td>시스템반도체 후공정 테스트 — 웨이퍼 테스트 + 패키지 테스트 + DP(Die Preparation). 신성장: SiC 차량용 전력반도체</td></tr>
+<tr><td style="background:#f8f9fa"><b>핵심 고객</b></td><td>삼성파운드리(직접 발주처). End Customer: 삼성전자(MX), 북미 LPU 고객사, 북미 빅테크(CIS), 전장 고객</td></tr>
+<tr><td style="background:#f8f9fa"><b>최대주주</b></td><td>두산포트폴리오홀딩스 38.69%</td></tr>
+<tr><td style="background:#f8f9fa"><b>발행주식수</b></td><td>19,327,238주 · 액면가 500원 · 유동주식비율 60.4%</td></tr>
+</table>
+
+<h3>3-2. 비즈니스 모델 + 사업부별 매출</h3>
+
+<p><b>핵심 한 줄:</b> 두산테스나는 시스템반도체 칩이 웨이퍼 위에서 정상 작동하는지 검사(웨이퍼 테스트)하고, 패키징된 칩을 최종 검사(패키지 테스트)하는 <b>후공정 테스트 전문 OSAT</b>다. 매출은 <b>시간당 테스트 단가 × 가동 시간 × 가동률</b>로 결정된다(Section 2-4).</p>
+
+<table>
+<tr><th>사업부</th><th>품목</th><th>2025 매출(비중)</th><th>내용</th></tr>
+<tr><td><b>웨이퍼 테스트</b></td><td>SoC, CIS, Smartcard IC, MCU</td><td class="positive"><b>약 2,810억 (92%)</b></td><td>핵심 사업부. 4/28 신규 1,909억 양수가 이 라인 확장(LPU)</td></tr>
+<tr><td><b>패키지 테스트</b></td><td>MCU, CIS, SoC</td><td>약 180억 (6%)</td><td>패키지 후 최종 검사</td></tr>
+<tr><td><b>DP 사업</b></td><td>Die Preparation</td><td>약 50억 (2%)</td><td>비핵심, 비중 축소</td></tr>
+<tr><td><b>합계</b></td><td>—</td><td><b>3,039억 (100%)</b></td><td>2025년 -18.6% YoY (시스템반도체 수요 둔화)</td></tr>
+</table>
+
+<p><b>제품군별 특징:</b> 두산테스나의 주력은 <b>SoC</b>(모바일 AP·차량용 SoC·AI 가속기)와 <b>CIS</b>(이미지센서)다. 2025년은 모바일 AP 부진으로 적자였으나, 4/28 공시한 신규 캐파(북미 LPU·북미 CIS)가 2026~2027년 SoC·CIS 매출을 끌어올린다. <b>매출 무게중심이 모바일 AP에서 AI 가속기(LPU)와 신규 고객 CIS로 이동</b>하는 것이 핵심 변화다.</p>
+
+<div class="calc-box">
+<b>수익 공식 (P × Q):</b><br>
+매출 = (시간당 테스트 단가 P) × (가동 시간 Q) × (가동률)<br>
+<br>
+<b>2025 → 2027 변화:</b><br>
+- 2025: 모바일 AP 가동률 하락 → 고정비 부담 → 영업이익 -9억 (적자)<br>
+- 2026: LPU 4Q 인식 시작 → 영업이익 360~586억 (흑자전환, OPM 약 16%)<br>
+- 2027: LPU 온기 + 북미 CIS 가세 → 영업이익 860~1,410억 (OPM 22~25%)<br>
+<br>
+<b>핵심:</b> 모듈 제조업이 아니라 '장비를 돌려 시간을 파는' 사업이라, 가동률이 손익의 지렛대. 신규 고사양 캐파가 채워지면 OPM이 비선형으로 점프한다.
+</div>
+
+<h3>3-3. 경쟁 해자 (정량 분석)</h3>
+
+<table>
+<tr><th>해자 요소</th><th>강도</th><th>정량적 근거</th></tr>
+<tr><td><b>국내 1위 캐파</b></td><td>★★★★★</td><td>한국 시스템반도체 OSAT 매출 1위. 평택·안성·서안성 3개 공장 + 평택 2공장 건설 중</td></tr>
+<tr><td><b>고객 레퍼런스</b></td><td>★★★★★</td><td>삼성파운드리 외주 1순위. 북미 LPU·북미 CIS 신규 고객 동시 확보</td></tr>
+<tr><td><b>장비 운영 노하우</b></td><td>★★★★</td><td>Teradyne·Advantest·세메스 등 멀티 장비 운영 역량. 4/28 멀티 장비 동시 양수</td></tr>
+<tr><td><b>전환비용 (Lock-in)</b></td><td>★★★★</td><td>신규 OSAT 양성에 테스트 프로그램 검증·수율 정착 6~12개월 소요 → 한 번 들어간 고객은 락인</td></tr>
+<tr><td><b>두산그룹 신용</b></td><td>★★★</td><td>4,290억 CAPEX를 차입으로 감당 가능(부채비율 61~64%, 무리한 증자 가정 없음)</td></tr>
+</table>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><td style="width:15%;background:#f8f9fa"><b>2002</b></td><td>TESNA Inc. 설립 (반도체 테스트 전문)</td></tr>
+<tr><td style="background:#f8f9fa"><b>2014</b></td><td>코스닥 상장</td></tr>
+<tr><td style="background:#f8f9fa"><b>2022</b></td><td>두산그룹 인수 → '두산테스나'로 사명 변경</td></tr>
+<tr><td style="background:#f8f9fa"><b>2025</b></td><td>시스템반도체 수요 둔화로 매출 -18.6%, 영업이익 적자전환</td></tr>
+<tr><td style="background:#f8f9fa"><b>2026.04.28</b></td><td class="positive"><b>3건 동시 공시 — 신규 1,909억 + 정정 2,053억 + 평택 2공장 2,303억 = 약 4,290억 CAPEX 확정</b></td></tr>
+<tr><td style="background:#f8f9fa"><b>2026.04</b></td><td>1Q26 실적 발표 — 영업이익 55억, 컨센서스 약 34% 하회 (어닝 미스)</td></tr>
+<tr><td style="background:#f8f9fa"><b>2026.05</b></td><td class="positive"><b>★ 4개 증권사 목표주가 190,000~220,000원 일제 상향</b></td></tr>
+</table>
+
+<h3>3-5. 경영진 / 지배구조</h3>
+<p>두산테스나는 2022년 두산그룹 인수 이후 <b>두산포트폴리오홀딩스 산하 자회사</b>로 운영된다. 두산그룹의 시스템반도체 후공정 핵심 자회사로, 그룹 차원의 반도체 사업 확장 의지가 4,290억 CAPEX 결정의 배경이다. 최대주주 지분율 38.69%로 경영권은 안정적이며, 본 보고서가 다룬 4개 리포트에서 별도의 경영진 변동 이슈는 언급되지 않았다.</p>
+
+<h3>3-6. 1차자료 — 증권사 리포트 (FnGuide, 2026.05)</h3>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[1] DS투자증권 — 이수림 (2026.05.15)</h4>
+<p><b>제목:</b> "가슴이 웅장해지는 내년"<br>
+<b>투자의견:</b> BUY (커버리지 재개) / <b>목표주가:</b> 220,000원 (6사 최고치)<br>
+<b>상승여력:</b> +15.7% (5/14 종가 190,100원 대비) · 현재가 171,600원 대비 +28.2%</p>
+<p><b>목표주가 산출:</b> 2027F 추정 EPS 6,069원 × Target P/E 36배. Target P/E는 글로벌 AI/HPC OSAT 밸류에이션 + 동사의 구조적 이익체력 변화 반영.</p>
+<p><b>핵심:</b> "2027년 동사는 영업이익 1,395억원(+148% YoY, OPM 25%)의 완전히 다른 회사가 될 것." 두 건의 대규모 수주로 연매출 2,100억원+ 증가. LPU 4Q26~, 북미 CIS 2Q27~ 매출 반영. "Auto를 넘어 AI/HPC + 고사양 CIS 테스트 업체로 체질 변화."</p>
+</div>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[2] 한국투자증권 — 남채민 (2026.05.18)</h4>
+<p><b>제목:</b> "1Q26 Review: 어닝 미스보다 중요한 것"<br>
+<b>투자의견:</b> 매수 유지 / <b>목표주가:</b> 211,000원 (기존 대비 +21.3% 상향)</p>
+<p><b>목표주가 산출:</b> 2027년 이익 추정치 변경 반영. 2027년 영업이익 +158% YoY 추정.</p>
+<p><b>핵심:</b> 1Q26 영업이익 55억원은 컨센서스 33% 하회. CIS 테스트 설비 CapEx 매출 환산비율을 30→40%로(북미 CIS 5,000만 화소 저화소) → 2027 북미 CIS 800억 증분. SoC(LPU) 설비 환산비율 50%(KYEC 벤치마크) → 북미 LPU 연 950억. "과거 밸류에이션으로 설명하는 것은 부적합 — 2027년부터 다른 회사."</p>
+</div>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[3] 교보증권 — 박희철 (2026.05.20)</h4>
+<p><b>제목:</b> "파운드리 확대에 따른 강한 수혜"<br>
+<b>투자의견:</b> BUY 유지 / <b>목표주가:</b> 190,000원 (상향)</p>
+<p><b>목표주가 산출:</b> 실적 램프업이 나타날 2027년 기준 밸류에이션.</p>
+<p><b>핵심:</b> 1Q26 매출 768억(YoY +29.6%)·영업이익 55억(OPM 7.1%). 신규 SoC 테스트 4Q26~, CIS 신규 고객 2Q27~ 본격 반영. 2027년 매출 5,046억(YoY +43.9%)·영업이익 1,113억(YoY +174.5%, OPM 22.1%). "삼성 파운드리 저변 확대에 가장 직접적 수혜 OSAT — 대표 OSAT 수준 Re-Rating 필연."</p>
+</div>
+
+<div class="sk-box">
+<h4 style="margin-top:0;color:#a04000;">[4] BNK투자증권 — 이민희 (2026.05.22)</h4>
+<p><b>제목:</b> "실적 부진에도 삼성 파운드리 호전 기대는 유효"<br>
+<b>투자의견:</b> <b>보유 (Hold) 유지</b> / <b>목표주가:</b> 190,000원 (상향)<br>
+<b>상승여력:</b> +10.7% (현재가 171,600원 대비)</p>
+<p><b>목표주가 산출:</b> 19만원 = 26E P/B 8배, 27E P/EBIT 45배.</p>
+<p><b>핵심:</b> "예상보다 더 부진했던 1Q26 실적" — 컨센서스 4%·34% 하회. 올해 EPS 34% 하향, 내년 EPS 35% 상향. "긍정적인 장기 성장 기대에도 이미 너무 높아진 Valuation 부담을 고려할 때 주가에는 상당히 선반영된 것 같다." 4사 중 유일하게 매수가 아닌 보유 의견.</p>
+</div>
+
+<h4>3-6-A. 4개 증권사 비교 — 강세론 3 vs 신중론 1</h4>
+
+<table>
+<tr><th>구분</th><th>DS (5/15)</th><th>한투 (5/18)</th><th>교보 (5/20)</th><th>BNK (5/22)</th></tr>
+<tr><td><b>목표주가</b></td><td class="positive"><b>220,000</b></td><td>211,000</td><td>190,000</td><td>190,000</td></tr>
+<tr><td><b>투자의견</b></td><td class="positive">BUY</td><td class="positive">매수</td><td class="positive">BUY</td><td class="negative">보유(Hold)</td></tr>
+<tr><td>밸류 기준</td><td>2027F EPS×36배</td><td>2027 이익 기준</td><td>2027 기준</td><td>26E P/B 8x·27E P/EBIT 45x</td></tr>
+<tr><td>2027F 영업이익</td><td>1,395억</td><td>약 1,410억</td><td>1,113억</td><td>약 860억</td></tr>
+<tr><td>2027F 매출</td><td>—</td><td>5,320억</td><td>5,046억</td><td>4,730억</td></tr>
+<tr><td>2027F EPS</td><td>6,069원</td><td>5,237원</td><td>—</td><td>4,129원</td></tr>
+<tr><td>핵심 톤</td><td>"완전히 다른 회사"</td><td>"2027부터 다른 회사"</td><td>"Re-Rating 필연"</td><td class="negative">"밸류 선반영"</td></tr>
+</table>
+
+<p><b>해석:</b> 4개사 모두 목표주가를 190,000원 이상으로 상향했고 <b>2027년 성장 스토리 자체에는 이견이 없다</b>. 그러나 <b>2027F 영업이익 추정치는 860억(BNK) ~ 1,410억(한투)으로 편차가 64%에 달한다</b> — 신규 수주의 매출 환산 속도·가동률 가정에 따라 결과가 크게 갈린다는 뜻이다. 또한 <b>같은 목표주가(190k)를 두고도 교보는 'BUY', BNK는 '보유'</b>로 의견이 갈린다. 본 보고서의 Base TP 205,000원은 4사 평균(202,750원)에 정합하며, 의견은 다수(3/4)를 따라 '비중확대'로 하되 BNK의 신중론을 '추격 금지·분할 매수'로 반영했다.</p>
+
+<h3>3-7. 경쟁 환경 — 글로벌 OSAT Peer</h3>
+
+<table>
+<tr><th>회사</th><th>국가</th><th>유형</th><th>특징</th></tr>
+<tr><td><b>ASE Technology</b></td><td>대만</td><td>종합 OSAT 1위</td><td>첨단 패키징 + 테스트. 2026 CAPEX 사상 최고 수준</td></tr>
+<tr><td class="positive"><b>KYEC</b></td><td>대만</td><td class="positive">테스트 전문</td><td class="positive">NVIDIA AI칩 테스트 90%+. AI/HPC 매출 25년 +95% YoY. <b>두산테스나 벤치마크</b></td></tr>
+<tr><td><b>Amkor</b></td><td>미국</td><td>종합 OSAT 2위</td><td>AI ASIC 패키징. Apple 주요 고객</td></tr>
+<tr><td><b>JCET</b></td><td>중국</td><td>중국 1위 OSAT</td><td>정부 지원 + Wafer Bumping 강점</td></tr>
+<tr><td class="positive"><b>두산테스나</b></td><td>한국</td><td class="positive">테스트 전문 (시스템반도체)</td><td class="positive">한국 1위. AI/HPC OSAT로 체질 전환 중</td></tr>
+</table>
+
+<p><b>해석:</b> 두산테스나의 직접 비교 대상은 종합 OSAT가 아니라 <b>테스트 전문 OSAT인 KYEC</b>다. 테스트 전문 OSAT는 패키징보다 본질적으로 수익성이 높고(테스트 gross margin이 패키징 대비 우위), AI 사이클에서 더 강하게 리레이팅된다. 두산테스나가 LPU·CIS 트랙레코드를 쌓아 'KYEC 경로'에 진입하면 글로벌 AI/HPC OSAT 멀티플(DS 적용 P/E 36배)이 정당화된다 — 이것이 강세론의 핵심이자, 동시에 가장 검증이 필요한 가정이다.</p>
+
+<h3>3-8. 주주구성</h3>
+
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td><b>두산포트폴리오홀딩스</b></td><td>38.69%</td><td>최대주주, 두산그룹 지주회사 자회사 (2024/12 기준)</td></tr>
+<tr><td><b>삼성자산운용</b></td><td>6.98%</td><td>기관투자자 (2026/03 기준)</td></tr>
+<tr><td><b>자사주</b></td><td>0.42%</td><td>81,610주 (2026/02 기준)</td></tr>
+<tr><td><b>우리사주조합</b></td><td>0.49%</td><td>—</td></tr>
+<tr><td><b>외국인</b></td><td>약 7.6%</td><td>2026/05/22 기준. 코스닥 종목 평균 대비 낮은 편</td></tr>
+<tr><td><b>유동주식 비율</b></td><td>60.4%</td><td>—</td></tr>
+</table>
+
+<p><b>주주 구성 시사점:</b> 두산그룹 지배 38.69% + 삼성자산운용 7% = 약 46% 안정 지분. 외국인 비중 7.6%는 낮은 편으로, <b>주가 +663% 상승을 이끈 것은 주로 국내 개인·기관 수급</b>이다. 외국인 비중이 낮다는 것은 추가 유입 여지가 있다는 해석도 가능하지만, 동시에 <b>변동성이 큰 수급 구조</b>(개인 주도)임을 의미하므로 단기 조정 폭이 클 수 있다.</p>
+
+<!-- ===================== Section 4 ===================== -->
+<h2>4. 재무분석</h2>
+
+<h3>4-1. 연간 추이 (2024~2028E) — 3사(한투/교보/BNK) 비교</h3>
+
+<table>
+<tr><th>항목 (억원)</th><th>2024A</th><th>2025A</th><th>2026E<br>(한투)</th><th>2026E<br>(BNK)</th><th>2027F<br>(한투)</th><th>2027F<br>(교보)</th><th>2027F<br>(BNK)</th></tr>
+<tr><td>매출액</td><td>3,730</td><td>3,040</td><td>3,510</td><td>3,430</td><td class="positive">5,320</td><td class="positive">5,046</td><td class="positive">4,730</td></tr>
+<tr><td>영업이익</td><td>380</td><td class="negative">-10</td><td class="positive">550</td><td class="positive">360</td><td class="positive"><b>1,410</b></td><td class="positive"><b>1,113</b></td><td class="positive"><b>860</b></td></tr>
+<tr><td>OPM (%)</td><td>10.2</td><td class="negative">-0.3</td><td>15.7</td><td>10.5</td><td class="positive">26.5</td><td class="positive">22.1</td><td class="positive">18.2</td></tr>
+<tr><td>순이익</td><td>370</td><td>20</td><td>420</td><td>300</td><td>1,010</td><td>—</td><td>800</td></tr>
+<tr><td>EPS (원)</td><td>1,912</td><td>78</td><td>2,204</td><td>1,566</td><td class="positive">5,237</td><td>—</td><td class="positive">4,129</td></tr>
+<tr><td>ROE (%)</td><td>8.7</td><td>0.3</td><td>9.3</td><td>—</td><td class="positive">19.2</td><td>—</td><td>—</td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: 2024~2025 실적 = FnGuide·증권사 / 2026~2027 추정 = 한국투자·교보·BNK증권. 단위: 억원, % (십억원 단위를 억원으로 환산)</p>
+
+<p><b>2025년 적자의 사유:</b> 매출이 3,731억 → 3,039억으로 -18.6% 급감하며 영업이익이 -9억원의 적자로 전환됐다. 시스템반도체 수요 둔화 + 고객사 재고 조정으로 웨이퍼 테스트 가동률이 하락한 것이 원인이다. 즉 <b>2025년의 적자는 두산테스나의 '바닥'</b>이며, 4/28 CAPEX와 2026~2027년 추정은 모두 이 바닥에서의 회복·성장을 그린다.</p>
+
+<p><b>3사 추정치 차이가 크다:</b> 가장 중요한 2027년 영업이익 추정이 <b>BNK 860억 ~ 한투 1,410억으로 64% 편차</b>다. 매출도 4,730억~5,320억으로 갈린다. 이 편차는 신규 수주(LPU·북미 CIS)의 <b>매출 환산 속도와 가동률 가정 차이</b>에서 나온다 — 한투는 CapEx 매출환산비율을 공격적으로(LPU 50%, CIS 40%) 적용했고 BNK는 보수적이다. <b>2027 추정의 불확실성이 크다는 점이 이 종목의 핵심 리스크</b>이며(Section 8 참조), 본 보고서는 Base 시나리오에서 3사 평균에 가까운 값을 사용한다.</p>
+
+<h3>4-2. 분기 실적 + 추정</h3>
+
+<table>
+<tr><th>분기</th><th>매출 (억원)</th><th>YoY</th><th>영업이익 (억원)</th><th>OPM</th><th>비고</th></tr>
+<tr><td>1Q25 A</td><td>593</td><td>-35.4%</td><td class="negative">-191</td><td>-32.3%</td><td>적자 충격</td></tr>
+<tr><td>2Q25 A</td><td>759</td><td>—</td><td class="negative">-21</td><td>-2.8%</td><td>적자 지속</td></tr>
+<tr><td>3Q25 A</td><td>832</td><td>—</td><td>53</td><td>6.4%</td><td class="positive">분기 흑자 전환</td></tr>
+<tr><td>4Q25 A</td><td>855</td><td>+3.2%</td><td>150</td><td>17.6%</td><td class="positive">턴어라운드 가속</td></tr>
+<tr><td><b>2025 연간</b></td><td><b>3,039</b></td><td>-18.6%</td><td class="negative"><b>-9</b></td><td>-0.3%</td><td>전년비 적자전환</td></tr>
+<tr><td class="negative"><b>1Q26 A</b></td><td class="negative"><b>768</b></td><td>+29.6%</td><td class="negative"><b>55</b></td><td>7.1%</td><td class="negative"><b>★ 어닝 미스 — 컨센서스 약 34% 하회</b> (모바일 AP·CIS 가동률 부진)</td></tr>
+<tr><td>2Q26 E</td><td>약 800~850</td><td>+5~12%</td><td>약 80~110</td><td>10~13%</td><td>CIS 부진 2분기까지 지속 전망</td></tr>
+<tr><td class="positive"><b>4Q26 E~</b></td><td class="positive">증가</td><td class="positive">증가</td><td class="positive">상승</td><td class="positive"><b>북미 LPU 신규 캐파 매출 인식 시작</b></td></tr>
+<tr><td><b>2026E 연간</b></td><td><b>3,430~3,574</b></td><td>+13~18%</td><td class="positive"><b>360~586</b></td><td>10~16%</td><td>흑자 전환 (3사 추정 레인지)</td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: 분기 실적 = FnGuide·증권사 / 2026 추정 = 3사 레인지. 단위: 억원</p>
+
+<p><b>★ 핵심 — 분기 실적의 'V자' 패턴과 1Q26 미스:</b> 두산테스나는 2025년 1분기 -191억의 큰 적자에서 4분기 +150억으로 가파르게 회복했다. 그런데 <b>2026년 1분기 영업이익 55억원은 4Q25(150억) 대비 -64% QoQ 후퇴</b>했고 컨센서스를 약 34% 하회했다. 모바일 AP 가동률 하락과 CIS 가동률 50% 하회가 원인이다. 이는 <b>"본업은 아직 회복 중인데 신규(LPU·북미CIS) 매출은 아직 시작 전"이라는 공백 구간</b>의 전형적 모습이다. 4Q26 LPU 매출 인식이 시작되기 전까지 2026년 상반기 분기 실적은 변동성이 클 수 있다.</p>
+
+<h3>4-3. 현금흐름 — 4,290억 CAPEX의 부담과 회수</h3>
+
+<table>
+<tr><th>지표</th><th>현황 / 해석</th></tr>
+<tr><td><b>영업현금흐름(OCF)</b></td><td>감가상각비 비중이 큰 사업 구조라 OCF는 영업이익을 크게 상회 — 적자였던 2025년에도 OCF는 플러스 유지</td></tr>
+<tr><td><b>CAPEX</b></td><td class="negative">2026~2027년 4,290억 집중 집행 → CAPEX 부담 정점. FCF는 2026~2027년 일시 마이너스 가능</td></tr>
+<tr><td><b>부채비율</b></td><td>2025년 61% → 2026E 64%. 4,290억을 차입으로 조달해도 60%대 중반 — 관리 가능 범위</td></tr>
+<tr><td><b>순차입금</b></td><td>CAPEX 집행으로 차입금 증가하나, 2027년부터 OCF 급증(영업이익 860~1,410억)으로 빠르게 상환 가능</td></tr>
+</table>
+
+<p><b>현금흐름 종합 결론:</b> 4,290억 CAPEX는 2025년 연간 매출을 초과하는 큰 베팅이라 <b>2026~2027년 잉여현금흐름(FCF)이 일시적으로 마이너스</b>가 될 수 있다. 다만 ① 부채비율이 60%대 중반으로 관리 가능하고, ② 2027년부터 영업이익이 860~1,410억원으로 급증하며 OCF가 차입금을 빠르게 갚아나가는 구조다. 증권사 어느 곳도 유상증자를 가정하지 않는다 — 두산그룹 신용도와 회복되는 현금창출력으로 차입 감당이 가능하다는 판단이다.</p>
+
+<h3>4-4. 유상증자 / 희석 리스크 점검</h3>
+
+<table>
+<tr><th>리스크 조건</th><th>해당 여부</th><th>현황</th></tr>
+<tr><td>① 부채비율 150%+</td><td class="positive">미해당</td><td>2026E 64% 수준</td></tr>
+<tr><td>② OCF 마이너스 지속</td><td class="positive">미해당</td><td>OCF 항상 플러스(감가상각 효과)</td></tr>
+<tr><td>③ 대규모 CAPEX 진행</td><td class="negative"><b>해당</b></td><td><b>4,290억 CAPEX — FCF 일시 마이너스 가능</b></td></tr>
+<tr><td>④ 신용등급 하향 이력</td><td class="positive">미해당</td><td>최근 1년 내 없음</td></tr>
+<tr><td>⑤ CB/BW 만기 도래</td><td class="positive">미해당</td><td>해당 없음</td></tr>
+</table>
+
+<p><b>판정: 1개 해당 → 경고 미발동.</b> 4,290억 CAPEX의 재원은 "내부자금 또는 금융기관 차입"으로, 유상증자 시나리오는 증권사 추정에 포함돼 있지 않다. 두산그룹 계열의 신용도와 2027년 회복되는 OCF를 고려하면 차입으로 충분히 커버 가능하다. 다만 CAPEX 집행기(2026~2027) 동안은 재무 레버리지가 일시적으로 올라간다는 점은 인지해야 한다.</p>
+
+<!-- ===================== Section 5 ===================== -->
+<h2>5. 주주환원</h2>
+
+<p>두산테스나의 주주환원은 보고서의 핵심 변수가 아니다. 주당배당금(DPS)은 160원으로 매년 동일하게 유지되며, 배당수익률은 현재 주가 기준 <b>0.1% 내외</b>에 불과하다(2025년은 적자 기저로 배당성향이 일시적으로 200%대까지 잡혀 '고배당기업'으로 분류됐으나, 이는 분모인 이익이 거의 0이었기 때문이다).</p>
+
+<p>2026년 <b>기업가치 제고 계획(밸류업)</b>을 통해 "성장투자와 재무여건을 고려한 주주환원 방안 추진"을 밝혔으나, 4,290억 CAPEX가 진행 중인 점을 감안하면 <b>당분간 주주환원의 본질은 배당이 아니라 성장 재투자</b>다. 즉 두산테스나의 주주가치는 배당이 아니라 <b>4,290억 CAPEX가 만들어낼 2027년 이익 성장과 그에 따른 주가 상승</b>으로 실현되는 구조다. 배당을 기대하는 인컴 투자자에게는 적합하지 않은 종목이다.</p>
+
+<!-- ===================== Section 6 ===================== -->
+<h2>6. 밸류에이션</h2>
+
+<h3>6-1. Peer 비교 — 요약</h3>
+<p>Section 3-7 참조. <b>핵심 요약:</b> 두산테스나의 적정 비교 대상은 종합 OSAT가 아니라 <b>테스트 전문 OSAT(KYEC)</b>다. DS투자증권이 목표 P/E 36배를 "글로벌 AI/HPC OSAT 밸류에이션"으로 적용한 것이 이 재분류를 정량적으로 표현한다. 단 현재가 171,600원 기준 2026년 PER은 컨센 EPS로 약 69배, 일부 추정으로는 80~110배에 달해 <b>2026년 실적만 보면 과도한 고평가</b>다 — 밸류에이션은 철저히 2027년을 기준으로 봐야 한다.</p>
+
+<h3>6-2. 시나리오별 목표가 산출</h3>
+
+<div class="calc-box">
+<b>[Base 목표가 205,000원 산출 — 4사 컨센 반영]</b><br>
+① 2027F EPS = 3사 평균<br>
+&nbsp;&nbsp;(한투 5,237 + DS 6,069 + BNK 4,129) / 3 = <b>5,145원</b><br>
+② 적용 PER = <b>40배</b><br>
+&nbsp;&nbsp;- DS 적용 36배(글로벌 AI/HPC OSAT) ~ BNK 함의 45배(27E P/EBIT)의 중간 영역<br>
+&nbsp;&nbsp;- 글로벌 테스트 전문 OSAT의 AI 사이클 멀티플 반영<br>
+③ 목표가 = 5,145 × 40 = <b>205,800원 → 라운딩 205,000원</b><br>
+④ Cross-check: 최신 4사 목표주가 평균 = (220+211+190+190)/4 = <b>202,750원 (±1% 일치)</b><br>
+⑤ 현재가 171,600원 대비 <b>+19.5%</b>
+</div>
+
+<div class="calc-box">
+<b>[Bull 목표가 240,000원 산출]</b><br>
+① 2027F EPS Bull = <b>6,069원</b> (DS 추정 — LPU·북미CIS 풀가동 + 추가 수주 가정)<br>
+② 적용 PER = <b>40배</b> (AI/HPC OSAT 멀티플 풀 리레이팅)<br>
+③ 목표가 = 6,069 × 40 = 242,760원 → <b>240,000원</b><br>
+④ DS 목표주가 220,000원(2027F EPS×36배)을 상회 — 멀티플이 36→40배로 확장되는 시나리오<br>
+⑤ 현재가 대비 <b>+39.9%</b>
+</div>
+
+<p><b>Base와 Bull의 차이는 ① 2027 EPS를 어디로 보느냐(보수적 5,145 vs 공격적 6,069), ② 멀티플(40배 고정)이다.</b> 직전 보고서(5/4)의 Base 170,000원·Bull 200,000원과 비교하면 목표가는 올랐지만, <b>현재가도 131,900원 → 171,600원으로 함께 올라 상승여력 자체는 좁아졌다</b>(Base 기준 +29% → +19.5%). 이것이 "스토리는 유효하나 추격은 금물"이라는 본 보고서 결론의 핵심이다.</p>
+
+<h3>6-3. 진입·이탈 기준</h3>
+
+<table>
+<tr><th>구분</th><th>기준가</th><th>사이즈</th><th>근거</th></tr>
+<tr><td class="negative">돌파 매수</td><td>171,600원 (현재가, 컨센 TP 근접)</td><td class="negative">추격 금지</td><td>6사 컨센(176k) 거의 도달 + 1Q26 어닝 미스 직후</td></tr>
+<tr><td><b>분할 매수 1차</b></td><td>150,000원 부근 (-13%)</td><td class="positive">총 비중의 40%</td><td>단기 조정 시 1차 진입</td></tr>
+<tr><td><b>분할 매수 2차</b></td><td>2Q26·3Q26 실적으로 본업 바닥 확인 후</td><td class="positive">총 비중의 30%</td><td>모바일·CIS 가동률 반등 확인</td></tr>
+<tr><td class="positive"><b>분할 매수 3차</b></td><td>4Q26 LPU 매출 인식 가시화 또는 시장 조정 시</td><td class="positive">총 비중의 30% (풀)</td><td>2027 스토리가 숫자로 확인되는 시점</td></tr>
+<tr><td>비중 상한</td><td>—</td><td>총 자산의 3~7%</td><td>변동성 큰 종목(12개월 +663%) — 보수적 비중</td></tr>
+<tr><td>리스크 점검선</td><td>150,000원 이탈 시</td><td>비중 재점검</td><td>2027 성장 스토리 훼손 여부 재평가</td></tr>
+</table>
+
+<div class="bull-box">
+<b>★ 최적 진입 시나리오:</b><br>
+<b>현재 시점 행동: 대기(STAND BY) 우선.</b> 현재가는 컨센 목표주가에 거의 도달했고 1Q26 어닝 미스 직후다. 서두를 이유가 없다.<br>
+<b>A. 보수적:</b> 2Q26·3Q26 실적으로 본업 바닥을 확인한 뒤 진입<br>
+<b>B. 표준:</b> 150,000원 부근 조정 시 1차(40%) → 본업 바닥 확인 2차(30%) → LPU 매출 가시화 3차(30%)<br>
+<b>C. 적극적:</b> 현 가격대 소량(20%) 선진입 후 조정마다 분할 — 단 추격은 금지
+</div>
+
+<!-- ===================== Section 7 ===================== -->
+<h2>7. 주가 히스토리 &amp; 주요 이벤트</h2>
+
+<table>
+<tr><th>시점</th><th>주가</th><th>주요 이벤트</th></tr>
+<tr><td>2025년 중</td><td>22,100원</td><td>52주 최저가</td></tr>
+<tr><td>2026.03.18</td><td>약 100,000원</td><td>흥국증권 TP 100,000원</td></tr>
+<tr><td>2026.04.22</td><td>124,900원</td><td>메리츠 TP 150,000원 상향</td></tr>
+<tr><td class="positive">2026.04.28</td><td class="positive">129,800원</td><td class="positive"><b>★ DART 공시 3건 — 4,290억 CAPEX 확정</b></td></tr>
+<tr><td>2026.04.29~30</td><td>131,900원</td><td>메리츠 160k·한투 174k·SK Not Rated·한화 175k (직전 보고서 시점)</td></tr>
+<tr><td class="negative">2026.04 말</td><td>—</td><td class="negative"><b>★ 1Q26 실적 — 영업이익 55억, 컨센서스 약 34% 하회 (어닝 미스)</b></td></tr>
+<tr><td class="positive">2026.05.14</td><td class="positive">190,100원</td><td class="positive">52주 신고가 — DS투자증권 TP 220,000원 발간 직전</td></tr>
+<tr><td class="positive"><b>2026.05.15~22</b></td><td>171,600~190,100원</td><td class="positive"><b>★ 4개 증권사 목표주가 일제 상향 (DS 220k·한투 211k·교보 190k·BNK 190k)</b></td></tr>
+<tr><td><b>2026.05.22</b></td><td><b>171,600원<br>(+0.65%)</b></td><td>신고가(190,100) 대비 -9.7%. 12개월 +662.7%</td></tr>
+</table>
+
+<p><b>주가 흐름 해석:</b> 두산테스나는 12개월간 <b>+662.7%</b>(2.2만원 → 17.2만원) 폭등했다. 직전 보고서 시점(5/4, 약 131,900원) 이후에도 3주 만에 +30% 더 올라 5/14 신고가 190,100원을 찍었다. 이 상승은 ① 4/28 공시(4,290억 CAPEX), ② AI 후공정 슈퍼사이클 기대, ③ 5월 증권사 목표주가 상향이 겹친 결과다. 다만 <b>1Q26 어닝 미스가 확인되면서 5/14 신고가 후 -9.7% 조정</b>된 상태다. 주가가 펀더멘털(특히 2027년 추정)을 상당 부분 선반영했음을 보여주는 흐름이다.</p>
+
+<!-- ===================== Section 8 ===================== -->
+<h2>8. 리스크 분석</h2>
+
+<h3>8-1. ★★★ 밸류에이션 부담 — 주가가 컨센서스 목표주가를 따라잡음</h3>
+
+<div class="warning-box">
+<b>⚠️ 한 줄 요약: 현재가 171,600원 ≈ 6사 컨센 목표주가 176,000원. 2026E PER 약 69~110배. BNK는 "선반영"을 이유로 '보유' 의견.</b>
+</div>
+
+<p><b>① 정량 점검:</b> 현재가 기준 2026년 PER은 컨센 EPS(2,490원)로 약 69배, 보수적 추정(BNK EPS 1,566원)으로는 약 110배다. 2025년 PBR은 2.3배였으나 현재는 7배를 넘는다. <b>2026년 실적만 보면 명백한 고평가 영역</b>이며, 모든 밸류에이션이 2027년을 가정해야 성립한다.</p>
+
+<p><b>② 무엇이 위험한가:</b> 직전 보고서(5/4)는 현재가 131,900원으로 Base TP 대비 -22% 디스카운트 상태였다. 지금은 주가가 +30% 올라 그 안전마진이 -16%로 좁아졌고, FnGuide 6사 컨센(176k)과는 +2.6%밖에 차이 나지 않는다. <b>2027년 스토리가 조금이라도 흔들리면 멀티플이 빠르게 압축</b>될 수 있다.</p>
+
+<p><b>③ 대응:</b> 추격 매수 금지. 150,000원 부근 조정 시 분할 진입(Section 6-3).</p>
+
+<h3>8-2. ★★★ 1Q26 어닝 미스 + 본업 '공백 구간'</h3>
+
+<p>1Q26 영업이익 55억원은 컨센서스를 약 34% 하회했다. 모바일 AP 가동률 하락에 따른 고정비 부담, CIS 가동률 50% 하회(중화권 경쟁 심화)가 원인이며 <b>CIS 부진은 2분기까지 지속</b> 전망이다. 두산테스나는 현재 <b>"본업(모바일·CIS)은 부진한데 신규(LPU·북미CIS) 매출은 아직 시작 전"인 공백 구간</b>에 있다. 4Q26 LPU 매출 인식 전까지 2026년 상반기 분기 실적이 계속 컨센을 하회하면, "2027년 스토리"에 대한 시장 신뢰가 흔들릴 수 있다.</p>
+
+<h3>8-3. ★★★ 2027년 추정치 편차가 매우 크다 (BNK 860억 vs 한투 1,410억)</h3>
+
+<p>4개 증권사의 2027년 영업이익 추정이 <b>860억(BNK) ~ 1,410억(한투)으로 64%의 편차</b>를 보인다. 이는 신규 수주(LPU·북미 CIS)의 ① 매출 환산 비율(한투는 LPU 50%·CIS 40%로 공격적, BNK는 보수적), ② 가동률, ③ 양산 일정 가정의 차이에서 나온다. 목표주가가 2027년 추정에 전적으로 의존하는 만큼, <b>추정 자체의 불확실성이 이 종목의 가장 본질적인 리스크</b>다. Base 시나리오(EPS 5,145원)는 3사 평균을 사용했으나, 실제 결과가 보수적 쪽(BNK)에 가까우면 목표주가는 하향 조정될 수 있다.</p>
+
+<h3>8-4. ★★ 4,290억 CAPEX 회수 지연 리스크</h3>
+
+<p>신규 1,909억(LPU) + 정정 2,053억(CIS)의 회수는 가동률에 달려 있다. OSAT 표준 회수율은 CapEx 대비 연 매출 30~50% 수준이나, 고객사의 양산 수요가 지연되거나 가동률이 50% 이하로 떨어지면 회수율이 낮아진다. LPU 고객사의 자체 수요 둔화, 양수기준일(2026.10.30) 이후 셋업·양산 지연 등이 변수다. 1Q26 CIS 가동률이 이미 50%를 하회한 점은 이 리스크가 가설이 아님을 보여준다.</p>
+
+<h3>8-5. ★★ 단일 고객·품목 집중 리스크</h3>
+
+<p>신규 매출의 핵심인 북미 LPU와 북미 CIS는 각각 특정 고객사에 집중돼 있다. 해당 고객사가 경쟁에서 밀리거나 테스트 물량을 다른 OSAT로 이전할 경우 매출 타격이 크다. 다만 ① LPU·CIS·전장 SoC로 응용처가 다변화되며 단일 고객(삼성 MX) 의존도 자체는 낮아지고 있고, ② 한 번 검증된 OSAT를 교체하는 데 6~12개월의 검증 비용이 들어 락인 효과가 있다는 점은 완화 요인이다.</p>
+
+<h3>8-6. ★★ 단기 급등에 따른 변동성</h3>
+
+<p>12개월 +662.7%, 6개월 +319.0% 급등한 종목이다. 베타 1.02, 외국인 비중 7.6%로 <b>국내 개인·기관 수급이 주도하는 변동성 큰 구조</b>다. AI 반도체 테마의 뉴스 흐름, 시장 전체 조정에 주가가 민감하게 반응할 수 있다. 신용융자 활용은 금지하고 비중을 보수적으로(총자산 3~7%) 가져가야 한다.</p>
+
+<h3>8-7. ★★ 강세론 vs 신중론 공존 — BNK '보유'의 무게</h3>
+
+<p>4개 증권사 중 3개사는 매수, BNK는 '보유'다. 성장 스토리에는 이견이 없지만 <b>"그 성장을 현재 주가에 지불할 가치가 있는가"에서 시각이 갈린다</b>. BNK의 '보유'는 무시할 신호가 아니라, 밸류에이션이 이미 상당 부분 선반영됐다는 시장 일각의 합리적 경계심이다. 본 보고서가 '비중확대'를 유지하면서도 '추격 금지·분할 매수'를 강하게 권고하는 이유다.</p>
+
+<!-- ===================== Section 9 ===================== -->
+<h2>9. 미래 모멘텀</h2>
+
+<h3>9-1. 성장축 테이블</h3>
+
+<table>
+<tr><th>성장축</th><th>2026 기여</th><th>2027 기여</th><th>2028+ 잠재력</th><th>출처</th></tr>
+<tr><td class="positive"><b>★★★★★ 북미 LPU 테스트 (신규 1,909억)</b></td><td>4Q26부터 인식 시작</td><td class="positive">연 약 950억 (한투 추정)</td><td class="positive">AI 추론 시장 성장 연동</td><td>한투·DS</td></tr>
+<tr><td class="positive"><b>★★★★ 북미 CIS 신규 고객 (정정 2,053억)</b></td><td>—</td><td class="positive">2Q27~ 연 약 800억 (한투)</td><td class="positive">고화소 CIS 확대</td><td>한투·교보</td></tr>
+<tr><td><b>★★★★ 삼성 파운드리 외주화</b></td><td>가동률 회복</td><td>외주 물량 확대</td><td>한국 OSAT 1위 수혜</td><td>교보</td></tr>
+<tr><td><b>★★★ 전장용 SoC (ADAS·메모리컨트롤러)</b></td><td>가동률 70%+ 견조</td><td>안정적 베이스</td><td>차량 반도체 성장</td><td>한투·BNK</td></tr>
+<tr><td class="positive"><b>★★★ AI 칩 테스트 시간 급증</b></td><td>—</td><td class="positive">테스트 수요 구조적 증가</td><td class="positive">Rubin·차세대 칩</td><td>업계 데이터</td></tr>
+<tr><td><b>★★ SiC 차량용 전력반도체 (신성장)</b></td><td>초기</td><td>품목 확장</td><td>전기차 전력반도체</td><td>회사 IR</td></tr>
+<tr><td><b>★★ 평택 2공장 (2027.11 완공)</b></td><td>건설 중</td><td>중장기 캐파 확보</td><td>2028~ 추가 수주 수용</td><td>DART 공시</td></tr>
+</table>
+
+<p><b>★ 촉매 → 숫자 연결:</b> 두산테스나의 성장축은 명확하다. <b>북미 LPU(4Q26~) + 북미 CIS(2Q27~)</b>가 2027년 매출에 합산 약 1,700~2,100억원을 더하고, 이것이 영업이익을 2025년 -9억 → 2027년 860~1,410억으로 끌어올린다. 여기에 AI 칩 테스트 시간의 구조적 증가가 중장기 수요를 받친다. <b>핵심은 타이밍</b> — 모든 성장축이 2027년에 집중되므로, 2026년은 '기다림의 해', 2027년이 '실현의 해'다.</p>
+
+<h3>9-2. 영업이익 박스권 돌파 체크</h3>
+
+<p>역사적 영업이익 추이 (별도, 억원):</p>
+<ul>
+<li>2020: 약 306 → 2021: 약 540 → <b>2022: 약 672 (과거 피크)</b></li>
+<li>2023: 약 608 → 2024: 379 → <b>2025: -9 (적자, 바닥)</b></li>
+<li><b>2026E: 360~586</b> (3사 추정) — 흑자 전환, 과거 피크 회복 길목</li>
+<li><b>2027E: 860~1,410</b> (3사 추정) — 과거 피크(672) 대비 +28~110% — 박스권 명확 돌파</li>
+</ul>
+
+<p><b>★ 턴어라운드 시그널:</b> 두산테스나 영업이익은 2022년 672억의 피크 이후 2025년 -9억까지 추락했다. 4/28 CAPEX와 신규 수주(LPU·북미CIS)는 이 영업이익을 <b>2027년 860~1,410억으로, 과거 피크를 명확히 돌파</b>시킨다. 단순 사이클 회복이 아니라 <b>사업 구조 변화(Auto·모바일 → AI/HPC + 고사양 CIS)에 의한 영구적 박스권 상향</b>이라는 것이 강세론의 핵심이다. 다만 그 돌파는 2027년에 일어나며, 2026년은 그 전 단계임을 기억해야 한다.</p>
+
+<!-- ===================== Section 10 ===================== -->
+<h2>10. 실적 서프라이즈 예측 — 향후 4분기 로드맵</h2>
+
+<table>
+<tr><th>분기</th><th>매출 (억원)</th><th>영업이익 (억원)</th><th>관전 포인트</th></tr>
+<tr><td><b>1Q26</b></td><td>768 (확정)</td><td class="negative">55 (확정)</td><td><b>어닝 미스</b> — 컨센 약 34% 하회. 모바일 AP·CIS 가동률 부진</td></tr>
+<tr><td><b>2Q26E</b></td><td>약 800~850</td><td>약 80~110</td><td>CIS 부진 지속 전망. 본업 바닥 확인 여부가 1차 체크포인트</td></tr>
+<tr><td><b>3Q26E</b></td><td>증가</td><td>증가</td><td>모바일·CIS 가동률 반등 + LPU 셋업 진행 확인</td></tr>
+<tr><td class="positive"><b>4Q26E</b></td><td class="positive">증가</td><td class="positive">상승</td><td class="positive"><b>★ 북미 LPU 신규 캐파 매출 인식 시작 — 2027 스토리의 첫 증명</b></td></tr>
+<tr><td><b>2026E 연간</b></td><td><b>3,430~3,574</b></td><td class="positive"><b>360~586</b></td><td>흑자 전환 (2025 -9억 → 흑전)</td></tr>
+<tr><td><b>2027E 연간</b></td><td><b>4,730~5,320</b></td><td class="positive"><b>860~1,410</b></td><td><b>실적 폭발 — OPM 18~26%로 점프, 과거 피크 명확 돌파</b></td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: 1Q26 = 실적발표·FnGuide / 2026~2027 추정 = 한투·교보·BNK·DS증권. 단위: 억원</p>
+
+<p><b>분기 로드맵 해석:</b><br>
+① <b>2026년 상반기는 '인내의 구간'.</b> 1Q26 어닝 미스에 이어 2Q26도 CIS 부진이 지속될 전망이다. 이 구간의 분기 실적은 컨센을 하회할 위험이 있다.<br>
+② <b>가장 중요한 변곡점은 4Q26.</b> 북미 LPU 신규 캐파의 매출 인식이 시작되는 시점으로, "2027년 실적 폭발" 스토리가 처음으로 숫자로 증명되는 분기다. 이 시점의 실적이 컨센에 부합하면 멀티플 리레이팅이 다시 탄력받는다.<br>
+③ <b>2027년이 실현의 해.</b> LPU 온기 반영 + 북미 CIS 가세로 영업이익이 860~1,410억원으로 점프한다. 본 보고서의 Base/Bull 목표주가는 모두 이 2027년 실적을 기준으로 한다.<br>
+④ <b>투자 타이밍의 핵심:</b> "2026년 상반기 부진 → 4Q26 LPU 인식 → 2027년 폭발"의 경로가 예상되므로, <b>2026년 상반기 조정 시 분할 매수해 2027년을 기다리는 전략</b>이 이 종목의 구조에 부합한다.</p>
+
+<div class="footer">
+투자 판단의 최종 책임은 투자자 본인에게 있습니다. 본 보고서는 공개된 자료를 종합·재구성한 참고용 자료이며 특정 종목의 매매를 권유하지 않습니다.<br>
+분석일: 2026.05.25 | 데이터 기준: <b>FnGuide 리서치 리포트 — DS투자증권(2026.05.15)·한국투자증권(2026.05.18)·교보증권(2026.05.20)·BNK투자증권(2026.05.22)</b>, FnGuide 컴퍼니 스냅샷·컨센서스(2026.05.22), DART 공시(2026.04.28 주요사항보고서 3건 / 1Q26 실적), 두산테스나 기업가치 제고 계획 공시, 테라다인·대만 OSAT·AI 칩 테스트 산업 데이터(2026.05 국내외 언론 종합), 직전 보고서(2026.05.04, 사용자 제공)
+</div>
+
+</body>
+</html>
+
+
+
+

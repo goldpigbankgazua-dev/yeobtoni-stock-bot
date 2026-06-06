@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>현대백화점 (069960) 종목 리서치 보고서 — 2026.06.06</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ol.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>현대백화점 (069960.KS)</h1>
+<div class="sub">백화점 영업 레버리지 본격화 · 면세점 3개 분기 연속 흑자 · 더현대 외국인 매출 폭발<br>증권사 16사 컨센 BUY(4.0) TP 146,933원 · 현재가 146,500원(컨센 TP 도달, 52주 신고가) · 분석일 2026.06.06</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/5)</span><span class="snapshot-value">146,500원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">3.16조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+4.79%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">11.0배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (F)</span><span class="snapshot-value">0.65배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">24.58%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+106.92%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">현대지에프홀딩스 외 43.4%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">988억 (-12.2% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">157,000원<br>(+7.2%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">190,000원<br>(+29.7%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (16사)</span><span class="snapshot-value">146,933원<br>(+0.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">85개<br>(액티브 10 / 패시브 75)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (1개월)</span><span class="snapshot-value positive">9개 → 10개<br>(+1개)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전체 ETF 노출 (추정)</span><span class="snapshot-value positive">약 300억원<br>(시총 3.16조의 약 0.9%)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 편입 85개이나 액티브 비중은 미미(10개·848주·약 1.2억). 노출은 K200 패시브 + 밸류업·배당·경기소비재 테마 패시브가 사실상 전부 — HANARO e커머스(10.41%)·RISE K엔터&여행레저(5.82%)·TIGER MKF배당귀족(3.69%) 등 테마 ETF가 크로스체크로 포착됨. <i>(데이터: ystreet + ETF CHECK + FunETF 크로스체크 2026.06.05 — 상세 표는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> D-60일 내 15개사 발간, 컨센 16사 BUY 4.0 · TP 146,933원. 5/7 1Q 리뷰 일제 상향 후 6/4 한화 19만원으로 최고치 경신 — 현재가가 컨센에 도달해 추가 리레이팅 vs 단기 과열 구간. (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> 백화점 본업 영업 레버리지(1Q 백화점 영업익 +39.7%, 역대 최대 매출) + 면세점 흑자전환(3개 분기 연속) + 더현대 외국인 폭발(+121%)이 동시에 작동. 다만 +107% 급등 후 컨센 TP 도달·52주 신고가로 단기 밸류 부담 존재. 지누스(미국 자회사) 부진이 연결 실적 희석 요인.</div>
+</div>
+
+<!-- ===================== 증권사 박스 ===================== -->
+<div class="broker-box">
+<h3 style="margin-top:0;color:#2980b9;">📊 증권사 리포트 전수 (FnGuide SearchReport, 최근 2개월 D-60일 = 2026.04.06~06.05)</h3>
+<p style="font-size:10pt;color:#555;margin:4px 0;">동일 증권사 복수 발간 시 최신본 기준. 5/7 1Q26 리뷰가 일제히 쏟아지며 대부분 TP를 상향. 6/4 한화가 19만원으로 최고치 경신. <b>컨센 16사 BUY 4.0 · 평균 TP 146,933원(현재가 +0.3%)</b> — 즉 주가가 이미 컨센에 도달.</p>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>애널리스트</th><th>제목</th><th>의견</th><th>TP(원)</th><th>현재가 대비</th></tr>
+<tr><td>26.06.04</td><td><b>한화투자증권</b></td><td>이진협</td><td>이제 키 좀 맞춰볼까?</td><td>BUY</td><td><b>190,000</b> ▲</td><td class="positive">+29.7%</td></tr>
+<tr><td>26.06.02</td><td>리딩투자증권</td><td>유성만</td><td>백화점 영업 레버리지와 면세점 흑자전환 <span class="tag-new">신규</span></td><td>BUY</td><td>150,000</td><td class="positive">+2.4%</td></tr>
+<tr><td>26.05.19</td><td>키움증권</td><td>박상준</td><td>하반기 증익 전환 기대</td><td>BUY</td><td>147,000</td><td class="positive">+0.3%</td></tr>
+<tr><td>26.05.07</td><td>미래에셋증권</td><td>배송이</td><td>백화점 레버리지 확인</td><td>BUY</td><td>150,000 ▲</td><td class="positive">+2.4%</td></tr>
+<tr><td>26.05.07</td><td>유진투자증권</td><td>이해니</td><td>1Q26 Review: 백화점 영업이익 야호!</td><td>BUY</td><td>150,000 ▲</td><td class="positive">+2.4%</td></tr>
+<tr><td>26.05.07</td><td>교보증권</td><td>장민지</td><td>1Q26 Review: 내국인도 외국인도 한도초과</td><td>BUY</td><td>150,000 ▲</td><td class="positive">+2.4%</td></tr>
+<tr><td>26.05.07</td><td>DB증권</td><td>리서치센터</td><td>1Q26 리뷰</td><td>BUY</td><td>150,000 ▲</td><td class="positive">+2.4%</td></tr>
+<tr><td>26.05.07</td><td>대신증권</td><td>리서치센터</td><td>1Q26 리뷰</td><td>BUY</td><td>145,000</td><td class="negative">-1.0%</td></tr>
+<tr><td>26.05.07</td><td>유안타증권</td><td>이승은</td><td>Core biz competitiveness continues to strengthen</td><td>BUY</td><td>142,000</td><td class="negative">-3.1%</td></tr>
+<tr><td>26.05.07</td><td>NH투자증권</td><td>리서치센터</td><td>백화점 실적에 주목하자</td><td>BUY</td><td>140,000 ▲</td><td class="negative">-4.4%</td></tr>
+<tr><td>26.05.07</td><td>신한투자증권</td><td>조상훈</td><td>전 세계에서 가장 싼 백화점 기업</td><td>BUY</td><td>140,000 ▲</td><td class="negative">-4.4%</td></tr>
+<tr><td>26.05.07</td><td>한국투자증권</td><td>리서치센터</td><td>1Q26 리뷰</td><td>BUY</td><td>140,000 ▲</td><td class="negative">-4.4%</td></tr>
+<tr><td>26.05.07</td><td>흥국증권</td><td>박종렬</td><td>성장과 환원, 선순환 구조 강화</td><td>BUY</td><td>140,000 ▲</td><td class="negative">-4.4%</td></tr>
+<tr><td>26.05.07</td><td>IBK투자증권</td><td>남성현</td><td>하반기 모멘텀 부각</td><td>BUY</td><td>130,000</td><td class="negative">-11.3%</td></tr>
+<tr><td>26.04.27</td><td>신영증권</td><td>리서치센터</td><td>본업 호조</td><td>BUY</td><td>140,000 ▲</td><td class="negative">-4.4%</td></tr>
+<tr style="background:#eaf2f8;"><td colspan="4"><b>컨센서스 (16개사 평균)</b></td><td><b>BUY 4.0</b></td><td><b>146,933</b></td><td class="positive"><b>+0.3%</b></td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:4px 0;">※ 직전본 TP 변화: 한화 120k(4/1)→160k(5/7)→190k(6/4) / 한투 110k(4/8)→140k / DB 130k(4/13)→150k / 교보 130k(4/8)→150k / 흥국 130k(4/17)→140k / NH 130k(4/2)→140k. 추세적 컨센 상향 진행 중.</p>
+</div>
+
+<!-- sk-box 1: 한화 (최고 TP, 신규 상향) -->
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1;">
+<h4 style="margin-top:0;color:#1e6e3a;">🔥 한화투자증권 (이진협) — 2026.06.04 · "이제 키 좀 맞춰볼까?" <span class="tag-sk" style="background:#1e6e3a;">최고 TP</span></h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"이제 키 좀 맞춰볼까?"</td><td>주가가 본업 가치를 못 따라왔다는 키 맞추기 논리</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / <b>190,000</b> (직전 160,000 → +18.8%)</td><td class="positive">현재가 대비 +29.7% (단독 최고치)</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 백화점 영업 레버리지 본격화(고정비 비즈니스, 매출 회복 시 이익 급증) ② 면세점 흑자 안착 ③ 더현대 외국인 구조적 성장 ④ 밸류업 주주환원 강화</td><td>본업 정상 이익력 기준 멀티플 정상화 여력</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × Target PER ~15.8배 = TP 190,000</td><td>업종 PER(24.9배) 대비 여전히 할인</td></tr>
+</table>
+<p><b>[한화 핵심]</b> 컨센(147k)을 크게 상회하는 19만원으로 "주가가 본업 이익력에 못 미친다"는 적극적 리레이팅 콜. 시장 전체가 상향 중인 흐름의 선봉.</p>
+</div>
+
+<!-- sk-box 2: 리딩 신규 -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 리딩투자증권 (유성만) — 2026.06.02 · "백화점 영업 레버리지와 면세점 흑자전환" <span class="tag-new">신규 커버리지</span></h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"백화점 영업 레버리지와 면세점 흑자전환"</td><td>두 모멘텀을 제목에 직접 명시</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 150,000 (신규)</td><td class="positive">현재가 대비 +2.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 백화점 고정비 레버리지 → 영업이익률 개선 ② 면세점 흑자전환으로 적자 꼬리 제거 ③ 컨센 상회 실적 가시성</td><td>신규 개시부터 BUY·15만원</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~12.4배 = TP 150,000</td><td>본업 회복 반영</td></tr>
+</table>
+<p><b>[리딩 핵심]</b> 신규 커버리지 개시부터 BUY 15만원 — 커버리지 폭이 넓어지며 수급 저변 확대 신호.</p>
+</div>
+
+<!-- sk-box 3: 신한 (밸류 강조) -->
+<div class="sk-box" style="border-color:#b45309;background:#fef3c7;">
+<h4 style="margin-top:0;color:#b45309;">📙 신한투자증권 (조상훈) — 2026.05.07 · "전 세계에서 가장 싼 백화점 기업"</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"전 세계에서 가장 싼 백화점 기업"</td><td>글로벌 Peer 대비 밸류 디스카운트 강조</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 140,000 (상향)</td><td class="negative">현재가 대비 -4.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 12M Fwd PER 11배·PBR 0.65배로 글로벌 백화점 중 최저 ② 본업 이익 정상화 ③ 밸류업 PBR 0.7배 목표</td><td>리레이팅 트리거는 실적 확인</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~11.6배 = TP 140,000</td><td>보수적 멀티플</td></tr>
+</table>
+<p><b>[신한 핵심]</b> "전 세계에서 가장 싼 백화점"이라는 밸류 프레임 — 디스카운트 해소가 핵심 투자 논리.</p>
+</div>
+
+<!-- sk-box 4: 유진 1Q 리뷰 -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 유진투자증권 (이해니) — 2026.05.07 · "1Q26 Review: 백화점 영업이익 야호!"</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"1Q26 Review: 백화점 영업이익 야호!"</td><td>백화점 영업익 서프라이즈 강조</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 150,000 (상향)</td><td class="positive">현재가 대비 +2.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 백화점 영업익 1,358억(+39.7%) 어닝 서프라이즈 ② 고마진 패션·외국인 매출 견인 ③ 면세점 흑자</td><td>본업 어닝 모멘텀</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~12.4배 = TP 150,000</td><td>실적 상향 반영</td></tr>
+</table>
+<p><b>[유진 핵심]</b> 1Q 백화점 영업익 +39.7%를 "야호"로 표현 — 본업 영업 레버리지가 숫자로 확인된 분기.</p>
+</div>
+
+<!-- sk-box 5: 미래에셋 -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 미래에셋증권 (배송이) — 2026.05.07 · "백화점 레버리지 확인"</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"백화점 레버리지 확인 / Department store operating leverage confirmed"</td><td>국문·영문 동시 발간</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 150,000 (상향)</td><td class="positive">현재가 대비 +2.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 고정비 레버리지 확인 ② 외국인·내국인 동반 회복 ③ 면세점 BEP 돌파</td><td>이익 체력 상향</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~12.4배 = TP 150,000</td><td>—</td></tr>
+</table>
+<p><b>[미래에셋 핵심]</b> 영업 레버리지를 키워드로 못박은 리포트. 외국인 투자자 대상 영문본 동시 발간으로 글로벌 수급 어필.</p>
+</div>
+
+<!-- sk-box 6: 교보 -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 교보증권 (장민지) — 2026.05.07 · "내국인도 외국인도 한도초과"</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"1Q26 Review: 내국인도 외국인도 한도초과"</td><td>전 고객군 매출 호조</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 150,000 (직전 130,000 → +15.4%)</td><td class="positive">현재가 대비 +2.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 내국인 소비 회복 + 외국인 폭발 동시 ② 더현대 서울 외국인 +121% ③ 면세점 흑자</td><td>수요 양축 동반 회복</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~12.4배 = TP 150,000</td><td>4/8 대비 큰 폭 상향</td></tr>
+</table>
+<p><b>[교보 핵심]</b> 4월 13만원에서 5월 15만원으로 한 달 만에 +15% 상향 — 1Q 실적 확인 후 컨센 상향의 전형.</p>
+</div>
+
+<!-- sk-box 7: 흥국 (환원) -->
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1;">
+<h4 style="margin-top:0;color:#1e6e3a;">🔥 흥국증권 (박종렬) — 2026.05.07 · "성장과 환원, 선순환 구조 강화"</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"성장과 환원, 선순환 구조 강화"</td><td>밸류업·주주환원 프레임</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 140,000 (직전 130,000 → +7.7%)</td><td class="negative">현재가 대비 -4.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 배당재원 별도 영업익 10%→15% 상향 ② 자사주 소각 ③ 본업 성장과 환원의 선순환</td><td>밸류업 모범사례</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~11.6배 = TP 140,000</td><td>—</td></tr>
+</table>
+<p><b>[흥국 핵심]</b> 실적보다 주주환원 정책에 무게 — 밸류업 프로그램 수혜주로서의 정체성 강조.</p>
+</div>
+
+<!-- sk-box 8: 키움 -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 키움증권 (박상준) — 2026.05.19 · "하반기 증익 전환 기대"</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"하반기 증익 전환 기대"</td><td>2H26 이익 모멘텀</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 147,000 (유지)</td><td class="positive">현재가 대비 +0.3%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 하반기 YoY 증익 전환 ② 인천공항 DF2 신규 운영(4월) 면세점 기여 ③ 외국인 매출 지속</td><td>하반기 실적 가시성</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~12.2배 = TP 147,000</td><td>컨센 부합</td></tr>
+</table>
+<p><b>[키움 핵심]</b> TP는 컨센과 거의 일치(14.7만). 4·5월 내내 147,000원 유지 — 안정적 BUY 진영.</p>
+</div>
+
+<!-- sk-box 9: NH -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 NH투자증권 — 2026.05.07 · "백화점 실적에 주목하자" · 밸류 리레이팅 강조</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"백화점 실적에 주목하자 / 밸류에이션 재평가 구간 진입"</td><td>외국인 매출 확대 → 리레이팅</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 140,000 (직전 130,000 → +7.7%)</td><td class="negative">현재가 대비 -4.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 외국인 매출 확대로 본업 이익 체력 상향 ② 밸류에이션 재평가 구간 진입 ③ 면세점 정상화</td><td>리레이팅 트리거</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~11.6배 = TP 140,000</td><td>—</td></tr>
+</table>
+<p><b>[NH 핵심]</b> "밸류에이션 재평가 구간 진입" — 실적이 아니라 멀티플 정상화에 초점.</p>
+</div>
+
+<!-- sk-box 10: DB -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 DB증권 — 2026.05.07 · 1Q 리뷰 TP 대폭 상향</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">1Q26 Review</td><td>실적 기반 상향</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 150,000 (직전 130,000 → +15.4%)</td><td class="positive">현재가 대비 +2.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 백화점 영업 레버리지 ② 면세점 흑자 ③ 컨센 상회</td><td>4/13 대비 +20k 상향</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~12.4배 = TP 150,000</td><td>—</td></tr>
+</table>
+<p><b>[DB 핵심]</b> 4월 13만원 → 5월 15만원, 한 달 새 +15% 상향. 1Q 실적 임팩트의 강도를 보여줌.</p>
+</div>
+
+<!-- sk-box 11: 한투 -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 한국투자증권 — 2026.05.07 · 가장 큰 폭 상향(110k→140k)</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">1Q26 Review</td><td>본업 회복 반영</td></tr>
+<tr><td>투자의견 / TP</td><td>매수 / 140,000 (직전 110,000 → +27.3%)</td><td class="negative">현재가 대비 -4.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 4월 11만원 보수론에서 1Q 실적 확인 후 14만원으로 전환 ② 외국인·본업 ③ 환원 강화</td><td>가장 보수적이던 곳도 상향</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~11.6배 = TP 140,000</td><td>—</td></tr>
+</table>
+<p><b>[한투 핵심]</b> D-60 내 가장 큰 폭(+27%) 상향. 보수 진영까지 컨센에 합류했다는 신호.</p>
+</div>
+
+<!-- sk-box 12: 대신 -->
+<div class="sk-box" style="border-color:#7f8c8d;background:#f4f6f6;">
+<h4 style="margin-top:0;color:#7f8c8d;">⚖️ 대신증권 — 2026.05.07 · TP 동결(145k)·상대적 신중</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">1Q26 Review</td><td>실적 호조 인정하나 TP 유지</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 145,000 (직전 145,000 유지)</td><td class="negative">현재가 대비 -1.0%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 본업 호조 인정 ② 다만 지누스 부진·연결 실적 희석 감안 ③ 이미 4/6에 145k 반영</td><td>추가 상향 자제</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~12배 = TP 145,000</td><td>—</td></tr>
+</table>
+<p><b>[대신 핵심]</b> 다수가 상향할 때 TP를 동결 — "이미 선반영" 입장. 현재가가 TP를 살짝 상회.</p>
+</div>
+
+<!-- sk-box 13: 유안타 -->
+<div class="sk-box" style="border-color:#7f8c8d;background:#f4f6f6;">
+<h4 style="margin-top:0;color:#7f8c8d;">⚖️ 유안타증권 (이승은) — 2026.05.07 · 컨센 하단(142k)</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"Core biz competitiveness continues to strengthen, Zinus remains discount factor"</td><td>지누스를 명시적 할인 요인으로 지목</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 142,000 (유지)</td><td class="negative">현재가 대비 -3.1%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 본업 경쟁력 강화 인정 ② <b>지누스(미국 자회사)가 지속적 할인 요인</b> ③ 주주환원으로 밸류업</td><td>연결 희석 리스크 강조</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~11.8배 = TP 142,000</td><td>—</td></tr>
+</table>
+<p><b>[유안타 핵심]</b> 유일하게 지누스 리스크를 제목에 명시. 본업은 좋지만 연결 디스카운트가 멀티플 상단을 제약한다는 균형 시각.</p>
+</div>
+
+<!-- sk-box 14: IBK (최저 TP) -->
+<div class="sk-box" style="border-color:#e74c3c;background:#fdedec;">
+<h4 style="margin-top:0;color:#e74c3c;">⚠️ IBK투자증권 (남성현) — 2026.05.07 · 최저 TP(130k)</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">"하반기 모멘텀 부각"</td><td>모멘텀은 인정하나 TP 보수</td></tr>
+<tr><td>투자의견 / TP</td><td>매수 / 130,000 (유지)</td><td class="negative">현재가 대비 -11.3%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 하반기 모멘텀 인정 ② 그러나 +107% 급등 후 밸류 부담 ③ 연결 변동성</td><td>D-60 내 최저 TP</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~10.8배 = TP 130,000</td><td>가장 보수적 멀티플</td></tr>
+</table>
+<p><b>[IBK 핵심]</b> 컨센 대비 -11% 낮은 TP로 단기 과열 경계. 현재가가 IBK TP를 크게 상회 — 신중론 진영의 기준점.</p>
+</div>
+
+<!-- sk-box 15: 신영 -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 신영증권 — 2026.04.27 · 본업 호조 선반영 상향</h4>
+<table>
+<tr><td style="width:18%;">제목</td><td style="width:52%;">본업 호조</td><td>1Q 실적 발표 전 선제 상향</td></tr>
+<tr><td>투자의견 / TP</td><td>매수 / 140,000 (상향)</td><td class="negative">현재가 대비 -4.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 4월 시점 본업 회복 선반영 ② 외국인 매출 추세 ③ 면세점 개선</td><td>실적 전 컨센 견인</td></tr>
+<tr><td>★ 26E EPS 가정</td><td>26E EPS 12,050원 × ~11.6배 = TP 140,000</td><td>—</td></tr>
+</table>
+<p><b>[신영 핵심]</b> 1Q 발표(5/6) 전 4/27에 선제 상향 — 실적 서프라이즈를 앞서 반영한 케이스.</p>
+</div>
+
+<!-- ===================== 1차자료 ===================== -->
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e;">📋 1차자료 — 현대백화점 1Q26 분기보고서 / 그룹 IR <span class="tag-disc">PRIMARY</span></h3>
+<p style="margin:6px 0;"><b>출처:</b> 현대백화점 2026.1Q 실적발표(2026.05.06) · DART 분기보고서 · 현대백화점그룹 기업가치 제고 계획</p>
+<table>
+<tr><th>항목</th><th>1Q26 실적 (연결)</th><th>부문별 디테일</th></tr>
+<tr><td>매출액</td><td>9,501억 (-13.5% YoY)</td><td>백화점 6,325억(+7.4%, <b>1Q 역대 최대</b>) / 연결 감소는 지누스·면세점 매출인식 영향</td></tr>
+<tr><td>영업이익</td><td>988억 (-12.2% YoY, 연결)</td><td><b>백화점 1,358억(+39.7%)</b> / 면세점 +34억(흑자전환, 3개 분기 연속) / 지누스 부진이 연결 희석</td></tr>
+<tr><td>당기순이익</td><td>649억</td><td>지배주주순이익 682억</td></tr>
+<tr><td>핵심 동인</td><td>더현대 외국인 매출 +121%</td><td>5/1~5/5 전점 매출 +35.9%, 더현대 외국인 +155.3% / 고마진 패션·K뷰티·팝업</td></tr>
+<tr><td>면세점</td><td>4월 인천공항 DF2 신규 운영</td><td>2Q 면세점 이익 흐름 지속 기대</td></tr>
+</table>
+<p style="font-size:9pt;color:#7d4f00;margin:4px 0;">※ 핵심 해석: 연결 영업익은 YoY 감소했으나 이는 미국 매트리스 자회사 지누스 부진과 면세점 매출 인식 기준 변화 때문. <b>핵심 본업인 백화점 영업이익은 +39.7%로 역대급 레버리지</b>를 시현 — 시장은 연결 숫자보다 백화점 본업 모멘텀에 반응.</p>
+</div>
+
+<!-- ===================== 외부검증 1: 글로벌 ===================== -->
+<div class="global-box">
+<h3 style="margin-top:0;color:#2874a6;">🌐 외부검증 1 — 글로벌 백화점·유통 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<table>
+<tr><th>지표</th><th>내용</th><th>현대백화점 함의</th></tr>
+<tr><td>글로벌 백화점 멀티플</td><td>Nordstrom·Macy's 등 미국 백화점 12M Fwd PER 8~12배, 유럽 명품 유통(LVMH 등) 18~25배</td><td>현대 12M Fwd PER 11배는 구조적 성장(외국인) 감안 시 디스카운트</td></tr>
+<tr><td>면세·관광 소비</td><td>방한 외국인 관광객 회복 + K컬처 수요로 한국 면세·백화점 외국인 매출 구조적 증가</td><td>더현대 외국인 +121%가 일회성 아닌 추세</td></tr>
+<tr><td>업종 PER 비교</td><td>코스피 유통 업종 PER 24.95배 vs 현대 9.65배(2025 기준)</td><td>업종 내 최저 멀티플 구간</td></tr>
+<tr><td>PBR</td><td>현대 PBR 0.65배(F) — 글로벌 백화점 평균(0.8~1.5배) 대비 낮음</td><td>밸류업 PBR 0.7배 목표 = 자산가치 정상화</td></tr>
+</table>
+<div class="global-quote">"현대백화점은 2026년 예상 실적 대비 PER이 약 9배 안팎으로 업종 내 밸류에이션 부담이 크지 않으며, 실적이 확인되는 구간에서 재평가 가능성이 높다." — 업종 분석 종합</div>
+<p style="font-size:9pt;color:#2874a6;">핵심 시그널: ① 글로벌 백화점 대비 저밸류 ② 외국인 소비 구조적 성장 ③ 업종 내 최저 멀티플 → 리레이팅 여력.</p>
+</div>
+
+<!-- ===================== 외부검증 2: 정책·그룹 ===================== -->
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e;">🏛 외부검증 2 — 정부 밸류업 정책 & 현대백화점그룹 전략 <span class="tag-policy">POLICY/GROUP</span></h3>
+<table>
+<tr><th>정책/전략</th><th>내용</th><th>주가 메커니즘</th></tr>
+<tr><td>정부 기업 밸류업 프로그램</td><td>저PBR 기업 주주환원 확대 유도. 현대백화점그룹 4사(지에프홀딩스·현대백화점·현대그린푸드·한섬) 기업가치 제고 계획 수립</td><td>밸류업 수혜주 수급(밸류업 ETF 편입)</td></tr>
+<tr><td>배당 정책 상향</td><td>현금배당 재원을 별도 영업익 10% → <b>15% 이상</b>으로 상향. 최소배당 1,000원 → 1,300원</td><td>배당수익률 상승 → 배당주 매수</td></tr>
+<tr><td>자사주 소각</td><td>올초 자사주 5.0%(124억) 소각. 보유 자사주(8.2%)의 절반 <b>4.1%를 내년 초 추가 소각</b> 방침</td><td>EPS·주당가치 상승</td></tr>
+<tr><td>PBR 목표</td><td>3년 내 PBR 0.5배, 중장기 0.7배 지향</td><td>자산가치 정상화 로드맵</td></tr>
+</table>
+<div class="policy-quote">"올해부터 현금 배당 재원을 별도 영업이익의 10%에서 15% 이상으로 상향하고, 보유 자사주의 절반인 4.1%를 내년 초 소각할 방침." — 현대백화점그룹 기업가치 제고 계획</div>
+<p style="font-size:9pt;color:#7d4f00;">핵심 시그널: ① 배당재원 50% 상향 ② 자사주 소각 가속 ③ PBR 0.7배 목표 → 밸류업 정책의 모범 사례.</p>
+</div>
+
+<!-- ===================== 외부검증 3: 최근 기사 ===================== -->
+<div class="global-box" style="border-color:#8e44ad;">
+<h3 style="margin-top:0;color:#8e44ad;">📰 외부검증 3 — 최근 1개월(2026.05.06~06.05) 핵심 기사 <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+
+<p style="margin:10px 0 4px;"><b>① 현대백화점, 1분기 백화점 영업익 +40%·면세점 3연속 흑자</b><br>백화점 부문 매출 6,325억(+7.4%, 1Q 역대 최대), 영업익 1,358억(+39.7%). 면세점 영업익 34억으로 3개 분기 연속 흑자.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:2px 0 8px 0;">📌 <b>출처:</b> <a href="https://www.thepublic.kr/news/articleView.html?idxno=303464" target="_blank" style="color:#5b2c6f;">더퍼블릭, 2026.05.06</a></p>
+
+<p style="margin:10px 0 4px;"><b>② 외국인 업고 날았다…더현대 1분기 외국인 매출 역대 최대</b><br>더현대 서울 1Q 외국인 매출 +121%, 5/1~5/5 +155.3%. K뷰티·식음·팝업 등 체험형 콘텐츠가 관광 수요 견인.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:2px 0 8px 0;">📌 <b>출처:</b> <a href="https://www.fnnews.com/news/202605061432003765" target="_blank" style="color:#5b2c6f;">파이낸셜뉴스, 2026.05.06</a></p>
+
+<p style="margin:10px 0 4px;"><b>③ 본업 호조에 면세점 흑자까지…하반기 모멘텀 주목</b><br>4월 인천공항 DF2 신규 운영으로 2분기 면세점 이익 흐름 지속 기대. 하반기 증익 전환 전망.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:2px 0 8px 0;">📌 <b>출처:</b> <a href="https://www.opinionnews.co.kr/news/articleView.html?idxno=138019" target="_blank" style="color:#5b2c6f;">오피니언뉴스, 2026.05</a></p>
+
+<p style="margin:10px 0 4px;"><b>④ 현대백화점, 밸류에이션 재평가 구간 진입 — NH</b><br>외국인 매출 확대로 본업 이익 체력 상향, 멀티플 정상화 구간 진입 평가.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:2px 0 8px 0;">📌 <b>출처:</b> <a href="https://buffettlab.co.kr/news/view.php?idx=52299" target="_blank" style="color:#5b2c6f;">버핏연구소(NH 리포트 인용), 2026.05</a></p>
+
+<p style="margin:10px 0 4px;"><b>⑤ 백화점 3사 'K-쇼핑 성지'로…외국인·명품 소비가 실적 반등 견인</b><br>롯데·신세계·현대 모두 외국인·고가 소비로 수익성 반등. 2026 유통업 대전환.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:2px 0 8px 0;">📌 <b>출처:</b> <a href="https://www.ezyeconomy.com/news/articleView.html?idxno=235505" target="_blank" style="color:#5b2c6f;">이지경제, 2026.05</a></p>
+
+<p style="margin:10px 0 4px;"><b>⑥ 패션·외국인 소비에 웃은 현대백화점…1분기 '역대 최대' 백화점 매출</b><br>고마진 패션 카테고리와 외국인 소비가 백화점 부문 사상 최대 매출 견인.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:2px 0 8px 0;">📌 <b>출처:</b> <a href="https://www.ezyeconomy.com/news/articleView.html?idxno=235223" target="_blank" style="color:#5b2c6f;">이지경제, 2026.05.06</a></p>
+
+<p style="margin:10px 0 4px;"><b>⑦ 백화점주 질주…'부의 효과' 기대에 유통 섹터 재평가</b><br>자산가격 상승에 따른 소비 여력 기대로 백화점 섹터 전반 강세.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:2px 0 8px 0;">📌 <b>출처:</b> <a href="https://www.sedaily.com/article/20051795" target="_blank" style="color:#5b2c6f;">서울경제, 2026.05</a></p>
+
+<div class="update-box" style="margin-top:10px;"><b>핵심 시그널 3가지:</b> ① <b>본업 어닝 서프라이즈</b>(백화점 영업익 +39.7%) → 컨센 일제 상향 ② <b>외국인 매출 구조적 폭발</b>(더현대 +121%) → 추세적 성장 스토리 ③ <b>면세점 흑자 안착 + 밸류업</b> → 적자 꼬리 제거 & 멀티플 정상화.</div>
+</div>
+
+<!-- ===================== 외부검증 4: 캘린더 ===================== -->
+<div class="global-box" style="border-color:#0e6655;">
+<h3 style="margin-top:0;color:#0e6655;">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.06~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<table>
+<tr><th>시점</th><th>이벤트</th><th>트리거 → 주가 반응 메커니즘 → 점검 지표</th></tr>
+<tr style="background:#fff3cd;"><td><b>🔥 2026.07</b></td><td>2Q26 실적 프리뷰 / 6월 매출 동향</td><td>면세점 DF2 기여·외국인 매출 지속 확인 → 하반기 증익 검증 → 월별 외국인 매출 증가율</td></tr>
+<tr style="background:#fff3cd;"><td><b>🔥 2026.08</b></td><td>2Q26 실적 발표</td><td>백화점 영업 레버리지 지속 + 면세점 4연속 흑자 여부 → 컨센 추가 상향 → 부문별 OP</td></tr>
+<tr><td>2026.08~09</td><td>여름·추석 성수기 매출</td><td>내국인 소비 회복 강도 → 본업 모멘텀 → 기존점 성장률(SSSG)</td></tr>
+<tr><td>2026.09</td><td>반기 배당 지급</td><td>배당재원 15% 상향 첫 반영 → 배당주 매수 → DPS 가이던스</td></tr>
+<tr style="background:#fff3cd;"><td><b>🔥 2026.11</b></td><td>3Q26 실적 + 4분기 연말 성수기 진입</td><td>외국인 연말 쇼핑 + 면세점 → 이익 피크 분기 → 더현대 외국인 매출</td></tr>
+<tr><td>2027.01</td><td>자사주 4.1% 추가 소각 (예정)</td><td>유통주식수 감소 → EPS·주당가치 상승 → 소각 공시</td></tr>
+<tr><td>2027.02</td><td>2026 연간 실적 + 2027 가이던스</td><td>연간 영업익 4,100억+ 달성 여부 → 밸류업 진척 → 배당성향·PBR</td></tr>
+<tr><td>2026~2028</td><td>밸류업 PBR 0.5→0.7배 로드맵</td><td>주주환원 누적 → 멀티플 정상화 → 분기 PBR 추이</td></tr>
+<tr><td>2027~2028</td><td>지누스(미국 자회사) 턴어라운드</td><td>연결 디스카운트 해소 → 연결 멀티플 상향 → 지누스 분기 손익</td></tr>
+<tr><td>중장기</td><td>방한 외국인 관광 구조적 증가</td><td>면세·백화점 외국인 매출 → 성장 지속성 → 방한객 통계</td></tr>
+</table>
+<p style="font-size:9pt;color:#0e6655;">핵심 트리거(🔥): 2Q·3Q 실적에서 백화점 레버리지+면세점 흑자가 지속 확인되는지가 추가 리레이팅의 관건. 단, 현재가가 이미 컨센 TP에 도달해 서프라이즈 없이는 단기 상단 제한.</p>
+</div>
+
+<!-- ===================== 1. 투자포인트 ===================== -->
+<h2>1. 투자포인트</h2>
+<ol class="points" style="list-style:none;padding-left:0;">
+<li><span class="point-title">① 백화점 본업 영업 레버리지 본격화</span><br>백화점은 고정비 비즈니스. 1Q26 백화점 부문 매출 +7.4%(역대 최대)에 영업익은 +39.7%로 매출 증가율의 5배 이상 레버리지. 매출 회복이 이익으로 증폭되는 구간 진입.</li>
+<li><span class="point-title">② 면세점 흑자전환 — 적자 꼬리 제거</span><br>1Q 면세점 영업익 +34억으로 3개 분기 연속 흑자. 4월 인천공항 DF2 신규 운영으로 2Q 이익 흐름 지속 기대. 과거 그룹 실적의 발목을 잡던 구조적 적자가 해소.</li>
+<li><span class="point-title">③ 더현대 서울 외국인 매출 폭발</span><br>1Q 외국인 매출 +121%, 5/1~5/5 +155.3%. K뷰티·식음·팝업 등 체험형 콘텐츠가 방한 관광 수요를 흡수 — 일회성이 아닌 구조적 성장축.</li>
+<li><span class="point-title">④ 업종 내 최저 밸류에이션</span><br>12M Fwd PER 11배·PBR 0.65배. 코스피 유통 업종 PER 24.95배 대비 절반 이하. "전 세계에서 가장 싼 백화점"(신한) 프레임.</li>
+<li><span class="point-title">⑤ 밸류업 주주환원 강화</span><br>배당재원 별도 영업익 10%→15% 상향, 최소배당 1,300원, 자사주 4.1% 내년 초 추가 소각. 정부 밸류업 정책 모범 사례.</li>
+<li><span class="point-title">⑥ 컨센서스 추세적 상향</span><br>D-60일 내 한투 +27%, 교보·DB +15% 등 대부분 TP 상향. 보수 진영(한투 11만→14만)까지 합류하며 컨센 16사 평균 146,933원으로 수렴.</li>
+<li><span class="point-title">⑦ 한화 19만원 — 적극적 리레이팅 콜</span><br>6/4 한화가 컨센을 30% 상회하는 190,000원 제시. "주가가 본업 이익력을 못 따라왔다"는 키 맞추기 논리.</li>
+<li><span class="point-title">⑧ 내국인 소비 동반 회복</span><br>외국인뿐 아니라 내국인 고가·패션 소비도 회복("내국인도 외국인도 한도초과" - 교보). 수요 양축 동반.</li>
+<li><span class="point-title">⑨ 하반기 증익 가시성</span><br>키움 등 다수가 2H26 YoY 증익 전환 전망. 면세점 DF2 + 연말 성수기가 하반기 이익 견인.</li>
+<li><span class="point-title">⑩ 낮은 베타·방어적 수급</span><br>베타 0.539로 시장 변동성 대비 안정적. 밸류업·배당·경기소비재 패시브 ETF 편입으로 하방 지지.</li>
+<li><span class="point-title">⑪ 자산가치 우량</span><br>BPS 206,105원(2025) 대비 PBR 0.65배 — 보유 부동산 등 자산가치 대비 저평가.</li>
+<li><span class="point-title">⑫ 리스크: 단기 과열·연결 희석</span><br>+107% 급등 후 컨센 TP 도달·52주 신고가. 지누스(미국 자회사) 부진이 연결 실적을 희석하는 구조적 할인 요인(유안타 지적).</li>
+<li><span class="point-title">⑬ 종합 — 본업 모멘텀은 강하나 밸류 부담 공존</span><br>3대 모멘텀(백화점 레버리지·면세점 흑자·외국인)이 동시 작동하나 주가가 이미 컨센에 도달. 추가 상승은 2Q·3Q 실적 서프라이즈에 의존.</li>
+</ol>
+
+<div class="update-box">
+<b>투자의견 종합:</b> <b>BUY (단기 중립 / 중기 매수)</b>. 본업 펀더멘털은 명백히 개선 추세이나 현재가가 컨센 TP(146,933)에 도달하고 52주 신고가·+107% 급등 직후라 단기 진입 매력은 제한적. 조정 시 분할 매수 관점 유효. 16개사 BUY 4.0 만장일치, 신중론(IBK 130k)도 매도가 아닌 보수적 BUY.
+</div>
+
+<h4>시나리오별 목표주가 산출</h4>
+<table>
+<tr><th>시나리오</th><th>26E EPS</th><th>Target PER</th><th>목표주가</th><th>현재가 대비</th><th>전제</th></tr>
+<tr><td><b>Bear</b></td><td>12,050원</td><td>10.8배</td><td>130,000원</td><td class="negative">-11.3%</td><td>지누스 부진 심화·외국인 둔화·밸류 부담 현실화 (IBK 수준)</td></tr>
+<tr><td><b>Base</b></td><td>12,050원</td><td>13.0배</td><td><b>157,000원</b></td><td class="positive">+7.2%</td><td>백화점 레버리지·면세점 흑자 지속, 컨센 상향 추세 반영</td></tr>
+<tr><td><b>Bull</b></td><td>12,050원</td><td>15.8배</td><td><b>190,000원</b></td><td class="positive">+29.7%</td><td>2Q·3Q 어닝 서프라이즈 + 밸류업 리레이팅 (한화 수준)</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출]
+26E EPS 12,050원 × Target PER 13.0배 = 156,650원 ≈ 157,000원
+  · 13.0배 근거: 5/7 1Q 리뷰 후 다수 증권사 TP 150k 클러스터(PER 12.4배) + 추세적 상향 프리미엄
+  · 업종 PER 24.9배 대비 여전히 큰 폭 할인 → 하방 제한적
+
+[Bull TP 산출]
+26E EPS 12,050원 × Target PER 15.8배 = 190,390원 ≈ 190,000원 (한화 TP와 일치)
+  · 면세점 정상 이익력 + 외국인 구조적 성장 반영 시 멀티플 정상화
+</div>
+
+<!-- ===================== 2. 산업개요 ===================== -->
+<h2>2. 산업개요</h2>
+<h3>2-1. 시장 규모 (TAM·SAM·SOM)</h3>
+<p>국내 백화점 시장은 약 35조원 규모(TAM)로 성숙 시장이나, 외국인 관광 소비와 명품·고가 패션이 성장축. 현대백화점은 백화점 13개·아울렛 10개 운영으로 업계 3강(롯데·신세계·현대) 중 하나. 면세점·온라인 채널이 SAM 확장 동력.</p>
+<h3>2-2. 밸류체인</h3>
+<p>입점 브랜드(명품·패션·식품) → 백화점 플랫폼(임대수익·직매입) → 고객(내국인 VIP + 외국인 관광객). 현대백화점은 더현대 서울로 체험형·콘텐츠형 백화점 모델을 선도하며 외국인 유입 채널을 확보.</p>
+<h3>2-3. 산업 사이클</h3>
+<p>2023~2024 소비 침체 → 2025~2026 외국인 관광·고가 소비 주도 회복. 자산가격 상승에 따른 '부의 효과'와 K컬처 기반 방한 수요가 백화점 섹터 전반을 리레이팅하는 국면.</p>
+<h3>2-4. Peer 비교</h3>
+<table>
+<tr><th>구분</th><th>현대백화점</th><th>신세계</th><th>롯데쇼핑</th></tr>
+<tr><td>2026E 영업이익</td><td>약 4,133억</td><td>—</td><td>약 6,337억 (+15.4%)</td></tr>
+<tr><td>12M Fwd PER</td><td>11배</td><td>보수적 구간</td><td>보수적 구간</td></tr>
+<tr><td>핵심 강점</td><td>더현대·외국인·면세점 흑자</td><td>외국인 매출 1위</td><td>매출 1위·규모</td></tr>
+<tr><td>밸류 포지션</td><td>업종 내 최저 멀티플</td><td>리레이팅 여지</td><td>구조조정 진행</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 백화점 3사 모두 외국인·고가 소비로 수익성 반등. 현대는 더현대 외국인 성장률과 밸류 매력에서 차별화.</p>
+
+<!-- ===================== 3. 기업개요 ===================== -->
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>현대백화점(069960)은 백화점 13개·아울렛 10개·면세점(무역센터점, 인천공항 DF7·DF5·DF2)을 운영하는 유통 대표 기업. 12월 결산, KOSPI·K200 편입. 시총 3.16조원.</p>
+<h3>3-2. 비즈니스 모델 (P×Q 분해)</h3>
+<p>매출 = 점포 수(Q) × 점당 매출(P) × 영업이익률. 1Q26 핵심은 P(점당 매출, 특히 외국인 객단가)와 이익률 동반 상승. 고정비 구조이므로 P 상승이 이익률을 비선형 증폭(레버리지).</p>
+<h3>3-3. 경쟁 해자</h3>
+<p>더현대 서울이라는 차별화된 플래그십(체험형·콘텐츠형) + 강남권 핵심 입지 + 면세점 라이선스. 외국인 관광객의 목적지(destination) 지위를 확보한 점이 해자.</p>
+<h3>3-4. 연혁·자회사</h3>
+<p>현대백화점그룹 소속(지주: 현대지에프홀딩스). 주요 연결 자회사로 미국 매트리스 기업 지누스(Zinus) 보유 — 현재 부진하여 연결 실적 희석 요인.</p>
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>현대지에프홀딩스 외 2인</td><td>43.38%</td><td>최대주주(지주)</td></tr>
+<tr><td>국민연금공단</td><td>13.33%</td><td>—</td></tr>
+<tr><td>FIDELITY FUNDS 외 38인</td><td>5.26%</td><td>외국계</td></tr>
+<tr><td>브이아이피자산운용</td><td>5.23%</td><td>가치투자 기관</td></tr>
+<tr><td>Morgan Stanley IM 외 11인</td><td>5.11%</td><td>외국계</td></tr>
+<tr><td>자사주</td><td>1.08%</td><td>소각 진행 중(8.2%→추가 4.1% 예정)</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">외국인 지분율 24.58%. VIP자산운용 등 가치투자 기관 보유 — 저평가 매력에 대한 기관의 인식.</p>
+
+<!-- ===================== 4. 재무분석 ===================== -->
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 실적 추이 (연결)</h3>
+<table>
+<tr><th>구분(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>42,075</td><td>41,876</td><td>42,303</td><td>42,270</td></tr>
+<tr><td>영업이익</td><td>3,035</td><td>2,840</td><td>3,779</td><td>4,133</td></tr>
+<tr><td>지배주주순이익</td><td>-798</td><td>-359</td><td>2,077</td><td>2,640</td></tr>
+<tr><td>EPS(원)</td><td>-3,409</td><td>-1,543</td><td>9,177</td><td>12,050</td></tr>
+<tr><td>영업이익률</td><td>7.21%</td><td>6.78%</td><td>8.93%</td><td>9.78%</td></tr>
+<tr><td>ROE</td><td>-1.76%</td><td>-0.81%</td><td>4.64%</td><td>5.67%</td></tr>
+</table>
+<p>2023~2024 순손실(자회사·일회성 영향)에서 2025 흑자 전환, 2026E 영업익 4,133억(+9.4%)·EPS 12,050원으로 이익 정상화 궤도. 영업이익률 7%→9.8%로 개선.</p>
+<h3>4-2. 분기 추이</h3>
+<table>
+<tr><th>구분(억원)</th><th>2025/09</th><th>2025/12</th><th>2026/03</th><th>2026/06E</th></tr>
+<tr><td>매출액</td><td>10,103</td><td>10,417</td><td>9,501</td><td>10,449</td></tr>
+<tr><td>영업이익</td><td>727</td><td>1,059</td><td>988</td><td>762</td></tr>
+<tr><td>영업이익률</td><td>7.20%</td><td>10.17%</td><td>10.40%</td><td>7.29%</td></tr>
+</table>
+<p>1Q26 영업이익률 10.4%로 분기 최고 수준. 연결 영업익은 YoY -12.2%이나 백화점 본업은 +39.7%. 2Q는 계절성으로 소폭 둔화 예상되나 면세점 DF2 기여가 변수.</p>
+<h3>4-3. 현금흐름·재무건전성</h3>
+<p>부채비율 78.26%(2025)로 안정적. 유보율 3,885%. 자산총계 11.2조, 자본총계 6.3조. 자사주 소각 여력 충분.</p>
+<h3>4-4. 유상증자·자본구조 리스크</h3>
+<p>유상증자 계획 없음. 오히려 자사주 소각(주식수 감소)으로 주주가치 환원 방향. 자본구조 리스크 낮음. 발행주식수 21,564,912주(자사주 소각 시 추가 감소).</p>
+
+<!-- ===================== 5. 주주환원 ===================== -->
+<h2>5. 주주환원</h2>
+<p>현대백화점은 정부 밸류업 정책의 모범 사례로 주주환원을 적극 확대 중이다. ① <b>배당</b>: 현금배당 재원을 별도 영업이익의 10%에서 15% 이상으로 상향, 최소배당 1,000→1,300원, 2025 DPS 2,150원·2026E DPS 2,255원. ② <b>자사주 소각</b>: 올초 5.0%(124억) 소각, 보유 자사주(8.2%)의 절반인 4.1%를 2027년 초 추가 소각 방침. ③ <b>PBR 목표</b>: 3년 내 0.5배, 중장기 0.7배. 배당수익률은 2025 기준 2.43%, 2026E 1.86%(주가 상승으로 하락). 주주환원 강화가 밸류업 ETF·배당 ETF 수급으로 연결되는 선순환.</p>
+
+<!-- ===================== 6. 밸류에이션 ===================== -->
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교</h3>
+<table>
+<tr><th>지표</th><th>현대백화점</th><th>코스피 유통 업종</th><th>해석</th></tr>
+<tr><td>PER(2025)</td><td>9.65배</td><td>16.53배</td><td>업종 대비 42% 할인</td></tr>
+<tr><td>12M Fwd PER</td><td>11.0배</td><td>24.95배</td><td>이익 성장 감안 저평가</td></tr>
+<tr><td>PBR(F)</td><td>0.65배</td><td>—</td><td>자산가치 대비 할인</td></tr>
+<tr><td>EV/EBITDA</td><td>5.91배</td><td>8.52배</td><td>현금흐름 대비 저평가</td></tr>
+<tr><td>배당수익률</td><td>2.43%</td><td>2.26%</td><td>업종 상회</td></tr>
+</table>
+<h3>6-2. 시나리오 목표가 산출</h3>
+<p>§1의 시나리오표 참조. Base 157,000원(PER 13배), Bull 190,000원(PER 15.8배), Bear 130,000원(PER 10.8배). 26E EPS 12,050원 공통 적용, 멀티플 차이로 시나리오 구분.</p>
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="bull-box"><b>진입:</b> 130,000원 이하(Bear, PER 10.8배·IBK TP) 조정 시 분할 매수. 2Q 실적에서 백화점 레버리지+면세점 흑자 지속 확인 시 추격.</div>
+<div class="risk-box"><b>이탈:</b> 190,000원(Bull) 도달 시 차익 실현 검토. 더현대 외국인 매출 증가율 둔화 또는 지누스 손실 확대 시 비중 축소.</div>
+
+<!-- ===================== 7. 주가 히스토리 ===================== -->
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<tr><th>구간</th><th>주가 흐름</th><th>핵심 모멘텀</th></tr>
+<tr><td>52주 저점</td><td>69,000원</td><td>소비 침체·자회사 부진 우려</td></tr>
+<tr><td>1년 수익률</td><td class="positive">+106.92%</td><td>밸류업 + 외국인 소비 회복 기대</td></tr>
+<tr><td>6개월</td><td class="positive">+55.52%</td><td>실적 개선 가시화</td></tr>
+<tr><td>3개월</td><td class="positive">+60.11%</td><td>1Q 실적 서프라이즈·컨센 상향</td></tr>
+<tr><td>1개월</td><td class="positive">+31.15%</td><td>5월 매출 +35.9%·외국인 폭발·한화 19만원</td></tr>
+<tr><td>현재(6/5)</td><td>146,500원 (52주 신고가)</td><td>컨센 TP 도달</td></tr>
+</table>
+<p>지난 1년간 +107% 급등하며 52주 신고가 경신. 특히 최근 1개월 +31%는 1Q 실적(5/6)과 5월 외국인 매출 폭발, 한화 19만원 콜이 겹친 결과. 다만 현재가가 컨센 TP(146,933)에 도달해 단기 과열 신호 동반.</p>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 한 줄 진단</h3>
+<div class="bull-box"><b>ETF 한 줄:</b> 현대백화점은 <b>액티브 테마 자금은 거의 없고(10개·848주·약 1.2억)</b>, ETF 노출의 사실상 전부가 <b>패시브(K200 본체 + 밸류업·배당·경기소비재 테마)</b>. 주가를 끌어올린 건 ETF 자금이 아니라 외인·기관의 실적 기반 매수 — ETF는 하방 지지 역할.</div>
+
+<h3>7-2-2. 액티브 ETF 한 달간 변화 (2026.05.05 → 06.05)</h3>
+<table>
+<tr><th>구분</th><th>1개월 전 (5/5)</th><th>현재 (6/5)</th><th>변화</th></tr>
+<tr><td>편입 액티브 ETF 수</td><td>9개</td><td>10개</td><td class="positive">+1개</td></tr>
+<tr><td>합산 보유 주식수</td><td>441주</td><td>848주</td><td class="positive">+407주</td></tr>
+<tr><td>추정 자금 순유입</td><td>—</td><td>—</td><td class="positive">약 +0.6억원</td></tr>
+<tr><td>신규 편입</td><td colspan="2">KoAct 글로벌K컬처밸류체인액티브(191주), TIME K컬처액티브(200주)</td><td class="positive">K컬처 테마 신규</td></tr>
+<tr><td>비중 확대</td><td colspan="2">KoAct 코리아밸류업액티브 20→102주</td><td class="positive">+82주</td></tr>
+<tr><td>편출</td><td colspan="2">TIGER AI코리아그로스액티브 (72주 → 0)</td><td class="negative">-72주</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 액티브 보유주식수가 절대적으로 작아(848주, 시총의 0.004%) 액티브 자금이 주가에 미치는 영향은 미미. K컬처·밸류업·배당 성격 액티브 ETF가 소량 편입.</p>
+
+<h3>7-2-3. 편입 ETF 평가금액 순 통합 표 (액티브+패시브, ystreet+ETF CHECK+FunETF 크로스체크)</h3>
+<p style="font-size:9pt;color:#555;">데이터 소스: 와이스트릿 ystreet + ETF CHECK + FunETF 크로스체크 2026.06.05. 평가금액은 ETF NAV×비중 기준 <b>추정치</b>(개별 NAV 미공개분 포함). 패시브 75개·액티브 10개 중 노출 상위.</p>
+<table>
+<tr><th>ETF (코드)</th><th>유형</th><th>현대백화점 비중</th><th>추정 평가금액</th><th>성격</th></tr>
+<tr><td>KODEX 200 / TIGER 200 등 K200 본체군</td><td>패시브</td><td>약 0.03%</td><td><b>약 210억 (추정)</b></td><td>대형 NAV·저비중이나 노출 최대</td></tr>
+<tr><td>TIGER MKF배당귀족 (445910)</td><td>패시브</td><td>3.69%</td><td>약 40억 (추정)</td><td>배당주 테마</td></tr>
+<tr><td>HANARO e커머스 (322400)</td><td>패시브</td><td><b>10.41%</b></td><td>약 30억 (추정)</td><td>유통/이커머스 테마 — 최고 비중</td></tr>
+<tr><td>KODEX 경기소비재 (266390)</td><td>패시브</td><td>3.35%</td><td>약 20억 (추정)</td><td>경기소비재 섹터</td></tr>
+<tr><td>RISE K엔터&여행레저 (388280)</td><td>패시브</td><td>5.82%</td><td>약 20억 (추정)</td><td>관광·레저 테마</td></tr>
+<tr><td>KODEX 밸류Plus (244670)</td><td>패시브</td><td>3.11%</td><td>약 15억 (추정)</td><td>밸류 팩터</td></tr>
+<tr><td>RISE 우량업종대표주 (140580)</td><td>패시브</td><td>2.88%</td><td>약 12억 (추정)</td><td>대표주</td></tr>
+<tr><td>PLUS 중형주저변동50 (266550)</td><td>패시브</td><td>3.08%</td><td>약 10억 (추정)</td><td>중형·저변동</td></tr>
+<tr><td>KoAct 글로벌K컬처밸류체인액티브 (013200)</td><td>액티브</td><td>5.74%</td><td>약 0.3억 (191주)</td><td>K컬처 액티브(신규)</td></tr>
+<tr><td>TIME K컬처액티브 (410870)</td><td>액티브</td><td>2.55%</td><td>약 0.3억 (200주)</td><td>K컬처 액티브(신규)</td></tr>
+</table>
+<div class="update-box"><b>KOSPI 200 패시브 추가 노출:</b> 현대백화점은 K200 구성종목으로 KODEX 200·TIGER 200·HANARO 200·ACE 200 등 대형 K200 ETF에 약 0.03% 비중 편입. 개별 비중은 낮으나 합산 NAV가 커 <b>패시브 노출의 대부분(추정 약 210억)을 차지</b>.</div>
+<div class="update-box"><b>최종 합계 (추정):</b> 패시브 75개 + 액티브 10개 합산 ETF 노출 <b>약 300억원</b> (시총 3.16조의 약 0.9%). 이 중 액티브는 약 1.2억(0.004%)에 불과 — <b>노출의 99% 이상이 패시브</b>.</div>
+<p style="font-size:9pt;color:#7f8c8d;">※ 크로스체크 효과: ystreet 액티브 트래커만으로는 HANARO e커머스(10.41%)·RISE K엔터여행레저(5.82%)·배당귀족 등 패시브 테마 ETF가 잡히지 않음. FunETF·ETF CHECK 교차로 유통·배당·경기소비재 테마 노출을 포착.</p>
+
+<h3>7-2-4. 국내상장 ETF 시장 — 현대백화점 편입 ETF 음영 표시</h3>
+<p style="font-size:9pt;color:#555;">패시브 ETF 비중 상위 (국내 기초자산). <span style="background:#fff3cd;padding:1px 4px;">음영 = 현대백화점 편입 비중 1% 이상 ETF</span>.</p>
+<table>
+<tr><th>순위</th><th>ETF</th><th>현대백화점 비중</th><th>테마</th></tr>
+<tr style="background:#fff3cd;"><td>1</td><td>HANARO e커머스 (322400)</td><td>10.41%</td><td>유통/이커머스</td></tr>
+<tr style="background:#fff3cd;"><td>2</td><td>RISE K엔터&여행레저 (388280)</td><td>5.82%</td><td>관광·레저</td></tr>
+<tr style="background:#fff3cd;"><td>3</td><td>TIGER MKF배당귀족 (445910)</td><td>3.69%</td><td>배당</td></tr>
+<tr style="background:#fff3cd;"><td>4</td><td>KODEX 경기소비재 (266390)</td><td>3.35%</td><td>경기소비재</td></tr>
+<tr style="background:#fff3cd;"><td>5</td><td>KODEX 밸류Plus (244670)</td><td>3.11%</td><td>밸류</td></tr>
+<tr style="background:#fff3cd;"><td>6</td><td>PLUS 중형주저변동50 (266550)</td><td>3.08%</td><td>저변동</td></tr>
+<tr style="background:#fff3cd;"><td>7</td><td>RISE 우량업종대표주 (140580)</td><td>2.88%</td><td>대표주</td></tr>
+<tr style="background:#fff3cd;"><td>8</td><td>TIGER 200 경기소비재 (139290)</td><td>1.11%</td><td>K200 섹터</td></tr>
+<tr style="background:#fff3cd;"><td>9</td><td>KODEX 200 중소형 (226980)</td><td>1.00%</td><td>중소형</td></tr>
+<tr><td>10</td><td>RISE 내수주플러스 (326230)</td><td>0.97%</td><td>내수</td></tr>
+</table>
+<div class="update-box"><b>분석 한 줄:</b> 음영(1%+) ETF가 9개 — 유통·배당·경기소비재·밸류·관광 등 <b>'밸류업+내수소비 회복' 테마에 골고루 편입</b>. 단일 ETF 비중은 HANARO e커머스(10.41%)가 최고이나 NAV가 작아 절대 금액은 K200 본체가 우위. <b>음영 ETF 합산 추정 평가금액 약 90억</b>.</div>
+
+<h3>7-2-5. 진단</h3>
+<div class="bull-box"><b>3가지 핵심 시그널:</b><br>① <b>액티브 매수</b> — K컬처·밸류업 액티브 ETF가 소량(+407주) 신규 편입, 그러나 절대 규모 미미.<br>② <b>크로스체크 발견</b> — ystreet 단독이면 놓칠 HANARO e커머스(10.41%)·배당귀족·경기소비재 테마 패시브 노출을 FunETF/ETF CHECK로 포착.<br>③ <b>패시브 양면성</b> — K200·밸류업·배당 패시브가 하방을 지지하나, 액티브 모멘텀 자금이 없어 ETF발 추가 상승 동력은 제한적.</div>
+<div class="update-box"><b>활용 포인트:</b><br>· <b>전체 노출</b>: ETF 약 300억(시총 0.9%)으로 외인·기관 대비 영향력 작음 → 현대백화점은 ETF가 아니라 <b>실적·외인 매수가 주가를 결정</b>하는 종목.<br>· <b>외인 매도 흡수력</b>: 시총 3.16조 × ETF 노출 0.9% = 약 300억으로, 외인 매도 시 ETF 흡수 여력은 제한적. 외인 수급이 더 중요.<br>· <b>다음 점검 시점</b>: 밸류업 ETF 리밸런싱·배당 ETF 정기 편입 변경 시 패시브 비중 변화 확인.</div>
+
+<!-- ===================== 8. 리스크 분석 ===================== -->
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">+107% 급등 후 컨센 TP 도달·52주 신고가 — 차익 실현 매물·단기 조정 가능성. 서프라이즈 없이는 상단 제한.</div>
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box"><b>지누스(미국 자회사) 부진</b>: 연결 실적을 지속 희석하는 구조적 할인 요인(유안타 지적). 미국 매트리스 시장 회복 지연 시 연결 멀티플 제약.</div>
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">방한 외국인 관광 둔화(환율·지정학), 내수 소비 위축, 고금리 지속 시 고가 소비 약화 가능성.</div>
+<h3>8-4. 멀티플 리스크</h3>
+<div class="risk-box">현재 12M Fwd PER 11배는 업종 대비 낮으나 과거 자사 평균(8~9배) 대비는 상단. 이익 추정 하향 시 멀티플·EPS 동반 하락 리스크.</div>
+
+<!-- ===================== 9. 미래 모멘텀 ===================== -->
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>내용</th><th>시점</th></tr>
+<tr><td>면세점 DF2 본격 기여</td><td>4월 인천공항 DF2 신규 운영 → 면세점 이익 확대</td><td>2Q26~</td></tr>
+<tr><td>외국인 매출 구조적 성장</td><td>더현대 외국인 +121%, K컬처 기반 추세</td><td>지속</td></tr>
+<tr><td>밸류업 주주환원</td><td>자사주 4.1% 소각, 배당 15% 상향, PBR 0.7배 목표</td><td>2027 초~</td></tr>
+<tr><td>지누스 턴어라운드</td><td>미국 자회사 회복 시 연결 디스카운트 해소</td><td>2027~2028</td></tr>
+<tr><td>내국인 소비 회복</td><td>'부의 효과'·고가 패션 수요</td><td>2H26~</td></tr>
+</table>
+<p>현재 영업이익(연간 ~4,000억대) 박스권에서, 면세점 정상화 + 외국인 성장 + 지누스 회복이 동시에 작동하면 5,000억+ 돌파 가능. 본업 레버리지가 핵심 동력.</p>
+
+<!-- ===================== 10. 결론 ===================== -->
+<h2>10. 결론</h2>
+<p>현대백화점은 <b>백화점 본업 영업 레버리지(1Q 영업익 +39.7%), 면세점 흑자전환(3개 분기 연속), 더현대 외국인 매출 폭발(+121%)</b>이라는 3대 모멘텀이 동시에 작동하는 구간이다. 12M Fwd PER 11배·PBR 0.65배로 업종 내 최저 밸류이며, 배당 상향·자사주 소각 등 밸류업 주주환원도 모범적이다. 증권사 16사가 BUY(4.0) 만장일치, 한화는 19만원으로 최고치를 제시했다.</p>
+<p>다만 주가가 1년간 +107% 급등하며 <b>컨센 TP(146,933원)에 도달하고 52주 신고가</b>를 기록해 단기 진입 매력은 제한적이다. 지누스(미국 자회사) 부진이 연결 실적을 희석하는 점도 멀티플 상단을 제약한다. <b>투자의견 BUY, Base TP 157,000원(+7.2%)</b>. 단기적으로는 조정 시 분할 매수, 중기적으로 2Q·3Q 실적에서 백화점 레버리지와 면세점 흑자가 지속 확인되면 Bull(190,000원) 리레이팅을 기대할 수 있다.</p>
+
+<div class="footer">
+<p><b>데이터 출처:</b> FnGuide Company Guide·SearchReport(증권사 리포트 전수, 2026.06.05) · DART 현대백화점 1Q26 분기보고서 · 와이스트릿 ystreet ActiveETF/PassiveETF Tracker + ETF CHECK + FunETF 크로스체크(2026.06.05) · 각 언론 보도(본문 출처 명기)</p>
+<p><b>면책:</b> 본 보고서는 공개된 자료를 바탕으로 작성된 참고용 분석이며, 투자 권유나 매매 추천이 아닙니다. 목표주가·시나리오는 작성 시점의 가정에 기반하며 실제와 다를 수 있습니다. 투자 판단과 그 결과의 책임은 투자자 본인에게 있습니다. ETF 평가금액은 NAV×비중 기준 추정치입니다.</p>
+<p>분석일 2026.06.06 · 현대백화점(069960)</p>
+</div>
+
+</body>
+</html>

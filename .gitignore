@@ -10,5 +10,12 @@ scripts/.sync.log
 scripts/.launchd.log
 scripts/.launchd.err
 scripts/.repos.json
+# Node / Playwright (스크래퍼 의존성)
+node_modules/
+scripts/*/node_modules/
+scripts/etf-status/node_modules/
+package-lock.json
+# ETF현황 디버그 로그
+modules/etfstatus/data/_debug_*.log
 # 시스템
 .DS_Store

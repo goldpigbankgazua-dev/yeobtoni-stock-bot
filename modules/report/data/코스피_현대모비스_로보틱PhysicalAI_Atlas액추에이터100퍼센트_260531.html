@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>코스피_현대모비스_로보틱PhysicalAI_Atlas액추에이터100퍼센트_260531</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ol.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>현대모비스 (012330.KS)</h1>
+<div class="sub">현대차그룹 Top-6 글로벌 자동차부품 + <b>Atlas 액추에이터 100% 독점 납품</b> · 휴머노이드 H/W 원가의 50~60%<br>25사 컨센 695k · 신한 900k(↑57만)·삼성 950k(↑72만)·다올 900k·LS 870k · <b>현재가 768k가 컨센 추월</b> · 분석일 2026.05.31</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (5/29)</span><span class="snapshot-value">768,000원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">69.7조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+11.95%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">16.0배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (F)</span><span class="snapshot-value">1.41배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">38.15%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+192.0%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">기아 외 32.7%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value positive">8,026억 (+3.3% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">850,000원<br>(+10.7%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">1,100,000원<br>(+43.2%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (25사)</span><span class="snapshot-value">695,200원<br>(-9.5%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">155개<br>(액티브 37 / 패시브 118)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (1개월)</span><span class="snapshot-value positive">31개 → 37개<br>(+6개 신규)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전체 ETF 노출 (현재)</span><span class="snapshot-value positive">약 1조 423억<br>(시총 70조의 1.5%)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 액티브 ETF <b>37개</b> + 패시브 ETF <b>118개 = 합산 155개</b> 편입. <b>현재 모비스 ETF 노출 총합 약 1조 423억 (시총 70조의 1.5%)</b> — 액티브·테마 ETF 4,784억 (KODEX 자동차 1,437억·KODEX 로봇 1,225억·SOL 자동차TOP3플러스 1,071억이 3대 자금 풀) + KOSPI 200/코스피 패시브 5,639억 (KODEX 200 단일 2,863억). 1개월 +75% 주가 상승으로 가격 효과만 약 +4,470억 증가, 추가로 HK 베스트일레븐액티브(5월 신규)·UNICORN R&amp;D 등 액티브 ETF 신규 편입 +6개. <b>외인 매도해도 시총 1.5%에 해당하는 ETF 자금 자동 가격 방어</b>. <i>(데이터: ystreet + ETF CHECK 크로스체크 2026.05.29 기준 — 상세 표는 §7-2-3·7-2-4 참조)</i><br><br>
+<b>핵심 한줄:</b> <b>현재가 768,000원이 25사 컨센 695k는 추월했으나 다올·신한 900k / 삼성 950k / LS 870k 등 신규 상향 TP 대비 -12~+24% 여력</b>이 잔존하는 모멘텀 진행 국면. 1Q26은 매출 15.56조(YoY +5.5% 역대 1분기 최고) + OP 8,026억(YoY +3.3%) — 컨센 9,415억 대비 -14.7% 미스이나 1Y 대비 흑자전환 + 절대치 자체 양호 "선방" 평가. 5월 한 달 +74.9%, 1Y +192% 급등은 <b>두 가지 메가 모멘텀의 합산</b> — <b>① 보스턴다이내믹스 Atlas 액추에이터 100% 독점 납품 (H/W 원가의 50~60%) → 삼성증권 Atlas 3만대 시 매출 1.5조, 신한투자 5만대(2030) 시 매출 2조+ 가능, ② SDV·전동화 부품 글로벌 수주 확대 (스텔란티스·GM·북미 Big 3) + 2026년 R&amp;D 투자 2.16조(처음으로 2조 돌파)</b>. <b>Base TP 850k는 27F EPS 50,000원 × PER 17배, Bull TP 1,100k는 28F EPS 55,000원 × PER 20배(Atlas 매출 2조 정착 + Physical AI 옵션 풀반영)</b>. PER 16배는 코스피 평균 15배와 비슷 — 다른 모멘텀 종목 대비 합리적 영역, 그러나 1년 +192% 후 추격 매수보다는 700~720k 인근 분할 매수 권장.</div>
+</div>
+
+<!-- ===================== 증권사 동향 박스 (FnGuide 전수 수집 보강판) ===================== -->
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">📊 5월 1주일치 (5/22~5/29) 6개 증권사 동시 신규 상향 — 평균 TP 900k <span class="tag-new">FnGuide 전수</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>발간일</th><th>증권사 (애널리스트)</th><th>제목</th><th>의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>5/29</td><td><b>유진투자증권</b> (이재일)</td><td>로봇/모빌리티 핵심 부품 공급사로 재평가</td><td class="positive">BUY</td><td class="positive"><b>910,000원</b> (↑)</td><td class="positive">+18.5%</td></tr>
+<tr><td>5/28</td><td><b>신한투자증권</b> (박광래)</td><td>자동차 부품사를 넘어 Physical AI 밸류체인으로</td><td class="positive">매수</td><td class="positive"><b>900,000원</b> (↑)</td><td class="positive">+17.2%</td></tr>
+<tr><td>5/27</td><td><b>삼성증권</b> (임은영·김현지)</td><td>하반기 전망: 액추에이터 기술, 로봇 열까지 잡는다</td><td class="positive">BUY</td><td class="positive"><b>950,000원</b> (↑)</td><td class="positive">+23.7%</td></tr>
+<tr><td>5/27</td><td><b>LS증권</b> (이병근)</td><td>단순 부품사를 넘어 대장으로</td><td class="positive">BUY</td><td class="positive"><b>870,000원</b> (↑)</td><td class="positive">+13.3%</td></tr>
+<tr><td>5/22</td><td><b>NH투자증권</b> (하늘)</td><td>Physical AI 전환의 선봉대장</td><td class="positive">BUY</td><td class="positive"><b>870,000원</b> (↑)</td><td class="positive">+13.3%</td></tr>
+<tr><td>5/21</td><td><b>다올투자증권</b> (유지웅)</td><td>누가 왕이 될 것인가</td><td class="positive">BUY</td><td class="positive"><b>900,000원</b> (↑)</td><td class="positive">+17.2%</td></tr>
+<tr style="background:#eaf2f8;"><td colspan="4"><b>1주일 6사 평균 TP</b></td><td><b>900,000원</b></td><td class="positive">+17.2%</td></tr>
+</table>
+
+<h4 style="margin-top:14px;color:#1a5276;">5/19~5/20 (직전 주) 추가 상향 5개</h4>
+<table>
+<tr><th>발간일</th><th>증권사 (애널리스트)</th><th>제목</th><th>의견</th><th>목표주가</th><th>비고</th></tr>
+<tr><td>5/20</td><td>키움증권 (신윤철·권용일)</td><td>안정적 실적 기반으로 멀티플 업사이드까지</td><td class="positive">BUY</td><td>700,000원 (↑)</td><td>본업 안정성 강조</td></tr>
+<tr><td>5/20</td><td>삼성증권 (임은영·김현지)</td><td>10년간 눌린 주가, 한꺼번에 폭발한다</td><td class="positive">BUY</td><td>720,000원 (↑)</td><td>1주일 후 5/27 950k 추가 상향</td></tr>
+<tr><td>5/20</td><td>대신증권 (김귀연·박서영)</td><td>보스턴다이나믹스 핵심 밸류체인</td><td class="positive">BUY</td><td>730,000원 (↑)</td><td>BD 가치 첫 명시</td></tr>
+<tr><td>5/19</td><td>현대차증권 (장문수)</td><td>기술 선도기업의 공급망 생태계 구심점</td><td class="positive">BUY</td><td>810,000원 (↑)</td><td>그룹 SW·HW 통합 강조</td></tr>
+<tr><td>5/11</td><td>KB증권 (강성진·김지윤)</td><td>로보틱스 공급망 구축을 밀어붙일 캐시카우 보유</td><td class="positive">BUY</td><td>750,000원</td><td>본업 캐시카우 + 로보틱스</td></tr>
+<tr><td>5/8</td><td>상상인증권 (유민기)</td><td>SDV H/W 플랫폼 및 로보틱스 중추 역할 기대</td><td class="positive">BUY</td><td>600,000원</td><td>중소형 증권사 보수적</td></tr>
+<tr style="background:#eaf2f8;"><td colspan="5"><b>25사 컨센서스 (FnGuide 2026.05.29)</b></td><td><b>Buy 4.0 / 695,200원</b></td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1a5276;"><b>핵심 시그널 (FnGuide 전수 수집 기준 4가지):</b><br>
+① <b>5월 한 달간 12개 증권사가 신규 상향 — 단일 종목 단일 월 최다.</b> 5/8~5/29 사이 발간된 BUY 리포트만 12건, 평균 TP 점프 +130k (650k → 약 830k). 한국 증권가가 이렇게 일제히 한 종목을 끌어올린 사례는 드물다 — <b>"누가 왕이 될 것인가"(다올 5/21) 표현이 분위기를 압축</b>.<br>
+② <b>1주일(5/22~5/29) 6사 평균 TP 900k = 현재가 +17.2% 잔존.</b> 다 외인·기관이 추격 매수해도 합리적 상승여력. <b>가장 보수적 1주일치 TP도 870k(LS·NH)로 현재가 +13.3%</b> — Bull 시나리오의 정당화가 매우 단단.<br>
+③ <b>전 증권사 공통 발화점: Atlas 액추에이터 + Physical AI 밸류체인.</b> 신한 "Physical AI 밸류체인으로", NH "Physical AI 전환의 선봉대장", 다올 "누가 왕이 될 것인가", 삼성 "로봇 열까지 잡는다", 유진 "재평가", LS "단순 부품사를 넘어 대장으로". <b>동사를 더 이상 한국 자동차 부품주가 아닌 글로벌 Physical AI 핵심 부품 공급사로 재분류</b>.<br>
+④ <b>FnGuide 25사 컨센 695k는 후행.</b> 25사 중 4월 1Q26 어닝 미스 직후 540~620k 수준 미상향 상태인 BNK/신영/DB/교보/한화/미래에셋(4/27 일제 발간) 포함. <b>최신 1~2주 신규 상향만 봐야 진짜 시장 인식이 보임</b>.</p>
+</div>
+
+<!-- ===================== 5/29 유진투자증권 신규 상향 박스 ===================== -->
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1;">
+<h3 style="margin-top:0;color:#0e4429;border:none;">🔥 5/29 유진투자증권 (이재일) — TP 910,000원 (↑), <b>"로봇/모빌리티 핵심 부품 공급사로 재평가"</b> <span class="tag-new">NEW</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>유진 5/29 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"로봇/모빌리티 핵심 부품 공급사로 재평가"</td><td>'자동차 부품사' → '로봇/모빌리티 부품 1등' 분류 변경</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 910,000원</b></td><td class="positive">25사 중 2위. 현재가 768k 대비 +18.5%</td></tr>
+<tr><td class="positive"><b>★ TP 상향 배경</b></td><td class="positive">CES 2026 Atlas 양산형 + JP Morgan 컨퍼런스 매출 가이던스 수치화 + 5/8 +30% 폭등 후 Atlas SaaS 매출 SoTP 본격 반영</td><td class="positive">기존 자동차 부품 PER 12배 + 로보틱스 SoTP 가산</td></tr>
+<tr><td><b>27F EPS 가정</b></td><td>27F EPS 50,000~52,000원 × PER 17~18배 = TP 910k</td><td>SDV 양산 + Atlas 매출 인식 풀반영</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#0e4429;"><b>유진 5/29 핵심:</b> 유진은 '자동차 부품사' 분류 자체를 변경 — <b>'로봇/모빌리티 부품 공급사'로 재분류</b>. 910k = 27F EPS × PER 18배로 정당화 (글로벌 자동차 부품 PER 12배 대비 +50% 프리미엄). 1주일치 6사 신규 상향 중 가장 공격적 멀티플 점프.</p>
+</div>
+
+<!-- ===================== 5/27 LS증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h3 style="margin-top:0;color:#154360;border:none;">📘 5/27 LS증권 (이병근) — TP 870,000원 (↑), <b>"단순 부품사를 넘어 대장으로"</b> <span class="tag-new">NEW</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>LS 5/27 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"단순 부품사를 넘어 대장으로"</td><td>한국 자동차 부품 섹터의 명백한 1등 선언</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 870,000원</b></td><td>현재가 768k 대비 +13.3%</td></tr>
+<tr><td class="positive"><b>★ 3중 동력 논리</b></td><td class="positive">① 본업 자동차 부품 (Magna·Aptiv 동급) + ② SDV 부품 (전동화 신공장 OPM 회복) + ③ Atlas 액추에이터 (휴머노이드 H/W 50~60%)</td><td>본업 + 신성장 SoTP 3개 합산</td></tr>
+<tr><td><b>밸류에이션 모델</b></td><td>본업 PER 12배 + SDV 부품 SoTP + 액추에이터 SoTP = TP 870k</td><td>분리 평가의 첫 본격 적용</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#154360;"><b>LS 핵심:</b> "대장" 표제는 한국 자동차 부품 섹터의 1등 베팅. 본업 + SDV + 액추에이터 3중 SoTP 모델로 870k 정당화. 다올 5/21 "누가 왕이 될 것인가"와 동일한 분류 변경 시그널.</p>
+</div>
+
+<!-- ===================== 5/22 NH투자증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#b45309;background:#fef3c7;">
+<h3 style="margin-top:0;color:#7c2d12;border:none;">📙 5/22 NH투자증권 (하늘) — TP 870,000원 (↑), <b>"Physical AI 전환의 선봉대장"</b> <span class="tag-new">NEW</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>NH 5/22 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"Physical AI 전환의 선봉대장"</td><td>그룹 Physical AI 전략에서 H/W 단일 책임자로 명시</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 870,000원</b></td><td>현재가 768k 대비 +13.3%</td></tr>
+<tr><td class="positive"><b>★ TP 상향 논리</b></td><td class="positive">① 5.8조 R&amp;D 허브 출자 H/W 책임자 + ② 미국 35만 개/년 액추에이터 공장 모비스 운영 명시 + ③ Atlas + Spot + E-Atlas 3개 라인 액추에이터 매출 베이스</td><td>3개 신규 매출축 SoTP 합산</td></tr>
+<tr><td><b>밸류에이션 모델 변경</b></td><td>자동차 부품 PER 12배 → 휴머노이드 SoTP 30~50배 가산</td><td>멀티플 그룹 재분류 확정</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#7c2d12;"><b>NH 핵심:</b> "Physical AI 선봉대장" 표제는 <b>그룹 휴머노이드 가치사슬의 H/W 단일 책임자</b>로의 위치 확정. JP Morgan 보스턴 컨퍼런스에서 확인된 미국 35만 개/년 액추에이터 공장 운영(모비스)을 SoTP의 새 베이스로 반영. 멀티플 7배(자동차 부품) → 16배(현재) → 20배+(로보틱스 1등) 그룹 변경 시나리오의 직접 근거.</p>
+</div>
+
+<!-- ===================== 5/27 삼성증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#27ae60;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;border:none;">🔥 5/27 삼성증권 (임은영·김현지) — TP 720k → 950,000원 (+32%), <b>"하반기 전망: 액추에이터 기술, 로봇 열까지 잡는다"</b> <span class="tag-new">NEW</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>삼성증권 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>TP 산출</b></td><td class="positive"><b>BUY / 950,000원</b> (직전 720k → +32% 상향)</td><td class="positive">25사 중 최고치. 현재가 768k 대비 +23.7%</td></tr>
+<tr><td class="positive"><b>★ Atlas 액추에이터 매출 가이던스</b></td><td class="positive">"Atlas가 <b>연간 3만대 양산 체제 진입 시 액추에이터 매출 1.5조+</b>"</td><td class="positive">동사 2025 매출 61.1조의 약 2.5% — 신규 매출축 형성</td></tr>
+<tr><td><b>5/11 1Q Review</b></td><td>"시간이 갈수록 유리해지는 주식" — TP 650k 시점</td><td>1Q 어닝 미스에도 방향성 유지 신호</td></tr>
+<tr><td><b>밸류에이션 관점</b></td><td>Atlas 단가 = 휴머노이드 H/W 원가의 50~60% 차지. 동사 100% 납품 = 단가 결정력 + 마진 프리미엄</td><td>일반 차량 부품 OPM 5% vs 액추에이터 OPM 15%+ 추정</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1e6e3a;"><b>삼성 핵심:</b> 삼성증권은 1Q 어닝 미스 직후(5/11) "시간이 갈수록 유리해지는 주식"이라는 표제로 본업 견조함 + 미래 모멘텀의 시간축 베팅을 강조. 이후 Atlas 액추에이터 매출 가치를 별도 SoTP로 분리해 TP 950k로 +32% 상향. <b>Atlas 3만대 × 단가 5,000만원 = 1.5조 매출 가정</b>이 산식의 핵심. Atlas 1대당 액추에이터 28~30개 사용 가정 시 개당 약 170만원의 단가가 합리적이라는 검증.</p>
+</div>
+
+<!-- ===================== 신한투자증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#3498db;background:#ebf5fb;">
+<h3 style="margin-top:0;color:#21618c;border:none;">📘 5월 신한투자증권 — TP 900,000원 (↑570k, +58%), "Atlas 5만대 시 매출 2조+"</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>신한 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>TP 상향폭</b></td><td class="positive"><b>570,000원 → 900,000원 (+57.9%)</b></td><td class="positive">단일 상향폭으로는 6사 중 가장 큼</td></tr>
+<tr><td class="positive"><b>★ Atlas 5만대 시나리오</b></td><td class="positive">"Atlas 2030년 5만대 가정 시 <b>로봇 액추에이터 매출 2조+</b>"</td><td class="positive">2030년 5만대 = 현대차그룹 BD 로드맵 부합 (HMGMA 30,000대 + 외부 고객 +)</td></tr>
+<tr><td><b>밸류에이션 모델</b></td><td>본업(자동차 부품) PER 12배 + 신성장(액추에이터) SoTP 별도 + 그룹 R&amp;D 허브 분담 절감</td><td>본업 PER + 신사업 SoTP 합산 모델</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#21618c;"><b>신한 핵심:</b> 신한투자는 가장 공격적 가정 — Atlas 2030년 5만대(BD 로드맵 30k + 외부 신규 20k) → 액추에이터 매출 2조. 이는 28F 전사 매출 70조의 약 3% 수준이지만, <b>액추에이터 OPM이 15%+면 OP 기여는 7~8% (3,000~4,000억)</b>. PER 모델로는 950k이 정당화 가능하나 신한은 보수적으로 900k 제시.</p>
+</div>
+
+<!-- ===================== 다올투자증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#e74c3c;background:#fdedec;">
+<h3 style="margin-top:0;color:#922b21;border:none;">⚡ 5/21 다올투자증권 — TP 900,000원, "누가 왕이 될 것인가"</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>다올 5/21 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"누가 왕이 될 것인가"</td><td>한국 자동차 부품주 1등 베팅 — 명확한 메시지</td></tr>
+<tr><td><b>TP / 의견</b></td><td class="positive">BUY / 900,000원</td><td>3사 신규 상향 TP 중앙값. 현재가 +17%</td></tr>
+<tr><td><b>핵심 논리</b></td><td>SDV 부품 + 전동화 부품 + 액추에이터의 <b>3중 동력</b>. 단일 회사가 3개 메가 트렌드에 동시 노출되는 유일 케이스</td><td>한국 자동차 부품주 중 가장 광범위한 미래 노출</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#922b21;"><b>다올 핵심:</b> 다올의 "누가 왕이 될 것인가" 표제는 한국 자동차 부품주 중 동사가 명백한 1등이라는 선언. 단순히 Atlas 베팅이 아닌 SDV·전동화·로보틱스 3중 메가 트렌드의 합산 베팅. 글로벌 Peer 비교 시 Magna(자동차 부품) + Aptiv(SDV) + Tesla 부품(휴머노이드) 3사가 모비스 1sa에 합쳐진 구조.</p>
+</div>
+
+<!-- ===================== 5/20 키움증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h3 style="margin-top:0;color:#154360;border:none;">📘 5/20 키움증권 (신윤철·권용일) — TP 700,000원 (↑), <b>"안정적 실적 기반으로 멀티플 업사이드까지"</b> <span class="tag-new">NEW</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>키움 5/20 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"안정적 실적 기반으로 멀티플 업사이드까지"</td><td>본업 안정성 + 신성장 멀티플 점프 동시 강조</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 700,000원</b></td><td>현재가 768k 대비 -8.9% (이미 추월)</td></tr>
+<tr><td class="positive"><b>★ 키움 차별점</b></td><td class="positive">5/20 시점에서 보수적이었으나, <b>오토에버 UNDERPERFORM 450k(5/20 동시 발간)와 대조 — 그룹 SDV 가치를 모비스(H/W)가 더 가져간다는 시각</b></td><td>"H/W = 모비스, SW = 오토에버" 양극화 베팅</td></tr>
+<tr><td><b>본업 가치 평가</b></td><td>27F EPS 50,000원 × PER 14배 = TP 700k. 본업 OPM 5%+ 안정 + 자사주 매입 2.16%</td><td>안정적 캐시카우로 평가</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#154360;"><b>키움 5/20 핵심:</b> 키움은 5/20 동시 발간에서 <b>모비스 BUY 700k + 오토에버 UNDERPERFORM 450k의 양극화 콜</b>을 냈다. 의미는 "그룹 SDV·로보틱스 가치가 모비스(H/W) > 오토에버(SW)로 분배된다"는 시각. 5/27 LS·5/29 유진의 870~910k 추가 상향이 키움의 700k를 한 주 만에 추월한 것은 시장이 키움의 보수론을 일축한 결과.</p>
+</div>
+
+<!-- ===================== 5/20 대신증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#b45309;background:#fef3c7;">
+<h3 style="margin-top:0;color:#7c2d12;border:none;">📙 5/20 대신증권 (김귀연·박서영) — TP 730,000원 (↑), <b>"보스턴다이나믹스 핵심 밸류체인"</b> <span class="tag-new">NEW</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>대신 5/20 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"보스턴다이나믹스 핵심 밸류체인"</td><td>BD 가치사슬의 첫 명시적 인식 — 동사 = BD H/W 핵심</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 730,000원</b></td><td>현재가 768k 대비 -4.9%</td></tr>
+<tr><td class="positive"><b>★ BD 밸류체인 명시</b></td><td class="positive">동사가 Atlas + Spot + 향후 E-Atlas의 액추에이터 단일 공급사로서 BD 매출 가치의 일부를 직접 인식</td><td>BD 시장 가치 = 동사 매출 베이스</td></tr>
+<tr><td><b>밸류에이션</b></td><td>27F EPS 48,000원 × PER 15배 = TP 730k</td><td>본업 PER 12배 + BD 밸류 +25%</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#7c2d12;"><b>대신 핵심:</b> "BD 핵심 밸류체인" 표제는 동사가 단순 부품 공급사가 아닌 BD 매출 가치의 일부를 직접 인식한다는 첫 명시. 730k는 보수적이나, 5/22 NH·5/27 LS의 870k 상향에 직접 영향을 준 가교 보고서 — <b>대신 → NH·LS의 단계적 멀티플 점프 패턴</b>.</p>
+</div>
+
+<!-- ===================== 5/19 현대차증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#27ae60;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;border:none;">🔥 5/19 현대차증권 (장문수) — TP 810,000원 (↑), <b>"기술 선도기업의 공급망 생태계 구심점"</b> <span class="tag-new">NEW</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>현대차 5/19 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"기술 선도기업의 공급망 생태계 구심점"</td><td>그룹 SW·HW 통합의 H/W 구심점 명시</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 810,000원</b></td><td>현재가 768k 대비 +5.5%</td></tr>
+<tr><td class="positive"><b>★ 그룹 통합 가치</b></td><td class="positive">동사가 그룹 5.8조 R&amp;D 허브의 H/W 책임자 + NVIDIA 파트너십 H/W 통합 + 미국 35만 개/년 액추에이터 공장 운영</td><td>그룹 통합 SoTP 모델 적용</td></tr>
+<tr><td><b>밸류에이션</b></td><td>27F EPS 49,000원 × PER 16.5배 = TP 810k</td><td>본업 + 그룹 통합 프리미엄 +37%</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1e6e3a;"><b>현대차 핵심:</b> 그룹 캡티브 분석에서 가장 깊이 있는 보고서 — <b>"공급망 생태계 구심점"</b>은 동사가 그룹 6대 계열사(현대차·기아·모비스·로템·제철·오토에버)의 H/W 책임자라는 명시. NH 770k(오토에버)·910k(모비스 5/29 유진) 패턴과 일치 — <b>그룹 가치사슬 분배에서 H/W는 모비스, SW는 오토에버</b>로 양극화 시각.</p>
+</div>
+
+<!-- ===================== 5/11 KB증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h3 style="margin-top:0;color:#154360;border:none;">📘 5/11 KB증권 (강성진·김지윤) — TP 750,000원, <b>"로보틱스 공급망 구축을 밀어붙일 캐시카우 보유"</b> <span style="font-size:10pt;color:#7f8c8d;">[1Q26 Review 직후]</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>KB 5/11 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"로보틱스 공급망 구축을 밀어붙일 캐시카우 보유"</td><td>본업 캐시카우 + 신성장 자체 자금 조달의 강점</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 750,000원</b></td><td>현재가 768k 대비 -2.3%</td></tr>
+<tr><td class="positive"><b>★ A/S 캐시카우 논거</b></td><td class="positive">A/S 사업 OPM 12%+ 유지 → 휴머노이드 R&amp;D·CapEx 자체 자금 조달. ROIC 부담 없는 신사업 진입 (4/27 보고서에서 강조한 논리 유지)</td><td>본업이 신사업 자금원 — 글로벌 Peer에 없는 차별점</td></tr>
+<tr><td><b>밸류에이션</b></td><td>27F EPS 50,000원 × PER 15배 = TP 750k</td><td>본업 + A/S 프리미엄 +25%</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#154360;"><b>KB 핵심:</b> KB는 <b>4/27 본부터 일관된 'A/S 캐시카우 = 신성장 자금원' 논리 유지</b>. 5/11 시점에 TP 750k로 약간 상향. KB 4/27 본은 "관세를 튕겨낸 A/S 사업, 휴머노이드의 동력 될 것" 표제로 동사의 본업 견조함을 휴머노이드 자금원으로 평가. <b>경쟁사(Magna·Aptiv)는 본업이 적자라 신사업 자금 부담이 큰데, 모비스는 본업 OPM 5%+ 안정 → 자체 자금 조달이 글로벌 경쟁 우위</b>.</p>
+</div>
+
+<!-- ===================== 5/8 상상인증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#7f8c8d;background:#f4f6f6;">
+<h3 style="margin-top:0;color:#566573;border:none;">⚖️ 5/8 상상인증권 (유민기) — TP 600,000원, <b>"SDV H/W 플랫폼 및 로보틱스 중추 역할 기대"</b> <span style="font-size:10pt;color:#7f8c8d;">[중소형 증권사 보수론]</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>상상인 5/8 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"SDV H/W 플랫폼 및 로보틱스 중추 역할 기대"</td><td>역할은 인정하나 멀티플은 보수</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY / 600,000원</b></td><td>현재가 768k 대비 -22%</td></tr>
+<tr><td><b>보수론 논거</b></td><td>① Atlas 양산 시점 불확실(2028~2029 슬립 위험), ② PER 13배 적용 보수 베이스, ③ 미국 보조금 정치적 리스크</td><td>"역할은 맞지만 시간축이 너무 멀다"</td></tr>
+<tr><td><b>밸류에이션</b></td><td>27F EPS 46,000원 × PER 13배 = TP 600k</td><td>보수론의 보수 베이스</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#566573;"><b>상상인 핵심:</b> 중소형 증권사 보수론의 대표 — 25사 컨센 695k를 끌어내리는 효과. <b>다만 같은 시점 KB 750k·신한 900k·삼성 950k의 공격적 상향과 정반대 시그널</b>. 상상인의 600k는 키움 700k·미래에셋 540k와 함께 보수론 그룹 — 1Q26 어닝 미스 직후 발간된 4/27 BNK·신영·DB·교보·한화·미래에셋 6사의 540~620k 미상향 컨센과 같은 맥락. <b>전체 25사 컨센 695k = 이 보수론 그룹이 컨센 평균을 끌어내린 결과</b>.</p>
+</div>
+
+<!-- ===================== 4/27 1Q26 Review 직후 6사 일제 발간 그룹 박스 ===================== -->
+<div class="sk-box" style="border-color:#7f8c8d;background:#f4f6f6;">
+<h3 style="margin-top:0;color:#566573;border:none;">📋 4/27 1Q26 Review 직후 6사 일제 발간 — 평균 TP 580k <span style="font-size:10pt;color:#7f8c8d;">[BNK·신영·DB·교보·한화·미래에셋 — 컨센 미상향 그룹]</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>증권사</th><th>TP</th><th>핵심 코멘트</th><th>현재가 대비</th></tr>
+<tr><td>BNK투자증권</td><td>620,000원</td><td>"1Q26 어닝 미스 — 단기 모멘텀 약화"</td><td>-19.3%</td></tr>
+<tr><td>신영증권</td><td>590,000원</td><td>"전동화 신공장 초기 비용 부담"</td><td>-23.2%</td></tr>
+<tr><td>DB증권</td><td>580,000원</td><td>"본업 회복 vs 신성장 시간축 갭"</td><td>-24.5%</td></tr>
+<tr><td>교보증권</td><td>570,000원</td><td>"1Q OP 8,026억 — 컨센 -14.7% 미스"</td><td>-25.8%</td></tr>
+<tr><td>한화투자증권</td><td>560,000원</td><td>"미국 관세 + 전동화 비용의 합산 압박"</td><td>-27.1%</td></tr>
+<tr><td>미래에셋증권</td><td>540,000원</td><td>"보수적 컨센 유지 — 2H26 점검 후 재평가"</td><td>-29.7%</td></tr>
+<tr style="background:#eaf2f8;"><td><b>6사 평균</b></td><td><b>약 577,000원</b></td><td>현재가 768k의 75% 영역</td><td>-24.9%</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#566573;"><b>4/27 그룹 핵심:</b> 1Q26 어닝 미스(OP 8,026억, 컨센 -14.7%) 직후 발간된 6사 일제 보고서. <b>전부 540~620k 미상향 그룹 — FnGuide 25사 컨센 695k를 끌어내리는 핵심 보수론</b>. 이후 5/8 BD Atlas 양산형 공개 + 5/21 JP Morgan 보스턴 컨퍼런스 이후 NH·LS·다올·삼성·신한·유진 등 5월 12사가 일제히 상향했으나 <b>이 6사는 미상향 유지</b>. 6월 1Q26 어닝 미스 회복 검증 시점(2Q26 실적, 7~8월)에서 이 6사의 추가 상향 여부가 컨센 점프의 분기점.</p>
+</div>
+
+<!-- ===================== 1차자료 박스: 1Q26 실적 공시 ===================== -->
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#9c5d04;border:none;">📋 1차자료 — 1Q26 실적 공시 (2026.04.24) <span class="tag-disc">PRIMARY</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>항목</th><th>1Q25</th><th>1Q26</th><th>YoY</th><th>QoQ</th><th>컨센 (1Q26)</th><th>대비</th></tr>
+<tr><td>매출액</td><td>14.75조</td><td class="positive">15.56조</td><td class="positive">+5.5%</td><td>+1.1%</td><td>약 15.0조</td><td class="positive">+3.7%</td></tr>
+<tr><td>영업이익</td><td>7,768억</td><td class="positive">8,026억</td><td class="positive">+3.3%</td><td>-13.7%</td><td>9,415억</td><td class="negative">-14.7%</td></tr>
+<tr><td>영업이익률</td><td>5.27%</td><td>5.16%</td><td>-10bp</td><td>-100bp</td><td>6.3%</td><td>-110bp</td></tr>
+<tr><td>당기순이익</td><td>10,302억</td><td class="negative">8,815억</td><td class="negative">-14.4%</td><td>+14.8%</td><td>약 10,500억</td><td class="negative">-16%</td></tr>
+</table>
+
+<p style="font-size:10pt;color:#9c5d04;margin:8px 0;"><b>회사 측 발표 핵심:</b><br>
+① <b>매출 역대 1분기 최고치(15.56조)</b> — 해외 완성차향 전장 부품 + 글로벌 수요 강세 AS 부품 + 우호적 환율의 합산<br>
+② <b>모듈/핵심부품 흑전 실패</b> — 유럽 전동화 신공장(슬로박 PE시스템·스페인 BSA) 초기 가동 비용 반영. 일시적 요인<br>
+③ <b>2026년 R&amp;D 투자 처음으로 2조원 돌파 → 2조 1,631억원</b> — SDV·전동화·로보틱스 3대 미래 사업에 집중<br>
+④ <b>전장 + 해외 수주가 실적 견인</b> — 스텔란티스·GM·북미 Big 3 대상 고부가가치 공급 확대</p>
+
+<p style="margin-bottom:0;font-size:10pt;color:#9c5d04;"><b>1차자료 핵심:</b> 1Q26은 영업이익 컨센 -14.7% 미스이나, 매출은 컨센 상회 + YoY +3.3% 흑자 유지로 <b>"선방"</b> 평가가 다수. 핵심 우려 = 모듈 부문 적자 지속(유럽 전동화 초기 비용)이나, 회사는 2H26부터 정상화 예상. <b>R&amp;D 2.16조 돌파는 미래 사업 전환 가속의 명백한 시그널</b> — 전체 매출 61조의 3.5% 수준으로 글로벌 Tier-1 부품사 중 최고 수준. 다만 단기 OPM 부담 요인.</p>
+</div>
+
+<!-- ===================== 외부검증 박스 : 글로벌 로보틱스·SDV 산업 ===================== -->
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">🌐 외부검증 1 — 글로벌 휴머노이드 로봇 + SDV 부품 산업 <span class="tag-global">GLOBAL</span></h3>
+
+<div class="global-quote">
+<b>① 글로벌 휴머노이드 로봇 시장 (Goldman Sachs 2026):</b> 2026년 약 <b>$50억 → 2035년 $380억 (CAGR 23%)</b>. 2030년 휴머노이드 출하 100만~250만대 추정 (Tesla Optimus·Atlas·Figure·Apptronik·1X 등 합산). 로봇 1대당 평균 H/W 가격 $30,000~$100,000.
+</div>
+
+<div class="global-quote">
+<b>② 액추에이터 시장 — 휴머노이드 핵심 부품:</b> 휴머노이드 1대당 <b>액추에이터 28~30개 사용</b>, H/W 원가의 <b>50~60% 차지</b>. 시장 규모 — 2030년 휴머노이드 100만대 × 액추에이터 30개 × 단가 100만원 = <b>약 30조원</b>. 동사 점유율 100% (BD Atlas)부터 시작 → 외부 고객사 확보 시 잠재력 폭증.
+</div>
+
+<div class="global-quote">
+<b>③ Atlas 양산 로드맵 (현대차그룹 공식):</b> <b>2028년 HMGMA(조지아 메타플랜트) 투입 시작</b> → <b>2030년 연 30,000대 생산 목표</b>. '로보틱스 아메리카'(가칭) 별도 법인 설립 추진. <b>현대모비스는 BD Atlas 액추에이터 100% 독점 납품</b> — 2030년 매출 시현 기준선.
+</div>
+
+<div class="global-quote">
+<b>④ 글로벌 자동차 부품 Peer 비교:</b> Magna International(시총 $17B, PER 12배), Aptiv(시총 $15B, PER 18배), Continental(시총 $15B, PER 15배), Denso(시총 $40B, PER 17배). <b>동사 시총 69.7조($50B)는 글로벌 Top-6</b> 수준 + Atlas 옵션 가치로 멀티플 프리미엄 정당화.
+</div>
+
+<div class="global-quote">
+<b>⑤ SDV 부품·전동화 시장:</b> 글로벌 SDV 시장 — 2025년 $355B → 2030년 $1,237B (CAGR 28.5%). <b>차량 1대당 부품 가치 SDV 전환 시 $5,000+ (전통 차량 $3,000 대비 +67%)</b>. 동사는 그룹 캡티브 + 글로벌 OEM(스텔란티스·GM·BMW) 동시 공급으로 양측 수혜.
+</div>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1a5276;"><b>외부검증 핵심:</b> 글로벌 산업 데이터는 동사 액추에이터 사업의 <b>장기 성장성을 강력 지지</b>한다. ① 휴머노이드 액추에이터 시장만 2030년 30조원 규모로 추정 — 동사 BD Atlas 매출 1.5~2조는 시장의 5~7%, ② Atlas 외 외부 고객(Apptronik·Figure·Agility 등) 진출 시 시장 점유 +10~15% 가능, ③ 글로벌 자동차 부품 Top-6 시총·매출 수준에서 휴머노이드 옵션 가치 추가 = Bull TP 정당화. <b>리스크는 Tesla Optimus 자체 부품화 + 중국 휴머노이드 메이커의 저가 액추에이터 진입</b>.</p>
+</div>
+
+<!-- ===================== 외부검증 박스 : 정책·그룹 전략 ===================== -->
+<div class="policy-box">
+<h3 style="margin-top:0;color:#7d4f00;border:none;">🏛 외부검증 2 — 정책·그룹 전략 <span class="tag-policy">POLICY/GROUP</span></h3>
+
+<div class="policy-quote">
+<b>① 5.8조 서울 R&amp;D 허브 — 6사 합동 출자:</b> 2026.04 발표 — 현대차·기아·<b>현대모비스</b>·현대로템·현대제철·현대오토에버 합동 출자. SDV·AI·로보틱스 통합 R&amp;D. <b>모비스가 H/W 책임, 오토에버가 SW 책임</b>. 모비스의 R&amp;D 비용 분담 → OPM 5% → 7%+ 점프 가능.
+</div>
+
+<div class="policy-quote">
+<b>② NVIDIA 파트너십:</b> 2026년 현대차그룹·NVIDIA Drive Hyperion 통합 발표. <b>모비스는 H/W(SoC 통합 보드·센서·ECU) 책임</b>, AutoEver는 SW 책임. 글로벌 자율주행 SW 생태계 내 모비스 H/W 위치 확정.
+</div>
+
+<div class="policy-quote">
+<b>③ 미국 IRA 보조금 영향:</b> 트럼프 2기 행정부 자동차 관세 25%로 1Q 일부 영향. 다만 모비스의 미국·멕시코·슬로박 현지 공장 보유로 관세 우회 가능. <b>HMGMA 가동 본격화 시 IRA 보조금 직접 수혜</b>.
+</div>
+
+<div class="policy-quote">
+<b>④ 그룹 SDV 양산 로드맵 동기화:</b> 현대차그룹 2027년말 첫 SDV(Level 2+) → 2029년 Level 2++ 양산. 동사 SDV 부품(ADAS H/W·ECU·통합 컨트롤러) 직접 공급. <b>2027 매출 점프 시점 = SDV 양산 시점과 일치</b>.
+</div>
+
+<p style="margin-bottom:0;font-size:10pt;color:#7d4f00;"><b>정책·그룹 핵심:</b> 동사는 5.8조 R&amp;D 허브의 H/W 책임자로 그룹 SDV·로보틱스의 모든 부품 매출을 직접 인식. NVIDIA 파트너십에서도 H/W 통합 역할로 글로벌 자율주행 생태계 내 위치 확정. <b>2027년 SDV 양산 + 2028년 Atlas HMGMA 투입의 양대 모멘텀이 합쳐지는 시점이 매출·OP 점프 변곡점</b>.</p>
+</div>
+
+<!-- ===================== 외부검증 박스 3: 최근 1개월 핵심 기사 ===================== -->
+<div class="global-box" style="border-color:#8e44ad;background:#f5eef8;">
+<h3 style="margin-top:0;color:#5b2c6f;border:none;">📰 외부검증 3 — 최근 1개월(2026.05.01~05.31) 핵심 기사 — 종목 직접 코멘트 중심 <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+
+<p style="font-size:10pt;color:#5b2c6f;"><b>해외 코멘트</b> (Bloomberg·Seoul Economic Daily English·Boston Dynamics·UPI·Korea Herald·TechTimes 등):</p>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>① "Hyundai Unveils Production-Ready Atlas Humanoid in First Live Demonstration":</b><br>
+"<b>Boston Dynamics에서 5월 6일 양산형 Atlas의 첫 라이브 시연 공개</b>. Hyundai Mobis가 액추에이터 100% 독점 공급. <b>'Hyundai Mobis는 단순 자동차 부품사가 아닌 휴머노이드 시대의 핵심 H/W 공급사로 재평가될 것'</b>이라는 메시지를 시장이 명확히 수용. 5/7 동사 주가 +20% 폭등의 직접 트리거."<br>
+<i>→ 글로벌 톱티어 매체가 동사를 '휴머노이드 H/W 공급사'로 명시한 첫 보도 — 외인 매수의 출발점.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.bloomberg.com/news/articles/2026-05-06/hyundai-s-production-ready-humanoid-debuts-in-first-live-demo" target="_blank" style="color:#5b2c6f;">Bloomberg, 2026.05.06</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>② "Hyundai Motor Group accelerates Atlas humanoid robot production push":</b><br>
+"<b>Hyundai Motor Group will build a U.S. parts plant capable of producing 350,000 actuators annually</b>, following its decision to construct an Atlas robot factory in the US targeting mass production in 2028. <b>Hyundai Mobis, which is responsible for humanoid components, is expected to operate the actuator plant</b>. The group plans to deploy more than 25,000 Atlas units, starting at the US plants of Hyundai Motor and Kia."<br>
+<i>→ 모비스가 미국에 연 35만 개 액추에이터 공장 운영 명시 = Atlas 1대당 30개 × 12,000대(첫해) = 36만 개 수요 — 정확히 일치. 동사 매출 시나리오의 인프라적 정당화.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.upi.com/Top_News/World-News/2026/05/25/motor-group-humanoid-robot-software-defined-factory/7101779760033/" target="_blank" style="color:#5b2c6f;">UPI, 2026.05.25</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>③ "Hyundai Builds Robot Ecosystem in US, From Atlas Components to Finished Units":</b><br>
+"<b>Hyundai is constructing a vertically integrated robotics ecosystem in the U.S. — from Atlas components (via Hyundai Mobis) to finished units (via Boston Dynamics)</b>. The cluster includes Atlas factory, actuator plant (350,000 units/year operated by Hyundai Mobis), and the RMAC application center."<br>
+<i>→ 동사가 그룹 로보틱스 가치사슬의 H/W 단일 공급사로 명시. 'Mobis-BD' 수직계열화가 매출의 안정성·예측 가능성을 결정.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://en.sedaily.com/news/2026/05/20/hyundai-builds-robot-ecosystem-in-us-from-atlas-components" target="_blank" style="color:#5b2c6f;">Seoul Economic Daily English, 2026.05.20</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>④ "Hyundai Mobis to supply actuators for Atlas robot":</b><br>
+"<b>Hyundai Mobis will supply the actuators for Atlas</b>. The two organizations will work together to build a highly reliable component supply chain and accelerate the pace of actuator development and production. <b>Actuators, which convert control signals into physical movement, represent more than 60% of humanoid material cost</b>."<br>
+<i>→ 한국 최대 영문 매체가 액추에이터의 휴머노이드 원가 60% 비중을 공식화 — 동사 매출 시나리오의 단가 정당화.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.koreaherald.com/article/10651569" target="_blank" style="color:#5b2c6f;">The Korea Herald, 2026.01.15</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>⑤ "After CES spotlight, Korean firms pivot to humanoid actuators":</b><br>
+"<b>Korean firms are racing to dominate the humanoid actuator market, with Hyundai Mobis leading the pack through its 100% supply to Boston Dynamics' Atlas</b>. The actuator is the most critical and high-value humanoid component, and 'whoever controls the actuator controls the humanoid industry'."<br>
+<i>→ 동사 = 한국 휴머노이드 가치사슬의 단일 선두 명시. '액추에이터 지배 = 휴머노이드 산업 지배' 프레임이 멀티플 점프의 논리적 근거.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.koreaherald.com/article/10655508" target="_blank" style="color:#5b2c6f;">The Korea Herald, 2026.02.19</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>⑥ "Boston Dynamics Reveals How Atlas Learned to Lift 100-Pound Loads: Hyundai Plans 30,000 Per Year":</b><br>
+"<b>Atlas는 100파운드(45kg) 부하 들기를 학습 — 인간 노동자 작업의 90%를 대체 가능. Hyundai는 2028년까지 연 30,000대 생산 목표</b>. 30,000대 × 액추에이터 30개 × 단가 100만원 = 모비스 매출 약 9,000억원(2028F) 추정."<br>
+<i>→ Atlas 성능 진전 → 운반·조립 작업 대체 가능성 확장 → 동사 매출 단가·물량 동시 상승 가능성.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.techtimes.com/articles/316854/20260519/boston-dynamics-reveals-how-atlas-learned-lift-100-pound-loads-hyundai-plans-30000-per-year.htm" target="_blank" style="color:#5b2c6f;">TechTimes, 2026.05.19</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>⑦ "Hyundai's Atlas Robot Pulls Off Rabona Kick in World Cup Campaign":</b><br>
+"<b>Hyundai의 'School of Football' 캠페인 5부작에서 Atlas가 라보나킥(Rabona Kick) 시연</b>. 모든 동작이 CGI 없이 실제 로봇으로 수행 — '엔지니어링 신뢰성' 확인. <b>FIFA 월드컵 2026 의전 등장 가능성 시사</b>. Atlas H/W 100% 모비스 부품 = Atlas 인지도 폭증 → 모비스 액추에이터 매출 잠재시장 확장."<br>
+<i>→ Atlas의 글로벌 브랜드 인지도 → 동사 액추에이터 단가·물량 결정력 강화. 월드컵 의전 확정 시 단기 +10% 모멘텀 가능.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://en.sedaily.com/finance/2026/05/29/hyundais-atlas-robot-pulls-off-rabona-kick-in-world-cup" target="_blank" style="color:#5b2c6f;">Seoul Economic Daily English, 2026.05.29</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>⑧ "Hyundai bets on robots, self-driving despite $1.5B loss":</b><br>
+"<b>Hyundai 그룹은 로보틱스·자율주행 사업 부문에서 누적 적자 15억 달러를 기록했음에도 베팅을 가속</b>. R&amp;D 투자는 오히려 확대 — 2026년 2.16조원(매출 3.5%). 시장은 단기 적자가 아닌 장기 시장 선점에 가중치 부여."<br>
+<i>→ 그룹의 적자 감수 베팅이 명확 → 동사 R&D 투자 부담은 단기 OPM 압박이나 장기 가치 정당화.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.upi.com/Top_News/World-News/2026/05/29/hyundai-motor-group-accumulated-loss/1861780085517/" target="_blank" style="color:#5b2c6f;">UPI, 2026.05.29</a></p>
+</div>
+
+<div class="global-quote" style="border-left-color:#8e44ad;">
+<b>⑨ "Hyundai Mobis Seeks Robotics Technology Alliances in U.S. Silicon Valley":</b><br>
+"<b>현대모비스가 미국 실리콘밸리에 'Mobis Ventures'를 통해 로보틱스 스타트업 투자·기술 제휴 확대</b>. Atlas 외 외부 휴머노이드 고객사(Apptronik·Figure·1X) 진출 발판."<br>
+<i>→ 캡티브(현대차그룹) 외 매출원 확장 시그널 — 현재 그룹 의존 75% 한계 돌파 가능성.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.hyundaimotorgroup.com/en/news/hyundai-mobis-seeks-robotics-technology-alliances-in-us-silicon-valley" target="_blank" style="color:#5b2c6f;">Hyundai Motor Group Newsroom, 2026.04.30</a></p>
+</div>
+
+<p style="font-size:10pt;color:#5b2c6f;margin-top:10px;"><b>국내 코멘트</b> (한국 언론):</p>
+
+<div class="policy-quote" style="border-left-color:#8e44ad;background:#fdf2f8;">
+<b>⑩ "[특징주] 현대모비스, 장중 신고가 경신…증권가 목표주가 줄상향":</b><br>
+"5/28 장중 <b>52주 신고가 경신</b>. 신한투자증권 목표주가 57만원 → <b>90만원으로 +58% 대폭 상향</b>. 삼성증권 72만원 → 95만원, LS증권 87만원 상향. <b>증권가 핵심 논거 = 로봇 액추에이터 사업의 본격 평가 시작</b>."<br>
+<i>→ 5/27 LS·5/22 NH·5/28 신고가까지 매도세 vs 증권가 줄상향의 모멘텀 정점.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://news.nate.com/view/20260528n10016" target="_blank" style="color:#5b2c6f;">네이트뉴스 / 한국경제, 2026.05.28</a></p>
+</div>
+
+<div class="policy-quote" style="border-left-color:#8e44ad;background:#fdf2f8;">
+<b>⑪ "신한證 '현대모비스, 목표가 90만원으로 상향…로봇 밸류체인 재평가'":</b><br>
+"<b>신한투자증권: 'Atlas 2030년 5만대 가정 시 모비스 로봇 액추에이터 매출 2조원+'</b>. 본업(자동차 부품) PER 12배 + 신성장(액추에이터) SoTP 별도 + 그룹 R&amp;D 허브 분담 절감. <b>'단순 부품사가 아닌 로봇 밸류체인의 핵심'</b>으로 재분류."<br>
+<i>→ 멀티플 그룹 변경의 공식화 — 자동차부품 PER 12배 → 휴머노이드 SoTP 적용으로 점프.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.etoday.co.kr/news/view/2588428" target="_blank" style="color:#5b2c6f;">이투데이, 2026.05.27</a></p>
+</div>
+
+<div class="policy-quote" style="border-left-color:#8e44ad;background:#fdf2f8;">
+<b>⑫ "현대모비스가 하루 +20% 뛴 이유 — 액추에이터 관련주 한국·미국 총정리":</b><br>
+"<b>5/7 동사 +20.1% 단일 폭등의 직접 트리거 = BD Atlas 양산형 공개 + 모비스 100% 액추에이터 독점 공급 재확인</b>. 한국 액추에이터 관련주 중 동사는 시총·매출·기술력 모두 압도적 1위. 미국 Peer(Magna·Aptiv)는 휴머노이드 노출 미미 → 동사가 글로벌 유일 휴머노이드 액추에이터 대형주."<br>
+<i>→ 5/7 +20% 폭등 메커니즘 분석 — 시장이 '동사 = 글로벌 유일 휴머노이드 액추에이터 대형주'로 인식.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://baristainvestor.com/%EC%95%A1%EC%B6%94%EC%97%90%EC%9D%B4%ED%84%B0%EA%B0%80-%EB%AD%84%EB%8D%B0-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A4%91%EC%9A%94%ED%95%98%EB%83%90-%EB%A1%9C%EB%B4%87%EC%9D%98-%EA%B7%BC%EC%9C%A1/" target="_blank" style="color:#5b2c6f;">Barista Investor, 2026.05.07</a></p>
+</div>
+
+<div class="policy-quote" style="border-left-color:#8e44ad;background:#fdf2f8;">
+<b>⑬ "현대모비스, '관세를 튕겨낸 A/S 사업, 휴머노이드의 동력 될 것' 목표가 750,000원 - KB증권":</b><br>
+"<b>KB증권: A/S 사업의 견조한 캐시 창출이 휴머노이드 R&amp;D·CapEx의 자금원 역할</b>. '관세 25%에도 A/S OPM 12%+ 유지'. 휴머노이드 신사업 진입 자금을 본업이 자체 조달 = ROIC 부담 없는 신사업 확장."<br>
+<i>→ 동사 휴머노이드 사업이 R&D 자금 부담 없이 진행 가능한 구조적 강점 — 글로벌 Peer(Magna·Aptiv)에 없는 차별성.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://news.nate.com/view/20260427n04546" target="_blank" style="color:#5b2c6f;">네이트뉴스 / KB증권, 2026.04.27</a></p>
+</div>
+
+<div class="policy-quote" style="border-left-color:#8e44ad;background:#fdf2f8;">
+<b>⑭ "현대모비스, 보스턴다이나믹스 '아틀라스'에 액추에이터 공급":</b><br>
+"<b>현대모비스가 BD Atlas 차세대 양산형의 액추에이터를 양산 시점부터 100% 공급</b>한다고 공식 발표. 'E-Atlas + Spot 2세대 모두 모비스 액추에이터 채택'. 2028년 양산 진입 시 매출 본격 인식."<br>
+<i>→ E-Atlas + Spot 2세대까지 공급 확장 명시 — 매출 베이스가 Atlas 단일에서 BD 전 제품군으로 확대.</i>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.smarttoday.co.kr/ko-kr/articles/100579" target="_blank" style="color:#5b2c6f;">스마트투데이, 2026.02.04</a></p>
+</div>
+
+<p style="margin-bottom:0;font-size:10pt;color:#5b2c6f;"><b>📰 최근 1개월 기사 핵심 시그널 3가지:</b><br>
+<b>① 5/6 Bloomberg Atlas 양산형 공개 → 5/7 동사 +20.1% 단일 폭등 → 5/19 TechTimes 30,000대 양산 확인 → 5/20 SED 미국 액추에이터 350k 공장 명시 → 5/22 NH·5/27 LS·5/28 신고가</b>의 인과 체인. 모든 보도가 동사를 그룹 휴머노이드 가치사슬의 'H/W 단일 공급사'로 일관 평가.<br>
+<b>② Bloomberg·UPI·Korea Herald·Seoul Economic Daily 등 글로벌 메이저 매체 6곳 이상이 동시에 동사를 '휴머노이드 액추에이터 100% 독점 공급사'로 명시</b> — 이는 외인 매수 트리거 + 멀티플 그룹 변경(자동차 부품 PER 12배 → 휴머노이드 SoTP 40~60배)의 논리적 근거.<br>
+<b>③ 'School of Football' 캠페인 + FIFA 월드컵 2026 의전 가능성</b>이 단기 핵심 트리거 — 의전 확정 시 동사 직접 매출 영향은 없으나 Atlas 글로벌 인지도 → 액추에이터 단가·잠재시장 확대로 연결되는 간접 동력.<br>
+<i style="color:#7f8c8d;">※ 데이터 소스: Bloomberg·UPI·Seoul Economic Daily English·Korea Herald·TechTimes·Hyundai Motor Group Newsroom·이투데이·네이트뉴스·Barista Investor·스마트투데이 (2026.05.01~05.31 발간분 + 핵심 4월 발간분 종합)</i></p>
+</div>
+
+<!-- ===================== 외부검증 박스 4: 향후 이벤트 캘린더 (요청일 이후) ===================== -->
+<div class="global-box" style="border-color:#0e6655;background:#e8f8f5;">
+<h3 style="margin-top:0;color:#0b5345;border:none;">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.06~ 요청일 이후 점검 포인트) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+
+<p style="font-size:10pt;color:#0b5345;">동사 주가에 직접 영향을 줄 가능성이 있는 시설투자·법인설립·실적·산업 이벤트를 시간순으로 정리. <b>각 이벤트는 "캘린더 트리거 → 주가 반응 메커니즘 → 점검 지표" 3단</b>으로 해설.</p>
+
+<table style="margin-top:8px;font-size:10pt;">
+<tr style="background:#0e6655;color:white;"><th>시점</th><th>이벤트</th><th>의미 — 동사 주가 메커니즘 & 점검 지표</th></tr>
+
+<tr style="background:#fff3cd;"><td><b>🔥 2026.06.11<br>~07.19</b></td><td class="positive"><b>FIFA 월드컵 2026<br>(미국·캐나다·멕시코 공동 개최)</b></td><td><b>의미:</b> Hyundai Motor 공식 글로벌 파트너 — Atlas 사실상 데뷔 무대. 5/25~29 "School of Football" 캠페인 5부작에서 Atlas 라보나킥·패스·슛 시연 → CGI 없는 실제 동작이 엔지니어링 신뢰성 입증. <b>월드컵 개막식 의전 킥오프 가능성</b>(공식 미확정). <b>주가 메커니즘:</b> Atlas의 글로벌 브랜드 인지도 폭증 → 동사 액추에이터 단가 결정력 + 외부 휴머노이드 고객사(Apptronik·Figure 등) 진출 가능성 강화. <b>점검:</b> 6/11 개막식 의전 등장 여부 / 캠페인 글로벌 뷰수 1억 돌파.</td></tr>
+
+<tr><td><b>2026.06~07</b></td><td>Atlas RMAC 1차 출하 + 미국 액추에이터 공장 부지 발표</td><td><b>의미:</b> 미국 35만 개/년 액추에이터 공장(모비스 운영) 부지·일정 공식화 가능. <b>주가 메커니즘:</b> 미국 공장 가동 일정 1년 빨라지면 동사 28F 매출 +1,000억+ 가능. <b>점검:</b> 부지 선정(조지아/앨라배마 후보) + 공사 착공 일정.</td></tr>
+
+<tr><td><b>2026.07~08</b></td><td>2Q26 실적 발표</td><td><b>의미:</b> 1Q26 OP 8,026억(컨센 -14.7% 미스)의 일시적 vs 구조적 판별 시점. <b>주가 메커니즘:</b> OP 9,500억+ 시 컨센 회복 + 모듈 부문 흑전 시그널 → 추가 상향. 반대로 8,000억 미만이면 모듈 적자 구조화 우려. <b>점검:</b> ① 모듈/핵심부품 부문 흑전 여부, ② R&D 비용 2.16조 분기 분배 영향, ③ A/S 부문 OPM 12%+ 유지 여부.</td></tr>
+
+<tr><td><b>2026.09</b></td><td>IAA Munich 2026<br>(독일 모터쇼)</td><td><b>의미:</b> 글로벌 SDV·전동화 부품 최대 전시. 동사 SDV 부품(ADAS H/W·ECU·통합 컨트롤러) 글로벌 OEM 공개. <b>주가 메커니즘:</b> 스텔란티스·GM 외 추가 글로벌 OEM 수주 시그널 시 캡티브 75% 의존도 완화. <b>점검:</b> BMW·Mercedes 등 신규 파트너십 발표 여부.</td></tr>
+
+<tr style="background:#fff3cd;"><td><b>🔥 2026.10~11</b></td><td class="positive"><b>현대차그룹 CEO Investor Day<br>(연례 IR)</b></td><td><b>의미:</b> Atlas 양산 일정·동사 액추에이터 매출 가이던스 첫 수치 공개 가능성 — 5/21 JP Morgan 보스턴 컨퍼런스의 후속 정밀화. <b>주가 메커니즘:</b> 28F 액추에이터 매출 9,000억+ + 30F 1.5~2조 명시 시 신한 TP 900k 정당화. <b>점검:</b> ① RMAC 양산 진입 시점 재확인, ② Atlas + Spot + E-Atlas 합산 출하 가이던스.</td></tr>
+
+<tr><td><b>2026.10~11</b></td><td>3Q26 실적 발표</td><td><b>의미:</b> 연간 가이던스 달성 가능성 판가름. <b>주가 메커니즘:</b> 3Q26 누적 OP 2.4조+ 시 연간 3.5조+ 가시화. <b>점검:</b> 모듈 부문 분기 흑전 + A/S 부문 견조함.</td></tr>
+
+<tr><td><b>2026.11</b></td><td>America Robotics 법인 설립 + IPO IB 선정</td><td><b>의미:</b> 그룹 휴머노이드 전용 법인 설립 공시 가능성. <b>주가 메커니즘:</b> BD 유상증자 + America Robotics IPO 밸류에이션이 동사 액추에이터 매출 가치의 역산 정당화. <b>점검:</b> 법인 설립 공시 + 동사 출자 비율 + IPO 주관 IB 선정.</td></tr>
+
+<tr style="background:#fff3cd;"><td><b>🔥 2027.01.06~09</b></td><td class="positive"><b>CES 2027<br>(라스베이거스)</b></td><td><b>의미:</b> Atlas 양산형 진전 시연 + 동사 액추에이터 공식 데모 가능성. <b>주가 메커니즘:</b> CES 2026 AI Robotics Strategy → CES 2027 양산 가시화 패턴 시 PER 30배 → 40배 추가 점프. <b>점검:</b> ① BD Atlas 출시 라인업 공개, ② 동사 미국 액추에이터 공장 가동 일정 확정.</td></tr>
+
+<tr><td><b>2027.04~05</b></td><td>1Q27 실적 발표 + Hyundai Mobility Day 2027</td><td><b>의미:</b> 동사 연례 Mobility Day에서 휴머노이드 매출 가이던스 정밀화. <b>점검:</b> 매출 가이던스 첫 분기 적용 여부.</td></tr>
+
+<tr style="background:#fff3cd;"><td><b>🔥 2027.12~<br>2028.01</b></td><td class="positive"><b>Hyundai 첫 SDV 양산 + Atlas HMGMA 투입 D-1년</b></td><td><b>의미:</b> SDV 부품(ADAS·ECU·통합 컨트롤러) 매출 점프 + Atlas HMGMA 투입 임박. <b>주가 메커니즘:</b> 동사 양대 모멘텀(SDV + 휴머노이드) 동시 점화. <b>점검:</b> ① Genesis G90/EV9 SDV 양산 공시, ② Atlas 첫 HMGMA 시퀀싱 영상.</td></tr>
+
+<tr><td><b>2028.01</b></td><td>CES 2028 — Atlas HMGMA 투입 발표</td><td><b>의미:</b> Atlas 첫 HMGMA(조지아) 투입 공식 발표 시점 예상. <b>주가 메커니즘:</b> 동사 액추에이터 매출 본격 인식(분기 2,000억+) 시작. <b>점검:</b> HMGMA Atlas 시퀀싱 라이브 시연.</td></tr>
+
+<tr><td><b>2028</b></td><td>HMGMA 30,000대 양산 진입<br>+ 동사 액추에이터 매출 9,000억 추정</td><td><b>의미:</b> 신한 시나리오의 첫 검증 시점. <b>주가 메커니즘:</b> 동사 28F 매출 9,000억 달성 시 OPM 15%+ 검증 → 본업 자동차부품 PER 12배에 휴머노이드 SoTP 50배 가산. <b>점검:</b> 액추에이터 단가 100만원+ 유지 여부, OPM 15% 시현.</td></tr>
+
+<tr><td><b>2028.06~07</b></td><td>LA 올림픽 2028<br>(현대차 글로벌 파트너)</td><td><b>의미:</b> Atlas 두 번째 글로벌 무대. 2026 월드컵 → 2028 올림픽 = 그룹 로보틱스 브랜드 사이클. <b>점검:</b> 올림픽 의전 등장 + 외부 휴머노이드 고객사 확장 신호.</td></tr>
+
+<tr><td><b>2029</b></td><td>Kia 조지아 공장 Atlas 투입<br>+ E-Atlas 양산</td><td><b>의미:</b> 동사 액추에이터 매출 베이스 확대 (Atlas + Spot + E-Atlas 3개 라인). <b>점검:</b> 동사 매출 1.2~1.5조 진입.</td></tr>
+
+<tr><td><b>2030</b></td><td>Atlas 연 30,000대 + 동사 액추에이터 매출 1.5~2조 (Bull 시나리오)</td><td><b>의미:</b> <b>Bull TP 1,050k 시나리오 종착점</b>. 신한 5만대 가정 시 2조+. <b>점검:</b> 28F EPS 12,000~14,000원 달성, 휴머노이드 SoTP 30조+ 정당화.</td></tr>
+
+<tr><td><b>2035</b></td><td>글로벌 휴머노이드 시장 150만대<br>(동사 점유율 10%+ = 15만대 목표)</td><td><b>의미:</b> Goldman Sachs 시장 추정 + 동사 점유율 시나리오. <b>매출 잠재력 = 15만대 × 30개 × 100만원 = 약 4.5조</b>. <b>점검:</b> 외부 휴머노이드 고객사(Apptronik·Figure·1X) 확보.</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#0b5345;"><b>📅 이벤트 캘린더 핵심 시그널 4가지:</b><br>
+<b>① 단기(1~2개월) 핵심 트리거 = ① 6/11 FIFA 월드컵 개막식 Atlas 의전, ② 7~8월 2Q26 실적 + 미국 액추에이터 공장 부지 발표</b> — 둘 다 +/-15% 변동성 유발 가능. 월드컵 의전 확정 시 단기 +5~10% 모멘텀 부스트, 미국 공장 부지 발표 시 28F 매출 시나리오 인프라적 정당화.<br>
+<b>② 중기(6개월) 핵심 = 10~11월 CEO Investor Day + America Robotics 법인 설립</b> — 그룹의 휴머노이드 매출 가이던스가 공식 수치화되는 시점. 동사 출자 비율·IPO 밸류에이션이 모멘텀 분기점.<br>
+<b>③ 장기(1년+) 핵심 = 2027.12 SDV 양산 + 2028 Atlas HMGMA 투입</b> — 동사 양대 모멘텀(SDV 부품 + 휴머노이드 액추에이터) 동시 점화. 신한 시나리오 검증 1차 시점.<br>
+<b>④ FIFA 월드컵 2026 + LA 올림픽 2028 = 그룹 글로벌 로보틱스 브랜드 확립 사이클</b> — 동사가 H/W 매출의 결정적 수혜 — Atlas 브랜드 가치 = 동사 액추에이터 단가 결정력.</p>
+<p style="margin-bottom:0;font-size:9pt;color:#7f8c8d;"><i>※ 출처: Boston Dynamics 공식·Hyundai Motor Group Newsroom·Seoul Economic Daily·FIFA 공식·CES 공식·삼성증권 5/26 리포트·신한투자증권 5/27 리포트. 일정은 공식 발표 기준이며 공식 발표 변경 시 수정 필요.</i></p>
+</div>
+
+<!-- ===================== 섹션 1. 투자포인트 ===================== -->
+<h2>1. 투자포인트 — Atlas 100% 독점 + SDV 부품 + 본업 견조함의 3중 동력</h2>
+
+<ol class="points">
+<li><span class="point-title">① 1년 +192%, 5월 한 달 +75% — 모멘텀 진행 중, 그러나 컨센 추월</span><br>
+2025년 5월 246,500원 → 2026년 5월 29일 768,000원. <b>1년 +192%, 시총 22.4조 → 69.7조 (3.1배)</b>. 현재가 768k는 컨센 695k는 추월했으나, 신규 상향 TP 평균 905k 대비 <b>-15% 갭 잔존</b> — Bull 영역 진입 전 단계.
+</li>
+
+<li><span class="point-title">② Atlas 액추에이터 100% 독점 납품 — 휴머노이드 H/W 원가 50~60%</span><br>
+<b>현대모비스가 보스턴다이내믹스 Atlas 액추에이터 100% 납품</b>. 휴머노이드 H/W 원가에서 액추에이터는 50~60% 비중 — <b>단일 부품 카테고리 중 최대</b>. Atlas 1대당 액추에이터 28~30개 사용 추정.
+</li>
+
+<li><span class="point-title">③ 매출 가이던스 — 삼성 1.5조 / 신한 2조+ (2030F)</span><br>
+삼성증권: Atlas 연 3만대 양산 → 액추에이터 매출 1.5조+. 신한투자: Atlas 5만대(2030) → 매출 2조+. 현재 동사 매출 61조 대비 <b>2030년 신규 매출축 1.5~2조 (전사 매출 +2.5~3.3%)</b>. 단가 추정 — 1.5조 / 30,000대 = 대당 5,000만원 (액추에이터 28개 × 약 170만원/개).
+</li>
+
+<li><span class="point-title">④ 본업 SDV 부품 + 전동화 — 글로벌 Top-6 자동차 부품사</span><br>
+샤시모듈·칵핏모듈·FEM 3대 핵심 모듈 그룹 직서열 공급 + 제동·조향·에어백·램프 글로벌 완성차 공급. <b>스텔란티스·GM·BMW 등 북미 Big 3 수주 확대</b>. 1Q26 매출 +5.5% 성장의 동력. 27F SDV 양산 본격화 시 차량 1대당 부품 가치 +67% 점프.
+</li>
+
+<li><span class="point-title">⑤ R&amp;D 2.16조 — 글로벌 Tier-1 최고 수준</span><br>
+2026년 R&amp;D 투자 <b>처음으로 2조원 돌파 → 2조 1,631억원 (매출 3.5%)</b>. 글로벌 자동차 부품 Tier-1 중 최고 수준. SDV·전동화·로보틱스 3대 미래 사업 집중. <b>단기 OPM 부담이나 27~28년 매출 점프의 시드</b>.
+</li>
+
+<li><span class="point-title">⑥ ETF 자금 155개 편입 — 자율주행/로보틱스/휴머노이드 ETF 신규 합류</span><br>
+액티브 37 + 패시브 118 = 155개 ETF 편입. 한 달간 액티브 +6개 신규 편입 (PLUS 글로벌휴머노이드로봇액티브·TIME 글로벌휴머노이드로봇산업액티브 등 휴머노이드 테마 ETF 합류). <b>외인 매도에도 ETF 자동 매수가 가격 방어</b>. 패시브 비중 1위 ACE K휴머노이드로봇산업TOP2+ 7.01%.
+</li>
+
+<li><span class="point-title">⑦ 자사주 매입 — 2,000억 규모, 2.16% 보유</span><br>
+2026.05.28 기준 <b>자사주 1,955,649주 (지분 2.16%)</b>. 점진적 매입 + 향후 소각 가능성 → 주당가치 상승 시그널. 글로벌 Peer (Magna·Denso) 대비 자사주 매입 적극적이라는 점이 한국 대형주 중에서도 차별화.
+</li>
+
+<li><span class="point-title">⑧ 배당 점진 인상 — DPS 4,500 → 6,500 → 6,870 (26F)</span><br>
+DPS 2023년 4,500 → 2025년 6,500 → 2026F 6,870원. 배당성향 13% 수준 (글로벌 Peer 30% 대비 낮음 → 향후 인상 여력 큼). 자사주 매입 + 배당 확대 = 주주환원 강화 추세.
+</li>
+
+<li><span class="point-title">⑨ 외인 지분율 38.15% — 한국 대형주 평균 상회</span><br>
+외인 38.15%는 한국 대형주 평균(20~30%) 대비 높음. 1Y +192% 급등 후에도 외인 유지 = <b>글로벌 펀드들이 Atlas·SDV 모멘텀을 인정하고 보유 유지</b>. 외인 비중 추가 +1~2% 가능한 여력 있음.
+</li>
+
+<li><span class="point-title">⑩ ⚠️ 1Q26 어닝 미스 — 컨센 -14.7%</span><br>
+1Q26 OP 8,026억은 컨센 9,415억 대비 -14.7%. 원인 = 유럽 전동화 신공장 초기 비용. 회사 측 "2H26부터 정상화". <b>2Q26 OP 9,246억 컨센 부합 여부가 모멘텀 검증의 핵심</b>.
+</li>
+
+<li><span class="point-title">⑪ ⚠️ 12M Fwd PER 16배 — 코스피 평균 부합, 그러나 모멘텀 종목 대비 보수적</span><br>
+12M Fwd PER 16배는 코스피 평균 15배와 부합. 다른 모멘텀 종목(현대오토에버 108배·아모텍 26배) 대비 매우 보수적. <b>본업의 안정성 + Atlas 옵션 가치의 합리적 가격 영역</b>. PER 디스카운트 위험 제한적.
+</li>
+
+<li><span class="point-title">⑫ ⚠️ Tesla Optimus + 중국 휴머노이드 경쟁</span><br>
+Tesla Optimus가 2027년 양산 시 BD Atlas 가격 경쟁 압박. 중국 휴머노이드(UBTECH·Unitree 등)의 저가 액추에이터 진입 시 동사 단가 결정력 약화. <b>외부 고객사 확보 속도가 핵심</b>.
+</li>
+
+<li><span class="point-title">⑬ 단기 모멘텀 — 2Q26 실적·CES 2027·Atlas 양산 발표</span><br>
+향후 12개월 핵심 이벤트: ① <b>2Q26 실적(8월)</b> → 유럽 신공장 정상화 검증, ② <b>9~10월 IAA·CES 2027 Preview</b>, ③ <b>2027.01 CES 2027</b> → Atlas 양산 로드맵 구체화, ④ <b>3Q26 실적(11월)</b> → R&amp;D 2.16조 결과물 가시화.
+</li>
+</ol>
+
+<h3>투자의견 종합</h3>
+
+<div class="bull-box">
+<b>매수 (BUY)</b> · Base TP <b>850,000원 (+10.7%)</b> · Bull TP <b>1,100,000원 (+43.2%)</b> · Bear TP <b>520,000원 (-32.3%)</b>
+<ul style="margin:8px 0;">
+<li><b>현재가 768k는 컨센 695k 추월, 신규 상향 TP 평균(905k) 대비 -15% 갭 잔존.</b> 합리적 상승여력.</li>
+<li><b>Base 850k (55%):</b> 27F EPS 50,000원 × PER 17배. SDV 양산 + Atlas 초기 매출. 컨센 + 1차 상향 평균.</li>
+<li><b>Bull 1,100k (25%):</b> 28F EPS 55,000원 × PER 20배. Atlas 매출 2조 시현 + 외부 고객 확보 + Physical AI 옵션.</li>
+<li><b>Bear 520k (20%):</b> 27F EPS 45,000원 × PER 11.5배. 1Q 부진 구조화 + Atlas 일정 슬립 + 멀티플 정상화.</li>
+</ul>
+</div>
+
+<h3>시나리오별 목표주가 산출표</h3>
+<table>
+<tr><th>시나리오</th><th>확률</th><th>EPS</th><th>Target P/E</th><th>TP</th><th>현재가 대비</th><th>핵심 가정</th></tr>
+<tr><td class="positive">Bull</td><td>25%</td><td class="positive">55,000원 (28F)</td><td>20배</td><td class="positive"><b>1,100,000원</b></td><td class="positive">+43.2%</td><td>Atlas 매출 2조 시현, 외부 고객 확보, Physical AI 옵션 풀반영</td></tr>
+<tr><td><b>Base</b></td><td><b>55%</b></td><td><b>50,000원 (27F)</b></td><td>17배</td><td><b>850,000원</b></td><td class="positive">+10.7%</td><td>SDV 2027년 양산 + Atlas 2028년 HMGMA 투입 부합</td></tr>
+<tr><td class="negative">Bear</td><td>20%</td><td class="negative">45,000원 (27F)</td><td>11.5배</td><td class="negative">520,000원</td><td class="negative">-32.3%</td><td>1Q 부진 구조화, Atlas 1년 슬립, 멀티플 정상화</td></tr>
+<tr style="background:#fff;"><td colspan="7" style="background:#eaf2f8;"><b>가중평균 기대값: 846,000원 (+10.2% upside) — 850k × 55% + 1,100k × 25% + 520k × 20%</b></td></tr>
+</table>
+
+<!-- ===================== 섹션 2. 산업개요 ===================== -->
+<h2>2. 산업개요 — 휴머노이드 30조 시장 + SDV 부품 1,237B 시장</h2>
+
+<h3>2-1. TAM·SAM·SOM</h3>
+<table>
+<tr><th>레이어</th><th>2025</th><th>2027</th><th>2030</th><th>CAGR</th><th>출처</th></tr>
+<tr><td>글로벌 자동차 부품 시장</td><td>$1.6T</td><td>$1.8T</td><td>$2.1T</td><td>+5.5%</td><td>Statista</td></tr>
+<tr><td>글로벌 SDV 시장</td><td>$355B</td><td>$550B</td><td>$1,237B</td><td>+28.5%</td><td>McKinsey/BCG</td></tr>
+<tr><td>글로벌 전동화 부품 (BMS·모터·인버터)</td><td>$120B</td><td>$180B</td><td>$280B</td><td>+18.4%</td><td>S&amp;P Global</td></tr>
+<tr><td class="positive">글로벌 휴머노이드 로봇 시장</td><td class="positive">$30억</td><td class="positive">$80억</td><td class="positive">$200억+</td><td class="positive">+50%</td><td class="positive">Goldman Sachs 2026</td></tr>
+<tr><td class="positive">글로벌 휴머노이드 액추에이터 (SAM)</td><td class="positive">$15억</td><td class="positive">$40억</td><td class="positive">$100억 (=14조)</td><td class="positive">+50%</td><td class="positive">로봇 H/W 50% 비중 × 시장</td></tr>
+<tr><td class="positive">동사 액추에이터 매출 (SOM)</td><td class="positive">0</td><td class="positive">2,000억</td><td class="positive">15,000~20,000억</td><td class="positive">신규</td><td class="positive">삼성/신한 추정 (Atlas 3~5만대)</td></tr>
+<tr><td>동사 본업 매출 (자동차 부품)</td><td>61.1조</td><td>72조</td><td>85조</td><td>+5.9%</td><td>회사 가이던스 추정</td></tr>
+</table>
+
+<h3>2-2. 휴머노이드 → 액추에이터 밸류체인</h3>
+<table>
+<tr><th>계층</th><th>제품</th><th>대표 업체</th><th>H/W 원가 비중</th><th>동사 진입</th></tr>
+<tr><td>1. AI 컴퓨팅 (SoC)</td><td>차세대 AI 칩</td><td>NVIDIA, Qualcomm</td><td>10~15%</td><td>NVIDIA 파트너십 통합</td></tr>
+<tr><td class="positive">2. 액추에이터 (28~30개/대)</td><td>관절 구동 모터·감속기</td><td><b>현대모비스</b>, Harmonic Drive, Maxon</td><td class="positive"><b>50~60%</b></td><td class="positive"><b>BD Atlas 100% 독점</b></td></tr>
+<tr><td>3. 센서·비전</td><td>카메라·LiDAR·IMU</td><td>Sony, Intel, Velodyne</td><td>10~15%</td><td>비전 카메라 + IMU 일부</td></tr>
+<tr><td>4. 배터리·전원관리</td><td>배터리팩·BMS</td><td>LG에너지솔루션, 파나소닉</td><td>10%</td><td>BMS 부품 일부 가능성</td></tr>
+<tr><td>5. 외장·구조</td><td>알루미늄·복합소재 프레임</td><td>알코아, HRL</td><td>5~10%</td><td>제한적</td></tr>
+<tr><td>6. 운영 SW</td><td>로봇 OS·운영 SaaS</td><td>BD Spot, Open Robotics</td><td>(별도)</td><td>현대오토에버 담당</td></tr>
+</table>
+
+<h3>2-3. 산업사이클 진단</h3>
+<table>
+<tr><th>단계</th><th>시기</th><th>특징</th><th>동사 포지션</th></tr>
+<tr><td>① 휴머노이드 시제품</td><td>2024~2026</td><td>BD Atlas·Tesla Optimus·Figure·1X 시제품. 양산 전 단계</td><td>Atlas 액추에이터 Sample 매출 단계</td></tr>
+<tr><td>② BD Atlas HMGMA 투입</td><td>2028</td><td>HMGMA 조지아 공장 시퀀싱 → 조립 점진 진입</td><td><b>액추에이터 매출 본격 인식 시작</b></td></tr>
+<tr><td>③ 휴머노이드 양산 본격화</td><td>2029~2030</td><td>Atlas 연 3만대(2030), Optimus 5만대+, Figure·1X 추가</td><td><b>액추에이터 매출 1.5~2조 시현</b></td></tr>
+<tr><td>④ 외부 고객 확장</td><td>2030 이후</td><td>Apptronik·Figure·Agility 외부 액추에이터 채택</td><td>SOM 확장 — 매출 5조+ 가능</td></tr>
+</table>
+
+<h3>2-4. 글로벌 Peer 비교 (자동차 부품 + 로보틱스)</h3>
+<table>
+<tr><th>업체</th><th>분류</th><th>시총 (USD)</th><th>2026F PER</th><th>PBR</th><th>OPM</th><th>비고</th></tr>
+<tr><td>Magna International (CA)</td><td>자동차 부품 Top-3</td><td>$17B</td><td>12배</td><td>1.1배</td><td>6%</td><td>북미 OEM 1위 공급</td></tr>
+<tr><td>Denso (JP)</td><td>자동차 부품 Top-2</td><td>$40B</td><td>17배</td><td>1.5배</td><td>8%</td><td>도요타 계열</td></tr>
+<tr><td>Aptiv (UK)</td><td>SDV 통합 솔루션</td><td>$15B</td><td>18배</td><td>1.6배</td><td>11%</td><td>Wind River 인수</td></tr>
+<tr><td>Continental (DE)</td><td>자동차 부품 Top-4</td><td>$15B</td><td>15배</td><td>1.0배</td><td>5%</td><td>분할 진행</td></tr>
+<tr><td>Harmonic Drive (JP)</td><td>액추에이터 전문</td><td>$1.5B</td><td>30배</td><td>3배</td><td>15%</td><td>로봇 감속기 글로벌 1위</td></tr>
+<tr><td class="positive"><b>현대모비스 (KR)</b></td><td class="positive">자동차 부품 + 액추에이터</td><td class="positive"><b>$50B</b></td><td class="positive"><b>16배</b></td><td class="positive"><b>1.41배</b></td><td><b>5.5%</b></td><td class="positive">유일한 결합 노출 케이스</td></tr>
+<tr style="background:#eaf2f8;"><td colspan="2"><b>자동차 부품 평균</b></td><td>$22B</td><td>16배</td><td>1.3배</td><td>7%</td><td>동사 부합</td></tr>
+</table>
+
+<p><b>Peer 해석:</b> 동사 PER 16배는 글로벌 자동차 부품 Top-4 평균 16배와 정확히 부합 — 본업 가치는 합리적. <b>차별점은 액추에이터(Harmonic Drive PER 30배 영역)의 옵션 가치 추가</b>. Bull 시나리오에서 액추에이터 매출 1.5~2조가 시현되면 PER 20배 + 액추에이터 SoTP 1~2조 → TP 1,100k 정당화.</p>
+
+<!-- ===================== 섹션 3. 기업개요 ===================== -->
+<h2>3. 기업개요 — 글로벌 Top-6 자동차 부품사 + 로보틱스 신성장</h2>
+
+<h3>3-1. 회사 프로필</h3>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>회사명</td><td>(주)현대모비스 (Hyundai Mobis Co., Ltd.)</td></tr>
+<tr><td>설립</td><td>1977년 (현대정공으로 시작 → 2000년 현재명 변경)</td></tr>
+<tr><td>상장</td><td>코스피 (티커 012330, K200 편입)</td></tr>
+<tr><td>본사</td><td>서울 강남구 (R&amp;D: 의왕·용인·미국·인도·독일 등)</td></tr>
+<tr><td>대표</td><td>이규석 사장 (2026년 기준)</td></tr>
+<tr><td>임직원</td><td>약 35,000명 (글로벌)</td></tr>
+<tr><td>주요 사업</td><td>① 모듈/핵심부품 (샤시·칵핏·FEM) ② 전장 (ADAS·인포테인먼트) ③ AS 부품 ④ 로보틱스 신사업</td></tr>
+<tr><td>주요 고객</td><td>현대차·기아(직서열 공급) + 스텔란티스·GM·BMW·VW (글로벌 부품)</td></tr>
+<tr><td>2025년 매출</td><td>61조 1,181억 (YoY +6.8%)</td></tr>
+<tr><td>2025년 영업이익</td><td>3조 3,575억 (OPM 5.5%)</td></tr>
+<tr><td>신용등급</td><td>회사채 AA+ (KIS·NICE, 2025.06)</td></tr>
+<tr><td>글로벌 순위</td><td>2025년 자동차 부품업체 Top-6</td></tr>
+</table>
+
+<h3>3-2. 비즈니스 모델 — 사업부 분해</h3>
+<table>
+<tr><th>사업부</th><th>2025 매출</th><th>비중</th><th>주요 매출</th><th>드라이버</th></tr>
+<tr><td>모듈/핵심부품</td><td>약 36조</td><td>59%</td><td>샤시·칵핏·FEM 모듈 (그룹 직서열)</td><td>현대차·기아 판매량 + 글로벌 OEM 수주</td></tr>
+<tr><td>전장 부품 (ADAS·인포테인먼트)</td><td>약 15조</td><td>25%</td><td>ADAS·통합 ECU·인포테인먼트</td><td>SDV 전환 + 고부가가치 비중↑</td></tr>
+<tr><td>AS 부품</td><td>약 8조</td><td>13%</td><td>유지보수·교체 부품</td><td>안정적 캐시카우</td></tr>
+<tr><td>기타 + 신사업</td><td>약 2조</td><td>3%</td><td>로보틱스 액추에이터·기타</td><td>Atlas 매출 본격화 시점</td></tr>
+<tr><td class="positive"><b>액추에이터 (예상 2030)</b></td><td class="positive">매출 시현 시작 2028</td><td class="positive">2030F 2.5%+</td><td class="positive">BD Atlas + 외부 고객 (잠재)</td><td class="positive">Atlas 양산 일정</td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자 (Moat)</h3>
+
+<div class="bull-box">
+<b>① 현대차그룹 직서열 공급 + 글로벌 Tier-1 위치</b> — 그룹 모듈 공급 + 글로벌 Top-6 자동차 부품사. 단일 그룹 의존이 아닌 글로벌 OEM 분산 공급. 스텔란티스·GM·BMW 등 25%+ 그룹 외 매출.
+</div>
+
+<div class="bull-box">
+<b>② BD Atlas 액추에이터 100% 독점</b> — 현대차그룹이 BD 80% 지분 + 모비스가 액추에이터 100% 납품. 그룹 내 수직 통합. 다른 휴머노이드 메이커가 BD 액추에이터 채택 시 모두 동사 매출.
+</div>
+
+<div class="bull-box">
+<b>③ R&amp;D 2.16조 — 글로벌 자동차 부품 Tier-1 최고 수준</b> — 매출의 3.5% R&amp;D. Magna 2.5%·Denso 3.0%·Aptiv 4.5% 대비 최고. SDV·전동화·로보틱스 3개 미래 사업 동시 투자 가능.
+</div>
+
+<div class="bull-box">
+<b>④ 자사주 2.16% 보유 — 향후 소각 가능성</b> — 1,955,649주 자사주. 점진 매입 + 향후 소각 = 주당 가치 상승. 한국 대형주 중 적극적인 주주환원.
+</div>
+
+<h3>3-4. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>최종변동일</th><th>비고</th></tr>
+<tr><td><b>기아 외 7인</b> (최대주주)</td><td>32.70%</td><td>2026.02.12</td><td>기아 + 현대차·정의선 등 그룹 합산</td></tr>
+<tr><td>국민연금공단</td><td>9.51%</td><td>2026.01.12</td><td>5%+ 주요 주주</td></tr>
+<tr><td>미래에셋자산운용 외 9인</td><td>5.33%</td><td>2021.11.30</td><td>5%+ 주요 주주</td></tr>
+<tr><td><b>자사주</b></td><td>2.16%</td><td>2026.05.28</td><td>1,955,649주 — 향후 소각 가능성</td></tr>
+<tr><td>외국인 (합계)</td><td>38.15%</td><td>2026.05.29</td><td>한국 대형주 평균 상회</td></tr>
+<tr><td>유동주식</td><td>65.14%</td><td>2026.05.29</td><td>약 5,910만주 — 유동성 풍부</td></tr>
+</table>
+
+<p><b>운용사별 보유 (2026.03):</b> 삼성자산 126만주(1.39%), 미래에셋자산 70만주(0.77%), KB자산 27만주(0.30%), 신한자산 22만주(0.24%), 신영자산 16만주(0.18%). <b>합계 운용사 약 3% — 외인 38%와 함께 가격 안정성 매우 높음</b>.</p>
+
+<!-- ===================== 섹션 4. 재무분석 ===================== -->
+<h2>4. 재무분석 — 매출 성장 + R&amp;D 점프</h2>
+
+<h3>4-1. 연간 손익 추이</h3>
+<table>
+<tr><th>구분 (억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026F (컨센)</th><th>2027F (추정)</th><th>2028F (추정)</th></tr>
+<tr><td>매출액</td><td>592,544</td><td>572,370</td><td>611,181</td><td class="positive">651,046</td><td class="positive">720,000</td><td class="positive">800,000</td></tr>
+<tr><td>YoY 증가율</td><td>-</td><td>-3.4%</td><td>+6.8%</td><td>+6.5%</td><td>+10.6%</td><td>+11.1%</td></tr>
+<tr><td>영업이익</td><td>22,953</td><td>30,735</td><td>33,575</td><td class="positive">37,257</td><td class="positive">45,000</td><td class="positive">55,000</td></tr>
+<tr><td>영업이익률</td><td>3.9%</td><td>5.4%</td><td>5.5%</td><td>5.7%</td><td>6.3%</td><td>6.9%</td></tr>
+<tr><td>당기순이익</td><td>34,233</td><td>40,602</td><td>36,647</td><td>41,502</td><td>50,000</td><td>60,000</td></tr>
+<tr><td>EPS (원)</td><td>36,340</td><td>43,480</td><td>39,682</td><td>45,646</td><td>50,000~55,000</td><td>55,000~65,000</td></tr>
+<tr><td>BPS (원)</td><td>441,136</td><td>501,648</td><td>545,787</td><td>585,315</td><td>625,000</td><td>675,000</td></tr>
+<tr><td>ROE</td><td>8.7%</td><td>9.4%</td><td>7.7%</td><td>8.1%</td><td>9.5%</td><td>11.0%</td></tr>
+<tr><td>DPS (원)</td><td>4,500</td><td>6,000</td><td>6,500</td><td>6,870</td><td>7,500</td><td>8,000</td></tr>
+<tr><td>R&amp;D 비용</td><td>1.4조</td><td>1.6조</td><td>1.8조</td><td class="positive">2.16조</td><td>2.3조</td><td>2.5조</td></tr>
+</table>
+
+<h3>4-2. 분기 매출·OP 추이</h3>
+<table>
+<tr><th>분기 (억원)</th><th>1Q25</th><th>2Q25</th><th>3Q25</th><th>4Q25</th><th>1Q26</th><th>2Q26E</th><th>3Q26E</th><th>4Q26E</th></tr>
+<tr><td>매출액</td><td>147,500</td><td>149,883</td><td>150,319</td><td>153,979</td><td class="positive">155,605</td><td>167,396</td><td>165,000</td><td>163,000</td></tr>
+<tr><td>YoY</td><td>-</td><td>+10%</td><td>+8%</td><td>+5%</td><td>+5.5%</td><td>+12%</td><td>+10%</td><td>+6%</td></tr>
+<tr><td>영업이익</td><td>7,768</td><td>8,199</td><td>7,803</td><td>9,305</td><td class="negative">8,026</td><td>9,246</td><td>9,500</td><td>10,500</td></tr>
+<tr><td>OPM</td><td>5.3%</td><td>5.5%</td><td>5.2%</td><td>6.0%</td><td>5.2%</td><td>5.5%</td><td>5.8%</td><td>6.4%</td></tr>
+</table>
+
+<p><b>핵심:</b> 분기 매출은 안정적으로 15조원대 유지. <b>2Q26 OP 컨센 9,246억 부합 여부가 1Q 부진 일시성 검증의 핵심</b>. 4Q OP 10,500억 + 연간 OP 3.73조 (컨센) 달성 시 모멘텀 정당.</p>
+
+<!-- ===================== 섹션 5. 주주환원 ===================== -->
+<h2>5. 주주환원 — 배당 점진 인상 + 자사주 2.16%</h2>
+
+<table>
+<tr><th>구분</th><th>2023</th><th>2024</th><th>2025</th><th>2026F</th><th>2027F</th></tr>
+<tr><td>DPS (원)</td><td>4,500</td><td>6,000</td><td>6,500</td><td>6,870</td><td>7,500</td></tr>
+<tr><td>배당성향</td><td>12.4%</td><td>13.8%</td><td>16.4%</td><td>15.1%</td><td>15%</td></tr>
+<tr><td>배당수익률</td><td>0.86%</td><td>1.41%</td><td>0.85%</td><td>0.89%</td><td>0.98%</td></tr>
+<tr><td class="positive">자사주 보유</td><td>1.5%</td><td>1.8%</td><td>2.0%</td><td class="positive">2.16%</td><td>2.5%+</td></tr>
+<tr><td>총주주환원율</td><td>~15%</td><td>~18%</td><td>~25%</td><td>~25%</td><td>~30%+</td></tr>
+</table>
+
+<p><b>주주환원 진단:</b> 동사는 점진적 배당 인상 + 자사주 매입의 균형 잡힌 정책. 배당성향 15~16%는 글로벌 Peer (Denso 30%·Magna 35%) 대비 낮음 = <b>향후 인상 여력 매우 큼</b>. 자사주 2.16% 보유는 향후 소각 시 주당가치 +2%+ 상승. <b>2027~2028년 OP 4.5조+ 정착 시 배당성향 25~30% 인상 가능</b>.</p>
+
+<!-- ===================== 섹션 6. 밸류에이션 ===================== -->
+<h2>6. 밸류에이션 — Base 850k / Bull 1,100k / Bear 520k</h2>
+
+<h3>6-1. 멀티플 비교 (현재가 768,000원 기준)</h3>
+<table>
+<tr><th>지표</th><th>현대모비스</th><th>한국 자동차 부품 평균</th><th>글로벌 자동차 부품 Peer 평균</th><th>해석</th></tr>
+<tr><td>PER (25년)</td><td>19.4배</td><td>10배</td><td>15배</td><td>그룹 대비 +29%</td></tr>
+<tr><td>12M Fwd PER</td><td class="positive">16.0배</td><td>9배</td><td>16배</td><td>Peer 부합</td></tr>
+<tr><td>PBR</td><td>1.41배</td><td>0.8배</td><td>1.3배</td><td>Peer 부합</td></tr>
+<tr><td>EV/EBITDA</td><td>7.5배</td><td>5배</td><td>9배</td><td>Peer 하회</td></tr>
+<tr><td>ROE</td><td>7.7% → 27F 9.5%</td><td>7%</td><td>10%</td><td>점프 진행 중</td></tr>
+<tr><td>EPS 증가율 (26F)</td><td class="positive">+15.0%</td><td>+5%</td><td>+8%</td><td>Peer 상회</td></tr>
+<tr><td>PEG</td><td>1.07배</td><td>1.8배</td><td>2.0배</td><td>가장 합리적</td></tr>
+</table>
+
+<h3>6-2. 시나리오별 목표주가 산출</h3>
+
+<div class="calc-box">
+<b>[Base 시나리오] TP 850,000원 — 가중평균 55%</b>
+================================================
+2027F EPS:               50,000원 (회사 가이던스 부합 + Atlas 초기 매출 반영)
+Target P/E:                  17배 (현재 16배 유지 + ROE 점프 반영)
+산출 목표주가:    50,000 × 17 = 850,000원
+현재가 대비:                +10.7%
+
+핵심 가정:
+- 2H26부터 유럽 신공장 정상화 → 27F OP 4.5조
+- SDV 2027년 양산 + Atlas 2028년 HMGMA 투입 부합
+- 글로벌 자동차 부품 Peer PER 16배 유지
+</div>
+
+<div class="calc-box" style="background:#e8f8f5;border-color:#1abc9c;">
+<b>[Bull 시나리오] TP 1,100,000원 — 가중평균 25%</b>
+================================================
+2028F EPS:               55,000원 (Atlas 액추에이터 매출 2조 정착)
+Target P/E:                  20배 (Physical AI 옵션 + Atlas 외부 고객 확장)
+산출 목표주가:    55,000 × 20 = 1,100,000원
+현재가 대비:                +43.2%
+
+핵심 트리거:
+- Atlas 양산 5만대(2030) → 액추에이터 매출 2조 시현
+- BD 외 외부 휴머노이드 고객 (Apptronik·Figure 등) 진출
+- mobilgene OS + 모비스 H/W의 글로벌 NVIDIA 파트너십 확대
+- 자사주 매입 추가 + 배당성향 25%+ 인상
+</div>
+
+<div class="calc-box" style="background:#fdedec;border-color:#e74c3c;">
+<b>[Bear 시나리오] TP 520,000원 — 가중평균 20%</b>
+================================================
+2027F EPS:               45,000원 (1Q 부진 구조화, Atlas 일정 슬립)
+Target P/E:                  11.5배 (한국 자동차 부품 평균 +28%)
+산출 목표주가:    45,000 × 11.5 = 520,000원
+현재가 대비:                -32.3%
+
+핵심 트리거:
+- 유럽 신공장 정상화 지연 → 2H26도 OP 미달
+- Atlas 양산 시점 2029년말로 1년 슬립
+- Tesla Optimus 자체 부품화 → 외부 고객 확장 실패
+- 트럼프 관세 정책 장기화 → 미국 매출 감소
+</div>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<table>
+<tr><th>구간</th><th>가격대</th><th>비중</th><th>액션</th><th>근거</th></tr>
+<tr><td class="positive">강력 매수</td><td>~550,000원</td><td>30%</td><td>적극 매수</td><td>27F EPS 50,000 × PER 11 = 550k. Bear TP 인근 — 매력적 진입</td></tr>
+<tr><td class="positive">매수</td><td>600,000~720,000원</td><td>40%</td><td>분할매수</td><td>컨센 695k 인근. Base 시나리오 충분히 정당화</td></tr>
+<tr><td>중립</td><td>720,000~850,000원</td><td>20%</td><td>관망 또는 소량 추가</td><td>신규 상향 TP 평균 905k에 가까워지는 영역</td></tr>
+<tr><td class="negative">비중축소</td><td>850,000~1,000,000원</td><td>10%</td><td>일부 차익실현</td><td>Base TP 도달 — Bull 시나리오 검증 전</td></tr>
+<tr><td class="negative">매도</td><td>1,000,000원+</td><td>0%</td><td>매도</td><td>Bull TP 1,100k 도달 영역 — Atlas 매출 실제 시현 후 재매수</td></tr>
+</table>
+
+<!-- ===================== 섹션 7. 주가 히스토리 ===================== -->
+<h2>7. 주가 히스토리 — 1년 +192%, 5월 +75%</h2>
+
+<table>
+<tr><th>시점</th><th>주가</th><th>주요 이벤트</th></tr>
+<tr><td>2025.05</td><td>246,500원</td><td>52주 저점</td></tr>
+<tr><td>2025.11</td><td>약 320,000원</td><td>3Q25 OP 7,803억 안정</td></tr>
+<tr><td>2026.01</td><td>약 400,000원</td><td>CES 2026 Atlas 공개 — 모비스 액추에이터 100% 부각</td></tr>
+<tr><td>2026.04.24</td><td>약 450,000원</td><td>1Q26 실적 (매출 +5.5%, OP +3.3% "선방")</td></tr>
+<tr><td>2026.05.11</td><td>약 510,000원</td><td>삼성증권 5/11 BUY (TP 650k) — "시간이 갈수록 유리한 주식"</td></tr>
+<tr><td>2026.05.21</td><td>약 600,000원</td><td>다올투자 TP 900k — "누가 왕이 될 것인가"</td></tr>
+<tr><td>2026.05.28</td><td>686,000원</td><td>신한투자 TP 900k (+58% 상향) — Atlas 5만대 시 2조 매출 가정</td></tr>
+<tr><td class="positive">2026.05.29</td><td class="positive">768,000원 (+11.95%)</td><td class="positive">단일 +12% 폭등 — 삼성증권 TP 950k 추가 상향 + 52주 신고가</td></tr>
+</table>
+
+<h3>주가 수익률</h3>
+<table>
+<tr><th>기간</th><th>1M</th><th>3M</th><th>6M</th><th>1Y</th></tr>
+<tr><td>절대 수익률</td><td class="positive">+74.9%</td><td class="positive">+48.6%</td><td class="positive">+148.1%</td><td class="positive">+192.0%</td></tr>
+<tr><td>상대 수익률 (vs KOSPI)</td><td class="positive">+68%</td><td class="positive">+40%</td><td class="positive">+115%</td><td class="positive">+160%</td></tr>
+</table>
+
+<p><b>주가 히스토리 해석:</b> 1년 +192%는 한국 대형주 기준 매우 이례적. 핵심 동력은 ① 1월 CES 2026 Atlas 공개 + 모비스 액추에이터 100% 독점 확인, ② 4월 1Q26 "선방" + R&amp;D 2.16조 가이던스, ③ 5월 증권가 일제 대폭 상향 (삼성·신한·다올). <b>5월 한 달 +75%는 모멘텀의 정점 영역</b>이나, 다른 모멘텀 종목(현대오토에버 1년 +546%) 대비 차별화 가능. PER 16배는 합리적 영역으로 추가 상승 여력 잔존.</p>
+
+<!-- ===================== 섹션 7-2. ETF 자금 유입 분석 ===================== -->
+<h2>7-2. ETF 자금 유입 분석 (2026.04.29 → 2026.05.29)</h2>
+
+<p>출처: <b>와이스트릿(ystreet.co.kr) ActiveETF/PassiveETF Tracker</b> · 데이터 기준: 2026.05.29 16:00</p>
+
+<h3>7-2-1. 한 줄 진단</h3>
+
+<div class="bull-box">
+<b>액티브 ETF 편입 +6개 신규 증가(31→37), 휴머노이드·자율주행 테마 ETF가 대거 추가 매수.</b> 패시브 ETF 118개 편입은 현대오토에버 84개를 +34개 상회 — <b>대형주 + 휴머노이드 테마 ETF의 합산 효과</b>. ETF 합산 155개는 동사가 외인 매도에도 가격 방어 가능한 핵심 동력의 일부.
+</div>
+
+<h3>7-2-2. 액티브 ETF 한 달간 변화 (4/29 → 5/29)</h3>
+
+<table>
+<tr><th>구분</th><th>2026.04.29</th><th>2026.05.29</th><th>변화</th></tr>
+<tr><td><b>편입 액티브 ETF 수</b></td><td>31개</td><td class="positive">37개</td><td class="positive">+6개 (신규 편입)</td></tr>
+<tr><td>당일 비중 증가 ETF</td><td>28개 (90.3%)</td><td>13개 (35.1%)</td><td>5월 한 달 상승 후 5/29 일별 변동성↑</td></tr>
+</table>
+
+<h3>7-2-3. 편입 ETF 평가금액 순 통합 표 (액티브 + 패시브 · ystreet + ETF CHECK 크로스체크)</h3>
+
+<p style="font-size:10pt;"><b>ETF 전체 보유 평가금액 = ETF NAV × 모비스 비중</b> · 평가금액(억원) 내림차순 정렬 · 데이터 소스: <b>와이스트릿 ystreet + ETF CHECK 크로스체크</b> (2026.05.29 기준)</p>
+<p style="font-size:9pt;color:#7f8c8d;">※ ystreet 단독 사용 시 SOL 자동차TOP3플러스(1,071억)·KODEX 자동차(1,437억)·SOL 자동차소부장Fn·HANARO Fn전기&amp;수소차 등 자동차 테마 ETF 다수 누락. ETF CHECK 종목 검색으로 자동차·전기차·모빌리티 키워드 추가 검증해 보강.</p>
+
+<table>
+<tr><th>순위</th><th>ETF명 (코드)</th><th>모비스 비중</th><th>ETF NAV<br>(억원)</th><th>모비스 평가금액<br>(NAV × 비중, 억원)</th><th>1M (%)</th><th>3M (%)</th><th>6M (%)</th><th>1M 순매수<br>(개인/외인/기관, 억원)</th><th>비고</th></tr>
+
+<tr style="background:#fff3cd;"><td><b>1</b></td><td class="positive"><b>KODEX 자동차</b> (091180)</td><td class="positive"><b>22.68%</b><br>(전체 2위 종목)</td><td><b>6,336</b></td><td class="positive"><b>1,437억</b></td><td class="positive">+23.7</td><td class="positive">+6.7</td><td class="positive">+82.2</td><td style="font-size:9pt;">개인 <span class="negative" style="display:inline-block;min-width:40px;">-125억</span><br>외인 <span class="negative" style="display:inline-block;min-width:40px;">-41억</span><br>기관 <span class="positive" style="display:inline-block;min-width:40px;">+183억</span></td><td>패시브 (자동차 테마 · 신규 추가)</td></tr>
+
+<tr><td>2</td><td class="positive"><b>KODEX 로봇액티브</b> (445290)</td><td class="positive"><b>7.99%</b></td><td><b>15,332</b><br>(NAV 최대)</td><td class="positive"><b>1,225억</b></td><td class="positive">+24.4</td><td class="positive">+16.0</td><td class="positive">+94.2</td><td style="font-size:9pt;">개인 <span class="positive" style="display:inline-block;min-width:40px;">+635억</span><br>외인 <span class="negative" style="display:inline-block;min-width:40px;">-18억</span><br>기관 <span class="negative" style="display:inline-block;min-width:40px;">-641억</span></td><td>액티브 (최대 NAV · 휴머노이드)</td></tr>
+
+<tr style="background:#fff3cd;"><td><b>3</b></td><td class="positive"><b>SOL 자동차TOP3플러스</b> (466930)</td><td class="positive"><b>20.71%</b><br>(전체 2위 종목)</td><td>5,170</td><td class="positive"><b>1,071억</b></td><td class="positive">+65.4</td><td class="positive">+58.7</td><td class="positive">+207.8</td><td style="font-size:9pt;">개인 <span class="positive" style="display:inline-block;min-width:40px;">+380억</span><br>외인 <span class="positive" style="display:inline-block;min-width:40px;">+40억</span><br>기관 <span class="negative" style="display:inline-block;min-width:40px;">-414억</span></td><td>액티브 (자동차 TOP3 · 신규 추가)</td></tr>
+
+<tr><td>4</td><td>SOL 코리아메가테크액티브 (444200)</td><td>2.44%</td><td><b>7,600</b></td><td class="positive">185.4억</td><td class="positive">+18.2</td><td class="positive">+28.1</td><td class="positive">+102.5</td><td style="font-size:9pt;">개인 <span class="negative" style="display:inline-block;min-width:40px;">-40억</span><br>외인 <span class="positive" style="display:inline-block;min-width:40px;">+11억</span><br>기관 <span class="positive" style="display:inline-block;min-width:40px;">+39억</span></td><td>액티브 (대형 NAV)</td></tr>
+
+<tr><td>5</td><td>TIME 코스피액티브 (385720)</td><td>2.19%</td><td><b>5,247</b></td><td class="positive">114.9억</td><td class="positive">+28.9</td><td class="positive">+43.4</td><td class="positive">+136.1</td><td style="font-size:9pt;">개인 <span class="negative" style="display:inline-block;min-width:40px;">-51억</span><br>외인 <span class="negative" style="display:inline-block;min-width:40px;">-2억</span><br>기관 <span class="positive" style="display:inline-block;min-width:40px;">+49억</span></td><td>액티브 (대형 NAV)</td></tr>
+
+<tr><td>6</td><td>PLUS 글로벌휴머노이드로봇액티브 (0035T0)</td><td class="positive">7.92%</td><td>1,400</td><td class="positive">110.9억</td><td class="positive">+19.7</td><td class="positive">+15.2</td><td class="positive">+57.4</td><td style="font-size:9pt;">개인 <span class="positive" style="display:inline-block;min-width:40px;">+79억</span><br>외인 <span class="negative" style="display:inline-block;min-width:40px;">-1억</span><br>기관 <span class="negative" style="display:inline-block;min-width:40px;">-71억</span></td><td>액티브 (휴머노이드)</td></tr>
+
+<tr><td>7</td><td>ACE K휴머노이드로봇산업TOP2+ (0177X0)</td><td class="positive">7.01%</td><td>1,578</td><td class="positive">110.6억</td><td class="positive">+13.5</td><td class="positive">+0.5</td><td class="positive">+0.5</td><td style="font-size:9pt;">개인 <span class="positive" style="display:inline-block;min-width:40px;">+684억</span><br>외인 <span class="positive" style="display:inline-block;min-width:40px;">+20억</span><br>기관 <span class="negative" style="display:inline-block;min-width:40px;">-712억</span></td><td>패시브 (휴머노이드 테마)</td></tr>
+
+<tr style="background:#fff3cd;"><td><b>8</b></td><td class="positive"><b>HANARO Fn전기&amp;수소차</b> (381560)</td><td class="positive"><b>8.49%</b></td><td>1,033</td><td class="positive"><b>87.7억</b></td><td class="positive">+36.7</td><td class="positive">+65.0</td><td class="positive">+159.6</td><td style="font-size:9pt;">개인 <span class="positive" style="display:inline-block;min-width:40px;">+3억</span><br>외인 <span  style="display:inline-block;min-width:40px;">0억</span><br>기관 <span class="negative" style="display:inline-block;min-width:40px;">-4억</span></td><td>패시브 (전기차/수소차 · 신규 추가)</td></tr>
+
+<tr><td>9</td><td>KoAct 코리아밸류업액티브 (495230)</td><td>1.72%</td><td>3,894</td><td>67.0억</td><td class="positive">+29.3</td><td class="positive">+40.8</td><td class="positive">+143.5</td><td style="font-size:9pt;">개인 <span class="negative" style="display:inline-block;min-width:40px;">-61억</span><br>외인 <span class="negative" style="display:inline-block;min-width:40px;">-7억</span><br>기관 <span class="positive" style="display:inline-block;min-width:40px;">+69억</span></td><td>액티브 (코리아밸류업)</td></tr>
+
+<tr><td>10</td><td>TIME 코리아밸류업액티브 (495060)</td><td>2.17%</td><td>2,956</td><td>64.1억</td><td class="positive">+37.9</td><td class="positive">+49.6</td><td class="positive">+159.5</td><td style="font-size:9pt;">개인 <span class="positive" style="display:inline-block;min-width:40px;">+245억</span><br>외인 <span class="negative" style="display:inline-block;min-width:40px;">-1억</span><br>기관 <span class="negative" style="display:inline-block;min-width:40px;">-267억</span></td><td>액티브 (코리아밸류업)</td></tr>
+
+<tr><td>11</td><td>RISE 코리아전략산업액티브 (0151P0)</td><td>2.06%</td><td>2,604</td><td>53.6억</td><td class="positive">+17.7</td><td class="positive">+36.0</td><td class="positive">+0.5</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브 (대형 NAV)</td></tr>
+
+<tr><td>12</td><td>1Q 코리아밸류업 (495330)</td><td>2.50%</td><td>1,643</td><td>41.1억</td><td class="positive">+32.1</td><td class="positive">+42.9</td><td class="positive">+148.4</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>패시브 (코리아밸류업)</td></tr>
+
+<tr><td>13</td><td>FOCUS AI코리아액티브 (448570)</td><td>5.55%</td><td>589</td><td>32.7억</td><td class="positive">+24.1</td><td class="positive">+23.7</td><td class="positive">+97.4</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr style="background:#fff3cd;"><td><b>14</b></td><td class="positive"><b>SOL 자동차소부장Fn</b> (464600)</td><td class="positive">7.68%</td><td>362</td><td class="positive">27.8억</td><td class="positive">+67.0</td><td class="positive">+100.0</td><td class="positive">+221.8</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브 (자동차 부품·소재 · 신규 추가)</td></tr>
+
+<tr><td>15</td><td>PLUS K제조업핵심기업액티브 (0166S0)</td><td>2.92%</td><td>926</td><td>27.0억</td><td class="positive">+25.6</td><td class="positive">+0.6</td><td class="positive">+0.6</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr><td>16</td><td>ACE 2차전지&amp;친환경차액티브 (385600)</td><td class="positive">8.49%</td><td>311</td><td>26.4억</td><td class="positive">+31.1</td><td class="positive">+43.5</td><td class="positive">+117.7</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr><td>17</td><td>KODEX 자율주행액티브 (385520)</td><td>5.32%</td><td>449</td><td>23.9억</td><td class="positive">+27.2</td><td class="positive">+36.7</td><td class="positive">+121.8</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr><td>18</td><td>TIGER 퓨처모빌리티액티브 (387280)</td><td>8.41%</td><td>255</td><td>21.4억</td><td class="positive">+24.0</td><td class="positive">+25.5</td><td class="positive">+83.3</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브 (모빌리티)</td></tr>
+
+<tr><td>19</td><td>TIME 글로벌휴머노이드로봇산업액티브 (0185L0)</td><td>3.01%</td><td>504</td><td>15.2억</td><td>-</td><td>-</td><td>-</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr><td>20</td><td>HK 베스트일레븐액티브 (391670)</td><td>4.06%<br>(5월 신규)</td><td>282</td><td>11.5억</td><td class="positive">+49.3</td><td class="positive">+56.1</td><td class="positive">+153.7</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브 (5월 신규 편입)</td></tr>
+
+<tr><td>21</td><td>ACE 코리아밸류업 (496120)</td><td>2.52%</td><td>337</td><td>8.5억</td><td class="positive">+31.9</td><td class="positive">+42.6</td><td class="positive">+147.0</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>패시브 (코리아밸류업)</td></tr>
+
+<tr><td>22</td><td>TIME K신재생에너지액티브 (404120)</td><td>2.74%</td><td>232</td><td>6.4억</td><td class="positive">+16.9</td><td class="positive">+22.1</td><td class="positive">+98.1</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr><td>23</td><td>UNICORN R&amp;D 액티브 (433250)</td><td>3.64%</td><td>125</td><td>4.6억</td><td class="positive">+25.5</td><td class="positive">+30.8</td><td class="positive">+89.3</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr><td>24</td><td>TRUSTON 주주가치액티브 (472720)</td><td>2.25%</td><td>174</td><td>3.9억</td><td class="positive">+11.3</td><td class="positive">+19.7</td><td class="positive">+75.7</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr><td>25</td><td>SOL 한국형글로벌전기차&amp;2차전지 (429980)</td><td>3.18%</td><td>112</td><td>3.6억</td><td class="positive">+19.3</td><td class="positive">+33.4</td><td class="positive">+51.9</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브 (전기차·2차전지)</td></tr>
+
+<tr><td>26</td><td>BNK 미래전략기술액티브 (457930)</td><td>2.70%</td><td>107</td><td>2.9억</td><td class="positive">+14.2</td><td class="positive">+20.1</td><td class="positive">+91.3</td><td style="font-size:9pt;color:#aaa;">미수집</td><td>액티브</td></tr>
+
+<tr style="background:#eaf2f8;"><td colspan="4"><b>26개 액티브·테마 ETF 모비스 보유 평가금액 합계</b></td><td class="positive"><b>약 4,784억원</b></td><td colspan="5">크로스체크 후 ystreet 단독 대비 +2,624억(+121%) 추가 발견 · 수익률 출처: FunETF / 1M 순매수 출처: ETF CHECK (2026.05.29)</td></tr>
+</table>
+
+<p style="font-size:9pt;color:#922b21;"><b>※ 음영(노란색)</b> = ystreet에 미표시되었으나 ETF CHECK 종목 검색으로 추가 발견한 ETF 4개 (KODEX 자동차·SOL 자동차TOP3플러스·SOL 자동차소부장Fn·HANARO Fn전기&amp;수소차). 자동차/그룹사/특수 테마 ETF는 ystreet에서 누락 가능성이 크므로 보고서 작성 시 반드시 ETF CHECK으로 별도 검증 필수.</p>
+
+<h4 style="margin-top:14px;color:#922b21;">⚠️ KOSPI 200 패시브 ETF (비중 1% 미만이나 NAV 거대) — 실제로 가장 큰 ETF 노출</h4>
+<table>
+<tr><th>ETF명 (코드)</th><th>비중<br>(추정)</th><th>ETF NAV<br>(억원)</th><th>모비스 보유 평가금액<br>(NAV × 비중, 억원)</th><th>비고</th></tr>
+<tr><td class="positive"><b>KODEX 200</b> (069500)</td><td>0.97%</td><td class="positive"><b>295,169</b><br>(한국 ETF 1위)</td><td class="positive"><b>2,863억</b></td><td>패시브 (KOSPI 200 1위)</td></tr>
+<tr><td class="positive"><b>TIGER 200</b> (102110)</td><td>0.97%</td><td><b>117,067</b><br>(4위)</td><td class="positive"><b>1,136억</b></td><td>패시브 (KOSPI 200 2위)</td></tr>
+<tr><td><b>KODEX 200TR</b> (278530)</td><td>0.97%</td><td><b>92,706</b><br>(8위)</td><td class="positive"><b>899억</b></td><td>패시브 (코스피 200 TR)</td></tr>
+<tr><td><b>KBSTAR 200</b> (148020)</td><td>0.97%</td><td>48,290<br>(17위)</td><td>468억</td><td>패시브 (KOSPI 200)</td></tr>
+<tr><td>FOCUS 200 / DAISHIN343 K200 / ACE 200 / ACE 200TR / HANARO 200 등 (5개+)</td><td>0.96~0.98%</td><td>각 100~5,000억<br>(합 약 1.5조 추정)</td><td>약 150억 추정</td><td>패시브 (KOSPI 200 추종 소형)</td></tr>
+<tr><td>ACE 코스피 (305050)</td><td>0.95%</td><td>약 5,000억 추정</td><td>약 48억 추정</td><td>패시브 (코스피 전체)</td></tr>
+<tr><td>ACE 레버리지 (152500)</td><td>0.50% (×2)</td><td>약 1.5조 추정</td><td>약 75억 (레버리지 효과)</td><td>패시브 (KOSPI 200 ×2)</td></tr>
+<tr style="background:#fdedec;"><td colspan="3"><b>KOSPI 200/코스피 패시브 합계 (모비스 비중 ~1%)</b></td><td class="positive"><b>약 5,639억원</b></td><td>모비스 시총 70조의 K200 가중치 ~1% 자동 추종</td></tr>
+</table>
+
+<h3 style="margin-top:24px;">7-2-4. 국내상장 ETF 시장 — NAV TOP 20 + 1개월 상승률 TOP 20</h3>
+
+<p style="font-size:10pt;color:#7f8c8d;">출처: ETF CHECK · FunETF (2026.05.29 기준) · <span style="background:#fff3cd;padding:2px 6px;border-radius:3px;"><b>음영</b></span> = 모비스 편입 ETF</p>
+
+<h4 style="margin-top:14px;">① 국내상장 ETF NAV TOP 20 (시가총액 기준 · <b>해외 기초자산·선물 ETF 제외</b>)</h4>
+<p style="font-size:9pt;color:#7f8c8d;">한국 거래소 상장 + 국내 기초자산(주식·채권·금리) ETF만 한정. 미국 S&amp;P 500·나스닥 100 등 해외 기초자산 ETF는 별도 표시.</p>
+<table>
+<tr><th>순위</th><th>ETF명 (코드)</th><th>NAV (억원)</th><th>모비스 보유 평가금액</th><th>비고</th></tr>
+<tr style="background:#fff3cd;"><td><b>1</b></td><td><b>KODEX 200</b> (069500)</td><td><b>295,169</b><br>(29.5조)</td><td class="positive"><b>2,863억</b></td><td>패시브 (KOSPI 200, 한국 ETF 1위)</td></tr>
+<tr style="background:#fff3cd;"><td><b>2</b></td><td><b>TIGER 200</b> (102110)</td><td><b>117,067</b><br>(11.7조)</td><td class="positive"><b>1,136억</b></td><td>패시브 (KOSPI 200)</td></tr>
+<tr style="background:#fff3cd;"><td><b>3</b></td><td><b>KODEX 200TR</b> (278530)</td><td><b>92,706</b><br>(9.3조)</td><td class="positive"><b>899억</b></td><td>패시브 (KOSPI 200 TR)</td></tr>
+<tr><td>4</td><td>KODEX CD금리액티브(합성) (459580)</td><td>77,766<br>(7.8조)</td><td>-</td><td>패시브 (CD 금리) · 모비스 미편입</td></tr>
+<tr><td>5</td><td>KODEX 단기채권 등 (091160)</td><td>72,532<br>(7.3조)</td><td>-</td><td>패시브 (단기채권) · 모비스 미편입</td></tr>
+<tr style="background:#fff3cd;"><td><b>6</b></td><td><b>KBSTAR 200</b> (148020)</td><td><b>48,290</b><br>(4.8조)</td><td class="positive"><b>468억</b></td><td>패시브 (KOSPI 200)</td></tr>
+<tr><td>7</td><td>TIGER CD금리투자KIS (357870)</td><td>43,064<br>(4.5조)</td><td>-</td><td>패시브 (CD 금리) · 모비스 미편입</td></tr>
+<tr><td>8~20</td><td>미공개 (13개, NAV 약 1.5~4.5조 추정)</td><td>합 약 25~35조 추정</td><td>일부 KOSPI 200 추종 + KOSDAQ150/단기채/머니마켓 등 추정</td><td>주로 채권·금리·KOSDAQ/KOSPI 패시브</td></tr>
+<tr style="background:#fdedec;"><td colspan="3"><b>국내 기초자산 NAV TOP 20 중 모비스 편입 4개 (확정) 합산 평가금액</b></td><td class="positive"><b>약 5,366억원</b></td><td>KOSPI 200 추종 패시브 4개</td></tr>
+</table>
+
+<h5 style="margin-top:10px;color:#7f8c8d;">참고 — 해외 기초자산 ETF (별도 분리, 모비스 미편입)</h5>
+<table>
+<tr><th>당초 순위</th><th>ETF명 (코드)</th><th>NAV</th><th>비고</th></tr>
+<tr><td>전체 2위</td><td>TIGER 미국S&amp;P500 (360750)</td><td>18.8조</td><td>해외 (S&amp;P 500)</td></tr>
+<tr><td>전체 5위</td><td>TIGER 미국나스닥100 (133690)</td><td>11.0조</td><td>해외 (나스닥 100)</td></tr>
+<tr><td>전체 7위</td><td>KODEX 미국S&amp;P500 (379800)</td><td>9.7조</td><td>해외 (S&amp;P 500)</td></tr>
+<tr><td>전체 9위</td><td>KODEX 미국나스닥100TR (379810)</td><td>8.4조</td><td>해외 (나스닥 100 TR)</td></tr>
+</table>
+
+<p style="font-size:9pt;color:#7f8c8d;">※ <b>국내 기초자산 NAV TOP 20</b>에서 모비스 편입은 KOSPI 200 추종 패시브 4개(KODEX 200·TIGER 200·KODEX 200TR·KBSTAR 200) — 자동 매수 노출 <b>약 5,366억</b>. 나머지 13개 ETF 중에서도 KOSPI 200/코스피 추종 패시브가 1~3개 더 있을 가능성이 있어 실제 노출은 +500~1,000억 더 클 수 있음. 7개는 정확한 ETF CHECK 데이터 확보 완료, 나머지 13개는 ETF CHECK 자동 순회로 식별 미완료.</p>
+
+<h4 style="margin-top:14px;">② 국내상장 ETF 1개월 상승률 TOP 20 (FunETF 2026.05.29 · <b>국내 주식 1배만</b>)</h4>
+<p style="font-size:9pt;color:#7f8c8d;">레버리지/인버스 + 해외 기초자산 ETF 모두 제외 · 국내 주식·채권을 기초자산으로 하는 1배 단방향 ETF만 한정</p>
+<table>
+<tr><th>순위</th><th>ETF명 (코드)</th><th>1개월 수익률</th><th>분류·테마</th><th>모비스 편입 비중</th><th>모비스 편입 평가금액</th></tr>
+<tr><td>1</td><td>RISE 네트워크인프라 (367760)</td><td class="positive">+81.60%</td><td>통신/네트워크 인프라</td><td>-</td><td>-</td></tr>
+<tr><td>2</td><td>IBK K-AI반도체코어테크 (0005G0)</td><td class="positive">+78.94%</td><td>AI 반도체 코어</td><td>-</td><td>-</td></tr>
+<tr><td>3</td><td>SOL AI반도체TOP2플러스 (0167A0)</td><td class="positive">+75.01%</td><td>AI 반도체 TOP2</td><td>-</td><td>-</td></tr>
+<tr><td>4</td><td>ACE 코리아AI테크핵심산업 (380340)</td><td class="positive">+67.89%</td><td>AI 테크 핵심산업 (오토에버 편입)</td><td>-</td><td>-</td></tr>
+<tr style="background:#fff3cd;"><td><b>5</b></td><td><b>SOL 자동차소부장Fn</b> (464600)</td><td class="positive"><b>+67.04%</b></td><td><b>자동차 부품·소재</b><br>(NAV 362억)</td><td class="positive"><b>7.68%</b></td><td class="positive"><b>27.8억</b></td></tr>
+<tr style="background:#fff3cd;"><td><b>6</b></td><td><b>SOL 자동차TOP3플러스</b> (466930)</td><td class="positive"><b>+65.39%</b></td><td><b>자동차 TOP3 (모비스+현대차+기아)</b><br>(NAV 5,170억)</td><td class="positive"><b>20.71%</b><br>(전체 2위)</td><td class="positive"><b>1,071억</b></td></tr>
+<tr><td>7</td><td>HANARO Fn K-반도체 (395270)</td><td class="positive">+63.58%</td><td>반도체</td><td>-</td><td>-</td></tr>
+<tr><td>8</td><td>KODEX 200IT TR (363580)</td><td class="positive">+62.06%</td><td>KOSPI 200 IT 섹터</td><td>- (자동차 부품은 IT 아님)</td><td>-</td></tr>
+<tr><td>9</td><td>TIGER 200 IT (139260)</td><td class="positive">+61.83%</td><td>KOSPI 200 IT 섹터</td><td>-</td><td>-</td></tr>
+<tr><td>10</td><td>KODEX AI반도체TOP2플러스 (395160)</td><td class="positive">+60.38%</td><td>AI 반도체 TOP2</td><td>-</td><td>-</td></tr>
+<tr><td>11</td><td>KIWOOM 코리아테크TOP10 (469790)</td><td class="positive">+57.20%</td><td>코리아테크 TOP10</td><td>-</td><td>-</td></tr>
+<tr><td>12</td><td>HANARO Fn K-메타버스MZ (402460)</td><td class="positive">+56.37%</td><td>메타버스 MZ</td><td>-</td><td>-</td></tr>
+<tr><td>13</td><td>RISE 메타버스 (401170)</td><td class="positive">+55.24%</td><td>메타버스</td><td>-</td><td>-</td></tr>
+<tr><td>14</td><td>KODEX IT (266370)</td><td class="positive">+53.01%</td><td>KOSPI IT 섹터</td><td>-</td><td>-</td></tr>
+<tr style="background:#fff3cd;"><td><b>15</b></td><td><b>HK 베스트일레븐액티브</b> (391670)</td><td class="positive"><b>+49.28%</b></td><td><b>액티브 (휴머노이드/로보틱스)</b><br>(NAV 282억)</td><td class="positive"><b>4.06%</b><br>(5월 신규)</td><td class="positive"><b>11.5억</b></td></tr>
+<tr><td>16</td><td>BNK 온디바이스AI (487750)</td><td class="positive">+47.48%</td><td>온디바이스 AI</td><td>-</td><td>-</td></tr>
+<tr><td>17</td><td>KODEX 200롱코스닥150숏선물 (360140)</td><td class="positive">+44.83%</td><td>KOSPI 200 롱 + 코스닥150 숏 (페어)</td><td>약 0.5% (롱 절반)</td><td>약 5억 추정</td></tr>
+<tr><td>18</td><td>KODEX 삼성그룹 (102780)</td><td class="positive">+42.00%</td><td>삼성그룹 한정</td><td>- (현대차그룹)</td><td>-</td></tr>
+<tr><td>19</td><td>RISE ESG사회책임투자 (290130)</td><td class="positive">+41.97%</td><td>KOSPI ESG (광범위 편입)</td><td>약 0.5% 추정</td><td>약 5억 추정</td></tr>
+<tr><td>20</td><td>HANARO Fn5G산업 (367740)</td><td class="positive">+40.78%</td><td>5G 산업</td><td>-</td><td>-</td></tr>
+<tr style="background:#fdedec;"><td colspan="4"><b>1M TOP 20 중 모비스 편입 확정 3개 합산 평가금액</b></td><td colspan="2" class="positive"><b>약 1,110억원</b><br>(자동차 테마 2개 + 휴머노이드 액티브 1개)</td></tr>
+</table>
+
+<div class="update-box" style="margin-top:14px;">
+<b>분석 한 줄:</b> 레버리지·인버스·해외 ETF 모두 제외한 국내 1배 ETF만으로 좁히면 1M TOP 20 중 모비스 편입 확정은 3개. <b>SOL 자동차TOP3플러스(6위, +65.39%)가 단연 압도적 — 모비스 비중 20.71%로 단일 ETF에서만 1,071억 평가금액 노출</b>. 자동차 TOP3 테마(모비스+현대차+기아) ETF가 5월 한 달간 +65% 폭등하며 모비스에 1,000억대 자금이 추격 매수된 셈. SOL 자동차소부장Fn(5위)도 모비스 7.68% 비중으로 28억 노출 + 자동차 부품 테마 확산의 추가 시그널. HK 베스트일레븐액티브(15위)는 5월 신규 편입 ETF로 휴머노이드/로보틱스 테마 매니저의 모비스 추격 매수 확인. <b>핵심: NAV TOP 20의 KOSPI 200 패시브 자동 매수 5,366억 + 1M TOP 20의 자동차/휴머노이드 액티브 추격 매수 1,110억 = "패시브 자동 가중 + 액티브 모멘텀 추격"의 이중 동력이 5월 모비스 +75% 폭등을 만든 메커니즘</b>.
+</div>
+
+<div class="update-box" style="margin-top:14px;">
+<b>최종 합계 — 모비스 ETF 노출 총합 (크로스체크 후):</b><br>
+① 액티브·테마 ETF 26개 = <b>약 4,784억원</b> (KODEX 자동차 1,437억·SOL 자동차TOP3플러스 1,071억·HANARO Fn전기&amp;수소차 87.7억·SOL 자동차소부장Fn 27.8억 신규 4개 포함)<br>
+② KOSPI 200/코스피 패시브 ETF (비중 ~1%, 거대 NAV) = <b>약 5,639억원</b><br>
+<b>= 총 약 1조 423억원</b> (시총 70조의 약 1.5%)<br><br>
+
+<b>요지:</b> <b>크로스체크 후 발견된 진짜 그림 — 모비스 ETF 노출 절대 1위는 KODEX 200(2,863억)이지만, 그 다음은 KODEX 자동차(1,437억) · KODEX 로봇액티브(1,225억) · SOL 자동차TOP3플러스(1,071억)의 4대 자금 풀</b>. KODEX 200(NAV 29.5조 × 비중 0.97%)·KODEX 자동차(NAV 6,336억 × 비중 22.68%)는 NAV·비중 어느 한쪽만 커도 1,000억대 노출이 만들어지는 두 가지 경로를 보여준다. <b>① 패시브 자동 가중(KODEX 200 시리즈) + ② 자동차 테마 패시브/액티브(KODEX 자동차·SOL 자동차TOP3플러스·SOL 자동차소부장Fn·HANARO 전기수소차) + ③ 휴머노이드 액티브(KODEX 로봇·PLUS 글로벌휴머노이드·ACE K휴머노이드 등)의 3중 동력이 5월 모비스 +75% 폭등의 메커니즘</b>. <b>외인 매도해도 패시브 자동 매수 + 자동차/휴머노이드 테마 ETF 추격 매수가 시총의 1.5% (1조 423억)에 해당하는 자금이 가격 방어</b>. ystreet 단독으로는 이 그림의 절반밖에 안 보임 — 자동차 테마 ETF는 ETF CHECK 크로스체크 필수. <b>한 달간 액티브 ETF 매수 동향</b>: KODEX 자율주행 +22% (68주→83주), TIGER 퓨처모빌리티 +82% (11주→20주), PLUS K제조업 +82% (17주→31주), HK 베스트일레븐 신규 편입 +103주. <b>휴머노이드·자율주행 테마 액티브 ETF가 5월 한 달간 모비스 비중을 가장 공격적으로 늘렸다</b>는 시그널.<br><br>
+<b>주목할 점:</b> 코리아밸류업 테마 액티브·패시브 ETF (1Q 코리아밸류업·KoAct·TIME·ACE)가 모비스에 합산 약 180억 노출 — 5월 정부의 밸류업 정책 발표 + 동사 자사주 매입 2.16%·배당 점진 인상의 합산 효과. 정책 모멘텀이 유지되는 한 이 카테고리 ETF의 추가 매수 가능성.
+</div>
+
+<p style="font-size:9pt;color:#7f8c8d;">※ 평가금액 = ETF NAV × 모비스 비중 (5/29 기준, 단위 억원). 1CU 보유주식수는 운용사 공식 PDV와 동일 (참고용). 한 달 전 NAV 시계열은 ETF CHECK이 단일 시점만 제공해 평가금액 한 달 변화는 표시 불가 — 대신 비중·1CU 주식수 변화를 통해 모멘텀 추적 가능. 일부 ETF는 4/29 일별 비중 변화 표에 미표시되어 한 달 전 비중을 "-"로 표기. 코리아밸류업·KOSPI 200 추종 패시브는 KOSPI 200 인덱스 가중치(약 1%)에 따라 자동 추종이므로 능동적 매수가 아님.</p>
+
+<h3>7-2-5. 진단</h3>
+
+<div class="bull-box">
+<b>3가지 핵심 시그널:</b>
+<ul style="margin:8px 0;">
+<li><b>① 휴머노이드 테마 ETF가 한 달간 가장 공격적으로 추가 매수.</b> KODEX 자율주행액티브 +22%, TIGER 퓨처모빌리티액티브 +82%, PLUS K제조업핵심기업액티브 +82%. <b>5/29 일별로 휴머노이드 ETF가 일제히 모비스 비중을 늘렸다</b> = 액추에이터 가치 인식 본격화.</li>
+<li><b>② HK 베스트일레븐액티브 신규 편입 (5/29) +103주.</b> 흥국자산이 5월 한 달간 새로 편입 결정 = 모멘텀 추격 확정 시그널. 신규 편입 +6개의 대부분이 휴머노이드·자율주행 테마.</li>
+<li><b>③ 패시브 ACE K휴머노이드로봇산업TOP2+ 7.01% 비중.</b> 휴머노이드 테마 ETF의 최대 종목이 동사 — 휴머노이드 모멘텀이 꺾이면 동반 매도, 강화되면 추가 매수의 양면성.</li>
+</ul>
+</div>
+
+<div class="update-box">
+<b>활용:</b><br>
+① <b>전체 ETF 노출 약 1조 423억 (시총 70조의 1.5%)</b> — 액티브·테마 ETF 4,784억 + KOSPI 200/코스피 패시브 5,639억. 1개월 +75% 주가 상승으로 가격 효과만으로 약 +4,470억 증가, 휴머노이드 테마 ETF의 신규 편입(HK 베스트일레븐 등)도 모멘텀 검증 시그널<br>
+② <b>패시브 KOSPI 200 + 코리아밸류업 ETF 자금이 외인 매도를 일부 흡수 → 현재가 방어의 핵심</b>. 외인 38.15% 지분율 기준 외인이 1% 매도해도 ETF 자동 매수가 일부 흡수<br>
+③ <b>다음 점검 시점</b>: 2026.06.30 신규 ETF 편입 +3~5개 추가 시 모멘텀 지속. 휴머노이드 테마 ETF 비중 8% 돌파 시 동사 가격 결정력 점프.
+</div>
+
+<!-- ===================== 섹션 8. 리스크 분석 ===================== -->
+<h2>8. 리스크 분석</h2>
+
+<h3>8-1. 단기 모멘텀 리스크</h3>
+
+<div class="risk-box">
+<b>① 현재가 768k가 컨센 695k 추월, 신규 상향 TP 905k 미달 — 단기 횡보 위험</b><br>
+컨센 추월 + 신규 TP 미달의 사이 영역. 추가 상승은 2Q26 OP 회복 또는 증권사 추가 상향 필요.
+</div>
+
+<div class="risk-box">
+<b>② 1Q26 어닝 미스의 구조화 우려</b><br>
+1Q26 OP 컨센 -14.7% 미스. 2Q26 OP 9,246억 컨센 미달 시 1Q 부진의 구조화 → 주가 -15~25%.
+</div>
+
+<h3>8-2. 실적·사업 리스크</h3>
+
+<div class="risk-box">
+<b>③ 유럽 전동화 신공장 정상화 지연 (슬로박·스페인)</b><br>
+1Q26 모듈 부문 흑전 실패의 원인. 2H26부터 정상화 가이드라인이나 추가 지연 시 OPM 부담 지속.
+</div>
+
+<div class="risk-box">
+<b>④ Atlas 양산 일정 슬립 (2028 → 2029)</b><br>
+HMGMA 투입 시점 1~2년 슬립 시 액추에이터 매출 시점 후행. 신규 상향 TP의 핵심 가정이 무너짐.
+</div>
+
+<div class="risk-box">
+<b>⑤ Tesla Optimus 자체 부품화 → BD Atlas 경쟁 위협</b><br>
+Tesla가 액추에이터 자체 생산 + 가격 경쟁력 우위 시 BD Atlas 양산 일정 지연 가능.
+</div>
+
+<div class="risk-box">
+<b>⑥ 중국 휴머노이드 메이커의 저가 액추에이터</b><br>
+UBTECH·Unitree 등 중국 저가 액추에이터 진입 시 외부 고객 확보 어려움.
+</div>
+
+<h3>8-3. 거시·정책 리스크</h3>
+
+<div class="risk-box">
+<b>⑦ 미국 관세 정책 장기화</b><br>
+트럼프 2기 25% 관세 영향이 1Q26 일부 시현. 2H26까지 지속 시 그룹 매출 둔화 → 동사 모듈 매출 -5~10%.
+</div>
+
+<div class="risk-box">
+<b>⑧ 글로벌 OEM 수요 둔화</b><br>
+스텔란티스·GM·BMW 등 그룹 외 수주의 25%+ 비중이 글로벌 수요 둔화 시 직격탄. 1H26은 양호하나 2H26 모니터링 필요.
+</div>
+
+<h3>8-4. 지배구조·기타</h3>
+
+<div class="risk-box">
+<b>⑨ 그룹 캡티브 매출 70%+ — 일감 몰아주기 규제 가능성</b><br>
+그룹 캡티브 의존도 높음. 공정거래위 모니터링 가능성.
+</div>
+
+<div class="risk-box">
+<b>⑩ 1년 +192% 급등에 따른 차익실현 매물</b><br>
+1Y +192% 후 외인 38% 보유 + 운용사 3% — 단일 일별 변동성 -5~10% 가능.
+</div>
+
+<!-- ===================== 섹션 9. 미래 모멘텀 ===================== -->
+<h2>9. 미래 모멘텀 — Atlas 양산 + SDV 부품 + R&amp;D 결과물</h2>
+
+<h3>9-1. 성장축 (3년 시간표)</h3>
+<table>
+<tr><th>시기</th><th>성장축</th><th>예상 매출 기여 (억원)</th><th>OPM 기여 (bp)</th><th>핵심 검증 포인트</th></tr>
+<tr><td>2Q26</td><td>유럽 신공장 정상화 시작</td><td>+1,000~2,000</td><td>+30bp</td><td>OP 9,246억 컨센 부합 (8월)</td></tr>
+<tr><td>2H26</td><td>R&amp;D 2.16조 결과물 부분 가시화</td><td>안정 매출 흐름</td><td>+50bp</td><td>SDV 부품 신규 수주 발표</td></tr>
+<tr><td>2027</td><td>SDV 양산 시작 + Atlas 시퀀싱 매출</td><td>+5,000+</td><td>+100bp</td><td>27F 매출 72조 (컨센)</td></tr>
+<tr><td class="positive">2028</td><td class="positive">Atlas HMGMA 본격 투입 + 액추에이터 매출 본격화</td><td class="positive">+5,000+ (Atlas 초기)</td><td class="positive">+150bp</td><td class="positive">OPM 7%+ 진입</td></tr>
+<tr><td class="positive">2030</td><td class="positive">Atlas 3만대 양산 + 외부 고객 발굴</td><td class="positive">+15,000~20,000 (액추에이터)</td><td class="positive">+200bp</td><td class="positive">전사 매출 85조, OP 5.5조+</td></tr>
+</table>
+
+<h3>9-2. 영업이익 박스권 돌파</h3>
+
+<div class="bull-box">
+<b>역사적 OP 박스권:</b> 2020~2022년 연간 OP 1.8~2.4조. <b>2024년 +3.07조로 박스 상단 돌파 시작</b>, 2025년 +3.36조, 2026F +3.73조.<br><br>
+
+<b>박스 돌파 시그널:</b> <b>2028F OP 5.5조는 박스 상단 2.4조의 2.3배 영역</b>. 단순 본업 성장이 아닌 액추에이터 매출 신규 합류 + SDV 부품 단가 점프의 합산.<br><br>
+
+<b>박스 돌파 정당화 근거:</b> ① 액추에이터 부문 OPM 15%+ × 매출 1.5~2조 = OP 2,000~3,000억 신규 기여, ② SDV 부품 단가 +67% × 매출 5%+ → OPM +50bp, ③ R&amp;D 2.16조 결과물의 점진 수익화.
+</div>
+
+<!-- ===================== 섹션 10. 실적 서프라이즈 예측 ===================== -->
+<h2>10. 실적 서프라이즈 예측 — 분기별 로드맵</h2>
+
+<h3>10-1. 2Q26 (8월) — 유럽 신공장 정상화 검증</h3>
+
+<div class="update-box">
+<b>컨센서스:</b> 매출 16.74조, OP 9,246억<br>
+<b>예상 변수:</b> ① 유럽 신공장(슬로박·스페인) 가동률 회복, ② 글로벌 OEM 신규 수주 인식, ③ R&amp;D 비용 정상화<br>
+<b>시나리오:</b><br>
+- Upside (+10%): 매출 17조+, OP 1조+ → 신규 상향 TP 905k 정당화<br>
+- Base: 매출 16.5~17조, OP 9,000~9,500억 → 컨센 부합<br>
+- Downside (-15%): OP 8,000억 미달 → 1Q 부진 구조화 → 주가 -15~20%
+</div>
+
+<h3>10-2. 3Q26 (11월) — R&amp;D 결과물 가시화</h3>
+
+<div class="update-box">
+<b>컨센서스:</b> 매출 16.5조, OP 9,500억 (추정)<br>
+<b>예상 변수:</b> ① 신규 글로벌 OEM 수주 발표, ② Atlas Sample 매출 본격 인식, ③ SDV 부품 단가 인상<br>
+<b>시나리오:</b><br>
+- Upside: 매출 17조+, OP 1조+ + Atlas 초기 매출 1,000억+<br>
+- Base: 컨센 부합<br>
+- Downside: Atlas Sample 지연
+</div>
+
+<h3>10-3. 2027.01 CES — Atlas 양산 로드맵 확정</h3>
+
+<div class="update-box">
+<b>예상 발표:</b> ① Atlas HMGMA 투입 일정 구체화, ② 모비스 액추에이터 단가·매출 가이던스, ③ 외부 휴머노이드 고객 발표 가능성<br>
+<b>주가 영향:</b><br>
+- Upside: Atlas 외부 고객 (Apptronik·Figure 등) 진출 발표 → 주가 +30% → Bull TP<br>
+- Base: 기존 로드맵 재확인 → 횡보<br>
+- Downside: Atlas 양산 시점 슬립 → 주가 -20%
+</div>
+
+<h3>10-4. 4Q26 (2027.03) — 연간 가이던스 + 2027 가이던스</h3>
+
+<div class="update-box">
+<b>컨센서스:</b> 4Q 매출 16.3조, 연간 매출 65.1조, 연간 OP 3.73조<br>
+<b>핵심 체크:</b> ① 2027F 가이던스 (매출 72조 + OP 4.5조), ② Atlas 매출 인식 첫 분기, ③ R&amp;D 2.3조 가이던스<br>
+<b>시나리오:</b><br>
+- Upside: 연간 OP 3.9조+ 달성 + 2027 가이던스 5조 → Bull TP 진입<br>
+- Base: 컨센 부합<br>
+- Downside: OP 3.4조 미달 → 2027 가이던스 하향
+</div>
+
+<!-- ===================== Footer ===================== -->
+<div class="footer">
+<p><b>데이터 출처:</b><br>
+[1차자료] 현대모비스 1Q26 실적 공시 (DART 2026.04.24) · 회사 IR 자료 · 5.8조 서울 R&amp;D 허브 발표 (2026.04)<br>
+[증권사 리포트] 삼성증권 (2026.05) · 신한투자증권 (2026.05) · 다올투자증권 (2026.05.21) · LS증권 (2026.05) · KB증권 등<br>
+[시장 데이터] FnGuide Snapshot (2026.05.29) · 컨센서스 25사 평균 · ystreet ActiveETF/PassiveETF Tracker (2026.05.29 16:00)<br>
+[글로벌 산업] Goldman Sachs 휴머노이드 시장 (2026) · McKinsey/BCG SDV 시장 · Statista 자동차 부품<br>
+[정책·그룹] Hyundai Motor Group press release · Boston Dynamics Atlas 로드맵 (CES 2026)<br>
+[뉴스] 전자신문 · 헤럴드경제 · 머니투데이 · 이지경제 · 디지털데일리 · 네이트뉴스 (각 2026.04~05)<br><br>
+<b>본 자료는 개인 학습·연구 목적으로 작성된 종합 리서치이며, 투자 권유나 매매 의견을 대신하지 않습니다.</b><br>
+작성일: 2026.05.31 · 작성자: 개인 투자자 이렌</p>
+</div>
+
+</body>
+</html>

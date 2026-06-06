@@ -1,0 +1,14 @@
+{
+  "name": "yeobtoni-etf-status",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ETF CHECK 랭킹 스크래퍼",
+  "main": "scraper.js",
+  "scripts": {
+    "scrape": "node scraper.js",
+    "scrape:yield": "node scraper.js yield"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}

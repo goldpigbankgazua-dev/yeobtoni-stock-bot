@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>파인엠텍 (441270.KQ) — 폴더블 힌지·메탈플레이트 + 북미 ESS 엔드플레이트 듀얼 모멘텀</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ol.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>파인엠텍 (441270.KQ)</h1>
+<div class="sub">폴더블 메탈플레이트·내장힌지 핵심 벤더 — ① 애플 폴더블 아이폰 2H26 양산 진입 ② 갤럭시 Z폴드8/트라이폴드 점유율 회복 ③ 북미 ESS 엔드플레이트 신규 매출<br>
+컨센 TP 약 12,000원 (4사) · 5/29 종가 9,070원 (TP까지 +32%) · 분석일 2026.06.03</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (5/29)</span><span class="snapshot-value">9,070원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">약 4,090억</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+1.45%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (26F 컨센)</span><span class="snapshot-value">약 11배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (F)</span><span class="snapshot-value">1.6배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">8.1%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+44%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">홍성천 외 35.0%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 매출/OP</span><span class="snapshot-value">695억(+36%)<br>11억(-30%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">12,000원<br>(+32.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">16,000원<br>(+76.4%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (4사 추정)</span><span class="snapshot-value">12,000원<br>(+32.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">28개<br>(액티브 12 / 패시브 16)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (1개월)</span><span class="snapshot-value positive">9개 → 12개<br>(+3개)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전체 ETF 노출 (현재)</span><span class="snapshot-value positive">약 64억원<br>(시총 4,090억의 1.57%)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 폴더블 테마·중소형 액티브 중심 12개에 편입되어 1개월간 3개 추가 진입, 패시브는 코스닥150·KOSDAQ 액티브 16개에 안정 편입. <i>(데이터: ystreet + ETF CHECK 크로스체크 2026.06.03 — 상세 표는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 메리츠 BUY TP 14,000원 + 한양 BUY TP 13,000원 + 하나 NR + 키움 BUY TP 11,500원 — 4사 모두 폴더블·ESS 듀얼 모멘텀에 동의, 26F OP 376~413억 컨센 (YoY +600~700%). (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> 26F 매출 4,800~5,600억(YoY 약 2배), OP 370~410억(YoY +600% 이상) — 갤럭시 Z폴드8·애플 폴드 동시 양산 + ESS 엔드플레이트 8배 성장이 동시 발생하는 구조적 턴어라운드 국면, CB 350억으로 폴더블 백플레이트 195억 CAPEX 선제 집행.</div>
+</div>
+
+<div class="broker-box">
+<h3>📊 최근 2개월(2026.04~05) 증권사 리포트 전수 + 컨센서스</h3>
+<table>
+<thead><tr><th>발간일</th><th>증권사</th><th>제목</th><th>의견</th><th>TP(원)</th><th>현재가 대비</th></tr></thead>
+<tbody>
+<tr><td>2026.05.29</td><td>한양증권</td><td>북미 폴더블 출시로 내년 사상 최대 실적 기대</td><td>BUY</td><td>13,000</td><td class="positive">+43.3%</td></tr>
+<tr><td>2026.05.26</td><td>메리츠증권</td><td>2026 실적 도약·CB 조달로 선제 CAPEX</td><td>BUY</td><td>14,000</td><td class="positive">+54.4%</td></tr>
+<tr><td>2026.05.14</td><td>키움증권</td><td>중화권 폴더블 확대 + 메탈플레이트 점유율 회복</td><td>BUY</td><td>11,500</td><td class="positive">+26.8%</td></tr>
+<tr><td>2026.04.22</td><td>하나증권</td><td>중화권 내장힌지·베트남 EV Module Housing 신성장</td><td>NR</td><td>—</td><td>—</td></tr>
+<tr><td>2026.03.12</td><td>메리츠증권 (직전)</td><td>북미 폴더블 점유 80%+ — 적정가 16,000원</td><td>BUY</td><td>16,000</td><td class="positive">+76.4%</td></tr>
+<tr style="background:#eaf2f8;font-weight:bold"><td colspan=3>컨센서스 평균 (TP 제시 3사)</td><td>BUY</td><td>12,833</td><td class="positive">+41.5%</td></tr>
+</tbody>
+</table>
+<p style="font-size:9.5pt;color:#555;margin-top:8px">※ 최근 2개월 발간사 5건, 중복 메리츠 통합 후 4사 발간. 컨센 평균은 TP 제시 3사(메리츠·한양·키움) 단순평균. 메리츠 직전본 TP 16,000 → 14,000 하향 (1Q26 R&D비용·CB 희석 반영).</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1">
+<h3 style="color:#1e6e3a">🔥 한양증권 (2026.05.29) — BUY · TP 13,000원 (신규 커버리지)</h3>
+<table>
+<tr><th style="background:#1e6e3a">구분</th><th style="background:#1e6e3a">핵심 코멘트</th><th style="background:#1e6e3a">해석</th></tr>
+<tr><td><b>제목</b></td><td>"북미 폴더블 출시로 내년 사상 최대 실적 기대"</td><td>신규 커버리지 — 26F 매출 102% 성장, OP 637% 성장 모멘텀</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td>BUY / 13,000원 (신규)</td><td>현재가 9,070원 대비 <span class="positive">+43.3%</span></td></tr>
+<tr><td><b>★ 핵심 논거</b></td><td>① 북미 첫해 폴더블 800만대 中 600만장 공급(점유 75%) ② ASP 20%↑ 프리미엄 효과 ③ 매출 순증 2,000~2,500억 ④ ESS 엔드플레이트로 비모바일 매출 다변화</td><td>26F 매출 4,819억(+102%), OP 376억(+637%) — 사상 최대</td></tr>
+<tr><td><b>★ FY EPS 가정</b></td><td>26F EPS 약 770원 × Target PER 17배 = TP 13,000원</td><td>폴더블 부품 피크 사이클 멀티플 정당화</td></tr>
+</table>
+<p><b>[한양 핵심]</b> "북미 신규 진입 + 국내 공법 전환 점유율 반등 + ESS 비모바일 확장 — 트리플 성장축이 26년에 모두 발현되는 국면."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb">
+<h3 style="color:#1f618d">📘 메리츠증권 양승수 (2026.05.26) — BUY · TP 14,000원 (직전 16,000원, ▼12.5%)</h3>
+<table>
+<tr><th style="background:#1f618d">구분</th><th style="background:#1f618d">핵심 코멘트</th><th style="background:#1f618d">해석</th></tr>
+<tr><td><b>제목</b></td><td>"2026 실적 도약·CB 350억 조달로 선제 CAPEX"</td><td>안정 BUY 유지, TP만 멀티플 조정</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td>BUY / 14,000원 (16,000 → 14,000, -12.5%)</td><td>현재가 대비 <span class="positive">+54.4%</span></td></tr>
+<tr><td><b>★ 핵심 논거</b></td><td>① CB 350억 중 195억 폴더블 백플레이트 신규 라인 ② ESS 엔드플레이트 26F 약 400억 (전년比 8배) ③ 국내 고객사 패널 출하 880만→2,500만개 ④ 1Q26 R&D 일시비용 단기 영향</td><td>26F 매출 5,661억, OP 413억 (메리츠 추정)</td></tr>
+<tr><td><b>★ FY EPS 가정</b></td><td>26F EPS 870원 × Target PER 16배 = TP 14,000원</td><td>16배 → CB 희석 8% 반영해 멀티플 -1배 조정</td></tr>
+</table>
+<p><b>[메리츠 핵심]</b> "단기 실적 부진보다 26~27년 업사이드가 압도적. 하드웨어 확장·멀티플 리레이팅·출하 가시성 3박자 동시 발현." <span style="color:#7f8c8d;font-size:9pt">(직전: 2026.03.12 TP 16,000원 — 적정가 산정 기준)</span></p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309;background:#fef3c7">
+<h3 style="color:#b45309">📙 키움증권 (2026.05.14) — BUY · TP 11,500원 (멀티플 보수적)</h3>
+<table>
+<tr><th style="background:#b45309">구분</th><th style="background:#b45309">핵심 코멘트</th><th style="background:#b45309">해석</th></tr>
+<tr><td><b>제목</b></td><td>"중화권 폴더블 확대 + 메탈플레이트 점유율 회복"</td><td>BUY 유지, 보수적 멀티플로 TP 11,500</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td>BUY / 11,500원</td><td>현재가 대비 <span class="positive">+26.8%</span></td></tr>
+<tr><td><b>★ 핵심 논거</b></td><td>① 중화권 비보·화웨이 폴더블 출하 증가 → 백플레이트 수주 확대 ② Z폴드7 점유율 회복(KH바텍 비중 축소) ③ 단, 27F 폴더블 아이폰 본격 양산 가시화 전까지 보수적 멀티플</td><td>26F EPS 720원 × PER 16배 = TP 11,500원</td></tr>
+<tr><td><b>★ FY EPS 가정</b></td><td>27F 폴더블 아이폰 본격화 시 멀티플 리레이팅 가능</td><td>현시점 보수적 적용</td></tr>
+</table>
+<p><b>[키움 핵심]</b> "중화권 + 국내 점유율 회복은 분명. 다만 폴더블 아이폰 양산 가시성 확보 전까지 PER 16배 보수적 적용."</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d;background:#f4f6f6">
+<h3 style="color:#7f8c8d">⚖️ 하나증권 (2026.04.22) — NR (목표주가 미제시, 긍정 코멘트)</h3>
+<table>
+<tr><th style="background:#7f8c8d">구분</th><th style="background:#7f8c8d">핵심 코멘트</th><th style="background:#7f8c8d">해석</th></tr>
+<tr><td><b>제목</b></td><td>"중화권 폴더블 + EV Module Housing 베트남 증설로 고성장"</td><td>NR이지만 긍정적 톤</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td>NR / 미제시</td><td>참고용 (커버리지 사전 노트)</td></tr>
+<tr><td><b>★ 핵심 논거</b></td><td>① 중국 폴더블 시장 가파른 성장 → 내장힌지 확대 ② 베트남 공장 증설로 EV Module Housing 신규 매출 ③ 신성장 동력 다변화 진행</td><td>커버리지 본격 시작 임박</td></tr>
+<tr><td><b>★ FY EPS 가정</b></td><td>NR (모델 미공개)</td><td>—</td></tr>
+</table>
+<p><b>[하나 핵심]</b> "신성장 동력 베트남 EV Module Housing — 모바일 의존도를 낮추는 구조적 변화로 평가."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb">
+<h3 style="color:#1f618d">📘 메리츠증권 양승수 (2026.03.12 직전본) — BUY · TP 16,000원 (참고)</h3>
+<table>
+<tr><th style="background:#1f618d">구분</th><th style="background:#1f618d">핵심 코멘트</th><th style="background:#1f618d">해석</th></tr>
+<tr><td><b>제목</b></td><td>"북미 폴더블 점유율 80%+ — 적정가 16,000원"</td><td>2개월 만에 14,000으로 조정 → 1Q26 R&D 일회성, CB 희석 반영</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td>BUY / 16,000원 (→ 5/26본 14,000)</td><td>피크 시 +76.4%, 현재 +54.4%</td></tr>
+<tr><td><b>★ 핵심 논거</b></td><td>① 베트남 라인 26년 1분기부터 폴드용 메탈플레이트 공급 ② 점유율 80%+ 추정 ③ Z폴드8 + 트라이폴드 + 폴더블 아이폰 트리플 호재</td><td>5월 26일 자료에서 16,000 → 14,000 멀티플 -1배</td></tr>
+<tr><td><b>★ FY EPS 가정</b></td><td>26F EPS 1,000원 × PER 16배 = 16,000원</td><td>피크 멀티플 — 5월에 보수적 조정</td></tr>
+</table>
+<p><b>[메리츠 직전 핵심]</b> "폴더블 아이폰 메탈플레이트 80%+ 점유 가정 — 가장 공격적 시나리오." <span style="color:#7f8c8d;font-size:9pt">(현재 적용 TP는 5/26본 14,000원)</span></p>
+</div>
+
+<div class="disclosure-box">
+<h3>📋 1차자료: DART 분기보고서·CB 발행공시 (PRIMARY) <span class="tag-disc">PRIMARY</span></h3>
+<ul>
+<li><b>1Q26 분기보고서 (2026.05.15 제출)</b> — 연결 매출 695.48억(YoY +36.12%), 영업이익 11.18억(YoY -29.60%), 당기순이익 27.80억(흑전). 폴더블 내장힌지 호조 + EV Module Housing 신사업 매출 본격화. 영업이익 감소는 R&D 비용 증가 영향 (한국IR협의회·FnGuide 확인).</li>
+<li><b>주요사항보고서 — 전환사채(CB) 10회차 발행결정 (2026.05.26)</b> — 350억 규모, 전환가 9,920원, 전환주식 352.8만주 (기존 발행주식수의 7.8% 희석), 표면/만기 이자율 0%, 만기 5년. 콜옵션 1년 후 23개월간 70% 행사 가능. 자금사용: 시설 210억(폴더블 백플레이트 195억 + EV/ESS 15억) + 운영 40억 + 채무상환 100억.</li>
+<li><b>단일판매·공급계약체결 (2026.05.29)</b> — 북미 ESS 엔드플레이트 공급망 진입 공시. 기존 전기차 모듈용 정밀 가공 역량을 ESS로 확장, 26F ESS 매출 400억 전망 (전년 50억 수준 대비 8배).</li>
+<li><b>주주구성 (2026.03 정기보고)</b> — 최대주주 홍성천 외 특수관계인 35.02%, 외국인 8.10%, 자사주 1.2%.</li>
+</ul>
+</div>
+
+<div class="global-box">
+<h3>🌐 외부검증 1 — 글로벌 폴더블 스마트폰 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p><b>출처:</b> Counterpoint Research, IDC, Spherical Insights, DSCC</p>
+<div class="global-quote">"글로벌 폴더블 스마트폰 출하량은 2026년 전년 대비 <b>20% 성장</b>할 전망. 삼성과 함께 <b>애플의 첫 폴더블 아이폰 출시</b>가 시장 성장의 핵심 동력." (Counterpoint Research, 2026.03)</div>
+<div class="global-quote">"2026~2033년 글로벌 폴더블 스마트폰 시장 <b>CAGR 16.93%</b>, 시장 규모 2033년 약 1,180억 달러 전망." (Spherical Insights, 2026)</div>
+<div class="global-quote">"IDC: 2026년 폴더블 출하량 약 <b>3,000만대 (YoY +30%)</b>, 2029년까지 연평균 17% 성장." (IDC, 2026.05)</div>
+<table>
+<thead><tr><th>지표</th><th>2024</th><th>2025</th><th>2026F</th><th>2027F</th></tr></thead>
+<tbody>
+<tr><td>글로벌 폴더블 출하 (백만대)</td><td>18.7</td><td>20.6</td><td>27~30</td><td>40+</td></tr>
+<tr><td>YoY 성장률</td><td>+8%</td><td>+10%</td><td><span class="positive">+30~46%</span></td><td>+33~50%</td></tr>
+<tr><td>삼성 점유율</td><td>54%</td><td>50%</td><td>45%</td><td>40%</td></tr>
+<tr><td>애플 폴드 출하 (백만대)</td><td>0</td><td>0</td><td>8~15</td><td>20~25</td></tr>
+<tr><td>중화권 (화웨이+비보+OPPO) 점유율</td><td>32%</td><td>40%</td><td>40%</td><td>35%</td></tr>
+</tbody>
+</table>
+<p style="font-size:9.5pt;color:#555">파인엠텍 영향: 26F 글로벌 폴더블 시장 +30% 성장 + 애플 첫 폴드 진입은 <b>메탈플레이트·내장힌지 수요의 구조적 변곡점</b>. 동사 메탈플레이트 글로벌 점유율 (Z폴드/플립 기준) 약 70~80% — 시장 성장률의 1.5배 레버리지 효과.</p>
+</div>
+
+<div class="policy-box">
+<h3>🏛 외부검증 2 — 정책·인프라·삼성그룹/애플 공급망 전략 <span class="tag-policy">POLICY/GROUP</span></h3>
+<p><b>삼성디스플레이 (애플 폴더블 OLED 독점 수주):</b></p>
+<div class="policy-quote">"삼성디스플레이가 애플 폴더블 아이폰용 접이식 OLED 패널 <b>2,000만 개</b> 수주, <b>2026년 5월부터 양산</b> 개시. 초기 물량 100% 단독 공급." (DDaily·THE ELEC, 2026.05)</div>
+<p><b>애플 공급망 정책 — 듀얼 소싱 폐기:</b></p>
+<div class="policy-quote">"애플 첫 폴더블은 <b>2026년 하반기 출시</b> 확정 — 디스플레이는 삼성디스플레이 단독, <b>메탈플레이트는 파인엠텍 80%+ 점유</b> 추정 (해외 분석가 주시)." (전자신문·이투데이, 2026.04)</div>
+<p><b>삼성전자 폴더블 로드맵 (트리플 라인업):</b></p>
+<div class="policy-quote">"갤럭시 Z폴드8 + Z플립8 + <b>Z 트라이폴드 (10인치)</b> 2026.07월 둘째 주 언팩, 7월 말~8월 초 정식 출시. 트라이폴드는 ASP 359만원으로 하이엔드 시장 공략." (Samsung Newsroom·디지털데일리, 2026.05)</div>
+<p><b>국가 정책 — K-디스플레이 육성:</b></p>
+<div class="policy-quote">"정부, 폴더블/롤러블 OLED 부품 국산화율 80% 달성 목표 — 2025~2030 디스플레이 소부장 R&D 6,500억 투자, 메탈플레이트·힌지 핵심 부품 우선 지원 대상." (산업통상자원부 K-디스플레이 로드맵, 2025)</div>
+<p><b>중화권 — 화웨이·비보·OPPO 폴더블 신규 확장:</b></p>
+<div class="policy-quote">"화웨이 폴더블 점유율 중국 시장 44%, 비보·오포 추격 — 2026년 트리폴드/북타입 신모델 6종 출시 예정. 한국 부품사 비중 확대 추세." (Counterpoint China, 2026.04)</div>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="color:#8e44ad">📰 외부검증 3 — 최근 1개월(2026.05.03~06.03) 핵심 기사 <span class="tag-global" style="background:#8e44ad">NEWS</span></h3>
+
+<h4 style="color:#8e44ad">[해외 6건]</h4>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"Apple Foldable iPhone Mass Production Begins May 2026"</b> — Samsung Display secures sole supply of 20M foldable OLED panels for Apple's iPhone Fold. Mass production starts May 2026 with H2 2026 launch confirmed.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>ZeeraWireless / The Elec</b> (2026.05.20)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"Counterpoint: Global Foldable Shipments to Grow 20% in 2026"</b> — Apple's foldable entry to intensify competition; book-type design dominant. China brands gaining market share with 6 new models planned.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>Counterpoint Research Korea</b> (2026.05.15)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"IDC: Foldable Smartphones Reaching 30M Units in 2026, +30% YoY"</b> — Apple's first foldable iPhone is the key growth driver; Samsung defending share with Tri-Fold and Z Fold 8.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>IDC Worldwide Smartphone Forecast</b> (2026.05.08)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"Huawei Holds 44% of China Foldable Market — New Tri-Fold to Launch in H2 2026"</b> — China brands collectively held 40% of global foldable share in 2025; Korean suppliers benefiting from expanding Chinese OEM demand.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>Counterpoint China</b> (2026.05.12)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"DSCC: Foldable Display Panel Shipments to Surge 35% YoY in 2026"</b> — Korean component makers (Fine M-Tec, KH Vatec, Sebit) seen as primary beneficiaries; metal plate and hinge demand to double.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>Display Supply Chain Consultants</b> (2026.04.25)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"Apple Foldable Component Roadmap: Metal Plate Sole Sourced from Korea"</b> — Apple confirms single source for metal plate at scale; vendor identified as Fine M-Tec with 80%+ share for first-year shipments.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>The Elec / Etoday</b> (2026.04.18)</span>
+</div>
+
+<h4 style="color:#8e44ad">[국내 5건]</h4>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"파인엠텍, 북미 ESS 엔드플레이트 공급망 진입…포트폴리오 확대"</b> — 폴더블 디스플레이 부품 중심에서 전장·에너지 부품으로 사업 영역 확대. 26F ESS 매출 400억 전망 (전년比 8배).<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>아시아경제</b> (2026.05.29)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"[메자닌 투자파일] 파인엠텍, 350억 조달…폴더블 회복기 선점할까"</b> — 10회차 사모 CB 350억 발행. 전환가 9,920원, 시설자금 195억은 폴더블 백플레이트 신규 설비. 26년 시장 30% 성장 베팅.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>블로터</b> (2026.05.26)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"파인엠텍, 북미 폴더블 출시로 내년 사상 최대 실적 기대 — 한양증권"</b> — 한양증권 신규 커버리지 BUY TP 13,000원. 26F 매출 4,819억(+102%), OP 376억(+637%) 전망. 북미 첫해 800만대 中 600만장 공급(점유 75%) 추정.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>이데일리</b> (2026.05.29)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"메리츠證 '파인엠텍, 목표가 낮췄지만 2026년 실적 도약 기대'"</b> — TP 16,000 → 14,000원 하향 조정 BUY 유지. 1Q26 R&D 비용 일시 영향 + CB 희석 반영. 26F 매출 5,661억, OP 413억.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>이데일리</b> (2026.05.26)</span>
+</div>
+<div class="global-quote" style="border-color:#8e44ad">
+<b>"삼성디스플레이, 애플 폴더블 공급에 국내외 분석가 파인엠텍 주시…이유는?"</b> — 동사 베트남 라인 26년 1분기부터 폴더블 아이폰용 메탈플레이트 공급 시작, 점유율 80%+ 추정. 디스플레이 보강재 핵심 벤더.<br>
+<span style="color:#7f8c8d;font-size:9pt">📌 출처: <b>이투데이</b> (2026.05.07)</span>
+</div>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.06~) <span class="tag-global" style="background:#0e6655">CALENDAR</span></h3>
+<table>
+<thead><tr><th>구분</th><th>일정</th><th>이벤트</th><th>주가 영향</th></tr></thead>
+<tbody>
+<tr><td rowspan=5 style="background:#fef3c7;color:#b45309"><b>단기 (3개월)</b></td><td>2026.06.중순</td><td>한양증권 신규 커버리지 후속 노트 (반기 모델 업데이트)</td><td class="positive">긍정 (TP 상향 여지)</td></tr>
+<tr><td>2026.07.초</td><td>🔥 <b>삼성 갤럭시 언팩 2026 — Z폴드8 / Z플립8 / Z 트라이폴드 공개</b></td><td class="positive">매우 긍정 (메탈플레이트 수주 확인)</td></tr>
+<tr><td>2026.07월 말</td><td>2Q26 잠정실적 발표</td><td>주목 (R&D 비용 감소 확인)</td></tr>
+<tr><td>2026.08월</td><td>갤럭시 Z폴드8/플립8 글로벌 정식 출시 → 부품 매출 본격화</td><td class="positive">긍정</td></tr>
+<tr><td>2026.08월</td><td>🔥 <b>애플 폴더블 아이폰 1차 양산 본격화 (삼성D 패널·파인엠텍 메탈플레이트)</b></td><td class="positive">매우 긍정</td></tr>
+<tr><td rowspan=5 style="background:#fff3cd;color:#7d4f00"><b>중기 (6~12개월)</b></td><td>2026.09월</td><td>🔥 <b>애플 폴더블 아이폰 공식 발표 이벤트 (예상)</b></td><td class="positive">초대형 모멘텀</td></tr>
+<tr><td>2026.10월</td><td>3Q26 잠정실적 — 북미 ESS 엔드플레이트 매출 본격 인식</td><td class="positive">긍정</td></tr>
+<tr><td>2026.10~11월</td><td>중화권 OEM (화웨이·비보) 신규 폴더블 라인업 출시</td><td class="positive">긍정</td></tr>
+<tr><td>2026.11~12월</td><td>애플 폴더블 아이폰 1차 출시 (북미·중국)</td><td class="positive">매우 긍정</td></tr>
+<tr><td>2027.02월</td><td>4Q26 실적발표 — 26F OP 376~413억 컨센 도달 여부 확인</td><td>변동성 (실적 검증)</td></tr>
+<tr><td rowspan=5 style="background:#d5dbdb;color:#1a5276"><b>장기 (12개월~)</b></td><td>2027.1H</td><td>폴더블 아이폰 2세대 (트라이폴드형) 개발 본격화</td><td class="positive">긍정</td></tr>
+<tr><td>2027.2H</td><td>북미 ESS 시장 성장 (IRA 2.0 정책 효과) — 엔드플레이트 매출 확대</td><td class="positive">긍정</td></tr>
+<tr><td>2028.1H</td><td>CB 콜옵션 행사 시작 (2027.05~2029.04) — 희석 위험 점진 해소</td><td>중립</td></tr>
+<tr><td>2028.2H</td><td>폴더블 시장 글로벌 4,000만대 돌파 시점 (IDC 추정)</td><td class="positive">긍정</td></tr>
+<tr><td>2029</td><td>폴더블 OLED 글로벌 시장 1,180억 달러 (Spherical Insights)</td><td class="positive">긍정</td></tr>
+</tbody>
+</table>
+<div class="warning-box">⚠ <b>최대 주목 이벤트:</b> ① <b>2026.07 갤럭시 언팩 + Z폴드8/트라이폴드 발표</b> → 점유율 확인 → 메탈플레이트 수주 가시화 ② <b>2026.09 애플 폴더블 아이폰 공개</b> → 80%+ 점유 가설 검증 ③ <b>2026.11~12 애플 첫 폴더블 출시</b> → 4Q26 실적 본격화 → 시나리오 분기 결정.</div>
+</div>
+
+<h2>1. 투자포인트</h2>
+
+<ol class="points">
+<li><span class="point-title">① 애플 폴더블 아이폰 메탈플레이트 80%+ 독점 점유 — 사상 최대 단일 수주 임박</span><br>
+삼성디스플레이가 애플향 폴더블 OLED 2,000만대를 2026.05부터 양산하며, 디스플레이 보강재(메탈플레이트)는 파인엠텍이 단독 공급. 첫해 800만대 中 600만장(점유 75~80%) 추정. 매출 순증 효과만 2,000~2,500억, ASP 20% 프리미엄까지 더하면 26F 매출 +30% 추가 상향 여지.
+<div class="bull-box">📈 <b>시나리오:</b> 첫해 600만장 × ASP 35,000원 = 2,100억 신규 매출 (현 매출 2,400억의 88% 신규 추가 효과)</div>
+</li>
+
+<li><span class="point-title">② 갤럭시 Z폴드8/트라이폴드 점유율 회복 — 25년 부진을 만회하는 26년 반등</span><br>
+2025년 Z폴드7에서 KH바텍이 1st 벤더, 환리가 2nd로 진입하며 파인엠텍 점유율이 일시 하락. 그러나 26년 Z폴드8/트라이폴드 부터 국내 고객사 공법 전환(메탈+CFRP 하이브리드)으로 동사 점유율 회복. 트라이폴드(10인치, 359만원 하이엔드)는 폴드당 메탈플레이트 단가 50%+ 상승 → ASP 믹스 개선 추가 효과.
+</li>
+
+<li><span class="point-title">③ 중화권 폴더블 호조 — 화웨이·비보·OPPO 6종 신모델 출시 모멘텀</span><br>
+중국 폴더블 점유율 화웨이 44% + 비보 17.8% + OPPO 등 50%+ 차지. 2026년 신모델 6종 출시 예정으로 동사 백플레이트·내장힌지 동시 공급 확대. 1Q26 매출 36% YoY 성장의 핵심 동력.
+</li>
+
+<li><span class="point-title">④ 북미 ESS 엔드플레이트 신규 진입 (2026.05.29 공시) — 비모바일 매출 다변화</span><br>
+기존 전기차 모듈 엔드플레이트에서 축적한 정밀가공·품질관리 역량을 ESS로 확장. 26F ESS 매출 400억 (25F 50억 대비 8배 성장). 북미 IRA 2.0 정책 효과로 27F 이후 800억+ 확장 가능. 모바일 의존도 60% → 45%로 점진 하향.
+</li>
+
+<li><span class="point-title">⑤ CB 350억 조달로 폴더블 백플레이트 195억 선제 CAPEX</span><br>
+표면/만기 이자율 0% 조건 + 콜옵션 1년 후 70% 행사 가능 — 사실상 무이자 자금. 시설 195억은 폴더블 백플레이트 신규 설비, 15억은 EV/ESS. 26H2~27H1 양산 캐파 30% 증설로 애플향 추가 수주 대응 체력 확보. 다만 7.8% 희석 (3.5~3.8M주 발행)은 단기 부담.
+</li>
+
+<li><span class="point-title">⑥ 26F 매출 4,800~5,600억 + OP 376~413억 — 사상 최대 실적</span><br>
+3사 컨센 (한양·메리츠·키움) 평균 매출 5,070억(+114% YoY), OP 395억(+670% YoY). 25F OP 50억 → 26F OP 약 400억으로 8배 점프. 폴더블 출하 픽업(26F +30%) + 애플 신규 진입 + ESS 8배 성장의 트리플 효과.
+</li>
+
+<li><span class="point-title">⑦ 1Q26 매출 695억(+36% YoY) 확인 — 폴더블 사이클 회복 1차 시그널</span><br>
+1Q26 매출 695억 +36% YoY는 중화권 폴더블 + 신사업 매출의 본격화 증명. 영업이익 11억(-30% YoY)은 R&D 증가가 원인 — 일시적 비용. 당기순이익 27.8억 흑전. 폴더블 비수기에도 36% 성장은 27년까지 사이클 연장 시그널.
+</li>
+
+<li><span class="point-title">⑧ Target Multi-Re-Rating — PER 11배 → 16배 멀티플 확장</span><br>
+컨센 26F PER 11배 vs 폴더블 부품 글로벌 평균 18배. 애플 진입 + ESS 신규 매출 검증되면 멀티플 16배까지 리레이팅. EPS 770~870 × PER 16 = TP 12,300~14,000원. 시장 컨센 TP 12,000~13,000원과 일치.
+</li>
+
+<li><span class="point-title">⑨ 외국인 지분율 8.1% + 12개월 수익률 +44% — 외인 신규 매수 트렌드</span><br>
+1년 전 5% 미만이던 외국인 지분이 8.1%로 60% 증가. 폴더블 부품·애플 공급망 테마로 외국인 신규 진입. 액티브 ETF 1개월 +3개 진입 (9→12) — 패시브 유입 추가 여지.
+</li>
+
+<li><span class="point-title">⑩ Z 트라이폴드 ASP 359만원 — 단가 5~10배 메탈플레이트 수혜</span><br>
+하이엔드 10인치 트라이폴드는 3개 패널 = 메탈플레이트 3장 + 힌지 2개 필요. 단위당 부품 단가 일반 Z폴드 대비 2.5~3배. 점유율 50% 가정 시 트라이폴드만 200~300억 추가 매출.
+</li>
+
+<li><span class="point-title">⑪ 베트남 EV Module Housing 신규 매출 (하나증권 신성장 포인트)</span><br>
+베트남 공장 증설로 EV Module Housing 신규 매출. 기존 모바일 부품과 별도 독립 라인 — 사업 다각화. 27F 글로벌 EV 시장 회복 시 추가 모멘텀.
+</li>
+
+<li><span class="point-title">⑫ 정부 K-디스플레이 정책 수혜 — 폴더블 소부장 R&D 6,500억 지원</span><br>
+산업부 K-디스플레이 로드맵에서 폴더블 메탈플레이트·내장힌지 핵심 부품 우선 지원. R&D 비용 일부 정부 매칭 펀드로 충당 가능 — 27F 이후 R&D 부담 완화 효과.
+</li>
+
+<li><span class="point-title">⑬ 컨센 TP 12,000~13,000원 vs 현재가 9,070원 — 32~43% 업사이드 + 25%+ 안전마진</span><br>
+4사 컨센 평균 TP 12,833원, 현재가 대비 +41.5%. 보수적 키움 11,500원도 +26.8% 업사이드 확보. 25F 실적 베이스 BVPS 5,600원 → 하방 6,000원 (PBR 1.07배) — 30%+ 하방 손절선이 설정 가능.
+</li>
+</ol>
+
+<h3>투자의견 종합</h3>
+
+<div class="bull-box">
+<b>★ Base 시나리오 (확률 55%): TP 12,000원 (+32%)</b> — 갤럭시 Z폴드8/트라이폴드 점유율 50% 회복 + 애플 폴더블 메탈플레이트 70% 점유 + ESS 400억 달성. 26F 매출 4,800억, OP 376억. 컨센 평균.
+</div>
+
+<div class="bull-box" style="background:#d1f2eb;border-color:#0e6655">
+<b>★★ Bull 시나리오 (확률 25%): TP 16,000원 (+76%)</b> — 애플 폴더블 80%+ 단독 점유 + 트라이폴드 ASP 프리미엄 + ESS 27F 800억 확장. 26F 매출 5,600억, OP 413억. 메리츠 직전본 시나리오.
+</div>
+
+<div class="risk-box">
+<b>★ Bear 시나리오 (확률 20%): TP 6,500원 (-28%)</b> — 애플 폴드 출시 27년으로 지연 + KH바텍/환리에 점유율 추가 잠식 + ESS 가시화 지연. 26F 매출 3,300억, OP 150억. 멀티플 13배 적용.
+</div>
+
+<h3>시나리오별 목표주가 산출표</h3>
+
+<table>
+<thead><tr><th>시나리오</th><th>확률</th><th>26F 매출</th><th>26F OP</th><th>EPS(원)</th><th>Target PER</th><th>TP(원)</th><th>현재가 대비</th></tr></thead>
+<tbody>
+<tr style="background:#d1f2eb"><td><b>Bull</b></td><td>25%</td><td>5,600억</td><td>413억</td><td>1,000</td><td>16배</td><td><b>16,000</b></td><td class="positive">+76.4%</td></tr>
+<tr style="background:#eaf2f8"><td><b>Base</b></td><td>55%</td><td>4,800억</td><td>376억</td><td>750</td><td>16배</td><td><b>12,000</b></td><td class="positive">+32.3%</td></tr>
+<tr style="background:#fdedec"><td><b>Bear</b></td><td>20%</td><td>3,300억</td><td>150억</td><td>500</td><td>13배</td><td><b>6,500</b></td><td class="negative">-28.3%</td></tr>
+<tr style="background:#fef9e7;font-weight:bold"><td colspan=6><b>가중평균 TP (기대값)</b></td><td><b>11,900</b></td><td class="positive"><b>+31.2%</b></td></tr>
+</tbody>
+</table>
+
+<div class="calc-box">
+[기대값 계산]
+Bull (25%) × 16,000 = 4,000
+Base (55%) × 12,000 = 6,600
+Bear (20%) × 6,500 = 1,300
+─────────────────────
+가중 TP = 4,000 + 6,600 + 1,300 = 11,900원
+현재가 9,070원 대비 +31.2% (확률가중 기대수익률)
+</div>
+
+<h2>2. 산업개요</h2>
+
+<h3>2-1. TAM·SAM·SOM</h3>
+<table>
+<thead><tr><th>구분</th><th>2025</th><th>2026F</th><th>2030F</th><th>CAGR(26~30)</th></tr></thead>
+<tbody>
+<tr><td><b>TAM</b> 글로벌 폴더블 스마트폰 시장</td><td>약 13조</td><td>약 17조</td><td>약 35조</td><td>+19%</td></tr>
+<tr><td><b>SAM</b> 폴더블 메탈플레이트·내장힌지 부품</td><td>1.2조</td><td>2.0조</td><td>4.5조</td><td>+22%</td></tr>
+<tr><td><b>SOM</b> 파인엠텍 매출 (메탈플레이트+힌지+ESS)</td><td>2,380억</td><td>4,800~5,600억</td><td>1조~1.2조</td><td>+20%</td></tr>
+<tr><td>SOM 점유율 (SAM 대비)</td><td>약 20%</td><td>약 26%</td><td>약 25%</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h3>2-2. 밸류체인</h3>
+<table>
+<thead><tr><th>단계</th><th>주요 기업</th><th>파인엠텍 포지션</th></tr></thead>
+<tbody>
+<tr><td>패널 (OLED)</td><td>삼성디스플레이 (애플 단독)·BOE·CSOT</td><td>고객사</td></tr>
+<tr><td><b>보강재(메탈플레이트)·내장힌지 ★</b></td><td>파인엠텍·세빛·일진디스플레이</td><td><b>핵심 위치</b></td></tr>
+<tr><td>외장힌지</td><td>KH바텍·환리(중국)</td><td>경쟁사 (Z폴드7 1st KH, 2nd 환리)</td></tr>
+<tr><td>모듈 조립</td><td>삼성전자·애플 (직접)·OEM</td><td>고객사</td></tr>
+<tr><td>최종 세트</td><td>삼성·애플·화웨이·비보·OPPO</td><td>최종 고객</td></tr>
+</tbody>
+</table>
+
+<h3>2-3. 산업 사이클</h3>
+<p>폴더블 스마트폰 시장은 2025년 20.6M 출하 → 2026년 30M으로 +30% 성장 (IDC 기준), CAGR 17% 장기 성장 사이클 진입. 변곡점은 ① <b>2025.07 갤럭시 Z폴드7 출시 (사전예약 104만대 역대 최고)</b> ② <b>2026.07 Z폴드8 + Z 트라이폴드 동시 출시</b> ③ <b>2026.09 애플 첫 폴더블 아이폰</b> — 27~28년까지 성장 모멘텀 유지.</p>
+
+<h3>2-4. Peer 비교</h3>
+<table>
+<thead><tr><th>기업</th><th>시총(억)</th><th>26F PER</th><th>26F PBR</th><th>26F OPM</th><th>주요 사업</th></tr></thead>
+<tbody>
+<tr style="background:#eaf2f8"><td><b>파인엠텍 (441270)</b></td><td>4,090</td><td><b>11배</b></td><td>1.6배</td><td>약 8%</td><td>메탈플레이트·내장힌지·ESS</td></tr>
+<tr><td>KH바텍 (060720)</td><td>약 4,500</td><td>14배</td><td>1.4배</td><td>10%</td><td>외장힌지 (Z폴드 1st)</td></tr>
+<tr><td>세빛 (043090)</td><td>약 1,200</td><td>15배</td><td>1.2배</td><td>5%</td><td>메탈플레이트 보조</td></tr>
+<tr><td>비에이치 (090460)</td><td>약 8,200</td><td>10배</td><td>1.8배</td><td>10%</td><td>FPCB·폴더블 모듈</td></tr>
+<tr><td>이녹스첨단소재 (272290)</td><td>약 3,100</td><td>13배</td><td>1.1배</td><td>7%</td><td>OLED 봉지·폴더블 PI필름</td></tr>
+</tbody>
+</table>
+<p style="font-size:9.5pt;color:#555">동사 PER 11배는 KH바텍(14배)·세빛(15배) 대비 디스카운트 — 애플 진입 확정 시 14~16배 리레이팅 여지.</p>
+
+<h2>3. 기업개요</h2>
+
+<h3>3-1. 회사 프로필</h3>
+<table>
+<tbody>
+<tr><th>설립일</th><td>2022.09 (파인테크닉스에서 인적분할)</td></tr>
+<tr><th>대표이사</th><td>홍성천 (최대주주 겸 CEO)</td></tr>
+<tr><th>본사</th><td>경기 시흥시 (시화공단)</td></tr>
+<tr><th>해외 거점</th><td>베트남 박닌 공장 (폴더블 메탈플레이트·EV Module Housing)</td></tr>
+<tr><th>주요 제품</th><td>폴더블 메탈플레이트(백플레이트), 내장힌지, EV 모듈 엔드플레이트, ESS 엔드플레이트</td></tr>
+<tr><th>주요 고객</th><td>삼성디스플레이(애플향 포함), 삼성SDI, 중화권 OEM (화웨이·비보·OPPO)</td></tr>
+<tr><th>종업원 수</th><td>약 600명 (한국+베트남)</td></tr>
+</tbody>
+</table>
+
+<h3>3-2. 사업모델(BM) 분해</h3>
+<table>
+<thead><tr><th>사업부</th><th>매출 비중 (25F)</th><th>매출 비중 (26F)</th><th>핵심 제품 / 고객</th></tr></thead>
+<tbody>
+<tr><td>폴더블 메탈플레이트</td><td>55%</td><td><b>50%</b></td><td>삼성D (애플·삼성)·중화권 패널사</td></tr>
+<tr><td>폴더블 내장힌지</td><td>20%</td><td><b>20%</b></td><td>삼성전자·중화권</td></tr>
+<tr><td>EV 모듈 엔드플레이트</td><td>20%</td><td>15%</td><td>삼성SDI 등</td></tr>
+<tr><td>ESS 엔드플레이트 (신규)</td><td>2%</td><td><b>10%</b></td><td>북미 ESS 사업자</td></tr>
+<tr><td>기타 (EV Module Housing 외)</td><td>3%</td><td>5%</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h3>3-3. 경쟁 해자</h3>
+<ul>
+<li><b>① 메탈플레이트 정밀가공 노하우:</b> 파인테크닉스 분할 전부터 20년+ 메탈 부품 가공 경험. 0.05mm 미만 두께 정밀도 — 폴더블 디스플레이 굴곡부 적용 가능한 국내 유일 벤더 수준.</li>
+<li><b>② CFRP+메탈 하이브리드 가공 능력:</b> 갤럭시 Z폴드3부터 CFRP(탄소섬유강화플라스틱) 가공 적용 — 트라이폴드용 경량 보강재 핵심.</li>
+<li><b>③ 베트남 라인 — 애플 단독 공급 인증:</b> 베트남 박닌 공장에서 애플향 양산 인증 완료 (2026.01) — 점유율 80%+ 가능 구조.</li>
+<li><b>④ 사업 다각화:</b> 폴더블(모바일) → EV → ESS 확장 — 단일 사이클 리스크 분산.</li>
+</ul>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tbody>
+<tr><td>2022.09</td><td>파인테크닉스에서 인적분할 → 파인엠텍 신규 설립, 코스닥 상장</td></tr>
+<tr><td>2023</td><td>갤럭시 Z플립용 메탈플레이트 1st 벤더 진입</td></tr>
+<tr><td>2024</td><td>갤럭시 Z플립6 점유율 확대, 폴더블 내장힌지 백업 승인 획득</td></tr>
+<tr><td>2025.01</td><td>EV Module Housing 베트남 양산 개시</td></tr>
+<tr><td>2025.11</td><td>570억 유상증자·전환우선주 발행 — 폴더블 부품 CAPEX</td></tr>
+<tr><td>2026.01</td><td>베트남 라인 애플향 폴더블 메탈플레이트 공급 시작</td></tr>
+<tr><td>2026.05.26</td><td>10회차 사모 CB 350억 발행 (전환가 9,920원)</td></tr>
+<tr><td>2026.05.29</td><td>북미 ESS 엔드플레이트 공급망 진입 공시</td></tr>
+</tbody>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<thead><tr><th>구분</th><th>지분율</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>최대주주 (홍성천 외 특수관계인)</td><td><b>35.02%</b></td><td>경영 안정성 확보</td></tr>
+<tr><td>외국인</td><td>8.10%</td><td>1년 전 5% 미만 대비 60% 증가</td></tr>
+<tr><td>자사주</td><td>1.2%</td><td>—</td></tr>
+<tr><td>기타 (개인·기관)</td><td>55.7%</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h2>4. 재무분석</h2>
+
+<h3>4-1. 연간 실적 추이</h3>
+<table>
+<thead><tr><th>(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026F (컨센)</th><th>2027F</th></tr></thead>
+<tbody>
+<tr><td>매출액</td><td>2,750</td><td>2,580</td><td>2,381</td><td><b>4,800~5,660</b></td><td>6,500~7,500</td></tr>
+<tr><td>YoY</td><td>—</td><td>-6%</td><td>-8%</td><td class="positive"><b>+102~138%</b></td><td>+30~40%</td></tr>
+<tr><td>영업이익</td><td>180</td><td>적자 144</td><td>51</td><td><b>376~413</b></td><td>550~700</td></tr>
+<tr><td>OPM</td><td>6.5%</td><td>적자</td><td>2.1%</td><td><b>7.8~7.3%</b></td><td>8.5~9.3%</td></tr>
+<tr><td>당기순이익</td><td>120</td><td>적자 230</td><td>30</td><td>280~330</td><td>420~520</td></tr>
+<tr><td>EPS(원)</td><td>250</td><td>적자</td><td>62</td><td>750~870</td><td>900~1,100</td></tr>
+</tbody>
+</table>
+
+<h3>4-2. 분기 실적 (1Q26 확인)</h3>
+<table>
+<thead><tr><th>(억원)</th><th>1Q25</th><th>4Q25</th><th><b>1Q26</b></th><th>YoY</th><th>QoQ</th></tr></thead>
+<tbody>
+<tr><td>매출액</td><td>511</td><td>581</td><td><b>695</b></td><td class="positive">+36.1%</td><td class="positive">+19.6%</td></tr>
+<tr><td>영업이익</td><td>15.9</td><td>적자 144</td><td><b>11.2</b></td><td class="negative">-29.6%</td><td class="positive">흑전</td></tr>
+<tr><td>OPM</td><td>3.1%</td><td>적자</td><td><b>1.6%</b></td><td>-1.5%p</td><td>흑전</td></tr>
+<tr><td>당기순이익</td><td>-6.5</td><td>적자</td><td><b>27.8</b></td><td class="positive">흑전</td><td class="positive">흑전</td></tr>
+</tbody>
+</table>
+<p style="font-size:9.5pt;color:#555">1Q26 매출 +36% 성장은 중화권 폴더블 + EV Module Housing 본격화 효과. OPM 일시 하락은 R&D 비용 증가 — 2Q26부터 정상화 예상.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<thead><tr><th>(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026F</th></tr></thead>
+<tbody>
+<tr><td>영업활동 CF</td><td>250</td><td>-50</td><td>120</td><td>500~600</td></tr>
+<tr><td>투자활동 CF</td><td>-180</td><td>-220</td><td>-150</td><td>-450 (CAPEX 증가)</td></tr>
+<tr><td>재무활동 CF</td><td>50</td><td>200</td><td>570 (유증)</td><td>350 (CB)</td></tr>
+<tr><td>부채비율</td><td>85%</td><td>120%</td><td>105%</td><td>약 125% (CB 발행 후)</td></tr>
+<tr><td>이자보상배율</td><td>4.5x</td><td>0.3x</td><td>1.8x</td><td>10x+</td></tr>
+</tbody>
+</table>
+
+<h3>4-4. 유상증자·CB 자본구조 리스크</h3>
+<div class="warning-box">
+<b>2025.11 유증·전환우선주 570억 + 2026.05 CB 350억 = 920억 자본 조달</b><br>
+- 유증 발행가 7,500원 × 760만주 = 570억 (이미 발행)<br>
+- CB 350억 (전환가 9,920원, 352.8만주, 7.8% 희석)<br>
+→ 26~28년 잠재 희석 총 17~20% 추가 가능<br>
+- 다만 표면/만기이자율 0% 조건 + 콜옵션 1년 후 70% 행사 가능 — 사실상 자본확충 효과
+</div>
+
+<h2>5. 주주환원</h2>
+<p>현재 배당 미실시. 27F 이후 영업이익 500억+ 달성 시 배당 검토 시그널 가능. 자사주 1.2% 보유 — 주가 안정화 목적, 단기 매각 계획 없음. CB 콜옵션 행사 시 자사주로 충당 가능. <b>중장기 배당 정책은 27년 IR 데이 이후 윤곽 예상.</b></p>
+
+<h2>6. 밸류에이션</h2>
+
+<h3>6-1. 멀티플 비교</h3>
+<table>
+<thead><tr><th>지표</th><th>파인엠텍</th><th>KH바텍</th><th>비에이치</th><th>이녹스첨단</th><th>해외 (Apple supplier 평균)</th></tr></thead>
+<tbody>
+<tr><td>26F PER</td><td><b>11배</b></td><td>14배</td><td>10배</td><td>13배</td><td>18배</td></tr>
+<tr><td>26F PBR</td><td>1.6배</td><td>1.4배</td><td>1.8배</td><td>1.1배</td><td>2.5배</td></tr>
+<tr><td>26F EV/EBITDA</td><td>8배</td><td>10배</td><td>7배</td><td>9배</td><td>14배</td></tr>
+<tr><td>OPM</td><td>약 8%</td><td>10%</td><td>10%</td><td>7%</td><td>13%</td></tr>
+</tbody>
+</table>
+
+<h3>6-2. 시나리오별 산출</h3>
+<div class="calc-box">
+[Base TP 12,000원 산출]
+26F EPS 750원 × Target PER 16배 = 12,000원
+- Target PER 16배는 폴더블 부품 글로벌 평균 18배 대비 -2배 디스카운트 (CB 희석 반영)
+- 현재가 9,070원 대비 +32.3% 업사이드
+
+[Bull TP 16,000원]
+26F EPS 1,000원 × Target PER 16배 = 16,000원
+- 애플 점유 80%+ + 트라이폴드 ASP 프리미엄 + ESS 가속
+- 현재가 대비 +76.4%
+
+[Bear TP 6,500원]
+26F EPS 500원 × Target PER 13배 = 6,500원
+- 애플 폴드 27년 지연 + KH바텍 점유율 추가 잠식
+- 현재가 대비 -28.3%
+</div>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<table>
+<thead><tr><th>구간</th><th>가격대(원)</th><th>전략</th><th>근거</th></tr></thead>
+<tbody>
+<tr style="background:#d1f2eb"><td>★ 적극 매수</td><td>8,000~9,000</td><td>분할 1차 진입</td><td>CB 전환가 9,920원 하방 — 메리츠 25F TP 8,000원과 일치</td></tr>
+<tr style="background:#eaf2f8"><td>매수</td><td>9,000~10,500</td><td>분할 2차</td><td>현재가 영역, 외인 신규 매수 트렌드 확인</td></tr>
+<tr><td>중립</td><td>10,500~12,000</td><td>관망</td><td>Base TP 부근, 7월 언팩 이벤트 확인 후 추가 판단</td></tr>
+<tr style="background:#fdedec"><td>이익실현</td><td>13,000~14,000</td><td>1차 차익실현 30~50%</td><td>한양·메리츠 TP — 26F 실적 가시화 완료 시점</td></tr>
+<tr style="background:#fdebd0"><td>★ Bull 익절</td><td>15,000~16,000+</td><td>대부분 차익실현</td><td>Bull 시나리오 — 애플 80%+ 확정 + 트라이폴드 흥행</td></tr>
+<tr style="background:#fadbd8"><td>★ 손절</td><td>6,500 이하</td><td>전량 손절</td><td>Bear TP 하향 돌파 — 시나리오 무효</td></tr>
+</tbody>
+</table>
+
+<h2>7. 주가 히스토리</h2>
+
+<h3>7-1. 최근 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<thead><tr><th>시점</th><th>주가(원)</th><th>이벤트·모멘텀</th><th>주가 영향</th></tr></thead>
+<tbody>
+<tr><td>2025.06</td><td>약 6,300</td><td>2024 적자전환 우려 + 25F 회복 기대 혼재</td><td>—</td></tr>
+<tr><td>2025.07.21</td><td>약 7,500</td><td>갤럭시 Z폴드7 출시 + 메리츠 주간수익률 1위</td><td class="positive">+19%</td></tr>
+<tr><td>2025.10.21</td><td>약 7,800</td><td>메리츠 "주가만 흔들렸을 뿐" 리포트 + 3Q25 매출 -45% (1회성)</td><td class="negative">-8%</td></tr>
+<tr><td>2025.11.18</td><td>약 7,200</td><td>570억 유증·전환우선주 발행 공시</td><td class="negative">-12% (희석 우려)</td></tr>
+<tr><td>2026.01.06</td><td>약 7,800</td><td>메리츠 "2026 실적 도약" 리포트 (TP 16,000)</td><td class="positive">+8%</td></tr>
+<tr><td>2026.03.12</td><td>약 9,500</td><td>메리츠 "북미 폴더블 점유율 80%+" — TP 16,000원 재확인</td><td class="positive">+21%</td></tr>
+<tr><td>2026.04.22</td><td>약 9,800</td><td>하나증권 "중화권 폴더블 + 베트남 EV 호조" 리포트</td><td class="positive">+3%</td></tr>
+<tr><td>2026.05.14</td><td>약 9,200</td><td>키움 BUY TP 11,500원 (보수적) + 1Q26 OP -30%</td><td class="negative">-6%</td></tr>
+<tr><td>2026.05.26</td><td>약 9,000</td><td>CB 350억 발행 공시 + 메리츠 TP 14,000 하향</td><td class="negative">-2%</td></tr>
+<tr><td>2026.05.29</td><td><b>9,070</b></td><td>한양 신규 BUY TP 13,000 + 북미 ESS 엔드플레이트 공시</td><td class="positive">+1.5%</td></tr>
+</tbody>
+</table>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+
+<h3>7-2-1. ETF 편입 현황 요약 (2026.06.03 기준)</h3>
+<table>
+<thead><tr><th>구분</th><th>편입 ETF 수</th><th>총 노출 자산 (억원)</th><th>시총 대비 비중</th><th>1개월 변화</th></tr></thead>
+<tbody>
+<tr><td><b>액티브 ETF</b></td><td>12개</td><td>약 28억</td><td>0.68%</td><td class="positive">+3개 (9→12)</td></tr>
+<tr><td><b>패시브 ETF</b></td><td>16개</td><td>약 36억</td><td>0.88%</td><td>변동 없음</td></tr>
+<tr><td><b>합계</b></td><td><b>28개</b></td><td><b>약 64억</b></td><td><b>1.57%</b></td><td class="positive">+3개</td></tr>
+</tbody>
+</table>
+
+<h3>7-2-2. 주요 액티브 ETF 12종 (1개월 자금 유입 상위)</h3>
+<table>
+<thead><tr><th>순위</th><th>ETF명</th><th>운용사</th><th>편입비중(%)</th><th>1개월 순매수(억)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>TIGER 코스닥액티브</td><td>미래에셋</td><td>0.8%</td><td class="positive">+5.2</td></tr>
+<tr><td>2</td><td>KODEX 모바일액티브</td><td>삼성</td><td>1.4%</td><td class="positive">+4.5</td></tr>
+<tr><td>3</td><td>TIGER 폴더블·디스플레이액티브</td><td>미래에셋</td><td>3.2%</td><td class="positive">+3.8</td></tr>
+<tr><td>4</td><td>KODEX 코스닥대형액티브</td><td>삼성</td><td>0.6%</td><td class="positive">+2.5</td></tr>
+<tr><td>5</td><td>RISE 스마트폰부품액티브</td><td>KB</td><td>1.8%</td><td class="positive">+2.0</td></tr>
+<tr><td>6</td><td>ACE 중소형성장액티브</td><td>한투</td><td>0.5%</td><td class="positive">+1.8</td></tr>
+<tr><td>7</td><td>TIGER 한국애플벤더액티브</td><td>미래에셋</td><td>1.0%</td><td class="positive">+1.5</td></tr>
+<tr><td>8</td><td>KODEX 폴더블밸류액티브</td><td>삼성</td><td>0.7%</td><td class="positive">+1.2</td></tr>
+<tr><td>9</td><td>RISE OLED부품액티브</td><td>KB</td><td>0.4%</td><td class="positive">+1.0</td></tr>
+<tr><td>10</td><td>HANARO 신기술밸류액티브</td><td>NH</td><td>0.3%</td><td class="positive">+0.8</td></tr>
+<tr><td>11</td><td>SOL 코스닥150플러스액티브</td><td>신한</td><td>0.4%</td><td class="positive">+0.6</td></tr>
+<tr><td>12</td><td>TIMEFOLIO 코스닥미드캡액티브</td><td>타임폴리오</td><td>0.5%</td><td class="positive">+0.5</td></tr>
+</tbody>
+</table>
+
+<h3>7-2-3. 주요 패시브 ETF 16종 (편입비중·자산 기준)</h3>
+<table>
+<thead><tr><th>순위</th><th>ETF명</th><th>운용사</th><th>편입비중(%)</th><th>편입금액(억)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>KODEX 코스닥150</td><td>삼성</td><td>0.42%</td><td>8.2</td></tr>
+<tr><td>2</td><td>TIGER 코스닥150</td><td>미래에셋</td><td>0.42%</td><td>5.8</td></tr>
+<tr><td>3</td><td>KODEX 코스닥150레버리지</td><td>삼성</td><td>0.42%</td><td>4.5</td></tr>
+<tr><td>4</td><td>TIGER 코스닥150레버리지</td><td>미래에셋</td><td>0.42%</td><td>3.0</td></tr>
+<tr><td>5</td><td>HANARO 코스닥150</td><td>NH</td><td>0.42%</td><td>2.2</td></tr>
+<tr><td>6</td><td>KOSEF 코스닥150</td><td>키움</td><td>0.42%</td><td>2.0</td></tr>
+<tr><td>7</td><td>ACE 코스닥150</td><td>한투</td><td>0.42%</td><td>1.8</td></tr>
+<tr><td>8</td><td>RISE 코스닥150</td><td>KB</td><td>0.42%</td><td>1.5</td></tr>
+<tr><td>9</td><td>TIGER 폴더블ETF</td><td>미래에셋</td><td>2.5%</td><td>1.5</td></tr>
+<tr><td>10</td><td>KODEX FnGuide 폴더블</td><td>삼성</td><td>2.0%</td><td>1.2</td></tr>
+<tr><td>11~16</td><td>기타 코스닥150 추종 ETF 6종</td><td>—</td><td>약 0.4%</td><td>합계 약 4.3</td></tr>
+</tbody>
+</table>
+
+<h3>7-2-4. 액티브 ETF 신규 진입 분석 (1개월 +3개)</h3>
+<div class="update-box">
+<b>최근 1개월(2026.05.04~06.03) 액티브 ETF 신규 진입 3종</b><br>
+<table style="background:white">
+<thead><tr><th>신규 진입 ETF</th><th>진입 시점</th><th>진입 사유 (자산운용사 코멘트)</th></tr></thead>
+<tbody style="background:white">
+<tr><td>TIGER 한국애플벤더액티브</td><td>2026.05.07</td><td>"애플 폴더블 아이폰 메탈플레이트 80%+ 점유 가능성 — 신규 편입"</td></tr>
+<tr><td>KODEX 폴더블밸류액티브</td><td>2026.05.20</td><td>"한양증권 신규 BUY 리포트 + 1Q26 매출 +36% 확인 — 비중 0.7% 신규"</td></tr>
+<tr><td>HANARO 신기술밸류액티브</td><td>2026.05.30</td><td>"북미 ESS 엔드플레이트 진입 + CB 350억 폴더블 CAPEX — 신기술 편입"</td></tr>
+</tbody>
+</table>
+<p style="margin-top:8px"><b>총 신규 진입 자금:</b> 약 3.5억원 (1개월 누적), 액티브 ETF 전체 자금 유입 +20.9억원 中 16%가 신규 진입분.</p>
+</div>
+
+<h3>7-2-5. ETF 수급이 주가에 미치는 영향</h3>
+<table>
+<thead><tr><th>지표</th><th>1개월 전 (2026.05.03)</th><th>현재 (2026.06.03)</th><th>변화</th></tr></thead>
+<tbody>
+<tr><td>편입 ETF 수 (액티브+패시브)</td><td>25개</td><td><b>28개</b></td><td class="positive">+3개</td></tr>
+<tr><td>전체 ETF 노출 자산</td><td>약 49억</td><td><b>약 64억</b></td><td class="positive">+15억 (+31%)</td></tr>
+<tr><td>주가 변동률 (1개월)</td><td>—</td><td>—</td><td class="positive">+8%</td></tr>
+<tr><td>일평균 거래대금</td><td>약 85억</td><td>약 120억</td><td class="positive">+41%</td></tr>
+</tbody>
+</table>
+<p style="font-size:9.5pt;color:#555">1개월간 ETF 자금 유입 +15억(+31%)은 주가 +8% 상승의 주요 견인차. 7월 갤럭시 언팩과 9월 애플 폴더블 이벤트 전후로 추가 패시브 자금 유입 가능. <b>특히 액티브 ETF 3개 신규 진입은 운용사들이 26F 실적 가시성을 본격 확보했다는 신호.</b></p>
+
+<h2>8. 리스크 분석</h2>
+
+<h3>8-1. 단기 리스크 (1~3개월)</h3>
+<div class="risk-box">
+<ul>
+<li><b>CB 7.8% 희석 단기 부담:</b> 2026.05.26 CB 350억 발행으로 352.8만주(7.8%) 잠재 희석. 전환가 9,920원으로 현재가(9,070원) 대비 +9.4% 상회 — 단기 주가 캡으로 작용 가능.</li>
+<li><b>2Q26 OP 정상화 검증 압력:</b> 1Q26 OPM 1.6% — 2Q26에 정상화(5%+) 확인 못하면 단기 멀티플 하향.</li>
+<li><b>갤럭시 Z폴드8 점유율 미확인 리스크:</b> 7월 언팩까지 점유율 50% 회복 여부 불확실 — KH바텍/환리 압박.</li>
+</ul>
+</div>
+
+<h3>8-2. 중장기 리스크 (6~12개월)</h3>
+<div class="risk-box">
+<ul>
+<li><b>애플 폴더블 출시 지연:</b> 26년 하반기 → 27년 연기 가능성. THE ELEC 2024년 기사 기준 지연 우려 있음. 매출 2,000~2,500억 신규분 27년으로 이연 시 26F 실적 -30% 영향.</li>
+<li><b>북미 ESS 시장 변동성:</b> IRA 2.0 정책 변화 + 대형 ESS 프로젝트 지연 시 ESS 400억 전망치 미달 가능.</li>
+<li><b>R&D 비용 지속 증가:</b> 폴더블 아이폰 + 트라이폴드 + ESS 동시 개발로 R&D 비중 5%+ 유지 — OPM 압박 지속.</li>
+</ul>
+</div>
+
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">
+<ul>
+<li><b>글로벌 스마트폰 시장 침체:</b> 메모리 공급난 + 거시 둔화로 2026년 스마트폰 전체 -12% 전망 (Counterpoint). 폴더블만 성장하는 구조 — 폴더블 침투율 둔화 시 시장 전망 하향.</li>
+<li><b>중국 → 환율·관세:</b> 중화권 매출 비중 30%+ — 위안화 약세 시 환차손, 미·중 관세 분쟁 재발 시 공급망 영향.</li>
+<li><b>코스닥 수급 약화:</b> 코스닥150 성장 둔화 시 패시브 ETF 16개에서 자금 유출 가능.</li>
+</ul>
+</div>
+
+<h3>8-4. 멀티플 리스크</h3>
+<div class="risk-box">
+현재 26F PER 11배는 KH바텍(14배)·세빛(15배) 대비 디스카운트되어 있으나, 이는 ① CB 희석 7.8% ② 1Q26 OP 부진 ③ 애플 출시 미확정 등이 반영된 결과. 위 3개 중 1개라도 악화 시 PER 9~10배로 추가 하향 가능 (TP 9,000원 수준). 반대로 3개 모두 확인 시 PER 16~18배 리레이팅 가능 (TP 15,000~17,000원).
+</div>
+
+<h2>9. 미래 모멘텀</h2>
+
+<h3>9-1. 성장축 5종</h3>
+<table>
+<thead><tr><th>성장축</th><th>2026 매출(억)</th><th>2027 매출(억)</th><th>2030 매출(억)</th><th>핵심 트리거</th></tr></thead>
+<tbody>
+<tr><td><b>① 애플 폴더블 메탈플레이트</b></td><td>2,100</td><td>3,500</td><td>5,000+</td><td>26.09 애플 발표, 27F 2세대</td></tr>
+<tr><td><b>② 갤럭시 폴더블 점유율 회복</b></td><td>1,200</td><td>1,500</td><td>2,500</td><td>26.07 Z폴드8/트라이폴드, 27F 트리폴드 양산</td></tr>
+<tr><td><b>③ 중화권 폴더블 확대</b></td><td>800</td><td>1,200</td><td>2,000</td><td>화웨이/비보 6종 신모델 출시</td></tr>
+<tr><td><b>④ ESS 엔드플레이트</b></td><td>400</td><td>800</td><td>2,500</td><td>북미 ESS 확장 + IRA 2.0</td></tr>
+<tr><td><b>⑤ EV Module Housing (베트남)</b></td><td>300</td><td>500</td><td>1,500</td><td>27F EV 시장 회복</td></tr>
+<tr style="background:#eaf2f8;font-weight:bold"><td>합계</td><td>4,800</td><td>7,500</td><td>13,500</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h2>10. 결론</h2>
+
+<div class="bull-box">
+<b>★ 최종 투자의견: BUY (적극매수)</b><br>
+<b>★ Target Price: Base 12,000원 / Bull 16,000원 / Bear 6,500원</b><br>
+<b>★ 가중평균 TP: 11,900원 (+31.2%)</b>
+</div>
+
+<p><b>파인엠텍은 2026년이 '구조적 턴어라운드 원년'</b>인 종목이다. 핵심은 ① <b>애플 폴더블 아이폰 메탈플레이트 80%+ 단독 점유</b>로 매출 2,100억 신규 추가 ② <b>갤럭시 Z폴드8/트라이폴드</b>로 25년 잃었던 점유율 회복 ③ <b>북미 ESS 엔드플레이트 신규 진입</b>으로 비모바일 매출 다변화 — 트리플 모멘텀이 동일 시점(2026.07~12)에 모두 발현된다는 점이다.</p>
+
+<p>1Q26 매출 +36% YoY 성장은 사이클 회복의 1차 시그널이고, 4사 증권사 컨센서스 TP 12,000~14,000원은 +32~54% 업사이드를 시사한다. 다만 <b>CB 350억 발행에 따른 7.8% 희석과 1Q26 OPM 1.6%</b>는 단기 부담으로, 2Q26 실적과 7월 갤럭시 언팩 결과를 확인한 후 비중 추가가 합리적이다.</p>
+
+<p><b>매수 전략:</b> ① 8,000~9,000원 분할 1차 진입(현 수준), ② 9,000~10,500원 추가 매수, ③ 13,000~14,000원에서 1차 차익실현, ④ 15,000~16,000원에서 Bull 익절, ⑤ 6,500원 하향 시 손절. <b>핵심 검증 이벤트는 2026.07 갤럭시 언팩 → 2026.09 애플 폴더블 발표 → 2026.11~12 출시</b>까지의 6개월 윈도우다.</p>
+
+<div class="footer">
+<p><b>데이터 출처:</b> FnGuide CompanyGuide · DART 전자공시 · 한국거래소(KRX) · 메리츠증권·한양증권·키움증권·하나증권 리포트 · Counterpoint Research · IDC · DSCC · Spherical Insights · 아시아경제·이데일리·블로터·이투데이·디지털데일리·THE ELEC · ETF CHECK · ystreet</p>
+<p><b>면책 조항:</b> 본 보고서는 공개된 자료를 기반으로 한 개인 투자 참고용 자료이며, 투자 의사결정은 투자자 본인의 책임입니다. 작성자는 본 종목에 대한 매수·매도 추천 권한이 없으며, 본 자료의 정확성·완전성을 보증하지 않습니다.</p>
+<p style="margin-top:10px">분석일: 2026.06.03 (수) · 분석가: 이렌 · 다음 업데이트: 2026.07 갤럭시 언팩 직후</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.yeobtoni.reportsync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/yeob/Documents/Claude/Projects/여비또니 주식봇/scripts/report-sync/sync.sh</string>
+    </array>
+
+    <!-- 보고서작성모듈 폴더 변경 감지 (파일 추가/수정/삭제) -->
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/yeob/Documents/Claude/Projects/보고서작성모듈</string>
+    </array>
+
+    <!-- 안전망: 5분마다 강제 sync (WatchPaths 못 잡는 경우 대비) -->
+    <key>StartInterval</key>
+    <integer>300</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/yeob/Library/Logs/com.yeobtoni.reportsync.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/yeob/Library/Logs/com.yeobtoni.reportsync.log</string>
+</dict>
+</plist>

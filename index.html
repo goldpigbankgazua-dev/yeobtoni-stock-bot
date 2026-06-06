@@ -261,7 +261,9 @@
       <button class="nav-item active" data-target="rs">RS SCREENER</button>
       <button class="nav-item" data-target="chart">STOCK SCREENER</button>
       <button class="nav-item" data-target="etf">ETF 추적기</button>
+      <button class="nav-item" data-target="etfstatus">ETF현황</button>
       <button class="nav-item" data-target="market">국내증시현황</button>
+      <button class="nav-item" data-target="report">보고서</button>
     </nav>
   </aside>
   <div class="sidebar-backdrop" id="backdrop"></div>
@@ -278,8 +280,14 @@
     <div class="frame-wrap" data-frame="etf">
       <iframe id="frame-etf" data-src="" title="ETF 추적기" loading="lazy" referrerpolicy="no-referrer"></iframe>
     </div>
+    <div class="frame-wrap" data-frame="etfstatus">
+      <iframe id="frame-etfstatus" data-src="" title="ETF현황" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
     <div class="frame-wrap" data-frame="market">
       <iframe id="frame-market" data-src="" title="국내증시현황" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
+    <div class="frame-wrap" data-frame="report">
+      <iframe id="frame-report" data-src="" title="보고서" loading="lazy" referrerpolicy="no-referrer"></iframe>
     </div>
   </section>
 
@@ -287,10 +295,12 @@
 
 <script>
   const MODULES = {
-    rs:     "https://goldpigbankgazua-dev.github.io/rs-screener-kr/",
-    chart:  "https://goldpigbankgazua-dev.github.io/chart-screener/",
-    etf:    "https://goldpigbankgazua-dev.github.io/kr-new-listed-etf/",
-    market: "modules/market/",
+    rs:        "https://goldpigbankgazua-dev.github.io/rs-screener-kr/",
+    chart:     "https://goldpigbankgazua-dev.github.io/chart-screener/",
+    etf:       "https://goldpigbankgazua-dev.github.io/kr-new-listed-etf/",
+    etfstatus: "modules/etfstatus/",
+    market:    "modules/market/",
+    report:    "modules/report/",
   };
 
   const THEMES = ["light", "dark", "green"];
@@ -326,10 +336,12 @@
   const nav = document.getElementById("nav");
   const loader = document.getElementById("loader");
   const frames = {
-    rs:     document.getElementById("frame-rs"),
-    chart:  document.getElementById("frame-chart"),
-    etf:    document.getElementById("frame-etf"),
-    market: document.getElementById("frame-market"),
+    rs:        document.getElementById("frame-rs"),
+    chart:     document.getElementById("frame-chart"),
+    etf:       document.getElementById("frame-etf"),
+    etfstatus: document.getElementById("frame-etfstatus"),
+    market:    document.getElementById("frame-market"),
+    report:    document.getElementById("frame-report"),
   };
   const wraps = document.querySelectorAll(".frame-wrap");
   const loaded = new Set();

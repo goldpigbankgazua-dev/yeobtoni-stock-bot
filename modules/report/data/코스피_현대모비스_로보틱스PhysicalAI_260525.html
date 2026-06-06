@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>코스피_현대모비스_로보틱스PhysicalAI_보스턴다이나믹스액추에이터독점_260525</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.ter-quote{background:#fff;border-left:4px solid #8e44ad;padding:10px 14px;margin:10px 0;font-style:italic;color:#4a235a;border-radius:4px}
+.tag-ter{background:#8e44ad;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ol.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>현대모비스 (012330.KS)</h1>
+<div class="sub">자동차부품 → Physical AI 공급망 구심점 · 보스턴다이나믹스 휴머노이드 액추에이터 독점 공급 + A/S 캐시카우(OPM 25%+) + 지배구조 리레이팅<br>6사 분석: 다올 900k / NH 870k / 현대차 810k / KB 750k / 대신 730k / 삼성 720k · 분석일 2026.05.25</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (5/22)</span><span class="snapshot-value">646,000원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">58.6조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 고점대비</span><span class="snapshot-value">-3.6%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER(F, 26E)</span><span class="snapshot-value">14.2배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR(F, 26E)</span><span class="snapshot-value">1.10배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">40.0%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+162.6%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">배당수익률(26E)</span><span class="snapshot-value">1.0%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">신용등급(회사채)</span><span class="snapshot-value">AA+</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">800,000원<br>(+23.8%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">950,000원<br>(+47.1%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP</span><span class="snapshot-value">632,400원<br>(25개사·후행)</span></div>
+</div>
+<div class="snapshot-core"><b>핵심 한줄:</b> 5/11~5/22 단 11일 사이 <b>6개 증권사가 목표주가를 일제히 상향</b>(KB 750k·삼성 720k·대신 730k·현대차 810k·다올 900k·NH 870k) — 4월말 550~580k 컨센이 한 달새 700~900k로 점프. 트리거는 <b>보스턴다이나믹스(BD) 휴머노이드 '아틀라스'의 핵심 부품 = 액추에이터(제조원가의 40~60%)를 현대모비스가 독점·전량 공급</b>한다는 점이 공식화된 것. <b>A/S 부품 사업(영업이익률 25%+)이라는 캐시카우</b>가 로보틱스 공급망 투자 재원을 떠받치고, <b>BD 나스닥 IPO(2027~2028 추진) + 현대차 대비 시총 괴리 역사적 최저</b>가 지배구조 디스카운트를 프리미엄으로 전환시키는 중. 6개사 공통으로 목표 P/E를 12배 → 16~18배로 리레이팅. Base 800,000원(2026E EPS×16.8배) / Bull 950,000원. <span style="font-size:10pt;color:#7d4f00;">※ 5월 한 달 +41.5% 단기 급등 → Section 8-1 참조. 분할 매수 권장.</span></div>
+</div>
+
+<!-- ===================== 6개 증권사 동시 상향 박스 ===================== -->
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">📊 5/11~5/22 6개 증권사 목표주가 일제 상향 — 컨센서스 리레이팅 실시간 진행</h3>
+
+<table style="margin-top:8px;">
+<tr><th>증권사 (애널리스트)</th><th>발간일</th><th>제목</th><th>목표주가</th><th>직전 대비</th><th>핵심 차별 포인트</th></tr>
+<tr><td><b>다올투자증권</b> (유지웅)</td><td>5/21</td><td>"누가 왕이 될 것인가"</td><td class="positive"><b>900,000원</b></td><td class="positive">600k→900k<br>(+50.0%)</td><td>6사 중 최고치. 자동차 업종 Top-Pick. 적용 P/E 12→18배</td></tr>
+<tr><td><b>NH투자증권</b> (하늘)</td><td>5/22</td><td>"Physical AI 전환의 선봉대장"</td><td class="positive"><b>870,000원</b></td><td class="positive">580k→870k<br>(+50.0%)</td><td>피어 평균 PER에 30% 프리미엄 부여한 17.9배 적용</td></tr>
+<tr><td><b>현대차증권</b> (장문수)</td><td>5/19</td><td>"기술 선도기업의 공급망 생태계 구심점"</td><td class="positive"><b>810,000원</b></td><td class="positive">570k→810k<br>(+42.1%)</td><td>목표 P/E 16.4배(현대차 18.3배 대비 -10.5%)</td></tr>
+<tr><td><b>KB증권</b> (강성진)</td><td>5/11</td><td>"로보틱스 공급망 구축을 밀어붙일 캐시카우 보유"</td><td class="positive"><b>750,000원</b></td><td>유지</td><td>DCF 방식(WACC 9.5%, 영구성장률 3.6%). A/S 캐시카우 강조</td></tr>
+<tr><td><b>대신증권</b> (김귀연)</td><td>5/20</td><td>"보스턴다이나믹스 핵심 밸류체인"</td><td class="positive"><b>730,000원</b></td><td class="positive">상향</td><td>SOTP — 본업 47조 + 로봇 18조 = 65조</td></tr>
+<tr><td><b>삼성증권</b> (임은영)</td><td>5/20</td><td>"10년간 눌린 주가, 한꺼번에 폭발한다"</td><td class="positive"><b>720,000원</b></td><td class="positive">650k→720k<br>(+10.8%)</td><td>P/E 13.7배 + P/B 1.16배 평균. 지배구조 디스카운트→프리미엄</td></tr>
+<tr><td>키움증권 (신윤철)</td><td>5/20</td><td>"안정적 실적 기반으로 멀티플 업사이드까지"</td><td class="positive">700,000원</td><td class="positive">상향</td><td>실적 안정성 + 멀티플 확장</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1a5276;"><b>핵심 시그널 3가지:</b><br>
+① <b>단일 증권사 의견이 아니다.</b> 11일 사이 7개사(상기 6사 + 키움)가 동일 방향으로 목표주가를 상향. 4월말 미래에셋 550k·신한 570k·BNK 580k에 머물던 컨센이 한 달도 안 돼 700~900k로 점프. <b>FnGuide 25개사 컨센 632,400원은 후행 평균</b>이며, 최신 6개사 평균은 <b>797,000원</b> — 컨센 자체가 급상향되는 국면.<br>
+② <b>증권사마다 다른 밸류에이션 기법으로 같은 결론.</b> 다올·NH는 P/E 리레이팅, 대신은 SOTP(본업+로봇 분리), KB는 DCF, 삼성은 P/E+P/B 혼합. <b>4가지 방법론이 모두 700~900k에 수렴</b> = 시장 합의 형성.<br>
+③ <b>공통 트리거는 로보틱스.</b> 6개 리포트 제목에 'Physical AI', '보스턴다이나믹스', '로보틱스 공급망', '공급망 생태계 구심점'이 반복 등장. 자동차 부품 실적이 아니라 <b>휴머노이드 부품 공급권</b>이 리레이팅의 본질.</p>
+</div>
+
+<!-- ===================== 다올투자증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#27ae60;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;border:none;">🔥 5/21 다올투자증권 (유지웅) — 6사 최고가 900,000원, 자동차 업종 Top-Pick</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>다올투자증권 5/21 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"누가 왕이 될 것인가"</td><td>휴머노이드 부품 '왕좌'를 누가 차지하는가 — 현대모비스가 BD 공급권 장악</td></tr>
+<tr><td><b>적정주가</b></td><td class="positive"><b>900,000원</b> (직전 600,000원, +50.0% 상향)</td><td class="positive">6사 중 최고치. 현재가 646,000원 대비 +39.3%</td></tr>
+<tr><td class="positive"><b>★ 적용 P/E 상향</b></td><td class="positive">기존 12배 → <b>18배</b>로 상향 (피어 대비 30% 할증). 적정주가 = 2026E EPS 50,249원 × 18.0배</td><td class="positive">로봇 사업 진출로 가파른 외형 성장 → 밸류에이션 프리미엄 정당화</td></tr>
+<tr><td class="positive"><b>★ 부품 컨텐츠 정량화</b></td><td class="positive">3Q26 기점 휴머노이드 로봇부품 생태계 소싱 마무리. 액추에이터·헤드·전장부품 등 <b>로봇 1대당 7천만원 이상</b>의 부품 컨텐츠 공급 구조</td><td class="positive">대당 부품 단가가 자동차 1대 부품 컨텐츠를 압도 — 휴머노이드 1대 = 자동차 수 대 분량</td></tr>
+<tr><td class="positive"><b>★ 로봇부품 매출 전망</b></td><td class="positive">"<b>2031년 기준 로봇부품 매출액은 2조원에 육박</b>할 것으로 추정"</td><td class="positive">신규 사업이 5년 내 본업 일부를 넘보는 규모로 성장</td></tr>
+<tr><td><b>BD 기업가치</b></td><td>BD 기업가치 약 30조원으로 추정. 6월 소프트뱅크 풋옵션 행사 및 SI(전략적 투자자) 합류 가능성 → 지배구조 개편 재원</td><td>BD 가치 상승 = 현대모비스 보유 지분가치 상승 + 지배구조 시나리오 활성화</td></tr>
+<tr><td class="positive"><b>★ 시총 괴리율</b></td><td class="positive">"현대차 대비 시가총액이 약 40%대로 내려와, 시장에서의 소외가 극단적으로 확대" — 역사적 최저 수준</td><td class="positive">2Q26 실적 정상화 + 로봇부품 주도권 확정 → 괴리율 정상화 전망</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1e6e3a;"><b>다올 핵심 시그널:</b> 다올은 추천 근거를 3가지로 압축. ① <b>BD향 부품공급 주도권</b> — 휴머노이드 밸류체인의 가장 큰 단일 부품을 장악. ② <b>지배구조 개편의 핵심기업</b> — 현대차 지분 22.3%를 보유한 현대모비스가 BD 가치 상승의 직접 수혜. ③ <b>현대차 대비 시총 괴리율이 역사적 최저</b> — 밸류 갭 정상화 여력. "12배 → 18배"라는 P/E 상향폭이 다올이 본 리레이팅의 크기다.</p>
+</div>
+
+<!-- ===================== NH투자증권 박스 ===================== -->
+<div class="sk-box">
+<h3 style="margin-top:0;color:#a04000;border:none;">🔥 5/22 NH투자증권 (하늘) — "Physical AI 전환의 선봉대장" TP 870,000원</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>NH투자증권 5/22 핵심 코멘트</th><th>핵심 정보</th></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>Buy 유지 / 870,000원</b> (직전 580,000원, +50.0% 상향)</td><td class="positive">현재가 646,000원 대비 +34.7%</td></tr>
+<tr><td><b>목표주가 산출</b></td><td>12개월 선행 EPS × <b>17.9배</b> (글로벌 자동차 부품사 피어 평균 PER에 30% 프리미엄)</td><td>"휴머노이드 로봇의 근육 역할을 하는 액추에이터의 핵심 공급사로 시장 내 인정" 반영</td></tr>
+<tr><td class="positive"><b>★ 액추에이터 원가 비중</b></td><td class="positive">"휴머노이드 제조원가의 약 <b>40~45%를 차지하는 액추에이터를 전량 공급</b>할 계획"</td><td class="positive">단일 부품으로 로봇 원가의 절반 가까이 — 가장 큰 파이</td></tr>
+<tr><td class="positive"><b>★ 매출 발생 시점</b></td><td class="positive">"<b>2026년 내 파일럿 라인 가동</b>을 시작으로 <b>2027년부터 액추에이터 매출이 본격 발생</b>"</td><td class="positive">먼 미래 스토리가 아니라 1~2년 내 손익계산서에 반영되기 시작</td></tr>
+<tr><td><b>공급 범위 확장</b></td><td>"향후 센서, 제어기 등 기타 부품 영역까지 공급 범위를 확대할 계획"</td><td>액추에이터 → 그리퍼 → 센서·제어기로 컨텐츠 확장 = 대당 단가 상승</td></tr>
+<tr><td><b>자율주행 본업</b></td><td>자율주행차 센서 + 데이터를 처리·제어하는 두뇌인 <b>통합제어기</b> 공급. 자율주행 탑재율 증가 = 구조적 외형 성장 + 마진 개선</td><td>로봇과 자율주행이 'Physical AI'라는 한 축으로 수렴</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#a04000;"><b>NH 핵심 시그널:</b> NH는 현대모비스를 그룹사 'Physical AI(자율주행+로보틱스) 전환의 최대 수혜 업체'로 규정. 액추에이터는 BD뿐 아니라 <b>휴머노이드 시장 전체가 커질수록 직접 수혜</b>가 커지는 부품 — NH는 "휴머노이드 시장 성장에 따른 직접 수혜 업체"로 명시했다. 자동차 부품사가 아니라 로봇 부품사로 시장이 인식을 바꾸기 시작했다는 것이 목표주가 50% 상향의 본질이다.</p>
+</div>
+
+<!-- ===================== 보스턴다이나믹스 외부 검증 박스 ===================== -->
+<div class="ter-box">
+<h3 style="margin-top:0;color:#6c3483;border:none;">🤖 보스턴다이나믹스(BD) 아틀라스 양산 로드맵 — 결정적 외부 검증</h3>
+
+<p style="font-size:10pt;color:#4a235a;"><b>왜 이게 결정적인가:</b> 6개 증권사의 목표주가 상향은 결국 "BD 아틀라스가 실제로 양산될 것인가"라는 한 가지 전제 위에 서 있다. <b>BD 본인의 양산 발표와 현대차그룹의 공식 로드맵</b>은 증권사 추정의 외부 검증에 해당한다. 증권사 리포트(국내)와 BD·현대차그룹의 공식 발표(현장)가 같은 방향을 가리킨다.</p>
+
+<table style="margin-top:10px;">
+<tr><th>BD/현대차그룹 공식 발표 (2026)</th><th>현대모비스에 미치는 영향</th><th>강도</th></tr>
+<tr><td><b>① 2026 CES에서 차세대 전동식 휴머노이드 '아틀라스' 공개</b><br>최대 50kg 적재, 자율 작동, 대부분 작업 하루 만에 학습</td><td>유압식 → 전동식 전환 = <b>전동 액추에이터 채택</b>. 현대모비스가 공급하는 부품의 채택이 설계 차원에서 확정</td><td class="positive"><b>★★★★★</b></td></tr>
+<tr><td><b>② 2028년까지 연 3만대+ 양산체계 구축</b><br>현대차·기아 공장에 2.5만대+ 도입 발표</td><td>최소 2.5만대의 캡티브 수요가 선확보. 액추에이터·그리퍼·센서·헤드모듈 공급 물량이 발표 레벨로 가시화</td><td class="positive"><b>★★★★★</b></td></tr>
+<tr><td><b>③ HMGMA(美 조지아 메타플랜트) 2028 단계 투입</b><br>부품 분류 등 안전성 검증 → 2030년 고도 조립 작업까지 확대</td><td>2028년 = 첫 매출 인식 시점. 삼성증권 "BD향 매출 2027년 6천억 → 2029년 1조원" 추정의 일정 근거</td><td class="positive"><b>★★★★★</b></td></tr>
+<tr><td><b>④ 계열사 역할 분담 공식화</b><br>현대모비스 = 액추에이터 등 핵심부품 / 현대글로비스 = 물류·공급망 최적화</td><td>그룹이 공개 컨퍼런스에서 <b>현대모비스를 부품 담당으로 명시</b>. "독점·전량 공급"이 추정이 아닌 그룹 차원의 역할 배분</td><td class="positive"><b>★★★★★</b></td></tr>
+<tr><td><b>⑤ BD 나스닥 IPO 2027~2028 추진</b><br>BD 약 1.2조원 유상증자 예상, 소프트뱅크 잔여지분 12.4% 매각 가능성</td><td>BD 가치의 시장 평가(Price Discovery) → 현대모비스 보유 지분가치 가시화 + 지배구조 재편 재원 마련</td><td class="positive"><b>★★★★</b></td></tr>
+<tr><td><b>⑥ BD 2025 실적: 매출 약 1,500억원, 당기순손실 5,284억원</b></td><td>아직 적자. <b>양산 전 단계라는 점은 리스크</b>이자, 동시에 "현대모비스는 지분법이 아닌 부품 직접 매출"로 손익을 인식하므로 BD 적자와 무관하게 매출 발생</td><td>★★★</td></tr>
+</table>
+
+<p style="margin-top:14px;margin-bottom:6px;color:#4a235a;font-size:10pt;"><b>핵심 데이터 — 현대모비스의 BD 지분구조 (KB증권 정리):</b></p>
+
+<div class="ter-quote">
+현대모비스는 BD 지분 54.7%를 보유한 최대주주 Hyundai Global의 지분 20.0%를 보유 → BD에 대한 간접지분율 약 10.9%. 즉 현대모비스는 ① BD 지분가치(간접 10.9%)와 ② BD에 부품을 직접 파는 매출, <b>두 경로로 동시에 수혜</b>를 받는다.
+</div>
+
+<p style="margin-top:14px;margin-bottom:0;color:#4a235a;font-size:10pt;"><b>BD 검증 종합 결론:</b> 6개 증권사의 목표주가 상향이 "낙관적 추정"에 머물지 않는 이유는, BD와 현대차그룹이 <b>양산 대수·투입 시점·공장·계열사 역할까지 공식 발표</b>로 못 박았기 때문이다. 증권사 컨센서스(국내 리포트)와 BD·현대차그룹의 공식 로드맵(현장)이 정합한다. 다만 <b>2028년 첫 양산까지 시차가 있고 BD가 아직 적자</b>라는 점에서, 매수는 단기 과열을 피해 분할로 접근하는 것이 합리적이다.</p>
+</div>
+
+<!-- ===================== 휴머노이드 글로벌 시장 박스 ===================== -->
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">🌏 휴머노이드 글로벌 시장 — 2035년 166조원, 액추에이터가 공급망 병목</h3>
+
+<p style="font-size:10pt;color:#1a5276;"><b>외부 검증의 의미:</b> 현대모비스의 로보틱스 스토리는 BD 한 곳에만 기대지 않는다. 액추에이터는 <b>휴머노이드 시장 전체가 커질수록 수요가 커지는 부품</b>이고, 시장 자체가 글로벌 투자은행·리서치 기관들이 일제히 대형 시장으로 전망하는 영역이다. 이는 4/29~5/22 6개 국내 증권사 컨센서스에 이은 산업 차원의 외부 검증이다.</p>
+
+<table style="margin-top:10px;">
+<tr><th>전망 기관</th><th>휴머노이드 시장/출하 전망</th><th>현대모비스 시사점</th></tr>
+<tr><td><b>시장 규모 (다수 기관)</b></td><td>글로벌 휴머노이드 시장 <b>현재 약 10억달러 → 2035년 1,128억달러(약 166조원)</b></td><td class="positive">10년간 100배 이상 성장하는 신시장. 액추에이터가 그 일부를 흡수</td></tr>
+<tr><td><b>골드만삭스</b></td><td>출하량 2025년 약 8,000대 → 2030년 13.6만대 → <b>2035년 210만대</b></td><td class="positive">2030년 전후 출하가 기하급수적으로 증가 = 현대모비스 액추에이터 양산 본격화 구간</td></tr>
+<tr><td><b>뱅크오브아메리카(BofA)</b></td><td>글로벌 출하량 2025년 누적 1.8만대 → <b>2030~2035년 연 100만대</b></td><td class="positive">연 100만대 × 로봇 1대당 액추에이터 수십 개 = 거대한 부품 수요</td></tr>
+<tr><td class="positive"><b>★ 공급망 병목</b></td><td class="positive">휴머노이드 <b>공급망의 핵심 = 액추에이터</b>로 지목. 휴머노이드의 '관절·근육'에 해당하며 정밀도·내구성 요구가 높아 진입장벽이 큼</td><td class="positive">현대모비스가 자동차 구동·제동 부품에서 쌓은 정밀 기구·모터 기술이 그대로 이전되는 영역</td></tr>
+<tr><td><b>원가 하락 곡선</b></td><td>휴머노이드 원가 현재 대당 약 3.5만달러 → 5년 내 1.3~1.7만달러 (대량생산·부품 설계 최적화)</td><td>원가 하락 = 보급 확대 = 부품 물량 증가. 단가 하락분은 물량으로 상쇄</td></tr>
+<tr><td><b>경쟁 구도</b></td><td>BD(현대차) / 테슬라 옵티머스 / 피규어AI / 중국 유비테크·유니트리·애지봇 등 다자 경쟁</td><td>현대모비스는 특정 로봇 제조사가 아니라 <b>'부품 공급사'</b> — 누가 이기든 액추에이터는 필요</td></tr>
+</table>
+
+<p style="margin-top:14px;margin-bottom:6px;color:#1a5276;font-size:10pt;"><b>핵심 인용:</b></p>
+
+<div class="global-quote">
+"로봇이 일손 부족을 해결한다 — 2035년 166조원 시장에 증권가가 주목." 휴머노이드 공급망의 핵심 부품으로 <b>액추에이터</b>가 지목되며, 자동차 부품사들이 새로운 성장축으로 부상하고 있다. (국내 언론 종합, 2026.04)
+</div>
+
+<p style="margin-top:14px;margin-bottom:0;color:#1a5276;font-size:10pt;"><b>휴머노이드 시장 종합 결론:</b> 현대모비스 투자 논리의 두 번째 외부 검증축. 첫째 검증이 BD 양산 로드맵(특정 고객)이라면, 둘째 검증은 <b>휴머노이드 시장 전체의 성장과 액추에이터의 병목 지위</b>(산업 구조)다. 현대모비스가 BD향 공급에서 트랙레코드를 쌓으면, NH가 지적했듯 <b>BD 외 글로벌 로봇 제조사로 고객을 확장</b>할 수 있다 — 이것이 Bull 시나리오의 핵심 옵션이다.</p>
+</div>
+
+<!-- ===================== 현대차그룹 Physical AI / 엔비디아 박스 ===================== -->
+<div class="policy-box">
+<h3 style="margin-top:0;color:#7d4f00;border:none;">🏛️ 현대차그룹 Physical AI 전략 — 엔비디아 동맹 + 5년간 125조원 투자</h3>
+
+<p style="font-size:10pt;color:#7d4f00;"><b>그룹 전략 배경:</b> 현대모비스의 로보틱스·자율주행 사업은 독립적인 베팅이 아니라 <b>현대차그룹 전체의 'Physical AI' 전환 전략</b>의 핵심 실행 주체로서 진행된다. 그룹이 자원을 집중하는 만큼 현대모비스의 사업 가시성도 함께 올라간다.</p>
+
+<table style="margin-top:10px;">
+<tr><th>구분</th><th>확인된 사실 (2026)</th><th>현대모비스 함의</th></tr>
+<tr><td><b>그룹 투자 규모</b></td><td>현대차그룹 <b>2026~2030년 국내에만 125.2조원</b> 투자 — 핵심축이 자율주행·AI·로보틱스</td><td class="positive">로보틱스·자율주행이 그룹 최우선 투자 영역 = 현대모비스 부품 수요의 안정적 기반</td></tr>
+<tr><td class="positive"><b>★ 엔비디아 동맹</b></td><td class="positive">2026.3 현대차그룹-엔비디아 차세대 자율주행 공동개발 발표. NVIDIA Blackwell GPU 5만장 도입, DRIVE Hyperion 플랫폼 채택. L2 선제 적용 → L4 로보택시로 확장</td><td class="positive">자율주행 통합제어기·센서 공급사인 현대모비스가 직접 수혜. 'AI 두뇌(엔비디아) + 몸체 부품(현대모비스)' 구도</td></tr>
+<tr><td><b>Physical AI MOU</b></td><td>과학기술정보통신부-현대차그룹-엔비디아 '국내 Physical AI 역량 고도화 MOU' 체결</td><td>정부 차원의 Physical AI 생태계 육성 → 현대차그룹이 국내 대표 주자</td></tr>
+<tr><td class="positive"><b>★ 모셔널 L4 로보택시</b></td><td class="positive">그룹 자율주행 합작사 모셔널 중심으로 L4 로보택시 고도화. 단일 AI 학습 파이프라인 구축</td><td class="positive">현대모비스가 모셔널향 자율주행 센서·제어기 공급 — 현대차증권이 지목한 '공급망 구심점'</td></tr>
+<tr><td><b>로봇 ↔ 자동차 기술 공유</b></td><td>자율주행 인지·제어 AI와 휴머노이드 제어 AI가 동일 'Physical AI' 파이프라인으로 수렴</td><td>현대모비스의 차량 전장 기술과 로봇 부품 기술이 상호 강화 — 단일 R&D 투자가 두 시장에 적용</td></tr>
+</table>
+
+<p style="margin-top:14px;margin-bottom:6px;color:#7d4f00;font-size:10pt;"><b>핵심 인용:</b></p>
+
+<div class="policy-quote">
+"엔비디아 품은 현대차, 차량·로봇 통합 'Physical AI' 시동" — 현대차그룹은 엔비디아의 AI 인프라·시뮬레이션 프레임워크를 활용해 자율주행과 휴머노이드를 하나의 기술 축으로 묶고 있으며, 현대모비스가 그 하드웨어 공급망의 중심에 있다. (국내 언론 종합, 2026.03)
+</div>
+
+<p style="margin-top:14px;margin-bottom:0;color:#7d4f00;font-size:10pt;"><b>그룹 전략 종합 결론:</b> 세 번째 외부 검증축. 현대모비스의 로보틱스 사업은 ① BD라는 확정 고객, ② 휴머노이드라는 성장 시장, ③ <b>현대차그룹 125조원 투자 + 엔비디아 동맹</b>이라는 그룹·생태계 차원의 뒷받침을 동시에 갖췄다. 한국·미국(엔비디아)·BD 현장 — <b>3중 검증 구조</b>가 멀티소스 교차검증과 동일하게 작동한다.</p>
+</div>
+
+<!-- ===================== Section 1 ===================== -->
+<h2>1. 투자 포인트 — 왜 지금 관심을 가져야 하는가</h2>
+
+<ol class="points">
+
+<li><span class="point-title">★★★★★ 5/11~5/22 6개 증권사 목표주가 일제 상향 — 컨센서스 리레이팅 실시간 진행</span><br>
+단 11일 사이 KB(750k)·삼성(720k)·대신(730k)·현대차(810k)·다올(900k)·NH(870k) 6개 증권사가 목표주가를 동시 상향. 키움(700k)까지 포함하면 7개사. <span class="tag-new">다올, 2026.05.21</span> <span class="tag-new">NH, 2026.05.22</span> <span class="tag-new">현대차, 2026.05.19</span> <span class="tag-sk">대신, 2026.05.20</span> <span class="tag-new">삼성, 2026.05.20</span> <span class="tag-sk">KB, 2026.05.11</span><br><br>
+<b>왜 핵심인가:</b> 4월말까지만 해도 미래에셋 550k·신한 570k·BNK 580k 수준이던 목표주가가 <b>한 달도 안 돼 700~900k로 점프</b>했다. 단일 증권사의 의견이 아니라 <b>7개사가 같은 방향으로 동시에 움직였다</b>는 점에서, 이는 시장 컨센서스가 리레이팅 국면에 진입했음을 의미한다. <b>FnGuide 25개사 컨센서스 목표주가 632,400원은 후행 평균</b>이며, 최신 6개사 평균은 <b>797,000원</b> — 컨센 자체가 빠르게 상향되는 중. 두산테스나 사례에서 "4사 동시 발간 = 업계 합의"가 강력한 시그널이었듯, 현대모비스도 <b>6사 컨센이 700~900k 범위로 좁혀지며 적정주가 합의가 형성</b>되고 있다.
+</li>
+
+<li><span class="point-title">★★★★★ 보스턴다이나믹스 아틀라스 액추에이터 독점·전량 공급 — Physical AI 공급망 구심점</span><br>
+현대차그룹은 해외 컨퍼런스에서 계열사 역할을 공식 발표했고, <b>현대모비스는 휴머노이드 로봇 '아틀라스'의 액추에이터 등 핵심부품을 담당</b>한다. <span class="tag-new">삼성, 2026.05.20</span> 한화·NH·KB 등 복수 증권사가 "현대모비스가 BD가 필요로 하는 액추에이터를 <b>전량 공급</b>한다"고 표현. KB증권: "Boston Dynamics는 필요한 액추에이터의 전량을 현대모비스로부터 공급받을 예정이며, 그리퍼(로봇손) 등에 대한 공급도 논의중" <span class="tag-sk">KB, 2026.05.11</span>.<br><br>
+<b>왜 핵심인가:</b> 휴머노이드는 다수 기업이 경쟁하지만 <b>액추에이터(관절·근육)는 정밀 기구·모터·제어 기술이 결합된 고난도 부품</b>으로 공급사가 제한적이다. 현대모비스가 자동차 구동·제동·조향 부품에서 수십 년간 쌓은 정밀 기구 기술이 그대로 이전된다. <b>"누가 휴머노이드 경쟁에서 이기든 액추에이터는 필요하다"</b> — 현대모비스는 특정 로봇 제조사가 아니라 부품 공급사 포지션이라 산업 전체 성장의 수혜를 받는다. NH의 표현대로 "휴머노이드 로봇의 <b>근육 역할</b>을 하는 액추에이터의 핵심 공급사".
+</li>
+
+<li><span class="point-title">★★★★★ 액추에이터 = 휴머노이드 제조원가의 40~60% — 가장 큰 단일 부품 파이를 장악</span><br>
+NH투자증권: "휴머노이드 제조원가의 약 <b>40~45%</b>를 차지하는 액추에이터" <span class="tag-new">NH, 2026.05.22</span>. 삼성증권: "로봇 하드웨어 원가의 <b>50~60%</b>를 차지하는 액추에이터 담당. <b>35만 개 이상 생산시설 구축</b> 예정. 그 외 그리퍼·센서·배터리 모듈·헤드 모듈도 담당" <span class="tag-new">삼성, 2026.05.20</span>.<br><br>
+<b>왜 중요한가:</b> 휴머노이드 1대의 부품 중 <b>절반 가까운 금액이 액추에이터 한 품목</b>에 집중된다. 현대모비스가 이 가장 큰 파이를 장악한다는 것은, 로봇 1대가 팔릴 때마다 가장 큰 부품 매출을 인식한다는 뜻. 다올은 이를 정량화해 "로봇 <b>1대당 7천만원 이상의 부품 컨텐츠</b>가 현대모비스를 통해 공급된다"고 추정 <span class="tag-new">다올, 2026.05.21</span>. 자동차 1대당 현대모비스 부품 컨텐츠와 비교하면 <b>휴머노이드 1대 = 자동차 수 대 분량</b>의 매출 기여다. 게다가 액추에이터에서 시작해 그리퍼·센서·헤드모듈로 <b>공급 범위가 확장</b>되면 대당 단가는 더 올라간다.
+</li>
+
+<li><span class="point-title">★★★★★ A/S 부품 캐시카우 (영업이익률 25%+) — 로보틱스 투자 재원 + 이익 하방 지지</span><br>
+현대모비스의 사업은 크게 ① <b>모듈/제조</b>(매출 비중 약 82%, 영업이익률 0~1%대의 박리)와 ② <b>A/S 부품</b>(매출 비중 약 18%, <b>영업이익률 24~27%</b>)으로 나뉜다. 다올 추정 기준 A/S 부품 영업이익은 2025년 3,282억 → 2026E 3,753억으로, <b>전사 영업이익의 대부분을 A/S가 창출</b>한다 <span class="tag-new">다올, 2026.05.21</span>.<br><br>
+<b>왜 중요한가:</b> KB증권이 리포트 제목을 "<b>로보틱스 공급망 구축을 밀어붙일 캐시카우 보유</b>"로 잡은 이유다. 휴머노이드 부품 생태계를 구축하려면 막대한 선행 투자(생산설비, R&D)가 필요한데, <b>현대모비스는 A/S 부품에서 나오는 고마진 현금흐름으로 이를 자체 조달</b>할 수 있다. KB: "A/S 사업의 안정적 이익으로 이와 같은 휴머노이드 부품 공급망을 구축할 수 있는 현금 창출능력을 갖추고 있다" <span class="tag-sk">KB, 2026.05.11</span>. 즉 로보틱스는 <b>유상증자 없이</b> 추진 가능한 신사업이며, 신사업이 실패해도 A/S 캐시카우가 이익 하방을 지지한다. "받으면 더 좋고, 안 받아도 본전"의 구조.
+</li>
+
+<li><span class="point-title">★★★★ BD향 매출 로드맵 — 2026 파일럿 → 2027 6천억 → 2029 1조 → 2031 2조</span><br>
+증권사별 BD/로봇 매출 추정: NH "2026년 내 파일럿 라인 가동 → <b>2027년부터 액추에이터 매출 본격 발생</b>" <span class="tag-new">NH</span>. 삼성 "현대모비스 BD향 매출은 <b>2027년 6천억원, 2029년 1조원</b> 수준으로 성장" <span class="tag-new">삼성</span>. 다올 "<b>2031년 로봇부품 매출 2조원</b>에 육박" <span class="tag-new">다올</span>. 대신 "2030년 BD향 액추에이터 예상 매출 <b>2.2조원</b>(Atlas 5만대 가정)" <span class="tag-sk">대신</span>.<br><br>
+<b>왜 중요한가:</b> 먼 미래의 막연한 스토리가 아니라 <b>1~2년 내 손익계산서에 숫자가 찍히기 시작</b>한다. 매출 인식 시점이 BD·현대차그룹의 공식 양산 일정(2028 HMGMA 투입)과 정합한다. 추정 기관마다 숫자 차이는 있지만 <b>방향은 "2027년 시작 → 2030년 전후 조 단위"로 일치</b>. 이는 현재 현대모비스 본업 매출(약 61조원)에 더해지는 순증분으로, 영업이익률이 본업(5%대)보다 높은 부품이라 <b>전사 마진을 끌어올리는 효과</b>도 있다.
+</li>
+
+<li><span class="point-title">★★★★ 지배구조 리레이팅 — BD IPO(2028) + 현대차 대비 시총 괴리 역사적 최저</span><br>
+삼성증권의 핵심 통찰: "현대모비스 주가는 2015년 이후 <b>지배구조 논리</b>와 현대차/기아 중국 실적 Peak Out이 겹쳐 지난 10년간 30만원대에서 횡보. <b>10년간 주가를 눌렀던 지배구조 논리가 프리미엄 요인으로 전환되는 시기</b>" <span class="tag-new">삼성, 2026.05.20</span>.<br><br>
+<b>왜 중요한가:</b> 과거 현대모비스는 "현대차그룹 지배구조 개편의 도구로 쓰일 수 있다"는 우려 때문에 <b>디스카운트</b>를 받아왔다. 그런데 BD라는 고가치 자산이 등장하면서 구도가 역전된다. 삼성: 정의선 회장이 BD 가치를 활용해 현대모비스 지분을 매입하는 정공법 시나리오에서는 <b>BD 가치가 최소 50조원 이상</b> 필요. 다올: BD 기업가치 약 30조원, 6월 소프트뱅크 풋옵션·SI 합류 가능성. <b>BD 나스닥 IPO가 2027~2028년으로 가시화</b>되면서, 지배구조 이슈가 "디스카운트 요인 → 프리미엄 요인"으로 전환. 다올은 "현대차 대비 시총 괴리율이 <b>역사적 최저</b>"라며 정상화 여력을 지적했다.
+</li>
+
+<li><span class="point-title">★★★★ 본업 턴어라운드 — 비핵심사업부 매각 + ADAS·전장 규모의 경제 + Non-Captive 수주</span><br>
+현대모비스는 <b>저성장·저마진 사업부를 정리하고 고부가 영역에 재투자</b>하는 포트폴리오 재편을 진행 중. ① 2024.2 수소연료전지 사업부(연 1천억원 내외 적자) 현대차에 매각 완료, ② <b>램프 사업부 → OP모빌리티와 매각 MOU 체결</b>(상반기 계약 목표, 노조 투표 52.2% 가결), ③ <b>범퍼 사업부 매각 추진</b>(해외 생산설비+영업권). <span class="tag-disc">언론 종합, 2026</span><br><br>
+<b>왜 중요한가:</b> 삼성증권: "매각 이유는 적자라서가 아니라 성장을 위해 추가 자금·인력이 필요하기 때문. 동일한 재원을 <b>전장·센서·로봇</b>에 투자해 더 높은 성과를 내기 위한 목적" <span class="tag-new">삼성</span>. 모듈 부문은 2025년 매출이 약 57조원으로 워낙 커서 <b>영업이익률 1%p 개선만으로 연 5천억~6천억원의 이익 증가</b>로 연결된다. ADAS 등 전장 부품의 규모의 경제 달성, 2H26부터 시작되는 <b>Non-Captive 수주(VW향 BSA 등 연간 5~6천억원)</b>가 모듈 수익성을 끌어올린다. 로보틱스가 '성장 스토리'라면 본업 턴어라운드는 '실적 가시성'이다.
+</li>
+
+<li><span class="point-title">★★★★ 멀티플 리레이팅 — 목표 P/E 12배 → 16~18배 (6개사 공통)</span><br>
+6개 증권사가 공통으로 한 일은 <b>적용 멀티플의 상향</b>이다. 다올 "P/E 12배 → <b>18배</b>(피어 대비 30% 할증)" <span class="tag-new">다올</span>. NH "피어 평균 PER에 30% 프리미엄 = <b>17.9배</b>" <span class="tag-new">NH</span>. 현대차증권 "목표 P/E 12.3배 → <b>16.4배</b>" <span class="tag-new">현대차</span>. 삼성 "Target P/E <b>13.7배</b>(2010~12 현대차 글로벌 확장기 상단)로 10% 상향" <span class="tag-new">삼성</span>. KB "implied P/E <b>16.0배</b>" <span class="tag-sk">KB</span>.<br><br>
+<b>왜 중요한가:</b> 현대모비스는 오랫동안 <b>PER 5~9배</b>의 저평가 자동차 부품주였다. 6개사가 일제히 목표 P/E를 16~18배로 올린 것은, 시장이 현대모비스를 <b>"성숙 자동차 부품사"가 아니라 "로보틱스 성장주"로 재분류</b>하기 시작했다는 신호다. EPS 추정치 상향(실적)과 멀티플 상향(리레이팅)이 <b>곱셈으로 작용</b>하기 때문에 목표주가가 50%씩 점프했다. 다만 현재가 기준 26E PER은 이미 14배대까지 올라온 상태로, 리레이팅의 상당 부분은 주가에 선반영되기 시작했다(Section 8-1 참조).
+</li>
+
+<li><span class="point-title">★★★ 자율주행 통합제어기·센서 — 모셔널 L4 + 엔비디아 협력의 직접 수혜</span><br>
+NH: 현대모비스는 자율주행차의 센서뿐 아니라 "센서에서 수집된 방대한 데이터를 처리하고 차량을 제어하는 <b>두뇌인 통합제어기</b>"를 공급. 자율주행 탑재율 증가 = 구조적 외형 성장 + 마진 개선 <span class="tag-new">NH</span>. 현대차증권은 현대모비스를 "로보틱스/자율주행 <b>공급망 구축의 핵심(구심점)</b>"으로 규정 <span class="tag-new">현대차</span>.<br><br>
+<b>왜 중요한가:</b> 2026.3 현대차그룹-엔비디아 자율주행 공동개발(L2 선제 적용 → L4 로보택시), NVIDIA Blackwell 5만장 도입, 모셔널 중심 L4 로보택시 고도화가 진행 중. 자율주행과 휴머노이드는 모두 <b>'Physical AI'</b>라는 한 축으로 수렴하며, 현대모비스는 두 영역 모두에서 하드웨어 공급망의 중심에 있다. 자율주행 통합제어기는 휴머노이드 매출이 본격화되기 전 <b>2026~2028년의 가교 성장축</b> 역할을 한다.
+</li>
+
+<li><span class="point-title">★★★ 주주환원 강화 — 자사주 5,000억원 매입·소각 + 총주주환원율 30% 목표</span><br>
+현대모비스는 2026년 <b>자사주 5,000억원 규모 매입·소각</b>(7월까지 매입 완료 → 소각)을 계획. 총주주환원율(TSR) 목표는 <b>30%</b>이며, 2026E 주당배당금은 약 6,870원(결산+중간)으로 추정. <span class="tag-disc">언론·IR 종합, 2026</span> FnGuide 기준 자사주 보유는 1,894,168주(2.09%, 5/20 기준).<br><br>
+<b>왜 중요한가:</b> 두산테스나가 "성장 재투자"형이었다면 현대모비스는 <b>성장(로보틱스) + 주주환원(자사주·배당)을 병행</b>할 수 있는 재무 체력을 갖췄다. A/S 캐시카우 + 순현금 구조 덕분이다. 자사주 소각은 주당가치를 직접 높이고, 지배구조 시나리오에서도 자사주는 전략적 자산으로 활용될 수 있다(국민연금이 자사주 처분에 반대 의견을 낸 것도 이 때문 — Section 8-6 참조).
+</li>
+
+<li><span class="point-title">★★★ 1Q26 실적 견조 — 매출 15.6조, 영업이익 8,026억으로 컨센 부합</span><br>
+현대모비스 1Q26 연결 실적(4/24 공시): <b>매출 15조5,605억원(+5.5% YoY), 영업이익 8,026억원(+3.3% YoY)</b>. <span class="tag-disc">DART, 2026.04.24</span> 해외 완성차 대상 매출 확대 + 전장 중심 고부가 제품 + 우호적 환율 + A/S 부품 수요 강세가 견인. 다만 순이익은 8,831억원으로 -14.4% YoY(전년 기저·금융손익 영향).<br><br>
+<b>왜 중요한가:</b> 로보틱스라는 '스토리'가 주가를 끌어올리는 국면에서도 <b>본업 실적이 흔들리지 않는다는 점</b>이 중요하다. 1Q26 영업이익은 시장 기대치에 부합했고, FnGuide 기준 2Q26E 영업이익은 9,246억원으로 추가 개선 전망. <b>실적 바닥이 단단</b>하기 때문에 로보틱스 모멘텀이 일시 조정받아도 밸류에이션 하방이 제한된다.
+</li>
+
+<li><span class="point-title">★★★ 글로벌 Top6 부품사 + AA+ 신용등급 + 순현금 — 신사업을 감당할 재무 안정성</span><br>
+현대모비스는 2025년 기준 <b>글로벌 Top6 자동차 부품사</b>. 회사채 신용등급 <b>AA+</b>(2025.6), 부채비율 약 43%, <b>순현금 약 1.8조원</b>(순차입금 마이너스). 2025년 영업활동현금흐름은 다올/메리츠 추정 기준 매출의 절반에 육박한다.<br><br>
+<b>왜 중요한가:</b> 휴머노이드 부품 생산설비(삼성 추정 액추에이터 35만개 생산시설) 같은 대규모 선행 투자를 <b>차입이나 증자 없이 자체 현금으로 감당</b>할 수 있다. 신생 로봇 기업들이 자금 조달에 의존하는 것과 달리, 현대모비스는 <b>재무 안정성 자체가 경쟁 우위</b>다. KB가 강조한 "캐시카우 보유"의 다른 측면이다.
+</li>
+
+</ol>
+
+<h3>1-A. 투자 의견 — 비중 확대 (Buy) + 단기는 분할 매수</h3>
+
+<div class="bull-box">
+<b>결론: 비중 확대 (Buy)</b><br>
+<b>이유:</b> ① 5/11~5/22 <b>6개 증권사 동시 목표주가 상향</b>으로 컨센서스 리레이팅 진행, ② BD 아틀라스 액추에이터 <b>독점·전량 공급</b>이 그룹 공식 발표로 확정, ③ 액추에이터 = 휴머노이드 원가의 40~60%로 <b>가장 큰 부품 파이</b> 장악, ④ A/S 캐시카우(OPM 25%+)가 로보틱스 투자를 <b>증자 없이</b> 감당, ⑤ BD IPO(2028) + 시총 괴리 최저로 <b>지배구조 디스카운트 → 프리미엄 전환</b>, ⑥ 본업 턴어라운드(비핵심 매각 + 전장 + Non-Captive)로 실적 하방 견고.
+</div>
+
+<div class="update-box">
+<b>★ 단기 매수 의사결정 — 한 줄 가이드</b><br>
+<b>지금 사야 하나?</b> → <b>분할 매수</b>. 현재가 646,000원은 5월 한 달 +41.5% 급등 직후이며 52주 신고가(670,000원)에 근접. 추격 매수는 가장 비싼 진입.<br>
+<b>언제 사야 하나?</b> → <b>① 5월 급등분 일부 되돌림(560,000~600,000원) 시 1차, ② 2Q26 실적 발표(7월) 확인 후 2차, ③ 시장 전체 조정 시 풀 사이즈</b><br>
+<b>얼마나 사야 하나?</b> → <b>총 자산의 5~10%, 3단계 분할.</b> 로보틱스 매출은 2027년부터 본격화되므로 시간을 두고 모아갈 여유가 있다.
+</div>
+
+<h3>1-B. 시나리오 테이블</h3>
+
+<table>
+<tr><th>시나리오</th><th>2026E EPS</th><th>적용 PER</th><th>목표가</th><th>현재가 대비</th><th>핵심 가정</th></tr>
+<tr><td><b>Base</b></td><td>47,500원<br>(6사 평균: NH 45,010 / 다올 50,249 / 삼성 47,469 / 대신 47,699 / 현대차 49,193 / KB 45,348)</td><td><b>16.8배</b><br>(글로벌 자동차부품 피어 평균 + 로보틱스 프리미엄)</td><td class="positive"><b>800,000원</b></td><td class="positive">+23.8%</td><td>BD 아틀라스 2028 양산 정상 진행, 액추에이터 독점 공급, A/S 캐시카우 유지, 본업 턴어라운드, <b>6사 컨센 평균 797,000원에 수렴</b></td></tr>
+<tr><td><b>Bull</b></td><td>47,500원</td><td><b>20.0배</b><br>(로봇 가치 본격 반영 + 지배구조 리레이팅)</td><td class="positive"><b>950,000원</b></td><td class="positive">+47.1%</td><td>BD IPO 가시화로 로봇가치 SOTP 본격 반영 + BD 외 글로벌 로봇사 고객 확장 + 지배구조 개편 시나리오 작동. <b>KB Bull-case 940,000원 / 다올 900,000원 상회</b></td></tr>
+</table>
+
+<p><b>현재가 vs Base TP:</b> 646,000원(5/22 종가)은 Base 800,000원 대비 <b>-19.3% 디스카운트</b> 상태. <b>최신 6개사 컨센 평균 797,000원과 거의 일치.</b> <b>⚠️ 단, 5월 한 달 +41.5% 급등으로 단기 과열 구간 — Section 8-1 참조. 분할 매수 권장.</b></p>
+
+<!-- ===================== Section 2 ===================== -->
+<h2>2. 산업 개요 — 자동차 부품 + 휴머노이드 로보틱스</h2>
+
+<h3>2-1. TAM/SAM/SOM</h3>
+<p>현대모비스가 속한 시장은 두 개의 축으로 봐야 한다. ① <b>기존 자동차 부품 시장</b> — 글로벌 자동차 부품 시장은 약 2조 달러 규모의 성숙 산업이며, 현대모비스는 매출 약 61조원(2025)으로 <b>글로벌 Top6 부품사</b>다. 전동화·SDV·전장화로 차량 1대당 부품 가치(특히 전장 컨텐츠)가 구조적으로 상승하는 국면. ② <b>휴머노이드 로보틱스 시장</b> — 글로벌 휴머노이드 시장은 현재 약 10억 달러에서 <b>2035년 약 1,128억 달러(약 166조원)</b>로 전망(국내 언론 종합). 이 중 <b>액추에이터가 휴머노이드 제조원가의 40~60%</b>를 차지하므로, 휴머노이드 부품 시장에서 액추에이터 영역만 따져도 수십조원 규모의 TAM이 새로 열린다.</p>
+
+<p><b>산업 핵심 Key Factor:</b> 자동차 부품 OSAT… 가 아니라 자동차 부품·로보틱스 부품 기업의 주가는 <b>① 전방 완성차(현대차·기아) 판매량, ② A/S 부품 수요·환율, ③ 전장 컨텐츠 침투율(ADAS·자율주행), ④ 휴머노이드 양산 진척</b> 4가지로 결정된다. 현대모비스는 ①②가 안정적 캐시카우를 형성하고 ③④가 성장축을 형성하는 <b>'안정 + 성장' 결합 구조</b>다.</p>
+
+<h3>2-2. Value Chain</h3>
+
+<table>
+<tr><th>단계</th><th>주요 기업</th><th>역할</th><th>현대모비스 위치</th></tr>
+<tr><td><b>Upstream (소재·소부장)</b></td><td>모터·감속기·반도체·센서 소자 공급사</td><td>액추에이터·전장 부품의 원소재·핵심 소자 공급</td><td>매입처</td></tr>
+<tr><td><b>핵심부품 (자동차)</b></td><td class="positive"><b>현대모비스</b>, 현대위아, HL만도, 한온시스템</td><td>샤시·칵핏·FEM 3대 모듈, 제동·조향·에어백·램프, 전장·자율주행 부품</td><td class="positive"><b>국내 1위, 글로벌 Top6</b></td></tr>
+<tr><td><b>핵심부품 (로보틱스)</b></td><td class="positive"><b>현대모비스</b>(액추에이터·그리퍼·헤드·센서·배터리모듈), 현대글로비스(물류)</td><td>휴머노이드 핵심 부품 공급. 그룹 공식 역할 분담</td><td class="positive"><b>BD 핵심부품 독점·전량 공급</b></td></tr>
+<tr><td><b>완성품 (자동차)</b></td><td>현대차, 기아, 글로벌 완성차(VW·GM·스텔란티스 등)</td><td>모듈 직서열 공급(현대차·기아) + 글로벌 OEM 수주</td><td>고객사 (매출 의존도 85~90% 현대차·기아)</td></tr>
+<tr><td><b>완성품 (로보틱스)</b></td><td>보스턴다이나믹스(BD), (확장 가능성) 글로벌 로봇사</td><td>휴머노이드 '아틀라스' 등 완성 로봇 제조·판매</td><td>고객사 (BD 핵심 부품 공급)</td></tr>
+<tr><td><b>최종 수요</b></td><td>현대차·기아 공장(HMGMA 등), 글로벌 제조·물류 현장</td><td>휴머노이드 도입·운영</td><td>최종 고객 (간접)</td></tr>
+</table>
+
+<p><b>돈의 흐름:</b> 자동차에서는 완성차(현대차·기아) → 현대모비스(모듈·A/S) → 소부장 순으로 매출/지급. 로보틱스에서는 BD → 현대모비스(액추에이터 등) → 소부장. <b>현대모비스가 자동차와 로보틱스 양쪽 밸류체인에서 동일하게 '핵심부품 공급사' 포지션</b>을 점한다는 것이 핵심 — 자동차에서 쌓은 정밀 기구·모터·전장 기술이 로보틱스로 그대로 이전된다.</p>
+
+<h3>2-3. 산업 사이클 — 'Physical AI' 전환 (증권사 공통 인식)</h3>
+
+<table>
+<tr><th>증권사</th><th>산업 전환 분석</th><th>핵심 표현</th></tr>
+<tr><td><b>NH</b></td><td>"그룹사의 Physical AI(자율주행, 로보틱스) 전환에 따른 신규 부품 수요" — 자동차와 로봇이 한 축으로 수렴</td><td><b>"Physical AI 전환의 선봉대장"</b></td></tr>
+<tr><td><b>현대차증권</b></td><td>"Physical AI 전략을 적시에·가시적으로·효율있게 추진하는 전략을 설득할수록 <b>선두기업 → 선도기업</b>으로 주가 할증"</td><td><b>"공급망 생태계 구심점"</b></td></tr>
+<tr><td class="positive"><b>삼성</b></td><td class="positive">"부품 제조 Turnaround + 로봇 사업 진출 + 지배구조 재편 기대가 겹쳐 단기간에 현대차 Valuation을 넘어설 가능성"</td><td class="positive">10년 횡보 → "<b>한꺼번에 폭발</b>"</td></tr>
+</table>
+
+<p><b>해석:</b> 'Physical AI'란 디지털 AI(소프트웨어)가 현실 세계의 물리적 몸체(자동차·로봇)를 통해 구현되는 단계를 말한다. 자율주행차와 휴머노이드는 모두 ① 센서로 세계를 인지하고 ② AI로 판단하고 ③ <b>액추에이터로 움직인다</b>는 동일한 구조를 갖는다. 따라서 자동차 전장 부품과 휴머노이드 부품은 기술적으로 <b>한 뿌리</b>이며, 현대모비스의 R&D 투자 한 번이 두 시장에 적용된다. 이것이 증권사들이 현대모비스를 "단순 자동차 부품사"가 아니라 <b>"Physical AI 공급망 기업"</b>으로 재분류하는 근거다 — 멀티플 리레이팅의 본질.</p>
+
+<h3>2-3.5. 휴머노이드 글로벌 경쟁 구도 — "누가 이기든 액추에이터는 필요"</h3>
+
+<p>휴머노이드 완성품 시장은 다자 경쟁이지만, 현대모비스는 <b>완성품이 아닌 부품 공급사</b>라는 점이 핵심이다.</p>
+
+<table>
+<tr><th>휴머노이드 진영</th><th>대표 모델/주체</th><th>특징</th><th>현대모비스 연관</th></tr>
+<tr><td><b>현대차그룹 (BD)</b></td><td class="positive"><b>아틀라스 (Atlas)</b></td><td class="positive">전동식 휴머노이드, 최대 50kg 적재, 2028 연 3만대 양산체계. 현대차·기아 공장 2.5만대+ 도입</td><td class="positive"><b>★★★★★ 액추에이터 등 핵심부품 독점·전량 공급</b></td></tr>
+<tr><td><b>테슬라</b></td><td>옵티머스 (Optimus)</td><td>자사 공장 투입 목표, 대량 양산 지향</td><td>직접 연관 없음 (단, 시장 성장 = 액추에이터 수요 증가)</td></tr>
+<tr><td><b>피규어 AI</b></td><td>Figure</td><td>미국 스타트업, 월드 파운데이션 모델 활용. 다올이 "밸류에이션 크게 상승" 가능성 지목</td><td>잠재 고객 확장 가능성 (Bull 옵션)</td></tr>
+<tr><td><b>중국 진영</b></td><td>유비테크 / 유니트리 / 애지봇</td><td>가격 경쟁력 기반 양산. 유니트리 'G1' 등 즉시 투입 수준 도달</td><td>대신증권이 로봇 밸류에이션 비교 기준(유비테크 PSR)으로 활용</td></tr>
+</table>
+
+<p><b>★ 핵심 통찰 — "곡괭이를 파는 자":</b> 골드러시에서 가장 안정적으로 돈을 번 것은 금을 캔 사람이 아니라 <b>곡괭이와 청바지를 판 상인</b>이었다. 휴머노이드 완성품 경쟁은 승자가 불확실하지만, <b>어느 로봇이든 액추에이터(관절·근육) 없이는 움직일 수 없다.</b> 현대모비스는 BD라는 확정 고객을 시작점으로, 트랙레코드를 쌓으면 <b>BD 외 글로벌 로봇사로 고객을 확장</b>할 수 있다(NH가 명시한 "휴머노이드 시장 성장에 따른 직접 수혜"). 이는 Bull 시나리오의 핵심 옵션이다.</p>
+
+<h3>2-4. 액추에이터 — 휴머노이드의 병목이자 현대모비스의 해자</h3>
+
+<div class="bull-box">
+<b>★ 왜 액추에이터가 현대모비스에게 '꿀'인가:</b><br>
+<b>1) 가장 큰 단일 부품 파이</b> — 휴머노이드 제조원가의 40~60%가 액추에이터 한 품목. 로봇 1대가 팔릴 때 현대모비스가 인식하는 매출이 가장 크다.<br>
+<b>2) 높은 기술 진입장벽</b> — 액추에이터는 모터 + 감속기 + 센서 + 제어가 결합된 정밀 기구. 정밀도·내구성·경량화 요구가 높아 신규 진입이 어렵다. 현대모비스는 자동차 구동·제동·조향에서 수십 년간 동일 기술을 축적.<br>
+<b>3) 기술 이전성</b> — 자동차 전장·기구 기술이 로봇 액추에이터로 직접 이전. 별도의 '맨땅 R&D'가 아니라 기존 역량의 확장.<br>
+<b>4) 산업 전체 성장의 수혜</b> — 특정 로봇사가 아닌 부품 공급사 포지션이라, 휴머노이드 시장 전체(2035년 166조원 전망)가 커질수록 수요가 커진다.<br>
+<b>5) 컨텐츠 확장</b> — 액추에이터 → 그리퍼(로봇손) → 센서·제어기 → 헤드·배터리 모듈로 공급 범위 확대 시 로봇 1대당 단가가 계단식 상승. 다올 추정 "1대당 7천만원 이상".
+</div>
+
+<!-- ===================== Section 3 ===================== -->
+<h2>3. 기업 개요</h2>
+
+<h3>3-1. 프로필</h3>
+<table>
+<tr><td style="width:30%;background:#f8f9fa"><b>회사명</b></td><td>현대모비스 (Hyundai Mobis Co., Ltd.)</td></tr>
+<tr><td style="background:#f8f9fa"><b>티커</b></td><td>012330.KS (코스피)</td></tr>
+<tr><td style="background:#f8f9fa"><b>설립</b></td><td>1977년 (현대정공으로 출발, 2000년 현대모비스로 사명 변경·부품 전문화)</td></tr>
+<tr><td style="background:#f8f9fa"><b>사업 영역</b></td><td>자동차 부품 제조(샤시·칵핏·FEM 3대 모듈, 제동·조향·에어백·램프, 전장·자율주행 부품), A/S 부품, 로보틱스 핵심부품(액추에이터 등)</td></tr>
+<tr><td style="background:#f8f9fa"><b>시장 지위</b></td><td>한국 1위 자동차 부품사 · 2025년 기준 글로벌 Top6 자동차 부품사</td></tr>
+<tr><td style="background:#f8f9fa"><b>핵심 고객</b></td><td>현대차·기아(매출 의존도 85~90%) + 글로벌 OEM(VW·GM·스텔란티스 등 Non-Captive 수주 확대) + 보스턴다이나믹스(로보틱스)</td></tr>
+<tr><td style="background:#f8f9fa"><b>최대주주</b></td><td>기아 외 7인 32.70% (기아 단독 약 17.9%)</td></tr>
+<tr><td style="background:#f8f9fa"><b>발행주식수</b></td><td>90,732,583주 (보통주). 유동주식비율 65.2%</td></tr>
+<tr><td style="background:#f8f9fa"><b>신용등급 / 재무</b></td><td>회사채 AA+ (2025.6) · 부채비율 약 43% · 순현금 약 1.8조원</td></tr>
+</table>
+
+<h3>3-2. 비즈니스 모델 + 사업부별 매출 분해 — ★★★ 리포트 최우선 핵심</h3>
+
+<p><b>핵심 한 줄:</b> 현대모비스의 사업은 <b>'박리다매의 모듈/제조'와 '고마진의 A/S 부품'</b> 두 축으로 구성된다. 여기에 <b>'고성장의 로보틱스/전장'</b>이라는 세 번째 축이 새로 붙는 중. 이 구조를 이해하면 "왜 매출은 큰데 영업이익률은 5%대인가", "왜 A/S가 캐시카우인가", "왜 로보틱스가 게임체인저인가"가 모두 풀린다.</p>
+
+<h4>① 2개 사업부의 극단적 마진 격차 (다올증권 분해)</h4>
+
+<table>
+<tr><th>사업부</th><th>매출 비중<br>(2025)</th><th>영업이익률</th><th>2025 영업이익<br>(다올 추정)</th><th>2027E 영업이익<br>(다올 추정)</th><th>성격</th></tr>
+<tr><td><b>모듈/제조 (Module & Parts)</b></td><td>약 82%</td><td class="negative">0~1%대</td><td>약 760억</td><td>약 6,450억</td><td>현대차·기아에 3대 모듈 직서열 공급. 매출은 크지만 박리. <b>턴어라운드 레버리지</b></td></tr>
+<tr><td class="positive"><b>A/S 부품 (After-Service)</b></td><td>약 18%</td><td class="positive"><b>24~27%</b></td><td class="positive">약 3,282억</td><td class="positive">약 3,854억</td><td>운행 중인 차량의 보수용 부품. <b>전사 영업이익의 대부분을 창출하는 캐시카우</b></td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: 다올투자증권 2026.05.21 사업부별 분해. 2025년 모듈 OPM 0.2%, A/S부품 OPM 24.7%</p>
+
+<p><b>왜 중요한가:</b> 현대모비스의 2025년 전사 영업이익률은 5.5%에 불과하지만, 이는 <b>매출 82%를 차지하는 모듈이 사실상 원가 수준으로 공급</b>되기 때문이다. 진짜 돈은 매출 18%짜리 A/S 부품에서 나온다. A/S는 ① 운행 차량이 누적될수록 시장이 커지고, ② 환율(원화 약세 시 해외 A/S 매출 증가)에 우호적이며, ③ 경기 불황 시 신차 대신 수리 수요가 늘어 <b>경기 방어적</b>이다. 신영증권이 리포트 제목을 "불확실성 속에서는 AS 사업이 확실한 실적 요인"으로 잡은 이유다.</p>
+
+<h4>② 두 가지 성장 레버 — 모듈 턴어라운드 + 로보틱스</h4>
+
+<p><b>레버 1 — 모듈 턴어라운드(레버리지 폭발력):</b> 모듈 매출은 약 57조원(2025)으로 워낙 크기 때문에, 삼성증권 분석대로 <b>"영업이익률 1%p 개선만으로 연 5,000억~6,000억원의 이익 증가"</b>로 직결된다. 비핵심 사업부(수소·램프·범퍼) 매각, ADAS·전장 규모의 경제, Non-Captive 수주(VW BSA 등)가 모듈 OPM을 끌어올리면 전사 이익이 비선형으로 점프한다. 다올 추정 모듈 영업이익: 2025년 760억 → 2027E 6,450억.</p>
+
+<p><b>레버 2 — 로보틱스(멀티플 폭발력):</b> 액추에이터 등 BD향 부품 매출이 2027년부터 인식되기 시작. 매출 규모 자체는 초기엔 작지만(2027 6천억 수준), <b>시장이 부여하는 멀티플을 5~9배에서 16~18배로 끌어올리는 효과</b>가 압도적으로 크다. 모듈 턴어라운드가 EPS(분자)를 키운다면, 로보틱스는 PER(승수)을 키운다 — 둘이 곱셈으로 작동한다.</p>
+
+<h4>③ 수익 공식</h4>
+
+<div class="calc-box">
+<b>현대모비스 전사 영업이익 ≈ (모듈 매출 × 모듈 OPM) + (A/S 매출 × A/S OPM) + (로보틱스 매출 × 로보틱스 OPM)</b><br>
+<br>
+<b>2025년 실제 (단위: 조원):</b><br>
+- 모듈/제조: 매출 약 50 × OPM 약 0.2% ≈ 영업이익 0.1조<br>
+- A/S 부품: 매출 약 11 × OPM 약 24.7% ≈ 영업이익 3.3조<br>
+- 전사 합계: 매출 61.1조 / 영업이익 3.36조 (OPM 5.5%)<br>
+<br>
+<b>핵심 변수 1 — 모듈 OPM.</b> 모듈 OPM이 0.2% → 2.0%로만 올라도(+1.8%p) 영업이익 +약 1조원. 비핵심 매각 + 전장 믹스 개선이 핵심.<br>
+<b>핵심 변수 2 — 로보틱스 매출 인식 속도.</b> BD 양산 일정(2028)에 연동. 2027년부터 매출 발생, OPM은 본업보다 높을 전망.<br>
+<b>핵심 변수 3 — 환율.</b> 원화 약세 시 A/S 매출·이익 증가(KB 추정: 환율 1% 상승 시 EPS +0.6%).
+</div>
+
+<h3>3-3. 경쟁 해자 (정량 분석)</h3>
+
+<table>
+<tr><th>해자 요소</th><th>강도</th><th>정량적 근거</th></tr>
+<tr><td><b>현대차그룹 핵심 계열</b></td><td>★★★★★</td><td>현대차·기아에 3대 모듈 직서열 공급 — 사실상 독점적 캡티브. 그룹 휴머노이드 사업의 부품 담당으로 공식 지정</td></tr>
+<tr><td><b>A/S 부품 네트워크</b></td><td>★★★★★</td><td>전 세계 운행 중인 현대차·기아 차량의 보수 부품 독점 공급. 운행대수 누적 → 구조적 성장 + OPM 25%+</td></tr>
+<tr><td><b>로보틱스 부품 선점</b></td><td>★★★★★</td><td>BD 액추에이터 독점·전량 공급. 액추에이터 35만개 생산시설 구축(삼성 추정). 그리퍼·센서·헤드모듈까지 확장</td></tr>
+<tr><td><b>정밀 기구·전장 기술</b></td><td>★★★★</td><td>자동차 구동·제동·조향에서 축적한 모터·감속기·제어 기술 → 로봇 액추에이터로 직접 이전. 통합제어기·자율주행 센서 자체 개발</td></tr>
+<tr><td><b>재무 체력</b></td><td>★★★★</td><td>회사채 AA+, 순현금 1.8조원, 부채비율 43%. 대규모 신사업 투자를 증자·차입 없이 자체 조달</td></tr>
+</table>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><td style="width:15%;background:#f8f9fa"><b>1977</b></td><td>현대정공 설립</td></tr>
+<tr><td style="background:#f8f9fa"><b>2000</b></td><td>현대모비스로 사명 변경 — 자동차 부품 전문기업으로 전환</td></tr>
+<tr><td style="background:#f8f9fa"><b>2021</b></td><td>현대차그룹, 소프트뱅크로부터 보스턴다이나믹스(BD) 경영권 인수</td></tr>
+<tr><td style="background:#f8f9fa"><b>2024.02</b></td><td>수소연료전지 사업부(연 1천억원 내외 적자) 현대차에 매각</td></tr>
+<tr><td style="background:#f8f9fa"><b>2026.01 (CES)</b></td><td class="positive">BD, 차세대 전동식 휴머노이드 '아틀라스' 공개</td></tr>
+<tr><td style="background:#f8f9fa"><b>2026.03</b></td><td>현대차그룹-엔비디아 차세대 자율주행 공동개발 발표 (GTC 2026)</td></tr>
+<tr><td style="background:#f8f9fa"><b>2026.04.24</b></td><td>1Q26 실적 발표 — 매출 15.6조, 영업이익 8,026억</td></tr>
+<tr><td style="background:#f8f9fa"><b>2026.05</b></td><td class="positive"><b>★ 램프 사업부 매각 MOU(OP모빌리티) + 6개 증권사 목표주가 일제 상향(700~900k)</b></td></tr>
+</table>
+
+<h3>3-5. 경영진 / 지배구조</h3>
+<p>현대모비스는 <b>현대차그룹 지배구조의 정점에 위치</b>한 사실상 지주회사 성격의 핵심 계열사다. '현대모비스 → 현대차 → 기아 → 현대모비스'의 순환출자 고리가 존재하며, 현대모비스는 현대차 지분 약 22%를 보유한다. 이 때문에 과거에는 "지배구조 개편의 도구로 쓰일 수 있다"는 우려가 <b>디스카운트 요인</b>이었다.</p>
+<p><b>★ 구도의 역전:</b> 삼성증권 분석에 따르면, 정의선 회장이 정공법으로 지배구조를 재편하려면 BD 등의 가치를 활용해 현대모비스 지분 24.17%를 시장에서 매입해야 하며, 이를 위해서는 <b>BD 가치가 최소 50조원 이상</b> 되어야 한다. 즉 <b>BD 가치 상승은 지배구조 재편을 가능하게 하는 동시에 현대모비스 보유 자산가치를 높인다.</b> "지배구조 = 디스카운트"였던 10년이 "지배구조 = 프리미엄"으로 전환되는 국면(상세 Section 8-6 참조). 경영진 차원의 구체적 임원 변동은 본 보고서의 6개 리포트에서 별도 언급되지 않았다.</p>
+
+<h3>3-6. 1차자료 — 6개 증권사 리포트 (FnGuide, 2026.05)</h3>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[1] 다올투자증권 — 유지웅 (2026.05.21)</h4>
+<p><b>제목:</b> "누가 왕이 될 것인가" — 자동차 업종 Top-Pick<br>
+<b>투자의견:</b> BUY 유지 / <b>적정주가:</b> 900,000원 (직전 600,000원 → +50.0% 상향, 6사 최고치)<br>
+<b>상승여력:</b> +68.2% (5/20 종가 535,000원 대비)</p>
+<p><b>목표주가 산출:</b> 적정주가 900,000원 = 2026E EPS 50,249원 × 적정 P/E 18.0배. <b>적정 P/E를 기존 12배에서 18배로 상향(피어 대비 30% 할증)</b> — 로봇 사업 진출로 가파른 외형 성장에 대한 밸류에이션 프리미엄.</p>
+<p><b>핵심 매수 근거:</b> ① BD향 부품공급 주도권 가치, ② BD 가치 상승에 따라 지배구조 개편의 핵심기업으로 지목 가능, ③ 현대차 대비 시총 괴리율 역사적 최저. 3Q26 기점 휴머노이드 부품 생태계 소싱 마무리, 로봇 1대당 7천만원 이상 부품 컨텐츠, <b>2031년 로봇부품 매출 2조원</b> 추정.</p>
+</div>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[2] NH투자증권 — 하늘 (2026.05.22)</h4>
+<p><b>제목:</b> "Physical AI 전환의 선봉대장"<br>
+<b>투자의견:</b> Buy 유지 / <b>목표주가:</b> 870,000원 (직전 580,000원 → +50.0% 상향)<br>
+<b>상승여력:</b> +29.9% (5/21 종가 670,000원 대비)</p>
+<p><b>목표주가 산출:</b> 12개월 선행 EPS × <b>17.9배</b> — 글로벌 자동차 부품사 피어 평균 PER에 30% 프리미엄. "휴머노이드 로봇의 근육 역할을 하는 액추에이터의 핵심 공급사로 시장 내 인정받기 시작"한 점을 반영.</p>
+<p><b>핵심 매수 근거:</b> 그룹사 Physical AI(자율주행+로보틱스) 전환 최대 수혜. 휴머노이드 제조원가의 40~45%를 차지하는 액추에이터 전량 공급 계획, 2026년 내 파일럿 라인 가동 → <b>2027년부터 액추에이터 매출 본격 발생</b>. 향후 센서·제어기까지 공급 범위 확대. 자율주행 통합제어기 공급으로 본업도 구조적 성장.</p>
+</div>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[3] 현대차증권 — 장문수 (2026.05.19)</h4>
+<p><b>제목:</b> "기술 선도기업의 공급망 생태계 구심점"<br>
+<b>투자의견:</b> BUY 유지 / <b>목표주가:</b> 810,000원 (직전 570,000원 → +42.1% 상향)<br>
+<b>상승여력:</b> +41.9% (5/18 종가 571,000원 대비)</p>
+<p><b>목표주가 산출:</b> 2026E EPS 49,193원 × <b>목표 P/E 16.4배</b> (기존 12.3배). 현대차 목표 P/E 18.3배에 최근 3개월 평균 할증률(-10.5%)을 적용해 도출.</p>
+<p><b>핵심 매수 근거:</b> 로보틱스/자율주행 공급망 구축의 핵심(구심점). Physical AI 전략을 적시·가시적·효율적으로 추진할수록 '선두기업 → 선도기업'으로 주가 할증. (중국 사례: 전동화 선두 BYD 대비 기술선도 Li Auto·XPeng 주가할증 63~169%). 모셔널 자율주행 센서, 로보틱스 액추에이터 등 공급망 핵심 기업.</p>
+</div>
+
+<div class="sk-box">
+<h4 style="margin-top:0;color:#a04000;">[4] KB증권 — 강성진 (2026.05.11)</h4>
+<p><b>제목:</b> "로보틱스 공급망 구축을 밀어붙일 캐시카우 보유"<br>
+<b>투자의견:</b> Buy 유지 / <b>목표주가:</b> 750,000원 유지<br>
+<b>상승여력:</b> +47.3% (5/8 종가 509,000원 대비) · Total return +48.9%</p>
+<p><b>목표주가 산출:</b> <b>DCF 방식</b> (WACC 9.5%, 영구성장률 3.6%), 목표 시가총액 67.0조원. 목표주가 도달 시 12M Fwd P/E 16.0배, P/B 1.22배.</p>
+<p><b>핵심 매수 근거:</b> ① BD 액추에이터 전량 공급(그리퍼 공급도 논의 중), ② A/S 사업의 안정적 이익이 휴머노이드 공급망 구축 재원을 제공, ③ BD 지분구조 — 현대모비스가 Hyundai Global(BD 54.7% 보유) 지분 20% 보유 → BD 간접지분율 10.9%. KB 전망: 2035년 BD가 19만달러급 휴머노이드 연 150만대 판매, 점유율 10%. 시나리오: Bull 940,000원 / Base 750,000원 / Bear 520,000원.</p>
+</div>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[5] 대신증권 — 김귀연 (2026.05.20)</h4>
+<p><b>제목:</b> "보스턴다이나믹스 핵심 밸류체인"<br>
+<b>투자의견:</b> BUY 매수 유지 / <b>목표주가:</b> 730,000원 (상향)<br>
+<b>상승여력:</b> +27.8% (5/18 종가 571,000원 대비)</p>
+<p><b>목표주가 산출 — SOTP(부분합산):</b> 목표 기업가치 65조원 = <b>본업 47조원 + 로봇 18조원</b>. 본업 = 2026E 지배순이익 4,328십억 × Target PER 11배(1H21 평균 밸류에 원가 부담 10% 할인). 로봇 = 2030년 BD향 액추에이터 예상 매출 2.2조원 × Target PSR 8.2배(중국 유비테크 PSR 40% 할인).</p>
+<p><b>핵심 매수 근거:</b> BD 액추에이터 직접 공급 통해 가장 직접적인 성장 수혜. 휴머노이드 내 원가비중이 가장 높은 액추에이터를 공급함으로써 BD 성장의 수혜를 가장 직접적으로 수취. 2030년 Atlas 5만대 → 액추에이터 원가 4.3조원, 현대모비스 50% 담당 시 매출 2.2조원. <b>Atlas 30만대 가정 시 매출효과 3.9조원</b>.</p>
+</div>
+
+<div class="broker-box">
+<h4 style="margin-top:0;">[6] 삼성증권 — 임은영, 김현지 (2026.05.20)</h4>
+<p><b>제목:</b> "10년간 눌린 주가, 한꺼번에 폭발한다"<br>
+<b>투자의견:</b> BUY 유지 / <b>목표주가:</b> 720,000원 (직전 650,000원 → +10.8% 상향)<br>
+<b>상승여력:</b> +37.1% (5/20 종가 525,000원 대비)</p>
+<p><b>목표주가 산출:</b> Target P/E 13.7배 & Target P/B 1.16배(각 10% 상향)로 산출한 두 적정가의 평균. 적용 실적은 2026~2027 평균. <b>P/E 13.7배 = 2010~2012년 현대차 글로벌 판매 확장기의 상단.</b></p>
+<p><b>핵심 매수 근거:</b> 10년간 주가를 눌렀던 지배구조 논리가 BD IPO(2028) 가시화로 <b>프리미엄 요인으로 전환</b>. 비핵심 사업부(수소·램프·범퍼) 매각으로 자체 Capital Allocation 권한 확보. 현대모비스가 아틀라스 제조원가의 60% 이상 담당, 액추에이터 35만개 생산시설 구축. BD향 매출 2027년 6천억 → 2029년 1조원. 현대차와 함께 하반기 Top-picks.</p>
+</div>
+
+<h4>3-6-A. 6개 증권사 비교 — 같은 결론, 다른 방법론</h4>
+
+<table>
+<tr><th>구분</th><th>다올 (5/21)</th><th>NH (5/22)</th><th>현대차 (5/19)</th><th>KB (5/11)</th><th>대신 (5/20)</th><th>삼성 (5/20)</th></tr>
+<tr><td><b>목표주가</b></td><td class="positive"><b>900,000</b></td><td>870,000</td><td>810,000</td><td>750,000</td><td>730,000</td><td>720,000</td></tr>
+<tr><td>밸류 방법론</td><td>P/E 18.0배</td><td>P/E 17.9배</td><td>P/E 16.4배</td><td>DCF</td><td>SOTP</td><td>P/E 13.7 + P/B 1.16</td></tr>
+<tr><td>적용 EPS(26E)</td><td>50,249</td><td>45,010</td><td>49,193</td><td>45,348</td><td>47,699</td><td>47,469</td></tr>
+<tr><td>매출 26E(조원)</td><td>66.0</td><td>67.9</td><td>—</td><td>64.6</td><td>64.8</td><td>65.1</td></tr>
+<tr><td>영업이익 26E(조원)</td><td>3.86</td><td>3.79</td><td>—</td><td>3.92</td><td>3.69</td><td>3.92</td></tr>
+<tr><td>핵심 차별 포인트</td><td>P/E 12→18배 리레이팅</td><td>액추에이터 원가 40~45%</td><td>'구심점' 포지셔닝</td><td>A/S 캐시카우 + DCF</td><td>본업+로봇 분리평가</td><td>지배구조 디스카운트→프리미엄</td></tr>
+</table>
+
+<p><b>해석:</b> 6개사가 <b>완전히 다른 밸류에이션 기법(P/E 배수, DCF, SOTP, P/E+P/B 혼합)으로 같은 결론(목표주가 720~900k)에 도달</b>했다. 방법론이 다른데도 결과가 수렴한다는 것은 결론이 특정 가정에 취약하지 않다는 뜻 — 강건한(robust) 컨센서스다. 6사 평균 목표주가는 <b>797,000원</b>, 평균 적용 P/E는 약 16.4배. <b>Base TP 800,000원은 이 6사 평균과 일치</b>하며, Bull TP 950,000원은 다올(900k)·KB Bull-case(940k)를 반영한다.</p>
+
+<h3>3-7. 경쟁 환경 — 글로벌 자동차부품 Peer</h3>
+
+<table>
+<tr><th>회사</th><th>국가</th><th>12M Fwd PER</th><th>12M Fwd PBR</th><th>12M Fwd ROE</th><th>관계</th></tr>
+<tr><td><b>현대모비스</b></td><td>한국</td><td class="positive"><b>9.4배</b></td><td>0.7배</td><td>7.7%</td><td><b>분석 대상. 로보틱스 성장축 추가 중</b></td></tr>
+<tr><td>Magna International</td><td>캐나다</td><td>8.7배</td><td>1.3배</td><td>14.8%</td><td>글로벌 종합 부품. Direct Peer</td></tr>
+<tr><td>Continental</td><td>독일</td><td>9.7배</td><td>2.5배</td><td>25.5%</td><td>타이어·전장. Direct Peer</td></tr>
+<tr><td>Denso</td><td>일본</td><td>9.8배</td><td>0.9배</td><td>9.7%</td><td>도요타 계열 전장 강자. Direct Peer</td></tr>
+<tr><td>Valeo</td><td>프랑스</td><td>6.9배</td><td>0.7배</td><td>9.7%</td><td>전장·ADAS. Direct Peer</td></tr>
+<tr><td>Toyota Industries</td><td>일본</td><td>21.8배</td><td>1.0배</td><td>4.6%</td><td>지게차·산업장비 포함</td></tr>
+<tr><td>Sumitomo Electric</td><td>일본</td><td>24.7배</td><td>2.9배</td><td>11.8%</td><td>전장·소재</td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: KB증권 2026.05.11 (Bloomberg Consensus). 12M Forward 기준</p>
+
+<p><b>해석:</b> 현대모비스의 12개월 선행 PER 9.4배는 글로벌 종합 부품 Peer(Magna·Continental·Denso·Valeo) 평균 약 8.8배와 유사한 <b>'성숙 부품주' 밸류에이션</b>이다. 6개 증권사가 목표 P/E를 16~18배로 상향한 것은, <b>현대모비스를 자동차 부품 Peer 그룹에서 떼어내 '로보틱스 성장주'로 재분류</b>하겠다는 의미다. NH가 적용한 "피어 평균 + 30% 프리미엄"이 바로 이 재분류의 정량적 표현이다. 적정 Peer는 더 이상 Magna·Denso가 아니라, 일부는 휴머노이드 부품·로보틱스 기업이 되어야 한다는 논리.</p>
+
+<h3>3-8. 주주구성</h3>
+
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td><b>기아 (외 7인)</b></td><td>32.70%</td><td>최대주주. 기아 단독 약 17.9%. 현대차그룹 순환출자 구조 (2026/02 기준)</td></tr>
+<tr><td><b>국민연금공단</b></td><td>9.51%</td><td>기관투자자 (2026/01 기준)</td></tr>
+<tr><td><b>미래에셋자산운용 (외 9인)</b></td><td>5.33%</td><td>기관투자자</td></tr>
+<tr><td><b>자사주</b></td><td>2.09%</td><td>1,894,168주 (2026/05/20 기준). 2026년 5,000억원 추가 매입·소각 계획</td></tr>
+<tr><td><b>외국인</b></td><td>약 40.0%</td><td>2026/05/22 기준. 자동차 대형주로서 높은 외국인 비중</td></tr>
+<tr><td><b>유동주식 비율</b></td><td>65.2%</td><td>—</td></tr>
+</table>
+
+<p><b>주주 구성 시사점:</b> 그룹 계열(기아 외 32.7%) + 국민연금 9.5% + 자사주 2.1%로 약 44%가 안정 지분. 외국인 비중 40%는 자동차 대형주로서 이미 높은 수준이라, 추가 매수 여력보다는 <b>로보틱스 리레이팅 스토리에 대한 글로벌 투자자의 반응</b>이 수급의 관건이다. 한편 국민연금이 현대모비스 자사주 처분(맞교환)에 반대 의견을 낸 사례는 <b>거버넌스 민감도</b>를 보여준다(Section 8-6 참조).</p>
+
+<!-- ===================== Section 4 ===================== -->
+<h2>4. 재무분석</h2>
+
+<h3>4-1. 연간 추이 (2023~2028E) — 3사(NH/삼성/KB) 비교</h3>
+
+<table>
+<tr><th>항목</th><th>2023A</th><th>2024A</th><th>2025A</th><th>2026E<br>(NH)</th><th>2026E<br>(삼성)</th><th>2026E<br>(KB)</th><th>2027F<br>(NH)</th><th>2027F<br>(삼성)</th><th>2027F<br>(KB)</th></tr>
+<tr><td>매출 (십억원)</td><td>59,254</td><td>57,237</td><td>61,118</td><td>67,929</td><td>65,087</td><td>64,610</td><td>73,039</td><td>68,880</td><td>71,526</td></tr>
+<tr><td>영업이익 (십억원)</td><td>2,295</td><td>3,073</td><td>3,357</td><td class="positive">3,790</td><td class="positive">3,919</td><td class="positive">3,921</td><td class="positive">4,300</td><td class="positive">4,627</td><td class="positive">4,066</td></tr>
+<tr><td>OPM (%)</td><td>3.9</td><td>5.4</td><td>5.5</td><td>5.6</td><td>6.0</td><td>6.1</td><td>5.9</td><td>6.7</td><td>5.7</td></tr>
+<tr><td>지배순이익 (십억원)</td><td>3,423</td><td>4,056</td><td>3,656</td><td>4,063</td><td>4,292</td><td>4,115</td><td>4,512</td><td>4,939</td><td>4,334</td></tr>
+<tr><td>EPS (원)</td><td>36,340</td><td>43,480</td><td>39,682</td><td>45,010</td><td>47,469</td><td>45,348</td><td>50,355</td><td>55,027</td><td>47,764</td></tr>
+<tr><td>ROE (%)</td><td>8.7</td><td>9.4</td><td>7.7</td><td>8.0</td><td>8.4</td><td>8.0</td><td>8.3</td><td>9.0</td><td>7.9</td></tr>
+<tr><td>부채비율 (%)</td><td>44.1</td><td>44.4</td><td>43.1</td><td colspan="3" style="text-align:center">약 42~44 (3사 유사)</td><td colspan="3" style="text-align:center">약 43~49 (3사 유사)</td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: 2023~2025 실적 = FnGuide / 2026~2027 추정 = NH·삼성·KB증권. 단위: 십억원, %, 원</p>
+
+<p><b>2025년 순이익 감소의 사유:</b> 2025년 매출(61.1조)·영업이익(3.36조)은 모두 전년 대비 증가(+6.8%, +9.2%)했으나, <b>지배순이익은 3.66조로 -9.9% 감소</b>했다. 이는 2024년의 높은 기저(금융손익·지분법이익 등)와 2025년 환율·일회성 요인 때문으로, <b>본업의 이익 창출력 자체는 견조하게 우상향</b>(영업이익률 2023 3.9% → 2024 5.4% → 2025 5.5%)했다. 2026년부터는 매출·영업이익·순이익이 모두 동반 성장하는 정상 궤도로 복귀.</p>
+
+<p><b>3사 추정치 차이:</b> 매출은 <b>NH(67.9조) &gt; 삼성(65.1조) ≈ KB(64.6조)</b> 순으로 NH가 가장 공격적. 영업이익은 2026E 기준 3.79~3.92조로 3사가 거의 일치하며, 2027F는 삼성(4.63조)이 NH(4.30조)·KB(4.07조)보다 공격적이다. <b>차이는 ±10% 범위로, 본질적으로 같은 그림</b> — 2026~2027년 영업이익이 매년 두 자릿수 성장하며 OPM이 5.5%에서 6%대로 올라간다. 핵심은 이 추정치들에 <b>로보틱스 매출이 거의 반영되지 않았다</b>는 점 — 로봇은 2027년부터 본격 인식되므로 상기 추정은 '본업 베이스라인'에 가깝다(Section 9 참조).</p>
+
+<h3>4-2. 분기 실적 + 추정</h3>
+
+<table>
+<tr><th>분기</th><th>매출 (십억원)</th><th>YoY</th><th>영업이익 (십억원)</th><th>OPM</th><th>비고</th></tr>
+<tr><td>1Q25 A</td><td>14,752</td><td>—</td><td>777</td><td>5.3%</td><td>—</td></tr>
+<tr><td>2Q25 A</td><td>15,936</td><td>—</td><td>870</td><td>5.5%</td><td>—</td></tr>
+<tr><td>3Q25 A</td><td>15,032</td><td>—</td><td>780</td><td>5.2%</td><td>—</td></tr>
+<tr><td>4Q25 A</td><td>15,398</td><td>—</td><td>931</td><td>6.0%</td><td>연말 A/S 성수기</td></tr>
+<tr><td><b>2025 연간</b></td><td><b>61,118</b></td><td>+6.8%</td><td><b>3,357</b></td><td>5.5%</td><td>매출·영업이익 증가, 순이익 감소</td></tr>
+<tr><td>1Q26 A</td><td>15,561</td><td>+5.5%</td><td>803</td><td>5.2%</td><td>해외 완성차·전장·A/S 견인</td></tr>
+<tr><td class="positive"><b>2Q26 E</b></td><td class="positive"><b>16,737</b></td><td>+5.0%</td><td class="positive"><b>925</b></td><td>5.5%</td><td>FnGuide 컨센. NH 추정은 매출 17,744 / OP 945</td></tr>
+<tr><td>3Q26 E</td><td>약 16,659</td><td>—</td><td>약 975</td><td>5.9%</td><td>다올 추정</td></tr>
+<tr><td>4Q26 E</td><td>약 16,915</td><td>—</td><td>약 1,084</td><td>6.4%</td><td>다올 추정. 연말 A/S 성수기</td></tr>
+<tr><td><b>2026E 연간</b></td><td><b>64,610~67,929</b></td><td>+6~11%</td><td class="positive"><b>3,790~3,921</b></td><td>5.6~6.1%</td><td>3사 추정 레인지</td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: 분기 실적·추정 = 다올·NH증권 / FnGuide. 단위: 십억원</p>
+
+<p><b>★ 핵심 — 1Q26 실적 점검:</b> 1Q26 연결 영업이익 8,026억원은 전년 대비 +3.3%로 시장 컨센서스에 부합. FnGuide 기준 2Q26E 영업이익은 9,246억원으로 추가 개선이 예상된다. 분기 영업이익률은 5%대 초중반에서 연말로 갈수록 6%대로 올라가는 <b>'상저하고' 패턴</b>(A/S 성수기 + 비핵심 매각 효과 반영)이다. 로보틱스가 주가 모멘텀을 끌어도 <b>본업 분기 실적이 안정적으로 우상향한다는 점</b>이 밸류에이션 하방을 받친다.</p>
+
+<h3>4-3. 현금흐름 — 신사업을 자체 조달하는 체력</h3>
+
+<table>
+<tr><th>지표</th><th>2024A</th><th>2025A</th><th>등급/해석</th></tr>
+<tr><td>영업활동현금흐름(OCF)</td><td>견조</td><td>견조 (매출의 40~50% 수준)</td><td class="positive">A — A/S 고마진이 OCF 견인</td></tr>
+<tr><td>CAPEX (십억원)</td><td>2,204</td><td>1,348</td><td>전동화 투자 일단락 후 정상화</td></tr>
+<tr><td>잉여현금흐름(FCF, 십억원)</td><td>2,049</td><td>3,125</td><td class="positive">A — FCF 견조, 2025년 개선</td></tr>
+<tr><td>순차입금 (십억원)</td><td>-1,646</td><td>-1,799</td><td class="positive">A+ — <b>순현금</b> 약 1.8조원</td></tr>
+<tr><td>부채비율 (%)</td><td>44.4</td><td>43.1</td><td class="positive">A — 40%대 초반의 안정적 수준</td></tr>
+<tr><td>신용등급 (회사채)</td><td colspan="2" style="text-align:center">AA+ (2025.06)</td><td class="positive">A+ — 최상위권</td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: NH증권 Historical Key financials / FnGuide</p>
+
+<p><b>현금흐름 종합 결론:</b> 현대모비스는 <b>순현금 약 1.8조원 + FCF 3조원대 + AA+ 신용등급</b>의 최상위 재무 체력을 보유한다. 이는 로보틱스 보고서에서 단순한 '안정성' 항목이 아니라 <b>핵심 투자 논리</b>다 — 휴머노이드 부품 생산설비(삼성 추정 액추에이터 35만개 라인)와 R&D에 대규모 선행 투자가 필요한데, 현대모비스는 <b>유상증자나 차입 없이 자체 현금으로 이를 감당</b>할 수 있다. KB증권이 제목으로 내세운 "캐시카우 보유"의 실체이며, 신생 로봇 기업들이 자금 조달에 의존하는 것과 대비되는 구조적 우위다.</p>
+
+<h3>4-4. 유상증자 / 희석 리스크 점검</h3>
+
+<table>
+<tr><th>리스크 조건</th><th>해당 여부</th><th>현황</th></tr>
+<tr><td>① 부채비율 150%+</td><td class="positive">미해당</td><td>43% 수준</td></tr>
+<tr><td>② OCF 마이너스</td><td class="positive">미해당</td><td>OCF 항상 견조한 플러스</td></tr>
+<tr><td>③ 순차입금 과다</td><td class="positive">미해당</td><td>순현금 약 1.8조원</td></tr>
+<tr><td>④ 대규모 CAPEX로 FCF 적자</td><td class="positive">미해당</td><td>2025년 FCF +3.1조원</td></tr>
+<tr><td>⑤ 신용등급 하향</td><td class="positive">미해당</td><td>AA+ 유지</td></tr>
+<tr><td>⑥ 자사주 매입·소각 진행</td><td class="positive">긍정</td><td>희석이 아니라 <b>주식수 감소(주주가치 제고)</b> 방향</td></tr>
+</table>
+
+<p><b>판정: 유상증자 리스크 사실상 없음.</b> 오히려 현대모비스는 자사주를 <b>매입·소각</b>하며 주식수를 줄이는 방향이다. 로보틱스 신사업 투자도 자체 현금흐름으로 충당 가능하므로, 6개 증권사 중 어느 곳도 유상증자 시나리오를 가정하지 않는다. 이는 대규모 CAPEX로 FCF가 일시 마이너스가 되는 일부 성장기업과 대비되는 현대모비스의 차별적 강점이다.</p>
+
+<!-- ===================== Section 5 ===================== -->
+<h2>5. 주주환원</h2>
+
+<p>두산테스나 같은 코스닥 성장주에서는 주주환원이 부차적이지만, <b>현대모비스에서는 주주환원이 핵심 투자 포인트의 하나</b>다. 성장(로보틱스)과 환원(자사주·배당)을 동시에 할 수 있는 재무 체력이 차별점이기 때문이다.</p>
+
+<table>
+<tr><th>항목</th><th>내용</th><th>의미</th></tr>
+<tr><td><b>자사주 매입·소각 (2026)</b></td><td class="positive"><b>약 5,000억원 규모</b> — 2026년 7월까지 매입 완료 후 소각 계획</td><td class="positive">주식수 감소 → 주당가치 직접 제고</td></tr>
+<tr><td><b>총주주환원율(TSR) 목표</b></td><td class="positive"><b>30%</b> (향후 3년간 30% 이상 목표)</td><td>현대차·기아(35%)와 함께 그룹 차원의 환원 강화 기조</td></tr>
+<tr><td><b>배당</b></td><td>2026E 주당배당금 약 6,870원 추정 (결산 + 중간배당). 2025년 DPS 6,500원</td><td>배당수익률 약 1%대 — 배당성장 추세(2023 4,500 → 2024 6,000 → 2025 6,500원)</td></tr>
+<tr><td><b>자사주 보유</b></td><td>1,894,168주 (2.09%, 2026/05/20 기준)</td><td>소각 시 추가 가치 제고. 단 지배구조 활용 가능성도 존재(아래)</td></tr>
+</table>
+
+<p><b>★ 주주환원의 두 얼굴 — 가치 제고 vs 지배구조 카드:</b> 자사주 매입·소각은 명백한 주주가치 제고책이다. 다만 현대모비스의 자사주는 <b>지배구조 재편 시 전략적 자산</b>으로도 쓰일 수 있다. 실제로 국민연금은 과거 현대모비스의 자사주 처분(맞교환 형태)에 대해 "주주환원 취지와 불일치"를 이유로 반대 의견을 낸 바 있다. 즉 자사주의 사용처(소각 vs 지배구조 활용)가 향후 거버넌스 관전 포인트다. <b>본 보고서의 Base 시나리오는 '소각을 통한 정상적 주주환원'을 가정</b>하며, 지배구조 카드로 쓰일 경우의 영향은 Section 8-6에서 별도 점검한다.</p>
+
+<p><b>종합:</b> 현대모비스는 ① 로보틱스·전장이라는 <b>성장</b> 스토리, ② 자사주 5,000억 소각 + TSR 30%라는 <b>주주환원</b> 스토리를 동시에 제공한다. A/S 캐시카우와 순현금 구조 덕분에 둘 중 하나를 포기할 필요가 없다는 점이 밸류에이션 리레이팅을 정당화하는 또 하나의 축이다.</p>
+
+<!-- ===================== Section 6 ===================== -->
+<h2>6. 밸류에이션</h2>
+
+<h3>6-1. Peer 비교 — 요약</h3>
+<p>Section 3-7 참조. <b>핵심 요약:</b> 현대모비스 12개월 선행 PER 9.4배는 글로벌 종합 부품 Peer 평균(약 8.8배)과 유사한 '성숙 부품주' 수준. 6개 증권사가 목표 P/E를 <b>16~18배</b>로 상향한 것은 현대모비스를 '로보틱스 성장주'로 재분류하는 작업이다. 현재가 646,000원 기준 2026E PER은 약 14배로, 리레이팅의 일부는 이미 주가에 반영되기 시작했다.</p>
+
+<h3>6-2. 시나리오별 목표가 산출</h3>
+
+<div class="calc-box">
+<b>[Base 목표가 800,000원 산출 — 6사 평균 반영]</b><br>
+① 2026E EPS = 6사 평균<br>
+&nbsp;&nbsp;(NH 45,010 + 다올 50,249 + 삼성 47,469 + 대신 47,699 + 현대차 49,193 + KB 45,348) / 6 = <b>47,495원 ≈ 47,500원</b><br>
+② 적용 PER = <b>16.8배</b><br>
+&nbsp;&nbsp;- 6사 적용 P/E: 다올 18.0 / NH 17.9 / 현대차 16.4 / KB 약 16.0 / 삼성 13.7 (대신은 SOTP라 제외)<br>
+&nbsp;&nbsp;- 5개사 평균 약 16.4배에 로보틱스 매출 본격화 기대를 소폭 가산 → 16.8배 적용<br>
+③ 목표가 = 47,500 × 16.8 = <b>798,000원 → 라운딩 800,000원</b><br>
+④ Cross-check: 6사 목표주가 평균 = (900+870+810+750+730+720)/6 = <b>796,667원 (±0.4% 일치)</b><br>
+⑤ 현재가 646,000원 대비 <b>+23.8%</b>
+</div>
+
+<div class="calc-box">
+<b>[Bull 목표가 950,000원 산출]</b><br>
+<b>방법 A — P/E 리레이팅:</b><br>
+① 2026E EPS = 47,500원<br>
+② 적용 PER = <b>20.0배</b> (BD IPO 가시화로 로봇 가치 본격 반영 + 지배구조 디스카운트 완전 해소)<br>
+③ 목표가 = 47,500 × 20.0 = <b>950,000원</b><br>
+<br>
+<b>방법 B — SOTP 교차검증 (대신증권 방식 확장):</b><br>
+- 본업 가치: 2026E 지배순이익 약 4.3조 × Target PER 11배 ≈ <b>47조원</b><br>
+- 로봇 가치: BD 양산 본격화 + 글로벌 로봇사 고객 확장 반영 시 대신 추정(18조)의 약 2배 → <b>38조원</b><br>
+- 합산 기업가치 = 47조 + 38조 = 85조원 ÷ 90.73백만주 = <b>약 937,000원</b><br>
+<br>
+<b>두 방법 모두 약 940,000~950,000원에 수렴.</b> KB Bull-case 940,000원 / 다올 적정주가 900,000원을 상회하는 수준 → <b>950,000원</b>으로 설정. 현재가 대비 <b>+47.1%</b>
+</div>
+
+<p><b>Base와 Bull의 차이는 '로봇 가치를 얼마나 반영하느냐'다.</b> Base(800k)는 로보틱스를 'P/E 프리미엄' 정도로만 반영한 보수적 값이고, Bull(950k)은 BD IPO로 로봇 사업가치가 SOTP로 본격 분리 평가되는 국면을 가정한다. 6개 증권사 목표주가(720~900k)가 대부분 이 Base~Bull 구간 안에 위치한다.</p>
+
+<h3>6-3. 진입·이탈 기준</h3>
+
+<p style="font-size:10pt;color:#7d4f00;">※ 현대모비스는 KOSPI 대형주로 거래정지·신용 제한 같은 제약은 없다. 다만 5월 한 달 +41.5% 급등으로 단기 과열 — Section 8-1 참조.</p>
+
+<table>
+<tr><th>구분</th><th>기준가</th><th>사이즈</th><th>근거</th></tr>
+<tr><td class="negative">돌파 매수</td><td>646,000원 (현재가, 신고가 근접)</td><td class="negative">추격 금지</td><td>5월 +41.5% 급등 직후 = 가장 비싼 진입</td></tr>
+<tr><td><b>분할 매수 1차</b></td><td>590,000~610,000원 (5월 급등분 일부 되돌림)</td><td class="positive">총 비중의 40%</td><td>단기 조정 시 1차 진입</td></tr>
+<tr><td><b>분할 매수 2차</b></td><td>2Q26 실적 발표(7월) 확인 후</td><td class="positive">총 비중의 30%</td><td>본업 실적 컨펌 + 로보틱스 진척 점검</td></tr>
+<tr><td class="positive"><b>분할 매수 3차</b></td><td>시장 전체 조정 또는 540,000원 이하</td><td class="positive">총 비중의 30% (풀)</td><td>펀더멘털 훼손 없는 외부 충격 = 최적 진입</td></tr>
+<tr><td>비중 상한</td><td>—</td><td>총 자산의 5~10%</td><td>대형주이나 로보틱스 스토리의 변동성 감안</td></tr>
+<tr><td>리스크 점검선</td><td>520,000원 (KB Bear-case)</td><td>비중 재점검</td><td>이탈 시 로보틱스 내러티브 약화 여부 재평가</td></tr>
+</table>
+
+<div class="bull-box">
+<b>★ 최적 진입 시나리오:</b><br>
+<b>현재 시점 행동: 분할 매수 시작 가능하되 추격 금지.</b> 로보틱스 매출은 2027년부터 본격화되므로 시간을 두고 모아갈 여유가 충분하다.<br>
+<b>A. 보수적:</b> 2Q26 실적(7월) + 램프·범퍼 매각 완료 확인 후 진입<br>
+<b>B. 표준:</b> 590,000~610,000원 되돌림 시 1차(40%) → 7월 실적 후 2차(30%) → 조정 시 3차(30%)<br>
+<b>C. 적극적:</b> 현 가격대에서 소량(20%) 선진입 후 나머지를 조정마다 분할
+</div>
+
+<!-- ===================== Section 7 ===================== -->
+<h2>7. 주가 히스토리 &amp; 주요 이벤트</h2>
+
+<table>
+<tr><th>시점</th><th>주가</th><th>주요 이벤트</th></tr>
+<tr><td>2025.05.23</td><td>242,000원</td><td>52주 최저가</td></tr>
+<tr><td>2025.11말</td><td>약 296,000원</td><td>6개월 전 — 로보틱스 테마 부각 이전</td></tr>
+<tr><td>2026.01 (CES)</td><td>—</td><td>BD, 차세대 전동식 휴머노이드 '아틀라스' 공개</td></tr>
+<tr><td>2026.02</td><td>약 443,000원</td><td>3개월 전</td></tr>
+<tr><td>2026.03</td><td>—</td><td>현대차그룹-엔비디아 자율주행 공동개발 발표 (GTC 2026)</td></tr>
+<tr><td>2026.04.24</td><td>약 456,000원</td><td>1Q26 실적 발표 — 매출 15.6조, 영업이익 8,026억</td></tr>
+<tr><td>2026.04.27~28</td><td>—</td><td>미래에셋 TP 550k / 신한 570k / BNK 580k — 리레이팅 시작 전 컨센</td></tr>
+<tr><td>2026.05.08</td><td>509,000원</td><td>KB증권 TP 750,000원 (5/11 발간)</td></tr>
+<tr><td>2026.05.18</td><td>571,000원</td><td>대신·현대차증권 분석 기준일</td></tr>
+<tr><td class="positive">2026.05.19</td><td class="positive">—</td><td class="positive">현대차증권 TP 810,000원 — "공급망 생태계 구심점"</td></tr>
+<tr><td class="positive"><b>2026.05.20</b></td><td class="positive">약 530,000원</td><td class="positive"><b>★ 삼성 TP 720k + 대신 TP 730k + 키움 TP 700k 동시 발간</b></td></tr>
+<tr><td class="positive"><b>2026.05.21</b></td><td class="positive"><b>670,000원<br>(52주 신고가)</b></td><td class="positive"><b>★ 다올 TP 900,000원 "누가 왕이 될 것인가" — 자동차 Top-Pick. 당일 급등하며 신고가</b></td></tr>
+<tr><td><b>2026.05.22</b></td><td><b>646,000원<br>(-3.58%)</b></td><td class="positive"><b>★ NH TP 870,000원 "Physical AI 전환의 선봉대장"</b> — 급등 후 단기 차익실현</td></tr>
+</table>
+
+<p><b>주가 흐름 해석:</b> 현대모비스는 12개월간 +162.6%, 6개월간 +118.2% 상승했다. 특히 <b>5월 들어 한 달간 +41.5%</b> 급등했는데, 이는 5/11~5/22 6개 증권사의 목표주가 일제 상향과 정확히 겹친다. 즉 <b>이번 상승은 실적이 아니라 '로보틱스 리레이팅'이 주도</b>한 것이다. 다만 12개월 상대수익률은 코스피 대비 <b>-9~-32%p로 언더퍼폼</b> — 지수 자체가 더 크게 올라서다(다올 지적: "현대차 대비 시총 괴리율 역사적 최저"). 5/21 신고가(670,000원) 후 5/22 -3.58% 조정은 단기 과열에 대한 자연스러운 되돌림으로, 추격 매수보다 분할 접근이 합리적임을 보여준다.</p>
+
+<!-- ===================== Section 8 ===================== -->
+<h2>8. 리스크 분석</h2>
+
+<h3>8-1. ★★★ 단기 — 5월 +41.5% 급등에 따른 과열</h3>
+
+<div class="warning-box">
+<b>⚠️ 한 줄 요약: 5월 한 달 +41.5%, 12개월 +162.6% 급등. 52주 신고가 근접. 리레이팅의 상당 부분이 단기간에 선반영.</b>
+</div>
+
+<p><b>① 정량 점검:</b> 현재가 646,000원의 2026E PER은 약 14배(다올 EPS 기준)~14.3배(FnGuide 컨센 EPS 45,636 기준). 1년 전 PER이 5~9배였던 것을 감안하면 <b>멀티플이 이미 2배 가까이 확장</b>됐다. 6개 증권사 목표 P/E 16~18배까지는 추가 여력이 있지만, '저평가 부품주를 줍는' 국면은 지났다.</p>
+
+<p><b>② 무엇이 위험한가:</b> 로보틱스 모멘텀이 주도한 상승이라, <b>로봇 관련 뉴스 흐름에 주가가 민감</b>하다. BD 양산 일정 지연, 휴머노이드 시장 기대 후퇴, 혹은 단순 차익실현 매물이 나오면 급등분(5월 +41.5%)의 되돌림이 발생할 수 있다. 5/22 -3.58% 조정이 그 예고편이다.</p>
+
+<p><b>③ 대응:</b> Section 6-3의 분할 매수 원칙을 따른다. 590,000~610,000원 되돌림 1차, 7월 실적 후 2차, 시장 조정 시 3차. <b>로보틱스 매출은 2027년부터이므로 서두를 이유가 없다.</b></p>
+
+<h3>8-2. ★★★ BD 휴머노이드 양산 지연 리스크</h3>
+
+<p>본 보고서 투자 논리의 핵심 전제는 "BD 아틀라스가 2028년부터 양산된다"는 것이다. 휴머노이드는 신기술 영역으로 <b>양산 일정이 지연될 가능성</b>이 상존한다. BD는 2025년 매출 약 1,500억원에 당기순손실 5,284억원으로 <b>아직 적자</b>이며, 아틀라스는 양산 전 단계다. 일정이 1~2년 밀리면 현대모비스의 로봇 매출 인식 시점도 함께 밀리고, 리레이팅 논리가 약화된다.<br><br>
+<b>완화 요인:</b> ① 현대차그룹이 양산 대수(3만대+)·투입 시점(2028)·공장(HMGMA)·계열사 역할까지 공식 발표로 못 박았다 — 추정이 아닌 그룹 로드맵. ② 현대모비스는 <b>지분법(BD 적자 반영)이 아닌 부품 직접 매출</b>로 손익을 인식하므로, BD가 적자여도 부품을 납품하면 매출이 발생한다. ③ A/S 캐시카우가 로봇 지연 시에도 이익 하방을 지지한다.</p>
+
+<h3>8-3. ★★★ 로봇 매출 가시성 — 아직은 '추정치'</h3>
+
+<p>증권사들이 제시한 BD향/로봇 매출(2027년 6천억, 2029년 1조, 2031년 2조 등)은 모두 <b>추정치</b>이며 확정 수주 계약 공시에 기반한 것이 아니다. 추정 기관별 편차도 크다 — 대신은 "2030년 2.2조원", 다올은 "2031년 2조원". 액추에이터 단가, 현대모비스의 물량 점유율(대신은 50% 가정), Atlas 판매 대수 등 가정에 따라 결과가 크게 달라진다.<br><br>
+<b>모니터링 포인트:</b> ① 현대모비스의 로봇 부품 <b>공급계약 공시(DART)</b> 등장 여부, ② BD 아틀라스 양산 라인 가동 뉴스, ③ 현대모비스 분기 실적에서 <b>로봇 부품 매출의 별도 인식</b> 시작 시점. 이 중 하나라도 구체화되면 추정이 사실로 전환되며 추가 리레이팅 트리거가 된다.</p>
+
+<h3>8-4. ★★★ 현대차·기아 판매 의존도 (85~90%) + 관세·환율</h3>
+
+<p>삼성증권 지적: 현대모비스의 현대차·기아에 대한 매출 의존도는 <b>85~90%</b>다. 글로벌 신차 판매가 둔화되거나 현대차·기아 생산이 줄면 모듈 매출이 직접 타격을 받는다. 또한 미국 관세 정책, 원/달러 환율 변동도 변수다(KB 추정: 환율 1% 상승 시 EPS +0.6% — 원화 약세는 우호적, 강세는 부담).<br><br>
+<b>완화 요인:</b> ① <b>Non-Captive 수주 확대</b> — 2H26부터 VW향 BSA 등 연간 5~6천억원의 비계열 매출이 시작되며 의존도가 점진적으로 낮아진다. ② A/S 부품은 신차 판매가 아니라 <b>운행 대수</b>에 연동되므로 신차 둔화 시에도 방어적. ③ 관세는 현대차그룹 전체의 이슈로, 현대모비스 단독 리스크라기보다 그룹 공동 대응 사안이다.</p>
+
+<h3>8-5. ★★ 증권사 추정치 편차 + 컨센서스 후행성</h3>
+
+<p>6개 증권사 목표주가가 720,000~900,000원으로 <b>±11% 편차</b>를 보인다. 적용 EPS도 45,010~50,249원으로 다르다. 또한 FnGuide 25개사 컨센서스 목표주가(632,400원)는 최신 6개사(797,000원)와 큰 괴리가 있다 — <b>컨센이 후행</b>한다는 뜻. 만약 후속 증권사들이 보수적으로 컨센에 합류하면 평균 목표주가가 다올·NH보다 낮게 형성될 수 있다.<br><br>
+<b>해석:</b> 다만 이 편차는 '컨센 형성 과정의 노이즈'에 가깝다. 6개사 모두 BUY이고 방향(상향)은 일치한다. 컨센이 후행한다는 것은 오히려 <b>아직 반영되지 않은 상향 여지</b>가 남아있다는 의미로도 읽을 수 있다.</p>
+
+<h3>8-6. ★★ 지배구조 시나리오의 양면성</h3>
+
+<p>지배구조 재편은 현대모비스 주가의 <b>가장 큰 비대칭 변수</b>다. 다올·삼성 모두 "BD 가치 상승 → 지배구조 개편 → 현대모비스 리레이팅"을 그렸지만, 지배구조 개편은 <b>방법과 시점이 불확실</b>하다. 2018년 현대차그룹의 지배구조 재편 시도는 한 차례 무산된 바 있다.<br><br>
+<b>양면성:</b> ① <b>긍정</b> — 정공법 재편(정의선 회장이 현대모비스 지분 매입) 시 현대모비스는 그룹 정점으로서 프리미엄을 받는다. ② <b>부정</b> — 재편 과정에서 현대모비스 자사주가 주주가치 제고(소각)가 아닌 지분 맞교환 수단으로 쓰이면 일반주주에게 불리할 수 있다(국민연금이 반대한 사례). 본 보고서 Base 시나리오는 자사주의 정상적 소각을 가정한다. 지배구조는 <b>'확정된 호재'가 아니라 '방향성 있는 옵션'</b>으로 접근해야 한다.</p>
+
+<h3>8-7. ★★ 전동화 사업 흑자전환 지연</h3>
+
+<p>삼성증권: "전동화 사업은 현대차·기아의 전기차 판매 정체로 <b>흑자 전환이 1년 이상 지연</b>"되고 있다. 글로벌 EV 수요 둔화(캐즘)가 길어지면 전동화 부품 부문의 적자가 모듈 수익성 개선을 일부 상쇄한다.<br><br>
+<b>완화 요인:</b> 전동화는 본업 턴어라운드의 한 축일 뿐이며, ADAS·전장·Non-Captive 수주·비핵심 매각이 모듈 수익성을 끌어올리는 다른 축들이 작동한다. 또한 유럽 환경규제 강화는 중장기 EV 회복 요인이다.</p>
+
+<h3>8-8. ★★ 밸류에이션 — 리레이팅의 선반영 정도</h3>
+
+<p>현재가 646,000원에는 이미 멀티플 확장(PER 5~9배 → 14배)이 상당 부분 반영됐다. Base TP 800,000원까지 상승여력은 +23.8%로, 1년 전 같은 종목의 '저평가 매력'에 비하면 좁아졌다. <b>로보틱스 스토리가 기대만큼 진행되지 않으면</b> 멀티플이 다시 압축(de-rating)될 수 있다 — KB Bear-case 520,000원(12M Fwd P/B 0.87배)이 그 하단 시나리오다. 현재가 대비 Bear까지는 -19.5%. <b>상승여력(+23.8%)과 하락위험(-19.5%)이 비교적 균형</b>을 이루는 구간이므로, 분할 매수로 평균 단가를 낮추는 전략이 유효하다.</p>
+
+<!-- ===================== Section 9 ===================== -->
+<h2>9. 미래 모멘텀</h2>
+
+<h3>9-1. 8중 성장축 — 안정(A/S) + 턴어라운드(모듈) + 성장(로보틱스)</h3>
+
+<table>
+<tr><th>성장축</th><th>성격</th><th>2026E 기여</th><th>2027~28E 기여</th><th>2030년+ 잠재력</th><th>출처</th></tr>
+<tr><td class="positive"><b>★★★★★ A/S 부품 캐시카우</b></td><td>안정 베이스</td><td>영업이익 약 3.7조</td><td>약 3.9조+</td><td>운행대수 누적 → 구조적 성장</td><td>다올 사업부 분해</td></tr>
+<tr><td><b>★★★★ 모듈 턴어라운드</b></td><td>실적 레버리지</td><td>영업이익 약 0.1조</td><td>약 0.6조+ (OPM 1%p↑=+5~6천억)</td><td>비핵심 매각 완료 효과</td><td>삼성·다올</td></tr>
+<tr><td><b>★★★★ ADAS·자율주행 통합제어기</b></td><td>전장 컨텐츠</td><td>전장 믹스 개선</td><td>자율주행 탑재율↑ → 외형+마진</td><td>L4 로보택시(모셔널) 본격화</td><td>NH·현대차</td></tr>
+<tr><td class="positive"><b>★★★★★ BD 휴머노이드 액추에이터</b></td><td>로보틱스 핵심</td><td>파일럿 라인 가동</td><td class="positive">2027 6천억 → 2029 1조원</td><td class="positive">2030~31 2조원+</td><td>삼성·다올·대신</td></tr>
+<tr><td class="positive"><b>★★★★ 로보틱스 컨텐츠 확장</b></td><td>대당 단가 상승</td><td>—</td><td>그리퍼·센서·헤드모듈 추가</td><td>로봇 1대당 7천만원+ 컨텐츠</td><td>다올·NH</td></tr>
+<tr><td class="positive" style="background:#eafaf1;"><b>★★★ BD 외 글로벌 로봇사 고객 확장</b></td><td class="positive" style="background:#eafaf1;">Bull 옵션</td><td class="positive" style="background:#eafaf1;">0</td><td class="positive" style="background:#eafaf1;">트랙레코드 확보 후 가능</td><td class="positive" style="background:#eafaf1;">휴머노이드 시장 166조원(2035)의 일부</td><td class="positive" style="background:#eafaf1;">NH("시장 성장 직접 수혜")</td></tr>
+<tr><td><b>★★★ BD 지분가치 / IPO</b></td><td>자산가치</td><td>—</td><td>BD 나스닥 IPO 2027~2028</td><td>BD 간접지분 10.9% 가치 실현</td><td>KB·다올</td></tr>
+<tr><td class="positive" style="background:#fef5e7;"><b>★★★★ 지배구조 리레이팅</b></td><td class="positive" style="background:#fef5e7;">멀티플</td><td class="positive" style="background:#fef5e7;">P/E 12→16~18배</td><td class="positive" style="background:#fef5e7;">디스카운트→프리미엄 전환</td><td class="positive" style="background:#fef5e7;">현대차 대비 시총 괴리 정상화</td><td class="positive" style="background:#fef5e7;">삼성·다올</td></tr>
+</table>
+
+<p><b>★ 촉매 → 숫자 연결:</b> 현대모비스의 8중 성장축은 세 그룹으로 나뉜다. ① <b>안정(A/S)</b> — 전사 이익의 베이스를 깔고, 신사업 투자 재원을 댄다. ② <b>턴어라운드(모듈·전장)</b> — EPS(분자)를 키운다. 비핵심 매각 + Non-Captive + ADAS로 2027년까지 영업이익이 4.5조원대로. ③ <b>성장(로보틱스·지배구조)</b> — PER(승수)을 키운다. 6개 증권사 추정에는 ④⑤⑥의 로봇 매출이 대부분 미반영 상태로, 본업 베이스라인(2027E 영업이익 4.3~4.6조)에 로봇 매출이 순증으로 더해진다. EPS 성장과 멀티플 리레이팅이 <b>곱셈</b>으로 작동하는 것이 현대모비스 모멘텀의 핵심 구조다.</p>
+
+<h3>9-2. 영업이익 박스권 돌파 체크</h3>
+
+<p>역사적 영업이익 추이 (단위: 십억원):</p>
+<ul>
+<li>2021: 2,040 → 2022: 2,027 → 2023: 2,295 — <b>3년간 2,000~2,300의 박스권</b></li>
+<li>2024: 3,073 → 2025: 3,357 — <b>1차 박스 돌파</b> (전동화 투자 결실 + A/S 강세)</li>
+<li><b>2026E: 3,790~3,921</b> (3사 추정) — 2차 레벨업</li>
+<li><b>2027E: 4,066~4,627</b> (3사 추정) — 본업만으로 4조원대 진입</li>
+<li>2028E: 4,200~5,196 — 5조원 가시권</li>
+</ul>
+
+<p><b>★ 턴어라운드 시그널:</b> 현대모비스 영업이익은 2021~2023년 약 2조원대 초반(2.0~2.3조원)의 박스권에 갇혀 있었다. 2024년부터 3조원을 돌파했고, 2026~2027년에는 본업만으로 4조원대에 진입한다. <b>이는 단순 경기 회복이 아니라 사업 구조 변화</b>(비핵심 매각 + 전장 믹스 개선 + Non-Captive 다변화 + A/S 누적 성장)에 따른 영구적 박스권 상향이다. 여기에 <b>2027년부터 로보틱스 매출이 순증</b>으로 더해진다 — 박스권 돌파는 본업이 만들고, 박스권 위의 새 천장은 로보틱스가 만든다. 삼성증권의 표현 "10년간 눌린 주가, 한꺼번에 폭발한다"가 이 구조적 레벨업을 직관적으로 포착한다.</p>
+
+<!-- ===================== Section 10 ===================== -->
+<h2>10. 실적 서프라이즈 예측 — 향후 4분기 로드맵</h2>
+
+<table>
+<tr><th>분기</th><th>매출 (십억원)</th><th>영업이익 (십억원)</th><th>OPM</th><th>태그</th><th>관전 포인트</th></tr>
+<tr><td><b>1Q26</b></td><td>15,561 (확정)</td><td>803 (확정)</td><td>5.2%</td><td><span class="tag-disc">DART 2026.04.24</span></td><td>매출 +5.5% / 영업이익 +3.3% YoY. 컨센 부합. 전장·해외·A/S 견인</td></tr>
+<tr><td><b>2Q26E</b></td><td>16,737~17,744</td><td>925~945</td><td>5.5%</td><td><span class="tag-new">FnGuide·NH</span></td><td>전장 성장 + 환율. 램프 사업부 매각 계약 체결 여부 확인</td></tr>
+<tr><td><b>3Q26E</b></td><td>약 16,659</td><td>약 975</td><td>5.9%</td><td><span class="tag-new">다올</span></td><td>BD 액추에이터 파일럿 라인 가동 뉴스 주목</td></tr>
+<tr><td class="positive"><b>4Q26E</b></td><td class="positive">약 16,915</td><td class="positive">약 1,084</td><td class="positive">6.4%</td><td><span class="tag-new">다올</span></td><td class="positive">A/S 성수기 + 비핵심 매각 효과 본격화. 분기 영업이익 1조원 첫 돌파</td></tr>
+<tr><td><b>2026E 연간</b></td><td><b>64,610~67,929</b></td><td class="positive"><b>3,790~3,921</b></td><td>5.6~6.1%</td><td><span class="tag-new">3사</span></td><td>영업이익 사상 최대 경신</td></tr>
+<tr><td><b>2027E 연간</b></td><td><b>68,880~73,039</b></td><td class="positive"><b>4,066~4,627</b></td><td>5.7~6.7%</td><td><span class="tag-new">3사</span></td><td><b>본업만으로 4조원대 + 로보틱스 매출 순증 시작</b></td></tr>
+</table>
+<p style="font-size:9pt;color:#666;">출처: 1Q26 = DART 공시 / 2026~2027 추정 = NH·삼성·KB·다올증권, FnGuide. 단위: 십억원</p>
+
+<p><b>분기 로드맵 해석:</b><br>
+① <b>2026년 분기 영업이익이 803억 → 945억 → 975억 → 1,084억으로 계단식 상승</b>하는 '상저하고' 패턴. 4Q26 분기 영업이익 1조원 첫 돌파가 상징적 이벤트.<br>
+② <b>실적 자체로는 서프라이즈보다 '안정적 우상향'</b>이 특징 — 본업은 견조하되 폭발적이지 않다. 실적이 주가를 견인하기보다, 실적이 <b>하방을 받치는</b> 역할.<br>
+③ <b>진짜 서프라이즈는 손익계산서 밖에서 온다</b> — BD 액추에이터 공급계약 공시, BD IPO 일정 구체화, BD 외 글로벌 로봇사 수주, 지배구조 재편 발표. 이들이 등장하면 추정이 사실로 전환되며 멀티플 리레이팅이 추가로 진행된다.<br>
+④ <b>가장 가까운 확인 지점은 2Q26 실적(7월)</b> — 본업 견조함 + 램프 매각 진척을 확인하는 1차 트리거다.</p>
+
+<div class="footer">
+투자 판단의 최종 책임은 투자자 본인에게 있습니다. 본 보고서는 공개된 자료를 종합·재구성한 참고용 자료이며 특정 종목의 매매를 권유하지 않습니다.<br>
+분석일: 2026.05.25 | 데이터 기준: <b>FnGuide 리서치 리포트 — 다올투자증권(2026.05.21)·NH투자증권(2026.05.22)·현대차증권(2026.05.19)·KB증권(2026.05.11)·대신증권(2026.05.20)·삼성증권(2026.05.20)·키움증권(2026.05.20)</b>, FnGuide 컴퍼니 스냅샷·컨센서스(2026.05.22), DART 공시(1Q26 실적 2026.04.24), 현대차그룹·보스턴다이나믹스 공식 발표(2026 CES·HMGMA 로드맵), 국내 언론 종합(휴머노이드 시장 전망·현대차 엔비디아 협력·사업부 매각·주주환원)
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+

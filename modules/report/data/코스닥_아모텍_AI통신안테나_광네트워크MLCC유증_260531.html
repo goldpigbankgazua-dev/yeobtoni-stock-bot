@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>코스닥_아모텍_AI통신안테나_광네트워크MLCC유증_260531</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.ter-quote{background:#fff;border-left:4px solid #8e44ad;padding:10px 14px;margin:10px 0;font-style:italic;color:#4a235a;border-radius:4px}
+.tag-ter{background:#8e44ad;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ol.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>아모텍 (052710.KQ)</h1>
+<div class="sub">종합 소재부품 (MLCC·안테나·BLDC 모터) · AI 광 네트워크 MLCC 본격 매출 + 350억 유증으로 Capa 2배 증설<br>3사 분석: IBK 42k / iM 29k / 키움 NR · 컨센서스 35.5k · 분석일 2026.05.31</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (5/29)</span><span class="snapshot-value">28,400원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">4,150억원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 고점대비</span><span class="snapshot-value">-6.0%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">26.5배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (F)</span><span class="snapshot-value">2.66배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">10.85%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+228.3%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">김병규 외 27.4%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value positive">+6억 (흑전)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">38,000원<br>(+33.8%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">46,000원<br>(+62.0%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (3사)</span><span class="snapshot-value">35,500원<br>(+25.0%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value">1개<br>(액티브 1 / 패시브 0)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 보유 주식수 (1개월)</span><span class="snapshot-value">1,550주<br>(변화 없음)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 자금 유입 (1개월)</span><span class="snapshot-value">0원<br>(개인·기관 직접 매수)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 액티브 ETF <b>1개</b>(에셋플러스 코리아대장장이액티브, 1,550주)에만 편입, 패시브 ETF <b>0개</b>. 한 달간 ETF 보유 주식수 변화 없음 = <b>주가 +228% 급등은 ETF 자금 도움 없이 순수 외인·기관·개인 직접 매수가 만든 모멘텀</b>. 시총 4,150억 코스닥 종목 특성상 KOSPI 200/KOSDAQ 150 패시브 자금의 직접 지지선 부재 — 모멘텀 소진 시 ETF 자금 누수에 의한 추가 매도 압력은 없으나, 반대로 ETF 신규 편입에 따른 자동 매수 지지선도 없음. <i>(데이터: 와이스트릿 ActiveETF/PassiveETF Tracker 2026.05.29 16:00 기준)</i><br><br>
+<b>핵심 한줄:</b> 5/22 <b>350억원 유상증자(시설 300억 전액 AI 데이터센터향 MLCC 증설)</b>와 5/26~5/27 <b>IBK·iM 동시 목표주가 대폭 상향(42k·29k)</b>이 같은 주에 겹치면서 단기 +20% 급등, 1년 +228%. 동사의 사업구조는 <b>안테나(39%) + BLDC 모터(33%) + 세라믹칩/EMC(20%)의 전통 부품 회사</b>에서 <b>AI 광 네트워크용 광대역 MLCC(2025년 매출비중 10% → 2027F 28%)</b> 신규 축이 더해지는 <b>체질 전환</b> 국면. 1Q26은 매출 609억(QoQ +13.8%), OP 6억(흑전) — DSP/AOC/광 트랜시버향 광대역 MLCC가 처음으로 의미 있는 매출로 인식됐다. 다만 <b>유증으로 주식수 16.2% 희석</b>되며 iM증권 26E EPS는 196원으로 급락(컨센 EPS 700원과 큰 괴리). <b>Base TP 38,000원(2027F EPS 1,500원×P/E 25배), Bull TP 46,000원(2027F EPS 1,800원×P/E 25배 — IBK 42k 상회 시 글로벌 MLCC Peer 평균 P/E 39배 30% 할인 그대로 적용)</b>. 단기는 유증 청약일정·MLCC 본격 매출 가시화 분기점인 <b>3Q26 매출 700억+를 확인</b>해야 추가 상승 정당화.</div>
+</div>
+
+<!-- ===================== 3개 증권사 동시 상향 박스 ===================== -->
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">📊 3개 증권사 동향 — IBK·iM 동시 대폭 상향, AI MLCC 베팅 강화</h3>
+
+<table style="margin-top:8px;">
+<tr><th>증권사 (애널리스트)</th><th>발간일</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>핵심 포인트</th></tr>
+<tr><td><b>IBK투자증권</b> (김운호)</td><td>5/27</td><td>"광 네트워크 시대, 가장 매력적인 투자 대안"</td><td class="positive"><b>매수 유지</b></td><td class="positive"><b>42,000원</b><br>(↑ 20,000)</td><td>3사 최고치. 2026F BPS 10,005원 × Target PBR 4.2배. ROE 27F 14.3% 반영</td></tr>
+<tr><td><b>iM증권</b> (고의영, 박정하)</td><td>5/26</td><td>"광네트워킹용 MLCC 수요에 대응하기 위한 자본 조달"</td><td class="positive"><b>BUY 유지</b></td><td class="positive"><b>29,000원</b><br>(↑ 15,000)</td><td>2027F EPS 1,062원 × 글로벌 MLCC 평균 P/E 39배에 30% 할인한 27배. 밸류 기준을 PBR→PER로 변경</td></tr>
+<tr><td><b>키움증권</b> (오현진)</td><td>3/5</td><td>"AI 수혜 시작. 저평가 매력 주목"</td><td><b>Not Rated</b></td><td>-</td><td>스몰캡 코스닥 전략노트. 26E 매출 2,835억(+12%), OP 186억(+238%), 27F OP 307억 전망</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1a5276;"><b>핵심 시그널 3가지:</b><br>
+① <b>두 곳 다 같은 주에 목표주가를 2배 상향했다.</b> IBK는 20,000원 → 42,000원(+110%), iM은 15,000원 → 29,000원(+93%). 두 보고서의 공통 발화는 "5/22 유증으로 확보한 300억원이 <b>광 네트워크용/AI GPU용 MLCC 증설에 전액 투입</b>된다는 것은 회사가 AI MLCC 매출 본격화에 확신을 갖고 있다는 방증"이라는 해석이다.<br>
+② <b>그러나 두 증권사의 목표주가 산식이 충돌한다.</b> IBK는 PBR 4.2배 적용(이전 PBR 1.5~2배 수준에서 점프 — ROE 27F 14.3% 기대), iM은 PBR 모델을 버리고 글로벌 MLCC Peer(무라타·삼성전기·야교) 평균 P/E 39배에 30% 할인한 27배 적용. 두 모델 모두 <b>"동사를 더 이상 한국 부품주가 아닌 글로벌 MLCC Peer 그룹으로 재분류"</b>한다는 점에서 일치하나, IBK는 ROE 점프를, iM은 Peer 평균 멀티플을 정당화 근거로 삼는다.<br>
+③ <b>키움증권은 3/5 시점 "Not Rated"였으나 가장 빨랐다.</b> 키움이 26E 매출 2,835억·OP 186억이라는 숫자를 먼저 던졌고, 5월에 IBK/iM이 같은 방향으로 합류한 모양새. 다만 <b>FnGuide 3사 컨센서스 EPS 700원, 목표주가 35,500원은 키움 26F EPS(1,035원)·IBK 26F EPS(805원)·iM 26F EPS(196원·유증반영)의 평균</b>으로, iM이 유증을 즉시 EPS에 반영해 평균이 끌어내려진 효과가 크다.</p>
+</div>
+
+<!-- ===================== IBK투자증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#27ae60;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;border:none;">🔥 5/27 IBK투자증권 (김운호) — 3사 최고가 42,000원, "광 네트워크 시대, 가장 매력적인 투자 대안"</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>IBK 5/27 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"광 네트워크 시대, 가장 매력적인 투자 대안" — 부제 "26년 1분기 AI 매출 확인"</td><td>AI 광 네트워크에서 동사가 한국 내 가장 직접적 노출 종목이라는 메시지</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>매수 (유지) / 42,000원</b></td><td class="positive">3사 최고치. 현재가 28,400원 대비 +47.9%. 직전 20,000원 → +110% 상향</td></tr>
+<tr><td class="positive"><b>★ 목표주가 산출</b></td><td class="positive">2026년 BPS <b>10,005원</b> × Target PBR <b>4.2배</b>. "ROE가 2025년 5.2%, 2026년 7.7%, 2027년 14.3%까지 개선 → 과하지 않은 밸류에이션"</td><td class="positive">PBR 4.2배는 한국 부품주 평균(1~2배)을 한참 상회 — 글로벌 MLCC Peer 영역</td></tr>
+<tr><td class="positive"><b>★ 1Q26 AI 매출 확인</b></td><td class="positive">"광 네트워크 칩 관련 스위치·커넥터 메이커로 매출이 발생했고, 칩 고객으로도 직접 공급하기 시작. 광 소스 업체로도 <b>Sample 매출</b> 발생"</td><td class="positive">DSP·트랜시버·광 소스 등 다층 벨류체인에 전부 들어가기 시작</td></tr>
+<tr><td><b>분기 매출 전망 (26F)</b></td><td>1Q 609 → 2Q 654 → 3Q 735 → <b>4Q 840억</b>. MLCC만 1Q 52 → 2Q 75 → 3Q 150 → <b>4Q 225억</b></td><td>4Q MLCC 매출이 1Q 대비 4.3배 — 광 네트워크 MLCC 수요 가속</td></tr>
+<tr><td><b>유증 해석</b></td><td>"확보 자금은 <b>시설 300억·운영 51억</b>. 이번 증자가 광 네트워크용 MLCC·AI GPU용 MLCC 투자 목적이라는 점은 <b>향후 AI 관련 MLCC 성장에 대한 확신을 방증</b>"</td><td>유증을 희석으로 보지 않고 성장 시그널로 해석</td></tr>
+<tr><td><b>EPS 추정 (상향폭)</b></td><td>26E EPS 805원 (이전 605원, ▲33%), 27F EPS 1,541원 (이전 1,431원, ▲8%)</td><td>26년은 큰 폭 상향, 27년은 소폭 상향 — 26년이 더 빨리 좋아진다는 신호</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1e6e3a;"><b>IBK 핵심 시그널:</b> IBK의 메시지는 "동사는 이제 안테나·모터 회사가 아니라 <b>광 네트워크 MLCC 회사</b>로 봐야 한다"로 요약된다. 42,000원이라는 목표주가는 BPS 10,005원에 PBR 4.2배를 적용한 수치인데, PBR 4.2배는 <b>국내 MLCC 1위 삼성전기(약 1.5배)도 한참 상회</b>하는 수준이다. 김운호 애널리스트의 논리는 ROE의 단계적 점프 — 25년 5.2% → 26년 7.7% → 27년 14.3% → 28년 17.5% — 가 PBR 4.2배를 정당화한다는 것. 이 ROE 점프 가설이 깨지면(예: MLCC 가동률 부진, 유증 자금 집행 지연), 목표주가는 무너진다.</p>
+</div>
+
+<!-- ===================== iM증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#3498db;background:#ebf5fb;">
+<h3 style="margin-top:0;color:#21618c;border:none;">📘 5/26 iM증권 (고의영, 박정하) — 29,000원, "광네트워킹용 MLCC 수요 대응 자본조달"</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>iM 5/26 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"광네트워킹용 MLCC 수요에 대응하기 위한 자본 조달"</td><td>유증 자체를 메인 사건으로 다룬 보고서 — 자금 사용처가 100% AI MLCC라는 점 강조</td></tr>
+<tr><td><b>투자의견 / TP</b></td><td class="positive"><b>BUY (Maintain) / 29,000원</b></td><td class="positive">직전 15,000원 → +93% 상향. 현재가 28,400원 대비 +2.1% — <b>이미 도달 직전</b></td></tr>
+<tr><td class="positive"><b>★ 목표주가 산출 (방법론 변경)</b></td><td class="positive">"기존에는 P/B 밸류에이션을 적용했으나, 지난 6개월 간 MLCC 산업 전반의 수급이 타이트해지면서 장기 수요 가시성이 확대 → 동사와 같은 <b>후발 주자에게도 시장 진입 기회</b>가 열리고 있다 판단". 27F EPS 1,062원 × <b>글로벌 MLCC 업체 평균 P/E 39배에서 30% 할인한 27배</b> 적용</td><td class="positive">밸류에이션 기준 자체를 PBR → PER로 전환. 글로벌 Peer 그룹 편입 선언</td></tr>
+<tr><td class="positive"><b>★ 유증 자금 사용처 (구체화)</b></td><td class="positive">"시설자금 300억은 <b>전액 AI 데이터센터향 고용량·초고속 통신용 MLCC 양산설비 증설</b>에 투입. 광대역 Capacitor 생산능력을 기존 대비 <b>2배 확대</b>"</td><td class="positive">300억 = 광대역 Capacitor Capa 2배. ROIC 산출의 기준 숫자</td></tr>
+<tr><td class="positive"><b>★ AI 데이터센터 MLCC 매출 가이던스</b></td><td class="positive">투자설명서 인용 — <b>'27년 316억 → '28년 497억 → '29년 740억</b>으로 빠르게 성장</td><td class="positive">회사가 직접 제시한 숫자 — 가장 신뢰도 높은 1차자료</td></tr>
+<tr><td><b>광대역 Capacitor 적용</b></td><td>"고속 신호 라인에 탑재 → DC 성분 차단, 고주파 AC 신호 손실 없이 통과. <b>1Q26부터 DSP·AOC용 공급 시작</b>, 2Q26 글로벌 트랜시버 업체향 양산 시작 예정"</td><td>2Q26 = 글로벌 트랜시버 양산 진입 — 2분기 실적이 분기점</td></tr>
+<tr><td><b>EPS 추정 (유증 반영)</b></td><td>26E EPS 196원 (유증 희석 영향), 27E 1,062원, 28E 1,680원</td><td>26년 EPS가 IBK 805원 대비 큰 폭으로 낮음 — iM은 유증 즉시 반영</td></tr>
+<tr><td><b>최대주주 참여율</b></td><td>"최대주주는 이번 유상증자에 <b>70% 참여</b> 계획, 잔여분은 특수관계인이 신주인수권 인수해 참여"</td><td>김병규 일가의 자금 부담 의지 → 청약 미달 리스크 낮음</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#21618c;"><b>iM 핵심 시그널:</b> iM의 가장 큰 변화는 <b>밸류에이션 방법론을 PBR → PER로 전환</b>한 것이다. "후발 주자에게도 시장 진입 기회가 열렸다"는 진단을 근거로, 동사를 글로벌 MLCC Peer(무라타·TDK·삼성전기·야교) 그룹에 편입시켰다. 글로벌 평균 P/E 39배에 30% 할인은 "동사는 아직 후발이지만 더 이상 변두리는 아니다"라는 해석. 그러나 <b>목표주가 29,000원은 현재가 28,400원에 거의 도달</b>한 상태이며, iM 자체 26E EPS 196원은 컨센 700원·IBK 805원과의 괴리가 크다. iM이 가장 보수적으로 유증 희석을 즉시 반영한 것 — 단기 EPS 부담이 시현되면 iM 목표주가가 가장 먼저 도달·돌파될 가능성.</p>
+</div>
+
+<!-- ===================== 키움증권 박스 ===================== -->
+<div class="sk-box" style="border-color:#e74c3c;background:#fdedec;">
+<h3 style="margin-top:0;color:#922b21;border:none;">⚡ 3/5 키움증권 (오현진) — Not Rated, 가장 먼저 'AI 수혜 시작' 선언</h3>
+
+<table style="margin-top:8px;">
+<tr><th>구분</th><th>키움 3/5 핵심 코멘트</th><th>해석</th></tr>
+<tr><td><b>제목</b></td><td>"AI 수혜 시작. 저평가 매력 주목" (코스닥 전략노트 3, p.30)</td><td>스몰캡 큐레이션 보고서 — Not Rated이지만 메시지는 강함</td></tr>
+<tr><td><b>발간 시점 의미</b></td><td>주가 <b>10,070원</b> (3/4 기준), 시총 1,472억 시점</td><td>현재가 28,400원 대비 <b>+182%</b> 시점에서 먼저 깃발 — 가장 빨랐던 콜</td></tr>
+<tr><td class="positive"><b>★ 26F 핵심 숫자</b></td><td class="positive">매출 <b>2,835억(YoY +12%)</b>, 영업이익 <b>186억(YoY +238%)</b>. 27F 매출 3,168억, OP 307억</td><td class="positive">키움 26F OP 186억 = IBK·iM(14~16억) 대비 큰 폭으로 낙관적</td></tr>
+<tr><td><b>턴어라운드 논리</b></td><td>"신규 사업 성과 지연에 따른 비용 문제로 24년까지 실적 부진. 다만, 재고자산평가 손실 기 반영 + 25년 전장용 MLCC가 <b>중국 주요 고객사향</b> 지속 납품 → 실적 반등"</td><td>적자 원인이 일회성·재고손실이라는 점을 명확히 — 영구 손상 아님</td></tr>
+<tr><td class="positive"><b>★ AI 서버 진입 경로</b></td><td class="positive">"최근 세라믹 기반 안정성 + 가격경쟁력 → <b>북미 주요 fabless 고객사에 제품 승인</b>. 최근 ASIC 설계 업체들도 광 인터페이스·DSP 기술 중요성 부각 → 동사 고객사 시장 내 입지 따라 MLCC 수요 증가"</td><td class="positive">고객사 = 북미 fabless ASIC 설계 업체 (= 광 트랜시버 칩 메이커 추정)</td></tr>
+<tr><td><b>주당지표 추정</b></td><td>27F EPS 1,762원, BPS 14,381원, ROE 13.2%, PER 5.7배 (3/4 시점 주가 기준)</td><td>당시 PER 5.7배 = 극단적 저평가 메시지. 주가 +182% 후도 27F PER 16배</td></tr>
+<tr><td><b>리스크 진단</b></td><td>"근거리무선통신(NFC) 사업 부진이 일부 부담". 안테나(2025 1,025억) → 26E 821억으로 -20% 감소 전망</td><td>유일하게 부진을 콕 집은 부분 — 갤럭시 NFC 매출 감소 우려</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#922b21;"><b>키움 핵심 시그널:</b> 키움 오현진의 3/5 콜은 시점 자체가 가장 빨랐다는 점이 핵심이다. 주가 10,070원 시점, 시총 1,472억일 때 "AI 수혜 시작 + 저평가"를 외쳤고, 그 사이 주가는 +182%. 키움의 26F 영업이익 186억은 IBK/iM의 14~16억 대비 12배 — <b>키움이 본 'AI 매출의 본격 인식 시점'이 IBK/iM보다 훨씬 빠르다</b>. 다만 키움 보고서는 'Not Rated'이고 1차자료(투자설명서)가 나오기 전 시점이라, 가이던스의 정밀도는 IBK/iM이 더 높다. <b>키움의 OP 186억이 분기 실적을 통해 검증되는지는 2~3Q26 분기 실적의 핵심 체크포인트</b>.</p>
+</div>
+
+<!-- ===================== 1차자료 박스 : 유상증자 투자설명서 ===================== -->
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#9c5d04;border:none;">📋 1차자료 — 5/22 주주배정 유상증자 결정 공시 (회사 직접 가이던스) <span class="tag-disc">PRIMARY</span></h3>
+
+<table style="margin-top:8px;">
+<tr><th>항목</th><th>공시 내용</th><th>의미</th></tr>
+<tr><td><b>증자 방식</b></td><td>주주배정 후 실권주 일반공모</td><td>구주주 권리 보장 후 미청약분 일반공모 — 표준적</td></tr>
+<tr><td><b>발행주식수</b></td><td>보통주 2,370,000주 (자본금 16.2%)</td><td>희석률 16.2% — 약 1/6 신주 추가</td></tr>
+<tr><td><b>예정 발행가액</b></td><td>14,790원 (5/22 기준)</td><td>현재가 28,400원 대비 약 48% 할인 — 청약매력↑</td></tr>
+<tr><td><b>모집총액</b></td><td><b>350억원</b></td><td>2025년 말 현금 328억과 합산 시 678억 가용</td></tr>
+<tr><td class="positive"><b>★ 자금 사용처</b></td><td class="positive">시설자금 <b>300억 (전액 AI 데이터센터향 고용량·초고속 통신용 MLCC 양산설비 증설)</b>, 운영자금 50억</td><td class="positive">100% AI MLCC에 집중 — 회사의 전략 우선순위 명확</td></tr>
+<tr><td class="positive"><b>★ AI 데이터센터 MLCC 매출 가이던스</b></td><td class="positive">투자설명서 직접 제시: <b>2027년 316억 → 2028년 497억 → 2029년 740억</b></td><td class="positive">CAGR 53% — 회사가 자신하는 신규 매출축의 형상</td></tr>
+<tr><td><b>최대주주 참여율</b></td><td>김병규 외 70% 참여 (잔여분은 특수관계인이 신주인수권 인수해 참여)</td><td>실질적으로 100% 우호 참여 — 청약률 우려 낮음</td></tr>
+<tr><td><b>광대역 Capacitor Capa</b></td><td>"기존 대비 2배 확대"</td><td>300억으로 광대역 MLCC Capa 2배 = 단위 Capa당 150억 투자 효율</td></tr>
+</table>
+
+<p style="margin-bottom:0;font-size:10pt;color:#9c5d04;"><b>1차자료 핵심:</b> 이 공시의 가장 중요한 단서는 <b>"300억이 전액 AI 데이터센터향 MLCC에 투입"</b>이라는 점과 <b>회사가 2027~2029년 AI MLCC 매출 가이던스를 직접 숫자로 제시</b>했다는 점이다. 일반적인 한국 부품주의 유증은 운영자금·차입금 상환에 분산되지만, 동사 유증은 100% AI MLCC 한 곳으로 집중. 이는 곧 <b>회사가 가이던스를 미달할 경우 책임이 명확</b>해진다는 뜻이기도 하다. 2027년 AI MLCC 매출 316억은 키움 27F 전사 매출 3,168억 대비 약 10%, iM 27F 전사 2,917억 대비 약 11% — 즉 신규 축이 매출 비중 10%대를 차지하면서 OPM을 끌어올린다는 게 골격이다.</p>
+</div>
+
+<!-- ===================== 외부검증 박스 : 글로벌 AI 광 트랜시버 산업 ===================== -->
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276;border:none;">🌐 외부검증 1 — 글로벌 AI 광 트랜시버·MLCC 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+
+<div class="global-quote">
+<b>① 광 트랜시버 TAM (2026):</b> 글로벌 AI 광 트랜시버 시장 <b>US$26B (TrendForce 2026.04)</b>. 2026·2027년 시장 규모 전망치가 직전 대비 <b>+43%·+46% 상향 조정</b>. AI 칩 출하량 전망도 26·27년 각 +14%·+22% 상향.
+</div>
+
+<div class="global-quote">
+<b>② 800G 표준화 + 1.6T 진입 (2026):</b> 2025년 800G+ 트랜시버 출하 2,400만개 → <b>2026년 6,300만개 (2.6배)</b>. 800G+의 출하 비중 <b>60% 초과</b>. <b>2026년은 "1.6T의 해"</b> — 200G/lane 부품 성숙으로 1.6T가 신규 HPC 빌드의 디팩토 표준화. McKinsey: 800G는 2027년까지 40~60% 공급 부족 / 1.6T는 2029년까지 30~40% 부족 지속.
+</div>
+
+<div class="global-quote">
+<b>③ AI 서버 MLCC 사용량 폭증:</b> AI 서버 1대당 MLCC 사용량 — 2022년 48,000개 → <b>2027년 4,300,000개 (90배 증가)</b>. NVIDIA <b>GB300 서버 1대 약 30,000개 MLCC</b>, 서버 랙 1개당 최대 <b>440,000개</b>. AI 서버 MLCC 수요 CAGR <b>30%</b>, 2030년 수요는 2025년의 <b>3배 초과</b>.
+</div>
+
+<div class="global-quote">
+<b>④ MLCC 글로벌 경쟁구도 (전체 + AI 서버):</b> 전체 MLCC 시장 — 무라타 <b>34%</b>, 삼성전기 <b>24%</b>, TDK <b>12%</b>. <b>AI 서버 고급 MLCC 시장</b>은 더 과점 — 무라타 <b>45%</b> + 삼성전기 <b>40% = 합산 80%+</b>. 동사를 포함한 후발 주자(Taiyo Yuden·Yageo·AVX 등)는 잔여 20%를 두고 경쟁.
+</div>
+
+<div class="global-quote">
+<b>⑤ 가격·공급 환경 (2026 초):</b> MLCC 스팟 가격 — AI·산업·전장용 고급 부품 중심으로 <b>최대 20% 상승</b>. 삼성전기는 2026년부터 AI 서버용 MLCC 양산 본격 확대. 산업 전반의 수급 타이트 → iM증권 표현 "후발 주자에게도 시장 진입 기회 확대".
+</div>
+
+<p style="margin-bottom:0;font-size:10pt;color:#1a5276;"><b>외부검증 핵심:</b> 글로벌 산업 데이터는 회사·증권사 가이던스를 <b>대체로 지지</b>한다. ① 800G·1.6T 트랜시버 출하가 2.6배 증가 → 트랜시버 1개당 광대역 MLCC 수요 발생 → 회사 1Q26 매출 인식 패턴과 일치. ② AI 서버 MLCC 90배 폭증·30% CAGR → 회사 가이던스 27년 316억 → 29년 740억(CAGR 53%)이 산업 평균보다 가파른데, 이는 동사의 신규 진입 효과(0→1)를 반영한 것으로 해석 가능. ③ 다만 <b>리스크는 80%+ 점유 과점 — 무라타·삼성전기가 같은 시장에 Capa를 늘리고 있다는 점</b>. 동사가 후발 주자로 진입하는 시장은 절대 규모는 크나, 메인 플레이어와 직접 경쟁하지 않는 <b>틈새 카테고리(광대역 DC Block Capacitor)</b>에 집중해야 가격 결정력 확보 가능.</p>
+</div>
+
+<!-- ===================== 외부검증 박스 : 산업 정책·인프라 ===================== -->
+<div class="policy-box">
+<h3 style="margin-top:0;color:#7d4f00;border:none;">🏛 외부검증 2 — 정책·인프라·수요 가시성 <span class="tag-policy">POLICY/INFRA</span></h3>
+
+<div class="policy-quote">
+<b>① AI 인프라 CapEx (Hyperscaler 4사):</b> 2026~2027년 Microsoft·Google·Meta·Amazon 합산 AI CapEx 추정 약 <b>US$3,000~3,500억(연간)</b>. 신규 데이터센터 구축의 90%가 800G 이상 광 인터커넥트 기반 — 광 트랜시버·트랜시버용 광대역 Capacitor 수요의 직접 원천.
+</div>
+
+<div class="policy-quote">
+<b>② Co-Packaged Optics (CPO) 등장:</b> 2026~2027년 NVIDIA·Broadcom·Marvell의 CPO 스위치 채택 본격화. CPO는 광 모듈을 ASIC과 일체화 → <b>트랜시버 외장 부품(MLCC) 수요는 일시 감소 위험 + 칩 패키지 내 광대역 MLCC 신규 수요</b>의 양면. 동사 IBK 리포트: "광 소스 업체로도 Sample 매출" → CPO 칩 패키지 내 부품 진입 의지 시사.
+</div>
+
+<div class="policy-quote">
+<b>③ 한국 정부 K-Reshoring·반도체 인프라:</b> 산업통상자원부 2026년 반도체·부품 인프라 지원 예산 <b>1조 5천억대</b>. 광 부품·세라믹 분야는 핵심 소재부품 카테고리. 동사는 수도권 외 공장(인천·천안·중국) — 직접 보조금 수혜 가능성은 제한적이나, 고객사(국내 EMS·트랜시버 메이커) 보조금 확대의 간접 수혜.
+</div>
+
+<div class="policy-quote">
+<b>④ 중국 전장·5G 수요 회복 신호:</b> 중국 신에너지차 26년 판매 +28% (CAAM 추정). 키움 리포트: "25년 전장용 MLCC가 <b>중국 주요 고객사향 지속 납품</b>되며 실적 반등". 동사 BLDC 모터·전장 MLCC의 30%+가 중국향.
+</div>
+
+<p style="margin-bottom:0;font-size:10pt;color:#7d4f00;"><b>정책·인프라 핵심:</b> Hyperscaler CapEx와 800G/1.6T 표준화는 동사의 광 네트워크 MLCC 가이던스에 <b>구조적 지지</b>를 제공한다. 다만 가장 큰 와일드카드는 <b>CPO(Co-Packaged Optics)</b>의 채택 속도. CPO가 빠르게 확산되면 <b>외장 트랜시버 시장 자체가 축소</b>되어 동사의 광대역 Capacitor 수요가 단기 충격을 받을 수 있다. 반대로 동사가 IBK 리포트 언급대로 <b>"광 소스 업체 Sample 매출"</b>을 통해 CPO 칩 내부 패키지에 진입하면 <b>오히려 ASP·Margin 점프</b>. 2026년 하반기 NVIDIA Rubin CPO 발표 + Broadcom Tomahawk-CPO 스위치 공급 시점이 분기점.</p>
+</div>
+
+<!-- ===================== 섹션 1. 투자포인트 ===================== -->
+<h2>1. 투자포인트 — 광 네트워크 MLCC가 만든 '제2의 아모텍'</h2>
+
+<ol class="points">
+<li><span class="point-title">① 1분기 25년 12월 결산 흑자전환 — 24년 -239억 → 25년 +55억 → 26F +126억</span><br>
+2023년 -260억, 2024년 -239억의 영업적자가 2025년 +55억(흑전), 2026F +126억(컨센)으로 단계적 점프. <span class="tag">FnGuide 컨센</span> 매출은 23년 1,868억 → 25년 2,538억 → 26F 2,704억으로 연 +8~10% 성장이지만, OPM은 -13.9% → -10.4% → 2.2% → 4.7%로 <b>2,400bp 점프</b>. 2026년 흑자는 일회성이 아니라 <b>MLCC 매출 본격화로 인한 영구적 마진 구조 개선</b>이라는 게 IBK/iM 공통 진단.
+</li>
+
+<li><span class="point-title">② 광 네트워크 MLCC 매출 본격화 — 1Q26 '확인', 2Q26 '글로벌 트랜시버 양산'</span><br>
+IBK 김운호: "광 네트워크 칩 관련 <b>스위치·커넥터 메이커로 매출 발생</b>, 칩 고객으로도 직접 공급 시작. 광 소스 업체로도 Sample 매출". iM 고의영: "광대역 Capacitor는 <b>1Q26부터 DSP·AOC용 공급 시작</b>, 2Q26 글로벌 트랜시버 업체향 양산 시작 예정". <b>벨류체인 4단(스위치/커넥터 → 칩 → 광 소스 → 트랜시버)에 동시 진입</b> 중 — 산업 노출도가 단일 카테고리 의존이 아닌 분산형이라는 점이 강점.
+</li>
+
+<li><span class="point-title">③ 유증 350억 = 광대역 Capacitor Capa 2배 — 회사가 직접 제시한 가이던스</span><br>
+5/22 공시 1차자료: 시설 300억 전액 AI 데이터센터향 MLCC 양산설비, 광대역 Capacitor Capa 2배 확대. 회사 가이던스 — <b>AI 데이터센터 MLCC 매출 27년 316억 → 28년 497억 → 29년 740억 (CAGR 53%)</b>. 한국 부품주의 유증 중 자금 사용처가 100% 단일 신성장 카테고리에 집중된 사례는 드물다.
+</li>
+
+<li><span class="point-title">④ 글로벌 산업 데이터의 강력한 지지 — 800G+ 2.6배·MLCC 90배·1.6T 표준화</span><br>
+TrendForce: AI 광 트랜시버 시장 26년 $26B, 26·27년 전망 +43%·+46% 상향. 800G+ 출하 25년 2,400만개 → 26년 6,300만개 (2.6배). AI 서버 1대당 MLCC 사용 22년 4.8만 → 27년 430만 (90배). <b>회사 가이던스가 산업 매크로보다 보수적</b> — 가이던스 미달 리스크보다 상향 가능성이 더 큰 구조.
+</li>
+
+<li><span class="point-title">⑤ 분기 매출 기울기 — 1Q 609 → 2Q 654 → 3Q 735 → 4Q 840억 (IBK)</span><br>
+IBK 분기 추정에서 MLCC만 떼어보면 1Q 52 → 2Q 75 → 3Q 150 → <b>4Q 225억 (1Q 대비 4.3배)</b>. 안테나·모터 같은 기존 부품은 비교적 안정적인 가운데, <b>MLCC 단독으로 분기 매출을 1/3 이상 끌어올리는 그림</b>. 3Q26 매출이 700억을 넘으면 광 네트워크 MLCC 매출이 본격적으로 시현되는 시그널.
+</li>
+
+<li><span class="point-title">⑥ 북미 fabless 고객사 진입 + 광 트랜시버 벨류체인 다층 노출</span><br>
+키움 오현진: "세라믹 기반 안정성 + 가격경쟁력 → <b>북미 주요 fabless 고객사 제품 승인</b>. ASIC 설계 업체들이 광 인터페이스·DSP 중요성 부각 → MLCC 수요 증가". 동사 고객사가 직접 명시되진 않았으나 ASIC 설계 + 광 트랜시버 벨류체인이라는 점에서 <b>Marvell·Broadcom·Astera Labs·Eliyan 등</b>이 후보. 1Q26 "Sample 매출"이 정식 매출로 전환되는 시점이 결정적.
+</li>
+
+<li><span class="point-title">⑦ ROE 점프 — 25년 5.2% → 26년 7.7% → 27년 14.3% → 28년 17.5% (IBK)</span><br>
+IBK의 PBR 4.2배 정당화 근거. ROE가 5.2% → 17.5%로 3배 점프하면, PBR 4.2배는 <b>"PEG 모델"</b>로 산출 가능. 다만 ROE 점프는 ① MLCC Capa 가동률 70%+ 달성, ② NFC/안테나 매출 감소(-20% iM)의 OPM drag 회피, ③ 유증 자금이 24개월 내 매출로 전환되는 3가지 조건 충족이 필요.
+</li>
+
+<li><span class="point-title">⑧ 사업포트폴리오 균형 + 신성장 — 안테나 39% + 모터 33% + 세라믹칩 20% + 기타 8%</span><br>
+2025년 부문별 매출 비중: <b>안테나 39%, 모터 33%, EMC(세라믹칩/MLCC) 20%, 기타 8%</b>. 전통 부문이 견고한 베이스(연 2,000억+)를 제공하는 가운데, <b>EMC 부문이 광 네트워크 MLCC로 빠르게 변모</b>. MLCC 매출 비중은 24년 6% → 25년 10% → 26F 18% → 27F 28%로 단계적 점프. AI 관련 매출 비중은 26년 30% 초과 → 27년 50% 초과 전망.
+</li>
+
+<li><span class="point-title">⑨ 최대주주 70% 유증 참여 — 김병규 일가의 강한 신호</span><br>
+유증 350억 중 최대주주 김병규 외 70% 참여 (잔여분도 특수관계인이 신주인수권 인수). 신주 발행가액 14,790원이 현재가 28,400원 대비 48% 할인된 점을 감안하면, 일가의 <b>실질 보유분 추가 매수 의지 = 향후 12~24개월 사업 전망에 대한 강한 자신감</b>. 발행가 14,790원이 단기 주가 하방의 지지선 역할 가능.
+</li>
+
+<li><span class="point-title">⑩ 글로벌 MLCC Peer 그룹 편입 — 밸류에이션 방법론 자체가 점프</span><br>
+iM증권의 가장 중요한 변화: "기존 PBR 모델 → P/E 모델로 전환. <b>글로벌 MLCC 업체 평균 P/E 39배 × 30% 할인 = 27배 적용</b>". 한국 부품주 평균 PER 15~20배 수준에서 27배로 멀티플 점프 — 동사를 더 이상 한국 중소형 부품주로 보지 않고 무라타·TDK·삼성전기·야교의 후순위 Peer로 재분류한 것.
+</li>
+
+<li><span class="point-title">⑪ 광대역 Capacitor 적용처 다변화 — DC Block / mmWave / 광통신</span><br>
+회사 제품 페이지: "광대역 Capacitor는 <b>고속 신호 라인에 탑재 → DC 성분 차단 + 고주파 AC 신호 손실 없이 통과</b>". 단순 데이터센터 트랜시버를 넘어 mmWave 5G/6G RF 모듈, 자율주행 라이다 신호 처리, 차세대 위성통신 등으로 응용처 확대 가능. <b>단일 카테고리 의존 → 다층 응용 산업 노출</b>로 사업 안정성↑.
+</li>
+
+<li><span class="point-title">⑫ NFC 부진 우려 vs. MLCC 본격화의 상쇄 효과</span><br>
+키움/iM 공통 우려: NFC 사업 부진. iM 추정 — 안테나 부문 25년 1,025억 → 26E 821억 (-20%). 갤럭시 NFC 수요 감소·중국 브랜드 자체 안테나 채택 증가가 원인. 다만 <b>MLCC 부문이 25년 250억 → 26E 550억 → 27E 948억으로 점프</b>하면서 안테나 감소분을 흡수. 부문 mix 변화가 OPM 개선의 핵심.
+</li>
+
+<li><span class="point-title">⑬ 단기 모멘텀 — 청약일정·2Q 실적·CPO 채택 시점</span><br>
+향후 6개월 핵심 이벤트: ① <b>유증 청약일</b>(7~8월 추정) → 청약률·최대주주 실제 참여율 확인 → 발행가 14,790원 인근 매수 기회, ② <b>2Q26 실적</b>(8월 중순) → 글로벌 트랜시버 양산 진입 확인, ③ <b>9월 인텔 OCP·NVIDIA 발표</b> → Rubin CPO 로드맵 구체화, ④ <b>3Q26 실적</b>(11월) → MLCC 매출 분기 100억+ 달성 여부.
+</li>
+</ol>
+
+<h3>투자의견 종합</h3>
+
+<div class="bull-box">
+<b>매수 (BUY)</b> · Base TP <b>38,000원 (+33.8% upside)</b> · Bull TP <b>46,000원 (+62.0%)</b>
+<ul style="margin:8px 0;">
+<li><b>Base 시나리오 (60% 확률)</b>: 2027F EPS 1,500원 × Target P/E 25배 (글로벌 MLCC Peer 39배 × 35% 할인) = 37,500원. IBK·iM·키움 27F EPS 추정 중앙값 1,535원 적용. 27년 매출 3,000억대·OP 230~310억 구간.</li>
+<li><b>Bull 시나리오 (25% 확률)</b>: 2027F EPS 1,800원 × Target P/E 25배 = 45,000원. AI MLCC 매출이 회사 가이던스(27년 316억) 대비 +20% 초과 달성, 광대역 Capacitor가 트랜시버 외 mmWave RF/위성통신 응용 추가 확보. IBK 42,000원 (BPS 10,005 × PBR 4.2배) 이상 영역.</li>
+<li><b>Bear 시나리오 (15% 확률)</b>: 유증 자금 집행 지연, MLCC Capa 가동률 50% 미달, CPO 빠른 채택으로 외장 트랜시버 수요 감소 → 27F EPS 800원 × P/E 18배 = 14,400원. 유증 발행가 14,790원 인근에서 지지선 형성.</li>
+</ul>
+</div>
+
+<h3>시나리오별 목표주가 산출표</h3>
+<table>
+<tr><th>시나리오</th><th>확률</th><th>2027F EPS</th><th>Target P/E</th><th>TP</th><th>현재가 대비</th><th>핵심 가정</th></tr>
+<tr><td class="positive">Bull</td><td>25%</td><td class="positive">1,800원</td><td>25배</td><td class="positive"><b>46,000원</b></td><td class="positive">+62.0%</td><td>AI MLCC 가이던스 +20% 초과, 광대역 Capacitor 응용처 확대</td></tr>
+<tr><td><b>Base</b></td><td><b>60%</b></td><td><b>1,500원</b></td><td>25배</td><td><b>38,000원</b></td><td>+33.8%</td><td>3사 컨센 중앙값. AI MLCC 가이던스 부합</td></tr>
+<tr><td class="negative">Bear</td><td>15%</td><td class="negative">800원</td><td>18배</td><td class="negative">14,400원</td><td class="negative">-49.3%</td><td>유증 자금 집행 지연, MLCC 가동률 부진, CPO 충격</td></tr>
+<tr style="background:#fff;"><td colspan="7" style="background:#eaf2f8;"><b>가중평균 기대값: 36,460원 (+28.4% upside) — 38,000 × 60% + 46,000 × 25% + 14,400 × 15%</b></td></tr>
+</table>
+
+<!-- ===================== 섹션 2. 산업개요 ===================== -->
+<h2>2. 산업개요 — AI 광 인터커넥트와 MLCC: 90배 폭증의 구조</h2>
+
+<h3>2-1. TAM·SAM·SOM</h3>
+<table>
+<tr><th>레이어</th><th>2025</th><th>2026</th><th>2027</th><th>CAGR</th><th>출처/근거</th></tr>
+<tr><td>글로벌 MLCC 시장 (전체)</td><td>$40B</td><td>$43B</td><td>$47B</td><td>+8%</td><td>2024년 $39.1B 기준 (Markets&amp;Markets)</td></tr>
+<tr><td>Low-Voltage MLCC (소형·고용량)</td><td>$17B</td><td>$19.0B</td><td>$22.3B</td><td>+17.3%</td><td>2031년 $42.2B 전망 (Mordor Intelligence)</td></tr>
+<tr><td class="positive">AI 서버향 MLCC</td><td class="positive">$2.5B</td><td class="positive">$3.3B</td><td class="positive">$4.3B</td><td class="positive">+30%</td><td class="positive">대당 사용량 22년 4.8만→27년 430만 90배</td></tr>
+<tr><td>글로벌 AI 광 트랜시버</td><td>$18B</td><td>$26B</td><td>$32B</td><td>+33%</td><td>TrendForce 2026.04 (26/27 전망 +43%/+46% 상향)</td></tr>
+<tr><td class="positive">광 트랜시버 광대역 MLCC (SAM)</td><td class="positive">$0.5B</td><td class="positive">$0.7B</td><td class="positive">$1.0B</td><td class="positive">+40%</td><td class="positive">트랜시버 대당 광대역 Capacitor 약 30~50개</td></tr>
+<tr><td class="positive">동사 SOM (목표)</td><td class="positive">25억원</td><td class="positive">55억원</td><td class="positive">316억원</td><td class="positive">+250%</td><td class="positive">회사 가이던스 (27년 316억→29년 740억)</td></tr>
+</table>
+
+<h3>2-2. 광 네트워크 → MLCC 밸류체인</h3>
+<table>
+<tr><th>계층</th><th>제품</th><th>대표 업체</th><th>MLCC 수요</th><th>동사 진입</th></tr>
+<tr><td>1. 스위치 ASIC</td><td>Tomahawk-6, NVIDIA Spectrum-X</td><td>Broadcom, NVIDIA, Marvell</td><td>칩 패키지 내 광대역 MLCC</td><td>"칩 고객 직접 공급 시작" (IBK)</td></tr>
+<tr><td>2. 스위치 시스템</td><td>800G/1.6T Switch</td><td>Arista, Cisco, Juniper</td><td>시스템 보드 MLCC</td><td>스위치 메이커 직접 공급 (IBK)</td></tr>
+<tr><td>3. 광 트랜시버</td><td>QSFP-DD800, OSFP800</td><td>Coherent, Lumentum, Marvell, Innolight</td><td>트랜시버 PCB 광대역 MLCC</td><td>"2Q26 글로벌 트랜시버 양산" (iM)</td></tr>
+<tr><td>4. DSP/PHY</td><td>200G/lane DSP</td><td>Marvell, MaxLinear, Inphi</td><td>DSP 칩 주변 MLCC</td><td>"DSP·AOC용 1Q26 공급 시작" (iM)</td></tr>
+<tr><td>5. 광 소스</td><td>EML, CW-LD</td><td>Lumentum, II-VI, Source Photonics</td><td>광 소스 모듈 MLCC</td><td>"광 소스 업체 Sample 매출" (IBK)</td></tr>
+<tr><td>6. AOC/DAC</td><td>액티브 광케이블</td><td>Mellanox, Amphenol</td><td>AOC 양 끝단 MLCC</td><td>"DSP·AOC용 공급 시작" (iM)</td></tr>
+</table>
+
+<h3>2-3. 산업사이클 진단</h3>
+
+<table>
+<tr><th>단계</th><th>시기</th><th>특징</th><th>동사 포지션</th></tr>
+<tr><td>① 800G 표준 도입</td><td>2024~2025</td><td>AI 데이터센터 신축의 디팩토. 출하 24년 800만 → 25년 2,400만개</td><td>국내 부품주 중 진입 미흡 — Sample 단계</td></tr>
+<tr><td>② 800G 대량 확산</td><td>2026</td><td>출하 6,300만개 (전년 +163%). 800G+ 비중 60% 초과. McKinsey 40~60% 공급 부족</td><td><b>1Q26 첫 매출 인식, 2Q26 양산 진입</b></td></tr>
+<tr><td>③ 1.6T 본격 도입</td><td>2026말~2028</td><td>200G/lane 부품 성숙. 1.6T = 신규 HPC 디팩토. 30~40% 공급 부족 2029년까지 지속</td><td><b>회사 가이던스 27~29년 매출 폭증 시기</b></td></tr>
+<tr><td>④ 3.2T + CPO 확산</td><td>2028 이후</td><td>NVIDIA Rubin CPO, Broadcom Tomahawk-CPO 채택. 외장 트랜시버 축소·내장 광 회로 확대</td><td>광 소스 Sample 매출이 핵심 전환 시드</td></tr>
+</table>
+
+<h3>2-4. 글로벌 MLCC Peer 비교</h3>
+<table>
+<tr><th>업체</th><th>시총 (USD)</th><th>2026F P/E</th><th>2026F PBR</th><th>ROE</th><th>전체 점유율</th><th>AI 서버 점유율</th><th>특징</th></tr>
+<tr><td>Murata Manufacturing (JP)</td><td>$50B</td><td>22배</td><td>2.4배</td><td>11%</td><td>34%</td><td class="positive">45%</td><td>AI 서버 0402 고용량 강자</td></tr>
+<tr><td>Samsung Electro-Mechanics (KR)</td><td>$8B</td><td>18배</td><td>1.5배</td><td>9%</td><td>24%</td><td class="positive">40%</td><td>26년 AI 서버 Capa 확대</td></tr>
+<tr><td>TDK (JP)</td><td>$25B</td><td>20배</td><td>1.7배</td><td>9%</td><td>12%</td><td>~10%</td><td>자동차 고전압 MLCC 강자</td></tr>
+<tr><td>Yageo (TW)</td><td>$10B</td><td>15배</td><td>2.2배</td><td>15%</td><td>13%</td><td>~5%</td><td>인수합병 통한 확장</td></tr>
+<tr><td>Taiyo Yuden (JP)</td><td>$4B</td><td>16배</td><td>1.3배</td><td>8%</td><td>9%</td><td>~5%</td><td>전장 AEC-Q200 강세</td></tr>
+<tr><td class="positive"><b>아모텍 (KR)</b></td><td class="positive"><b>$0.3B</b></td><td class="positive"><b>26.5배</b></td><td class="positive"><b>2.66배</b></td><td><b>5.2% → 14.3%</b></td><td><b>&lt;1%</b></td><td><b>신규 진입</b></td><td><b>광대역 Capacitor 특화</b></td></tr>
+<tr style="background:#eaf2f8;"><td><b>글로벌 평균 (Top 5)</b></td><td>-</td><td><b>18.2배</b></td><td><b>1.8배</b></td><td><b>10.4%</b></td><td>-</td><td>-</td><td>iM "30% 할인한 27배" 근거</td></tr>
+</table>
+
+<p><b>Peer 해석:</b> 동사의 12M Fwd PER 26.5배는 글로벌 Top 5 평균 18.2배 대비 +46% 프리미엄. 시총·점유율 측면에서 Peer 대비 1/30 수준이라는 점을 고려하면 <b>프리미엄은 "성장 옵션 가치"</b>로 해석. ROE가 27F 14.3%까지 올라가는 시점에서 PER이 글로벌 평균으로 수렴(20배 전후)하면 BPS·EPS 동시 성장으로 주가 +50% 여력. 반대로 ROE 점프가 지연되면 멀티플 디스카운트 +20% 위험.</p>
+
+<!-- ===================== 섹션 3. 기업개요 ===================== -->
+<h2>3. 기업개요 — 30년 종합부품 회사, 광 네트워크 MLCC로 체질 전환</h2>
+
+<h3>3-1. 회사 프로필</h3>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>회사명</td><td>(주)아모텍 (Amotech Co., Ltd.)</td></tr>
+<tr><td>설립</td><td>1994년 (전자부품 제조·판매로 시작)</td></tr>
+<tr><td>상장</td><td>2003년 코스닥 (티커 052710)</td></tr>
+<tr><td>본사</td><td>서울 금천구 (생산: 인천·천안·중국 청도)</td></tr>
+<tr><td>대표</td><td>김병규 (창업자, 최대주주)</td></tr>
+<tr><td>임직원</td><td>약 900명 (본사 + 중국 법인 포함)</td></tr>
+<tr><td>주요 제품</td><td>세라믹 칩 부품 (ESD/EMI/MLCC), 안테나 (Bluetooth/GPS/NFC), BLDC 모터</td></tr>
+<tr><td>주요 고객</td><td>삼성전자(갤럭시 NFC·안테나), 중국 신에너지차 OEM, 북미 fabless ASIC 메이커 (신규)</td></tr>
+<tr><td>2025년 매출</td><td>2,538억원 (YoY +10.6%)</td></tr>
+<tr><td>2025년 영업이익</td><td>+55억원 (전년 -239억에서 흑전)</td></tr>
+</table>
+
+<h3>3-2. 비즈니스 모델 — P×Q 분해</h3>
+
+<table>
+<tr><th>사업부</th><th>2025 매출</th><th>비중</th><th>핵심 제품</th><th>P (ASP)</th><th>Q (수량)</th><th>드라이버</th></tr>
+<tr><td>안테나</td><td>1,025억</td><td>39%</td><td>BT/GPS, NFC</td><td>건당 200~500원</td><td>수억개/년</td><td>갤럭시 점유율, NFC 채택률</td></tr>
+<tr><td>BLDC 모터</td><td>1,008억</td><td>33%</td><td>차량용 / 가전용</td><td>건당 5,000~30,000원</td><td>수천만개/년</td><td>중국 신에너지차, 백색가전</td></tr>
+<tr><td>세라믹칩/EMC</td><td>505억</td><td>20%</td><td>ESD, EMI, MLCC</td><td>건당 1~50원 (MLCC 100원+)</td><td>수백억개/년</td><td>스마트폰 고집적화, AI 서버</td></tr>
+<tr><td>기타</td><td>200억</td><td>8%</td><td>기타 부품</td><td>다양</td><td>-</td><td>-</td></tr>
+<tr><td class="positive"><b>MLCC 단독 (세라믹칩 내)</b></td><td class="positive"><b>250억</b></td><td class="positive"><b>10%</b></td><td class="positive">광대역 MLCC, 전장 MLCC</td><td class="positive">건당 50~500원 (광대역)</td><td class="positive">수억개/년</td><td class="positive"><b>AI 광 네트워크</b></td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자 (Moat)</h3>
+
+<div class="bull-box">
+<b>① 30년 세라믹 소재 노하우</b> — 1994년 Varistor부터 시작한 세라믹 소재 기술. ESD/EMI 분야는 ESD9R 시리즈로 한국 시장 점유율 1위. <b>광대역 MLCC는 세라믹 그레인 컨트롤·전극 적층 정밀도 기술의 응용 영역</b> — 기존 노하우의 자연스러운 확장.
+</div>
+
+<div class="bull-box">
+<b>② 가격경쟁력 + 안정성의 균형</b> — 키움 오현진: "세라믹 기반 안정성과 가격경쟁력 등을 기반으로 북미 주요 fabless 고객사에 제품 승인". 무라타·삼성전기의 고가 + 중국 부품주의 저가 사이 <b>"중간 가격대 + 검증된 신뢰성"</b> 포지션.
+</div>
+
+<div class="bull-box">
+<b>③ 광대역 Capacitor 특화 카테고리</b> — 무라타·삼성전기가 압도하는 일반 MLCC 시장이 아닌, <b>광대역 DC Block Capacitor</b>라는 틈새 카테고리에 집중. 글로벌 Peer가 즉시 추격하기 어려운 제품 특성(mmWave/광통신 특화 전극 구조).
+</div>
+
+<div class="bull-box">
+<b>④ 김병규 회장 + 일가 27.4% 지배구조</b> — 창업자 일가의 안정적 지배 + 유증 70% 참여로 입증된 사업 의지. 1994년부터 30년 이상 단일 회사 운영 + 비주력 사업 매각 이력 없음 — 의사결정 일관성.
+</div>
+
+<h3>3-4. 회사 연혁 (주요 이벤트)</h3>
+<table>
+<tr><th>연도</th><th>이벤트</th><th>의미</th></tr>
+<tr><td>1994</td><td>창업 (전자부품 제조)</td><td>김병규 회장 창업</td></tr>
+<tr><td>1999</td><td>Motor 사업·Varistor 사업 합병 → 현재의 아모텍 출범</td><td>세라믹+모터 종합 부품 출발점</td></tr>
+<tr><td>2003</td><td>코스닥 상장</td><td>티커 052710</td></tr>
+<tr><td>2010s</td><td>스마트폰 안테나·NFC 사업 확대 (삼성 갤럭시 메인 공급)</td><td>안테나 매출 1,000억대 도약</td></tr>
+<tr><td>2018~2020</td><td>BLDC 모터 사업 확대 (전기차·가전)</td><td>매출 다각화</td></tr>
+<tr><td>2022~2024</td><td>MLCC 양산 본격화 시도 → 신규투자 부담으로 적자 누적</td><td>R&amp;D·CapEx 선행 투자기</td></tr>
+<tr><td>2025</td><td>흑자전환 (OP +55억). MLCC 매출 약 250억</td><td>턴어라운드 원년</td></tr>
+<tr><td class="positive">2026.05.22</td><td class="positive"><b>350억 유상증자 결정 (AI MLCC 전용)</b></td><td class="positive">광 네트워크 MLCC 본격 진입 선언</td></tr>
+<tr><td class="positive">2026.05.27</td><td class="positive">IBK·iM 동시 목표주가 대폭 상향 (42k·29k)</td><td class="positive">증권가 인식 전환</td></tr>
+</table>
+
+<h3>3-5. 경영진</h3>
+<table>
+<tr><th>직위</th><th>이름</th><th>역할</th></tr>
+<tr><td>대표이사·회장</td><td>김병규</td><td>창업자, 최대주주(외 3인 27.42%). 30년+ 회사 운영. 유증 70% 참여로 사업 의지 입증</td></tr>
+<tr><td>주요 임원</td><td>(공시 기준)</td><td>R&amp;D·생산·해외영업 분리 운영</td></tr>
+</table>
+
+<h3>3-6. Peer 그룹 (한국 부품주 vs 글로벌 MLCC)</h3>
+<table>
+<tr><th>구분</th><th>업체</th><th>2025 매출</th><th>OPM</th><th>PER</th><th>비고</th></tr>
+<tr><td rowspan="3"><b>한국 부품주</b></td><td>삼성전기</td><td>11.5조</td><td>9.4%</td><td>16배</td><td>국내 MLCC 1위</td></tr>
+<tr><td>아비코전자</td><td>1,800억</td><td>5.7%</td><td>15배</td><td>국내 MLCC 2위 (중소형)</td></tr>
+<tr><td class="positive"><b>아모텍</b></td><td class="positive">2,538억</td><td class="positive">2.2%</td><td class="positive">26.5배</td><td class="positive"><b>광대역 MLCC 특화</b></td></tr>
+<tr><td rowspan="3"><b>글로벌 MLCC</b></td><td>Murata (JP)</td><td>$17B</td><td>20%</td><td>22배</td><td>AI 서버 1위</td></tr>
+<tr><td>TDK (JP)</td><td>$15B</td><td>11%</td><td>20배</td><td>전장 강자</td></tr>
+<tr><td>Yageo (TW)</td><td>$3.5B</td><td>16%</td><td>15배</td><td>M&amp;A 통한 확장</td></tr>
+</table>
+
+<h3>3-7. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>최종변동일</th><th>비고</th></tr>
+<tr><td><b>김병규 외 3인</b> (최대주주)</td><td>27.42%</td><td>2023.02.24</td><td>창업자 일가. 유증 70% 참여</td></tr>
+<tr><td>국민연금공단</td><td>5.24%</td><td>2026.03.10</td><td>5%+ 보유 주주</td></tr>
+<tr><td>외국인 (합계)</td><td>10.85%</td><td>2026.05.29</td><td>코스닥 평균 대비 다소 낮음</td></tr>
+<tr><td>유동주식</td><td>72.58%</td><td>2026.05.29</td><td>거래 유동성 양호</td></tr>
+</table>
+
+<p><b>운용사별 보유 (2026.03):</b> 신영자산운용 52.9만주(3.62%), 카디안자산 1.7만주, 미래에셋자산 0.9만주, HDC자산 0.8만주, DB자산 0.7만주, 흥국자산 0.7만주. 합계 약 4.3% — <b>신영자산 단독 비중이 압도적</b>이고 나머지는 분산 보유. 신영자산이 보유를 유지하는 한 매도 압력은 제한적.</p>
+
+<!-- ===================== 섹션 4. 재무분석 ===================== -->
+<h2>4. 재무분석 — 흑자전환 + 유증 = 자본구조 재정비</h2>
+
+<h3>4-1. 연간 손익 추이</h3>
+<table>
+<tr><th>구분 (억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026F (IBK)</th><th>2027F (IBK)</th><th>2028F (IBK)</th></tr>
+<tr><td>매출액</td><td>1,868</td><td>2,294</td><td>2,538</td><td class="positive">2,840</td><td class="positive">3,530</td><td class="positive">4,150</td></tr>
+<tr><td>YoY 증가율</td><td>-13.4%</td><td>+22.8%</td><td>+10.6%</td><td>+11.9%</td><td>+24.3%</td><td>+17.6%</td></tr>
+<tr><td>매출원가</td><td>1,803</td><td>2,206</td><td>2,153</td><td>2,375</td><td>2,790</td><td>3,200</td></tr>
+<tr><td>영업이익</td><td class="negative">-260</td><td class="negative">-239</td><td class="positive">+55</td><td class="positive">+140</td><td class="positive">+340</td><td class="positive">+500</td></tr>
+<tr><td>영업이익률</td><td>-13.9%</td><td>-10.4%</td><td>2.2%</td><td>4.9%</td><td>9.6%</td><td>12.0%</td></tr>
+<tr><td>EBITDA</td><td>-37</td><td>-43</td><td>238</td><td>346</td><td>456</td><td>540</td></tr>
+<tr><td>EBITDA Margin</td><td>-2.0%</td><td>-1.9%</td><td>9.4%</td><td>12.2%</td><td>12.9%</td><td>13.0%</td></tr>
+<tr><td>당기순이익</td><td class="negative">-147</td><td class="negative">-198</td><td class="positive">+79</td><td class="positive">+130</td><td class="positive">+260</td><td class="positive">+380</td></tr>
+<tr><td>EPS (원)</td><td>-1,005</td><td>-1,354</td><td>542</td><td>805</td><td>1,541</td><td>2,214</td></tr>
+<tr><td>BPS (원)</td><td>11,290</td><td>10,212</td><td>10,690</td><td>10,005</td><td>11,546</td><td>13,760</td></tr>
+<tr><td>ROE</td><td>-8.6%</td><td>-12.6%</td><td>5.2%</td><td>7.7%</td><td>14.3%</td><td>17.5%</td></tr>
+<tr><td>ROA</td><td>-3.9%</td><td>-5.4%</td><td>2.2%</td><td>2.8%</td><td>6.2%</td><td>9.0%</td></tr>
+</table>
+
+<h3>4-2. 분기 매출·OP 추정 (IBK + iM 비교)</h3>
+<table>
+<tr><th>분기 (억원)</th><th>1Q25</th><th>2Q25</th><th>3Q25</th><th>4Q25</th><th>1Q26</th><th>2Q26E (IBK / iM)</th><th>3Q26E</th><th>4Q26E</th></tr>
+<tr><td>매출액</td><td>840</td><td>594</td><td>567</td><td>536</td><td class="positive">610</td><td>654 / 549</td><td>735 / 631</td><td>840 / 647</td></tr>
+<tr><td>QoQ</td><td>+47.3%</td><td>-29.3%</td><td>-4.5%</td><td>-5.6%</td><td>+13.8%</td><td>+7.4% / -9.9%</td><td>+12.4% / +14.9%</td><td>+14.3% / +2.5%</td></tr>
+<tr><td>영업이익</td><td>39</td><td>13</td><td>8</td><td>-4</td><td class="positive">6</td><td>16 / 5</td><td>45 / 18</td><td>69 / 26</td></tr>
+<tr><td>OPM</td><td>4.7%</td><td>2.1%</td><td>1.4%</td><td>-0.8%</td><td>1.0%</td><td>2.4% / 1.0%</td><td>6.1% / 2.8%</td><td>8.2% / 4.0%</td></tr>
+<tr><td colspan="9" style="background:#eaf2f8;"><b>부문별 매출 (IBK 추정, 억원)</b></td></tr>
+<tr><td>ESD/EMI</td><td>62</td><td>77</td><td>61</td><td>55</td><td>67</td><td>77</td><td>57</td><td>57</td></tr>
+<tr><td>NFC</td><td>267</td><td>119</td><td>84</td><td>93</td><td>106</td><td>112</td><td>101</td><td>80</td></tr>
+<tr><td>BT/GPS</td><td>128</td><td>111</td><td>123</td><td>101</td><td>136</td><td>137</td><td>143</td><td>130</td></tr>
+<tr><td>Motor</td><td>293</td><td>227</td><td>243</td><td>242</td><td>248</td><td>254</td><td>284</td><td>348</td></tr>
+<tr><td class="positive"><b>MLCC</b></td><td class="positive"><b>90</b></td><td class="positive"><b>60</b></td><td class="positive"><b>57</b></td><td class="positive"><b>45</b></td><td class="positive"><b>52</b></td><td class="positive"><b>75</b></td><td class="positive"><b>150</b></td><td class="positive"><b>225</b></td></tr>
+</table>
+
+<p><b>핵심:</b> IBK 분기 추정은 iM 대비 일관되게 상회. 특히 <b>3Q26부터 격차가 벌어진다</b> — IBK 735억 vs iM 631억. 이 차이의 본질은 <b>"광 네트워크 MLCC가 3Q26부터 본격 인식되느냐"</b>에 있다. IBK는 본격화를 가정, iM은 보수적. <b>3Q26 매출이 700억을 넘으면 IBK 시나리오 (Bull) 검증, 600억대면 iM 시나리오 (Base)</b>.</p>
+
+<h3>4-3. 현금흐름 추이</h3>
+<table>
+<tr><th>구분 (억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026F</th><th>2027F</th></tr>
+<tr><td>영업현금흐름</td><td>33</td><td>66</td><td>435</td><td>467</td><td>553</td></tr>
+<tr><td>유형자산 취득 (CapEx)</td><td>-254</td><td>-64</td><td>-50</td><td>-100</td><td>-100</td></tr>
+<tr><td>FCF</td><td class="negative">-269</td><td class="negative">-305</td><td class="positive">86</td><td class="positive">115</td><td class="positive">197</td></tr>
+<tr><td>차입금 증감</td><td>-125</td><td>-86</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td class="positive">유상증자 (2026)</td><td>0</td><td>0</td><td>0</td><td class="positive">+350</td><td>0</td></tr>
+<tr><td>현금성자산 (기말)</td><td>287</td><td>268</td><td>497</td><td>708 (+유증 350)</td><td>1,003</td></tr>
+</table>
+
+<p><b>해석:</b> 2025년 영업현금흐름이 435억(전년 +66억 → 6.6배)으로 점프 — 운전자본 효율 개선과 영업이익 흑전의 합작 효과. CapEx는 2023년 254억 정점 이후 연 50~100억 수준으로 안정화 → FCF 본격 창출 단계 진입. <b>유증 350억은 FCF의 부담을 줄이며 광 네트워크 MLCC Capa 증설을 가속</b>. 이자비용 연 68억은 부담이지만, 유증으로 단기 차입금 95억 일부 상환 가능성도 존재.</p>
+
+<h3>4-4. 유상증자 리스크 분석</h3>
+
+<div class="warning-box">
+<b>유증 리스크 점검:</b>
+<ul style="margin:8px 0;">
+<li><b>희석 정도:</b> 자본금 16.2% (보통주 237만주). 발행 후 주식수 1,461만 → 1,698만주로 16% 증가. EPS는 동일 순이익 가정 시 -14% 희석.</li>
+<li><b>iM증권의 EPS 즉시 반영:</b> 26E EPS 196원 (희석 반영). IBK는 26E EPS 805원 — <b>같은 회사에 대해 4배 차이</b>. iM이 보수적, IBK가 낙관적.</li>
+<li><b>발행가액 14,790원의 의미:</b> 5/22 종가 22,800원의 65% 수준 (구주주 청약 매력↑). 현재가 28,400원 대비 48% 할인 → 청약일에 발행가 부근 매수 시 단기 차익 기회 가능.</li>
+<li><b>최대주주 70% 참여:</b> 김병규 일가 = 약 245억 자금 부담. 자체 여력 확인 필요. 잔여분(105억)은 특수관계인 인수 → 사실상 100% 우호 청약.</li>
+<li><b>청약 일정 (추정):</b> 권리락 6월 초 → 청약일 7월 중순~8월 초 → 신주 상장 8월 말. 권리락 시점에 주가 14~17% 조정 가능.</li>
+<li><b>자금 집행 가시성:</b> 시설자금 300억의 집행 일정이 공시에 명시되지 않음. 24개월 내 집행 가정 시 26~27년 분기 별 25억씩 인식 — MLCC Capa 가동률 가시화 시점 = 1Q27.</li>
+</ul>
+</div>
+
+<p><b>결론:</b> 유증 자체는 자본구조 강화 + 신성장 투자 동시 추진의 모범 케이스. 다만 <b>"발행가액 14,790원 → 현재가 28,400원"의 갭이 너무 크다</b>는 점이 단기 변동성 리스크. 청약 직전 주가가 단기 조정받을 가능성을 감안해 <b>20,000원 인근 분할매수 전략</b>이 유효할 수 있다.</p>
+
+<!-- ===================== 섹션 5. 주주환원 ===================== -->
+<h2>5. 주주환원 — 배당 부재, 성장 재투자 우선</h2>
+
+<table>
+<tr><th>구분</th><th>2023</th><th>2024</th><th>2025</th><th>2026F</th><th>2027F</th></tr>
+<tr><td>DPS (원)</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>배당성향</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td></tr>
+<tr><td>배당수익률</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td></tr>
+<tr><td>자사주 매입</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td class="negative">유상증자 (현금 유입)</td><td>0</td><td>0</td><td>0</td><td class="negative">+350억</td><td>0</td></tr>
+</table>
+
+<p><b>주주환원 진단:</b> 배당·자사주매입 모두 부재. 오히려 2026년 350억 유증으로 <b>주주가 회사에 자금을 추가 투입</b>하는 구조. 동사는 명백히 <b>성장 단계</b>로 분류되며, ROE 14%+ 도달 전까지는 주주환원 기대 어려움. <b>2027~2028년 영업이익 300억+ 정착 시점 이후</b> 배당 개시 가능성. 현 단계에서는 주주환원이 아닌 <b>EPS·BPS 성장 자체가 주주 수익원</b>.</p>
+
+<p><b>참고:</b> 글로벌 MLCC Peer 비교 — 무라타 배당성향 30~40%, 삼성전기 20~25%, TDK 25%, Yageo 30%. 동사가 ROE 15%+ 도달 + FCF 200억+ 정착하면 Peer 평균 20~30% 배당성향 채택 가능 → 2028F EPS 2,200원 × 25% = DPS 550원 → 현재가 기준 배당수익률 1.9%.</p>
+
+<!-- ===================== 섹션 6. 밸류에이션 ===================== -->
+<h2>6. 밸류에이션 — Base 38k / Bull 46k / Bear 14k</h2>
+
+<h3>6-1. 멀티플 비교 (현재가 기준)</h3>
+<table>
+<tr><th>지표</th><th>아모텍 (현재)</th><th>한국 부품주 평균</th><th>글로벌 MLCC Peer 평균</th><th>해석</th></tr>
+<tr><td>12M Fwd PER</td><td class="positive">26.5배</td><td>18배</td><td>18.2배</td><td>+47% 프리미엄</td></tr>
+<tr><td>PBR</td><td>2.66배</td><td>1.4배</td><td>1.8배</td><td>+48% 프리미엄</td></tr>
+<tr><td>EV/EBITDA</td><td>10.2배</td><td>9배</td><td>11배</td><td>Peer 평균</td></tr>
+<tr><td>ROE (12M Fwd)</td><td>5.2%</td><td>9%</td><td>10.4%</td><td>아직 미달</td></tr>
+<tr><td>EPS 증가율 (26F)</td><td class="positive">+89.2%</td><td>+15%</td><td>+20%</td><td>압도적 성장</td></tr>
+</table>
+
+<h3>6-2. 시나리오별 목표주가 산출</h3>
+
+<div class="calc-box">
+<b>[Base 시나리오] TP 38,000원 — 가중평균 60%</b>
+================================================
+2027F EPS:                1,500원 (IBK 1,541 / iM 1,062 / 키움 1,762 중앙값 + 가중평균)
+Target P/E:                 25배 (글로벌 MLCC Peer 39배 × 35% 할인)
+   ※ iM 적용 30% 할인보다 보수적 (후발 진입 리스크 추가 반영)
+산출 목표주가:    1,500 × 25 = 37,500원 → 38,000원 (반올림)
+현재가 대비:                +33.8%
+</div>
+
+<div class="calc-box" style="background:#e8f8f5;border-color:#1abc9c;">
+<b>[Bull 시나리오] TP 46,000원 — 가중평균 25%</b>
+================================================
+2027F EPS:                1,800원 (회사 가이던스 27년 AI MLCC 316억 +20% 초과 달성)
+Target P/E:                 25배 (Base와 동일 — 멀티플 점프는 미적용)
+산출 목표주가:    1,800 × 25 = 45,000원 → 46,000원
+현재가 대비:                +62.0%
+
+핵심 트리거:
+- 광대역 Capacitor가 트랜시버 외 mmWave RF/위성통신/CPO 진입
+- MLCC Capa 가동률 80%+ 조기 달성
+- IBK 42,000원 (BPS 10,005 × PBR 4.2) 추월
+</div>
+
+<div class="calc-box" style="background:#fdedec;border-color:#e74c3c;">
+<b>[Bear 시나리오] TP 14,400원 — 가중평균 15%</b>
+================================================
+2027F EPS:                  800원 (회사 가이던스 50% 미달)
+Target P/E:                 18배 (글로벌 평균 수준으로 디스카운트)
+산출 목표주가:      800 × 18 = 14,400원
+현재가 대비:                -49.3%
+
+핵심 트리거:
+- 유증 자금 집행 지연 (24개월 초과)
+- MLCC Capa 가동률 50% 미달
+- CPO 빠른 채택으로 외장 트랜시버 수요 급감
+- NFC 매출 -30%+ 추가 감소
+- 유증 발행가 14,790원이 자연스러운 지지선
+</div>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<table>
+<tr><th>구간</th><th>가격대</th><th>비중</th><th>액션</th><th>근거</th></tr>
+<tr><td class="positive">강력 매수</td><td>~15,000원</td><td>30%</td><td>적극 매수</td><td>유증 발행가 14,790원 인근 — 최대주주 청약가</td></tr>
+<tr><td class="positive">매수</td><td>15,000~22,000원</td><td>50%</td><td>분할매수</td><td>iM 자체 26E EPS 196원 × PER 25배 = 4,900원 → 부담스러우나 27F 기준으론 정당</td></tr>
+<tr><td>중립</td><td>22,000~32,000원</td><td>15%</td><td>관망</td><td>현재가 영역 — Base TP 도달 전 구간</td></tr>
+<tr><td>비중축소</td><td>32,000~40,000원</td><td>5%</td><td>일부 차익실현</td><td>Base TP 도달 — 추가 상승 위해 27F 실적 가시화 필요</td></tr>
+<tr><td class="negative">매도</td><td>40,000원+</td><td>0%</td><td>매도</td><td>IBK 42k 도달 — Bull 시나리오 검증 전까지 차익실현</td></tr>
+<tr><td class="negative">손절</td><td>~12,000원</td><td>-</td><td>손절</td><td>유증 발행가 -20% 이탈 — Bear 시나리오 검증 시</td></tr>
+</table>
+
+<!-- ===================== 섹션 7. 주가 히스토리 ===================== -->
+<h2>7. 주가 히스토리 — 1년 +228% 급등과 변곡점</h2>
+
+<table>
+<tr><th>시점</th><th>주가</th><th>주요 이벤트</th><th>해석</th></tr>
+<tr><td>2025.05</td><td>약 8,490원</td><td>52주 저점</td><td>턴어라운드 인식 전 — PER -2.8배 (적자)</td></tr>
+<tr><td>2025.08</td><td>약 10,000원</td><td>2Q25 실적 발표 (OP 13억 흑자)</td><td>흑자전환 첫 분기 — 시장 반응 미온적</td></tr>
+<tr><td>2025.11</td><td>약 12,000원</td><td>3Q25 실적 (OP 8억) 보합</td><td>NFC 부진 우려 부각</td></tr>
+<tr><td>2026.03.04</td><td>10,070원</td><td>키움 "AI 수혜 시작. 저평가 매력 주목"</td><td>증권가 첫 신호 — Not Rated이나 가장 빠른 콜</td></tr>
+<tr><td>2026.04.17</td><td>약 13,000원</td><td>Business Summary 업데이트 — AI/통신/반도체 공급 확대 명시</td><td>회사가 처음으로 AI 메시지 강조</td></tr>
+<tr><td>2026.05.22</td><td class="positive">22,800원</td><td class="positive"><b>유상증자 350억 결정 공시</b></td><td class="positive">주가가 1~2주 만에 +50% — 유증을 호재로 해석한 시장</td></tr>
+<tr><td>2026.05.26</td><td>27,300원</td><td>iM 목표주가 15k→29k 대폭 상향</td><td>+93% 상향</td></tr>
+<tr><td>2026.05.27</td><td>30,200원 (52주 신고가)</td><td class="positive"><b>IBK 목표주가 20k→42k 상향</b></td><td class="positive">+110% 상향 — 단일 종목 최대 점프</td></tr>
+<tr><td>2026.05.29</td><td>28,400원</td><td>차익실현 -5.96% 조정</td><td>현재가</td></tr>
+</table>
+
+<h3>주가 수익률 (현재가 기준)</h3>
+<table>
+<tr><th>기간</th><th>1M</th><th>3M</th><th>6M</th><th>1Y</th></tr>
+<tr><td>절대 수익률</td><td class="positive">+19.8%</td><td class="positive">+115.5%</td><td class="positive">+195.8%</td><td class="positive">+228.3%</td></tr>
+<tr><td>상대 수익률 (vs KOSDAQ)</td><td class="positive">+15%</td><td class="positive">+107%</td><td class="positive">+170%</td><td class="positive">+193%</td></tr>
+</table>
+
+<p><b>주가 히스토리 해석:</b> 2026년 3월 키움의 "Not Rated, AI 수혜 시작" 콜이 첫 시그널이었으나, 시장이 본격 반응한 것은 <b>5/22 유상증자 공시</b>부터. 일반적으로 유증은 주가에 부정적이지만, 동사는 <b>"자금 사용처 100% AI MLCC"</b>라는 메시지가 강력했다. 5/26~5/27 IBK·iM 동시 대폭 상향이 +50% 급등 마무리. 현 가격은 <b>키움 콜 시점(10,070원) 대비 +182%, 1년 저점(8,490원) 대비 +234%</b>로, 단순 가격 차원에서는 단기 과열 신호. 다만 27F EPS 1,500~1,800원 기준 PER 15~19배는 글로벌 Peer 평균 18배와 부합 — <b>"실적이 따라온다"는 검증이 필요한 단계</b>.</p>
+
+<!-- ===================== 섹션 8. 리스크 분석 ===================== -->
+<h2>8. 리스크 분석</h2>
+
+<h3>8-1. 사업 리스크</h3>
+
+<div class="risk-box">
+<b>① 광 네트워크 MLCC Capa 가동률 부진</b><br>
+유증 자금 300억 = 광대역 Capacitor Capa 2배. Capa 증설 후 가동률 50% 미만이면 감가상각비 부담으로 OPM 악화. iM 자체 26E OPM 2.3% 추정 = 키움 6.6% 대비 보수적인 이유 = 가동률 가정 차이.
+</div>
+
+<div class="risk-box">
+<b>② 글로벌 MLCC Peer의 직접 진입</b><br>
+무라타·삼성전기가 광대역 Capacitor 카테고리에 본격 진입할 경우, 후발인 동사 가격 경쟁력 약화. 특히 삼성전기는 2026년부터 AI 서버용 MLCC Capa 확대 발표 — 같은 고객사를 두고 경쟁할 가능성.
+</div>
+
+<div class="risk-box">
+<b>③ NFC·안테나 매출 추가 감소</b><br>
+iM 26E 안테나 -19.9% → 27E +7.7%. 갤럭시 NFC 채택률 하락·중국 자체 안테나 채택 확대 시 안테나 매출 -30%+ 가능. 이 경우 MLCC 매출 증가분의 50%+가 안테나 감소분으로 상쇄.
+</div>
+
+<div class="risk-box">
+<b>④ CPO 빠른 채택 → 외장 트랜시버 시장 축소</b><br>
+NVIDIA Rubin (2026말) + Broadcom Tomahawk-CPO 채택 본격화 시 외장 트랜시버 시장 자체 축소. 동사 광대역 Capacitor의 직접 수요처(외장 트랜시버 PCB)가 감소. 대응 = "광 소스 업체 Sample 매출" 확대로 CPO 칩 패키지 내 진입.
+</div>
+
+<h3>8-2. 재무 리스크</h3>
+
+<div class="risk-box">
+<b>⑤ 유증 자금 집행 지연 + 단기 EPS 희석</b><br>
+유증 350억이 24개월 내 매출 전환 안 되면 자본금 16.2% 증가 + EPS 14% 희석만 남음. iM 26E EPS 196원 = 이 시나리오 가정. 발행가 14,790원이 단기 주가 하방 압력.
+</div>
+
+<div class="risk-box">
+<b>⑥ 부채비율 126% + 단기 차입금 95억</b><br>
+2025년 말 부채총계 1,971억 vs 자본총계 1,562억 → 부채비율 126%. 단기금융부채 95억 + 장기 20억 = 총 차입금 115억. 이자비용 연 68억은 흑자전환 직후의 부담. <b>26F 차입금 상환 계획이 공시되지 않은 점이 우려</b>.
+</div>
+
+<div class="risk-box">
+<b>⑦ 영업현금흐름의 과거 변동성</b><br>
+2023년 +33억 → 2024년 +66억 → 2025년 +435억 → 운전자본 효율의 큰 점프. 26~27년 매출 성장 가속 시 운전자본 부담으로 영업현금흐름이 다시 둔화될 가능성. CapEx 100억+ 시 FCF 100~150억 수준에 머무를 수 있음.
+</div>
+
+<h3>8-3. 거시 리스크</h3>
+
+<div class="risk-box">
+<b>⑧ AI CapEx 사이클 둔화</b><br>
+Hyperscaler AI CapEx가 2027~2028년 정점 후 둔화 시 광 트랜시버 출하 둔화 → MLCC 수요 둔화. 다만 1.6T 표준화는 2029년까지 부족 지속 — 2027~2028년 단기 둔화 위험은 제한적.
+</div>
+
+<div class="risk-box">
+<b>⑨ 중국 신에너지차 둔화 + 동사 모터 사업 영향</b><br>
+BLDC 모터 매출의 30%+가 중국 전기차. 중국 OEM 가격 경쟁 격화·정부 보조금 축소 시 모터 매출 -10~15% 가능. 단, 2025년 매출 1,008억 대비 모터 단독 영향은 100~150억 — 전사 매출의 4~6%.
+</div>
+
+<div class="risk-box">
+<b>⑩ 환율 (원/달러) 변동</b><br>
+중국 자회사 + 북미 fabless 고객사 비중 증가로 달러·위안 수출 매출 비중 50%+ 추정. 원/달러 -10% 시 영업이익 -50억 노출. 헤지 미공시.
+</div>
+
+<h3>8-4. 지배구조·일회성 리스크</h3>
+
+<div class="risk-box">
+<b>⑪ 김병규 회장 일가 27.4% 지배 + 75세 고령</b><br>
+김병규 회장은 1994년 창업 이후 30년 운영. 승계 계획·차세대 경영진 공시 부재. 갑작스러운 경영승계 이벤트 시 단기 변동성. 다만 유증 70% 참여는 지속적 사업 의지 시그널.
+</div>
+
+<div class="risk-box">
+<b>⑫ 단기 주가 급등에 따른 차익실현 매물</b><br>
+1년 +228% 급등 → 12개월 보유 주주 평균 단가 약 18,000원 추정. 현재가 28,400원에서 +50% 평가차익 → 추가 상승 시 단계적 차익실현 매물. <b>특히 신영자산 528만주(3.62%)의 매도 전환이 가장 큰 단기 변수</b>.
+</div>
+
+<!-- ===================== 섹션 9. 미래 모멘텀 ===================== -->
+<h2>9. 미래 모멘텀 — 광 네트워크 MLCC + Op Box 돌파</h2>
+
+<h3>9-1. 성장축 (3년 시간표)</h3>
+<table>
+<tr><th>시기</th><th>성장축</th><th>예상 매출 기여 (억원)</th><th>OPM 기여 (bp)</th><th>핵심 검증 포인트</th></tr>
+<tr><td>1Q26</td><td>광 네트워크 MLCC Sample 매출 시작</td><td>52</td><td>0</td><td>"칩·스위치·커넥터 메이커 동시 진입" 확인 (✅ IBK 5/27)</td></tr>
+<tr><td>2Q26</td><td>글로벌 트랜시버 양산 진입</td><td>75</td><td>+50bp</td><td>iM 가이던스 — 2Q 실적이 시그널</td></tr>
+<tr><td>3Q26</td><td>광 네트워크 MLCC 분기 100억+</td><td>150 (IBK) / 100 (Base)</td><td>+150bp</td><td>분기 매출 700억+ 달성 여부</td></tr>
+<tr><td class="positive">4Q26</td><td class="positive">유증 자금 1차 집행 (생산설비 발주)</td><td class="positive">225 (IBK) / 150 (Base)</td><td class="positive">+250bp</td><td class="positive">분기 매출 800억+, 연간 흑자 100억+ 시현</td></tr>
+<tr><td class="positive">2027</td><td class="positive">AI 데이터센터 MLCC 매출 316억 (회사 가이던스)</td><td class="positive">316 (회사) / 500+ (IBK)</td><td class="positive">+500bp</td><td class="positive">광대역 Capacitor Capa 2배 가동률 70%+</td></tr>
+<tr><td class="positive">2028</td><td class="positive">AI 데이터센터 MLCC 497억 + CPO Sample → 정식</td><td class="positive">500+ (회사) / 700+ (Bull)</td><td class="positive">+700bp</td><td class="positive">OPM 12% 진입</td></tr>
+<tr><td class="positive">2029</td><td class="positive">AI 데이터센터 MLCC 740억 (회사 가이던스)</td><td class="positive">740 (회사)</td><td class="positive">+1,000bp</td><td class="positive">CPO 본격 채택, 광 소스 정식 매출</td></tr>
+</table>
+
+<h3>9-2. 영업이익 박스권 돌파 (Op Box Breakout)</h3>
+
+<div class="bull-box">
+<b>역사적 영업이익 박스권:</b> 2018~2021년 연 -100~+80억 박스권. 2022~2024년 -200~-260억으로 박스 이탈(아래 방향). <b>2025년 +55억으로 박스 상단 회복</b>.<br><br>
+
+<b>박스 돌파 시그널:</b> <b>2026F +126억(컨센)·140억(IBK)은 2018년 이래 박스권 상단 80억을 50% 이상 돌파</b>하는 첫 케이스. 2027F 300~340억은 <b>박스 상단의 4~5배 영역으로 진입 — 회사가 다른 OP 구조에 들어선 것</b>.<br><br>
+
+<b>박스 돌파 정당화 근거:</b> ① MLCC 부문 매출이 26F 18% → 27F 28% → 28F 35%+ 로 단계적 점프, ② MLCC OPM은 일반 부품 5% vs MLCC 15~20%로 부문 mix 변화가 OPM 점프의 핵심, ③ 광대역 Capacitor는 트랜시버 외 응용처 확대 가능성으로 가격 결정력 +10~20%.
+</div>
+
+<h3>9-3. 2027~2028년 OP 1,000억 시나리오 (Bull Case)</h3>
+
+<div class="bull-box">
+<b>가정:</b><br>
+- 2028F 매출 4,500억 (회사 가이던스 부합)<br>
+- MLCC 부문 매출 1,200억 (전사 27%, AI MLCC 500억 + 일반 MLCC 700억)<br>
+- MLCC OPM 25%, 일반 부품 OPM 7%<br>
+- 부문 가중 OPM ≈ 12.0%<br><br>
+
+<b>산출:</b> 4,500 × 12.0% = 영업이익 <b>540억</b>. IBK 28F 가이던스 500억과 부합.<br><br>
+
+<b>Bull Stretch:</b> AI MLCC 매출이 회사 가이던스 30%+ 초과 + 광 소스 Sample → 정식 매출 100억+ → 28F MLCC 매출 1,500억, OPM 25% → 영업이익 750억 가능. <b>이 시나리오는 시총 1조원(=현재가 4배) 정당화</b>.
+</div>
+
+<!-- ===================== 섹션 10. 실적 서프라이즈 예측 ===================== -->
+<h2>10. 실적 서프라이즈 예측 — 분기별 로드맵</h2>
+
+<h3>10-1. 2Q26 (8월 발표) — 글로벌 트랜시버 양산 진입</h3>
+
+<div class="update-box">
+<b>시장 컨센서스:</b> 매출 602억 (FnGuide) / IBK 654억 / iM 549억<br>
+<b>예상 변수:</b> ① 광대역 MLCC 분기 70~80억 인식 여부 (iM 추정 75억), ② NFC 매출 100억 회복 여부, ③ 모터 매출 250억 유지<br>
+<b>서프라이즈 시나리오:</b><br>
+- <b>Upside (+10%):</b> 글로벌 트랜시버 정식 양산 진입 + 광 소스 Sample → 매출 700억+, OP 30억+. 키움 시나리오 검증 시작<br>
+- <b>Base:</b> 매출 600~650억, OP 10~15억. 컨센 부합<br>
+- <b>Downside (-10%):</b> 트랜시버 양산 지연 + NFC 부진 지속 → 매출 530억, OP 5억 미만. iM 시나리오 강화 — 주가 -10%
+</div>
+
+<h3>10-2. 3Q26 (11월 발표) — MLCC 분기 100억+ 분기점</h3>
+
+<div class="update-box">
+<b>시장 컨센서스:</b> 매출 685억 (FnGuide) / IBK 735억 / iM 631억<br>
+<b>예상 변수:</b> ① 광대역 MLCC 분기 100~150억 진입 여부 (IBK 150억 vs iM 75억), ② AI 광 트랜시버 출하 가속이 동사 매출에 반영되는 첫 분기, ③ 모터 매출 280억+ 시즌 효과<br>
+<b>서프라이즈 시나리오:</b><br>
+- <b>Upside (+15%):</b> 매출 800억+, OP 60억+. <b>IBK 시나리오 검증 → 목표주가 42k 정당화</b><br>
+- <b>Base:</b> 매출 680~735억, OP 30~45억. IBK·키움 평균<br>
+- <b>Downside (-15%):</b> MLCC 매출 100억 미달 → 매출 600억, OP 15억. iM 보수론 정당화 — IBK 목표주가 하향 위험
+</div>
+
+<h3>10-3. 4Q26 (2027년 3월 발표) — 연간 흑자 100억+ 달성 여부</h3>
+
+<div class="update-box">
+<b>시장 컨센서스:</b> 4Q 매출 750억 (연간 2,704억) / IBK 4Q 840억 (연간 2,840억) / iM 4Q 647억 (연간 2,438억)<br>
+<b>예상 변수:</b> ① 광대역 MLCC 분기 200억+ 진입 (IBK 225억), ② 광 소스 Sample → 정식 매출 전환 시점, ③ 연간 영업이익 흑자 100억+ 달성<br>
+<b>서프라이즈 시나리오:</b><br>
+- <b>Upside (+15%):</b> 4Q 매출 950억, 연간 OP 150억+. 27F 매출 3,500억·OP 350억 가시화 — Base TP 38k 안전, Bull 46k 본격 베팅<br>
+- <b>Base:</b> 4Q 매출 800억, 연간 OP 100~120억. 컨센 부합<br>
+- <b>Downside (-15%):</b> 4Q 매출 620억, 연간 OP 50~70억 미만. 27F 가이던스 하향 — 주가 -25%, Bear 14k 가시화
+</div>
+
+<h3>10-4. 1~2Q27 — AI MLCC 매출 분기 100억+ 정착</h3>
+
+<div class="update-box">
+<b>핵심 체크:</b> 회사 가이던스 — 27년 AI 데이터센터 MLCC 매출 316억 → 분기 평균 79억. 단, 매출은 2H로 갈수록 가속될 가능성이 높아 1Q27 분기 50억, 4Q27 분기 100억+가 적정.<br>
+<b>유증 자금 집행 가시화 시점:</b> 1Q27 (유증 결정 후 8~10개월). 가동률 70%+ 달성 = 이 시점.<br>
+<b>2027 연간 가이던스 검증 매트릭스:</b> 27F 전사 매출 3,000억+ 동시 OP 250억+ = 동시 달성 시 Bull TP 46k 정당화.
+</div>
+
+<!-- ===================== Footer ===================== -->
+<div class="footer">
+<p><b>데이터 출처:</b><br>
+[1차자료] 아모텍 5/22 유상증자 결정 공시 (DART) · 아모텍 IR 자료 · 회사 홈페이지 제품 페이지<br>
+[증권사 리포트] IBK투자증권 김운호 (2026.05.27) · iM증권 고의영·박정하 (2026.05.26) · 키움증권 오현진 (2026.03.05)<br>
+[시장 데이터] FnGuide Snapshot (2026.05.29) · 투자의견 컨센서스 (3사)<br>
+[글로벌 산업] TrendForce (2026.04) · McKinsey · Mordor Intelligence · Markets&amp;Markets · passive-components.eu<br>
+[정책] 산업통상자원부 2026 예산 · CAAM 중국 신에너지차 통계<br>
+[뉴스] 이데일리 · 파이낸셜뉴스 · 머니투데이 · 데일리인베스트 (각 2026.05.27)<br><br>
+<b>본 자료는 개인 학습·연구 목적으로 작성된 종합 리서치이며, 투자 권유나 매매 의견을 대신하지 않습니다.</b><br>
+작성일: 2026.05.31 · 작성자: 개인 투자자 이렌</p>
+</div>
+
+</body>
+</html>
