@@ -68,13 +68,18 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 .tbl-card::-webkit-scrollbar-thumb { background:var(--line); border-radius:4px;
   border:2px solid var(--card); background-clip:padding-box; }
 .tbl-card::-webkit-scrollbar-thumb:hover { background:var(--muted); border:2px solid var(--card); background-clip:padding-box; }
-table { width:100%; border-collapse:collapse; min-width:800px; }
+table { width:100%; border-collapse:collapse; min-width:800px; table-layout:fixed; }
+/* 모든 카테고리 공통 — 순위/종목명/티커 너비 고정 */
+thead th:nth-child(1), tbody td:nth-child(1) { width:56px; }   /* 순위 */
+thead th:nth-child(2), tbody td:nth-child(2) { width:230px; }  /* 종목명 */
+thead th:nth-child(3), tbody td:nth-child(3) { width:84px; }   /* 티커 */
 thead th { background:var(--thead); color:var(--muted); font-weight:700; font-size:12px;
   padding:11px 12px; text-align:center; border-bottom:1px solid var(--line);
   white-space:nowrap; position:sticky; top:0; z-index:1; }
 thead th.left { text-align:left; }
 tbody td { padding:10px 12px; border-bottom:1px solid var(--line-soft); font-size:13px;
-  color:var(--text); text-align:center; white-space:nowrap; }
+  color:var(--text); text-align:center; white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis; }
 tbody td.left { text-align:left; }
 tbody td.rank { color:var(--muted); font-weight:600; font-variant-numeric:tabular-nums; }
 tbody td.name { color:var(--text-strong); font-weight:600; }
@@ -183,12 +188,12 @@ const CATEGORIES = {
       { key: 'F16013', label: '티커', cls: 'ticker' },
       { key: 'F15001', label: '현재가(원)', cls: 'num', fmt: 'comma' },
       { key: 'F15004', label: '등락률', cls: 'num', fmt: 'pctSigned' },
-      { key: 'INFLOW', label: '자금유입(원)', cls: 'num', fmt: 'comma' },
+      { key: 'INFLOW', label: '일간 자금유입(원)', cls: 'num', fmt: 'comma' },
     ],
   },
   navchange: {
     label: '순자산증감',
-    sortKey: 'AUM_VAR_ABS', sortDir: 'desc',
+    sortKey: 'AUM_VAR', sortDir: 'desc',
     columns: [
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
@@ -260,6 +265,10 @@ const F = {
     return sign + n.toLocaleString('ko-KR');
   },
 };
+
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 
 function cellClassFor(col, raw) {
   if (col.fmt === 'pctSigned' || col.fmt === 'commaSigned') {
@@ -340,7 +349,9 @@ async function loadCategory(cat) {
       const raw = c.key === '_rank' ? (i + 1) : row[c.key];
       const text = c.fmt ? F[c.fmt](raw) : (raw ?? '—');
       const cls = cellClassFor(c, raw);
-      return `<td class="${cls}">${text}</td>`;
+      // 종목명은 ellipsis로 잘릴 수 있으니 title 추가 (hover 시 전체)
+      const titleAttr = (c.key === 'F16002') ? ` title="${escapeHtml(String(raw ?? ''))}"` : '';
+      return `<td class="${cls}"${titleAttr}>${text}</td>`;
     }).join('');
     return `<tr>${tds}</tr>`;
   }).join('');

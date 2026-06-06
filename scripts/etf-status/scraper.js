@@ -231,7 +231,7 @@ async function scrapeAumVariation(browser, onlyCat) {
       const ax = window.axios;
       if (!ax) return { _err: 'no axios' };
       try {
-        const r = await ax.get('/user/etp/getEtpRankListInflow?type=ETF&annuityCode=A&ctgLargeCode=A&order=D&orderCol=&invCode=&leverage=&inverse=&coveredCall=&orderBy=DESC&limit=100');
+        const r = await ax.get('/user/etp/getEtpRankListInflow?type=ETF&annuityCode=A&ctgLargeCode=A&order=W&orderCol=&invCode=&leverage=&inverse=&coveredCall=&orderBy=DESC&limit=100');
         return r.data;
       } catch (e) { return { _err: 'axios: ' + (e.response?.status || e.message) }; }
     }).catch(e => ({ _err: e.message }));
@@ -252,7 +252,7 @@ async function scrapeAumVariation(browser, onlyCat) {
       const ax = window.axios;
       if (!ax) return { _err: 'no axios' };
       try {
-        const r = await ax.get('/user/etp/getEtpAumVariation?type=ETF&order=D');
+        const r = await ax.get('/user/etp/getEtpAumVariation?type=ETF&order=W');
         return r.data;
       } catch (e) { return { _err: 'axios: ' + (e.response?.status || e.message) }; }
     }).catch(e => ({ _err: e.message }));
