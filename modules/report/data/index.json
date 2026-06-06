@@ -12,6 +12,18 @@
     "pages": 12
   },
   {
+    "file": "나스닥_IREN_AI데이터센터_엔비디아MS계약_260606.html",
+    "market": "나스닥",
+    "name": "IREN",
+    "themes": [
+      "AI데이터센터",
+      "엔비디아MS계약"
+    ],
+    "date": "2026-06-06",
+    "revision": false,
+    "pages": 10
+  },
+  {
     "file": "코스닥_파인엠텍_폴더블힌지_애플폴드_260603.html",
     "market": "코스닥",
     "name": "파인엠텍",
@@ -22,6 +34,18 @@
     "date": "2026-06-03",
     "revision": false,
     "pages": 12
+  },
+  {
+    "file": "KOSPI_SGC에너지_AI데이터센터_바이오매스SMP_260601.html",
+    "market": "KOSPI",
+    "name": "SGC에너지",
+    "themes": [
+      "AI데이터센터",
+      "바이오매스SMP"
+    ],
+    "date": "2026-06-01",
+    "revision": false,
+    "pages": 18
   },
   {
     "file": "코스피_SGC에너지_AI데이터센터_바이오매스SMP_260601.html",
@@ -36,16 +60,16 @@
     "pages": 19
   },
   {
-    "file": "KOSPI_SGC에너지_AI데이터센터_바이오매스SMP_260601.html",
-    "market": "KOSPI",
-    "name": "SGC에너지",
+    "file": "코스피_현대오토에버_AI로보틱모빌리티_SDV아틀라스컨센추월_260531.html",
+    "market": "코스피",
+    "name": "현대오토에버",
     "themes": [
-      "AI데이터센터",
-      "바이오매스SMP"
+      "AI로보틱모빌리티",
+      "SDV아틀라스컨센추월"
     ],
-    "date": "2026-06-01",
+    "date": "2026-05-31",
     "revision": false,
-    "pages": 18
+    "pages": 32
   },
   {
     "file": "코스피_현대모비스_로보틱PhysicalAI_Atlas액추에이터100퍼센트_260531.html",
@@ -82,18 +106,6 @@
     "date": "2026-05-31",
     "revision": false,
     "pages": 21
-  },
-  {
-    "file": "코스피_현대오토에버_AI로보틱모빌리티_SDV아틀라스컨센추월_260531.html",
-    "market": "코스피",
-    "name": "현대오토에버",
-    "themes": [
-      "AI로보틱모빌리티",
-      "SDV아틀라스컨센추월"
-    ],
-    "date": "2026-05-31",
-    "revision": false,
-    "pages": 32
   },
   {
     "file": "코스피_현대모비스_로보틱스PhysicalAI_260525.html",

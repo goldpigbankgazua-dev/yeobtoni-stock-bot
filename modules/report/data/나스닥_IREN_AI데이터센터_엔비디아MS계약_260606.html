@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IREN Limited (NASDAQ:IREN) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>IREN Limited (NASDAQ:IREN)</h1>
+<div class="sub">비트코인 채굴 → AI 클라우드 전환의 정점 · MS $9.7B + 엔비디아 $3.4B 계약 + 5GW 전략적 파트너십<br>월스트리트 컨센 BUY (15인) · 현재가 $55.70 vs 평균 TP $81 (+45%) · 분석일 2026.06.06</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/5 종가)</span><span class="snapshot-value">$55.70</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">약 $18~19B</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비 (6/5)</span><span class="snapshot-value negative">-9.96%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 범위</span><span class="snapshot-value">$8.82 ~ $76.87</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PSR (실적 기준)</span><span class="snapshot-value">약 26~30배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">기관 보유율</span><span class="snapshot-value">약 44~47%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+300% 이상</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대 기관주주</span><span class="snapshot-value">Tudor 외 5.98%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Q3 FY26 매출/Adj.EBITDA</span><span class="snapshot-value">$144.8M / $59.5M</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP (자체)</span><span class="snapshot-value">$78<br>(+40%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP (자체)</span><span class="snapshot-value">$110<br>(+97%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (15인)</span><span class="snapshot-value">$81<br>(+45%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">현금 (4/30 기준)</span><span class="snapshot-value positive">$2.6B</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전환사채 (3/31)</span><span class="snapshot-value negative">$3.69B</span></div>
+<div class="snapshot-item"><span class="snapshot-label">계약 ARR / 목표 ARR</span><span class="snapshot-value positive">$3.1B → $3.7~4.4B</span></div>
+</div>
+<div class="snapshot-core"><b>수급 한 줄:</b> 기관 보유율 약 44~47%(Tudor 5.98%·Citigroup 4.56%·Situational Awareness 4.02%), 리테일 비중이 45~53%로 높아 변동성 큼. 다수 패시브·테마 ETF(Tidal Trust II, Themes ETF Trust 등)가 IREN 편입 — 상세는 §7-2 참조. <i>(데이터: SEC NPORT-P·MarketBeat·WallStreetZen 2026.06)</i><br><br>
+<b>월스트리트 한 줄:</b> 15인 컨센 BUY, 평균 TP $81(범위 $41~$126). 6월 들어 B.Riley $96·Cantor $99·HC Wainwright $80(매수 상향)·Canaccord $79로 줄상향 — AI 인프라 재평가. (상세는 §0 애널리스트 박스 참조)<br><br>
+<b>핵심 한줄:</b> 비트코인 채굴 출신이 1년 만에 MS·엔비디아 양대 빅테크 앵커 계약을 확보한 'AI 네오클라우드' 1.5군. 계약 ARR $3.1B·5GW 전력 포트폴리오가 서사를 만들지만, 분기 순손실 $247.8M·전환사채 $3.69B·고객 집중(MS+엔비디아) 리스크가 공존하는 고변동 성장주.</div>
+</div>
+
+<div class="broker-box">
+<h3 style="margin-top:0;">📊 월스트리트 애널리스트 커버리지 — 최근 컨센서스 전수 (2026.06 기준)</h3>
+<p style="font-size:10pt;color:#555;margin:6px 0;">※ 한국 FnGuide 증권사 리포트의 미국식 매핑 — 미국 sell-side 애널리스트 레이팅·목표주가. 현재가 $55.70(6/5 종가) 대비.</p>
+<table>
+<tr><th>최근 액션</th><th>증권사 (애널리스트)</th><th>의견</th><th>목표주가</th><th>직전→현</th><th>현재가 대비</th></tr>
+<tr><td>2026.06.04</td><td>Cantor Fitzgerald (Brett Knoblauch)</td><td>Overweight</td><td><b>$99</b></td><td>$77 → $99</td><td class="positive">+78%</td></tr>
+<tr><td>2026.06.04</td><td>B. Riley (Nick Giles)</td><td>Buy</td><td><b>$96</b></td><td>$88 → $96</td><td class="positive">+72%</td></tr>
+<tr><td>2026.05~06</td><td>HC Wainwright</td><td>Buy (상향)</td><td>$80</td><td>Neutral → Buy</td><td class="positive">+44%</td></tr>
+<tr><td>2026.05~06</td><td>Canaccord Genuity</td><td>Buy</td><td>$79</td><td>$70 → $79</td><td class="positive">+42%</td></tr>
+<tr><td>2026.05</td><td>최저 목표가 (보수론자)</td><td>—</td><td class="negative">$41</td><td>—</td><td class="negative">-26%</td></tr>
+<tr><td>2026.05</td><td>최고 목표가 (강세론자)</td><td>—</td><td class="positive">$126</td><td>—</td><td class="positive">+126%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold;"><td>컨센서스</td><td>15인 종합 (S&amp;P Global 집계)</td><td>BUY</td><td>$81 (중앙값 $76.5)</td><td>지속 상향</td><td class="positive">약 +45%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 목표가 범위 $41~$126 — 동일 종목에 대해 3배 이상 벌어진 분산은 비트코인 채굴(소멸 사업)과 AI 클라우드(신규 성장)가 한 회사에 섞여 밸류에이션 기준이 통일되지 않았음을 의미. 향후 AI 클라우드 매출 비중이 올라갈수록 분산은 좁혀질 전망.</p>
+</div>
+
+<!-- 개별 애널리스트 박스 (sk-box) -->
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;">🔥 Cantor Fitzgerald — TP $99 신규 상향 (Overweight) <span class="tag-sk" style="background:#1e6e3a;">최고 목표가급</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"용량 성장(capacity growth)에 근거한 목표가 상향"</td><td>2026 480MW·2027 1,210MW 빌드아웃 가시성 반영</td></tr>
+<tr><td>투자의견 / TP</td><td>Overweight 유지 / $99 (직전 $77, +29% 상향)</td><td class="positive">현재가 $55.70 대비 +78%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① MS·엔비디아 양대 앵커 계약으로 ARR 가시성 확보 ② 5GW 확보 전력이 동종 대비 차별적 ③ 자체 전력·토지·데이터센터 수직계열화 ④ 계약 ARR $3.1B는 현 매출의 수배</td><td>'전력 확보 = 진입장벽' 논리</td></tr>
+<tr><td>★ 밸류 가정</td><td>2027~28 ARR $4.4B 풀가동 시 EV/매출 멀티플 적용 → $99</td><td>매출 멀티플 정당화</td></tr>
+</table>
+<p><b>[Cantor 핵심]</b> "세상은 구조적으로 컴퓨트가 부족하고 병목은 '전력+데이터센터'다. IREN은 그 병목을 직접 보유한다"는 경영진 논리를 그대로 수용한 강세 뷰.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h3 style="margin-top:0;color:#1f618d;">📘 B. Riley — TP $96 (Buy) <span class="tag-sk" style="background:#1f618d;">실적 직후 상향</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"480MW 용량·계약 ARR 진척으로 목표가 상향"</td><td>2026말 480MW·15만 GPU 배치 로드맵 반영</td></tr>
+<tr><td>투자의견 / TP</td><td>Buy 유지 / $96 (직전 $88, +9% 상향)</td><td class="positive">현재가 대비 +72%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 계약 ARR $3.1B(MS $1.9B+엔비디아 $0.7B+Prince George $0.5B) ② 투자등급 GPU 파이낸싱 $3.65B 확보로 자금 조달 우려 완화 ③ 엔비디아 5GW 파트너십이 공급망 우선권 시사</td><td>자금조달 리스크 해소에 비중</td></tr>
+<tr><td>★ 밸류 가정</td><td>목표 ARR $3.7B(CY26말)→$4.4B(엔비디아 풀가동) 반영</td><td>ARR 성장 멀티플</td></tr>
+</table>
+<p><b>[B. Riley 핵심]</b> GPU 파이낸싱이 투자등급으로 클로징된 점을 자본구조 핵심 변곡점으로 평가 — 희석·디폴트 우려를 낮춘 것이 상향의 핵심.</p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309;background:#fef3c7;">
+<h3 style="margin-top:0;color:#b45309;">📙 HC Wainwright — Neutral → Buy 상향, TP $80 <span class="tag-sk" style="background:#b45309;">등급 상향</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"AI 인프라 포지셔닝 근거로 중립→매수 상향"</td><td>MS 멀티이어 클라우드 계약·용량 확장 계획 인용</td></tr>
+<tr><td>투자의견 / TP</td><td>Neutral → <b>Buy</b> / $80</td><td class="positive">현재가 대비 +44%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① MS와의 다년 클라우드 계약이 사업모델 검증 ② 데이터센터 용량 확장 계획의 실행력 ③ 비트코인 의존 탈피로 매출 질 개선</td><td>'채굴주→AI주' 재평가</td></tr>
+<tr><td>★ 밸류 가정</td><td>AI 클라우드 매출 본격화를 멀티플 리레이팅 트리거로 봄</td><td>신규 매수 진입</td></tr>
+</table>
+<p><b>[HC Wainwright 핵심]</b> 중립에서 매수로의 등급 상향 자체가 의미 — 보수적 하우스조차 비트코인 디스카운트를 거두기 시작했다는 신호.</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d;background:#f4f6f6;">
+<h3 style="margin-top:0;color:#7f8c8d;">📗 Canaccord Genuity — TP $79 (Buy)</h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"목표가 $70→$79 상향, Buy 유지"</td><td>점진적 상향 — 중도 강세</td></tr>
+<tr><td>투자의견 / TP</td><td>Buy 유지 / $79 (직전 $70)</td><td class="positive">현재가 대비 +42%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 계약 백로그 확대 ② 전력 파이프라인 ③ 다만 실행·자본조달 변수는 상존</td><td>방향 긍정, 속도 신중</td></tr>
+<tr><td>★ 밸류 가정</td><td>컨센 평균($81)에 근접한 중립적 기준 멀티플</td><td>컨센 앵커 역할</td></tr>
+</table>
+<p><b>[Canaccord 핵심]</b> 컨센 평균선에 위치한 '기준점' 뷰. 강세론(Cantor $99)과 보수론($41)의 가운데에서 시장 합의를 대표.</p>
+</div>
+
+<div class="sk-box" style="border-color:#e74c3c;background:#fdedec;">
+<h3 style="margin-top:0;color:#e74c3c;">⚠️ 보수론 / 최저 목표가 $41 (약세 시나리오) <span class="tag-sk" style="background:#e74c3c;">하방 리스크</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"실행 리스크·고객 집중·자본구조를 반영한 디스카운트"</td><td>최저 TP $41 = 현재가 대비 -26%</td></tr>
+<tr><td>투자의견 / TP</td><td>중립/매도 톤 / $41</td><td class="negative">현재가 대비 -26%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 계약 ARR은 'GPU 인도·가동 후' 비로소 매출화 — 미실현 ② MS+엔비디아 2개 고객 집중 ③ 전환사채 $3.69B·반복 순손실 ④ 비트코인·GPU 자산 감액 위험 지속</td><td>'서사 vs 손익' 괴리 경고</td></tr>
+<tr><td>★ 밸류 가정</td><td>계약 ARR 미달성·희석 반영한 보수적 EV/매출</td><td>하방 시나리오 기준</td></tr>
+</table>
+<p><b>[보수론 핵심]</b> 목표가 분산 3배의 하단 — 계약이 '실제 매출'로 전환되기 전까지는 멀티플이 과대평가일 수 있다는 경계론.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;">📋 1차자료 — SEC 공시 직접 인용 <span class="tag-disc">PRIMARY</span></h3>
+<p style="font-size:10pt;color:#555;">※ 한국 DART 공시의 미국식 매핑 — SEC EDGAR Form 8-K / 10-Q (2026.05.07 제출).</p>
+<table>
+<tr><th>항목</th><th>Q3 FY26 (2026.3.31 종료)</th><th>Q2 FY26 (2025.12.31)</th><th>코멘트</th></tr>
+<tr><td>총매출</td><td>$144.8M</td><td>$184.7M</td><td class="negative">QoQ -22% (채굴 축소·BTC 단가 하락)</td></tr>
+<tr><td>└ 비트코인 채굴</td><td>$111.2M</td><td>$167.4M</td><td>채굴 HW 해체로 감소</td></tr>
+<tr><td>└ AI 클라우드</td><td><b>$33.6M</b></td><td>$17.3M</td><td class="positive">QoQ +94% 급증</td></tr>
+<tr><td>순손익</td><td class="negative">$(247.8)M</td><td class="negative">$(155.4)M</td><td>감액 $140.4M·캡트콜 평가손 $23.7M 포함</td></tr>
+<tr><td>Adj. EBITDA</td><td>$59.5M (41%)</td><td>$75.3M (41%)</td><td>마진율 41% 유지</td></tr>
+<tr><td>현금성자산</td><td>$2,213.3M (4/30 $2.6B)</td><td>$3,260.6M</td><td>CapEx로 분기 $1.05B 감소</td></tr>
+<tr><td>전환사채</td><td class="negative">$3,687.8M</td><td>$3,685.3M</td><td>자본구조 핵심 부담</td></tr>
+<tr><td>유형자산(PP&amp;E)</td><td>$4,369.9M</td><td>$3,170.5M</td><td class="positive">QoQ +$1.2B (데이터센터·GPU 투자)</td></tr>
+<tr><td>총자산 / 자기자본</td><td>$7,264.9M / $2,664.5M</td><td>$7,027.6M / $2,511.2M</td><td>부채비율 높음</td></tr>
+</table>
+<p style="font-size:10pt;"><b>경영진 직접 인용 (Daniel Roberts 공동창업자·공동CEO, Q3 FY26 발표):</b> "세상은 구조적으로 컴퓨트가 부족하며, 병목은 인도 가능한 데이터센터와 GPU 용량이다. 그것이 바로 IREN의 핵심 역량 — 전력 확보, 토지 개발, 데이터센터 건설, 대규모 컴퓨트 온라인화 — 와 정확히 맞물린다."</p>
+<p style="font-size:9pt;color:#7f8c8d;">📌 출처: IREN Form 8-K (Q3 FY26 Results), SEC EDGAR / GlobeNewswire 2026.05.07. 10-Q 동일자 제출. 회계연도(FY) 6월 결산 — Q3 FY26 = 2026년 1~3월.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;">🌐 외부검증 1 — 글로벌 AI 데이터센터·네오클라우드 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p>IREN은 '네오클라우드(neocloud)' — AI 학습·추론용 GPU 인프라를 제공하는 신흥 클라우드 사업자 — 군에 속한다. 2026년 이 시장은 빅테크(MS·메타·엔비디아)의 대규모 외주 계약으로 폭발적으로 재편되는 중이다.</p>
+<div class="global-quote">
+<b>네오클라우드 3대 비즈니스 모델 (Diligence Stack / Data Center Knowledge 2026):</b><br>
+① <b>풀스택 AI 플랫폼</b> (CoreWeave·Nebius) — MW당 가치 포착 최대, 단 HW 교체·파이낸싱·가동률 리스크 최대. CoreWeave 시총 약 $59B (P/S 7배), Nebius P/S 62배.<br>
+② <b>베어메탈 GPU 클라우드</b> (<b>IREN</b>) — 보유 전력·보유 HW를 수익화, 소프트웨어 차별화는 작지만 자산 기반 수익 프로파일.<br>
+③ <b>장기 인프라 호스트</b> (Core Scientific·Cipher·TeraWulf) — 채굴 출신이 장기 임대 호스트로 전환.
+</div>
+<p>핵심 변화는 <b>"GPU 경쟁 → 전력 전쟁(Power Wars)"</b>. GPU는 자금만 있으면 살 수 있으나, 수백 MW~GW급 계통 연결 전력과 토지는 수년이 걸린다. IREN이 확보한 <b>5GW 전력 포트폴리오</b>와 텍사스 Childress(750MW)·Sweetwater(2GW 허브) 자산이 이 국면의 핵심 해자다.</p>
+<p style="font-size:9pt;color:#7f8c8d;">📌 출처: Data Center Knowledge "Neoclouds Shift From GPU Race to Power Wars", Motley Fool, TECHi neocloud 분석 2026.04~06.</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;">🏛 외부검증 2 — 전력·인프라 정책 및 그룹 전략 <span class="tag-policy">POLICY/GROUP</span></h3>
+<p>미국 AI 데이터센터의 최대 제약은 전력 인입(grid interconnection)이다. IREN의 주력지인 텍사스는 ERCOT(텍사스 전력망 운영기구) 관할로, 대규모 부하(large load) 연결 승인 절차가 2025~26년 강화·재편되고 있어 신규 진입자에겐 장벽, 기확보 사업자에겐 프리미엄으로 작용한다.</p>
+<div class="policy-quote">
+<b>ERCOT 대규모 부하 연결 (Q3 FY26 10-K 리스크 인용):</b> "ERCOT가 발표한 대규모 부하 인입 요청 승인 절차 개정으로 인한 지연·비용 증가 가능성." → IREN은 이미 5GW 전력을 '확보(secured)' 상태로 보유 — 신규 경쟁사 대비 수년의 선점 효과.
+</div>
+<p><b>그룹·확장 전략:</b> IREN은 북미(텍사스 Childress·Sweetwater·Kiowa, 캐나다 BC주 Prince George)에서 유럽(스페인 Nostrum 490MW + GW급 파이프라인), APAC(호주 연결 협정 추진)로 글로벌 5GW 포트폴리오를 구축 중. 단일 국가·단일 그리드 집중 리스크를 분산.</p>
+<p style="font-size:9pt;color:#7f8c8d;">📌 출처: IREN 10-K (FY2025) Risk Factors, IREN Q3 FY26 Business Update, NVIDIA Newsroom 2026.05.07.</p>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad;">
+<h3 style="margin-top:0;color:#8e44ad;">📰 외부검증 3 — 최근 약 1개월(2026.05.05~06.04) 핵심 기사 <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<p><b>① 엔비디아 5GW 전략적 파트너십 + $3.4B AI 클라우드 계약 (2026.05.07)</b><br>NVIDIA가 IREN과 5GW DSX 정렬 AI 인프라 배치를 위한 전략적 파트너십 체결. 5년 $3.4B 에어쿨드 Blackwell GPU 계약(Childress 60MW, 2027초 가동) + 30M주 행사권($70/주, 최대 $2.1B 지분 투자권) 부여. <span style="font-size:9pt;color:#7f8c8d;">📌 NVIDIA Newsroom / Yahoo Finance 2026.05.07</span></p>
+<p><b>② Q3 FY26 실적 — AI 클라우드 +94%, 그러나 순손실 확대 (2026.05.07)</b><br>매출 $144.8M(QoQ -22%), AI 클라우드 $33.6M(+94%), 순손실 $(247.8)M(감액 $140.4M). 채굴 HW 해체 과정의 과도기적 손실. <span style="font-size:9pt;color:#7f8c8d;">📌 GlobeNewswire / BigGo Finance 2026.05.07</span></p>
+<p><b>③ Mirantis 인수 — AI 클라우드 딜리버리 강화 (2026.05.05)</b><br>엔지니어 650명·쿠버네티스 플랫폼(1,500개 엔터프라이즈 서비스) 확보. 베어메탈→매니지드 서비스로 가치사슬 상향. <span style="font-size:9pt;color:#7f8c8d;">📌 GlobeNewswire 2026.05.05</span></p>
+<p><b>④ Nostrum 인수 — 유럽 진출 (2026.05.07)</b><br>스페인 490MW + GW급 개발 파이프라인 확보, 유럽 AI 클라우드 거점 마련. <span style="font-size:9pt;color:#7f8c8d;">📌 GlobeNewswire 2026.05.07</span></p>
+<p><b>⑤ 투자등급 GPU 파이낸싱 $3.65B 클로징 (2026년 상반기)</b><br>480MW 확장 자금 조달, 디폴트·과도 희석 우려 완화 — B.Riley 상향의 핵심 근거. <span style="font-size:9pt;color:#7f8c8d;">📌 StockTitan 2026</span></p>
+<p><b>⑥ Cantor $99 / B.Riley $96 목표가 줄상향 (2026.06.04)</b><br>실적·계약 후 월스트리트 재평가 가속. 컨센 BUY, 평균 TP $81로 상승. <span style="font-size:9pt;color:#7f8c8d;">📌 Investing.com / TipRanks 2026.06.04</span></p>
+<p><b>⑦ 주가 6/5 -9.96% 급락 ($55.70 종가)</b><br>고밸류 성장주 특유의 변동성 — 차익실현·금리/위험선호 변화에 민감. 52주 저점 $8.82 대비로는 여전히 +500%대. <span style="font-size:9pt;color:#7f8c8d;">📌 StockAnalysis / CNN Markets 2026.06.05</span></p>
+<p><b>⑧ 비트코인 채굴 52 EH/s 도달 시 확장 중단 방침</b><br>현 설치 해시레이트 약 46 EH/s, BTC당 전력비 $34,325(동종 최저권). 52 EH/s 이후 채굴 확장 중단·AI 집중. <span style="font-size:9pt;color:#7f8c8d;">📌 StockTitan / CoinShares Q1 2026 채굴 리포트</span></p>
+</div>
+
+<div class="global-box" style="border-color:#0e6655;">
+<h3 style="margin-top:0;color:#0e6655;">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.06~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<div class="warning-box">
+<b>단기 (2026 3분기~4분기)</b>
+<ul style="margin:6px 0;">
+<li>🔥 <b>Q4 FY26 실적 (2026년 8월경)</b> — AI 클라우드 매출 증가 추세 지속 여부 핵심 체크포인트</li>
+<li>🔥 <b>Childress Horizon 1~4 (480MW) 연내 인도</b> — MS $9.7B 계약 가동의 전제, 2026말 목표</li>
+<li>Mirantis·Nostrum 인수 클로징 및 규제 승인</li>
+<li>비트코인 채굴 52 EH/s 도달 → 채굴 확장 중단 전환 시점</li>
+<li>월간 운영 업데이트(채굴량·해시레이트) 매월 공시</li>
+</ul>
+</div>
+<div class="warning-box">
+<b>중기 (2027)</b>
+<ul style="margin:6px 0;">
+<li>🔥 <b>엔비디아 $3.4B 계약 가동 (2027초 램프업)</b> — Childress 60MW Blackwell</li>
+<li>🔥 <b>2027 용량 1,210MW 빌드 (Childress H5~6 + Sweetwater 1 초기)</b></li>
+<li>엔비디아 지분 행사권($70/주, 최대 $2.1B) 행사 여부 — 자본 유입·희석 변수</li>
+<li>목표 ARR $3.7B → $4.4B(엔비디아 풀가동) 달성 진척</li>
+<li>전환사채 만기 구조(2029·2030년물) 관리·리파이낸싱</li>
+</ul>
+</div>
+<div class="warning-box">
+<b>장기 (2028+)</b>
+<ul style="margin:6px 0;">
+<li>🔥 <b>5GW 전력 포트폴리오 단계적 가동</b> — Sweetwater·Kiowa 추가 데이터센터</li>
+<li>유럽(스페인 Nostrum GW+)·호주 연결 협정 진전</li>
+<li>엔비디아 DSX 정렬 인프라 5GW 배치 로드맵 실행</li>
+<li>AI 클라우드 매출 비중 50% 돌파 시 멀티플 리레이팅(채굴 디스카운트 소멸)</li>
+</ul>
+</div>
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① 비트코인 채굴 → AI 클라우드 전환의 가장 성공적 사례</span><br>2024년 11월 사명을 Iris Energy→IREN으로 바꾸며 AI 인프라 사업자로 리브랜딩. 1년여 만에 MS($9.7B)·엔비디아($3.4B+5GW)라는 양대 빅테크 앵커를 확보한 채굴 출신 기업은 IREN이 사실상 유일. AI 클라우드 매출이 QoQ +94%($33.6M)로 가파르게 성장 중.</li>
+<li><span class="point-title">② MS $9.7B 계약 — 연 $1.94B 런레이트 매출의 닻</span><br>5년간 NVIDIA GB300 GPU 제공, 20% 선수금 포함. Childress 750MW 캠퍼스의 액체냉각 데이터센터(Horizon 1~4, 200MW)에 2026년 단계 배치. 풀커미션 시 연 $1.94B ARR — 현 연환산 매출(약 $580M)의 3배 이상.</li>
+<li><span class="point-title">③ 엔비디아 5GW 전략적 파트너십 — 공급망 최상단 편입</span><br>$3.4B 클라우드 계약에 더해, 엔비디아가 IREN 5GW 파이프라인 전체에 DSX 정렬 인프라 배치를 지원. 엔비디아가 30M주 행사권($70/주)을 보유 — GPU 공급사가 직접 지분 투자권을 가질 만큼 전략적 위상.</li>
+<li><span class="point-title">④ '전력 전쟁' 국면의 핵심 해자 — 5GW 확보 전력</span><br>AI 인프라의 진짜 병목은 GPU가 아니라 계통 전력·토지. IREN은 텍사스 Childress(750MW)·Sweetwater(2GW 허브)·Kiowa, 캐나다 BC, 스페인(490MW), 호주에 걸쳐 5GW를 '확보' 상태로 보유. 신규 진입자가 수년 내 복제 불가능.</li>
+<li><span class="point-title">⑤ 계약 ARR $3.1B — 현 매출의 5배 이상 가시성</span><br>MS $1.9B + 엔비디아 $0.7B + Prince George $0.5B = 계약 ARR $3.1B. 목표 ARR은 CY26말 $3.7B, 엔비디아 풀가동 시 $4.4B. GPU 인도·가동에 따라 단계적으로 매출화.</li>
+<li><span class="point-title">⑥ 수직계열화 — 전력·토지·데이터센터·운영 일괄 보유</span><br>전력 확보→토지 개발→데이터센터 건설→GPU 운영까지 자체 수행. Mirantis 인수(엔지니어 650명·쿠버네티스)로 운영·소프트웨어 역량까지 내재화하며 베어메탈→매니지드 서비스로 가치사슬 상향.</li>
+<li><span class="point-title">⑦ 동종 최고 수준의 채굴 효율 — 전환기 캐시카우</span><br>BTC당 전력비 $34,325(동종 최저권), 설치 해시레이트 약 46 EH/s, 효율 약 15 W/T. AI 전환 완료 전까지 채굴이 현금흐름을 보조. 52 EH/s 도달 시 채굴 확장 중단·AI 집중.</li>
+<li><span class="point-title">⑧ Adj. EBITDA 흑자·마진 41% 유지</span><br>순손실은 비현금 감액(채굴 HW 해체)·전환사채 평가손이 주원인. Adj. EBITDA는 $59.5M·마진 41%로 영업 단의 현금 창출력은 견고. 감액은 채굴→AI 전환에 따른 일회성 성격.</li>
+<li><span class="point-title">⑨ 글로벌 분산 — 단일 그리드 리스크 완화</span><br>북미·유럽·APAC 3개 대륙 포트폴리오. ERCOT 단일 의존을 줄이고, 유럽(Nostrum)·호주 진출로 규제·전력 리스크를 지역 분산.</li>
+<li><span class="point-title">⑩ 월스트리트 컨센 BUY·줄상향</span><br>15인 컨센 BUY, 평균 TP $81(+45%). 6월 Cantor $99·B.Riley $96·HC Wainwright 매수상향·Canaccord $79. 보수 하우스조차 채굴 디스카운트를 거두는 재평가 국면.</li>
+<li><span class="point-title">⑪ 충분한 유동성 + 투자등급 GPU 파이낸싱</span><br>4/30 현금 $2.6B + 투자등급 GPU 파이낸싱 $3.65B 확보. 480MW 확장 자금 가시성 확보로 디폴트·과도 희석 우려가 크게 완화.</li>
+<li><span class="point-title">⑫ 구조적 컴퓨트 수요 — TAM 폭발</span><br>AI 학습·추론 수요가 데이터센터 공급을 구조적으로 초과. 빅테크의 외주(메타-Nebius $48B, MS-IREN 등) 확대로 네오클라우드 TAM이 매년 수십% 성장.</li>
+<li><span class="point-title">⑬ 52주 저점 대비 +500%대 — 모멘텀과 변동성 동시 보유</span><br>52주 범위 $8.82~$76.87. 강력한 상승 추세지만 6/5 -9.96% 같은 일중 급락도 빈번 — 고변동 모멘텀주로 포지션 사이징 필수.</li>
+</ul>
+
+<div class="bull-box">
+<b>투자의견 종합:</b> <b>BUY (고변동 성장주 / 분할 매수 권고)</b> — IREN은 'AI 인프라 전력 전쟁'의 핵심 자산(5GW 전력)과 양대 빅테크 앵커 계약을 동시에 보유한 희소 종목이다. 계약 ARR $3.1B는 현 매출의 5배 이상으로 성장 가시성이 매우 높다. 다만 ① 계약→실매출 전환의 시차(2027~28), ② MS+엔비디아 고객 집중, ③ 전환사채 $3.69B·반복 순손실이라는 3대 리스크로 변동성이 극심하므로, 일시 매수보다 분할 진입과 엄격한 포지션 관리를 권한다.
+</div>
+
+<h3>1-2. 시나리오별 목표주가 산출</h3>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류 기준</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bear</b></td><td>계약 ARR 일부 지연·미달, GPU 가동률 부진, 추가 희석</td><td>보수적 EV/매출, 채굴 디스카운트</td><td class="negative">$41</td><td class="negative">-26%</td></tr>
+<tr><td><b>Base</b></td><td>CY26말 ARR $3.7B 정상 진척, MS·엔비디아 계약 정상 가동</td><td>컨센 멀티플, ARR 성장 반영</td><td><b>$78</b></td><td class="positive">+40%</td></tr>
+<tr><td><b>Bull</b></td><td>ARR $4.4B 조기 달성, 5GW 추가 계약, 채굴 디스카운트 소멸</td><td>풀스택 네오클라우드 멀티플 리레이팅</td><td class="positive">$110</td><td class="positive">+97%</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출 논리]
+현 연환산 매출 ≈ $144.8M × 4 ≈ $580M (전환기 과소)
+계약 ARR $3.1B → CY26말 목표 ARR $3.7B (MS $1.9B + GPU 배치 $1.8B)
+2027~28 풀가동 ARR $4.4B 가정
+
+Base: CY27 ARR $3.7B에 EV/매출 약 12~14배(네오클라우드 평균) 적용
+       → EV 약 $26~30B, 순부채·희석 조정 후 주당 약 $78
+       (컨센 평균 $81과 정합)
+Bull: ARR $4.4B × 멀티플 상단 + 채굴 디스카운트 소멸 → $110
+Bear: 계약 미달·희석 → ARR $2.5B × 보수 멀티플 → $41
+* 본 산출은 자체 추정이며 투자권유 아님. 실제와 크게 다를 수 있음.
+</div>
+
+<h2>2. 산업개요</h2>
+<h3>2-1. TAM·SAM·SOM — AI 컴퓨트 인프라</h3>
+<p>AI 데이터센터·GPU 클라우드(네오클라우드)는 2026년 가장 빠르게 성장하는 인프라 시장이다. 빅테크의 자본지출(CapEx) 외주화가 핵심 동력으로, 메타-Nebius $48B(메타가 CoreWeave·Nebius에 지출), MS-IREN $9.7B 등 단일 계약이 수십억 달러에 이른다. <b>TAM</b>은 전 세계 AI 학습·추론용 가속 컴퓨트 수요 전체, <b>SAM</b>은 외주(merchant) GPU 클라우드 시장, <b>SOM</b>은 IREN이 5GW 전력·계약 ARR $3.1B로 점유 가능한 부분이다. 시장의 화두는 "GPU 경쟁에서 전력 전쟁으로" — 자본은 GPU를 살 수 있으나 GW급 계통 전력은 수년이 걸린다.</p>
+
+<h3>2-2. 밸류체인</h3>
+<p>AI 인프라 밸류체인은 <b>전력·토지 → 데이터센터 건설 → 냉각·전기 인프라 → GPU 조달(엔비디아·Dell) → 클라우드 운영·소프트웨어 → 엔드 고객(MS·AI랩)</b>으로 이어진다. IREN은 이 중 전력·토지부터 데이터센터 건설·GPU 운영까지를 수직계열화로 직접 보유하고, Mirantis 인수로 소프트웨어·오케스트레이션 레이어까지 확장했다. GPU는 Dell로부터 약 $5.8B 규모 조달(MS 계약 연계).</p>
+
+<h3>2-3. 산업 사이클</h3>
+<p>비트코인 채굴은 BTC 가격·반감기·해시레이트에 종속된 시클리컬 사업으로, IREN은 이를 의도적으로 축소(52 EH/s 상한)하며 AI 클라우드로 전환 중이다. AI 인프라는 빅테크 CapEx 사이클·GPU 세대교체(Blackwell→DSX)·전력 인입 속도에 좌우된다. 현재는 공급(전력·데이터센터)이 수요(컴퓨트)를 구조적으로 따라가지 못하는 '공급 부족' 국면으로, 전력 선점 사업자에게 유리하다.</p>
+
+<h3>2-4. Peer 비교</h3>
+<table>
+<tr><th>구분</th><th>IREN</th><th>CoreWeave</th><th>Nebius</th><th>Core Scientific 등</th></tr>
+<tr><td>모델</td><td>베어메탈 GPU + 채굴</td><td>풀스택 AI 플랫폼</td><td>풀스택 AI 플랫폼</td><td>장기 인프라 호스트</td></tr>
+<tr><td>시총(2026)</td><td>약 $18~19B</td><td>약 $59B</td><td>고성장·고멀티플</td><td>중소형</td></tr>
+<tr><td>밸류(P/S)</td><td>약 26~30배(전환기)</td><td>약 7배</td><td>약 62배</td><td>낮음</td></tr>
+<tr><td>핵심 강점</td><td>5GW 자체 전력·수직계열화</td><td>규모·소프트웨어</td><td>초고성장</td><td>저평가·전환 잠재력</td></tr>
+<tr><td>핵심 리스크</td><td>고객집중·전환사채·실행</td><td>HW교체·가동률</td><td>밸류 부담</td><td>차별화 부족</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ P/S는 전환기 과소 매출 기준으로 왜곡 — ARR 기준(EV/ARR)으로 보면 IREN은 동종 대비 합리적 구간. 멀티플 비교는 §6 참조.</p>
+
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>IREN Limited(NASDAQ:IREN)는 2024년 11월 Iris Energy Limited에서 사명을 변경한 수직계열형 AI 클라우드·데이터센터 사업자다. 본사·상장은 미국(나스닥), 데이터센터는 북미(미국 텍사스·캐나다 BC), 유럽(스페인), APAC(호주)에 분산. 재생에너지가 풍부한 지역의 계통 연결 토지·전력 포트폴리오를 기반으로 한다. 회계연도(FY)는 6월 결산.</p>
+
+<h3>3-2. 비즈니스 모델 분해</h3>
+<p>매출은 <b>① 비트코인 채굴</b>(Q3 FY26 $111.2M, 축소 중)과 <b>② AI 클라우드 서비스</b>(Q3 FY26 $33.6M, +94% 성장)의 두 축. AI 클라우드는 GPU 인도·가동 후 시간당 사용료/계약 기반으로 매출화되며, MS·엔비디아 계약이 핵심. 수익 구조: 전력비(최대 원가) + GPU 감가상각 + 운영비. 자체 전력·저전력비가 마진의 핵심 레버.</p>
+
+<h3>3-3. 경쟁 해자</h3>
+<p>① <b>5GW 확보 전력</b> — 신규 진입 불가능한 진입장벽. ② <b>수직계열화</b> — 전력~운영 일괄 보유로 속도·비용 우위. ③ <b>빅테크 앵커 계약</b> — MS·엔비디아 레퍼런스가 신규 고객 유치 기반. ④ <b>엔비디아 지분 파트너십</b> — GPU 공급 우선권 시사. ⑤ <b>채굴 효율</b> — 전환기 캐시카우.</p>
+
+<h3>3-4. 연혁</h3>
+<p>2018년경 Iris Energy로 설립(호주 기반 비트코인 채굴)→2021년 나스닥 상장→2023~24년 AI/HPC 진출 모색→2024.11 IREN으로 사명 변경→2025.11 MS $9.7B 계약→2026.05 엔비디아 $3.4B+5GW 파트너십, Mirantis·Nostrum 인수. 비트코인 채굴주에서 AI 인프라주로의 정체성 전환이 핵심 서사.</p>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>구분</th><th>비중(추정)</th><th>비고</th></tr>
+<tr><td>기관투자자</td><td>약 44~47%</td><td>Tudor 5.98%·Citigroup 4.56%·Situational Awareness 4.02%</td></tr>
+<tr><td>리테일(개인)</td><td>약 45~53%</td><td>높은 리테일 비중 → 변동성 확대 요인</td></tr>
+<tr><td>내부자(insider)</td><td>약 3.6~8.3%</td><td>창업진(Daniel·Will Roberts) 포함</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 발행주식수 약 258M주(2025.6.30 기준), 이후 지분 발행($380M·$1.63B 등)으로 증가 추정. 엔비디아 30M주 행사권은 미행사 잠재 희석분.</p>
+
+<h2>4. 재무분석</h2>
+<h3>4-1. 분기 추이 (FY26)</h3>
+<table>
+<tr><th>항목 (US$M)</th><th>Q2 FY26 (12월)</th><th>Q3 FY26 (3월)</th><th>QoQ</th></tr>
+<tr><td>총매출</td><td>184.7</td><td>144.8</td><td class="negative">-22%</td></tr>
+<tr><td>└ AI 클라우드</td><td>17.3</td><td>33.6</td><td class="positive">+94%</td></tr>
+<tr><td>└ 비트코인 채굴</td><td>167.4</td><td>111.2</td><td class="negative">-34%</td></tr>
+<tr><td>매출원가</td><td>(65.8)</td><td>(39.9)</td><td>전력비 감소</td></tr>
+<tr><td>감가상각</td><td>(99.2)</td><td>(121.2)</td><td class="negative">자산 증가로 상승</td></tr>
+<tr><td>자산 감액</td><td>(31.8)</td><td>(140.4)</td><td class="negative">채굴 HW 해체</td></tr>
+<tr><td>순손익</td><td>(155.4)</td><td>(247.8)</td><td class="negative">손실 확대</td></tr>
+<tr><td>Adj. EBITDA</td><td>75.3</td><td>59.5</td><td>마진 41% 유지</td></tr>
+</table>
+
+<h3>4-2. 현금흐름</h3>
+<p>Q3 FY26 영업현금흐름 +$75.3M(흑자), 투자현금흐름 -$1,477.1M(데이터센터 $949M·GPU $406M 대규모 CapEx), 재무현금흐름 +$355M(주식 발행 $380M). 순현금 분기 $1,046.7M 감소 → 분기말 현금 $2,213.3M. <b>해석:</b> 영업 단은 현금을 벌지만, 공격적 CapEx로 현금이 빠르게 소진 — 외부 파이낸싱 의존도가 높음. 4/30 기준 현금 $2.6B + GPU 파이낸싱 $3.65B로 단기 자금은 확보.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<p>총자산 $7,264.9M, 자기자본 $2,664.5M, 총부채 $4,600.4M(전환사채 $3,687.8M이 대부분). 부채비율이 높고 전환사채 의존도가 큰 자본구조. 다만 현금 $2.6B 보유와 투자등급 GPU 파이낸싱으로 단기 유동성은 양호. 핵심 변수는 2029·2030년물 전환사채의 만기·전환·리파이낸싱 관리.</p>
+
+<h3>4-4. 자본구조 리스크</h3>
+<div class="risk-box">
+<b>전환사채 $3.69B + 희석:</b> 전환사채가 주가 상승 시 전환되며 희석 발생. 엔비디아 30M주 행사권($70/주)·지속적 주식 발행($380M, $1.63B 등)도 희석 요인. 분기 순손실이 자기자본을 잠식할 수 있어, ARR의 실매출 전환 속도가 자본구조 안정의 관건.
+</div>
+
+<h2>5. 주주환원</h2>
+<p>IREN은 <b>현재 배당을 지급하지 않으며</b>, 가까운 미래에도 지급 계획이 없다고 공시(forward-looking statements)했다. 모든 현금흐름은 데이터센터·GPU CapEx에 재투자된다. 따라서 투자자의 수익은 전적으로 주가 상승(capital appreciation)에 의존한다. 고성장 인프라 빌드아웃 단계의 전형 — 주주환원보다 성장 재투자 우선.</p>
+
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교</h3>
+<p>현 매출 기준 P/S(약 26~30배)는 전환기 과소 매출로 왜곡된 수치다. 올바른 척도는 <b>EV/ARR</b>로, 계약 ARR $3.1B·목표 $3.7~4.4B 기준으로 보면 동종 풀스택(Nebius 62배 P/S)보다 낮고 CoreWeave(7배)보다 높은 중간 구간. 자체 전력·자산 보유라는 차별점이 멀티플 프리미엄을 일부 정당화한다.</p>
+
+<h3>6-2. 시나리오 산출</h3>
+<p>§1-2 표 참조. Base $78(+40%)는 CY27 ARR $3.7B × EV/매출 12~14배 기준이며 컨센 평균 $81과 정합한다. Bull $110은 ARR $4.4B 조기 달성 + 채굴 디스카운트 소멸, Bear $41은 계약 미달·희석을 반영한다.</p>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<table>
+<tr><th>구분</th><th>기준</th><th>근거</th></tr>
+<tr><td>분할 진입</td><td>$45~55 구간</td><td>최저 TP $41 위, 컨센 대비 안전마진</td></tr>
+<tr><td>적극 매수</td><td>$45 이하 급락 시</td><td>실적·계약 훼손 없는 변동성 하락</td></tr>
+<tr><td>1차 차익</td><td>$78 (Base TP)</td><td>컨센 평균 도달</td></tr>
+<tr><td>이탈 검토</td><td>$41 이탈 + 계약 훼손</td><td>약세 시나리오 현실화 시</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 본 기준은 자체 분석이며 투자권유가 아닙니다. 고변동 종목이므로 포지션 사이징·손절 원칙을 반드시 적용하십시오.</p>
+
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 최근 1년 주가 흐름 + 핵심 모멘텀</h3>
+<p>52주 범위 <b>$8.82 ~ $76.87</b> — 1년간 약 +500~700% 폭등. 핵심 모멘텀: ① 2025년 AI 클라우드 진출·채굴 효율 개선 → 기저 상승, ② <b>2025.11 MS $9.7B 계약</b> → 1차 급등(채굴주→AI주 재평가), ③ <b>2026.05.07 엔비디아 $3.4B+5GW 파트너십</b> → 2차 급등(공급망 최상단 편입), ④ 2026.06 애널리스트 줄상향($96·$99). 다만 6/5 -9.96% 급락처럼 일중 변동성이 극심해 고점 추격은 위험. 현재가 $55.70은 52주 고점($76.87) 대비 약 -28% 조정 구간.</p>
+<table>
+<tr><th>시점</th><th>이벤트</th><th>주가 영향</th></tr>
+<tr><td>2025 상반기</td><td>AI 클라우드 진출, 채굴 효율 최저권</td><td class="positive">기저 상승</td></tr>
+<tr><td>2025.11</td><td>MS $9.7B 계약</td><td class="positive">1차 급등</td></tr>
+<tr><td>2026.05.07</td><td>엔비디아 $3.4B+5GW 파트너십</td><td class="positive">2차 급등</td></tr>
+<tr><td>2026.06.04</td><td>Cantor $99·B.Riley $96 상향</td><td class="positive">재평가 가속</td></tr>
+<tr><td>2026.06.05</td><td>차익실현·위험선호 변화</td><td class="negative">-9.96% 급락</td></tr>
+</table>
+
+<h2>7-2. ETF·기관 자금 유입 분석</h2>
+<p style="font-size:10pt;color:#555;">※ 한국 ystreet ETF 편입 데이터의 미국식 매핑 — 미국 ETF(NPORT-P 공시)·기관 보유(13F) 기준. IREN은 미국 종목이라 한국식 액티브/패시브 ETF 편입 개수·1개월 자금유입 데이터가 직접 존재하지 않으므로, SEC NPORT-P·기관 보유율로 대체한다.</p>
+
+<h3>7-2-1. 기관·ETF 보유 개요</h3>
+<p>IREN은 기관 보유율 약 44~47%로, 다수의 미국 패시브·테마 ETF에 편입돼 있다. SEC NPORT-P 공시 기준 <b>Tidal Trust II</b>, <b>Themes ETF Trust</b> 등이 IREN을 보유한 것으로 확인된다. 비트코인/블록체인·AI 인프라·중소형 성장 테마 ETF가 주요 편입 경로다.</p>
+
+<h3>7-2-2. 주요 기관주주</h3>
+<table>
+<tr><th>기관</th><th>보유 비중</th><th>성격</th></tr>
+<tr><td>Tudor Investment Corp 외</td><td>5.98%</td><td>헤지펀드 (최대 기관주주)</td></tr>
+<tr><td>Citigroup</td><td>4.56%</td><td>대형 IB</td></tr>
+<tr><td>Situational Awareness LP</td><td>4.02%</td><td>헤지펀드</td></tr>
+</table>
+
+<h3>7-2-3. 패시브·테마 ETF 편입 경로</h3>
+<p>S&amp;P/Russell 등 주요 지수 편입 시 패시브 ETF의 자동 매수가 유입된다. IREN은 시총 급성장($18~19B)으로 중대형 지수 편입 가능성이 높아지고 있으며, 비트코인 채굴·AI 데이터센터 테마 ETF가 능동적 편입 채널로 작동한다. (한국식 '액티브 ETF 개수/1개월 순유입' 데이터는 미국 종목 특성상 단일 집계처가 없어 정량 수치 제시 불가 — NPORT-P 개별 펀드 단위로만 확인 가능.)</p>
+
+<h3>7-2-4. 수급 시사점</h3>
+<div class="update-box">
+<b>수급 핵심:</b> 리테일 비중(45~53%)이 기관보다 높아 IREN은 뉴스·모멘텀에 민감한 고변동 종목이다. 기관 비중이 44~47%로 점증 중이고 지수·테마 ETF 편입이 늘면 패시브 매수 기반이 두터워질 수 있다. 다만 헤지펀드(Tudor·Situational Awareness) 비중이 커 단기 포지션 변동에 따른 변동성도 크다.
+</div>
+
+<h3>7-2-5. 한국 투자자 접근 경로</h3>
+<p>국내 투자자는 ① 해외주식 직접투자(나스닥 IREN 직접 매수), ② IREN을 편입한 미국 비트코인 채굴·AI 인프라 테마 ETF(예: 블록체인/디지털자산 ETF), ③ 일부 국내 운용사의 미국 AI·반도체 테마 ETF 간접 노출로 접근 가능하다. 직접투자 시 환율(USD/KRW)·해외주식 양도세(22%, 250만원 공제) 고려 필요.</p>
+
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">① <b>실적 변동성</b> — 채굴 축소·HW 해체로 매출 QoQ 감소·대규모 비현금 감액 지속 가능. ② <b>주가 변동성</b> — 일중 ±10% 흔함, 고밸류 모멘텀주. ③ <b>인수 통합</b> — Mirantis·Nostrum 통합·규제 승인 불확실성.</div>
+
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box">① <b>고객 집중</b> — MS+엔비디아 2개사 의존, 계약 변경·디폴트 시 타격 큼. ② <b>계약→매출 시차</b> — 계약 ARR $3.1B는 GPU 인도·가동(2027~28) 후 매출화, 지연 시 밸류 훼손. ③ <b>전환사채·희석</b> — $3.69B 부채와 지속적 주식 발행·엔비디아 행사권의 희석.</div>
+
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">① <b>AI CapEx 사이클</b> — 빅테크 AI 투자 둔화 시 외주 수요 위축. ② <b>금리·위험선호</b> — 고듀레이션 성장주로 금리 상승에 취약. ③ <b>전력·규제</b> — ERCOT 인입 절차 강화·전력비 변동. ④ <b>비트코인 가격</b> — 잔존 채굴 매출이 BTC 가격에 종속.</div>
+
+<h3>8-4. 멀티플 리스크</h3>
+<div class="risk-box">현 매출 대비 고밸류(P/S 26~30배). ARR이 실매출로 전환되지 않으면 멀티플 정당화 실패 → 디레이팅 위험. 목표가 분산($41~$126)이 이 불확실성을 반영.</div>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>내용</th><th>시점</th></tr>
+<tr><td>MS 계약 가동</td><td>Horizon 1~4 (480MW), 연 $1.94B ARR</td><td>2026말~</td></tr>
+<tr><td>엔비디아 계약 가동</td><td>Childress 60MW Blackwell, $3.4B</td><td>2027초</td></tr>
+<tr><td>2027 용량 확장</td><td>1,210MW (Childress H5~6·Sweetwater 1)</td><td>2027</td></tr>
+<tr><td>5GW 풀가동</td><td>Sweetwater·Kiowa·유럽·호주</td><td>2028+</td></tr>
+<tr><td>엔비디아 지분 투자</td><td>최대 $2.1B 자본 유입(행사 시)</td><td>2026~31</td></tr>
+<tr><td>채굴 디스카운트 소멸</td><td>AI 매출 비중 50%+ 시 멀티플 리레이팅</td><td>2027~28</td></tr>
+</table>
+
+<h2>10. 결론</h2>
+<p>IREN은 '비트코인 채굴 → AI 인프라'로의 전환을 가장 성공적으로 실행한 기업으로, MS($9.7B)·엔비디아($3.4B+5GW)라는 양대 빅테크 앵커와 5GW 자체 전력 포트폴리오를 동시에 보유한 희소한 네오클라우드다. 계약 ARR $3.1B는 현 매출의 5배 이상으로 성장 가시성이 매우 높고, 월스트리트 컨센은 BUY(평균 TP $81, +45%)로 6월 들어 줄상향 중이다.</p>
+<p>그러나 ① 계약→실매출 전환의 시차(2027~28), ② MS+엔비디아 고객 집중, ③ 전환사채 $3.69B·반복 순손실이라는 3대 리스크가 공존하며, 6/5 -9.96% 급락이 보여주듯 변동성이 극심하다. <b>결론: BUY(고변동 성장주) — Base TP $78(+40%), Bull $110, Bear $41.</b> 일시 매수보다 $45~55 분할 진입과 엄격한 포지션 관리를 권한다. 핵심 체크포인트는 (a) Childress Horizon 1~4 연내 인도, (b) AI 클라우드 매출 성장 지속, (c) 전환사채·희석 관리다.</p>
+
+<div class="footer">
+<b>데이터 출처:</b> IREN Form 8-K/10-Q (SEC EDGAR, 2026.05.07) · GlobeNewswire Q3 FY26 Results · NVIDIA Newsroom (2026.05.07) · Yahoo Finance·StockAnalysis·CNN Markets (주가, 2026.06.05) · TipRanks·MarketBeat·Public.com·Investing.com (애널리스트 컨센, 2026.06) · WallStreetZen·Fintel (기관 보유) · SEC NPORT-P (ETF 보유) · Data Center Knowledge·Motley Fool (산업).<br><br>
+<b>면책:</b> 본 보고서는 공개 정보를 종합한 참고 자료이며 투자 권유가 아닙니다. 목표주가·시나리오는 자체 추정으로 실제와 크게 다를 수 있습니다. IREN은 고변동·고밸류 성장주로 원금 손실 위험이 큽니다. 투자 판단과 책임은 투자자 본인에게 있습니다. 작성일: 2026.06.06 · 통화 단위: USD.
+</div>
+
+</body>
+</html>
