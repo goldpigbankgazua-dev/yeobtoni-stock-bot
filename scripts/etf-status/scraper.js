@@ -223,6 +223,27 @@ async function scrapeAumVariation(browser, onlyCat) {
     console.error('[aumvar] fundflow page goto 실패:', e.message);
   }
 
+  // Inflow (자금유입) — page axios로 직접 호출 시도
+  let inflow = null;
+  {
+    console.log('[aumvar] Inflow page axios 시도');
+    const result = await page.evaluate(async () => {
+      const ax = window.axios;
+      if (!ax) return { _err: 'no axios' };
+      try {
+        const r = await ax.get('/user/etp/getEtpRankListInflow?type=ETF&annuityCode=A&ctgLargeCode=A&order=D&orderCol=&invCode=&leverage=&inverse=&coveredCall=&orderBy=DESC&limit=100');
+        return r.data;
+      } catch (e) { return { _err: 'axios: ' + (e.response?.status || e.message) }; }
+    }).catch(e => ({ _err: e.message }));
+    if (result && !result._err) {
+      inflow = result;
+      const n = result?.results?.length || 0;
+      console.log(`[aumvar] Inflow 성공: ${n} rows`);
+    } else {
+      console.error('[aumvar] Inflow 실패:', result?._err);
+    }
+  }
+
   // AumVariation이 자동 캡쳐 안 됐으면 페이지의 axios 인스턴스로 호출 (인증 헤더 자동)
   if (!aumv) {
     console.log('[aumvar] AumVariation 자동 캡쳐 실패 → page axios 시도');
@@ -299,19 +320,35 @@ async function scrapeAumVariation(browser, onlyCat) {
     };
   });
 
-  // 3개 카테고리 파일 저장 (같은 데이터, UI에서 정렬 다르게)
+  // navchange + aum 파일 저장 (같은 AumVariation 데이터, UI에서 정렬 다르게)
   const today = new Date().toISOString().slice(0, 10);
-  const payload = {
+  const aumvPayload = {
     updated_at: today,
     source_url: 'getEtpAumVariation + getEtpMast (enriched)',
     raw: { results: enriched },
   };
   fs.mkdirSync(OUT_DIR, { recursive: true });
-  const targets = onlyCat ? [onlyCat] : ['fundflow', 'navchange', 'aum'];
+  const targets = onlyCat ? [onlyCat] : ['navchange', 'aum'];
   for (const key of targets) {
-    if (!['fundflow','navchange','aum'].includes(key)) continue;
-    fs.writeFileSync(path.join(OUT_DIR, `${key}.json`), JSON.stringify(payload));
+    if (!['navchange','aum'].includes(key)) continue;
+    fs.writeFileSync(path.join(OUT_DIR, `${key}.json`), JSON.stringify(aumvPayload));
     console.log(`[${key}] ✓ saved (aumvariation enriched): ${enriched.length} rows`);
+  }
+
+  // fundflow는 별도 (Inflow endpoint 응답 사용)
+  if (inflow && (!onlyCat || onlyCat === 'fundflow')) {
+    const inflowRows = inflow?.results || inflow?.data || [];
+    if (inflowRows.length) {
+      const inflowPayload = {
+        updated_at: today,
+        source_url: 'getEtpRankListInflow',
+        raw: { results: inflowRows },
+      };
+      fs.writeFileSync(path.join(OUT_DIR, 'fundflow.json'), JSON.stringify(inflowPayload));
+      console.log(`[fundflow] ✓ saved (Inflow endpoint): ${inflowRows.length} rows`);
+    }
+  } else if (!inflow) {
+    console.warn('[fundflow] Inflow 못 받음 — 파일 갱신 안 함');
   }
 }
 
