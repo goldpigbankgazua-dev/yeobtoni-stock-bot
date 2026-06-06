@@ -108,7 +108,7 @@ footer a:hover { text-decoration:underline; }
   <header>
     <div class="header-left">
       <h1>ETF 현황</h1>
-      <p class="subtitle">ETF 수익률 · 자금유입 · 순자산증감 · 투자자 · 운용규모 · 거래량 조회</p>
+      <p class="subtitle">ETF 수익률 · 순자산증감 · 투자자 · 운용규모 · 거래량 조회</p>
     </div>
     <div class="basedate" id="basedate">기준일 <b id="basedateText">—</b></div>
   </header>
@@ -116,7 +116,6 @@ footer a:hover { text-decoration:underline; }
   <div class="tabs-wrap">
     <div class="tabs" id="tabs">
       <button class="tab-btn active" data-cat="yield">수익률</button>
-      <button class="tab-btn" data-cat="fundflow">자금유입</button>
       <button class="tab-btn" data-cat="navchange">순자산증감</button>
       <button class="tab-btn" data-cat="investor">투자자</button>
       <button class="tab-btn" data-cat="aum">운용규모</button>
@@ -164,21 +163,9 @@ const CATEGORIES = {
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
       { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'F15001', label: '현재가', cls: 'num', fmt: 'price' },
+      { key: 'F15001', label: '현재가(원)', cls: 'num', fmt: 'comma' },
       { key: 'F15004', label: '등락률', cls: 'num', fmt: 'pctSigned' },
       { key: 'NAV_YIELD', label: 'NAV수익률', cls: 'num', fmt: 'pctSigned' },
-      { key: 'F15015', label: '거래량', cls: 'num', fmt: 'compactInt' },
-    ],
-  },
-  fundflow: {
-    label: '자금유입',
-    sortKey: 'AUM_VAR', sortDir: 'desc',
-    columns: [
-      { key: '_rank', label: '순위', cls: 'rank num' },
-      { key: 'F16002', label: '종목명', cls: 'name left' },
-      { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'AUM',     label: '순자산총액',   cls: 'num', fmt: 'compactWon' },
-      { key: 'AUM_VAR', label: '순자산 변화', cls: 'num', fmt: 'compactWonSigned' },
     ],
   },
   navchange: {
@@ -188,8 +175,8 @@ const CATEGORIES = {
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
       { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'AUM',     label: '순자산총액',   cls: 'num', fmt: 'compactWon' },
-      { key: 'AUM_VAR', label: '순자산 변화', cls: 'num', fmt: 'compactWonSigned' },
+      { key: 'AUM',     label: '순자산총액(원)', cls: 'num', fmt: 'comma' },
+      { key: 'AUM_VAR', label: '순자산 변화(원)', cls: 'num', fmt: 'commaSigned' },
     ],
   },
   investor: {
@@ -199,7 +186,7 @@ const CATEGORIES = {
       { key: 'F16002', label: '종목명', cls: 'name left' },
       { key: 'F16013', label: '티커', cls: 'ticker' },
       { key: 'YIELD', label: '수익률', cls: 'num', fmt: 'pctSigned' },
-      { key: 'RANK_VALUE', label: '순매수금액', cls: 'num', fmt: 'compactWon' },
+      { key: 'RANK_VALUE', label: '순매수금액(원)', cls: 'num', fmt: 'comma' },
     ],
   },
   aum: {
@@ -209,8 +196,8 @@ const CATEGORIES = {
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
       { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'AUM',     label: '순자산총액',   cls: 'num', fmt: 'compactWon' },
-      { key: 'AUM_VAR', label: '순자산 변화', cls: 'num', fmt: 'compactWonSigned' },
+      { key: 'AUM',     label: '순자산총액(원)', cls: 'num', fmt: 'comma' },
+      { key: 'AUM_VAR', label: '순자산 변화(원)', cls: 'num', fmt: 'commaSigned' },
     ],
   },
   volume: {
@@ -219,10 +206,9 @@ const CATEGORIES = {
       { key: '_rank', label: '순위', cls: 'rank num' },
       { key: 'F16002', label: '종목명', cls: 'name left' },
       { key: 'F16013', label: '티커', cls: 'ticker' },
-      { key: 'F15001', label: '현재가', cls: 'num', fmt: 'price' },
+      { key: 'F15001', label: '현재가(원)', cls: 'num', fmt: 'comma' },
       { key: 'F15004', label: '등락률', cls: 'num', fmt: 'pctSigned' },
-      { key: 'F15015', label: '거래량', cls: 'num', fmt: 'compactInt' },
-      { key: 'F15023', label: '거래대금', cls: 'num', fmt: 'compactWon' },
+      { key: 'F15015', label: '거래량(주)', cls: 'num', fmt: 'comma' },
     ],
   },
 };
@@ -236,50 +222,29 @@ document.querySelectorAll('.tab-btn').forEach(b => {
   }
 });
 
-/* ===== 포맷터 ===== */
+/* ===== 포맷터 — 모두 천단위 콤마 ===== */
 const F = {
-  price: v => {
-    const n = Number(v);
-    if (!isFinite(n)) return '—';
-    return n.toLocaleString('ko-KR');
-  },
   pctSigned: v => {
     const n = Number(v);
     if (!isFinite(n)) return '—';
     const sign = n > 0 ? '+' : '';
     return sign + n.toFixed(2) + '%';
   },
-  compactInt: v => {
+  comma: v => {
     const n = Number(v);
     if (!isFinite(n)) return '—';
-    if (n >= 1e8) return (n/1e8).toFixed(2) + '억';
-    if (n >= 1e4) return (n/1e4).toFixed(1) + '만';
     return n.toLocaleString('ko-KR');
   },
-  compactWon: v => {
+  commaSigned: v => {
     const n = Number(v);
     if (!isFinite(n)) return '—';
-    if (n >= 1e12) return (n/1e12).toFixed(2) + '조';
-    if (n >= 1e8) return (n/1e8).toFixed(0) + '억';
-    if (n >= 1e4) return (n/1e4).toFixed(0) + '만';
-    return n.toLocaleString('ko-KR');
-  },
-  compactWonSigned: v => {
-    const n = Number(v);
-    if (!isFinite(n)) return '—';
-    const sign = n > 0 ? '+' : n < 0 ? '-' : '';
-    const a = Math.abs(n);
-    let body;
-    if (a >= 1e12) body = (a/1e12).toFixed(2) + '조';
-    else if (a >= 1e8) body = (a/1e8).toFixed(0) + '억';
-    else if (a >= 1e4) body = (a/1e4).toFixed(0) + '만';
-    else body = a.toLocaleString('ko-KR');
-    return sign + body;
+    const sign = n > 0 ? '+' : '';
+    return sign + n.toLocaleString('ko-KR');
   },
 };
 
 function cellClassFor(col, raw) {
-  if (col.fmt === 'pctSigned' || col.fmt === 'compactWonSigned') {
+  if (col.fmt === 'pctSigned' || col.fmt === 'commaSigned') {
     const n = Number(raw);
     if (isFinite(n)) {
       if (n > 0) return col.cls.replace('num','up');
