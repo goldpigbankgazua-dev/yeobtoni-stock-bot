@@ -259,12 +259,12 @@ const RISK = {
 };
 
 const SECTIONS = [
-  { key:"ust10y",   color:"--c-ust10y",   chartId:"chartUst10y",   nowId:"ust10yNow",   deltaId:"ust10yDelta",   riskId:"ust10yRisk",   unit:"%",   prec:2 },
-  { key:"fedfunds", color:"--c-fedfunds", chartId:"chartFedfunds", nowId:"fedfundsNow", deltaId:"fedfundsDelta", riskId:"fedfundsRisk", unit:"%",   prec:2 },
-  { key:"core_cpi", color:"--c-corecpi",  chartId:"chartCoreCpi",  nowId:"corecpiNow",  deltaId:"corecpiDelta",  riskId:"corecpiRisk",  unit:"%",   prec:1 },
-  { key:"sticky",   color:"--c-sticky",   chartId:"chartSticky",   nowId:"stickyNow",   deltaId:"stickyDelta",   riskId:"stickyRisk",   unit:"%",   prec:1 },
-  { key:"gdp",      color:"--c-gdp",      chartId:"chartGdp",      nowId:"gdpNow",      deltaId:"gdpDelta",      riskId:"gdpRisk",      unit:"%",   prec:1 },
-  { key:"wti",      color:"--c-wti",      chartId:"chartWti",      nowId:"wtiNow",      deltaId:"wtiDelta",      riskId:"wtiRisk",      unit:"$",   prec:1 },
+  { key:"ust10y",   color:"--c-ust10y",   chartId:"chartUst10y",   nowId:"ust10yNow",   deltaId:"ust10yDelta",   riskId:"ust10yRisk",   dateId:"ust10yDate",   unit:"%",   prec:2 },
+  { key:"fedfunds", color:"--c-fedfunds", chartId:"chartFedfunds", nowId:"fedfundsNow", deltaId:"fedfundsDelta", riskId:"fedfundsRisk", dateId:"fedfundsDate", unit:"%",   prec:2 },
+  { key:"core_cpi", color:"--c-corecpi",  chartId:"chartCoreCpi",  nowId:"corecpiNow",  deltaId:"corecpiDelta",  riskId:"corecpiRisk",  dateId:"corecpiDate",  unit:"%",   prec:1 },
+  { key:"sticky",   color:"--c-sticky",   chartId:"chartSticky",   nowId:"stickyNow",   deltaId:"stickyDelta",   riskId:"stickyRisk",   dateId:"stickyDate",   unit:"%",   prec:1 },
+  { key:"gdp",      color:"--c-gdp",      chartId:"chartGdp",      nowId:"gdpNow",      deltaId:"gdpDelta",      riskId:"gdpRisk",      dateId:"gdpDate",      unit:"%",   prec:1 },
+  { key:"wti",      color:"--c-wti",      chartId:"chartWti",      nowId:"wtiNow",      deltaId:"wtiDelta",      riskId:"wtiRisk",      dateId:"wtiDate",      unit:"$",   prec:1 },
 ];
 
 function evalRisk(key, value) {
@@ -291,14 +291,17 @@ function setMeta(sec, points) {
   const nowEl = document.getElementById(sec.nowId);
   const dEl = document.getElementById(sec.deltaId);
   const rEl = sec.riskId ? document.getElementById(sec.riskId) : null;
+  const dateEl = sec.dateId ? document.getElementById(sec.dateId) : null;
   if (!points || !points.length) {
     nowEl.textContent = "–";
     dEl.textContent = "데이터 없음";
     dEl.className = "v-delta flat";
     if (rEl) rEl.style.display = "none";
+    if (dateEl) dateEl.textContent = "";
     return;
   }
   const last = points[points.length - 1].value;
+  const lastDate = points[points.length - 1].date;
   // 위험도 배지 업데이트
   if (rEl) {
     const lv = evalRisk(sec.key, last);
@@ -310,6 +313,8 @@ function setMeta(sec, points) {
       rEl.style.display = "none";
     }
   }
+  // 최종 데이터 날짜 표시 (FRED는 지표별로 갱신 주기가 달라서 카드별로 명시)
+  if (dateEl) dateEl.textContent = lastDate || "";
   // 시작점 대비 변화량
   const first = points[0].value;
   const diff = last - first;
