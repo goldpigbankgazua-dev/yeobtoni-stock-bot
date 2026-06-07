@@ -14,6 +14,7 @@
   --accent:#0ea5e9; --accent-soft:rgba(14,165,233,.10);
   --c-ust10y:#ef4444; --c-fedfunds:#3b82f6; --c-corecpi:#10b981;
   --c-corecpixs:#14b8a6; --c-sticky:#f59e0b; --c-gdp:#8b5cf6; --c-wti:#06b6d4;
+  --c-vix:#f97316;
 }
 :root[data-theme="dark"], body.theme-dark {
   --bg:#0b1220; --card:#121a2b; --thead:#0f1626; --line:#1f2a44; --line-soft:#192238;
@@ -338,6 +339,8 @@ const RISK = {
   sticky:   { dir:"up",   levels:[ {max:2.5,label:"안정",cls:"stable"}, {max:3.0,label:"주의",cls:"caution"}, {max:3.4,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
   gdp:      { dir:"down", levels:[ {max:0,label:"위험",cls:"danger"},   {max:1.0,label:"경고",cls:"warning"}, {max:2.0,label:"주의",cls:"caution"}, {max:99,label:"안정",cls:"stable"} ] },
   wti:      { dir:"up",   levels:[ {max:60,label:"안정",cls:"stable"},  {max:80,label:"주의",cls:"caution"},  {max:100,label:"경고",cls:"warning"},{max:999,label:"위험",cls:"danger"} ] },
+  // VIX: 공포지수. 낮으면 시장 안정, 30+ 패닉.
+  vix:      { dir:"up",   levels:[ {max:15,label:"안정",cls:"stable"},  {max:20,label:"주의",cls:"caution"},  {max:30,label:"경고",cls:"warning"}, {max:999,label:"위험",cls:"danger"} ] },
 };
 
 const SECTIONS = [
@@ -348,6 +351,7 @@ const SECTIONS = [
   { key:"sticky",   color:"--c-sticky",   chartId:"chartSticky",   nowId:"stickyNow",   deltaId:"stickyDelta",   riskId:"stickyRisk",   dateId:"stickyDate",   unit:"%",   prec:1 },
   { key:"gdp",      color:"--c-gdp",      chartId:"chartGdp",      nowId:"gdpNow",      deltaId:"gdpDelta",      riskId:"gdpRisk",      dateId:"gdpDate",      unit:"%",   prec:1 },
   { key:"wti",      color:"--c-wti",      chartId:"chartWti",      nowId:"wtiNow",      deltaId:"wtiDelta",      riskId:"wtiRisk",      dateId:"wtiDate",      unit:"$",   prec:1 },
+  { key:"vix",      color:"--c-vix",      chartId:"chartVix",      nowId:"vixNow",      deltaId:"vixDelta",      riskId:"vixRisk",      dateId:"vixDate",      unit:"",    prec:2 },
 ];
 
 function evalRisk(key, value) {
