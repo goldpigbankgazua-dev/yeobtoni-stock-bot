@@ -86,6 +86,10 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 [data-theme="dark"] .tf-btn.active { background:#e2e8f0; color:#0b1220; border-color:#e2e8f0; }
 
 .chart-wrap { position:relative; height:280px; }
+.card.full-width { grid-column: 1 / -1; }
+.dotplot-wrap { position:relative; height:380px; }
+.dotplot-wrap svg { width:100%; height:100%; display:block; }
+@media (max-width:720px) { .dotplot-wrap { height:320px; } }
 .chart-wrap > div { width:100%; height:100%; }
 .chart-empty { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   color:var(--muted); font-size:13px; flex-direction:column; gap:6px; pointer-events:none; }
@@ -263,8 +267,22 @@ footer a { color:var(--accent); text-decoration:none; }
     <div class="chart-wrap"><div id="chartWti"></div></div>
   </div>
 
+  <!-- 7. 연준 점도표 (full-width) -->
+  <div class="card full-width">
+    <div class="card-head">
+      <div>
+        <div class="card-title">연준 점도표 (FOMC SEP)</div>
+        <div class="card-meta">
+          <span class="v-now" id="dotplotMeeting">–</span>
+          <span class="last-date" id="dotplotDate"></span>
+        </div>
+      </div>
+    </div>
+    <div class="dotplot-wrap"><svg id="dotplotSvg" preserveAspectRatio="xMidYMid meet"></svg></div>
+  </div>
+
   <footer>
-    데이터 출처: <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener">FRED (St. Louis Fed)</a> — 평일 매일 자동 갱신
+    데이터 출처: <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener">FRED (St. Louis Fed)</a>, Federal Reserve SEP — 평일 매일 자동 갱신 (점도표는 분기 1회 수동)
   </footer>
 </div>
 
