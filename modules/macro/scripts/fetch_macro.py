@@ -46,8 +46,9 @@ SERIES = [
     {"key": "wti",         "id": "DCOILWTICO",                     "label": "WTI 유가",                 "unit": "$",    "years": 3, "freq": "d"},
 ]
 
-# Core CPI 중 Shelter의 가중치 (BLS 2024 기준 약 0.42, 매년 미세 조정)
-SHELTER_WEIGHT_IN_CORE = 0.42
+# Core CPI 중 Shelter의 가중치
+# BLS 2024 Relative Importance: Shelter 36.671% / Core 80.012% = 0.458
+SHELTER_WEIGHT_IN_CORE = 0.458
 
 FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 
