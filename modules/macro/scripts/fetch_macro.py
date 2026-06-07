@@ -32,15 +32,21 @@ FRED_KEY = os.environ.get("FRED_API_KEY", "").strip()
 print(f"[env] FRED_API_KEY: {'SET (len=' + str(len(FRED_KEY)) + ')' if FRED_KEY else '*** NOT SET ***'}")
 
 # 시리즈 정의 — (id, label, unit, observation_start years back, freq hint)
+# internal=True 인 시리즈는 derived 계산용 raw 데이터로만 사용, JSON 출력에서 제외
 SERIES = [
-    {"key": "ust10y",      "id": "DGS10",                       "label": "미국채 10년물",            "unit": "%",   "years": 3, "freq": "d"},
-    {"key": "fedfunds",    "id": "DFF",                         "label": "연준 기준금리",            "unit": "%",   "years": 5, "freq": "d"},
-    {"key": "core_cpi",    "id": "CPILFESL",                    "label": "Core CPI",                 "unit": "%yoy","years": 3, "freq": "m", "transform": "yoy"},
-    {"key": "core_cpi_xs", "id": "CUSR0000SA0L2",               "label": "CPI ex Shelter",           "unit": "%yoy","years": 3, "freq": "m", "transform": "yoy"},
-    {"key": "sticky",      "id": "STICKCPIXSHLTRM158SFRBATL",   "label": "Sticky CPI ex Shelter",    "unit": "%yoy","years": 3, "freq": "m"},
-    {"key": "gdp",         "id": "A191RL1Q225SBEA",             "label": "미국 GDP 성장률",         "unit": "%",   "years": 5, "freq": "q"},
-    {"key": "wti",         "id": "DCOILWTICO",                  "label": "WTI 유가",                 "unit": "$",   "years": 3, "freq": "d"},
+    {"key": "ust10y",      "id": "DGS10",                          "label": "미국채 10년물",            "unit": "%",    "years": 3, "freq": "d"},
+    {"key": "fedfunds",    "id": "DFF",                            "label": "연준 기준금리",            "unit": "%",    "years": 5, "freq": "d"},
+    {"key": "core_cpi",    "id": "CPILFESL",                       "label": "Core CPI",                 "unit": "%yoy", "years": 3, "freq": "m", "transform": "yoy"},
+    # core_cpi_xs는 raw fetch가 아니라 _core_idx + _shelter_idx 에서 계산
+    {"key": "_core_idx",   "id": "CPILFESL",                       "label": "Core CPI index",           "unit": "idx",  "years": 4, "freq": "m", "internal": True},
+    {"key": "_shelter_idx","id": "CUSR0000SAH1",                   "label": "Shelter index",            "unit": "idx",  "years": 4, "freq": "m", "internal": True},
+    {"key": "sticky",      "id": "CRESTKCPIXSLTRM159SFRBATL",      "label": "Core Sticky CPI ex Shelter","unit": "%yoy","years": 3, "freq": "m"},
+    {"key": "gdp",         "id": "A191RL1Q225SBEA",                "label": "미국 GDP 성장률",         "unit": "%",    "years": 5, "freq": "q"},
+    {"key": "wti",         "id": "DCOILWTICO",                     "label": "WTI 유가",                 "unit": "$",    "years": 3, "freq": "d"},
 ]
+
+# Core CPI 중 Shelter의 가중치 (BLS 2024 기준 약 0.42, 매년 미세 조정)
+SHELTER_WEIGHT_IN_CORE = 0.42
 
 FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 
