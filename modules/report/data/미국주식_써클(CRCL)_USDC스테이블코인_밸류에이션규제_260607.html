@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circle Internet Group (CRCL) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Circle Internet Group (CRCL.US)</h1>
+<div class="sub">USDC 스테이블코인 발행사 · 규제 수혜 1등 디지털 달러 · 금리 연동 리저브 수익 모델 · ARC 메인넷 여름 출시<br>
+컨센서스 Buy · 평균 TP $146(편차 큼, +82%) · 현재가 $80.27 · 분석일 2026.06.07</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/6)</span><span class="snapshot-value">$80.27</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">약 $20.0B</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 범위</span><span class="snapshot-value">$49.9~$299</span></div>
+<div class="snapshot-item"><span class="snapshot-label">P/S (TTM)</span><span class="snapshot-value">약 7.3배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센서스 등급</span><span class="snapshot-value">Buy</span></div>
+<div class="snapshot-item"><span class="snapshot-label">평균 TP (약 25명)</span><span class="snapshot-value">$146<br><span class="positive">(+82%)</span></span></div>
+<div class="snapshot-item"><span class="snapshot-label">TP 최고/최저</span><span class="snapshot-value">$280 / $65</span></div>
+<div class="snapshot-item"><span class="snapshot-label">IPO (2025.6.5)</span><span class="snapshot-value">$31<br>(상장일 +167%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 매출</span><span class="snapshot-value">$694M<br><span class="positive">(+20% YoY)</span></span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 Adj EBITDA</span><span class="snapshot-value">$151M<br>(마진 53%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">USDC 유통액</span><span class="snapshot-value positive">$77B<br>(+28% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">USDC 점유율</span><span class="snapshot-value">유통 29%<br>거래량 40%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Fed 기준금리</span><span class="snapshot-value">3.50~3.75%<br>(수익 핵심변수)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">온체인 거래량 (1Q)</span><span class="snapshot-value positive">$21.5T<br>(+263% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ARC 네트워크 밸류</span><span class="snapshot-value">$3.0B<br>(프리세일 $222M)</span></div>
+</div>
+<div class="snapshot-core"><b>스테이블코인 한 줄:</b> USDC 유통 $77B(+28% YoY)로 2년 연속 Tether(USDT) 대비 빠른 성장 — 스테이블코인 유통 점유 29%·거래량 점유 40%. GENIUS Act(2025.7 제정) 규제 명확화가 '규제된 디지털 달러' USDC에 구조적 순풍. <i>(데이터: Circle 1Q26 실적 2026.05.11, CoinDesk·DefiLlama — 상세는 §7-2 참조)</i><br><br>
+<b>애널리스트 한 줄:</b> 약 17~25명 커버, 컨센 Buy이나 의견 분산 큼(Strong Buy 29% / Hold 35% / Sell 12%). 평균 TP $146이나 레인지 $65~$280 — 금리 경로·USDC 성장 가정차로 편차 극심. Wells Fargo $142(매수) vs Mizuho $85(중립 하향). (상세는 §0 애널리스트 박스 참조)<br><br>
+<b>핵심 한줄:</b> 매출의 96%가 USDC 준비금 이자(reserve income)인 <b>금리 레버리지 사업</b> — Fed 100bp 인하 시 연 $618M 수익 감소(절반은 분배비용 절감 상쇄). 코인베이스가 준비금 수익의 큰 몫(타 플랫폼 50%·코인베이스 내 100%)을 가져가는 분배 구조가 마진의 핵심 제약. 성장축은 ARC L1(여름 메인넷)·CPN 결제망으로 reserve income 의존도를 낮추는 것.</div>
+</div>
+
+</body>
+</html>
