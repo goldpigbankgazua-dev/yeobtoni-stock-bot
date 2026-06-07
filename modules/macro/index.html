@@ -406,32 +406,19 @@ function drawChart(sec, points) {
   const colorMain = cssVar(sec.color) || "#0ea5e9";
 
   if (hasBand) {
-    // 1) 상한 라인 (얇은 라인)
-    const upperLine = chart.addLineSeries({
-      color: colorMain, lineWidth: 2,
-      priceFormat:{type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec)},
-      lastValueVisible: true, priceLineVisible: false,
-    });
-    upperLine.setData(points.map(p => ({time:p.date, value:p.upper})));
+    const upperColor = '#ef4444'; // 빨강
+    const lowerColor = '#3b82f6'; // 파랑
 
-    // 2) 하한 라인 (얇은 라인)
-    const lowerLine = chart.addLineSeries({
-      color: colorMain, lineWidth: 2,
-      priceFormat:{type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec)},
-      lastValueVisible: true, priceLineVisible: false,
-    });
-    lowerLine.setData(points.map(p => ({time:p.date, value:p.lower})));
-
-    // 3) 상한 area (옅은 채움)
+    // 1) 상한 area (빨강 옅게)
     const upperArea = chart.addAreaSeries({
-      topColor: colorMain.replace(/^#/,'') ? `${colorMain}33` : 'rgba(59,130,246,.2)',
+      topColor: 'rgba(239,68,68,.18)',
       bottomColor: 'rgba(0,0,0,0)',
       lineColor: 'rgba(0,0,0,0)', lineWidth: 0,
       priceLineVisible: false, lastValueVisible: false,
     });
     upperArea.setData(points.map(p => ({time:p.date, value:p.upper})));
 
-    // 4) 하한 area (카드 배경색으로 덮어 band만 남기기)
+    // 2) 하한 area (카드 배경색으로 덮어 band만 남기기)
     const bgColor = isDark ? '#121a2b' : '#ffffff';
     const lowerArea = chart.addAreaSeries({
       topColor: bgColor,
@@ -440,6 +427,22 @@ function drawChart(sec, points) {
       priceLineVisible: false, lastValueVisible: false,
     });
     lowerArea.setData(points.map(p => ({time:p.date, value:p.lower})));
+
+    // 3) 상한 라인 (빨강) — area 위에 덮어 그려야 보임
+    const upperLine = chart.addLineSeries({
+      color: upperColor, lineWidth: 2,
+      priceFormat:{type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec)},
+      lastValueVisible: true, priceLineVisible: false,
+    });
+    upperLine.setData(points.map(p => ({time:p.date, value:p.upper})));
+
+    // 4) 하한 라인 (파랑)
+    const lowerLine = chart.addLineSeries({
+      color: lowerColor, lineWidth: 2,
+      priceFormat:{type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec)},
+      lastValueVisible: true, priceLineVisible: false,
+    });
+    lowerLine.setData(points.map(p => ({time:p.date, value:p.lower})));
   } else {
     const series = chart.addLineSeries({
       color: colorMain,
