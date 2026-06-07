@@ -274,9 +274,9 @@ function render() {
     const dateDisp = r.date ? r.date.replace(/^20/,'').replace(/-/g,'.') : '—';
     const _mkt = (r._market || '').toUpperCase();
     const mktCls =
-      r._market === '코스피' ? 'kospi' :
-      r._market === '코스닥' ? 'kosdaq' :
-      (r._market === '나스닥' || _mkt === 'NASDAQ') ? 'nasdaq' :
+      (r._market === '코스피' || _mkt === 'KOSPI')   ? 'kospi'  :
+      (r._market === '코스닥' || _mkt === 'KOSDAQ')  ? 'kosdaq' :
+      (r._market === '나스닥' || _mkt === 'NASDAQ')  ? 'nasdaq' :
       _mkt === 'NYSE' ? 'nyse' :
       _mkt === 'AMEX' ? 'amex' :
       'kospi';
