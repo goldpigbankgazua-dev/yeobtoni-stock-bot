@@ -328,8 +328,10 @@ function setMeta(sec, points) {
     if (dateEl) dateEl.textContent = "";
     return;
   }
-  const last = points[points.length - 1].value;
-  const lastDate = points[points.length - 1].date;
+  const lastPt = points[points.length - 1];
+  const last = lastPt.value;
+  const lastDate = lastPt.date;
+  const isBand = lastPt.upper !== undefined && lastPt.lower !== undefined;
   // 위험도 배지 업데이트
   if (rEl) {
     const lv = evalRisk(sec.key, last);
@@ -346,7 +348,11 @@ function setMeta(sec, points) {
   // 시작점 대비 변화량
   const first = points[0].value;
   const diff = last - first;
-  nowEl.textContent = fmtVal(last, sec.unit, sec.prec);
+  if (isBand) {
+    nowEl.textContent = `${lastPt.lower.toFixed(2)}~${lastPt.upper.toFixed(2)}%`;
+  } else {
+    nowEl.textContent = fmtVal(last, sec.unit, sec.prec);
+  }
   if (Math.abs(diff) < 0.0001) {
     dEl.textContent = "변화 없음";
     dEl.className = "v-delta flat";
@@ -395,14 +401,55 @@ function drawChart(sec, points) {
     height: container.clientHeight || 280,
   });
 
-  const series = chart.addLineSeries({
-    color: cssVar(sec.color) || "#0ea5e9",
-    lineWidth: 2,
-    priceFormat: { type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec) },
-    lastValueVisible: true,
-    priceLineVisible: false,
-  });
-  series.setData(points.map(p => ({ time:p.date, value:p.value })));
+  // 데이터가 band 형식 (upper/lower) 인지 감지 → fedfunds는 band, 나머지는 단일 라인
+  const hasBand = points[0] && points[0].upper !== undefined && points[0].lower !== undefined;
+  const colorMain = cssVar(sec.color) || "#0ea5e9";
+
+  if (hasBand) {
+    // 1) 상한 라인 (얇은 라인)
+    const upperLine = chart.addLineSeries({
+      color: colorMain, lineWidth: 2,
+      priceFormat:{type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec)},
+      lastValueVisible: true, priceLineVisible: false,
+    });
+    upperLine.setData(points.map(p => ({time:p.date, value:p.upper})));
+
+    // 2) 하한 라인 (얇은 라인)
+    const lowerLine = chart.addLineSeries({
+      color: colorMain, lineWidth: 2,
+      priceFormat:{type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec)},
+      lastValueVisible: true, priceLineVisible: false,
+    });
+    lowerLine.setData(points.map(p => ({time:p.date, value:p.lower})));
+
+    // 3) 상한 area (옅은 채움)
+    const upperArea = chart.addAreaSeries({
+      topColor: colorMain.replace(/^#/,'') ? `${colorMain}33` : 'rgba(59,130,246,.2)',
+      bottomColor: 'rgba(0,0,0,0)',
+      lineColor: 'rgba(0,0,0,0)', lineWidth: 0,
+      priceLineVisible: false, lastValueVisible: false,
+    });
+    upperArea.setData(points.map(p => ({time:p.date, value:p.upper})));
+
+    // 4) 하한 area (카드 배경색으로 덮어 band만 남기기)
+    const bgColor = isDark ? '#121a2b' : '#ffffff';
+    const lowerArea = chart.addAreaSeries({
+      topColor: bgColor,
+      bottomColor: bgColor,
+      lineColor: 'rgba(0,0,0,0)', lineWidth: 0,
+      priceLineVisible: false, lastValueVisible: false,
+    });
+    lowerArea.setData(points.map(p => ({time:p.date, value:p.lower})));
+  } else {
+    const series = chart.addLineSeries({
+      color: colorMain,
+      lineWidth: 2,
+      priceFormat: { type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec) },
+      lastValueVisible: true,
+      priceLineVisible: false,
+    });
+    series.setData(points.map(p => ({ time:p.date, value:p.value })));
+  }
   chart.timeScale().fitContent();
   STATE.charts[sec.key] = chart;
 
