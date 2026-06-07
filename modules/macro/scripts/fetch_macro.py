@@ -36,7 +36,7 @@ SERIES = [
     {"key": "ust10y",      "id": "DGS10",                       "label": "미국채 10년물",            "unit": "%",   "years": 3, "freq": "d"},
     {"key": "fedfunds",    "id": "DFF",                         "label": "연준 기준금리",            "unit": "%",   "years": 5, "freq": "d"},
     {"key": "core_cpi",    "id": "CPILFESL",                    "label": "Core CPI",                 "unit": "%yoy","years": 3, "freq": "m", "transform": "yoy"},
-    {"key": "core_cpi_xs", "id": "CUSR0000SA0L12E",             "label": "Core CPI ex Shelter",      "unit": "%yoy","years": 3, "freq": "m", "transform": "yoy"},
+    {"key": "core_cpi_xs", "id": "CUSR0000SA0L2",               "label": "CPI ex Shelter",           "unit": "%yoy","years": 3, "freq": "m", "transform": "yoy"},
     {"key": "sticky",      "id": "STICKCPIXSHLTRM158SFRBATL",   "label": "Sticky CPI ex Shelter",    "unit": "%yoy","years": 3, "freq": "m"},
     {"key": "gdp",         "id": "A191RL1Q225SBEA",             "label": "미국 GDP 성장률",         "unit": "%",   "years": 5, "freq": "q"},
     {"key": "wti",         "id": "DCOILWTICO",                  "label": "WTI 유가",                 "unit": "$",   "years": 3, "freq": "d"},
