@@ -240,14 +240,35 @@ footer a { color:var(--accent); text-decoration:none; }
 const STATE = { series: {}, charts: {} };
 const TF_DAYS = { "6M":183, "1Y":365, "3Y":1095, "5Y":1825 };
 
+// 위험도 임계값 — 값이 이 구간에 들어가면 해당 라벨/색상 표시
+// dir: "up" = 값이 높을수록 위험, "down" = 값이 낮을수록 위험
+const RISK = {
+  ust10y:   { dir:"up",   levels:[ {max:3.5,label:"안정",cls:"stable"}, {max:4.5,label:"주의",cls:"caution"}, {max:5.5,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  fedfunds: { dir:"up",   levels:[ {max:2.5,label:"완화",cls:"stable"}, {max:4.0,label:"중립",cls:"caution"}, {max:5.0,label:"긴축",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  core_cpi: { dir:"up",   levels:[ {max:2.5,label:"안정",cls:"stable"}, {max:3.5,label:"주의",cls:"caution"}, {max:4.5,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  sticky:   { dir:"up",   levels:[ {max:2.5,label:"안정",cls:"stable"}, {max:3.5,label:"주의",cls:"caution"}, {max:4.5,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  gdp:      { dir:"down", levels:[ {max:0,label:"위험",cls:"danger"},   {max:1.0,label:"경고",cls:"warning"}, {max:2.0,label:"주의",cls:"caution"}, {max:99,label:"안정",cls:"stable"} ] },
+  wti:      { dir:"up",   levels:[ {max:60,label:"안정",cls:"stable"},  {max:80,label:"주의",cls:"caution"},  {max:100,label:"경고",cls:"warning"},{max:999,label:"위험",cls:"danger"} ] },
+};
+
 const SECTIONS = [
-  { key:"ust10y",   color:"--c-ust10y",   chartId:"chartUst10y",   nowId:"ust10yNow",   deltaId:"ust10yDelta",   unit:"%",   prec:2 },
-  { key:"fedfunds", color:"--c-fedfunds", chartId:"chartFedfunds", nowId:"fedfundsNow", deltaId:"fedfundsDelta", unit:"%",   prec:2 },
-  { key:"core_cpi", color:"--c-corecpi",  chartId:"chartCoreCpi",  nowId:"corecpiNow",  deltaId:"corecpiDelta",  unit:"%",   prec:1 },
-  { key:"sticky",   color:"--c-sticky",   chartId:"chartSticky",   nowId:"stickyNow",   deltaId:"stickyDelta",   unit:"%",   prec:1 },
-  { key:"gdp",      color:"--c-gdp",      chartId:"chartGdp",      nowId:"gdpNow",      deltaId:"gdpDelta",      unit:"%",   prec:1 },
-  { key:"wti",      color:"--c-wti",      chartId:"chartWti",      nowId:"wtiNow",      deltaId:"wtiDelta",      unit:"$",   prec:1 },
+  { key:"ust10y",   color:"--c-ust10y",   chartId:"chartUst10y",   nowId:"ust10yNow",   deltaId:"ust10yDelta",   riskId:"ust10yRisk",   unit:"%",   prec:2 },
+  { key:"fedfunds", color:"--c-fedfunds", chartId:"chartFedfunds", nowId:"fedfundsNow", deltaId:"fedfundsDelta", riskId:"fedfundsRisk", unit:"%",   prec:2 },
+  { key:"core_cpi", color:"--c-corecpi",  chartId:"chartCoreCpi",  nowId:"corecpiNow",  deltaId:"corecpiDelta",  riskId:"corecpiRisk",  unit:"%",   prec:1 },
+  { key:"sticky",   color:"--c-sticky",   chartId:"chartSticky",   nowId:"stickyNow",   deltaId:"stickyDelta",   riskId:"stickyRisk",   unit:"%",   prec:1 },
+  { key:"gdp",      color:"--c-gdp",      chartId:"chartGdp",      nowId:"gdpNow",      deltaId:"gdpDelta",      riskId:"gdpRisk",      unit:"%",   prec:1 },
+  { key:"wti",      color:"--c-wti",      chartId:"chartWti",      nowId:"wtiNow",      deltaId:"wtiDelta",      riskId:"wtiRisk",      unit:"$",   prec:1 },
 ];
+
+function evalRisk(key, value) {
+  const r = RISK[key];
+  if (!r || value == null || !isFinite(value)) return null;
+  // levels 배열을 순서대로 보면서 첫 번째로 max 이하인 항목 반환
+  for (const lv of r.levels) {
+    if (value <= lv.max) return lv;
+  }
+  return r.levels[r.levels.length - 1];
+}
 
 function cssVar(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -262,13 +283,26 @@ function fmtVal(v, unit, prec) {
 function setMeta(sec, points) {
   const nowEl = document.getElementById(sec.nowId);
   const dEl = document.getElementById(sec.deltaId);
+  const rEl = sec.riskId ? document.getElementById(sec.riskId) : null;
   if (!points || !points.length) {
     nowEl.textContent = "–";
     dEl.textContent = "데이터 없음";
     dEl.className = "v-delta flat";
+    if (rEl) rEl.style.display = "none";
     return;
   }
   const last = points[points.length - 1].value;
+  // 위험도 배지 업데이트
+  if (rEl) {
+    const lv = evalRisk(sec.key, last);
+    if (lv) {
+      rEl.textContent = lv.label;
+      rEl.className = "risk-badge " + lv.cls;
+      rEl.style.display = "";
+    } else {
+      rEl.style.display = "none";
+    }
+  }
   // 시작점 대비 변화량
   const first = points[0].value;
   const diff = last - first;
