@@ -35,7 +35,9 @@ print(f"[env] FRED_API_KEY: {'SET (len=' + str(len(FRED_KEY)) + ')' if FRED_KEY 
 # internal=True 인 시리즈는 derived 계산용 raw 데이터로만 사용, JSON 출력에서 제외
 SERIES = [
     {"key": "ust10y",      "id": "DGS10",                          "label": "미국채 10년물",            "unit": "%",    "years": 3, "freq": "d"},
-    {"key": "fedfunds",    "id": "DFF",                            "label": "연준 기준금리",            "unit": "%",    "years": 5, "freq": "d"},
+    # fedfunds는 raw fetch가 아니라 _fed_upper + _fed_lower 에서 band로 합성
+    {"key": "_fed_upper",  "id": "DFEDTARU",                       "label": "Fed Target Upper",         "unit": "%",    "years": 5, "freq": "d", "internal": True},
+    {"key": "_fed_lower",  "id": "DFEDTARL",                       "label": "Fed Target Lower",         "unit": "%",    "years": 5, "freq": "d", "internal": True},
     # 공식 발표(BLS press release)와 동일하게 비조정(NSA) 기준으로 YoY 계산
     {"key": "core_cpi",    "id": "CPILFENS",                       "label": "Core CPI",                 "unit": "%yoy", "years": 3, "freq": "m", "transform": "yoy"},
     # core_cpi_xs는 raw fetch가 아니라 _core_idx + _shelter_idx 에서 계산 (NSA 기준)
@@ -163,6 +165,51 @@ def main():
             "freq": spec["freq"],
             "data": pts,
         }
+
+    # ── derived: 연준 기준금리 band (Target Upper / Lower) ──
+    if "_fed_upper" in raw_cache and "_fed_lower" in raw_cache:
+        u_by = {p["date"]: p["value"] for p in raw_cache["_fed_upper"]}
+        l_by = {p["date"]: p["value"] for p in raw_cache["_fed_lower"]}
+        band_pts = []
+        for date, u in u_by.items():
+            l = l_by.get(date)
+            if l is None:
+                continue
+            band_pts.append({
+                "date": date,
+                "value": round((u + l) / 2.0, 4),  # midpoint (위험도 평가용)
+                "upper": u,
+                "lower": l,
+            })
+        band_pts.sort(key=lambda x: x["date"])
+        cutoff = (today - dt.timedelta(days=365 * 5 + 30)).strftime("%Y-%m-%d")
+        band_pts = [p for p in band_pts if p["date"] >= cutoff]
+        # fedfunds 위치: ust10y 다음에 끼워넣기
+        new_series = {}
+        inserted = False
+        for k, v in result["series"].items():
+            new_series[k] = v
+            if k == "ust10y" and not inserted:
+                new_series["fedfunds"] = {
+                    "id": "DERIVED:DFEDTARU+DFEDTARL",
+                    "label": "연준 기준금리",
+                    "unit": "%",
+                    "freq": "d",
+                    "data": band_pts,
+                }
+                inserted = True
+        # 만약 ust10y 다음에 못 끼워졌으면 맨 앞에 추가
+        if not inserted:
+            new_series = {"fedfunds": {
+                "id": "DERIVED:DFEDTARU+DFEDTARL",
+                "label": "연준 기준금리",
+                "unit": "%",
+                "freq": "d",
+                "data": band_pts,
+            }, **result["series"]}
+        result["series"] = new_series
+        if band_pts:
+            print(f"[derived] 연준 기준금리 band: {len(band_pts)} pts, 최신 {band_pts[-1]['date']} = {band_pts[-1]['lower']}~{band_pts[-1]['upper']}%")
 
     # ── derived: Core CPI ex Shelter (KB증권/LSEG와 동일 기준) ──
     if "_core_idx" in raw_cache and "_shelter_idx" in raw_cache:
