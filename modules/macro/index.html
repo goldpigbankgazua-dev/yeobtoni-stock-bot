@@ -50,7 +50,16 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 .basedate b { color:var(--accent); }
 
 .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
-  padding:18px 18px 14px; box-shadow:0 1px 3px rgba(15,23,42,.04); }
+  padding:18px 18px 14px; box-shadow:0 1px 3px rgba(15,23,42,.04);
+  position:relative; overflow:hidden; }
+.card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+  background:var(--card-accent, transparent); border-radius:14px 0 0 14px; }
+.card.acc-ust10y   { --card-accent:var(--c-ust10y); }
+.card.acc-fedfunds { --card-accent:var(--c-fedfunds); }
+.card.acc-corecpi  { --card-accent:var(--c-corecpi); }
+.card.acc-sticky   { --card-accent:var(--c-sticky); }
+.card.acc-gdp      { --card-accent:var(--c-gdp); }
+.card.acc-wti      { --card-accent:var(--c-wti); }
 .card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
 .card-title { font-size:15px; font-weight:700; color:var(--text-strong); }
 .card-meta { font-size:12px; color:var(--muted); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
@@ -112,7 +121,7 @@ footer a { color:var(--accent); text-decoration:none; }
   </header>
 
   <!-- 1. 미국채 10년물 -->
-  <div class="card">
+  <div class="card acc-ust10y">
     <div class="card-head">
       <div>
         <div class="card-title">미국채 10년물 금리</div>
@@ -133,7 +142,7 @@ footer a { color:var(--accent); text-decoration:none; }
   </div>
 
   <!-- 2. 연준 기준금리 -->
-  <div class="card">
+  <div class="card acc-fedfunds">
     <div class="card-head">
       <div>
         <div class="card-title">연준 기준금리</div>
@@ -154,7 +163,7 @@ footer a { color:var(--accent); text-decoration:none; }
   </div>
 
   <!-- 3. Core CPI -->
-  <div class="card">
+  <div class="card acc-corecpi">
     <div class="card-head">
       <div>
         <div class="card-title">Core CPI (전년동월 대비)</div>
@@ -175,7 +184,7 @@ footer a { color:var(--accent); text-decoration:none; }
   </div>
 
   <!-- 4. Sticky CPI ex Shelter -->
-  <div class="card">
+  <div class="card acc-sticky">
     <div class="card-head">
       <div>
         <div class="card-title">Core Sticky CPI ex Shelter</div>
