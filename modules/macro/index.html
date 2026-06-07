@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>글로벌 매크로 — 여비또니 주식봇</title>
+<style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --thead:#f1f5f9; --line:#e2e8f0; --line-soft:#eef2f6;
+  --text:#1a1d24; --text-strong:#0f172a; --muted:#64748b; --muted-2:#94a3b8;
+  --accent:#0ea5e9; --accent-soft:rgba(14,165,233,.10);
+  --c-ust10y:#ef4444; --c-fedfunds:#3b82f6; --c-corecpi:#10b981;
+  --c-sticky:#f59e0b; --c-gdp:#8b5cf6; --c-wti:#06b6d4;
+}
+:root[data-theme="dark"], body.theme-dark {
+  --bg:#0b1220; --card:#121a2b; --thead:#0f1626; --line:#1f2a44; --line-soft:#192238;
+  --text:#cbd5e1; --text-strong:#f1f5f9; --muted:#94a3b8; --muted-2:#64748b;
+  --accent:#22d3ee; --accent-soft:rgba(34,211,238,.12);
+}
+:root[data-theme="green"], body.theme-green {
+  --bg:#ecfdf5; --card:#ffffff; --thead:#f0fdf4; --line:#a7f3d0; --line-soft:#d1fae5;
+  --text:#064e3b; --text-strong:#022c22; --muted:#047857; --muted-2:#10b981;
+  --accent:#059669; --accent-soft:rgba(5,150,105,.12);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { overflow-x:hidden; max-width:100vw; }
+body {
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.55; padding:20px;
+  -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  transition:background .15s ease, color .15s ease;
+}
+.container { max-width:1400px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+.container > header, .container > footer { grid-column:1 / -1; }
+@media (max-width:700px) {
+  .container { grid-template-columns:1fr; }
+}
+
+header { margin-bottom:14px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+.header-left { flex:1; min-width:200px; }
+h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong); }
+.subtitle { color:var(--muted); font-size:13px; margin:0; }
+.basedate { color:var(--muted); background:var(--card); border:1px solid var(--line);
+  padding:6px 12px; border-radius:8px; font-size:12px; white-space:nowrap; flex-shrink:0; }
+.basedate b { color:var(--accent); }
+
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:18px 18px 14px; box-shadow:0 1px 3px rgba(15,23,42,.04); }
+.card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
+.card-title { font-size:15px; font-weight:700; color:var(--text-strong); }
+.card-meta { font-size:12px; color:var(--muted); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.card-meta .v-now { font-size:14px; font-weight:700; color:var(--text-strong); }
+.card-meta .v-delta { font-size:12px; font-weight:600; padding:2px 7px; border-radius:6px; }
+.card-meta .v-delta.up   { background:rgba(239,68,68,.10); color:#dc2626; }
+.card-meta .v-delta.down { background:rgba(59,130,246,.10); color:#2563eb; }
+.card-meta .v-delta.flat { background:var(--thead); color:var(--muted); }
+
+.tf-bar { display:flex; gap:6px; flex-wrap:wrap; }
+.tf-btn { appearance:none; border:1px solid var(--line); background:var(--thead); color:var(--muted);
+  font:inherit; font-size:12px; font-weight:600; padding:5px 12px; border-radius:7px; cursor:pointer;
+  transition:all .12s ease; user-select:none; }
+.tf-btn:hover { color:var(--text-strong); border-color:var(--muted-2); }
+.tf-btn.active { background:var(--text-strong); color:var(--card); border-color:var(--text-strong); }
+[data-theme="dark"] .tf-btn.active { background:#e2e8f0; color:#0b1220; border-color:#e2e8f0; }
+
+.chart-wrap { position:relative; height:280px; }
+.chart-wrap > div { width:100%; height:100%; }
+.chart-empty { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color:var(--muted); font-size:13px; flex-direction:column; gap:6px; pointer-events:none; }
+.chart-empty b { color:var(--text-strong); font-size:14px; font-weight:700; }
+.chart-empty span { font-size:12px; opacity:.7; }
+
+footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px; background:var(--thead);
+  border:1px solid var(--line); border-radius:10px; line-height:1.7; }
+footer a { color:var(--accent); text-decoration:none; }
+
+@media (max-width:720px) {
+  body { padding:12px; }
+  h1 { font-size:19px; }
+  header { gap:8px; }
+  .basedate { font-size:11px; padding:5px 10px; }
+  .chart-wrap { height:240px; }
+  .card { padding:14px 14px 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="header-left">
+      <h1>글로벌 매크로</h1>
+      <p class="subtitle">미국채 10년물 · 연준 기준금리 · Core CPI · Sticky CPI · GDP 성장률 · WTI 유가</p>
+    </div>
+    <div class="basedate" id="basedate">기준일 –</div>
+  </header>
+
+  <!-- 1. 미국채 10년물 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">미국채 10년물 금리</div>
+        <div class="card-meta">
+          <span class="v-now" id="ust10yNow">–</span>
+          <span class="v-delta flat" id="ust10yDelta">데이터 수집 준비 중</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="ust10y">
+        <button class="tf-btn" data-tf="6M">6M</button>
+        <button class="tf-btn active" data-tf="1Y">1Y</button>
+        <button class="tf-btn" data-tf="3Y">3Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartUst10y"></div></div>
+  </div>
+
+  <!-- 2. 연준 기준금리 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">연준 기준금리</div>
+        <div class="card-meta">
+          <span class="v-now" id="fedfundsNow">–</span>
+          <span class="v-delta flat" id="fedfundsDelta">–</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="fedfunds">
+        <button class="tf-btn" data-tf="1Y">1Y</button>
+        <button class="tf-btn active" data-tf="3Y">3Y</button>
+        <button class="tf-btn" data-tf="5Y">5Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartFedfunds"></div></div>
+  </div>
+
+  <!-- 3. Core CPI -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Core CPI (전년동월 대비)</div>
+        <div class="card-meta">
+          <span class="v-now" id="corecpiNow">–</span>
+          <span class="v-delta flat" id="corecpiDelta">–</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="core_cpi">
+        <button class="tf-btn" data-tf="6M">6M</button>
+        <button class="tf-btn active" data-tf="1Y">1Y</button>
+        <button class="tf-btn" data-tf="3Y">3Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartCoreCpi"></div></div>
+  </div>
+
+  <!-- 4. Sticky CPI ex Shelter -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Core Sticky CPI ex Shelter</div>
+        <div class="card-meta">
+          <span class="v-now" id="stickyNow">–</span>
+          <span class="v-delta flat" id="stickyDelta">–</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="sticky">
+        <button class="tf-btn" data-tf="6M">6M</button>
+        <button class="tf-btn active" data-tf="1Y">1Y</button>
+        <button class="tf-btn" data-tf="3Y">3Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartSticky"></div></div>
+  </div>
+
+  <!-- 5. GDP 성장률 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">미국 GDP 성장률 (분기, 연율 환산)</div>
+        <div class="card-meta">
+          <span class="v-now" id="gdpNow">–</span>
+          <span class="v-delta flat" id="gdpDelta">–</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="gdp">
+        <button class="tf-btn" data-tf="1Y">1Y</button>
+        <button class="tf-btn active" data-tf="3Y">3Y</button>
+        <button class="tf-btn" data-tf="5Y">5Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartGdp"></div></div>
+  </div>
+
+  <!-- 6. WTI 유가 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">WTI 유가</div>
+        <div class="card-meta">
+          <span class="v-now" id="wtiNow">–</span>
+          <span class="v-delta flat" id="wtiDelta">–</span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="wti">
+        <button class="tf-btn" data-tf="6M">6M</button>
+        <button class="tf-btn active" data-tf="1Y">1Y</button>
+        <button class="tf-btn" data-tf="3Y">3Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartWti"></div></div>
+  </div>
+
+  <footer>
+    데이터 출처: <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener">FRED (St. Louis Fed)</a> — 평일 매일 자동 갱신
+  </footer>
+</div>
+
+<script src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+<script>
+const STATE = { series: {}, charts: {} };
+const TF_DAYS = { "6M":183, "1Y":365, "3Y":1095, "5Y":1825 };
+
+const SECTIONS = [
+  { key:"ust10y",   color:"--c-ust10y",   chartId:"chartUst10y",   nowId:"ust10yNow",   deltaId:"ust10yDelta",   unit:"%",   prec:2 },
+  { key:"fedfunds", color:"--c-fedfunds", chartId:"chartFedfunds", nowId:"fedfundsNow", deltaId:"fedfundsDelta", unit:"%",   prec:2 },
+  { key:"core_cpi", color:"--c-corecpi",  chartId:"chartCoreCpi",  nowId:"corecpiNow",  deltaId:"corecpiDelta",  unit:"%",   prec:1 },
+  { key:"sticky",   color:"--c-sticky",   chartId:"chartSticky",   nowId:"stickyNow",   deltaId:"stickyDelta",   unit:"%",   prec:1 },
+  { key:"gdp",      color:"--c-gdp",      chartId:"chartGdp",      nowId:"gdpNow",      deltaId:"gdpDelta",      unit:"%",   prec:1 },
+  { key:"wti",      color:"--c-wti",      chartId:"chartWti",      nowId:"wtiNow",      deltaId:"wtiDelta",      unit:"$",   prec:1 },
+];
+
+function cssVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function fmtVal(v, unit, prec) {
+  if (v == null || !isFinite(v)) return "–";
+  const s = v.toFixed(prec);
+  return unit === "$" ? "$" + s : s + unit;
+}
+
+function setMeta(sec, points) {
+  const nowEl = document.getElementById(sec.nowId);
+  const dEl = document.getElementById(sec.deltaId);
+  if (!points || !points.length) {
+    nowEl.textContent = "–";
+    dEl.textContent = "데이터 없음";
+    dEl.className = "v-delta flat";
+    return;
+  }
+  const last = points[points.length - 1].value;
+  // 시작점 대비 변화량
+  const first = points[0].value;
+  const diff = last - first;
+  nowEl.textContent = fmtVal(last, sec.unit, sec.prec);
+  if (Math.abs(diff) < 0.0001) {
+    dEl.textContent = "변화 없음";
+    dEl.className = "v-delta flat";
+  } else {
+    const sign = diff > 0 ? "+" : "−";
+    const absDiff = Math.abs(diff).toFixed(sec.prec);
+    const pct = first !== 0 ? ((diff/first)*100).toFixed(1) : "";
+    dEl.textContent = `${sign}${absDiff}${sec.unit === "$" ? "$" : sec.unit}` + (pct ? ` (${sign}${Math.abs(parseFloat(pct))}%)` : "");
+    dEl.className = "v-delta " + (diff > 0 ? "up" : "down");
+  }
+}
+
+function filterByTF(points, tf) {
+  if (!points || !points.length) return [];
+  const days = TF_DAYS[tf] || 365;
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - days);
+  const cutoffStr = cutoff.toISOString().slice(0,10);
+  return points.filter(p => p.date >= cutoffStr);
+}
+
+function drawChart(sec, points) {
+  const container = document.getElementById(sec.chartId);
+  container.innerHTML = "";
+  if (!points || !points.length) {
+    container.innerHTML = `<div class="chart-empty"><b>데이터 없음</b><span>FRED_API_KEY 설정 필요</span></div>`;
+    return;
+  }
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  const grid = isDark ? "#1f2a44" : "#e2e8f0";
+  const text = isDark ? "#94a3b8" : "#64748b";
+
+  if (STATE.charts[sec.key]) {
+    try { STATE.charts[sec.key].remove(); } catch(_) {}
+    STATE.charts[sec.key] = null;
+  }
+
+  const chart = LightweightCharts.createChart(container, {
+    layout: { background:{type:"solid", color:"transparent"}, textColor:text,
+              fontFamily:"-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif" },
+    grid: { vertLines:{color:grid}, horzLines:{color:grid} },
+    rightPriceScale: { borderColor:grid, scaleMargins:{top:0.1, bottom:0.08} },
+    timeScale: { borderColor:grid, timeVisible:false, secondsVisible:false, rightOffset:2, fixLeftEdge:true, fixRightEdge:true },
+    crosshair: { mode:0 },
+    width: container.clientWidth || 400,
+    height: container.clientHeight || 280,
+  });
+
+  const series = chart.addLineSeries({
+    color: cssVar(sec.color) || "#0ea5e9",
+    lineWidth: 2,
+    priceFormat: { type:"price", precision:sec.prec, minMove:Math.pow(10,-sec.prec) },
+    lastValueVisible: true,
+    priceLineVisible: false,
+  });
+  series.setData(points.map(p => ({ time:p.date, value:p.value })));
+  chart.timeScale().fitContent();
+  STATE.charts[sec.key] = chart;
+
+  // resize handling
+  const ro = new ResizeObserver(() => {
+    try {
+      chart.applyOptions({ width:container.clientWidth, height:container.clientHeight });
+      chart.timeScale().fitContent();
+    } catch(_) {}
+  });
+  ro.observe(container);
+}
+
+function applyTF(sec, tf) {
+  const series = STATE.series[sec.key];
+  if (!series) return;
+  const pts = filterByTF(series.data || [], tf);
+  setMeta(sec, pts);
+  drawChart(sec, pts);
+}
+
+function setupTFButtons() {
+  document.querySelectorAll(".tf-bar").forEach(bar => {
+    const key = bar.dataset.section;
+    const sec = SECTIONS.find(s => s.key === key);
+    if (!sec) return;
+    bar.querySelectorAll(".tf-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        bar.querySelectorAll(".tf-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        applyTF(sec, btn.dataset.tf);
+      });
+    });
+  });
+}
+
+async function loadData() {
+  try {
+    const r = await fetch("data/macro.json?v=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    STATE.series = j.series || {};
+    document.getElementById("basedate").innerHTML = "기준일 <b>" + (j.updated_at || "–") + "</b>";
+    SECTIONS.forEach(sec => {
+      const btn = document.querySelector(`.tf-bar[data-section="${sec.key}"] .tf-btn.active`);
+      const tf = btn ? btn.dataset.tf : "1Y";
+      applyTF(sec, tf);
+    });
+  } catch (e) {
+    console.error("[macro] data load failed:", e);
+    SECTIONS.forEach(sec => {
+      drawChart(sec, []);
+    });
+  }
+}
+
+// 허브에서 테마 변경 신호 수신
+function applyTheme(t) {
+  if (t === "white" || t === "light") document.documentElement.removeAttribute("data-theme");
+  else document.documentElement.setAttribute("data-theme", t);
+  // 차트 색상 갱신을 위해 재draw
+  SECTIONS.forEach(sec => {
+    const btn = document.querySelector(`.tf-bar[data-section="${sec.key}"] .tf-btn.active`);
+    const tf = btn ? btn.dataset.tf : "1Y";
+    applyTF(sec, tf);
+  });
+}
+window.addEventListener("message", (e) => {
+  if (e.data && e.data.type === "yeobtoni-theme") applyTheme(e.data.value);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupTFButtons();
+  loadData();
+});
+</script>
+</body>
+</html>
