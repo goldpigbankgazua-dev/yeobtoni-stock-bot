@@ -84,12 +84,12 @@
     "pages": 12
   },
   {
-    "file": "나스닥_IREN_AI데이터센터_엔비디아MS계약_260606.html",
-    "market": "나스닥",
+    "file": "NASDAQ_IREN_AI데이터센터_엔비디아MS계약_260606.html",
+    "market": "NASDAQ",
     "name": "IREN",
     "themes": [
-      "AI데이터센터",
-      "엔비디아MS계약"
+      "AI데이터센터",
+      "엔비디아MS계약"
     ],
     "date": "2026-06-06",
     "revision": false,
