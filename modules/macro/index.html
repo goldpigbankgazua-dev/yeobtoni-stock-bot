@@ -60,6 +60,17 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 .card-meta .v-delta.down { background:rgba(59,130,246,.10); color:#2563eb; }
 .card-meta .v-delta.flat { background:var(--thead); color:var(--muted); }
 
+.risk-badge { font-size:11px; font-weight:700; padding:3px 9px; border-radius:6px;
+  letter-spacing:.02em; border:1px solid transparent; }
+.risk-badge.stable  { background:rgba(16,185,129,.12); color:#059669; border-color:rgba(16,185,129,.3); }
+.risk-badge.caution { background:rgba(245,158,11,.12); color:#d97706; border-color:rgba(245,158,11,.3); }
+.risk-badge.warning { background:rgba(249,115,22,.14); color:#ea580c; border-color:rgba(249,115,22,.35); }
+.risk-badge.danger  { background:rgba(239,68,68,.14); color:#dc2626; border-color:rgba(239,68,68,.35); }
+[data-theme="dark"] .risk-badge.stable  { color:#34d399; }
+[data-theme="dark"] .risk-badge.caution { color:#fbbf24; }
+[data-theme="dark"] .risk-badge.warning { color:#fb923c; }
+[data-theme="dark"] .risk-badge.danger  { color:#f87171; }
+
 .tf-bar { display:flex; gap:6px; flex-wrap:wrap; }
 .tf-btn { appearance:none; border:1px solid var(--line); background:var(--thead); color:var(--muted);
   font:inherit; font-size:12px; font-weight:600; padding:5px 12px; border-radius:7px; cursor:pointer;
@@ -107,6 +118,7 @@ footer a { color:var(--accent); text-decoration:none; }
         <div class="card-meta">
           <span class="v-now" id="ust10yNow">–</span>
           <span class="v-delta flat" id="ust10yDelta">데이터 수집 준비 중</span>
+          <span class="risk-badge" id="ust10yRisk" style="display:none"></span>
         </div>
       </div>
       <div class="tf-bar" data-section="ust10y">
