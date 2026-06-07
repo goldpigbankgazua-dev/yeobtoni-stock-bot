@@ -695,8 +695,8 @@ function renderDotplot(svg, dp, yRange) {
 
   // 컬럼 위치
   const colW = plotW / cols.length;
-  const dotRadius = Math.max(4, Math.min(7, colW / 12));
-  const jitterStep = dotRadius * 2.2;  // 같은 값에 여러 점일 때 가로 간격
+  const dotRadius = Math.max(2.5, Math.min(4, colW / 22));
+  const jitterStep = dotRadius * 2.4;  // 같은 값에 여러 점일 때 가로 간격
 
   cols.forEach((col, i) => {
     const cx = padL + colW * (i + 0.5);
@@ -729,9 +729,8 @@ function renderDotplot(svg, dp, yRange) {
         c.setAttribute("cx", x); c.setAttribute("cy", y);
         c.setAttribute("r", dotRadius);
         c.setAttribute("fill", dotCol);
-        c.setAttribute("fill-opacity", "0.78");
-        c.setAttribute("stroke", isDark ? "#0b1220" : "#ffffff");
-        c.setAttribute("stroke-width", "1");
+        c.setAttribute("stroke", dotStroke);
+        c.setAttribute("stroke-width", "0.8");
         svg.appendChild(c);
       }
     });
@@ -757,8 +756,9 @@ function renderDotplot(svg, dp, yRange) {
   const lg = document.createElementNS("http://www.w3.org/2000/svg", "g");
   lg.setAttribute("transform", `translate(${padL + 4}, ${padT - 4})`);
   const lgDot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  lgDot.setAttribute("cx", 5); lgDot.setAttribute("cy", 5); lgDot.setAttribute("r", 4);
-  lgDot.setAttribute("fill", dotCol); lgDot.setAttribute("fill-opacity", "0.78");
+  lgDot.setAttribute("cx", 5); lgDot.setAttribute("cy", 5); lgDot.setAttribute("r", 3.5);
+  lgDot.setAttribute("fill", dotCol);
+  lgDot.setAttribute("stroke", dotStroke); lgDot.setAttribute("stroke-width", "0.8");
   lg.appendChild(lgDot);
   const lgText = document.createElementNS("http://www.w3.org/2000/svg", "text");
   lgText.setAttribute("x", 14); lgText.setAttribute("y", 9);
