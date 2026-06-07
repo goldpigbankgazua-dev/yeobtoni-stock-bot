@@ -283,7 +283,28 @@ footer a { color:var(--accent); text-decoration:none; }
     <div class="chart-wrap"><div id="chartWti"></div></div>
   </div>
 
-  <!-- 7. 연준 점도표 (full-width) -->
+  <!-- 7. VIX 지수 -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">VIX 지수</div>
+        <div class="card-meta">
+          <span class="v-now" id="vixNow">–</span>
+          <span class="v-delta flat" id="vixDelta">–</span>
+          <span class="risk-badge" id="vixRisk" style="display:none"></span>
+          <span class="last-date" id="vixDate"></span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="vix">
+        <button class="tf-btn" data-tf="6M">6M</button>
+        <button class="tf-btn active" data-tf="1Y">1Y</button>
+        <button class="tf-btn" data-tf="3Y">3Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartVix"></div></div>
+  </div>
+
+  <!-- 8. 연준 점도표 (full-width) -->
   <div class="card full-width">
     <div class="card-head">
       <div>

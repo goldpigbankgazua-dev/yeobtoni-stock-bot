@@ -46,6 +46,7 @@ SERIES = [
     {"key": "sticky",      "id": "CRESTKCPIXSLTRM159SFRBATL",      "label": "Core Sticky CPI ex Shelter","unit": "%yoy","years": 3, "freq": "m"},
     {"key": "gdp",         "id": "A191RL1Q225SBEA",                "label": "미국 GDP 성장률",         "unit": "%",    "years": 5, "freq": "q"},
     {"key": "wti",         "id": "DCOILWTICO",                     "label": "WTI 유가",                 "unit": "$",    "years": 3, "freq": "d"},
+    {"key": "vix",         "id": "VIXCLS",                         "label": "VIX 지수",                 "unit": "",     "years": 3, "freq": "d"},
 ]
 
 # Core CPI 중 Shelter의 가중치
