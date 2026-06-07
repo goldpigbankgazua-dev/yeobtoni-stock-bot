@@ -593,11 +593,26 @@ async function loadDotplot() {
     });
     sel.value = "0";
 
+    // 모든 발표일 범위를 합쳐 Y축 고정 (드롭다운 전환 시 흔들림 방지)
+    let allVals = [];
+    releases.forEach(rel => {
+      Object.values(rel.projections || {}).forEach(arr => {
+        (arr || []).forEach(v => allVals.push(v));
+      });
+    });
+    const gMin = allVals.length ? Math.min(...allVals) : 0;
+    const gMax = allVals.length ? Math.max(...allVals) : 6;
+    const pad = 0.5; // 0.5%p 여유
+    STATE.dotplotYRange = {
+      min: Math.floor((gMin - pad) * 2) / 2,
+      max: Math.ceil((gMax + pad) * 2) / 2,
+    };
+
     const applyRelease = (idx) => {
       const rel = releases[idx];
       if (!rel) return;
       dateEl.textContent = rel.release_date || "";
-      renderDotplot(svg, rel);
+      renderDotplot(svg, rel, STATE.dotplotYRange);
       STATE.dotplotCurrent = rel;
     };
 
@@ -606,7 +621,7 @@ async function loadDotplot() {
 
     if (!STATE.dotplotRO) {
       STATE.dotplotRO = new ResizeObserver(() => {
-        if (STATE.dotplotCurrent) renderDotplot(svg, STATE.dotplotCurrent);
+        if (STATE.dotplotCurrent) renderDotplot(svg, STATE.dotplotCurrent, STATE.dotplotYRange);
       });
       STATE.dotplotRO.observe(svg.parentElement);
     }
@@ -617,13 +632,15 @@ async function loadDotplot() {
   }
 }
 
-function renderDotplot(svg, dp) {
+function renderDotplot(svg, dp, yRange) {
   const isDark = document.documentElement.getAttribute("data-theme") === "dark";
   const text   = isDark ? "#94a3b8" : "#64748b";
   const grid   = isDark ? "#1f2a44" : "#e2e8f0";
   const ink    = isDark ? "#e2e8f0" : "#0f172a";
-  const dotCol = "#3b82f6"; // 파랑 점
-  const medCol = "#ef4444"; // 빨강 (중간값)
+  // 우리 컨셉 컬러 (안정/녹색 계열) — 반투명으로 겹침 표현
+  const dotCol = isDark ? "rgba(52,211,153,0.55)" : "rgba(16,185,129,0.42)";
+  const dotStroke = isDark ? "rgba(52,211,153,0.85)" : "rgba(5,150,105,0.7)";
+  const medCol = isDark ? "#f87171" : "#dc2626";
 
   // 컬럼 정의 — Longer Run 라벨은 짧게
   const cols = [
@@ -639,12 +656,18 @@ function renderDotplot(svg, dp) {
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.innerHTML = "";
 
-  // 데이터 범위 (Y축)
-  let allVals = [];
-  cols.forEach(c => { (dp.projections[c.key] || []).forEach(v => allVals.push(v)); });
-  if (!allVals.length) return;
-  const minV = Math.floor(Math.min(...allVals) * 4) / 4 - 0.25; // 0.25 단위로 정렬
-  const maxV = Math.ceil(Math.max(...allVals) * 4) / 4 + 0.25;
+  // 데이터 범위 (Y축) — 외부에서 전달받은 고정 범위 사용 (드롭다운 전환 시 흔들림 방지)
+  let minV, maxV;
+  if (yRange && isFinite(yRange.min) && isFinite(yRange.max)) {
+    minV = yRange.min;
+    maxV = yRange.max;
+  } else {
+    let allVals = [];
+    cols.forEach(c => { (dp.projections[c.key] || []).forEach(v => allVals.push(v)); });
+    if (!allVals.length) return;
+    minV = Math.floor(Math.min(...allVals) * 4) / 4 - 0.25;
+    maxV = Math.ceil(Math.max(...allVals) * 4) / 4 + 0.25;
+  }
 
   const padL = 50, padR = 24, padT = 18, padB = 36;
   const plotW = W - padL - padR;
