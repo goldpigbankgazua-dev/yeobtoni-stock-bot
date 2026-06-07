@@ -741,6 +741,11 @@ function applyTheme(t) {
     const tf = btn ? btn.dataset.tf : "1Y";
     applyTF(sec, tf);
   });
+  // 점도표도 다시 그리기 (테마 색상 반영)
+  if (STATE.dotplotCurrent) {
+    const svg = document.getElementById("dotplotSvg");
+    if (svg) renderDotplot(svg, STATE.dotplotCurrent);
+  }
 }
 window.addEventListener("message", (e) => {
   if (e.data && e.data.type === "yeobtoni-theme") applyTheme(e.data.value);
