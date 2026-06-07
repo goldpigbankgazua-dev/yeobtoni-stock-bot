@@ -1,15 +1,14 @@
 [
   {
-    "file": "코스피_현대백화점_백화점영업레버리지_면세점흑자전환_260606.html",
+    "file": "코스피_KCC_실리콘턴어라운드_자사주소각밸류업_260607.html",
     "market": "코스피",
-    "name": "현대백화점",
+    "name": "KCC",
     "themes": [
-      "백화점영업레버리지",
-      "면세점흑자전환"
+      "실리콘턴어라운드",
+      "자사주소각밸류업"
     ],
-    "date": "2026-06-06",
-    "revision": false,
-    "pages": 12
+    "date": "2026-06-07",
+    "pages": 7
   },
   {
     "file": "나스닥_IREN_AI데이터센터_엔비디아MS계약_260606.html",
@@ -20,8 +19,18 @@
       "엔비디아MS계약"
     ],
     "date": "2026-06-06",
-    "revision": false,
-    "pages": 10
+    "pages": 6
+  },
+  {
+    "file": "코스피_현대백화점_백화점영업레버리지_면세점흑자전환_260606.html",
+    "market": "코스피",
+    "name": "현대백화점",
+    "themes": [
+      "백화점영업레버리지",
+      "면세점흑자전환"
+    ],
+    "date": "2026-06-06",
+    "pages": 8
   },
   {
     "file": "코스닥_파인엠텍_폴더블힌지_애플폴드_260603.html",
@@ -32,20 +41,7 @@
       "애플폴드"
     ],
     "date": "2026-06-03",
-    "revision": false,
-    "pages": 12
-  },
-  {
-    "file": "KOSPI_SGC에너지_AI데이터센터_바이오매스SMP_260601.html",
-    "market": "KOSPI",
-    "name": "SGC에너지",
-    "themes": [
-      "AI데이터센터",
-      "바이오매스SMP"
-    ],
-    "date": "2026-06-01",
-    "revision": false,
-    "pages": 18
+    "pages": 8
   },
   {
     "file": "코스피_SGC에너지_AI데이터센터_바이오매스SMP_260601.html",
@@ -56,20 +52,18 @@
       "바이오매스SMP"
     ],
     "date": "2026-06-01",
-    "revision": false,
-    "pages": 19
+    "pages": 11
   },
   {
-    "file": "코스피_현대오토에버_AI로보틱모빌리티_SDV아틀라스컨센추월_260531.html",
+    "file": "KOSPI_SGC에너지_AI데이터센터_바이오매스SMP_260601.html",
     "market": "코스피",
-    "name": "현대오토에버",
+    "name": "SGC에너지",
     "themes": [
-      "AI로보틱모빌리티",
-      "SDV아틀라스컨센추월"
+      "AI데이터센터",
+      "바이오매스SMP"
     ],
-    "date": "2026-05-31",
-    "revision": false,
-    "pages": 32
+    "date": "2026-06-01",
+    "pages": 11
   },
   {
     "file": "코스피_현대모비스_로보틱PhysicalAI_Atlas액추에이터100퍼센트_260531.html",
@@ -80,20 +74,7 @@
       "Atlas액추에이터100퍼센트"
     ],
     "date": "2026-05-31",
-    "revision": false,
-    "pages": 26
-  },
-  {
-    "file": "코스닥_아모텍_AI통신안테나_광네트워크MLCC유증_260531.html",
-    "market": "코스닥",
-    "name": "아모텍",
-    "themes": [
-      "AI통신안테나",
-      "광네트워크MLCC유증"
-    ],
-    "date": "2026-05-31",
-    "revision": false,
-    "pages": 17
+    "pages": 16
   },
   {
     "file": "코스피_삼성전자_HBM4E세계최초AMD주공급사_2nm Foundry_260531.html",
@@ -104,19 +85,29 @@
       "2nm Foundry"
     ],
     "date": "2026-05-31",
-    "revision": false,
-    "pages": 21
+    "pages": 13
   },
   {
-    "file": "코스피_현대모비스_로보틱스PhysicalAI_260525.html",
-    "market": "코스피",
-    "name": "현대모비스",
+    "file": "코스닥_아모텍_AI통신안테나_광네트워크MLCC유증_260531.html",
+    "market": "코스닥",
+    "name": "아모텍",
     "themes": [
-      "로보틱스PhysicalAI"
+      "AI통신안테나",
+      "광네트워크MLCC유증"
     ],
-    "date": "2026-05-25",
-    "revision": false,
-    "pages": 23
+    "date": "2026-05-31",
+    "pages": 10
+  },
+  {
+    "file": "코스피_현대오토에버_AI로보틱모빌리티_SDV아틀라스컨센추월_260531.html",
+    "market": "코스피",
+    "name": "현대오토에버",
+    "themes": [
+      "AI로보틱모빌리티",
+      "SDV아틀라스컨센추월"
+    ],
+    "date": "2026-05-31",
+    "pages": 18
   },
   {
     "file": "코스피_현대모비스_로보틱스PhysicalAI_260525_보강판.html",
@@ -126,19 +117,8 @@
       "로보틱스PhysicalAI"
     ],
     "date": "2026-05-25",
-    "revision": true,
-    "pages": 25
-  },
-  {
-    "file": "코스닥_두산테스나_AI후공정OSAT_260525.html",
-    "market": "코스닥",
-    "name": "두산테스나",
-    "themes": [
-      "AI후공정OSAT"
-    ],
-    "date": "2026-05-25",
-    "revision": false,
-    "pages": 18
+    "pages": 15,
+    "revision": true
   },
   {
     "file": "코스닥_두산테스나_AI후공정OSAT_260525_보강판.html",
@@ -148,7 +128,27 @@
       "AI후공정OSAT"
     ],
     "date": "2026-05-25",
-    "revision": true,
-    "pages": 22
+    "pages": 13,
+    "revision": true
+  },
+  {
+    "file": "코스닥_두산테스나_AI후공정OSAT_260525.html",
+    "market": "코스닥",
+    "name": "두산테스나",
+    "themes": [
+      "AI후공정OSAT"
+    ],
+    "date": "2026-05-25",
+    "pages": 11
+  },
+  {
+    "file": "코스피_현대모비스_로보틱스PhysicalAI_260525.html",
+    "market": "코스피",
+    "name": "현대모비스",
+    "themes": [
+      "로보틱스PhysicalAI"
+    ],
+    "date": "2026-05-25",
+    "pages": 14
   }
 ]
