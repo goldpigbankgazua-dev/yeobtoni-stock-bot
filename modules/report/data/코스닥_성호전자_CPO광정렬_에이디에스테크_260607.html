@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성호전자 (043260.KQ) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>성호전자 (043260.KQ)</h1>
+<div class="sub">CPO 광정렬(Active Alignment) 테마 · 자회사 에이디에스테크 = 엔비디아·브로드컴 고객 확보<br>
+유진 STRONG BUY·목표주가 100,000원(단독 커버리지) · 현재가 48,800원 (TP 대비 +105%) · 분석일 2026.06.07</div>
+</div>
+
+<div class="warning-box">
+<b>⚠️ 투자 위험 고지 (반드시 선독):</b> 성호전자는 최근 1년 주가가 <b>+3,967%(1,027원→48,800원)</b> 상승한 극단적 모멘텀·테마주다. ① 시가총액 3.46조의 밸류에이션은 <b>본업(필름콘덴서·전원장치, 연 OP 76억)이 아니라 자회사 에이디에스테크의 2028년 CPO 양산 기대</b>에 기반하며, ② 2026년 순이익 급증(3,000억대)의 대부분은 <b>전환사채(CB)·전환상환우선주(RCPS) 파생상품평가이익</b>이라는 회계상 착시(주가 상승이 부채 평가손익으로 잡힘)다. ③ 정식 증권사 커버리지는 유진투자증권 1곳뿐(나머지는 탐방후기·미평가). PBR 13.8배. <b>고위험·고변동 종목으로 분할·소액 접근과 엄격한 손절 원칙이 필수.</b>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/5 종가)</span><span class="snapshot-value">48,800원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">3.46조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value negative">-5.06%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">16.1배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR</span><span class="snapshot-value negative">13.8배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">3.64%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+3,967%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">서룡전자 외 12인<br>55.23%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">32억<br>(YoY +100%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP (유진)</span><span class="snapshot-value">100,000원<br>(+105%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP (자체 시나리오)</span><span class="snapshot-value">130,000원<br>(+166%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (1사 단독)</span><span class="snapshot-value">100,000원<br>(+105%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value">6개<br>(액티브 6 / 패시브 0)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (일간 6/5)</span><span class="snapshot-value positive">3개↑ / 2개 신규편입<br>(감소 0개)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전체 ETF 노출 (추정)</span><span class="snapshot-value">약 1.4억원<br>(시총의 0.01% 미만)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 패시브 편입은 0개(KOSDAQ150 등 지수 미편입). 액티브 6개 모두 코스닥 액티브 ETF로, <b>KoAct 코스닥액티브가 비중 7.52%로 최상위 편입</b> + 일간 2개(TIGER 코스닥액티브·에셋플러스 코리아대장장이) 신규 편입. 절대 평가금액은 작으나 <b>코스닥 액티브 매니저들이 CPO 테마로 신규 진입·비중 확대 중</b>. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.05 — 상세 §7-2)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 정식 투자의견·TP는 <b>유진투자증권(STRONG BUY 100,000원) 단독</b>. 메리츠·iM·미래에셋은 탐방후기·이슈코멘트(NR), 그로쓰리서치는 독립리서치. 전원 공통 논거는 <b>자회사 에이디에스테크의 CPO Active Alignment 장비 + 엔비디아·브로드컴 고객 확보</b>. (상세 §0)<br><br>
+<b>핵심 한줄:</b> 본업(필름콘덴서)은 작고, 밸류에이션은 <b>자회사 ADS Tech의 2028년 CPO 양산 폭발(2,366억 OP) 기대를 SOTP로 당겨온 테마 베팅</b>. 순이익 착시(파생평가이익)와 PBR 13.8배를 직시한 고위험 매매 영역.</div>
+</div>
+
+<!-- ===================== 증권사 박스 ===================== -->
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1a5276;">📊 증권사·리서치 리포트 전수 (최근 3개월 · FnGuide SearchReport 전 페이지 순회)</h3>
+<table>
+<tr><th>발간일</th><th>기관</th><th>작성자</th><th>제목</th><th>의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.05.26</td><td>메리츠증권</td><td>양승수</td><td>ADS Tech 라인투어 후기 (Issue Comment)</td><td>NR</td><td>-</td><td>-</td></tr>
+<tr><td>26.05.26</td><td>iM증권</td><td>박정하·고의영</td><td>[탐방후기] CPO 도메인의 확장에서 찾는 성장 기회</td><td>NR(개시)</td><td>-</td><td>-</td></tr>
+<tr><td>26.05.21</td><td>유진투자증권</td><td>이찬영</td><td>CPO의 마지막 1mm</td><td>STRONG BUY (신규)</td><td>100,000</td><td class="positive">+105%</td></tr>
+<tr><td>26.04.13</td><td>그로쓰리서치</td><td>한용희 외 2</td><td>자회사 ASP 폭발, CPO 진짜 병목 잡기</td><td>독립리서치</td><td>-</td><td>-</td></tr>
+<tr><td>26.03.16</td><td>그로쓰리서치</td><td>한용희·김주형</td><td>에이디에스테크 인수, CPO 상용화의 핵심 공급망 선점</td><td>독립리서치</td><td>-</td><td>-</td></tr>
+<tr><td>26.03.11</td><td>미래에셋증권</td><td>박준서</td><td>삼팔光(광)땡</td><td>NR</td><td>-</td><td>-</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold;"><td colspan="4">컨센서스 (FnGuide, 추정기관 1사)</td><td>STRONG BUY 5.0</td><td>100,000</td><td class="positive">+105%</td></tr>
+</table>
+<p style="font-size:9pt;color:#566573;margin:6px 0 0 0;">※ IR팀 발간 '회사소개 및 주요 경영현황'(5/18)은 제외. <b>정식 투자의견·목표주가는 유진투자증권 1곳뿐</b>이며 나머지는 NR(Not Rated)·탐방후기·독립리서치 — 커버리지가 얕아 컨센서스 신뢰도·검증력이 대형주 대비 현저히 낮음에 유의. 동일 기관 복수(그로쓰리서치 4/13·3/16)는 최신본만 sk-box 요약.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1;">
+<h4 style="margin-top:0;color:#1e6e3a;">🔥 유진투자증권 (5/21) — 유일 정식 커버리지 / STRONG BUY 100,000 (신규) <span class="tag-sk" style="background:#1e6e3a;">단독 TP</span></h4>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"CPO의 마지막 1mm" (이찬영 / 현재가 5/20 39,400원)</td><td>CPO 양산의 마지막 병목 = 광정렬</td></tr>
+<tr><td>투자의견 / TP</td><td>STRONG BUY (신규) / 100,000 (신규 제시)</td><td class="positive">현재가 대비 +105%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① <b>CPO 양산의 다음 병목은 '광정렬'</b> — 광엔진을 스위치 ASIC 가까이 배치하며 광섬유/렌즈-광엔진 광결합부를 낮은 삽입손실로 구현해야. ② <b>에이디에스테크가 CPO 양산 2차 병목(정렬·본딩·검사)에 직접 노출</b> — 국내 상장사 중 CPO 양산 공정 장비 최대 수혜. ③ 2028년부터 실적 레벨업 본격화</td><td>CPO 양산 수율의 핵심 장비주 포지셔닝</td></tr>
+<tr><td>★ TP 산출 (SOTP)</td><td><b>ADS Tech 2028E 영업이익 2,366억 × CPO/광인터커넥트 피어 평균 EV/EBIT 30배 + 기존 사업가치 750억 + 순부채 4,166억</b></td><td>P/E 대신 영업가치 기반(파생손익 변동성 회피)</td></tr>
+</table>
+<p><b>[유진 핵심]</b> "동사는 파생상품평가손익 등 영업외손익 변동성이 커 P/E보다 영업가치 기반 밸류에이션이 적절." — TP 100,000원은 <b>2028년 CPO 양산 시나리오를 현재로 당겨온 forward 베팅</b>으로, 2028년 추정이 빗나가면 밸류에이션 근거가 통째로 흔들리는 구조.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 메리츠증권 (5/26) — Issue Comment / NR <span class="tag">미평가</span></h4>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"ADS Tech 라인투어 후기" (양승수, Issue Comment)</td><td>현장 탐방 기반 정성 평가</td></tr>
+<tr><td>투자의견 / TP</td><td>NR (목표주가 미제시)</td><td>정량 밸류 유보</td></tr>
+<tr><td>★ 핵심 논거</td><td>ADS Tech의 경쟁력 = <b>'독보적인 Active Alignment 레퍼런스'</b>. 2000년 설립된 광모듈용 Active Alignment 장비 전문업체로 AI 광트랜시버 장비 레퍼런스 축적</td><td>기술 레퍼런스·고객 검증에 무게</td></tr>
+<tr><td>★ 코멘트</td><td>2/20 "다가오는 CPO 시대의 주인공" Not Rated에서 엔비디아 생태계 진입·CPO 밸류체인 핵심 축으로 조명</td><td>테마 초기부터 긍정적 시각</td></tr>
+</table>
+<p><b>[메리츠 핵심]</b> "엔비디아 생태계 진입, CPO 밸류체인 핵심 축." 기술·레퍼런스는 인정하나 <b>밸류에이션은 유보(NR)</b> — 주가 변동성·실적 가시성 미확보를 반영.<br><span style="color:#7f8c8d;font-size:9pt;">[직전본 26.02.20] Company Brief "다가오는 CPO 시대의 주인공" Not Rated → 5/26 라인투어로 레퍼런스 재확인(의견 유지).</span></p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h4 style="margin-top:0;color:#1f618d;">📘 iM증권 (5/26) — 커버리지 개시 / NR <span class="tag">미평가</span></h4>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"[탐방후기] CPO 도메인의 확장에서 찾는 성장 기회" (박정하·고의영 / 종가 5/22 41,250원)</td><td>커버 개시이나 의견·TP 미부여</td></tr>
+<tr><td>투자의견 / TP</td><td>NR (Initiate) / 목표주가 -</td><td>정량 평가 보류</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 자회사 ADS Tech의 CPO향 Active Alignment 장비 <b>올해부터 고객사 납품</b> 전망 ② Active 방식은 모듈마다 실시간 오차 보정 — CPO는 FAU 정렬·수율 민감도 높아 Active 정렬이 주류, ADS Tech 25년 경험 ③ CPO 적용처 스케일업 확장 시 Active Alignment 장비 수요 증가</td><td>Active Alignment 25년 노하우 = 진입장벽</td></tr>
+<tr><td>★ 코멘트</td><td>"광섬유 앞 렌즈 부착 0.1~0.2μm 정밀도 요구" — 초정밀 공정 난이도가 곧 해자</td><td>기술 난이도 = 수혜 강도</td></tr>
+</table>
+<p><b>[iM 핵심]</b> "CPO 적용처 확장 = Active Alignment 장비 수요 증가." 성장 스토리는 긍정하나 <b>밸류는 미부여(NR)</b> — 실적 가시화 전까지 정량 평가 신중.</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d;background:#f4f6f6;">
+<h4 style="margin-top:0;color:#7f8c8d;">⚖️ 미래에셋증권 (3/11) — NR / 테마 조명 <span class="tag">미평가</span></h4>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"삼팔光(광)땡" (박준서)</td><td>CPO 광기술 테마 노트</td></tr>
+<tr><td>투자의견 / TP</td><td>NR (목표주가 미제시)</td><td>정량 평가 없음</td></tr>
+<tr><td>★ 핵심 논거</td><td>"엔비디아·브로드컴 양산 현실화" — CPO 양산 로드맵 가시화 속 성호전자 CPO 기술 조명</td><td>양산 로드맵 트리거 강조</td></tr>
+</table>
+<p><b>[미래에셋 핵심]</b> 엔비디아·브로드컴 CPO 양산 현실화를 테마 모멘텀으로 제시. 정식 의견은 유보.</p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309;background:#fef3c7;">
+<h4 style="margin-top:0;color:#b45309;">📙 그로쓰리서치 (4/13) — 독립리서치 <span class="tag">independent</span></h4>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"자회사 ASP 폭발, CPO 진짜 병목 잡기" (한용희 외 2)</td><td>자회사 가치 폭발 강조</td></tr>
+<tr><td>투자의견 / TP</td><td>독립리서치 (증권사 정식 의견 아님)</td><td>참고용</td></tr>
+<tr><td>★ 핵심 논거</td><td>① ADS Tech 인수로 CPO 상용화 핵심 공급망 선점 ② CPO '진짜 병목'(광정렬·검사) 직접 수혜 ③ 자회사 가치 폭발이 모회사 재평가로</td><td>자회사 SOTP 관점 선제 제시</td></tr>
+</table>
+<p><b>[그로쓰리서치 핵심]</b> "CPO 진짜 병목을 잡았다." 테마 초기(3/16 '에이디에스테크 인수, CPO 공급망 선점')부터 자회사 가치에 주목.<br><span style="color:#7f8c8d;font-size:9pt;">[직전본 26.03.16] "에이디에스테크 인수, CPO 상용화 핵심 공급망 선점" → 4/13 본에서 ASP(자회사 가치) 폭발로 논거 강화.</span></p>
+</div>
+
+<!-- ===================== 1차자료 ===================== -->
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e;">📋 1차자료 — DART·기업 공시 <span class="tag-disc">PRIMARY</span></h3>
+<ul style="margin:6px 0;">
+<li><b>에이디에스테크 인수</b>: 2025년 12월 지분 87.5%를 약 2,800억원에 인수, <b>2026.5.13 거래 종결·연결 자회사 편입 완료</b>. 2024년 7개 자회사 신규 편입(연결 종속 16개로 확대)의 핵심.</li>
+<li><b>2026.1Q 실적 (연결, 2026.05.15 분기보고서)</b>: 매출 660억(별도 381억, +34%), 영업이익 32억(YoY +100%, 흑자전환), <b>지배주주순이익 3,195억</b> — 순이익 대부분은 <b>CB·RCPS 파생상품평가이익</b>(주가 상승→전환사채 부채 평가손익이 이익으로 인식)으로 <b>영업 실적과 무관한 회계상 항목</b>.</li>
+<li><b>2025 연간 (연결)</b>: 매출 2,316억(+11.7%), 영업이익 76억(+19.6%), 지배순이익 910억(파생평가이익 1,208억 포함). 본업 OPM 3.3%.</li>
+<li><b>주주구성</b>: 서룡전자 외 12인 55.23%(최종변동 2026.05.29), 자사주 외 1인 2.9%, 외국인 3.64%. 박성재 부회장 지분 추가 매입("주가 여전히 저평가").</li>
+<li><b>신용등급</b>: 회사채·CP 등급 없음(소형주). 발행주식수 70,922,823주.</li>
+</ul>
+</div>
+
+<!-- ===================== 외부검증 1 — 글로벌 산업 ===================== -->
+<div class="global-box">
+<h3 style="margin-top:0;color:#2874a6;">🌐 외부검증 1 — 글로벌 CPO(Co-Packaged Optics) 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<ul style="margin:6px 0;">
+<li><b>시장 규모</b>: CPO 시장 2024년 약 USD 2억 → 2032년 USD 14.5억(CAGR 28.1%), 2025 USD 0.98억 → 2034 USD 11.6억(CAGR 31.7%). <b>LightCounting은 2030년 USD 100억, Coherent는 OFC에서 USD 150억으로 상향</b>.</li>
+<li><b>핵심 플레이어</b>: Broadcom(2024.3 세계 첫 51.2Tbps CPO 스위치 'Bailly', 2025년까지 5만+ CPO 스위치 출하), NVIDIA(GTC 2025 Quantum-X·Spectrum-X 실리콘 포토닉스 CPO, 마이크로링 변조기 + TSMC 3D 적층), Marvell.</li>
+<li><b>양산 로드맵</b>: NVIDIA InfiniBand CPO 시스템 2026 상반기, Ethernet CPO 2026 하반기 인도 계획. <b>CPO 양산 본격 성장은 2026~2027년</b>.</li>
+<li><b>기술 병목</b>: CPO는 광엔진을 스위치 ASIC에 근접 집적 → 광섬유/렌즈-광엔진 <b>광정렬(Active Alignment)</b>이 양산 수율의 핵심 병목. 0.1~0.2μm 초정밀 정렬·본딩·검사 공정 요구.</li>
+<li><b>성호전자 위치</b>: 자회사 에이디에스테크가 Active Alignment 장비 25년 레퍼런스. <b>엔비디아(Mellanox) + 브로드컴 모두 고객 확보</b>(세계 1·2위 AI 반도체).</li>
+</ul>
+<div class="global-quote">"LightCounting은 CPO 시장이 2030년 100억 달러에 이를 것으로 전망, Coherent는 OFC에서 150억 달러로 상향" — CPO는 AI 데이터센터 전력·대역폭 한계를 푸는 차세대 광인터커넥트로, 2026~27년 양산 원년 진입.</div>
+</div>
+
+<!-- ===================== 외부검증 2 — 정책·그룹 ===================== -->
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e;">🏛 외부검증 2 — 산업 정책·그룹/M&A 전략 <span class="tag-policy">POLICY/GROUP</span></h3>
+<ul style="margin:6px 0;">
+<li><b>M&A 전략 (핵심)</b>: 성호전자는 본업(필름콘덴서·전원장치)에서 <b>2025.12 에이디에스테크 지분 87.5%를 약 2,800억원에 인수</b>(2026.5.13 종결), CPO 광장비로 사업 축을 전환. 인수 자금은 CB·RCPS 발행으로 조달 → 주가 변동이 파생평가손익으로 직결되는 구조.</li>
+<li><b>ADS Tech 실적 전망</b>: 2026E 매출 865억(+51.2% YoY)·영업이익 428억(+78.4% YoY). 유진증권은 <b>2028E 영업이익 2,366억</b>을 SOTP 기준으로 적용 — CPO 양산 본격화 시 매출이 2028년 수조원대까지 점프하는 시나리오.</li>
+<li><b>AI 인프라 정책 수혜</b>: 글로벌 빅테크(엔비디아·브로드컴·하이퍼스케일러)의 AI 데이터센터 투자 확대가 CPO 채택을 가속. 한국 소부장 중 CPO 양산 공정 장비 직접 노출은 희소.</li>
+<li><b>오너 행보</b>: 박성재 부회장이 지분을 추가 매입하며 "주가 여전히 저평가"라고 시그널 — 경영진의 자신감 표명(단, 해석 주의).</li>
+</ul>
+<div class="policy-quote">"에이디에스테크는 엔비디아에 이어 브로드컴으로부터도 AI 데이터센터용 장비 제작을 의뢰받아 세계 1·2위 AI 반도체 기업을 모두 고객사로 확보" — 고객 다변화가 테마의 핵심 검증 포인트.</div>
+</div>
+
+<!-- ===================== 외부검증 3 — 최근 기사 ===================== -->
+<div class="global-box" style="border-color:#8e44ad;">
+<h3 style="margin-top:0;color:#5b2c6f;">📰 외부검증 3 — 최근 핵심 기사 (2026.02~06) <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+
+<p><b>① "성호전자 'ADS테크, 엔비디아 이어 브로드컴과 계약…AI 반도체 양대 산맥 잡았다'"</b> — ADS Tech가 브로드컴으로부터 AI 데이터센터용 장비 첫 의뢰, 엔비디아+브로드컴 동시 고객 확보.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.mt.co.kr/stock/2026/04/23/2026042314292289900" target="_blank" style="color:#5b2c6f;">[머니투데이], 2026.04.23</a></p>
+
+<p><b>② "성호전자, 엔비디아 생태계 진입…메리츠證 'CPO 밸류체인 핵심 축'"</b> — ADS Tech가 엔비디아 자회사 Mellanox에 공급, CPO 밸류체인 핵심 축으로 부각.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.sedaily.com/article/20010647" target="_blank" style="color:#5b2c6f;">[서울경제], 2026</a></p>
+
+<p><b>③ "'엔비디아·브로드컴 양산 현실화'…미래證, 성호전자 CPO 기술 조명"</b> — 엔비디아·브로드컴 CPO 양산 로드맵 현실화가 성호전자 광정렬 기술 가치 부각.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://news.nate.com/view/20260312n12453" target="_blank" style="color:#5b2c6f;">[네이트뉴스], 2026.03.12</a></p>
+
+<p><b>④ "성호전자, CPO 시장 개화 수혜…'광정렬 기술' 부각"</b> — CPO 마이크로미터급 초정밀 가공에 Active Alignment 장비 필수, 성호전자 고마진 구조.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.leadeconomy.co.kr/news/articleView.html?idxno=6686" target="_blank" style="color:#5b2c6f;">[리드경제], 2026.03</a></p>
+
+<p><b>⑤ "성호전자 52주 신고가 경신, 다가오는 CPO 시대의 주인공"</b> — CPO 시대 개화 기대로 신고가 경신, 테마 대장주 부상.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.hankyung.com/article/202603034832L" target="_blank" style="color:#5b2c6f;">[한국경제], 2026.03.03</a></p>
+
+<p><b>⑥ "'에이디에스테크 인수' 성호전자, CPO 확산으로 중장기 성장 기대"</b> — 인수로 CPO 공급망 선점, 중장기 성장 동력 확보.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.newsfc.co.kr/news/articleView.html?idxno=77309" target="_blank" style="color:#5b2c6f;">[금융소비자뉴스], 2026</a></p>
+
+<p><b>⑦ "박성재 부회장, 성호전자 지분 추가 매입…'주가 여전히 저평가'"</b> — 오너 지분 추가 매입으로 밸류 자신감 표명.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.sedaily.com/article/20046378" target="_blank" style="color:#5b2c6f;">[서울경제 시그널], 2026</a></p>
+
+<p><b>⑧ "[실적속보] 성호전자, 1Q 매출 381억(+34%)·영업이익 31.7억(흑자전환)"</b> — 본업 흑자전환했으나 영업이익 규모(31.7억)는 시총 대비 미미.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://m.thinkpool.com/stockDiscuss/043260/cont/11507797" target="_blank" style="color:#5b2c6f;">[씽크풀 실적속보], 2026.05</a></p>
+
+<p><b>⑨ "엔비디아, CES 2026서 CPO 발표…3분기를 상용화 분기점 제시"</b> — 엔비디아가 CPO 상용화 시점을 2026.3Q로 제시, 양산 임박.</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.sedaily.com/article/20018406" target="_blank" style="color:#5b2c6f;">[서울경제], 2026</a></p>
+
+<p><b>⑩ "성호전자 2025 파생상품평가이익 1,208억 인식…CB·RCPS 평가 변동"</b> — 순이익 급증의 실체는 영업이 아닌 전환사채·RCPS 평가손익(주가 연동 회계 항목).</p>
+<p style="text-align:right;font-size:9pt;color:#5b2c6f;margin:6px 0 0 0;">📌 <b>출처:</b> <a href="https://www.bosoop.com/88ab799e-8181-4fc0-8e56-e8144b1e375b/" target="_blank" style="color:#5b2c6f;">[보숲 사업보고서 분석], 2026</a></p>
+
+<div class="bull-box" style="margin-top:12px;"><b>📍 핵심 시그널 3가지:</b><br>
+1) <b>고객 검증</b> — ADS Tech가 엔비디아(Mellanox) + 브로드컴 동시 확보. 세계 1·2위 AI 반도체 고객 = 테마의 가장 강한 펀더멘털 근거.<br>
+2) <b>양산 타임라인</b> — 엔비디아 CPO 2026 상·하반기 인도, 3Q 상용화 분기점. 2026~27년이 CPO 양산 원년.<br>
+3) <b>밸류 착시 경계</b> — 순이익 급증은 파생평가이익(CB·RCPS)일 뿐 본업 OP는 연 76억. 밸류에이션은 2028년 ADS Tech 추정에 전적으로 의존.</div>
+</div>
+
+<!-- ===================== 외부검증 4 — 캘린더 ===================== -->
+<div class="global-box" style="border-color:#0e6655;">
+<h3 style="margin-top:0;color:#0e6655;">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.06~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<table>
+<tr><th>시점</th><th>이벤트</th><th>의미 (트리거 → 주가 반응 → 점검 지표)</th></tr>
+<tr style="background:#fff3cd;"><td>2026.07</td><td>🔥 2Q26 실적 + ADS Tech 연결 첫 분기</td><td>ADS Tech 연결 편입(5/13) 후 첫 온전한 분기 → 매출·수주 가시화 여부 → ADS Tech 매출·수주잔고</td></tr>
+<tr style="background:#fff3cd;"><td>2026.3Q</td><td>🔥 엔비디아 CPO 상용화 분기점</td><td>엔비디아가 제시한 CPO 상용화 시점 → 양산 장비 발주 → ADS Tech 수주 공시</td></tr>
+<tr><td>2026 하반기</td><td>엔비디아 Ethernet CPO 인도</td><td>Spectrum-X Ethernet CPO 출하 → 광정렬 장비 수요 → 고객사 CPO 채택률</td></tr>
+<tr><td>2026.10</td><td>3Q26 실적 / 브로드컴 발주</td><td>브로드컴 CPO 장비 발주 구체화 → 고객 다변화 검증 → 브로드컴향 수주</td></tr>
+<tr style="background:#fff3cd;"><td>2027</td><td>🔥 CPO 본격 양산 성장 국면</td><td>CPO 시장 양산 진입 → ADS Tech 매출 레벨업 → 매출 성장률·수율</td></tr>
+<tr><td>2027~2028</td><td>ADS Tech 실적 레벨업 (유진 SOTP 근거)</td><td>2028E OP 2,366억 달성 경로 → TP 100,000 정당화 여부 → OP 실현률</td></tr>
+<tr><td>상시</td><td>CB·RCPS 파생평가손익 변동</td><td>주가 등락 → 평가손익 순이익 왜곡 → 영업이익(본질) 별도 점검 필수</td></tr>
+<tr><td>상시</td><td>KOSDAQ150 등 지수 편입 검토</td><td>시총 3.46조 → 지수 편입 시 패시브 신규 수급 → 정기변경 리뷰</td></tr>
+<tr><td>중장기</td><td>CPO 경쟁 기술(NPO/XPO)·후발 진입</td><td>대체기술·경쟁사 등장 → 테마 프리미엄 변동 → 기술 표준 동향</td></tr>
+</table>
+<p style="font-size:9pt;color:#566573;margin:6px 0 0 0;">🔥 = 단기 핵심 트리거. 캘린더는 산업 로드맵·공시 기반 추정으로 실제 일정은 변동 가능.</p>
+</div>
+
+<!-- ===================== 1. 투자포인트 ===================== -->
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① 자회사 에이디에스테크 = CPO 광정렬 장비 핵심 공급망</span><br>
+ADS Tech는 2000년 설립된 광모듈용 Active Alignment 장비 전문업체. CPO 양산의 '마지막 1mm' 병목인 광섬유/렌즈-광엔진 광결합부(0.1~0.2μm 정밀도)를 잡는 장비로, 국내 상장사 중 CPO 양산 공정 장비에 가장 직접 노출.</li>
+
+<li><span class="point-title">② 엔비디아 + 브로드컴 동시 고객 확보</span><br>
+ADS Tech는 엔비디아 자회사 Mellanox에 공급 중이며, 2026.4 브로드컴으로부터 AI 데이터센터 장비 첫 의뢰를 받아 <b>세계 1·2위 AI 반도체 고객을 모두 확보</b>. 테마의 가장 강한 펀더멘털 검증.</li>
+
+<li><span class="point-title">③ CPO 양산 원년 2026~2027 — 타임라인 가시화</span><br>
+엔비디아 InfiniBand CPO 2026 상반기·Ethernet CPO 하반기 인도, 3Q 상용화 분기점 제시. CPO 시장 2030년 100~150억 달러(LightCounting·Coherent) 전망으로 구조적 성장 초입.</li>
+
+<li><span class="point-title">④ Active Alignment 25년 레퍼런스 = 진입장벽</span><br>
+CPO는 FAU 정렬 포인트·수율 민감도가 높아 Passive가 아닌 Active 정렬이 주류. ADS Tech의 25년 노하우와 AI 광트랜시버 장비 레퍼런스가 후발 진입을 막는 해자(iM·메리츠 공통 평가).</li>
+
+<li><span class="point-title">⑤ 유진 STRONG BUY 100,000원 — SOTP 상방 여력</span><br>
+유진증권은 ADS Tech 2028E OP 2,366억 × CPO 피어 EV/EBIT 30배 + 기존 사업 750억 SOTP로 TP 100,000원(+105%) 제시. 2028년 양산 시나리오가 실현되면 추가 상방.</li>
+
+<li><span class="point-title">⑥ 본업 흑자전환 + 자회사 16개 다각화</span><br>
+본업(필름콘덴서·전원장치)은 데이터센터·ESS·전기차·태양광향 고부가 시장 개척으로 1Q26 영업이익 흑자전환(32억). 2024년 7개 자회사 신규 편입(연결 16개)으로 사업 포트폴리오 확장.</li>
+
+<li><span class="point-title">⑦ 액티브 ETF 신규 진입 — 수급 모멘텀</span><br>
+코스닥 액티브 ETF 6개 편입, KoAct 코스닥액티브 비중 7.52% 최상위 + 일간 2개 신규 편입. 패시브 미편입 상태에서 향후 KOSDAQ150 등 지수 편입 시 신규 수급 여지.</li>
+
+<li><span class="point-title">⑧ 데이터센터·AI 전력 효율 메가트렌드</span><br>
+CPO는 AI 데이터센터의 전력·대역폭 한계를 푸는 차세대 광인터커넥트. 하이퍼스케일러 AI 투자 확대가 구조적 수요 배경.</li>
+
+<li><span class="point-title">⑨ 오너 지분 매입 시그널</span><br>
+박성재 부회장이 지분을 추가 매입하며 "주가 여전히 저평가" 입장 표명 — 경영진 자신감(단, 객관적 밸류 근거와는 구분 필요).</li>
+
+<li><span class="point-title">⑩ ⚠️ 리스크 — 본업 대비 극단적 밸류에이션</span><br>
+시총 3.46조는 본업 OP(연 76억)로 정당화 불가, 전적으로 ADS Tech 2028년 추정에 의존. PBR 13.8배, 1년 +3,967% 상승으로 기대가 선반영. 양산 지연·고객 발주 지연 시 급격한 되돌림 위험.</li>
+
+<li><span class="point-title">⑪ ⚠️ 리스크 — 순이익 착시 (파생평가이익)</span><br>
+2025·2026 순이익 급증은 CB·RCPS 파생상품평가이익(주가 연동 회계)이 대부분. 주가 하락 시 평가손으로 반전돼 순이익이 급감하는 양날의 검. EPS·PER 지표 액면 해석 금물.</li>
+
+<li><span class="point-title">⑫ ⚠️ 리스크 — 얇은 커버리지·낮은 검증</span><br>
+정식 TP는 유진 1곳뿐, 나머지는 NR·탐방후기·독립리서치. 컨센서스 검증력이 대형주 대비 현저히 낮아 단일 하우스 가정 오류에 노출.</li>
+
+<li><span class="point-title">⑬ ⚠️ 리스크 — 기술 경쟁·테마 변동성</span><br>
+CPO 대체 기술(NPO/XPO), 글로벌 장비사(미국·일본) 경쟁, 후발 진입 가능성. 테마 프리미엄은 모멘텀 소멸 시 빠르게 디레이팅될 수 있음.</li>
+</ul>
+
+<div class="bull-box">
+<b>투자의견 종합:</b> 성호전자는 <b>'CPO 양산 원년(2026~27)을 선반영한 고베타 테마 성장주'</b>다. 자회사 ADS Tech의 엔비디아·브로드컴 고객 확보와 Active Alignment 25년 레퍼런스는 실재하는 강점이며, 유진증권은 STRONG BUY 100,000원(+105%)을 제시한다. 그러나 ① 본업으로 설명 불가한 시총(3.46조) ② 파생평가이익 순이익 착시 ③ 유진 단독 커버리지·PBR 13.8배는 분명한 고위험 요인이다. <b>강한 상방 스토리와 큰 하방 변동성이 공존</b>하므로, 확신 매수가 아닌 <b>소액·분할·엄격한 손절 기준</b> 하의 테마 트레이딩 영역으로 접근하는 것이 합리적이다.
+</div>
+
+<h4>시나리오별 목표주가</h4>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류에이션 로직</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bull</b></td><td>CPO 양산 조기 본격화 + ADS Tech 2028E OP 2,366억 초과 + 멀티플 프리미엄</td><td>유진 SOTP 상단 + 양산 가속 프리미엄</td><td><b>130,000원</b></td><td class="positive">+166%</td></tr>
+<tr><td><b>Base</b></td><td>CPO 양산 로드맵 정상 진행 + ADS Tech 2028E OP 2,366억</td><td>유진 SOTP (EV/EBIT 30배)</td><td><b>100,000원</b></td><td class="positive">+105%</td></tr>
+<tr><td><b>Bear</b></td><td>양산·발주 지연 + 파생평가이익 반전 + 테마 디레이팅</td><td>본업 + ADS Tech 가치 대폭 할인</td><td><b>25,000원</b></td><td class="negative">-49%</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출 — 유진 SOTP]  ADS Tech 2028E 영업이익 2,366억 × CPO/광인터커넥트 피어 EV/EBIT 30배
+                            + 기존 사업가치 750억 + 순부채 4,166억  ≈ 목표주가 100,000원 (+105%)
+[Bull TP]  양산 조기화·수주 상회로 멀티플·이익 상향 시  ≈ 130,000원 (+166%)
+[Bear TP]  2028E 추정 미달 + 파생평가이익 반전 + 테마 프리미엄 소멸 시  ≈ 25,000원 (-49%, 하방 변동성 큼)
+※ 단일 하우스(유진) 가정에 의존 — 2028년 추정 오류 시 밸류 전제가 통째로 변동.
+</div>
+
+<!-- ===================== 2. 산업개요 ===================== -->
+<h2>2. 산업개요</h2>
+<h3>2-1. 시장 규모 (TAM·SAM·SOM)</h3>
+<table>
+<tr><th>구분</th><th>시장</th><th>규모 / 성장</th><th>성호전자 포지션</th></tr>
+<tr><td>TAM</td><td>글로벌 CPO + 광인터커넥트</td><td>CPO 2030 USD 100~150억 (LightCounting·Coherent)</td><td>ADS Tech가 양산 장비 공급</td></tr>
+<tr><td>SAM</td><td>CPO 광정렬·패키징·검사 장비</td><td>2024 USD 2억→2032 USD 14.5억(CAGR 28.1%)</td><td>Active Alignment 핵심 장비</td></tr>
+<tr><td>SOM</td><td>엔비디아·브로드컴향 CPO 장비</td><td>ADS Tech 2026E 매출 865억(+51%)</td><td>국내 상장사 중 직접 노출 최대</td></tr>
+</table>
+
+<h3>2-2. 밸류체인</h3>
+<p>CPO 밸류체인: 실리콘 포토닉스(광엔진)·레이저 광원 → <b>광정렬(Active Alignment)·본딩·검사</b> → CPO 패키지 → 스위치(Broadcom)·GPU 네트워크(NVIDIA). 성호전자(ADS Tech)는 <b>양산 수율을 좌우하는 광정렬·검사 장비</b> 단계에 위치. 본업: 필름 → 증착필름 → 필름콘덴서 / 전원공급장치(SMPS).</p>
+
+<h3>2-3. 산업 사이클</h3>
+<p>CPO는 2024년 Broadcom 첫 51.2T 스위치(Bailly), 2025년 엔비디아 GTC 실리콘 포토닉스 발표로 개화. 2026년 양산 인도 시작, <b>2026~2027년 양산 원년·고성장 진입</b>. AI 데이터센터 전력·대역폭 한계가 CPO 채택을 구조적으로 견인. 사이클 초입으로 변동성 큼.</p>
+
+<h3>2-4. Peer 비교</h3>
+<table>
+<tr><th>구분</th><th>성호전자</th><th>코스닥 전기·전자</th><th>KOSDAQ</th></tr>
+<tr><td>PER (배)</td><td class="negative">36.4 (12M Fwd 16.1)</td><td>N/A</td><td>114.7</td></tr>
+<tr><td>PBR (배)</td><td class="negative">13.8</td><td>-</td><td>-</td></tr>
+<tr><td>EV/EBITDA (배)</td><td class="negative">45.9</td><td>23.4</td><td>20.1</td></tr>
+<tr><td>ROE (%)</td><td>46.3 (파생익 포함)</td><td>-1.34</td><td>1.85</td></tr>
+</table>
+<p style="font-size:9pt;color:#566573;">※ PER·ROE는 파생평가이익 포함으로 과대. CPO 양산 장비 글로벌 Peer는 사실상 부재(희소성 프리미엄 vs 검증 부족 양면).</p>
+
+<!-- ===================== 3. 기업개요 ===================== -->
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>1973년 진영전자로 설립, 2000년 성호전자(주)로 사명 변경, 2001년 코스닥 상장. 전원공급장치·필름콘덴서·증착필름 제조가 본업. <b>2024년 ㈜제이케이아이홀딩스 등 7개 자회사 신규 편입(연결 16개)</b>, 2025.12 에이디에스테크 인수로 CPO 광장비로 사업 축 확장. KOSDAQ 전기·전자(FICS 전자 장비 및 기기), 12월 결산.</p>
+
+<h3>3-2. 사업 모델 (BM) 분해</h3>
+<table>
+<tr><th>사업</th><th>제품</th><th>전방 시장</th><th>비고</th></tr>
+<tr><td>CPO 장비 (ADS Tech)</td><td>Active Alignment·패키징·검사 장비</td><td>엔비디아·브로드컴 AI 데이터센터</td><td>밸류에이션 핵심 동력</td></tr>
+<tr><td>콘덴서</td><td>필름콘덴서·증착필름</td><td>디지털TV·데이터센터·ESS</td><td>증착필름 직접 생산 체계</td></tr>
+<tr><td>파워</td><td>전원공급장치(SMPS)</td><td>프린터·전기차·태양광·수소차</td><td>고부가 시장 개척</td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자</h3>
+<p>① ADS Tech의 Active Alignment 25년 레퍼런스 ② 엔비디아·브로드컴 동시 고객(검증된 공급 자격) ③ 국내 유일 CPO 양산 공정 장비 직접 노출 ④ 증착필름 내재화. 단, 해자의 지속성은 CPO 양산 실제 개시로 검증 필요.</p>
+
+<h3>3-4. 연혁</h3>
+<p>1973 진영전자 설립 → 2001 코스닥 상장 → 2024 7개 자회사 편입(연결 16개) → 2025.12 에이디에스테크 지분 87.5%(약 2,800억) 인수 → 2026.5.13 자회사 편입 완료 → 2026 CPO 테마 대장주 부상.</p>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>서룡전자 외 12인 (최대주주)</td><td>55.23%</td><td>최종변동 2026.05.29, 박성재 부회장 추가 매입</td></tr>
+<tr><td>자사주 외 1인</td><td>2.9%</td><td>유진증권 보고 기준</td></tr>
+<tr><td>외국인</td><td>3.64%</td><td>낮은 외국인 비중</td></tr>
+<tr><td>기관(액티브 운용사)</td><td>소량</td><td>삼성액티브 등 코스닥 액티브 펀드</td></tr>
+</table>
+<p style="font-size:9pt;color:#566573;">※ 최대주주 55.23% + 유동주식 44.77%. CB·RCPS 전환 시 잠재 희석 물량 점검 필요.</p>
+
+<!-- ===================== 4. 재무분석 ===================== -->
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 실적 추이 (연결, 억원)</h3>
+<table>
+<tr><th>구분</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>2,081</td><td>2,073</td><td>2,316</td><td>3,330</td></tr>
+<tr><td>영업이익</td><td>259</td><td>63</td><td>76</td><td>500</td></tr>
+<tr><td>OPM (%)</td><td>12.4</td><td>3.0</td><td>3.3</td><td>15.0</td></tr>
+<tr><td>지배주주순이익</td><td>177</td><td>80</td><td>910</td><td>3,510</td></tr>
+<tr><td>EPS (원)</td><td>331</td><td>132</td><td>1,342</td><td>4,949</td></tr>
+<tr><td>ROE (%)</td><td>19.2</td><td>6.5</td><td>46.3</td><td>82.3</td></tr>
+<tr><td>PBR (배)</td><td>0.69</td><td>0.48</td><td>2.61</td><td>5.75</td></tr>
+</table>
+<p style="font-size:9pt;color:#566573;">※ 2025·2026E 순이익·EPS·ROE는 <b>CB·RCPS 파생상품평가이익(주가 연동 회계)</b>이 대부분으로 영업 실적과 무관. 본업 영업이익은 2025년 76억에 불과. 2026E OP 500억도 ADS Tech 연결 편입 효과가 주. EPS·PER 액면 해석 금물.</p>
+
+<h3>4-2. 분기 실적 (연결, 억원)</h3>
+<table>
+<tr><th>구분</th><th>3Q25</th><th>4Q25</th><th>1Q26</th><th>2Q26E</th></tr>
+<tr><td>매출액</td><td>556</td><td>602</td><td>660</td><td>750</td></tr>
+<tr><td>영업이익</td><td>5</td><td>41</td><td>32</td><td>90</td></tr>
+<tr><td>지배순이익</td><td>20</td><td>859</td><td>3,195</td><td>-</td></tr>
+</table>
+<p style="font-size:9pt;color:#566573;">※ 1Q26 지배순이익 3,195억 = 영업이익 32억 + <b>파생상품평가이익 등 영업외</b>. 주가 급등이 CB·RCPS 부채 평가손익으로 잡혀 순이익이 폭증한 것으로, 주가 하락 시 평가손 반전 가능.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<p>부채비율 156%('24)→129%('25)→58%('26E, 자본 증가 반영). 자본총계 2,540억('25). ADS Tech 인수(2,800억)는 CB·RCPS 발행으로 조달 — 잠재 희석·평가손익 변동의 양면. 본업 현금창출력(OP 76억)은 시총 대비 미미.</p>
+
+<h3>4-4. 자본구조·리스크</h3>
+<p>발행주식수 70,922,823주. <b>CB·RCPS 전환 시 신주 희석</b> 가능성이 핵심 자본구조 리스크. 파생평가손익으로 인한 순이익 변동성이 매우 큼. 본업만으로는 현 시총 정당화 불가 — 자회사 가치 의존도 절대적.</p>
+
+<!-- ===================== 5. 주주환원 ===================== -->
+<h2>5. 주주환원</h2>
+<p>현재 <b>배당(DPS) 없음</b>, 자사주 매입·소각 정책도 미미(자사주 외 1인 2.9%). 성장 단계 기업으로 주주환원보다 ADS Tech 인수 등 투자에 자본을 집중. 박성재 부회장의 지분 추가 매입이 사실상의 주주가치 시그널 역할.</p>
+<div class="update-box"><b>주주환원 포인트:</b> 성호전자는 배당·환원 매력이 아니라 <b>CPO 성장 베팅</b> 종목이다. 주주환원 관점의 안전마진은 없으며, 투자 매력은 전적으로 ADS Tech의 CPO 양산 실적 가시화에 달려 있다.</div>
+
+<!-- ===================== 6. 밸류에이션 ===================== -->
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교</h3>
+<table>
+<tr><th>지표</th><th>성호전자</th><th>해석</th></tr>
+<tr><td>PER (12M Fwd)</td><td>16.1배</td><td>EPS에 파생익 포함 — 액면 PER 신뢰 낮음</td></tr>
+<tr><td>PBR</td><td>13.8배</td><td>코스닥 평균 대비 극단적 고평가</td></tr>
+<tr><td>EV/EBITDA</td><td>45.9배</td><td>본업 기준 정당화 불가</td></tr>
+<tr><td>SOTP (유진)</td><td>TP 100,000</td><td>ADS Tech 2028E OP × EV/EBIT 30배</td></tr>
+</table>
+
+<h3>6-2. 시나리오 산출</h3>
+<p>Base 100,000원 = 유진 SOTP(ADS Tech 2028E OP 2,366억 × 30배 + 기존 750억 + 순부채). Bull 130,000원 = 양산 조기화·멀티플 프리미엄. Bear 25,000원 = 양산 지연 + 파생익 반전 + 테마 디레이팅. <b>현재가 48,800원은 Base(10만)와 Bear(2.5만) 사이</b>로, 시장은 양산 성공을 절반 정도 반영한 상태.</p>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="bull-box"><b>진입:</b> 테마 트레이딩 관점에서 조정 시 소액 분할. ADS Tech 수주 공시·엔비디아 CPO 상용화(3Q) 확인은 추격 트리거. 단, 확신 매수 아님.</div>
+<div class="risk-box"><b>이탈:</b> ① 양산·발주 지연 ② 파생평가이익 반전으로 순이익 급감 ③ 테마 모멘텀 소멸 ④ CB·RCPS 대량 전환 시 즉시 비중 축소. PBR 13.8배·1년 +3,967% 상승 부담을 고려해 <b>엄격한 손절선(예: -15~20%) 설정 필수</b>.</div>
+
+<!-- ===================== 7. 주가 히스토리 ===================== -->
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<p>52주 최저 1,027원 → 최고 53,200원, 현재 48,800원. <b>1년 수익률 +3,966.67%(약 40배)</b>의 극단적 급등. 수익률: 1M +12.31% / 3M +57.93% / 6M +1,543.10% / 1Y +3,966.67%. 6개월 새 16배 — 전형적 테마 폭등 패턴.</p>
+<table>
+<tr><th>시점</th><th>이벤트</th><th>주가 반응</th></tr>
+<tr><td>2025.12</td><td>에이디에스테크 지분 87.5% 인수(약 2,800억)</td><td>CPO 진출 기대로 상승 점화</td></tr>
+<tr><td>2026.02~03</td><td>메리츠 'CPO 시대의 주인공'·52주 신고가</td><td>테마 대장주 부상, 급등</td></tr>
+<tr><td>2026.04</td><td>ADS Tech 브로드컴 계약(엔비디아+브로드컴)</td><td>고객 다변화로 추가 급등</td></tr>
+<tr><td>2026.05</td><td>유진 STRONG BUY 10만원·자회사 편입 완료</td><td>53,200원 고점권</td></tr>
+<tr><td>2026.06.05</td><td>전일대비 -5.06% 조정</td><td>고점 부근 변동성 확대</td></tr>
+</table>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 한 줄 진단</h3>
+<div class="bull-box"><b>ETF 한 줄:</b> 성호전자는 <b>패시브 ETF 편입 0개</b>(KOSDAQ150 등 지수 미편입), <b>액티브 ETF 6개</b>만 편입. 절대 평가금액은 약 1.4억으로 미미하나, <b>KoAct 코스닥액티브가 비중 7.52%로 고비중 편입</b>하고 일간 2개 ETF(TIGER 코스닥액티브·에셋플러스 코리아대장장이)가 신규 편입하는 등 <b>코스닥 액티브 매니저들이 CPO 테마로 능동 진입 중</b>인 '액티브 드리븐' 종목. 패시브 수급 지지가 없어 주가는 테마·수급·개인 매매에 좌우됨.</div>
+
+<h3>7-2-2. 액티브 ETF 편입 현황 (ystreet 2026.06.05)</h3>
+<table>
+<tr><th>ETF명 (코드)</th><th>현재 비중(%)</th><th>전일 비중(%)</th><th>보유 주식수</th><th>주식수 변화</th><th>일간 상태</th></tr>
+<tr><td>KoAct 코스닥액티브 (0163Y0)</td><td class="positive">7.52</td><td>7.41</td><td>899</td><td>-12</td><td>비중 증가</td></tr>
+<tr><td>TIGER 코스닥액티브 (020450)</td><td>2.29</td><td>0.00</td><td>42</td><td class="positive">+42</td><td>🆕 신규 편입</td></tr>
+<tr><td>MIDAS 코스닥액티브 (019180)</td><td>1.78</td><td>1.78</td><td>332</td><td>0</td><td>유지</td></tr>
+<tr><td>에셋플러스 코리아대장장이액티브 (442090)</td><td>1.48</td><td>0.00</td><td>1,033</td><td class="positive">+1,033</td><td>🆕 신규 편입</td></tr>
+<tr><td>KoAct K수출핵심기업TOP30액티브 (0074K0)</td><td>1.08</td><td>0.99</td><td>231</td><td>0</td><td>비중 증가</td></tr>
+<tr><td>KODEX 코리아혁신성장액티브 (373490)</td><td>0.80</td><td>0.73</td><td>266</td><td>0</td><td>비중 증가</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold;"><td>액티브 6개 합산</td><td colspan="5">일간 3개 비중↑·2개 신규편입·0개 감소 / 보유주식 합산 약 2,803주(≈1.4억원)</td></tr>
+</table>
+<p style="font-size:9pt;color:#566573;">※ 전부 코스닥 액티브 ETF. KoAct 코스닥액티브 7.52% 고비중 = 운용사의 강한 컨빅션. 일간(06-04→06-05) 비교 — 신규 2개 편입으로 액티브 저변 확대.</p>
+
+<h3>7-2-3. 편입 ETF 평가금액 순 통합 표 (액티브+패시브 환산)</h3>
+<table>
+<tr><th>구분</th><th>편입 ETF 수</th><th>대표 ETF / 비중</th><th>성격</th><th>수급 해석</th></tr>
+<tr><td>액티브 (코스닥 고비중)</td><td>1개</td><td>KoAct 코스닥액티브 7.52%</td><td>고컨빅션 능동 편입</td><td>CPO 테마 핵심 베팅 — 운용사 시그널</td></tr>
+<tr><td>액티브 (신규 진입)</td><td>2개</td><td>TIGER 코스닥액티브 2.29%·에셋플러스 1.48%</td><td>신규 편입</td><td>액티브 저변 확대 중 (매수 신호)</td></tr>
+<tr><td>액티브 (기타 코스닥)</td><td>3개</td><td>MIDAS·KoAct 수출TOP30·KODEX 혁신성장</td><td>중비중</td><td>코스닥 성장 테마로 분산 편입</td></tr>
+<tr><td>패시브 (KOSDAQ150 등)</td><td>0개</td><td>편입 없음</td><td>지수 미편입</td><td>기계적 패시브 지지 부재</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold;"><td>합계</td><td>6개</td><td colspan="3">전부 액티브 / 평가금액 ≈ 1.4억 (시총 3.46조의 0.01% 미만)</td></tr>
+</table>
+<div class="update-box"><b>통합 합계:</b> 성호전자의 ETF 노출은 평가금액 기준 무의미한 수준이나, <b>방향성 시그널</b>로는 의미가 있다. 패시브가 0개인 반면 코스닥 액티브 매니저들이 신규·고비중 편입 중 — <b>수급의 주체가 ETF가 아니라 액티브 펀드·개인·테마 자금</b>임을 의미하며, 그만큼 변동성이 크다.</div>
+
+<h3>7-2-4. 국내상장 ETF 시장 — 코스닥 액티브 CPO 편입 포커스</h3>
+<p>성호전자는 시장 전체 NAV/수익률 TOP ETF나 패시브 지수에는 미편입이나, <b>코스닥 액티브 ETF</b>에서 고비중·신규 편입되며 'CPO 테마 액티브 픽'으로 부상.</p>
+<table>
+<tr><th>코스닥 액티브 ETF</th><th>성호전자 비중</th><th>의미</th></tr>
+<tr style="background:#fff3cd;"><td>KoAct 코스닥액티브 (0163Y0)</td><td class="positive">7.52% (최상위)</td><td>운용사의 CPO 테마 핵심 베팅 — 단일 종목 비중 매우 높음</td></tr>
+<tr style="background:#fff3cd;"><td>TIGER 코스닥액티브 (020450)</td><td>2.29% (신규)</td><td>6/5 신규 편입 — 액티브 추격 매수 진입</td></tr>
+<tr style="background:#fff3cd;"><td>에셋플러스 코리아대장장이액티브 (442090)</td><td>1.48% (신규)</td><td>6/5 신규 편입 — 1,033주로 보유 주식수 최다</td></tr>
+<tr><td>MIDAS 코스닥액티브 (019180)</td><td>1.78%</td><td>기존 편입 유지</td></tr>
+</table>
+<div class="update-box"><b>분석 한 줄:</b> 음영(고비중·신규) ETF들은 성호전자를 코스닥 대표 CPO 성장주로 채택. 다만 KoAct 코스닥액티브 7.52% 같은 단일 종목 고비중은 <b>해당 ETF 자체의 집중 리스크</b>이기도 하므로, 주가 급락 시 액티브 환매가 변동성을 증폭시킬 수 있음(양날의 검).</div>
+
+<h3>7-2-5. 진단</h3>
+<div class="bull-box"><b>3가지 핵심 시그널:</b><br>
+① <b>액티브 매수</b> — 6개 중 3개 비중 증가, 2개 신규 편입, 감소 0개. 코스닥 액티브 매니저가 CPO 테마로 진입 확대.<br>
+② <b>크로스체크 발견</b> — KoAct 코스닥액티브 7.52% 고비중 = 운용사 컨빅션 시그널이나, 동시에 ETF 집중 리스크.<br>
+③ <b>패시브 부재</b> — KOSDAQ150 등 패시브 미편입 → 기계적 수급 지지 없음. 향후 지수 편입 시 신규 패시브 수급이 잠재 촉매이나 현재는 변동성 확대 요인.</div>
+<div class="update-box"><b>활용:</b><br>
+• <b>전체 노출</b>: ETF 평가금액 ≈ 1.4억으로 무의미 — 성호전자 주가는 ETF가 아닌 <b>테마 자금·개인·액티브 펀드</b>가 좌우.<br>
+• <b>외인 매도 흡수 메커니즘 없음</b>: 외국인 3.64%·패시브 0개로 KCC·대형주식의 'ETF 흡수' 구조가 부재 → 수급 변동성이 극단적으로 큼.<br>
+• <b>다음 점검 시점</b>: KOSDAQ150 정기변경 시 편입 여부, KoAct 코스닥액티브 비중 변화(고비중 유지/축소).</div>
+
+<!-- ===================== 8. 리스크 분석 ===================== -->
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<p>+3,967% 급등에 따른 차익실현·고점 변동성. CPO 양산·수주 지연 시 테마 모멘텀 급랭. 단일 하우스(유진) 가정 의존.</p>
+<h3>8-2. 중장기 리스크</h3>
+<p>ADS Tech 2028E OP 2,366억 추정 미달 시 SOTP 전제 붕괴. CPO 대체 기술(NPO/XPO)·글로벌 장비사 경쟁. CB·RCPS 전환에 따른 신주 희석.</p>
+<h3>8-3. 거시·회계 리스크</h3>
+<p>주가 하락 시 <b>파생상품평가이익이 평가손으로 반전</b>해 순이익 급감(EPS·PER 착시 역전). AI 투자 사이클 둔화·금리·코스닥 수급 변동.</p>
+<h3>8-4. 멀티플·밸류 리스크</h3>
+<p>PBR 13.8배·EV/EBITDA 45.9배로 본업 기준 정당화 불가. 테마 프리미엄은 모멘텀 소멸 시 빠르게 디레이팅. 패시브 미편입으로 하방 지지 약함.</p>
+
+<!-- ===================== 9. 미래 모멘텀 ===================== -->
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>내용</th><th>시점</th></tr>
+<tr><td>CPO 양산 개시</td><td>엔비디아·브로드컴 CPO 장비 발주</td><td>2026~2027</td></tr>
+<tr><td>ADS Tech 실적 레벨업</td><td>2026E 매출 865억 → 2028E OP 2,366억</td><td>2026~2028</td></tr>
+<tr><td>고객 다변화</td><td>엔비디아·브로드컴 외 하이퍼스케일러 확대</td><td>2026~</td></tr>
+<tr><td>본업 고부가 전환</td><td>데이터센터·ESS·전기차용 콘덴서/파워</td><td>상시</td></tr>
+<tr><td>지수 편입</td><td>KOSDAQ150 등 편입 시 패시브 수급</td><td>정기변경</td></tr>
+</table>
+
+<!-- ===================== 10. 결론 ===================== -->
+<h2>10. 결론</h2>
+<p>성호전자는 자회사 에이디에스테크를 통해 <b>CPO(Co-Packaged Optics) 양산의 핵심 병목인 광정렬(Active Alignment) 장비</b>에 국내 상장사 중 가장 직접 노출된 종목이다. 엔비디아(Mellanox)와 브로드컴을 동시 고객으로 확보한 점, Active Alignment 25년 레퍼런스, CPO 양산 원년(2026~27) 진입은 실재하는 강점이며, 유진증권은 STRONG BUY·목표주가 100,000원(+105%)을 제시한다.</p>
+<p>그러나 <b>밸류에이션(시총 3.46조, PBR 13.8배)은 본업(연 OP 76억)이 아니라 ADS Tech의 2028년 CPO 양산 추정에 전적으로 의존</b>하며, 순이익 급증의 실체는 CB·RCPS 파생상품평가이익이라는 회계 착시다. 정식 커버리지도 유진 1곳뿐이고, 1년 +3,967% 급등으로 기대가 크게 선반영됐다.</p>
+<p><b>투자 결론:</b> <b>고위험 CPO 테마 트레이딩 영역</b>. 양산 가시화 시 추가 상방(Base 10만/Bull 13만)이 열려 있으나, 지연·되돌림 시 하방(Bear 2.5만)도 깊다. 확신 기반 비중 확대가 아니라 <b>소액·분할 진입 + 엄격한 손절(-15~20%) + ADS Tech 수주·엔비디아 3Q 상용화 등 트리거 확인</b> 원칙으로 접근해야 한다. 순이익 지표가 아닌 <b>본업·ADS Tech 영업이익과 수주잔고</b>를 본질 지표로 추적할 것.</p>
+
+<div class="footer">
+<b>성호전자 (043260.KQ) 종목 리서치 보고서</b> · 분석일 2026.06.07 · 현재가 기준 2026.06.05 종가<br>
+데이터 출처: FnGuide Company Guide·SearchReport(유진·메리츠·iM·미래에셋·그로쓰리서치), ystreet ActiveETF/PassiveETF Tracker(2026.06.05), DART 분기보고서, 머니투데이·서울경제·한국경제·네이트뉴스·리드경제·금융소비자뉴스·씽크풀·보숲, LightCounting·Coherent·Stellar/Verified/Precedence Research(글로벌 CPO).<br>
+※ 본 보고서는 공개 자료를 종합·재구성한 참고용이며 투자 권유가 아닙니다. 성호전자는 고위험·고변동 테마주로 원금 손실 위험이 큽니다. 목표주가·시나리오는 단일 증권사 추정 및 자체 가정으로 실제와 크게 다를 수 있으며, 투자 판단과 책임은 투자자 본인에게 있습니다.
+</div>
+
+</body>
+</html>
