@@ -525,6 +525,170 @@ async function loadData() {
       drawChart(sec, []);
     });
   }
+  // 점도표 로딩 (별도 파일, 분기 1회)
+  loadDotplot();
+}
+
+/* ========= 점도표 (Fed Dot Plot) ========= */
+async function loadDotplot() {
+  const svg = document.getElementById("dotplotSvg");
+  const meetEl = document.getElementById("dotplotMeeting");
+  const dateEl = document.getElementById("dotplotDate");
+  try {
+    const r = await fetch("data/dotplot.json?v=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const dp = await r.json();
+    meetEl.textContent = dp.meeting || "—";
+    dateEl.textContent = dp.release_date || "";
+    renderDotplot(svg, dp);
+    if (!STATE.dotplotRO) {
+      STATE.dotplotRO = new ResizeObserver(() => renderDotplot(svg, dp));
+      STATE.dotplotRO.observe(svg.parentElement);
+    }
+    STATE.dotplotData = dp;
+  } catch (e) {
+    console.error("[dotplot] load failed:", e);
+    svg.innerHTML = `<text x="50%" y="50%" text-anchor="middle" fill="${cssVar('--muted')}" font-size="13">점도표 데이터 없음</text>`;
+  }
+}
+
+function renderDotplot(svg, dp) {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  const text   = isDark ? "#94a3b8" : "#64748b";
+  const grid   = isDark ? "#1f2a44" : "#e2e8f0";
+  const ink    = isDark ? "#e2e8f0" : "#0f172a";
+  const dotCol = "#3b82f6"; // 파랑 점
+  const medCol = "#ef4444"; // 빨강 (중간값)
+
+  // 컬럼 정의 — Longer Run 라벨은 짧게
+  const cols = [
+    {key:"2026",       label:"2026"},
+    {key:"2027",       label:"2027"},
+    {key:"2028",       label:"2028"},
+    {key:"longer_run", label:"Longer Run"},
+  ];
+
+  const parent = svg.parentElement;
+  const W = parent.clientWidth || 800;
+  const H = parent.clientHeight || 380;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.innerHTML = "";
+
+  // 데이터 범위 (Y축)
+  let allVals = [];
+  cols.forEach(c => { (dp.projections[c.key] || []).forEach(v => allVals.push(v)); });
+  if (!allVals.length) return;
+  const minV = Math.floor(Math.min(...allVals) * 4) / 4 - 0.25; // 0.25 단위로 정렬
+  const maxV = Math.ceil(Math.max(...allVals) * 4) / 4 + 0.25;
+
+  const padL = 50, padR = 24, padT = 18, padB = 36;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+
+  // Y축 스케일
+  const yScale = (v) => padT + plotH * (1 - (v - minV) / (maxV - minV));
+
+  // 그리드 + Y 라벨 (0.5 단위)
+  const yStart = Math.ceil(minV * 2) / 2;
+  for (let v = yStart; v <= maxV + 0.001; v += 0.5) {
+    const y = yScale(v);
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", padL); line.setAttribute("x2", W - padR);
+    line.setAttribute("y1", y); line.setAttribute("y2", y);
+    line.setAttribute("stroke", grid); line.setAttribute("stroke-width", "1");
+    svg.appendChild(line);
+    const tx = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    tx.setAttribute("x", padL - 8); tx.setAttribute("y", y + 4);
+    tx.setAttribute("text-anchor", "end"); tx.setAttribute("font-size", "11");
+    tx.setAttribute("fill", text);
+    tx.textContent = v.toFixed(2) + "%";
+    svg.appendChild(tx);
+  }
+
+  // 컬럼 위치
+  const colW = plotW / cols.length;
+  const dotRadius = Math.max(4, Math.min(7, colW / 12));
+  const jitterStep = dotRadius * 2.2;  // 같은 값에 여러 점일 때 가로 간격
+
+  cols.forEach((col, i) => {
+    const cx = padL + colW * (i + 0.5);
+    // 컬럼 라벨
+    const lbl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    lbl.setAttribute("x", cx); lbl.setAttribute("y", H - 12);
+    lbl.setAttribute("text-anchor", "middle"); lbl.setAttribute("font-size", "12");
+    lbl.setAttribute("font-weight", "600"); lbl.setAttribute("fill", ink);
+    lbl.textContent = col.label;
+    svg.appendChild(lbl);
+
+    const vals = (dp.projections[col.key] || []).slice().sort((a,b) => a - b);
+    if (!vals.length) return;
+
+    // 같은 값 그룹핑 (0.001 차이는 동일로 간주)
+    const groups = {};
+    vals.forEach(v => {
+      const k = v.toFixed(3);
+      if (!groups[k]) groups[k] = { value: v, count: 0 };
+      groups[k].count++;
+    });
+
+    Object.values(groups).forEach(g => {
+      const y = yScale(g.value);
+      // 그룹 내 점을 가로로 jitter
+      const totalW = (g.count - 1) * jitterStep;
+      for (let k = 0; k < g.count; k++) {
+        const x = cx - totalW / 2 + k * jitterStep;
+        const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        c.setAttribute("cx", x); c.setAttribute("cy", y);
+        c.setAttribute("r", dotRadius);
+        c.setAttribute("fill", dotCol);
+        c.setAttribute("fill-opacity", "0.78");
+        c.setAttribute("stroke", isDark ? "#0b1220" : "#ffffff");
+        c.setAttribute("stroke-width", "1");
+        svg.appendChild(c);
+      }
+    });
+
+    // 중간값 라인 (전체 컬럼 폭으로)
+    const median = vals[Math.floor(vals.length / 2)];
+    const my = yScale(median);
+    const med = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    med.setAttribute("x1", cx - colW * 0.4); med.setAttribute("x2", cx + colW * 0.4);
+    med.setAttribute("y1", my); med.setAttribute("y2", my);
+    med.setAttribute("stroke", medCol); med.setAttribute("stroke-width", "2");
+    med.setAttribute("stroke-dasharray", "4 3");
+    svg.appendChild(med);
+    const mlbl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    mlbl.setAttribute("x", cx + colW * 0.4 + 4); mlbl.setAttribute("y", my + 4);
+    mlbl.setAttribute("font-size", "11"); mlbl.setAttribute("fill", medCol);
+    mlbl.setAttribute("font-weight", "700");
+    mlbl.textContent = median.toFixed(2);
+    svg.appendChild(mlbl);
+  });
+
+  // 범례 (좌측 상단)
+  const lg = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  lg.setAttribute("transform", `translate(${padL + 4}, ${padT - 4})`);
+  const lgDot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  lgDot.setAttribute("cx", 5); lgDot.setAttribute("cy", 5); lgDot.setAttribute("r", 4);
+  lgDot.setAttribute("fill", dotCol); lgDot.setAttribute("fill-opacity", "0.78");
+  lg.appendChild(lgDot);
+  const lgText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  lgText.setAttribute("x", 14); lgText.setAttribute("y", 9);
+  lgText.setAttribute("font-size", "11"); lgText.setAttribute("fill", text);
+  lgText.textContent = "FOMC 위원 전망";
+  lg.appendChild(lgText);
+  const lgLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  lgLine.setAttribute("x1", 96); lgLine.setAttribute("x2", 116);
+  lgLine.setAttribute("y1", 5); lgLine.setAttribute("y2", 5);
+  lgLine.setAttribute("stroke", medCol); lgLine.setAttribute("stroke-width", "2");
+  lgLine.setAttribute("stroke-dasharray", "4 3");
+  lg.appendChild(lgLine);
+  const lgMText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  lgMText.setAttribute("x", 120); lgMText.setAttribute("y", 9);
+  lgMText.setAttribute("font-size", "11"); lgMText.setAttribute("fill", text);
+  lgMText.textContent = "중간값";
+  lg.appendChild(lgMText);
+  svg.appendChild(lg);
 }
 
 // 허브에서 테마 변경 신호 수신
