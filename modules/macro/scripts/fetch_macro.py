@@ -105,10 +105,38 @@ def apply_yoy(points):
     return out
 
 
+def compute_core_xs(core_idx_pts, shelter_idx_pts):
+    """Core CPI ex Shelter (식·에너지·주거 제외) YoY % 계산.
+    Core CPI = (Shelter 가중치) × Shelter + (1 - Shelter 가중치) × Core_ex_Shelter
+    → Core_ex_Shelter = (Core - w × Shelter) / (1 - w)
+    BLS 2024 기준 Shelter의 Core 내 가중치 약 0.42.
+    """
+    w = SHELTER_WEIGHT_IN_CORE
+    core_by = {p["date"]: p["value"] for p in core_idx_pts}
+    shelter_by = {p["date"]: p["value"] for p in shelter_idx_pts}
+    out = []
+    for date, c in core_by.items():
+        s = shelter_by.get(date)
+        if s is None:
+            continue
+        d = dt.date.fromisoformat(date)
+        prev = d.replace(year=d.year - 1).isoformat()
+        cp = core_by.get(prev)
+        sp = shelter_by.get(prev)
+        if not cp or not sp:
+            continue
+        core_yoy = (c / cp - 1.0) * 100.0
+        shelter_yoy = (s / sp - 1.0) * 100.0
+        core_xs_yoy = (core_yoy - w * shelter_yoy) / (1.0 - w)
+        out.append({"date": date, "value": round(core_xs_yoy, 2)})
+    return out
+
+
 def main():
     print(f"=== 글로벌 매크로 수집 ({dt.date.today()}) ===")
     today = dt.date.today()
     result = {"updated_at": today.strftime("%Y-%m-%d"), "series": {}}
+    raw_cache = {}
 
     for spec in SERIES:
         years = spec.get("years", 3)
@@ -118,6 +146,10 @@ def main():
         pts = fetch_series(spec["id"], start)
         if spec.get("transform") == "yoy":
             pts = apply_yoy(pts)
+        # internal 시리즈는 raw 그대로 캐시 (계산용)
+        if spec.get("internal"):
+            raw_cache[spec["key"]] = pts
+            continue
         # years 잘라내기 (최종 표시 기간)
         cutoff = (today - dt.timedelta(days=365 * years + 30)).strftime("%Y-%m-%d")
         pts = [p for p in pts if p["date"] >= cutoff]
@@ -130,10 +162,30 @@ def main():
             "data": pts,
         }
 
+    # ── derived: Core CPI ex Shelter (KB증권/LSEG와 동일 기준) ──
+    if "_core_idx" in raw_cache and "_shelter_idx" in raw_cache:
+        core_xs = compute_core_xs(raw_cache["_core_idx"], raw_cache["_shelter_idx"])
+        cutoff = (today - dt.timedelta(days=365 * 3 + 30)).strftime("%Y-%m-%d")
+        core_xs = [p for p in core_xs if p["date"] >= cutoff]
+        # 위치: core_cpi 다음에 끼워넣기
+        new_series = {}
+        for k, v in result["series"].items():
+            new_series[k] = v
+            if k == "core_cpi":
+                new_series["core_cpi_xs"] = {
+                    "id": "DERIVED:CPILFESL-Shelter*0.42",
+                    "label": "Core CPI ex Shelter",
+                    "unit": "%yoy",
+                    "freq": "m",
+                    "data": core_xs,
+                }
+        result["series"] = new_series
+        print(f"[derived] Core CPI ex Shelter: {len(core_xs)} pts" + (f", 최신 {core_xs[-1]['date']} = {core_xs[-1]['value']}%" if core_xs else ""))
+
     OUT.write_text(json.dumps(result, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"\n→ {OUT}")
     for k, s in result["series"].items():
-        print(f"  {k:10s} ({s['label']}): {len(s['data'])} pts")
+        print(f"  {k:12s} ({s['label']}): {len(s['data'])} pts")
 
 
 if __name__ == "__main__":
