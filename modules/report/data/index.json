@@ -12,6 +12,18 @@
     "pages": 12
   },
   {
+    "file": "NYSE_써클_USDC스테이블코인_밸류에이션규제_260607.html",
+    "market": "NYSE",
+    "name": "써클",
+    "themes": [
+      "USDC스테이블코인",
+      "밸류에이션규제"
+    ],
+    "date": "2026-06-07",
+    "revision": false,
+    "pages": 9
+  },
+  {
     "file": "코스닥_싸이맥스_반도체웨이퍼이송장비_전공정후공정동반개선_260607.html",
     "market": "코스닥",
     "name": "싸이맥스",
@@ -34,18 +46,6 @@
     "date": "2026-06-07",
     "revision": false,
     "pages": 11
-  },
-  {
-    "file": "NYSE_써클(CRCL)_USDC스테이블코인_밸류에이션규제_260607.html",
-    "market": "NYSE",
-    "name": "써클(CRCL)",
-    "themes": [
-      "USDC스테이블코인",
-      "밸류에이션규제"
-    ],
-    "date": "2026-06-07",
-    "revision": false,
-    "pages": 9
   },
   {
     "file": "코스피_KCC_실리콘턴어라운드_자사주소각밸류업_260607.html",
