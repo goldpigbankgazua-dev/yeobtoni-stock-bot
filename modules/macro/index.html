@@ -13,7 +13,7 @@
   --text:#1a1d24; --text-strong:#0f172a; --muted:#64748b; --muted-2:#94a3b8;
   --accent:#0ea5e9; --accent-soft:rgba(14,165,233,.10);
   --c-ust10y:#ef4444; --c-fedfunds:#3b82f6; --c-corecpi:#10b981;
-  --c-sticky:#f59e0b; --c-gdp:#8b5cf6; --c-wti:#06b6d4;
+  --c-corecpixs:#14b8a6; --c-sticky:#f59e0b; --c-gdp:#8b5cf6; --c-wti:#06b6d4;
 }
 :root[data-theme="dark"], body.theme-dark {
   --bg:#0b1220; --card:#121a2b; --thead:#0f1626; --line:#1f2a44; --line-soft:#192238;
@@ -179,7 +179,28 @@ footer a { color:var(--accent); text-decoration:none; }
     <div class="chart-wrap"><div id="chartCoreCpi"></div></div>
   </div>
 
-  <!-- 4. Sticky CPI ex Shelter -->
+  <!-- 4. Core CPI ex Shelter -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Core CPI ex Shelter</div>
+        <div class="card-meta">
+          <span class="v-now" id="corecpixsNow">–</span>
+          <span class="v-delta flat" id="corecpixsDelta">–</span>
+          <span class="risk-badge" id="corecpixsRisk" style="display:none"></span>
+          <span class="last-date" id="corecpixsDate"></span>
+        </div>
+      </div>
+      <div class="tf-bar" data-section="core_cpi_xs">
+        <button class="tf-btn" data-tf="6M">6M</button>
+        <button class="tf-btn active" data-tf="1Y">1Y</button>
+        <button class="tf-btn" data-tf="3Y">3Y</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><div id="chartCoreCpiXs"></div></div>
+  </div>
+
+  <!-- 5. Sticky CPI ex Shelter -->
   <div class="card acc-sticky">
     <div class="card-head">
       <div>
@@ -258,6 +279,7 @@ const RISK = {
   ust10y:   { dir:"up",   levels:[ {max:4.0,label:"안정",cls:"stable"}, {max:4.5,label:"주의",cls:"caution"}, {max:5.0,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
   fedfunds: { dir:"up",   levels:[ {max:2.5,label:"완화",cls:"stable"}, {max:4.0,label:"중립",cls:"stable"}, {max:5.0,label:"긴축",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
   core_cpi: { dir:"up",   levels:[ {max:2.0,label:"안정",cls:"stable"}, {max:2.5,label:"주의",cls:"caution"}, {max:3.0,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  core_cpi_xs:{ dir:"up", levels:[ {max:2.0,label:"안정",cls:"stable"}, {max:2.5,label:"주의",cls:"caution"}, {max:3.0,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
   sticky:   { dir:"up",   levels:[ {max:2.5,label:"안정",cls:"stable"}, {max:3.0,label:"주의",cls:"caution"}, {max:3.4,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
   gdp:      { dir:"down", levels:[ {max:0,label:"위험",cls:"danger"},   {max:1.0,label:"경고",cls:"warning"}, {max:2.0,label:"주의",cls:"caution"}, {max:99,label:"안정",cls:"stable"} ] },
   wti:      { dir:"up",   levels:[ {max:60,label:"안정",cls:"stable"},  {max:80,label:"주의",cls:"caution"},  {max:100,label:"경고",cls:"warning"},{max:999,label:"위험",cls:"danger"} ] },
@@ -267,6 +289,7 @@ const SECTIONS = [
   { key:"ust10y",   color:"--c-ust10y",   chartId:"chartUst10y",   nowId:"ust10yNow",   deltaId:"ust10yDelta",   riskId:"ust10yRisk",   dateId:"ust10yDate",   unit:"%",   prec:2 },
   { key:"fedfunds", color:"--c-fedfunds", chartId:"chartFedfunds", nowId:"fedfundsNow", deltaId:"fedfundsDelta", riskId:"fedfundsRisk", dateId:"fedfundsDate", unit:"%",   prec:2 },
   { key:"core_cpi", color:"--c-corecpi",  chartId:"chartCoreCpi",  nowId:"corecpiNow",  deltaId:"corecpiDelta",  riskId:"corecpiRisk",  dateId:"corecpiDate",  unit:"%",   prec:1 },
+  { key:"core_cpi_xs", color:"--c-corecpixs", chartId:"chartCoreCpiXs", nowId:"corecpixsNow", deltaId:"corecpixsDelta", riskId:"corecpixsRisk", dateId:"corecpixsDate", unit:"%", prec:1 },
   { key:"sticky",   color:"--c-sticky",   chartId:"chartSticky",   nowId:"stickyNow",   deltaId:"stickyDelta",   riskId:"stickyRisk",   dateId:"stickyDate",   unit:"%",   prec:1 },
   { key:"gdp",      color:"--c-gdp",      chartId:"chartGdp",      nowId:"gdpNow",      deltaId:"gdpDelta",      riskId:"gdpRisk",      dateId:"gdpDate",      unit:"%",   prec:1 },
   { key:"wti",      color:"--c-wti",      chartId:"chartWti",      nowId:"wtiNow",      deltaId:"wtiDelta",      riskId:"wtiRisk",      dateId:"wtiDate",      unit:"$",   prec:1 },
