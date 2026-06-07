@@ -243,10 +243,10 @@ const TF_DAYS = { "6M":183, "1Y":365, "3Y":1095, "5Y":1825 };
 // 위험도 임계값 — 값이 이 구간에 들어가면 해당 라벨/색상 표시
 // dir: "up" = 값이 높을수록 위험, "down" = 값이 낮을수록 위험
 const RISK = {
-  ust10y:   { dir:"up",   levels:[ {max:3.5,label:"안정",cls:"stable"}, {max:4.5,label:"주의",cls:"caution"}, {max:5.5,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  ust10y:   { dir:"up",   levels:[ {max:3.5,label:"안정",cls:"stable"}, {max:4.0,label:"주의",cls:"caution"}, {max:5.0,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
   fedfunds: { dir:"up",   levels:[ {max:2.5,label:"완화",cls:"stable"}, {max:4.0,label:"중립",cls:"caution"}, {max:5.0,label:"긴축",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
-  core_cpi: { dir:"up",   levels:[ {max:2.5,label:"안정",cls:"stable"}, {max:3.5,label:"주의",cls:"caution"}, {max:4.5,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
-  sticky:   { dir:"up",   levels:[ {max:2.5,label:"안정",cls:"stable"}, {max:3.5,label:"주의",cls:"caution"}, {max:4.5,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  core_cpi: { dir:"up",   levels:[ {max:2.0,label:"안정",cls:"stable"}, {max:2.5,label:"주의",cls:"caution"}, {max:3.0,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
+  sticky:   { dir:"up",   levels:[ {max:2.5,label:"안정",cls:"stable"}, {max:3.0,label:"주의",cls:"caution"}, {max:3.4,label:"경고",cls:"warning"}, {max:99,label:"위험",cls:"danger"} ] },
   gdp:      { dir:"down", levels:[ {max:0,label:"위험",cls:"danger"},   {max:1.0,label:"경고",cls:"warning"}, {max:2.0,label:"주의",cls:"caution"}, {max:99,label:"안정",cls:"stable"} ] },
   wti:      { dir:"up",   levels:[ {max:60,label:"안정",cls:"stable"},  {max:80,label:"주의",cls:"caution"},  {max:100,label:"경고",cls:"warning"},{max:999,label:"위험",cls:"danger"} ] },
 };
