@@ -36,10 +36,11 @@ print(f"[env] FRED_API_KEY: {'SET (len=' + str(len(FRED_KEY)) + ')' if FRED_KEY 
 SERIES = [
     {"key": "ust10y",      "id": "DGS10",                          "label": "미국채 10년물",            "unit": "%",    "years": 3, "freq": "d"},
     {"key": "fedfunds",    "id": "DFF",                            "label": "연준 기준금리",            "unit": "%",    "years": 5, "freq": "d"},
-    {"key": "core_cpi",    "id": "CPILFESL",                       "label": "Core CPI",                 "unit": "%yoy", "years": 3, "freq": "m", "transform": "yoy"},
-    # core_cpi_xs는 raw fetch가 아니라 _core_idx + _shelter_idx 에서 계산
-    {"key": "_core_idx",   "id": "CPILFESL",                       "label": "Core CPI index",           "unit": "idx",  "years": 4, "freq": "m", "internal": True},
-    {"key": "_shelter_idx","id": "CUSR0000SAH1",                   "label": "Shelter index",            "unit": "idx",  "years": 4, "freq": "m", "internal": True},
+    # 공식 발표(BLS press release)와 동일하게 비조정(NSA) 기준으로 YoY 계산
+    {"key": "core_cpi",    "id": "CPILFENS",                       "label": "Core CPI",                 "unit": "%yoy", "years": 3, "freq": "m", "transform": "yoy"},
+    # core_cpi_xs는 raw fetch가 아니라 _core_idx + _shelter_idx 에서 계산 (NSA 기준)
+    {"key": "_core_idx",   "id": "CPILFENS",                       "label": "Core CPI index (NSA)",     "unit": "idx",  "years": 4, "freq": "m", "internal": True},
+    {"key": "_shelter_idx","id": "CUUR0000SAH1",                   "label": "Shelter index (NSA)",      "unit": "idx",  "years": 4, "freq": "m", "internal": True},
     {"key": "sticky",      "id": "CRESTKCPIXSLTRM159SFRBATL",      "label": "Core Sticky CPI ex Shelter","unit": "%yoy","years": 3, "freq": "m"},
     {"key": "gdp",         "id": "A191RL1Q225SBEA",                "label": "미국 GDP 성장률",         "unit": "%",    "years": 5, "freq": "q"},
     {"key": "wti",         "id": "DCOILWTICO",                     "label": "WTI 유가",                 "unit": "$",    "years": 3, "freq": "d"},
