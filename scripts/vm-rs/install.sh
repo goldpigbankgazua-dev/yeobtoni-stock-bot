@@ -9,6 +9,12 @@ set -euo pipefail
 DIR="$HOME/rs"
 REPO_URL="https://github.com/goldpigbankgazua-dev/rs-screener-kr.git"
 
+# git 없으면 설치 (Oracle Linux)
+if ! command -v git >/dev/null 2>&1; then
+  echo "→ git 설치 중 (sudo dnf install -y git)…"
+  sudo dnf install -y git
+fi
+
 mkdir -p "$DIR"
 cd "$DIR"
 
