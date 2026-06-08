@@ -1,9 +1,11 @@
 name: Update market (국내증시현황)
 
 on:
-  # Cron 비활성화: Oracle VM cron으로 이관됨 (~/market/run.sh).
-  # GitHub Actions의 scheduled workflow는 신뢰성 부족(정시 미실행, 수시간 지연)으로
-  # 수동 백업용 workflow_dispatch만 유지.
+  schedule:
+    # KST 18:00 = UTC 09:00 (평일만)
+    # 주의: GitHub Actions scheduled workflow는 정시 보장 안 됨 (수시간 지연 가능).
+    # Oracle VM 으로 이관 시도했으나 VM 메모리 부족 (1GB) 으로 보류.
+    - cron: "0 9 * * 1-5"
   workflow_dispatch: {}
 
 permissions:
