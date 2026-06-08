@@ -16,13 +16,21 @@ if [ ! -d repo/.git ]; then
   git clone "$REPO_URL" repo
 fi
 
-# .env 템플릿
+# .env — 기존 ~/kofia/.env 에서 GITHUB_PAT 자동 복사
 if [ ! -f "$DIR/.env" ]; then
-  cat > "$DIR/.env" <<'EOF'
-GITHUB_PAT=
+  KOFIA_PAT=""
+  if [ -f "$HOME/kofia/.env" ]; then
+    KOFIA_PAT="$(grep -E '^GITHUB_PAT=' "$HOME/kofia/.env" | head -1 | cut -d= -f2-)"
+  fi
+  cat > "$DIR/.env" <<EOF
+GITHUB_PAT=${KOFIA_PAT}
 EOF
   chmod 600 "$DIR/.env"
-  echo "⚠️  $DIR/.env 파일에 GITHUB_PAT 채워주세요"
+  if [ -n "$KOFIA_PAT" ]; then
+    echo "✓ GITHUB_PAT 자동 복사됨 (~/kofia/.env)"
+  else
+    echo "⚠️  $DIR/.env 파일에 GITHUB_PAT 채워주세요"
+  fi
 fi
 
 # 의존성
