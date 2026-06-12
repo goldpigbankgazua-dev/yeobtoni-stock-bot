@@ -405,20 +405,51 @@
     setTimeout(() => loader.classList.add("hidden"), 8000);
   }
 
-  function switchTo(key) {
-    current = key;
-    wraps.forEach(w => w.classList.toggle("active", w.dataset.frame === key));
-    document.querySelectorAll(".nav-item").forEach(b =>
-      b.classList.toggle("active", b.dataset.target === key)
+  // 주식 스크리너 sub-tab 상태 (rs / chart)
+  let currentSub = localStorage.getItem("yeobtoni-screener-sub") || "rs";
+
+  function applyScreenerSub(sub) {
+    if (sub !== "rs" && sub !== "chart") sub = "rs";
+    currentSub = sub;
+    localStorage.setItem("yeobtoni-screener-sub", sub);
+    document.querySelectorAll(".subtab-btn").forEach(b =>
+      b.classList.toggle("active", b.dataset.sub === sub)
     );
-    ensureLoaded(key);
+    document.getElementById("frame-rs").classList.toggle("sub-active", sub === "rs");
+    document.getElementById("frame-chart").classList.toggle("sub-active", sub === "chart");
+    ensureLoaded(sub);
+  }
+
+  function switchTo(key) {
+    // screener 는 wrap 하나에 sub-tab — wrap 키는 "screener"
+    const wrapKey = (key === "rs" || key === "chart") ? "screener" : key;
+    current = key;
+    wraps.forEach(w => w.classList.toggle("active", w.dataset.frame === wrapKey));
+    document.querySelectorAll(".nav-item").forEach(b =>
+      b.classList.toggle("active", b.dataset.target === wrapKey)
+    );
+    if (wrapKey === "screener") {
+      applyScreenerSub(currentSub);
+    } else {
+      ensureLoaded(key);
+    }
     history.replaceState(null, "", "#" + key);
     closeSidebar();
   }
 
   nav.addEventListener("click", (e) => {
     const btn = e.target.closest(".nav-item"); if (!btn) return;
-    switchTo(btn.dataset.target);
+    const target = btn.dataset.target;
+    if (target === "screener") {
+      switchTo(currentSub);  // 마지막 본 sub 로
+    } else {
+      switchTo(target);
+    }
+  });
+
+  // sub-tab 클릭 핸들러
+  document.querySelectorAll(".subtab-btn").forEach(b => {
+    b.addEventListener("click", () => applyScreenerSub(b.dataset.sub));
   });
 
   function showToast(msg) {
