@@ -274,11 +274,15 @@
     <div class="frame-wrap active" data-frame="market">
       <iframe id="frame-market" data-src="" title="국내증시현황" loading="eager" referrerpolicy="no-referrer"></iframe>
     </div>
-    <div class="frame-wrap" data-frame="rs">
-      <iframe id="frame-rs" data-src="" title="RS스크리너" loading="lazy" referrerpolicy="no-referrer"></iframe>
-    </div>
-    <div class="frame-wrap" data-frame="chart">
-      <iframe id="frame-chart" data-src="" title="차트스크리너" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    <div class="frame-wrap" data-frame="screener">
+      <div class="subtab-bar">
+        <button class="subtab-btn active" data-sub="rs">RS 점수</button>
+        <button class="subtab-btn" data-sub="chart">패턴 차트</button>
+      </div>
+      <div class="screener-iframe-wrap">
+        <iframe id="frame-rs" class="sub-active" data-src="" title="RS스크리너" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        <iframe id="frame-chart" data-src="" title="차트스크리너" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
     </div>
     <div class="frame-wrap" data-frame="report">
       <iframe id="frame-report" data-src="" title="종목보고서" loading="lazy" referrerpolicy="no-referrer"></iframe>
