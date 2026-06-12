@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.yeobtoni.kind-etf-scraper</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/yeob/Documents/Claude/Projects/여비또니 주식봇/modules/etf/scripts/scrape_kind_mac.py</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <!-- KST 7:30 — 매일 GitHub Actions 워크플로우 (KST 8시) 전에 -->
+        <dict>
+            <key>Hour</key>
+            <integer>7</integer>
+            <key>Minute</key>
+            <integer>30</integer>
+        </dict>
+        <!-- KST 18:00 — 장 마감 후 (오후 신규상장 공시 반영) -->
+        <dict>
+            <key>Hour</key>
+            <integer>18</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/yeobtoni-kind.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/tmp/yeobtoni-kind.err</string>
+</dict>
+</plist>
