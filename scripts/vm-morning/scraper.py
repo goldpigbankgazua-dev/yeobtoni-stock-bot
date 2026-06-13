@@ -204,7 +204,7 @@ def main():
         item = {
             "key": sym["key"],
             "name": sym["name"],
-            "symbol": sym["yahoo"],
+            "symbol": sym["stooq"].upper(),
             "exchange": sym["exchange"],
             **quote,
         }
