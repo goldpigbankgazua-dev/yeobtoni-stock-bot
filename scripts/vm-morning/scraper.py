@@ -44,15 +44,18 @@ SSL_CTX = ssl.create_default_context()
 # ============================================================
 # Yahoo Finance v8 chart endpoint
 # ============================================================
-def fetch_yahoo_v8(symbol):
+def fetch_yahoo_v8(symbol, primary_host="query1.finance.yahoo.com"):
     """Yahoo v8 chart endpoint — curl subprocess.
 
     Python urllib TLS fingerprint 가 봇 탐지에 걸려 429.
     curl 은 동일 URL HTTP 200 (검증됨). 그래서 curl 직접 사용.
+    primary host 우선, 429 면 다른 host 로 fallback.
     """
     sym = urllib.parse.quote(symbol)
+    other = ("query2.finance.yahoo.com" if "query1" in primary_host
+             else "query1.finance.yahoo.com")
     last_err = None
-    for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
+    for attempt, host in enumerate((primary_host, other)):
         url = f"https://{host}/v8/finance/chart/{sym}?interval=1m&range=1d"
         try:
             result = subprocess.run(
@@ -66,7 +69,8 @@ def fetch_yahoo_v8(symbol):
             if result.returncode != 0:
                 last_err = RuntimeError(
                     f"curl exit {result.returncode}: {result.stderr.strip()[:200]}")
-                time.sleep(1 + random.random())
+                # 429 류 면 다음 host 로 가기 전 충분히 쉬기
+                time.sleep(3 + random.random() * 2)
                 continue
             return json.loads(result.stdout)
         except subprocess.TimeoutExpired as e:
