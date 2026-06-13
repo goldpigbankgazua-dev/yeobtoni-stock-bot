@@ -101,12 +101,10 @@ footer a { color:var(--accent); text-decoration:none; }
   margin:0 0 3px 0; letter-spacing:-.005em; }
 .section-desc { color:var(--muted); font-size:12px; margin:0; }
 .section-count { color:var(--muted); font-size:12px; flex-shrink:0; align-self:flex-start; padding-top:2px; }
-/* 강제 컬럼 수 — 사용자 예시 디자인에 맞춤 */
-.tv-grid { display:grid; gap:10px;
-  grid-template-columns:repeat(2, minmax(0, 1fr)); }
-@media (min-width:640px)  { .tv-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
-@media (min-width:960px)  { .tv-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
-@media (min-width:1280px) { .tv-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
+/* 무조건 한 줄에 4개 (데스크탑). 모바일만 2개. */
+.tv-grid { display:grid; gap:14px;
+  grid-template-columns:repeat(4, minmax(0, 1fr)); }
+@media (max-width:720px) { .tv-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
 .tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
   box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; min-height:140px; }
 .tv-card .tradingview-widget-container { min-height:130px; }
