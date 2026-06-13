@@ -21,11 +21,11 @@ from datetime import datetime
 # 설정
 # ============================================================
 SYMBOLS = [
-    # K200 야간선물 — KIS API 가능시 그쪽, 아니면 KOSPI 종합 대체
-    {"key": "K200",  "name": "K200 야간선물",     "yahoo": "^KS11", "exchange": "KRX Night",   "use_kis": True},
-    {"key": "NQ",    "name": "나스닥 100 선물",    "yahoo": "NQ=F",  "exchange": "CME",         "use_kis": False},
-    {"key": "ES",    "name": "S&P 500 선물",      "yahoo": "ES=F",  "exchange": "CME",         "use_kis": False},
-    {"key": "GC",    "name": "금 선물",            "yahoo": "GC=F",  "exchange": "COMEX",       "use_kis": False},
+    # K200 야간선물 — KIS API 가능시 그쪽, 아니면 KOSPI 200 지수 대체
+    {"key": "K200",  "name": "K200 야간선물",     "stooq": "^kospi200", "exchange": "KRX Night",   "use_kis": True},
+    {"key": "NQ",    "name": "나스닥 100 선물",    "stooq": "nq.f",      "exchange": "CME",         "use_kis": False},
+    {"key": "ES",    "name": "S&P 500 선물",      "stooq": "es.f",      "exchange": "CME",         "use_kis": False},
+    {"key": "GC",    "name": "금 선물",            "stooq": "gc.f",      "exchange": "COMEX",       "use_kis": False},
 ]
 
 REPO = "goldpigbankgazua-dev/yeobtoni-stock-bot"
