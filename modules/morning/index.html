@@ -105,7 +105,7 @@ footer a { color:var(--accent); text-decoration:none; }
   </div>
 
   <footer>
-    데이터: Yahoo Finance spark (NQ/ES/DXY, 15분 지연 표시) + KIS WebSocket (K200 야간선물, 실시간 — Phase 2) · 매 5분 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+    데이터: KIS WebSocket (K200 야간선물 H0MFCNT0, 실시간) + Yahoo Finance spark (NQ/ES/DXY, 15분 지연) · 매 5분 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
   </footer>
 </div>
 
@@ -171,19 +171,100 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 }
 
-// 데이터 로드 — us_quotes.json (Lightsail Yahoo v8, 매 1분 갱신)
-function load() {
+// ============================================================
+// 통합 state — K200 야간 (WSS 실시간) + 미국 선물 (JSON 5분)
+// ============================================================
+let usQuotes = [];      // fetch 로 채움
+let k200Quote = null;   // WSS 로 채움
+let lastFetchedAt = "—";
+
+function mergeAndRender() {
+  // K200 항상 첫 번째 (실시간 라벨), 그 다음 미국 선물 (지연)
+  const merged = [];
+  if (k200Quote) merged.push(k200Quote);
+  for (const q of usQuotes) merged.push(q);
+  render({ fetched_at: lastFetchedAt, quotes: merged });
+}
+
+// 미국 선물 JSON 로드 (Lightsail Yahoo, 매 5분 갱신)
+function loadUS() {
   fetch("data/us_quotes.json?v=" + Date.now())
     .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
-    .then(render)
+    .then(p => {
+      usQuotes = p.quotes || [];
+      lastFetchedAt = p.fetched_at || lastFetchedAt;
+      mergeAndRender();
+    })
     .catch(err => {
-      document.getElementById("grid").innerHTML =
-        '<div class="empty">데이터 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
+      if (!k200Quote) {
+        document.getElementById("grid").innerHTML =
+          '<div class="empty">데이터 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
+      }
     });
 }
-load();
-// 1분마다 자동 갱신
-setInterval(load, 60 * 1000);
+loadUS();
+setInterval(loadUS, 5 * 60 * 1000);
+
+// ============================================================
+// K200 야간선물 WSS 직결 (Lightsail KIS H0MFCNT0)
+// ============================================================
+const NGT_WSS = "wss://ip-172-26-1-188.tail6e4c31.ts.net/ngt";
+const K200_META = {
+  key: "K200",
+  name: "K200 야간선물",
+  symbol: "1A01609",
+  exchange: "KRX 야간",
+  delayed: false,
+};
+let ngtWs = null;
+let ngtPrev = null;  // 전일 종가 (tick 에 없으므로 첫 tick 의 price - vrss 로 추정)
+
+function connectNgt() {
+  try {
+    ngtWs = new WebSocket(NGT_WSS);
+  } catch (e) {
+    console.warn("NGT WS 생성 실패", e);
+    setTimeout(connectNgt, 5000);
+    return;
+  }
+  ngtWs.onopen = () => {
+    console.log("[ngt] connected");
+    ngtWs.send(JSON.stringify({ action: "subscribe", code: "1A01609" }));
+  };
+  ngtWs.onmessage = e => {
+    let msg;
+    try { msg = JSON.parse(e.data); } catch { return; }
+    if (msg.type === "tick") {
+      // vrss_sign: 1/2=상승, 4/5=하락 (KIS 표준)
+      let change = msg.vrss;
+      if (msg.vrss_sign && /^[45]$/.test(msg.vrss_sign) && change > 0) {
+        change = -change;
+      }
+      const price = msg.price;
+      const prev = (price != null && change != null) ? (price - change) : null;
+      if (prev != null) ngtPrev = prev;
+      k200Quote = {
+        ...K200_META,
+        price: price,
+        previous: ngtPrev,
+        change: change,
+        change_pct: msg.ctrt,
+        state: "REGULAR",
+      };
+      mergeAndRender();
+    } else if (msg.type === "hello") {
+      console.log("[ngt] hello", msg);
+    }
+  };
+  ngtWs.onclose = () => {
+    console.warn("[ngt] closed, 재연결 5초 후");
+    setTimeout(connectNgt, 5000);
+  };
+  ngtWs.onerror = e => {
+    console.warn("[ngt] error", e);
+  };
+}
+connectNgt();
 
 // 허브 테마 신호 수신
 function _normalizeHubTheme(t) {
