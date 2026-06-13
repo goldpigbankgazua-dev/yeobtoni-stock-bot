@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""아침에 보는 글로벌증시 — 미국 야간선물 + 금 + 달러 지수.
+"""아침에 보는 글로벌증시 — Cloudflare Worker proxy 통해 Yahoo fetch.
 
-Yahoo Finance spark endpoint (multi-symbol single call).
-1 호출 = 4종목 → 5분 cron 으로 288 호출/day. IP throttle 가능성 최소화.
+CF Worker (yeobtoni-yahoo-proxy.sylee0137.workers.dev) 가 CF IP 통해
+Yahoo v8 chart endpoint 호출 (Lightsail AWS IP 차단 우회).
+4종 (NQ/ES/GC/DXY) → us_quotes.json → GitHub push.
 
 env:
   GITHUB_PAT  — yeobtoni-stock-bot 리포 쓰기 권한
@@ -21,101 +22,42 @@ from datetime import datetime
 # ============================================================
 # 설정
 # ============================================================
+WORKER_URL = "https://yeobtoni-yahoo-proxy.sylee0137.workers.dev"
+
 SYMBOLS = [
-    {"key": "NQ",  "name": "나스닥 100 선물", "yahoo": "NQ=F", "exchange": "CME"},
-    {"key": "ES",  "name": "S&P 500 선물",   "yahoo": "ES=F", "exchange": "CME"},
-    {"key": "DXY", "name": "달러 지수",       "yahoo": "DX=F", "exchange": "ICE"},
+    {"key": "NQ",  "name": "나스닥 100 선물", "yahoo": "NQ=F",     "exchange": "CME"},
+    {"key": "ES",  "name": "S&P 500 선물",   "yahoo": "ES=F",     "exchange": "CME"},
+    {"key": "GC",  "name": "금 선물",         "yahoo": "GC=F",     "exchange": "COMEX"},
+    {"key": "DXY", "name": "달러 지수",       "yahoo": "DX-Y.NYB", "exchange": "ICE"},
 ]
 
 REPO = "goldpigbankgazua-dev/yeobtoni-stock-bot"
 REPO_PATH = "modules/morning/data/us_quotes.json"
 BRANCH = "main"
 
-# UA: Linux 서버는 Linux UA 가 정직. Mac UA 면 Yahoo 봇 의심.
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 SSL_CTX = ssl.create_default_context()
 
 
 # ============================================================
-# Yahoo spark — multi-symbol 단일 호출
+# Cloudflare Worker 호출 (multi-symbol 단일 호출)
 # ============================================================
-def fetch_yahoo_spark(yahoo_symbols):
-    """https://query1.finance.yahoo.com/v7/finance/spark?symbols=...&range=1d&interval=1m
-
-    한 호출에 multiple symbols. raw URL (URL encoding 없이 직접) 사용 —
-    %3D 인코딩되면 Yahoo 가 받아들이긴 함.
-    """
-    symbols_csv = ",".join(yahoo_symbols)  # raw, encode 안 함
-    last_err = None
-    for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
-        url = (f"https://{host}/v7/finance/spark"
-               f"?symbols={symbols_csv}&range=1d&interval=1m")
-        try:
-            result = subprocess.run(
-                ["curl", "-s", "-S", "--fail-with-body",
-                 "-A", UA,
-                 "--connect-timeout", "10",
-                 "--max-time", "20",
-                 url],
-                capture_output=True, text=True, timeout=25
-            )
-            if result.returncode != 0:
-                last_err = RuntimeError(
-                    f"curl exit {result.returncode}: {result.stderr.strip()[:200]}")
-                continue
-            return json.loads(result.stdout)
-        except subprocess.TimeoutExpired as e:
-            last_err = e
-            continue
-        except json.JSONDecodeError:
-            last_err = RuntimeError(f"JSON decode: {result.stdout[:200]}")
-            continue
-    raise last_err if last_err else RuntimeError("spark fetch failed")
-
-
-def parse_spark_meta(meta):
-    """spark response 의 각 종목 meta → 표준 dict."""
-    if not meta:
-        return None
-    price = meta.get("regularMarketPrice")
-    prev = meta.get("chartPreviousClose") or meta.get("previousClose")
-    if price is None or prev is None:
-        return None
-    change = price - prev
-    pct = (change / prev * 100) if prev else 0
-    state = meta.get("marketState", "REGULAR")
-    ts = meta.get("regularMarketTime", 0)
-    return {
-        "price": round(float(price), 2),
-        "previous": round(float(prev), 2),
-        "change": round(float(change), 2),
-        "change_pct": round(float(pct), 2),
-        "state": state,
-        "market_ts": int(ts),
-    }
-
-
-def extract_meta_by_symbol(spark_data):
-    """spark response 의 두 가지 포맷 모두 지원.
-
-    1) {"spark": {"result": [{"symbol": "NQ=F", "response": [{"meta": ...}]}, ...]}}
-    2) {"NQ=F": [{"meta": ...}], "ES=F": [...], ...}
-    """
-    by_sym = {}
-    spark = spark_data.get("spark", {}) if isinstance(spark_data, dict) else {}
-    for item in spark.get("result", []):
-        sym = item.get("symbol")
-        resp = (item.get("response") or [{}])[0]
-        if sym and resp.get("meta"):
-            by_sym[sym] = resp["meta"]
-    if by_sym:
-        return by_sym
-    if isinstance(spark_data, dict):
-        for sym, val in spark_data.items():
-            if isinstance(val, list) and val and isinstance(val[0], dict) and val[0].get("meta"):
-                by_sym[sym] = val[0]["meta"]
-    return by_sym
+def fetch_worker(yahoo_symbols):
+    csv = ",".join(yahoo_symbols)
+    url = f"{WORKER_URL}/?symbols={urllib.parse.quote(csv)}"
+    result = subprocess.run(
+        ["curl", "-s", "-S", "--fail-with-body",
+         "-A", UA,
+         "--connect-timeout", "10",
+         "--max-time", "20",
+         url],
+        capture_output=True, text=True, timeout=25
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"curl exit {result.returncode}: {result.stderr.strip()[:200]}")
+    return json.loads(result.stdout)
 
 
 # ============================================================
@@ -166,40 +108,48 @@ def main():
 
     yahoo_symbols = [s["yahoo"] for s in SYMBOLS]
     try:
-        raw = fetch_yahoo_spark(yahoo_symbols)
+        worker_data = fetch_worker(yahoo_symbols)
     except Exception as e:
-        print(f"✗ spark fetch 실패: {e}", file=sys.stderr)
+        print(f"✗ Worker fetch 실패: {e}", file=sys.stderr)
         sys.exit(2)
 
-    metas = extract_meta_by_symbol(raw)
-    if not metas:
-        print(f"✗ spark 응답 파싱 실패: {json.dumps(raw)[:300]}", file=sys.stderr)
-        sys.exit(3)
-
+    by_sym = worker_data.get("symbols", {})
     results = []
     for sym in SYMBOLS:
-        meta = metas.get(sym["yahoo"])
-        q = parse_spark_meta(meta)
-        if not q:
-            print(f"✗ {sym['name']}: 데이터 없음")
+        d = by_sym.get(sym["yahoo"])
+        if not d or d.get("error"):
+            err = (d or {}).get("error", "데이터 없음")
+            print(f"✗ {sym['name']}: {err}")
+            continue
+        price = d.get("price")
+        prev = d.get("previous")
+        change = d.get("change")
+        pct = d.get("change_pct")
+        if price is None:
+            print(f"✗ {sym['name']}: price 없음")
             continue
         item = {
             "key": sym["key"],
             "name": sym["name"],
             "symbol": sym["yahoo"],
             "exchange": sym["exchange"],
-            **q,
-            "source": "yahoo",
-            "delayed": True,  # 15분 지연 표시용
+            "price": round(float(price), 2),
+            "previous": round(float(prev), 2) if prev is not None else None,
+            "change": round(float(change), 2) if change is not None else None,
+            "change_pct": round(float(pct), 2) if pct is not None else None,
+            "state": d.get("state") or "REGULAR",
+            "market_ts": int(d.get("ts") or 0),
+            "source": "yahoo (via CF Worker)",
+            "delayed": True,
         }
         results.append(item)
-        sign = "+" if q["change"] >= 0 else ""
-        print(f"✓ {sym['name']}: {q['price']:,.2f} "
-              f"({sign}{q['change']:.2f}, {sign}{q['change_pct']:.2f}%)")
+        sign = "+" if (change or 0) >= 0 else ""
+        print(f"✓ {sym['name']}: {item['price']:,.2f} "
+              f"({sign}{item['change']:.2f}, {sign}{item['change_pct']:.2f}%)")
 
     if not results:
         print("✗ 결과 0건", file=sys.stderr)
-        sys.exit(4)
+        sys.exit(3)
 
     payload = {
         "fetched_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -208,14 +158,13 @@ def main():
     }
     content_str = json.dumps(payload, ensure_ascii=False, indent=2)
 
-    # GitHub push
     try:
         sha = github_get_sha(pat)
         status = github_put(pat, content_str, sha=sha)
         print(f"[gh] PUT OK HTTP {status}")
     except Exception as e:
         print(f"[gh] PUT 실패: {e}", file=sys.stderr)
-        sys.exit(5)
+        sys.exit(4)
 
 
 if __name__ == "__main__":

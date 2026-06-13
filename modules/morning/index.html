@@ -118,45 +118,26 @@ footer a { color:var(--accent); text-decoration:none; }
   <header>
     <div class="header-left">
       <h1>아침에 보는 글로벌증시</h1>
-      <p class="subtitle">K200 야간선물 + 미국 야간 선물 + 달러 지수 · 한국 시장 방향성</p>
+      <p class="subtitle">K200 야간선물 + 미국 야간 선물 + 금 + 달러 지수 · 한국 시장 방향성</p>
     </div>
     <div class="basedate" id="basedate">갱신 –</div>
   </header>
 
-  <!-- K200 우리 카드 (KIS WSS 실시간) + 미국 3종 TradingView 위젯 -->
-  <div class="tv-grid">
-    <!-- K200 야간선물 — 우리 카드 -->
+  <!-- 5종 우리 카드 통일 — K200 (KIS WSS 실시간) + NQ/ES/GC/DXY (Yahoo via CF Worker) -->
+  <div class="tv-grid" id="cards-grid">
+    <!-- K200 야간선물 — 우리 카드 (실시간) -->
     <div class="tv-card" id="k200-card">
       <div class="empty-card">K200 야간선물 연결 중…</div>
     </div>
-    <div class="tv-card">
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-          {"symbol":"OANDA:NAS100USD","colorTheme":"light","isTransparent":true,"locale":"kr"}
-        </script>
-      </div>
-    </div>
-    <div class="tv-card">
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-          {"symbol":"OANDA:SPX500USD","colorTheme":"light","isTransparent":true,"locale":"kr"}
-        </script>
-      </div>
-    </div>
-    <div class="tv-card">
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-          {"symbol":"CAPITALCOM:DXY","colorTheme":"light","isTransparent":true,"locale":"kr"}
-        </script>
-      </div>
-    </div>
+    <!-- NQ/ES/GC/DXY — 우리 카드 (CF Worker → Yahoo, 5분 갱신) -->
+    <div class="tv-card" id="us-card-NQ"><div class="empty-card">로딩 중…</div></div>
+    <div class="tv-card" id="us-card-ES"><div class="empty-card">로딩 중…</div></div>
+    <div class="tv-card" id="us-card-GC"><div class="empty-card">로딩 중…</div></div>
+    <div class="tv-card" id="us-card-DXY"><div class="empty-card">로딩 중…</div></div>
   </div>
 
   <footer>
-    데이터: KIS WebSocket (K200 야간선물 — 실시간) + TradingView 위젯 (NQ/ES/DXY) · 24시간 후 Yahoo 재시도 예정 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+    데이터: KIS WebSocket (K200 야간선물 — 실시간) + Yahoo Finance via CF Worker (NQ/ES/GC/DXY — 15분 지연) · 매 5분 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
   </footer>
 </div>
 
