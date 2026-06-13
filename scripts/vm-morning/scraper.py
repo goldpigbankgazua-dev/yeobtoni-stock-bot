@@ -34,8 +34,8 @@ REPO = "goldpigbankgazua-dev/yeobtoni-stock-bot"
 REPO_PATH = "modules/morning/data/us_quotes.json"
 BRANCH = "main"
 
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-      "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+# UA: Linux 서버 ↔ Mac UA 로 호출하면 Yahoo 가 봇 의심. 짧고 정직하게.
+UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 SSL_CTX = ssl.create_default_context()
 
