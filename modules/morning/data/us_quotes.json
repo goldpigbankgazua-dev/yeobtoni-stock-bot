@@ -1,5 +1,20 @@
 {
-  "fetched_at": "2026-06-13 20:45:36",
-  "count": 0,
-  "quotes": []
+  "fetched_at": "2026-06-13 21:04:58",
+  "count": 1,
+  "quotes": [
+    {
+      "key": "ES",
+      "name": "S&P 500 선물",
+      "symbol": "ES",
+      "exchange": "CME",
+      "price": 68.69,
+      "previous": 68.43,
+      "change": 0.26,
+      "change_pct": 0.38,
+      "state": "CLOSED",
+      "market_ts": 1781271000,
+      "source": "twelvedata",
+      "delayed": true
+    }
+  ]
 }
