@@ -125,11 +125,7 @@ footer a { color:var(--accent); text-decoration:none; }
   .basedate { font-size:11px; padding:5px 10px; }
   .chart-wrap { height:240px; }
   .card { padding:14px 14px 10px; }
-  /* 모바일에서 차트 터치 막음 — 페이지 세로 스크롤만 통과 */
-  .chart-wrap, .chart-wrap > div, .chart-wrap canvas {
-    pointer-events:none;
-    touch-action:pan-y;
-  }
+  /* 모바일에서 차트는 lightweight-charts 옵션으로 zoom/pan 막음 (crosshair 살림). pointer-events 제거. */
 }
 </style>
 </head>
@@ -462,6 +458,8 @@ function drawChart(sec, points) {
     rightPriceScale: { borderColor:grid, scaleMargins:{top:0.1, bottom:0.08} },
     timeScale: { borderColor:grid, timeVisible:false, secondsVisible:false, rightOffset:2, fixLeftEdge:true, fixRightEdge:true },
     crosshair: { mode:0 },
+    handleScroll: { mouseWheel:false, pressedMouseMove:false, horzTouchDrag:false, vertTouchDrag:false },
+    handleScale:  { axisPressedMouseMove:false, mouseWheel:false, pinch:false },
     width: container.clientWidth || 400,
     height: container.clientHeight || 280,
   });
