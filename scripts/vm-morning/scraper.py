@@ -24,7 +24,6 @@ from datetime import datetime
 SYMBOLS = [
     {"key": "NQ",  "name": "나스닥 100 선물", "yahoo": "NQ=F", "exchange": "CME"},
     {"key": "ES",  "name": "S&P 500 선물",   "yahoo": "ES=F", "exchange": "CME"},
-    {"key": "GC",  "name": "금 선물",         "yahoo": "GC=F", "exchange": "COMEX"},
     {"key": "DXY", "name": "달러 지수",       "yahoo": "DX=F", "exchange": "ICE"},
 ]
 
