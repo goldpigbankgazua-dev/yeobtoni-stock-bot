@@ -213,11 +213,12 @@ function renderK200(q) {
     return;
   }
   const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
+  const tag = makeTag(q);
   card.innerHTML = `
     <div class="our-card-inner">
       <div class="our-card-head">
         <span class="our-card-name">${escapeHtml(q.name || "K200 야간선물")}</span>
-        <span class="our-card-tag live">실시간</span>
+        <span class="our-card-tag ${tag.cls}">${escapeHtml(tag.text)}</span>
       </div>
       <div class="our-card-ticker">${escapeHtml(q.symbol || "K2I1!")} · ${escapeHtml(q.exchange || "KRX Night")}</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
@@ -246,10 +247,26 @@ const STATE_LABEL = {
   CLOSED: "장 마감", PREPRE: "장 전", POSTPOST: "시간외",
 };
 
-// 상태 → 라벨 결정. K200 (delayed=false) = 실시간, 미국 선물 (delayed=true) = 실시간(15분 지연), 휴장 = 장 마감
+// 데이터가 오래된 (stale) 지 — market_ts 또는 fetched_at 기준 30분 이상이면 장 마감
+function isStale(q) {
+  const nowSec = Date.now() / 1000;
+  let ts = null;
+  if (q.market_ts && q.market_ts > 1000000000) {  // unix epoch sec
+    ts = q.market_ts;
+  } else if (q.fetched_at) {
+    // "2026-06-13 22:35:03" → Date.parse 는 ISO 만 안전, 직접 파싱
+    const m = String(q.fetched_at).match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2}):(\d{2})/);
+    if (m) ts = Date.UTC(+m[1], +m[2]-1, +m[3], +m[4]-9, +m[5], +m[6]) / 1000; // KST → UTC
+  }
+  if (!ts) return false;
+  return (nowSec - ts) > 30 * 60;
+}
+
+// 상태 → 라벨 결정
 function makeTag(q) {
-  const isClosed = q.state === "CLOSED" || q.state === "POST" || q.state === "PREPRE";
-  if (isClosed) return { text: STATE_LABEL[q.state] || "장 마감", cls: "closed" };
+  const stale = isStale(q);
+  const closed = stale || q.state === "CLOSED" || q.state === "POST" || q.state === "PREPRE" || q.state === "POSTPOST";
+  if (closed) return { text: "장 마감", cls: "closed" };
   if (q.delayed) return { text: "실시간(15분 지연)", cls: "live" };
   return { text: "실시간", cls: "live" };
 }
