@@ -372,13 +372,12 @@ async def main_async():
 
 
 def main():
+    # systemd 가 StandardOutput=append: 로 로그 파일에 직접 저장하므로
+    # Python 은 stdout 만 — FileHandler 두면 권한 충돌.
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
-        handlers=[
-            logging.FileHandler(LOG_FILE, mode="a"),
-            logging.StreamHandler(sys.stdout),
-        ],
+        stream=sys.stdout,
     )
     try:
         asyncio.run(main_async())
