@@ -15,6 +15,7 @@ import ssl
 import sys
 import time
 import random
+import subprocess
 import urllib.parse
 import urllib.request
 import urllib.error
@@ -44,25 +45,36 @@ SSL_CTX = ssl.create_default_context()
 # Yahoo Finance v8 chart endpoint
 # ============================================================
 def fetch_yahoo_v8(symbol):
-    """Yahoo v8 chart endpoint — meta 만 사용.
+    """Yahoo v8 chart endpoint — curl subprocess.
 
-    검증된 curl 동작과 동일 헤더 (User-Agent 만). query1 → query2 fallback.
+    Python urllib TLS fingerprint 가 봇 탐지에 걸려 429.
+    curl 은 동일 URL HTTP 200 (검증됨). 그래서 curl 직접 사용.
     """
     sym = urllib.parse.quote(symbol)
-    headers = {"User-Agent": UA}  # ← 이게 핵심. 추가 헤더 넣으면 봇 탐지 걸림.
     last_err = None
     for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
         url = f"https://{host}/v8/finance/chart/{sym}?interval=1m&range=1d"
-        req = urllib.request.Request(url, headers=headers)
         try:
-            with urllib.request.urlopen(req, timeout=15, context=SSL_CTX) as resp:
-                return json.loads(resp.read())
-        except urllib.error.HTTPError as e:
-            last_err = e
-            if e.code in (429, 503):
-                time.sleep(2 + random.random())
+            result = subprocess.run(
+                ["curl", "-s", "-S", "--fail-with-body",
+                 "-A", UA,
+                 "--connect-timeout", "10",
+                 "--max-time", "15",
+                 url],
+                capture_output=True, text=True, timeout=20
+            )
+            if result.returncode != 0:
+                last_err = RuntimeError(
+                    f"curl exit {result.returncode}: {result.stderr.strip()[:200]}")
+                time.sleep(1 + random.random())
                 continue
-            raise
+            return json.loads(result.stdout)
+        except subprocess.TimeoutExpired as e:
+            last_err = e
+            continue
+        except json.JSONDecodeError as e:
+            last_err = RuntimeError(f"JSON decode: {result.stdout[:200]}")
+            continue
     raise last_err if last_err else RuntimeError("fetch failed")
 
 
