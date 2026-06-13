@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-"""아침에 보는 글로벌증시 — Twelve Data API (NQ/ES/GC/DXY).
+"""아침에 보는 글로벌증시 — 미국 야간선물 + 금 + 달러 지수.
 
-Twelve Data 무료 등급: 800 calls/day, multi-symbol single call 지원.
-1 호출 = 4종목 → 5분 cron 으로 288 호출/day (한도 800 안에 여유).
-Yahoo IP throttle 회피 — 토큰 인증으로 안정적.
+Yahoo Finance spark endpoint (multi-symbol single call).
+1 호출 = 4종목 → 5분 cron 으로 288 호출/day. IP throttle 가능성 최소화.
 
 env:
-  GITHUB_PAT       — yeobtoni-stock-bot 리포 쓰기 권한
-  TWELVEDATA_KEY   — twelvedata.com Dashboard 의 API Key
+  GITHUB_PAT  — yeobtoni-stock-bot 리포 쓰기 권한
 """
 import os
 import json
@@ -24,82 +22,101 @@ from datetime import datetime
 # 설정
 # ============================================================
 SYMBOLS = [
-    {"key": "NQ",  "name": "나스닥 100 선물", "td": "NQ",  "exchange": "CME"},
-    {"key": "ES",  "name": "S&P 500 선물",   "td": "ES",  "exchange": "CME"},
-    {"key": "GC",  "name": "금 선물",         "td": "GC",  "exchange": "COMEX"},
-    {"key": "DXY", "name": "달러 지수",       "td": "DXY", "exchange": "ICE"},
+    {"key": "NQ",  "name": "나스닥 100 선물", "yahoo": "NQ=F", "exchange": "CME"},
+    {"key": "ES",  "name": "S&P 500 선물",   "yahoo": "ES=F", "exchange": "CME"},
+    {"key": "GC",  "name": "금 선물",         "yahoo": "GC=F", "exchange": "COMEX"},
+    {"key": "DXY", "name": "달러 지수",       "yahoo": "DX=F", "exchange": "ICE"},
 ]
 
 REPO = "goldpigbankgazua-dev/yeobtoni-stock-bot"
 REPO_PATH = "modules/morning/data/us_quotes.json"
 BRANCH = "main"
 
+# UA: Linux 서버는 Linux UA 가 정직. Mac UA 면 Yahoo 봇 의심.
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 SSL_CTX = ssl.create_default_context()
 
 
 # ============================================================
-# Twelve Data quote — multi-symbol single call
+# Yahoo spark — multi-symbol 단일 호출
 # ============================================================
-def fetch_twelvedata(api_key, symbols):
-    """https://api.twelvedata.com/quote?symbol=NQ,ES,GC,DXY&apikey=...
+def fetch_yahoo_spark(yahoo_symbols):
+    """https://query1.finance.yahoo.com/v7/finance/spark?symbols=...&range=1d&interval=1m
 
-    Response (multi-symbol):
-      {"NQ": {...quote...}, "ES": {...}, "GC": {...}, "DXY": {...}}
-    Response (single symbol):
-      {...quote fields...} (top-level)
+    한 호출에 multiple symbols. raw URL (URL encoding 없이 직접) 사용 —
+    %3D 인코딩되면 Yahoo 가 받아들이긴 함.
     """
-    symbols_csv = ",".join(symbols)
-    url = (f"https://api.twelvedata.com/quote"
-           f"?symbol={urllib.parse.quote(symbols_csv)}"
-           f"&apikey={urllib.parse.quote(api_key)}")
-    result = subprocess.run(
-        ["curl", "-s", "-S", "--fail-with-body",
-         "-A", UA,
-         "--connect-timeout", "10",
-         "--max-time", "20",
-         url],
-        capture_output=True, text=True, timeout=25
-    )
-    if result.returncode != 0:
-        raise RuntimeError(
-            f"curl exit {result.returncode}: {result.stderr.strip()[:200]}")
-    try:
-        return json.loads(result.stdout)
-    except json.JSONDecodeError:
-        raise RuntimeError(f"JSON decode: {result.stdout[:300]}")
+    symbols_csv = ",".join(yahoo_symbols)  # raw, encode 안 함
+    last_err = None
+    for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
+        url = (f"https://{host}/v7/finance/spark"
+               f"?symbols={symbols_csv}&range=1d&interval=1m")
+        try:
+            result = subprocess.run(
+                ["curl", "-s", "-S", "--fail-with-body",
+                 "-A", UA,
+                 "--connect-timeout", "10",
+                 "--max-time", "20",
+                 url],
+                capture_output=True, text=True, timeout=25
+            )
+            if result.returncode != 0:
+                last_err = RuntimeError(
+                    f"curl exit {result.returncode}: {result.stderr.strip()[:200]}")
+                continue
+            return json.loads(result.stdout)
+        except subprocess.TimeoutExpired as e:
+            last_err = e
+            continue
+        except json.JSONDecodeError:
+            last_err = RuntimeError(f"JSON decode: {result.stdout[:200]}")
+            continue
+    raise last_err if last_err else RuntimeError("spark fetch failed")
 
 
-def parse_td_quote(obj):
-    """Twelve Data quote → 표준 dict."""
-    if not isinstance(obj, dict):
+def parse_spark_meta(meta):
+    """spark response 의 각 종목 meta → 표준 dict."""
+    if not meta:
         return None
-    # Twelve Data 에러 응답: {"code": 4xx, "message": "..."}
-    if "code" in obj and obj.get("code") not in (None, 200):
-        return None
-    try:
-        price = float(obj["close"])
-        prev = float(obj["previous_close"])
-    except (KeyError, TypeError, ValueError):
+    price = meta.get("regularMarketPrice")
+    prev = meta.get("chartPreviousClose") or meta.get("previousClose")
+    if price is None or prev is None:
         return None
     change = price - prev
     pct = (change / prev * 100) if prev else 0
-    # is_market_open → state
-    state = "REGULAR" if obj.get("is_market_open") else "CLOSED"
-    ts = 0
-    try:
-        ts = int(obj.get("timestamp") or 0)
-    except (TypeError, ValueError):
-        pass
+    state = meta.get("marketState", "REGULAR")
+    ts = meta.get("regularMarketTime", 0)
     return {
-        "price": round(price, 2),
-        "previous": round(prev, 2),
-        "change": round(change, 2),
-        "change_pct": round(pct, 2),
+        "price": round(float(price), 2),
+        "previous": round(float(prev), 2),
+        "change": round(float(change), 2),
+        "change_pct": round(float(pct), 2),
         "state": state,
-        "market_ts": ts,
+        "market_ts": int(ts),
     }
+
+
+def extract_meta_by_symbol(spark_data):
+    """spark response 의 두 가지 포맷 모두 지원.
+
+    1) {"spark": {"result": [{"symbol": "NQ=F", "response": [{"meta": ...}]}, ...]}}
+    2) {"NQ=F": [{"meta": ...}], "ES=F": [...], ...}
+    """
+    by_sym = {}
+    spark = spark_data.get("spark", {}) if isinstance(spark_data, dict) else {}
+    for item in spark.get("result", []):
+        sym = item.get("symbol")
+        resp = (item.get("response") or [{}])[0]
+        if sym and resp.get("meta"):
+            by_sym[sym] = resp["meta"]
+    if by_sym:
+        return by_sym
+    if isinstance(spark_data, dict):
+        for sym, val in spark_data.items():
+            if isinstance(val, list) and val and isinstance(val[0], dict) and val[0].get("meta"):
+                by_sym[sym] = val[0]["meta"]
+    return by_sym
 
 
 # ============================================================
@@ -148,50 +165,32 @@ def main():
         print("✗ GITHUB_PAT 없음", file=sys.stderr)
         sys.exit(1)
 
-    td_key = os.environ.get("TWELVEDATA_KEY", "").strip()
-    if not td_key:
-        print("✗ TWELVEDATA_KEY 없음 (.env 에 추가)", file=sys.stderr)
-        sys.exit(1)
-
-    td_symbols = [s["td"] for s in SYMBOLS]
+    yahoo_symbols = [s["yahoo"] for s in SYMBOLS]
     try:
-        raw = fetch_twelvedata(td_key, td_symbols)
+        raw = fetch_yahoo_spark(yahoo_symbols)
     except Exception as e:
-        print(f"✗ Twelve Data fetch 실패: {e}", file=sys.stderr)
+        print(f"✗ spark fetch 실패: {e}", file=sys.stderr)
         sys.exit(2)
 
-    # multi-symbol 응답: dict by symbol. single symbol: top-level quote.
-    # SYMBOLS 가 1개일 때만 top-level, 우리는 항상 2+ 라 항상 dict.
-    if not isinstance(raw, dict):
-        print(f"✗ 예상 못한 응답 형식: {str(raw)[:200]}", file=sys.stderr)
+    metas = extract_meta_by_symbol(raw)
+    if not metas:
+        print(f"✗ spark 응답 파싱 실패: {json.dumps(raw)[:300]}", file=sys.stderr)
         sys.exit(3)
-
-    # 에러 응답 — top-level "code" 가 있고 200 아님
-    if "code" in raw and raw.get("code") not in (None, 200):
-        print(f"✗ Twelve Data 에러: {raw.get('message', raw)}", file=sys.stderr)
-        sys.exit(4)
-
-    # SYMBOLS=1 인 케이스 — top-level 이 quote 자체. 우리는 multi 이지만 방어.
-    is_multi = all(s in raw for s in td_symbols)
 
     results = []
     for sym in SYMBOLS:
-        if is_multi:
-            obj = raw.get(sym["td"])
-        else:
-            obj = raw if sym["td"] == raw.get("symbol") else None
-        q = parse_td_quote(obj)
+        meta = metas.get(sym["yahoo"])
+        q = parse_spark_meta(meta)
         if not q:
-            err = (obj or {}).get("message") if isinstance(obj, dict) else None
-            print(f"✗ {sym['name']}: 데이터 없음 ({err or 'parse 실패'})")
+            print(f"✗ {sym['name']}: 데이터 없음")
             continue
         item = {
             "key": sym["key"],
             "name": sym["name"],
-            "symbol": sym["td"],
+            "symbol": sym["yahoo"],
             "exchange": sym["exchange"],
             **q,
-            "source": "twelvedata",
+            "source": "yahoo",
             "delayed": True,  # 15분 지연 표시용
         }
         results.append(item)
@@ -201,7 +200,7 @@ def main():
 
     if not results:
         print("✗ 결과 0건", file=sys.stderr)
-        sys.exit(5)
+        sys.exit(4)
 
     payload = {
         "fetched_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -217,7 +216,7 @@ def main():
         print(f"[gh] PUT OK HTTP {status}")
     except Exception as e:
         print(f"[gh] PUT 실패: {e}", file=sys.stderr)
-        sys.exit(6)
+        sys.exit(5)
 
 
 if __name__ == "__main__":
