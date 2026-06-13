@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>아침에 보는 글로벌증시 — 여비또니 주식봇</title>
+<style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --thead:#f1f5f9; --line:#e2e8f0; --line-soft:#eef2f6;
+  --text:#1a1d24; --text-strong:#0f172a; --muted:#64748b; --muted-2:#94a3b8;
+  --accent:#0ea5e9; --accent-soft:rgba(14,165,233,.10);
+  --up:#dc2626; --down:#2563eb;
+}
+:root[data-theme="dark"], body.theme-dark {
+  --bg:#0b1220; --card:#121a2b; --thead:#0f1626; --line:#1f2a44; --line-soft:#192238;
+  --text:#cbd5e1; --text-strong:#f1f5f9; --muted:#94a3b8; --muted-2:#64748b;
+  --accent:#00d4a4; --accent-soft:rgba(0,212,164,.12);
+  --up:#f87171; --down:#60a5fa;
+}
+:root[data-theme="green"], body.theme-green {
+  --bg:#ecfdf5; --card:#ffffff; --thead:#f0fdf4; --line:#a7f3d0; --line-soft:#d1fae5;
+  --text:#064e3b; --text-strong:#022c22; --muted:#047857; --muted-2:#10b981;
+  --accent:#059669; --accent-soft:rgba(5,150,105,.12);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { overflow-x:hidden; max-width:100vw; }
+body {
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.55; padding:20px;
+  -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  transition:background .15s ease, color .15s ease;
+}
+.container { max-width:1240px; margin:0 auto; }
+header { margin-bottom:14px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+.header-left { flex:1; min-width:200px; }
+h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong); }
+.subtitle { color:var(--muted); font-size:13px; margin:0; }
+.basedate { color:var(--text); background:var(--card); border:1px solid var(--line);
+  padding:6px 12px; border-radius:8px; font-size:12px; white-space:nowrap; flex-shrink:0; }
+.basedate b { color:var(--accent); }
+@media (max-width:720px) {
+  h1 { font-size:19px; }
+  header { gap:8px; }
+  .basedate { font-size:11px; padding:5px 10px; }
+}
+
+/* 카드 그리드 */
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; margin-top:14px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:18px 20px 18px; box-shadow:0 1px 3px rgba(15,23,42,.04); position:relative; overflow:hidden;
+  transition: transform .15s ease, box-shadow .15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow:0 4px 10px rgba(15,23,42,.07); }
+.card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:linear-gradient(180deg, rgba(148,163,184,.55), rgba(148,163,184,.15));
+  border-radius:14px 0 0 14px; }
+[data-theme="dark"] .card::before { background:linear-gradient(180deg, rgba(148,163,184,.45), rgba(148,163,184,.10)); }
+
+.card-name { font-size:15px; font-weight:700; color:var(--text-strong); margin-bottom:3px; }
+.card-meta { font-size:11px; color:var(--muted); margin-bottom:14px; letter-spacing:.01em; }
+.card-meta b { font-weight:500; color:var(--muted); }
+.card-meta .dot { display:inline-block; margin:0 6px; color:var(--muted-2); }
+.card-meta .state { font-weight:600; }
+.card-meta .state.live { color:#10b981; }
+.card-meta .state.closed { color:var(--muted); }
+
+.card-price { font-size:28px; font-weight:700; color:var(--text-strong);
+  font-variant-numeric:tabular-nums; letter-spacing:-.02em; line-height:1.1; }
+.card-change { margin-top:6px; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+.card-change.up   { color:var(--up); }
+.card-change.down { color:var(--down); }
+.card-change.flat { color:var(--muted); }
+
+footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px; background:var(--thead);
+  border:1px solid var(--line); border-radius:10px; line-height:1.7; }
+footer a { color:var(--accent); text-decoration:none; }
+
+.empty { text-align:center; color:var(--muted); font-size:13px; padding:40px 20px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="header-left">
+      <h1>아침에 보는 글로벌증시</h1>
+      <p class="subtitle">K200 야간선물 + 미국 야간 선물 + 금 · 한국 시장 방향성</p>
+    </div>
+    <div class="basedate" id="basedate">갱신 –</div>
+  </header>
+
+  <div class="grid" id="grid">
+    <div class="empty">데이터 로딩 중…</div>
+  </div>
+
+  <footer>
+    데이터: Yahoo Finance Quote API + KIS API · 매 30분 자동 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+  </footer>
+</div>
+
+<script>
+const STATE_LABEL = {
+  REGULAR: { text: "거래 중", cls: "live" },
+  PRE:     { text: "장 전",   cls: "live" },
+  POST:    { text: "시간외",  cls: "live" },
+  CLOSED:  { text: "장 마감", cls: "closed" },
+  PREPRE:  { text: "장 전",   cls: "live" },
+  POSTPOST:{ text: "시간외",  cls: "live" },
+};
+
+function fmtPrice(n) {
+  if (n == null || isNaN(n)) return "—";
+  return Number(n).toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function fmtChange(n) {
+  if (n == null || isNaN(n)) return "—";
+  const sign = n >= 0 ? "+" : "";
+  return sign + Number(n).toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function fmtPct(p) {
+  if (p == null || isNaN(p)) return "—";
+  const sign = p >= 0 ? "+" : "";
+  return sign + p.toFixed(2) + "%";
+}
+
+function render(payload) {
+  const grid = document.getElementById("grid");
+  const baseEl = document.getElementById("basedate");
+  baseEl.innerHTML = "갱신 <b>" + (payload.fetched_at || "—") + "</b>";
+
+  const quotes = payload.quotes || [];
+  if (!quotes.length) {
+    grid.innerHTML = '<div class="empty">데이터 없음</div>';
+    return;
+  }
+
+  grid.innerHTML = quotes.map(q => {
+    const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
+    const st = STATE_LABEL[q.state] || { text: q.state || "—", cls: "closed" };
+    return `
+      <div class="card">
+        <div class="card-name">${escapeHtml(q.name)}</div>
+        <div class="card-meta">
+          <b>${escapeHtml(q.symbol)}</b><span class="dot">·</span>
+          ${escapeHtml(q.exchange)}<span class="dot">·</span>
+          <span class="state ${st.cls}">${st.text}</span>
+        </div>
+        <div class="card-price">${fmtPrice(q.price)}</div>
+        <div class="card-change ${dir}">${fmtChange(q.change)} &nbsp; ${fmtPct(q.change_pct)}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+}
+
+// 데이터 로드
+fetch("data/quotes.json?v=" + Date.now())
+  .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
+  .then(render)
+  .catch(err => {
+    document.getElementById("grid").innerHTML =
+      '<div class="empty">데이터 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
+  });
+
+// 5분마다 자동 갱신
+setInterval(() => {
+  fetch("data/quotes.json?v=" + Date.now())
+    .then(r => r.json()).then(render).catch(()=>{});
+}, 5 * 60 * 1000);
+
+// 허브 테마 신호 수신
+function _normalizeHubTheme(t) {
+  if (t === "white") return "light";
+  if (["light","dark","green"].indexOf(t) >= 0) return t;
+  return null;
+}
+window.addEventListener("message", function(e) {
+  if (e.data && e.data.type === "yeobtoni-theme") {
+    var n = _normalizeHubTheme(e.data.value);
+    if (n) {
+      document.documentElement.setAttribute("data-theme", n);
+    }
+  }
+});
+
+// URL hash 의 theme=xxx 적용
+(function() {
+  var m = location.search.match(/[?&]theme=([^&]+)/);
+  if (m) {
+    var n = _normalizeHubTheme(decodeURIComponent(m[1]));
+    if (n) document.documentElement.setAttribute("data-theme", n);
+  }
+})();
+</script>
+</body>
+</html>
