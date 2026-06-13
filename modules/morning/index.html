@@ -203,10 +203,10 @@ function renderK200(q) {
     card.innerHTML = `
       <div class="our-card-inner">
         <div class="our-card-head">
-          <span class="our-card-name">K200 야간선물 · KRX 야간</span>
-          <span class="our-card-tag our-card-tag-delayed">대기</span>
+          <span class="our-card-name">K200 야간선물</span>
+          <span class="our-card-tag closed">장 마감</span>
         </div>
-        <div class="our-card-ticker">K2I1!</div>
+        <div class="our-card-ticker">K2I1! · KRX Night</div>
         <div class="our-card-price" style="opacity:.4;">—</div>
         <div class="our-card-change flat" style="opacity:.5;">거래 발생 시 자동 갱신</div>
       </div>`;
@@ -217,9 +217,9 @@ function renderK200(q) {
     <div class="our-card-inner">
       <div class="our-card-head">
         <span class="our-card-name">${escapeHtml(q.name || "K200 야간선물")}</span>
-        <span class="our-card-tag">실시간 ●</span>
+        <span class="our-card-tag live">실시간</span>
       </div>
-      <div class="our-card-ticker">${escapeHtml(q.symbol || "K2I1!")} · ${escapeHtml(q.exchange || "KRX 야간")} · 거래 중</div>
+      <div class="our-card-ticker">${escapeHtml(q.symbol || "K2I1!")} · ${escapeHtml(q.exchange || "KRX Night")}</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
@@ -246,21 +246,26 @@ const STATE_LABEL = {
   CLOSED: "장 마감", PREPRE: "장 전", POSTPOST: "시간외",
 };
 
+// 상태 → 라벨 결정. K200 (delayed=false) = 실시간, 미국 선물 (delayed=true) = 실시간(15분 지연), 휴장 = 장 마감
+function makeTag(q) {
+  const isClosed = q.state === "CLOSED" || q.state === "POST" || q.state === "PREPRE";
+  if (isClosed) return { text: STATE_LABEL[q.state] || "장 마감", cls: "closed" };
+  if (q.delayed) return { text: "실시간(15분 지연)", cls: "live" };
+  return { text: "실시간", cls: "live" };
+}
+
 function renderUsCard(q) {
   const el = document.getElementById("us-card-" + q.key);
   if (!el) return;
   const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
-  const tag = q.delayed
-    ? '<span class="our-card-tag our-card-tag-delayed">15분 지연</span>'
-    : '<span class="our-card-tag">실시간 ●</span>';
-  const stateLabel = STATE_LABEL[q.state] || q.state || "";
+  const tag = makeTag(q);
   el.innerHTML = `
     <div class="our-card-inner">
       <div class="our-card-head">
         <span class="our-card-name">${escapeHtml(q.name)}</span>
-        ${tag}
+        <span class="our-card-tag ${tag.cls}">${escapeHtml(tag.text)}</span>
       </div>
-      <div class="our-card-ticker">${escapeHtml(q.symbol)} · ${escapeHtml(q.exchange)}${stateLabel ? ' · ' + escapeHtml(stateLabel) : ''}</div>
+      <div class="our-card-ticker">${escapeHtml(q.symbol)} · ${escapeHtml(q.exchange)}</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
