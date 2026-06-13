@@ -173,7 +173,7 @@
   .frame-wrap.active { display: block; }
   .frame-wrap iframe { width: 100%; height: 100%; border: 0; background: var(--bg); display: block; }
 
-  /* === 주식 스크리너 sub-tab === */
+  /* === 종목발굴 sub-tab === */
   .subtab-bar {
     position: absolute; top: 0; left: 0; right: 0; height: 42px;
     display: flex; align-items: center; gap: 6px;
@@ -411,11 +411,11 @@
     setTimeout(() => loader.classList.add("hidden"), 8000);
   }
 
-  // 주식 스크리너 sub-tab 상태 (rs / chart)
-  let currentSub = localStorage.getItem("yeobtoni-screener-sub") || "rs";
+  // 종목발굴 sub-tab 상태 (chart=기술분석 / rs=RS 점수). 기본 chart.
+  let currentSub = localStorage.getItem("yeobtoni-screener-sub") || "chart";
 
   function applyScreenerSub(sub) {
-    if (sub !== "rs" && sub !== "chart") sub = "rs";
+    if (sub !== "rs" && sub !== "chart") sub = "chart";
     currentSub = sub;
     localStorage.setItem("yeobtoni-screener-sub", sub);
     document.querySelectorAll(".subtab-btn").forEach(b =>
