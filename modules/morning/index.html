@@ -65,6 +65,17 @@ h1 { font-size:22px; font-weight:700; margin:0 0 2px 0; color:var(--text-strong)
 .card-meta .state.live { color:#10b981; }
 .card-meta .state.closed { color:var(--muted); }
 
+/* 데이터 지연/실시간 배지 */
+.card-badge {
+  position:absolute; top:14px; right:14px;
+  font-size:10px; font-weight:600; letter-spacing:.02em;
+  padding:3px 8px; border-radius:999px;
+  border:1px solid transparent;
+}
+.card-badge.realtime { color:#10b981; background:rgba(16,185,129,.10); border-color:rgba(16,185,129,.25); }
+.card-badge.delayed  { color:var(--muted); background:rgba(148,163,184,.10); border-color:var(--line); }
+[data-theme="dark"] .card-badge.realtime { color:#34d399; background:rgba(52,211,153,.12); border-color:rgba(52,211,153,.30); }
+
 .card-price { font-size:28px; font-weight:700; color:var(--text-strong);
   font-variant-numeric:tabular-nums; letter-spacing:-.02em; line-height:1.1; }
 .card-change { margin-top:6px; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
@@ -94,7 +105,7 @@ footer a { color:var(--accent); text-decoration:none; }
   </div>
 
   <footer>
-    데이터: Yahoo Finance Quote API + KIS API · 매 30분 자동 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+    데이터: Yahoo Finance v8 (NQ/ES/GC, 15분 지연 표시) + KIS WebSocket (K200 야간선물, 실시간 — Phase 2) · 매 1분 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
   </footer>
 </div>
 
@@ -137,8 +148,12 @@ function render(payload) {
   grid.innerHTML = quotes.map(q => {
     const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
     const st = STATE_LABEL[q.state] || { text: q.state || "—", cls: "closed" };
+    const badge = q.delayed
+      ? '<span class="card-badge delayed">15분 지연</span>'
+      : '<span class="card-badge realtime">실시간</span>';
     return `
       <div class="card">
+        ${badge}
         <div class="card-name">${escapeHtml(q.name)}</div>
         <div class="card-meta">
           <b>${escapeHtml(q.symbol)}</b><span class="dot">·</span>
