@@ -504,7 +504,7 @@
   applyHubTheme(localStorage.getItem("yeobtoni-theme") || "light");
   const hashKey = location.hash.slice(1);
   let initial = "market";
-  if (["rs","chart","etf","etfstatus","report","macro","market"].includes(hashKey)) initial = hashKey;
+  if (["rs","chart","etf","etfstatus","report","macro","market","morning"].includes(hashKey)) initial = hashKey;
   else if (hashKey === "screener") initial = currentSub;
   switchTo(initial);
 </script>
