@@ -25,10 +25,13 @@ from datetime import datetime
 WORKER_URL = "https://yeobtoni-yahoo-proxy.sylee0137.workers.dev"
 
 SYMBOLS = [
+    # 글로벌 선물
     {"key": "NQ",  "name": "나스닥 100 선물", "yahoo": "NQ=F",     "exchange": "CME"},
     {"key": "ES",  "name": "S&P 500 선물",   "yahoo": "ES=F",     "exchange": "CME"},
-    {"key": "GC",  "name": "금 선물",         "yahoo": "GC=F",     "exchange": "COMEX"},
+    # 달러 · 환율 · 금
     {"key": "DXY", "name": "달러 지수",       "yahoo": "DX-Y.NYB", "exchange": "ICE"},
+    {"key": "KRW", "name": "원/달러 환율",    "yahoo": "KRW=X",    "exchange": "FX"},
+    {"key": "GC",  "name": "금 선물",         "yahoo": "GC=F",     "exchange": "COMEX"},
 ]
 
 REPO = "goldpigbankgazua-dev/yeobtoni-stock-bot"

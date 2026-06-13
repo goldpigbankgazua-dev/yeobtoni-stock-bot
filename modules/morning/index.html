@@ -89,11 +89,12 @@ footer a { color:var(--accent); text-decoration:none; }
 
 .empty { text-align:center; color:var(--muted); font-size:13px; padding:40px 20px; }
 
-/* TradingView 섹션 */
-.tv-section { margin-top:24px; }
-.tv-section-title { font-size:13px; font-weight:600; color:var(--text-strong); margin-bottom:10px; letter-spacing:.01em; }
-.tv-section-note { color:var(--muted); font-weight:400; font-size:12px; }
-.tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; }
+/* 섹션 (글로벌 선물 / 달러 · 환율 · 금) */
+.cards-section { margin-top:24px; }
+.cards-section:first-of-type { margin-top:18px; }
+.section-title { font-size:13px; font-weight:700; color:var(--text-strong);
+  margin:0 0 10px 0; letter-spacing:.01em; }
+.tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
 .tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
   box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; min-height:140px; }
 .tv-card .tradingview-widget-container { min-height:130px; }
@@ -122,23 +123,30 @@ footer a { color:var(--accent); text-decoration:none; }
   <header>
     <div class="header-left">
       <h1>아침에 보는 글로벌증시</h1>
-      <p class="subtitle">K200 야간선물 + 미국 야간 선물 + 금 + 달러 지수 · 한국 시장 방향성</p>
+      <p class="subtitle">글로벌 선물 · 달러 · 환율 · 금</p>
     </div>
     <div class="basedate" id="basedate">갱신 –</div>
   </header>
 
-  <!-- 5종 우리 카드 통일 — K200 (KIS WSS 실시간) + NQ/ES/GC/DXY (Yahoo via CF Worker) -->
-  <div class="tv-grid" id="cards-grid">
-    <!-- K200 야간선물 — 우리 카드 (실시간) -->
-    <div class="tv-card" id="k200-card">
-      <div class="empty-card">K200 야간선물 연결 중…</div>
+  <!-- 섹션 1: 글로벌 선물 -->
+  <section class="cards-section">
+    <h2 class="section-title">글로벌 선물</h2>
+    <div class="tv-grid">
+      <div class="tv-card" id="k200-card"><div class="empty-card">K200 야간선물 연결 중…</div></div>
+      <div class="tv-card" id="us-card-NQ"><div class="empty-card">로딩 중…</div></div>
+      <div class="tv-card" id="us-card-ES"><div class="empty-card">로딩 중…</div></div>
     </div>
-    <!-- NQ/ES/GC/DXY — 우리 카드 (CF Worker → Yahoo, 5분 갱신) -->
-    <div class="tv-card" id="us-card-NQ"><div class="empty-card">로딩 중…</div></div>
-    <div class="tv-card" id="us-card-ES"><div class="empty-card">로딩 중…</div></div>
-    <div class="tv-card" id="us-card-GC"><div class="empty-card">로딩 중…</div></div>
-    <div class="tv-card" id="us-card-DXY"><div class="empty-card">로딩 중…</div></div>
-  </div>
+  </section>
+
+  <!-- 섹션 2: 달러 · 환율 · 금 -->
+  <section class="cards-section">
+    <h2 class="section-title">달러 · 환율 · 금</h2>
+    <div class="tv-grid">
+      <div class="tv-card" id="us-card-DXY"><div class="empty-card">로딩 중…</div></div>
+      <div class="tv-card" id="us-card-KRW"><div class="empty-card">로딩 중…</div></div>
+      <div class="tv-card" id="us-card-GC"><div class="empty-card">로딩 중…</div></div>
+    </div>
+  </section>
 
   <footer>
     데이터: KIS H0MFCNT0 (K200 야간선물 — 1분 갱신) + Yahoo Finance via CF Worker (NQ/ES/GC/DXY — 5분 갱신) · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
@@ -241,7 +249,7 @@ function loadUS() {
       for (const q of quotes) renderUsCard(q);
     })
     .catch(err => {
-      for (const k of ["NQ","ES","GC","DXY"]) {
+      for (const k of ["NQ","ES","DXY","KRW","GC"]) {
         const el = document.getElementById("us-card-" + k);
         if (el) el.innerHTML = '<div class="empty-card">로딩 실패: ' + escapeHtml(String(err)) + '</div>';
       }
