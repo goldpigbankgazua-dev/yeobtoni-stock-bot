@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""아침에 보는 글로벌증시 — Yahoo Finance Quote + KIS API (선택).
+"""아침에 보는 글로벌증시 — 미국 야간선물 (NQ/ES/GC).
 
-매 30분 cron 실행 → modules/morning/data/quotes.json 갱신 → GitHub push.
+Yahoo Finance v8 chart endpoint (Lightsail AWS IP 통과 확인됨).
+매 1분 cron → modules/morning/data/us_quotes.json → GitHub push.
+
+K200 야간선물은 별도 (KIS WebSocket — Phase 2).
 
 env:
   GITHUB_PAT  — yeobtoni-stock-bot 리포 쓰기 권한
-  KIS_APP_KEY / KIS_APP_SECRET — (선택) K200 야간선물 정확 시세
 """
 import os
 import json
@@ -21,112 +23,60 @@ from datetime import datetime
 # 설정
 # ============================================================
 SYMBOLS = [
-    # K200 야간선물 — KIS API 가능시 그쪽, 아니면 KOSPI 200 지수 대체
-    {"key": "K200",  "name": "K200 야간선물",     "stooq": "^kospi200", "exchange": "KRX Night",   "use_kis": True},
-    {"key": "NQ",    "name": "나스닥 100 선물",    "stooq": "nq.f",      "exchange": "CME",         "use_kis": False},
-    {"key": "ES",    "name": "S&P 500 선물",      "stooq": "es.f",      "exchange": "CME",         "use_kis": False},
-    {"key": "GC",    "name": "금 선물",            "stooq": "gc.f",      "exchange": "COMEX",       "use_kis": False},
+    {"key": "NQ", "name": "나스닥 100 선물", "yahoo": "NQ=F", "exchange": "CME"},
+    {"key": "ES", "name": "S&P 500 선물",    "yahoo": "ES=F", "exchange": "CME"},
+    {"key": "GC", "name": "금 선물",          "yahoo": "GC=F", "exchange": "COMEX"},
 ]
 
 REPO = "goldpigbankgazua-dev/yeobtoni-stock-bot"
-REPO_PATH = "modules/morning/data/quotes.json"
+REPO_PATH = "modules/morning/data/us_quotes.json"
 BRANCH = "main"
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 
 SSL_CTX = ssl.create_default_context()
-SSL_CTX.check_hostname = False
-SSL_CTX.verify_mode = ssl.CERT_NONE
 
 
 # ============================================================
-# Stooq.com — intraday snapshot + daily prev close
+# Yahoo Finance v8 chart endpoint
 # ============================================================
-def fetch_stooq_intraday(symbol):
-    """현재 시세 — Symbol,Date,Time,Open,High,Low,Close,Volume CSV"""
-    url = f"https://stooq.com/q/l/?s={urllib.parse.quote(symbol)}&f=sd2t2ohlcv&h&e=csv"
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/csv"})
-    with urllib.request.urlopen(req, timeout=20, context=SSL_CTX) as resp:
-        text = resp.read().decode("utf-8", errors="ignore")
-    lines = [l for l in text.strip().split("\n") if l]
-    if len(lines) < 2:
-        return None
-    cells = lines[1].split(",")
-    if len(cells) < 7:
-        return None
+def fetch_yahoo_v8(symbol):
+    """Yahoo v8 chart endpoint — meta 만 사용 (실시간 가격)."""
+    sym = urllib.parse.quote(symbol)
+    url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
+           f"?interval=1m&range=1d")
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA,
+        "Accept": "application/json",
+    })
+    with urllib.request.urlopen(req, timeout=15, context=SSL_CTX) as resp:
+        return json.loads(resp.read())
+
+
+def parse_v8(data):
+    """v8 chart response → 표준 dict (meta 필드 기반)."""
     try:
-        return {"date": cells[1], "time": cells[2], "close": float(cells[6])}
-    except (ValueError, IndexError):
+        result = data["chart"]["result"][0]
+    except (KeyError, IndexError, TypeError):
         return None
-
-
-def fetch_stooq_prev(symbol):
-    """전일 종가 — 일봉 CSV 끝에서 두 번째 줄"""
-    url = f"https://stooq.com/q/d/l/?s={urllib.parse.quote(symbol)}&i=d"
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/csv"})
-    with urllib.request.urlopen(req, timeout=20, context=SSL_CTX) as resp:
-        text = resp.read().decode("utf-8", errors="ignore")
-    lines = [l for l in text.strip().split("\n") if l]
-    if len(lines) < 3:
+    meta = result.get("meta", {})
+    price = meta.get("regularMarketPrice")
+    prev = meta.get("chartPreviousClose") or meta.get("previousClose")
+    if price is None or prev is None:
         return None
-    prev = lines[-2].split(",")
-    if len(prev) < 5:
-        return None
-    try:
-        return float(prev[4])
-    except ValueError:
-        return None
-
-
-def fetch_stooq(symbol):
-    intraday = fetch_stooq_intraday(symbol)
-    if not intraday:
-        return None
-    prev_close = fetch_stooq_prev(symbol)
-    if prev_close is None:
-        prev_close = intraday["close"]
-    current = intraday["close"]
-    change = current - prev_close
-    pct = (change / prev_close * 100) if prev_close else 0
+    change = price - prev
+    pct = (change / prev * 100) if prev else 0
+    state = meta.get("marketState", "REGULAR")
+    ts = meta.get("regularMarketTime", 0)
     return {
-        "price": round(current, 2),
-        "previous": round(prev_close, 2),
-        "change": round(change, 2),
-        "change_pct": round(pct, 2),
-        "state": "REGULAR",
+        "price": round(float(price), 2),
+        "previous": round(float(prev), 2),
+        "change": round(float(change), 2),
+        "change_pct": round(float(pct), 2),
+        "state": state,
+        "market_ts": int(ts),
     }
-
-
-# ============================================================
-# KIS API (K200 야간선물 — 선택)
-# ============================================================
-KIS_BASE = "https://openapi.koreainvestment.com:9443"
-
-def kis_token():
-    key = os.environ.get("KIS_APP_KEY", "").strip()
-    secret = os.environ.get("KIS_APP_SECRET", "").strip()
-    if not key or not secret:
-        return None
-    url = f"{KIS_BASE}/oauth2/tokenP"
-    body = json.dumps({"grant_type": "client_credentials", "appkey": key, "appsecret": secret}).encode()
-    req = urllib.request.Request(url, data=body, headers={"content-type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=20, context=SSL_CTX) as resp:
-            return json.loads(resp.read())["access_token"]
-    except Exception as e:
-        print(f"[KIS] token 실패: {e}")
-        return None
-
-
-def fetch_k200_night(token):
-    """KIS API: K200 야간선물 시세."""
-    if not token:
-        return None
-    # K200 야간선물 종목코드 (월물에 따라 다름 — 활성 월물 자동 선택은 복잡)
-    # 일단 plain endpoint 로 시도. 실패시 None 반환 → Yahoo fallback.
-    # TODO: 정확한 endpoint 사용자 확인 후 보완
-    return None  # 일단 Yahoo fallback
 
 
 # ============================================================
@@ -150,7 +100,7 @@ def github_get_sha(pat):
 def github_put(pat, content_str, sha=None):
     url = f"https://api.github.com/repos/{REPO}/contents/{REPO_PATH}"
     payload = {
-        "message": f"data: morning quotes ({datetime.now().strftime('%Y-%m-%d %H:%M')} KST)",
+        "message": f"data: morning US quotes ({datetime.now().strftime('%Y-%m-%d %H:%M')} KST)",
         "content": base64.b64encode(content_str.encode("utf-8")).decode(),
         "branch": BRANCH,
     }
@@ -175,42 +125,30 @@ def main():
         print("✗ GITHUB_PAT 없음", file=sys.stderr)
         sys.exit(1)
 
-    kis_t = kis_token()  # 있으면 KIS 활용
-    if kis_t:
-        print("✓ KIS token OK")
-
     results = []
     for sym in SYMBOLS:
-        quote = None
-        # 1) KIS 우선 (K200 야간선물 등)
-        if sym["use_kis"] and kis_t:
-            quote = fetch_k200_night(kis_t)
-            if quote:
-                quote["source"] = "kis"
-        # 2) Stooq fallback (Yahoo 는 AWS IP 차단됨)
-        if not quote:
-            try:
-                quote = fetch_stooq(sym["stooq"])
-                if quote:
-                    quote["source"] = "stooq"
-            except Exception as e:
-                print(f"✗ {sym['name']}: {e}")
-                continue
-
-        if not quote:
+        try:
+            raw = fetch_yahoo_v8(sym["yahoo"])
+            q = parse_v8(raw)
+        except Exception as e:
+            print(f"✗ {sym['name']}: {e}", file=sys.stderr)
+            continue
+        if not q:
             print(f"✗ {sym['name']}: 데이터 없음")
             continue
-
         item = {
             "key": sym["key"],
             "name": sym["name"],
-            "symbol": sym["stooq"].upper(),
+            "symbol": sym["yahoo"],
             "exchange": sym["exchange"],
-            **quote,
+            **q,
+            "source": "yahoo",
+            "delayed": True,  # 15분 지연 표시용
         }
         results.append(item)
-        sign = "+" if quote["change"] >= 0 else ""
-        print(f"✓ {sym['name']}: {quote['price']:,.2f} ({sign}{quote['change']:.2f}, {sign}{quote['change_pct']:.2f}%)")
+        sign = "+" if q["change"] >= 0 else ""
+        print(f"✓ {sym['name']}: {q['price']:,.2f} "
+              f"({sign}{q['change']:.2f}, {sign}{q['change_pct']:.2f}%)")
 
     payload = {
         "fetched_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
