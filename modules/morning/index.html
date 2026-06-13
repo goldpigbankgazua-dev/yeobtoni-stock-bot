@@ -101,10 +101,10 @@ footer a { color:var(--accent); text-decoration:none; }
   margin:0 0 3px 0; letter-spacing:-.005em; }
 .section-desc { color:var(--muted); font-size:12px; margin:0; }
 .section-count { color:var(--muted); font-size:12px; flex-shrink:0; align-self:flex-start; padding-top:2px; }
-/* 무조건 한 줄에 4개 (데스크탑). 모바일만 2개. */
+/* 데스크탑 4컬럼, 모바일(720 이하) 1컬럼 */
 .tv-grid { display:grid; gap:14px;
   grid-template-columns:repeat(4, minmax(0, 1fr)); }
-@media (max-width:720px) { .tv-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+@media (max-width:720px) { .tv-grid { grid-template-columns:1fr; gap:10px; } }
 .tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
   box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; min-height:140px; }
 .tv-card .tradingview-widget-container { min-height:130px; }
