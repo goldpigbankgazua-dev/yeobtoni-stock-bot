@@ -92,8 +92,9 @@ footer a { color:var(--accent); text-decoration:none; }
 /* 섹션 (글로벌 선물 / 달러 · 환율 · 금) */
 .cards-section { margin-top:24px; }
 .cards-section:first-of-type { margin-top:18px; }
-.section-title { font-size:13px; font-weight:700; color:var(--text-strong);
-  margin:0 0 10px 0; letter-spacing:.01em; }
+.section-title { font-size:15px; font-weight:700; color:var(--text-strong);
+  margin:0 0 2px 0; letter-spacing:-.005em; }
+.section-desc { color:var(--muted); font-size:12px; margin:0 0 12px 0; }
 .tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
 .tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
   box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; min-height:140px; }
@@ -131,6 +132,7 @@ footer a { color:var(--accent); text-decoration:none; }
   <!-- 섹션 1: 글로벌 선물 -->
   <section class="cards-section">
     <h2 class="section-title">글로벌 선물</h2>
+    <p class="section-desc">K200 야간선물 + 미국 야간 선물 — 한국 시장 방향성</p>
     <div class="tv-grid">
       <div class="tv-card" id="k200-card"><div class="empty-card">K200 야간선물 연결 중…</div></div>
       <div class="tv-card" id="us-card-NQ"><div class="empty-card">로딩 중…</div></div>
@@ -141,6 +143,7 @@ footer a { color:var(--accent); text-decoration:none; }
   <!-- 섹션 2: 달러 · 환율 · 금 -->
   <section class="cards-section">
     <h2 class="section-title">달러 · 환율 · 금</h2>
+    <p class="section-desc">달러 인덱스 + 원/달러 환율 + 금 — 매크로 흐름</p>
     <div class="tv-grid">
       <div class="tv-card" id="us-card-DXY"><div class="empty-card">로딩 중…</div></div>
       <div class="tv-card" id="us-card-KRW"><div class="empty-card">로딩 중…</div></div>
@@ -194,10 +197,10 @@ function renderK200(q) {
   card.innerHTML = `
     <div class="our-card-inner">
       <div class="our-card-head">
-        <span class="our-card-name">${escapeHtml(q.name || "K200 야간선물")} · ${escapeHtml(q.exchange || "KRX 야간")}</span>
+        <span class="our-card-name">${escapeHtml(q.name || "K200 야간선물")}</span>
         <span class="our-card-tag">실시간 ●</span>
       </div>
-      <div class="our-card-ticker">${escapeHtml(q.symbol || "K2I1!")}</div>
+      <div class="our-card-ticker">${escapeHtml(q.symbol || "K2I1!")} · ${escapeHtml(q.exchange || "KRX 야간")} · 거래 중</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
@@ -219,6 +222,11 @@ setInterval(loadNgt, 60 * 1000);  // 1분마다
 // ============================================================
 // 미국 선물 (NQ/ES/GC/DXY) — us_quotes.json (Yahoo via CF Worker, 5분 갱신)
 // ============================================================
+const STATE_LABEL = {
+  REGULAR: "거래 중", PRE: "장 전", POST: "시간외",
+  CLOSED: "장 마감", PREPRE: "장 전", POSTPOST: "시간외",
+};
+
 function renderUsCard(q) {
   const el = document.getElementById("us-card-" + q.key);
   if (!el) return;
@@ -226,13 +234,14 @@ function renderUsCard(q) {
   const tag = q.delayed
     ? '<span class="our-card-tag our-card-tag-delayed">15분 지연</span>'
     : '<span class="our-card-tag">실시간 ●</span>';
+  const stateLabel = STATE_LABEL[q.state] || q.state || "";
   el.innerHTML = `
     <div class="our-card-inner">
       <div class="our-card-head">
-        <span class="our-card-name">${escapeHtml(q.name)} · ${escapeHtml(q.exchange)}</span>
+        <span class="our-card-name">${escapeHtml(q.name)}</span>
         ${tag}
       </div>
-      <div class="our-card-ticker">${escapeHtml(q.symbol)}</div>
+      <div class="our-card-ticker">${escapeHtml(q.symbol)} · ${escapeHtml(q.exchange)}${stateLabel ? ' · ' + escapeHtml(stateLabel) : ''}</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
