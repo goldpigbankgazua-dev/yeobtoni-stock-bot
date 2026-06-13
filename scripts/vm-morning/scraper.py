@@ -153,12 +153,15 @@ def main():
         print("✗ GITHUB_PAT 없음", file=sys.stderr)
         sys.exit(1)
 
+    # 호스트 라운드 로빈 — 같은 host 에 짧은 시간 내 3호출 시 429
+    hosts = ["query1.finance.yahoo.com", "query2.finance.yahoo.com"]
     results = []
     for idx, sym in enumerate(SYMBOLS):
         if idx > 0:
-            time.sleep(1.5 + random.random())  # 요청 간 간격
+            time.sleep(3 + random.random() * 2)  # 3~5초 간격
+        primary = hosts[idx % 2]
         try:
-            raw = fetch_yahoo_v8(sym["yahoo"])
+            raw = fetch_yahoo_v8(sym["yahoo"], primary_host=primary)
             q = parse_v8(raw)
         except Exception as e:
             print(f"✗ {sym['name']}: {e}", file=sys.stderr)
