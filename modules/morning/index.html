@@ -88,6 +88,15 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
 footer a { color:var(--accent); text-decoration:none; }
 
 .empty { text-align:center; color:var(--muted); font-size:13px; padding:40px 20px; }
+
+/* TradingView 섹션 */
+.tv-section { margin-top:24px; }
+.tv-section-title { font-size:13px; font-weight:600; color:var(--text-strong); margin-bottom:10px; letter-spacing:.01em; }
+.tv-section-note { color:var(--muted); font-weight:400; font-size:12px; }
+.tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; }
+.tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
+  box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; }
+.tv-card .tradingview-widget-container { min-height:140px; }
 </style>
 </head>
 <body>
@@ -100,12 +109,44 @@ footer a { color:var(--accent); text-decoration:none; }
     <div class="basedate" id="basedate">갱신 –</div>
   </header>
 
+  <!-- K200 야간선물 (우리 카드, WSS 실시간) -->
   <div class="grid" id="grid">
-    <div class="empty">데이터 로딩 중…</div>
+    <div class="empty">K200 야간선물 연결 중…</div>
+  </div>
+
+  <!-- 미국 선물 (TradingView 위젯) -->
+  <div class="tv-section">
+    <div class="tv-section-title">미국 야간 선물 + 달러 지수 <span class="tv-section-note">— TradingView (본인 로그인 시 실시간)</span></div>
+    <div class="tv-grid">
+      <div class="tv-card">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+            {"symbol":"CME_MINI:NQ1!","colorTheme":"light","isTransparent":true,"locale":"kr"}
+          </script>
+        </div>
+      </div>
+      <div class="tv-card">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+            {"symbol":"CME_MINI:ES1!","colorTheme":"light","isTransparent":true,"locale":"kr"}
+          </script>
+        </div>
+      </div>
+      <div class="tv-card">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+            {"symbol":"TVC:DXY","colorTheme":"light","isTransparent":true,"locale":"kr"}
+          </script>
+        </div>
+      </div>
+    </div>
   </div>
 
   <footer>
-    데이터: KIS WebSocket (K200 야간선물 H0MFCNT0, 실시간) + Yahoo Finance spark (NQ/ES/DXY, 15분 지연) · 매 5분 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+    데이터: KIS WebSocket (K200 야간선물 H0MFCNT0, 실시간) + TradingView Single Quote 위젯 (NQ/ES/DXY) · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
   </footer>
 </div>
 
@@ -172,38 +213,15 @@ function escapeHtml(s) {
 }
 
 // ============================================================
-// 통합 state — K200 야간 (WSS 실시간) + 미국 선물 (JSON 5분)
+// state — K200 야간 (WSS 실시간) 만 우리 카드. 미국 선물은 TradingView 위젯.
 // ============================================================
-let usQuotes = [];      // fetch 로 채움
-let k200Quote = null;   // WSS 로 채움
+let k200Quote = null;
 let lastFetchedAt = "—";
 
 function mergeAndRender() {
-  // K200 항상 첫 번째 (실시간 라벨), 그 다음 미국 선물 (지연)
-  const merged = [];
-  if (k200Quote) merged.push(k200Quote);
-  for (const q of usQuotes) merged.push(q);
+  const merged = k200Quote ? [k200Quote] : [];
   render({ fetched_at: lastFetchedAt, quotes: merged });
 }
-
-// 미국 선물 JSON 로드 (Lightsail Yahoo, 매 5분 갱신)
-function loadUS() {
-  fetch("data/us_quotes.json?v=" + Date.now())
-    .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
-    .then(p => {
-      usQuotes = p.quotes || [];
-      lastFetchedAt = p.fetched_at || lastFetchedAt;
-      mergeAndRender();
-    })
-    .catch(err => {
-      if (!k200Quote) {
-        document.getElementById("grid").innerHTML =
-          '<div class="empty">데이터 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
-      }
-    });
-}
-loadUS();
-setInterval(loadUS, 5 * 60 * 1000);
 
 // ============================================================
 // K200 야간선물 WSS 직결 (Lightsail KIS H0MFCNT0)
