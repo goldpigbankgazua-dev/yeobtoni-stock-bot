@@ -95,8 +95,22 @@ footer a { color:var(--accent); text-decoration:none; }
 .tv-section-note { color:var(--muted); font-weight:400; font-size:12px; }
 .tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; }
 .tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
-  box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; }
-.tv-card .tradingview-widget-container { min-height:140px; }
+  box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; min-height:140px; }
+.tv-card .tradingview-widget-container { min-height:130px; }
+
+/* K200 우리 카드 — TradingView 위젯과 비슷한 디자인 */
+.our-card-inner { padding:12px 14px 10px; }
+.our-card-head { display:flex; align-items:center; justify-content:space-between; }
+.our-card-symbol { font-size:16px; font-weight:700; color:var(--text-strong); }
+.our-card-tag { font-size:10px; font-weight:600; color:#16a34a; letter-spacing:.02em; }
+.our-card-sub { color:var(--muted); font-size:11px; margin-top:2px; }
+.our-card-price { font-size:28px; font-weight:700; color:var(--text-strong);
+  font-variant-numeric:tabular-nums; margin-top:14px; letter-spacing:-.01em; line-height:1; }
+.our-card-change { margin-top:6px; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+.our-card-change.up { color:var(--up); }
+.our-card-change.down { color:var(--down); }
+.our-card-change.flat { color:var(--muted); }
+.empty-card { padding:50px 14px; text-align:center; color:var(--muted); font-size:12px; }
 </style>
 </head>
 <body>
@@ -109,15 +123,11 @@ footer a { color:var(--accent); text-decoration:none; }
     <div class="basedate" id="basedate">갱신 –</div>
   </header>
 
-  <!-- 4종 TradingView Single Quote 위젯 통일 -->
+  <!-- K200 우리 카드 (KIS WSS 실시간) + 미국 3종 TradingView 위젯 -->
   <div class="tv-grid">
-    <div class="tv-card">
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-          {"symbol":"K2I1!","colorTheme":"light","isTransparent":true,"locale":"kr"}
-        </script>
-      </div>
+    <!-- K200 야간선물 — 우리 카드 -->
+    <div class="tv-card" id="k200-card">
+      <div class="empty-card">K200 야간선물 연결 중…</div>
     </div>
     <div class="tv-card">
       <div class="tradingview-widget-container">
@@ -146,62 +156,78 @@ footer a { color:var(--accent); text-decoration:none; }
   </div>
 
   <footer>
-    데이터: TradingView Single Quote 위젯 (K200 야간선물 + NQ/ES/DXY) — 본인 로그인 시 실시간 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+    데이터: KIS WebSocket (K200 야간선물 — 실시간) + TradingView 위젯 (NQ/ES/DXY) · 24시간 후 Yahoo 재시도 예정 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
   </footer>
 </div>
 
 <script>
-// (우리 카드/WSS 코드 제거 — 모든 종목 TradingView Single Quote 위젯으로 통일)
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 }
+function fmtPrice(n) {
+  if (n == null || isNaN(n)) return "—";
+  return Number(n).toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function fmtChange(n) {
+  if (n == null || isNaN(n)) return "—";
+  const sign = n >= 0 ? "+" : "";
+  return sign + Number(n).toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function fmtPct(p) {
+  if (p == null || isNaN(p)) return "—";
+  const sign = p >= 0 ? "+" : "";
+  return sign + p.toFixed(2) + "%";
+}
 
-// (K200 WSS 직결 제거 — TradingView 위젯으로 통일)
+// ============================================================
+// K200 야간선물 — KIS WSS 직결 (실시간)
+// ============================================================
+const NGT_WSS = "wss://ip-172-26-1-188.tail6e4c31.ts.net/ngt";
+let ngtPrev = null;
+
+function renderK200(q) {
+  const card = document.getElementById("k200-card");
+  if (!q) {
+    card.innerHTML = '<div class="empty-card">K200 야간선물 연결 중…</div>';
+    return;
+  }
+  const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
+  card.innerHTML = `
+    <div class="our-card-inner">
+      <div class="our-card-head">
+        <span class="our-card-symbol">K2I1!</span>
+        <span class="our-card-tag">실시간 ●</span>
+      </div>
+      <div class="our-card-sub">KOSPI 200 야간선물</div>
+      <div class="our-card-price">${fmtPrice(q.price)}</div>
+      <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
+    </div>
+  `;
+}
 
 function connectNgt() {
+  let ws;
   try {
-    ngtWs = new WebSocket(NGT_WSS);
+    ws = new WebSocket(NGT_WSS);
   } catch (e) {
-    console.warn("NGT WS 생성 실패", e);
     setTimeout(connectNgt, 5000);
     return;
   }
-  ngtWs.onopen = () => {
-    console.log("[ngt] connected");
-    ngtWs.send(JSON.stringify({ action: "subscribe", code: "1A01609" }));
-  };
-  ngtWs.onmessage = e => {
+  ws.onopen = () => ws.send(JSON.stringify({ action: "subscribe", code: "1A01609" }));
+  ws.onmessage = e => {
     let msg;
     try { msg = JSON.parse(e.data); } catch { return; }
     if (msg.type === "tick") {
-      // vrss_sign: 1/2=상승, 4/5=하락 (KIS 표준)
       let change = msg.vrss;
-      if (msg.vrss_sign && /^[45]$/.test(msg.vrss_sign) && change > 0) {
-        change = -change;
-      }
+      if (msg.vrss_sign && /^[45]$/.test(msg.vrss_sign) && change > 0) change = -change;
       const price = msg.price;
-      const prev = (price != null && change != null) ? (price - change) : null;
+      const prev = (price != null && change != null) ? (price - change) : ngtPrev;
       if (prev != null) ngtPrev = prev;
-      k200Quote = {
-        ...K200_META,
-        price: price,
-        previous: ngtPrev,
-        change: change,
-        change_pct: msg.ctrt,
-        state: "REGULAR",
-      };
-      mergeAndRender();
-    } else if (msg.type === "hello") {
-      console.log("[ngt] hello", msg);
+      renderK200({ price, change, change_pct: msg.ctrt, previous: prev });
     }
   };
-  ngtWs.onclose = () => {
-    console.warn("[ngt] closed, 재연결 5초 후");
-    setTimeout(connectNgt, 5000);
-  };
-  ngtWs.onerror = e => {
-    console.warn("[ngt] error", e);
-  };
+  ws.onclose = () => setTimeout(connectNgt, 5000);
+  ws.onerror = () => {};
 }
 connectNgt();
 
