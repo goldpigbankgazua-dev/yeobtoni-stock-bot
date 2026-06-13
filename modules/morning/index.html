@@ -109,44 +109,44 @@ footer a { color:var(--accent); text-decoration:none; }
     <div class="basedate" id="basedate">갱신 –</div>
   </header>
 
-  <!-- K200 야간선물 (우리 카드, WSS 실시간) -->
-  <div class="grid" id="grid">
-    <div class="empty">K200 야간선물 연결 중…</div>
-  </div>
-
-  <!-- 미국 선물 (TradingView 위젯) -->
-  <div class="tv-section">
-    <div class="tv-section-title">미국 야간 선물 + 달러 지수 <span class="tv-section-note">— TradingView (본인 로그인 시 실시간)</span></div>
-    <div class="tv-grid">
-      <div class="tv-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-            {"symbol":"OANDA:NAS100USD","colorTheme":"light","isTransparent":true,"locale":"kr"}
-          </script>
-        </div>
+  <!-- 4종 TradingView Single Quote 위젯 통일 -->
+  <div class="tv-grid">
+    <div class="tv-card">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {"symbol":"KRX:101W09","colorTheme":"light","isTransparent":true,"locale":"kr"}
+        </script>
       </div>
-      <div class="tv-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-            {"symbol":"OANDA:SPX500USD","colorTheme":"light","isTransparent":true,"locale":"kr"}
-          </script>
-        </div>
+    </div>
+    <div class="tv-card">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {"symbol":"OANDA:NAS100USD","colorTheme":"light","isTransparent":true,"locale":"kr"}
+        </script>
       </div>
-      <div class="tv-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-            {"symbol":"TVC:DXY","colorTheme":"light","isTransparent":true,"locale":"kr"}
-          </script>
-        </div>
+    </div>
+    <div class="tv-card">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {"symbol":"OANDA:SPX500USD","colorTheme":"light","isTransparent":true,"locale":"kr"}
+        </script>
+      </div>
+    </div>
+    <div class="tv-card">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {"symbol":"TVC:DXY","colorTheme":"light","isTransparent":true,"locale":"kr"}
+        </script>
       </div>
     </div>
   </div>
 
   <footer>
-    데이터: KIS WebSocket (K200 야간선물 H0MFCNT0, 실시간) + TradingView Single Quote 위젯 (NQ/ES/DXY) · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+    데이터: TradingView Single Quote 위젯 (K200 야간선물 + NQ/ES/DXY) — 본인 로그인 시 실시간 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
   </footer>
 </div>
 
