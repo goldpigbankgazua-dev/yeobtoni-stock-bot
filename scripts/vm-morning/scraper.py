@@ -44,36 +44,23 @@ SSL_CTX = ssl.create_default_context()
 # Yahoo Finance v8 chart endpoint
 # ============================================================
 def fetch_yahoo_v8(symbol):
-    """Yahoo v8 chart endpoint — meta 만 사용 (실시간 가격).
+    """Yahoo v8 chart endpoint — meta 만 사용.
 
-    query1 → 429 시 query2 로 fallback. 브라우저 닮은 헤더 + sleep.
+    검증된 curl 동작과 동일 헤더 (User-Agent 만). query1 → query2 fallback.
     """
     sym = urllib.parse.quote(symbol)
-    headers = {
-        "User-Agent": UA,
-        "Accept": "application/json, text/plain, */*",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Connection": "keep-alive",
-        "Origin": "https://finance.yahoo.com",
-        "Referer": f"https://finance.yahoo.com/quote/{sym}",
-    }
+    headers = {"User-Agent": UA}  # ← 이게 핵심. 추가 헤더 넣으면 봇 탐지 걸림.
     last_err = None
     for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
         url = f"https://{host}/v8/finance/chart/{sym}?interval=1m&range=1d"
         req = urllib.request.Request(url, headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=15, context=SSL_CTX) as resp:
-                raw = resp.read()
-                # gzip 응답 처리
-                if resp.headers.get("Content-Encoding") == "gzip":
-                    import gzip
-                    raw = gzip.decompress(raw)
-                return json.loads(raw)
+                return json.loads(resp.read())
         except urllib.error.HTTPError as e:
             last_err = e
-            if e.code == 429:
-                time.sleep(2 + random.random())  # backoff
+            if e.code in (429, 503):
+                time.sleep(2 + random.random())
                 continue
             raise
     raise last_err if last_err else RuntimeError("fetch failed")
