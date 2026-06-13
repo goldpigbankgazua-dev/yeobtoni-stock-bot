@@ -13,6 +13,8 @@ import os
 import json
 import ssl
 import sys
+import time
+import random
 import urllib.parse
 import urllib.request
 import urllib.error
@@ -42,16 +44,39 @@ SSL_CTX = ssl.create_default_context()
 # Yahoo Finance v8 chart endpoint
 # ============================================================
 def fetch_yahoo_v8(symbol):
-    """Yahoo v8 chart endpoint — meta 만 사용 (실시간 가격)."""
+    """Yahoo v8 chart endpoint — meta 만 사용 (실시간 가격).
+
+    query1 → 429 시 query2 로 fallback. 브라우저 닮은 헤더 + sleep.
+    """
     sym = urllib.parse.quote(symbol)
-    url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
-           f"?interval=1m&range=1d")
-    req = urllib.request.Request(url, headers={
+    headers = {
         "User-Agent": UA,
-        "Accept": "application/json",
-    })
-    with urllib.request.urlopen(req, timeout=15, context=SSL_CTX) as resp:
-        return json.loads(resp.read())
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Origin": "https://finance.yahoo.com",
+        "Referer": f"https://finance.yahoo.com/quote/{sym}",
+    }
+    last_err = None
+    for host in ("query1.finance.yahoo.com", "query2.finance.yahoo.com"):
+        url = f"https://{host}/v8/finance/chart/{sym}?interval=1m&range=1d"
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=15, context=SSL_CTX) as resp:
+                raw = resp.read()
+                # gzip 응답 처리
+                if resp.headers.get("Content-Encoding") == "gzip":
+                    import gzip
+                    raw = gzip.decompress(raw)
+                return json.loads(raw)
+        except urllib.error.HTTPError as e:
+            last_err = e
+            if e.code == 429:
+                time.sleep(2 + random.random())  # backoff
+                continue
+            raise
+    raise last_err if last_err else RuntimeError("fetch failed")
 
 
 def parse_v8(data):
@@ -126,7 +151,9 @@ def main():
         sys.exit(1)
 
     results = []
-    for sym in SYMBOLS:
+    for idx, sym in enumerate(SYMBOLS):
+        if idx > 0:
+            time.sleep(1.5 + random.random())  # 요청 간 간격
         try:
             raw = fetch_yahoo_v8(sym["yahoo"])
             q = parse_v8(raw)
