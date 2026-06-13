@@ -167,7 +167,16 @@ function fmtPct(p) {
 function renderK200(q) {
   const card = document.getElementById("k200-card");
   if (!q || q.price == null) {
-    card.innerHTML = '<div class="empty-card">K200 야간선물 데이터 없음</div>';
+    card.innerHTML = `
+      <div class="our-card-inner">
+        <div class="our-card-head">
+          <span class="our-card-symbol">K2I1!</span>
+          <span class="our-card-tag our-card-tag-delayed">대기</span>
+        </div>
+        <div class="our-card-sub">K200 야간선물 · KRX 야간</div>
+        <div class="our-card-price" style="opacity:.4;">—</div>
+        <div class="our-card-change flat" style="opacity:.5;">거래 발생 시 자동 갱신</div>
+      </div>`;
     return;
   }
   const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
