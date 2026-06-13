@@ -37,8 +37,8 @@ python3 fetch_macro.py 2>&1
 EOF
 chmod +x "$DIR/run.sh"
 
-# cron — 4시간마다 (UTC 17/21/01/05/09/13 = KST 02/06/10/14/18/22)
-CRON_LINE="17 */4 * * *  $HOME/macro/run.sh >> $HOME/macro/log 2>&1"
+# cron — 매일 KST 08:00 (= UTC 23:00) 1회. macro 데이터는 일변동 적어 1회로 충분.
+CRON_LINE="0 23 * * *  $HOME/macro/run.sh >> $HOME/macro/log 2>&1"
 ( crontab -l 2>/dev/null | grep -v "macro/run.sh" ; echo "$CRON_LINE" ) | crontab -
 
 echo ""
