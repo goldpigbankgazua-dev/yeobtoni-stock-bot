@@ -138,7 +138,7 @@ footer a { color:var(--accent); text-decoration:none; }
   </div>
 
   <footer>
-    데이터: KIS WebSocket (K200 야간선물 — 실시간) + Yahoo Finance via CF Worker (NQ/ES/GC/DXY — 15분 지연) · 매 5분 갱신 · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
+    데이터: KIS H0MFCNT0 (K200 야간선물 — 1분 갱신) + Yahoo Finance via CF Worker (NQ/ES/GC/DXY — 5분 갱신) · <a href="https://yeobtoni.local" target="_blank">여비또니 주식봇</a>
   </footer>
 </div>
 
@@ -162,56 +162,39 @@ function fmtPct(p) {
 }
 
 // ============================================================
-// K200 야간선물 — KIS WSS 직결 (실시간)
+// K200 야간선물 — ngt_quote.json fetch (1분 polling, KIS WSS → VM push)
 // ============================================================
-const NGT_WSS = "wss://ip-172-26-1-188.tail6e4c31.ts.net/ngt";
-let ngtPrev = null;
-
 function renderK200(q) {
   const card = document.getElementById("k200-card");
-  if (!q) {
-    card.innerHTML = '<div class="empty-card">K200 야간선물 연결 중…</div>';
+  if (!q || q.price == null) {
+    card.innerHTML = '<div class="empty-card">K200 야간선물 데이터 없음</div>';
     return;
   }
   const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
   card.innerHTML = `
     <div class="our-card-inner">
       <div class="our-card-head">
-        <span class="our-card-symbol">K2I1!</span>
+        <span class="our-card-symbol">${escapeHtml(q.symbol || "K2I1!")}</span>
         <span class="our-card-tag">실시간 ●</span>
       </div>
-      <div class="our-card-sub">KOSPI 200 야간선물</div>
+      <div class="our-card-sub">${escapeHtml(q.name || "K200 야간선물")} · ${escapeHtml(q.exchange || "KRX 야간")}</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
   `;
 }
 
-function connectNgt() {
-  let ws;
-  try {
-    ws = new WebSocket(NGT_WSS);
-  } catch (e) {
-    setTimeout(connectNgt, 5000);
-    return;
-  }
-  ws.onopen = () => ws.send(JSON.stringify({ action: "subscribe", code: "1A01609" }));
-  ws.onmessage = e => {
-    let msg;
-    try { msg = JSON.parse(e.data); } catch { return; }
-    if (msg.type === "tick") {
-      let change = msg.vrss;
-      if (msg.vrss_sign && /^[45]$/.test(msg.vrss_sign) && change > 0) change = -change;
-      const price = msg.price;
-      const prev = (price != null && change != null) ? (price - change) : ngtPrev;
-      if (prev != null) ngtPrev = prev;
-      renderK200({ price, change, change_pct: msg.ctrt, previous: prev });
-    }
-  };
-  ws.onclose = () => setTimeout(connectNgt, 5000);
-  ws.onerror = () => {};
+function loadNgt() {
+  fetch("data/ngt_quote.json?v=" + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
+    .then(renderK200)
+    .catch(err => {
+      const card = document.getElementById("k200-card");
+      card.innerHTML = '<div class="empty-card">K200 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
+    });
 }
-connectNgt();
+loadNgt();
+setInterval(loadNgt, 60 * 1000);  // 1분마다
 
 // ============================================================
 // 미국 선물 (NQ/ES/GC/DXY) — us_quotes.json (Yahoo via CF Worker, 5분 갱신)
