@@ -101,13 +101,14 @@ footer a { color:var(--accent); text-decoration:none; }
   margin:0 0 3px 0; letter-spacing:-.005em; }
 .section-desc { color:var(--muted); font-size:12px; margin:0; }
 .section-count { color:var(--muted); font-size:12px; flex-shrink:0; align-self:flex-start; padding-top:2px; }
-.tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+.tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; }
 .tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
   box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; min-height:140px; }
 .tv-card .tradingview-widget-container { min-height:130px; }
 
 /* K200 우리 카드 — TradingView 위젯과 비슷한 디자인 */
-.our-card-inner { padding:12px 14px 10px; }
+.our-card-inner { padding:11px 13px 11px; }
+.our-card-price { font-size:24px; }
 .our-card-head { display:flex; align-items:center; justify-content:space-between; }
 .our-card-name { font-size:15px; font-weight:700; color:var(--text-strong); letter-spacing:-.005em; }
 .our-card-tag { font-size:10px; font-weight:700; letter-spacing:.02em; white-space:nowrap;
@@ -231,10 +232,7 @@ function loadNgt() {
   fetch("data/ngt_quote.json?v=" + Date.now())
     .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
     .then(renderK200)
-    .catch(err => {
-      const card = document.getElementById("k200-card");
-      card.innerHTML = '<div class="empty-card">K200 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
-    });
+    .catch(() => renderK200(null));  // 404 등 실패 시 placeholder (장 마감) 표시
 }
 loadNgt();
 setInterval(loadNgt, 60 * 1000);  // 1분마다
