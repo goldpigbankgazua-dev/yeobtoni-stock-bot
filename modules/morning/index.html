@@ -101,9 +101,12 @@ footer a { color:var(--accent); text-decoration:none; }
 /* K200 우리 카드 — TradingView 위젯과 비슷한 디자인 */
 .our-card-inner { padding:12px 14px 10px; }
 .our-card-head { display:flex; align-items:center; justify-content:space-between; }
-.our-card-symbol { font-size:16px; font-weight:700; color:var(--text-strong); }
-.our-card-tag { font-size:10px; font-weight:600; color:#16a34a; letter-spacing:.02em; }
+.our-card-name { font-size:15px; font-weight:700; color:var(--text-strong); letter-spacing:-.005em; }
+.our-card-tag { font-size:10px; font-weight:600; color:#16a34a; letter-spacing:.02em; white-space:nowrap; }
 .our-card-tag-delayed { color:var(--muted); }
+.our-card-ticker { color:var(--muted); font-size:11px; margin-top:2px; letter-spacing:.01em; }
+/* 옛 class 호환 (혹시 잔존) */
+.our-card-symbol { font-size:15px; font-weight:700; color:var(--text-strong); }
 .our-card-sub { color:var(--muted); font-size:11px; margin-top:2px; }
 .our-card-price { font-size:28px; font-weight:700; color:var(--text-strong);
   font-variant-numeric:tabular-nums; margin-top:14px; letter-spacing:-.01em; line-height:1; }
@@ -170,10 +173,10 @@ function renderK200(q) {
     card.innerHTML = `
       <div class="our-card-inner">
         <div class="our-card-head">
-          <span class="our-card-symbol">K2I1!</span>
+          <span class="our-card-name">K200 야간선물 · KRX 야간</span>
           <span class="our-card-tag our-card-tag-delayed">대기</span>
         </div>
-        <div class="our-card-sub">K200 야간선물 · KRX 야간</div>
+        <div class="our-card-ticker">K2I1!</div>
         <div class="our-card-price" style="opacity:.4;">—</div>
         <div class="our-card-change flat" style="opacity:.5;">거래 발생 시 자동 갱신</div>
       </div>`;
@@ -183,10 +186,10 @@ function renderK200(q) {
   card.innerHTML = `
     <div class="our-card-inner">
       <div class="our-card-head">
-        <span class="our-card-symbol">${escapeHtml(q.symbol || "K2I1!")}</span>
+        <span class="our-card-name">${escapeHtml(q.name || "K200 야간선물")} · ${escapeHtml(q.exchange || "KRX 야간")}</span>
         <span class="our-card-tag">실시간 ●</span>
       </div>
-      <div class="our-card-sub">${escapeHtml(q.name || "K200 야간선물")} · ${escapeHtml(q.exchange || "KRX 야간")}</div>
+      <div class="our-card-ticker">${escapeHtml(q.symbol || "K2I1!")}</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
@@ -218,10 +221,10 @@ function renderUsCard(q) {
   el.innerHTML = `
     <div class="our-card-inner">
       <div class="our-card-head">
-        <span class="our-card-symbol">${escapeHtml(q.symbol)}</span>
+        <span class="our-card-name">${escapeHtml(q.name)} · ${escapeHtml(q.exchange)}</span>
         ${tag}
       </div>
-      <div class="our-card-sub">${escapeHtml(q.name)} · ${escapeHtml(q.exchange)}</div>
+      <div class="our-card-ticker">${escapeHtml(q.symbol)}</div>
       <div class="our-card-price">${fmtPrice(q.price)}</div>
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
