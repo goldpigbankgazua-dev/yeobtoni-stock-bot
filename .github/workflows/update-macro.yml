@@ -1,9 +1,10 @@
 name: Update macro (글로벌 매크로)
 
 on:
-  schedule:
-    # KST 17:00 = UTC 08:00 평일 (미국장 마감 후 + 익일 EOD 데이터 반영)
-    - cron: "0 8 * * 1-5"
+  # 자동 cron 비활성화 — Lightsail VM 의 ~/macro/run.sh (매 4시간) 가 메인.
+  # workflow_dispatch 만 남김 (긴급 수동 trigger 용).
+  # schedule:
+  #   - cron: "0 8 * * 1-5"
   workflow_dispatch: {}
 
 permissions:
