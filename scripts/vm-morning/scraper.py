@@ -41,31 +41,60 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 
 
 # ============================================================
-# Yahoo Finance Quote API
+# Stooq.com — intraday snapshot + daily prev close
 # ============================================================
-def fetch_yahoo(symbol):
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(symbol)}?interval=1d&range=2d"
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+def fetch_stooq_intraday(symbol):
+    """현재 시세 — Symbol,Date,Time,Open,High,Low,Close,Volume CSV"""
+    url = f"https://stooq.com/q/l/?s={urllib.parse.quote(symbol)}&f=sd2t2ohlcv&h&e=csv"
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/csv"})
     with urllib.request.urlopen(req, timeout=20, context=SSL_CTX) as resp:
-        return json.loads(resp.read())
-
-
-def parse_yahoo(data):
-    res = data["chart"]["result"][0]
-    meta = res["meta"]
-    current = meta.get("regularMarketPrice")
-    prev = meta.get("chartPreviousClose") or meta.get("previousClose")
-    if current is None or prev is None:
+        text = resp.read().decode("utf-8", errors="ignore")
+    lines = [l for l in text.strip().split("\n") if l]
+    if len(lines) < 2:
         return None
-    change = current - prev
-    pct = (change / prev * 100) if prev else 0
-    state = meta.get("marketState", "")  # REGULAR / CLOSED / PRE / POST
+    cells = lines[1].split(",")
+    if len(cells) < 7:
+        return None
+    try:
+        return {"date": cells[1], "time": cells[2], "close": float(cells[6])}
+    except (ValueError, IndexError):
+        return None
+
+
+def fetch_stooq_prev(symbol):
+    """전일 종가 — 일봉 CSV 끝에서 두 번째 줄"""
+    url = f"https://stooq.com/q/d/l/?s={urllib.parse.quote(symbol)}&i=d"
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/csv"})
+    with urllib.request.urlopen(req, timeout=20, context=SSL_CTX) as resp:
+        text = resp.read().decode("utf-8", errors="ignore")
+    lines = [l for l in text.strip().split("\n") if l]
+    if len(lines) < 3:
+        return None
+    prev = lines[-2].split(",")
+    if len(prev) < 5:
+        return None
+    try:
+        return float(prev[4])
+    except ValueError:
+        return None
+
+
+def fetch_stooq(symbol):
+    intraday = fetch_stooq_intraday(symbol)
+    if not intraday:
+        return None
+    prev_close = fetch_stooq_prev(symbol)
+    if prev_close is None:
+        prev_close = intraday["close"]
+    current = intraday["close"]
+    change = current - prev_close
+    pct = (change / prev_close * 100) if prev_close else 0
     return {
         "price": round(current, 2),
-        "previous": round(prev, 2),
+        "previous": round(prev_close, 2),
         "change": round(change, 2),
         "change_pct": round(pct, 2),
-        "state": state,
+        "state": "REGULAR",
     }
 
 
@@ -158,13 +187,12 @@ def main():
             quote = fetch_k200_night(kis_t)
             if quote:
                 quote["source"] = "kis"
-        # 2) Yahoo fallback
+        # 2) Stooq fallback (Yahoo 는 AWS IP 차단됨)
         if not quote:
             try:
-                data = fetch_yahoo(sym["yahoo"])
-                quote = parse_yahoo(data)
+                quote = fetch_stooq(sym["stooq"])
                 if quote:
-                    quote["source"] = "yahoo"
+                    quote["source"] = "stooq"
             except Exception as e:
                 print(f"✗ {sym['name']}: {e}")
                 continue
