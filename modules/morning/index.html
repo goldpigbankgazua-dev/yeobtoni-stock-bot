@@ -171,20 +171,19 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 }
 
-// 데이터 로드
-fetch("data/quotes.json?v=" + Date.now())
-  .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
-  .then(render)
-  .catch(err => {
-    document.getElementById("grid").innerHTML =
-      '<div class="empty">데이터 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
-  });
-
-// 5분마다 자동 갱신
-setInterval(() => {
-  fetch("data/quotes.json?v=" + Date.now())
-    .then(r => r.json()).then(render).catch(()=>{});
-}, 5 * 60 * 1000);
+// 데이터 로드 — us_quotes.json (Lightsail Yahoo v8, 매 1분 갱신)
+function load() {
+  fetch("data/us_quotes.json?v=" + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
+    .then(render)
+    .catch(err => {
+      document.getElementById("grid").innerHTML =
+        '<div class="empty">데이터 로딩 실패: ' + escapeHtml(String(err)) + '</div>';
+    });
+}
+load();
+// 1분마다 자동 갱신
+setInterval(load, 60 * 1000);
 
 // 허브 테마 신호 수신
 function _normalizeHubTheme(t) {
