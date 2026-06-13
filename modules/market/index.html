@@ -99,11 +99,7 @@ footer { color:var(--muted); font-size:12px; margin-top:18px; padding:14px 16px;
   .basedate { font-size:11px; padding:5px 10px; }
   .chart-wrap { height:240px; }
   .card { padding:14px 14px 10px; }
-  /* 모바일에서 차트 터치 막음 — 페이지 세로 스크롤만 통과 */
-  .chart-wrap, .chart-wrap > div, .chart-wrap canvas {
-    pointer-events:none;
-    touch-action:pan-y;
-  }
+  /* 모바일에서 차트는 lightweight-charts 옵션으로 zoom/pan 막음 (crosshair 살림). pointer-events 제거. */
 }
 </style>
 </head>
@@ -376,6 +372,8 @@ function buildChart(container) {
     rightPriceScale: { borderColor: c.grid, scaleMargins:{top:0.1, bottom:0.05} },
     timeScale: { borderColor: c.grid, timeVisible:false, secondsVisible:false, rightOffset:5 },
     crosshair: { mode: 1 },
+    handleScroll: { mouseWheel:false, pressedMouseMove:false, horzTouchDrag:false, vertTouchDrag:false },
+    handleScale:  { axisPressedMouseMove:false, mouseWheel:false, pinch:false },
     localization: {
       priceFormatter: (v) => {
         if (v == null || isNaN(v)) return "";
@@ -495,6 +493,8 @@ function drawIndex(section, dataKey, color) {
     rightPriceScale: { borderColor: colors().grid, scaleMargins:{top:0.1, bottom:0.05} },
     timeScale: { borderColor: colors().grid, timeVisible:false, secondsVisible:false, rightOffset:5 },
     crosshair: { mode: 1 },
+    handleScroll: { mouseWheel:false, pressedMouseMove:false, horzTouchDrag:false, vertTouchDrag:false },
+    handleScale:  { axisPressedMouseMove:false, mouseWheel:false, pinch:false },
     localization: { priceFormatter: (v) => v == null || isNaN(v) ? "" : Number(v).toLocaleString('ko-KR', {maximumFractionDigits:2}) },
   });
   const s = STATE.charts[section].addLineSeries({
