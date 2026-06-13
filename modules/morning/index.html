@@ -103,6 +103,7 @@ footer a { color:var(--accent); text-decoration:none; }
 .our-card-head { display:flex; align-items:center; justify-content:space-between; }
 .our-card-symbol { font-size:16px; font-weight:700; color:var(--text-strong); }
 .our-card-tag { font-size:10px; font-weight:600; color:#16a34a; letter-spacing:.02em; }
+.our-card-tag-delayed { color:var(--muted); }
 .our-card-sub { color:var(--muted); font-size:11px; margin-top:2px; }
 .our-card-price { font-size:28px; font-weight:700; color:var(--text-strong);
   font-variant-numeric:tabular-nums; margin-top:14px; letter-spacing:-.01em; line-height:1; }
@@ -211,6 +212,48 @@ function connectNgt() {
   ws.onerror = () => {};
 }
 connectNgt();
+
+// ============================================================
+// 미국 선물 (NQ/ES/GC/DXY) — us_quotes.json (Yahoo via CF Worker, 5분 갱신)
+// ============================================================
+function renderUsCard(q) {
+  const el = document.getElementById("us-card-" + q.key);
+  if (!el) return;
+  const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
+  const tag = q.delayed
+    ? '<span class="our-card-tag our-card-tag-delayed">15분 지연</span>'
+    : '<span class="our-card-tag">실시간 ●</span>';
+  el.innerHTML = `
+    <div class="our-card-inner">
+      <div class="our-card-head">
+        <span class="our-card-symbol">${escapeHtml(q.symbol)}</span>
+        ${tag}
+      </div>
+      <div class="our-card-sub">${escapeHtml(q.name)} · ${escapeHtml(q.exchange)}</div>
+      <div class="our-card-price">${fmtPrice(q.price)}</div>
+      <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
+    </div>
+  `;
+}
+
+function loadUS() {
+  fetch("data/us_quotes.json?v=" + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
+    .then(p => {
+      const quotes = p.quotes || [];
+      const baseEl = document.getElementById("basedate");
+      if (baseEl) baseEl.innerHTML = "갱신 <b>" + (p.fetched_at || "—") + "</b>";
+      for (const q of quotes) renderUsCard(q);
+    })
+    .catch(err => {
+      for (const k of ["NQ","ES","GC","DXY"]) {
+        const el = document.getElementById("us-card-" + k);
+        if (el) el.innerHTML = '<div class="empty-card">로딩 실패: ' + escapeHtml(String(err)) + '</div>';
+      }
+    });
+}
+loadUS();
+setInterval(loadUS, 5 * 60 * 1000);
 
 // 허브 테마 신호 수신
 function _normalizeHubTheme(t) {
