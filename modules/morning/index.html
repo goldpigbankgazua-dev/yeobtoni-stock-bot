@@ -151,91 +151,12 @@ footer a { color:var(--accent); text-decoration:none; }
 </div>
 
 <script>
-const STATE_LABEL = {
-  REGULAR: { text: "거래 중", cls: "live" },
-  PRE:     { text: "장 전",   cls: "live" },
-  POST:    { text: "시간외",  cls: "live" },
-  CLOSED:  { text: "장 마감", cls: "closed" },
-  PREPRE:  { text: "장 전",   cls: "live" },
-  POSTPOST:{ text: "시간외",  cls: "live" },
-};
-
-function fmtPrice(n) {
-  if (n == null || isNaN(n)) return "—";
-  return Number(n).toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-function fmtChange(n) {
-  if (n == null || isNaN(n)) return "—";
-  const sign = n >= 0 ? "+" : "";
-  return sign + Number(n).toLocaleString("ko-KR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-function fmtPct(p) {
-  if (p == null || isNaN(p)) return "—";
-  const sign = p >= 0 ? "+" : "";
-  return sign + p.toFixed(2) + "%";
-}
-
-function render(payload) {
-  const grid = document.getElementById("grid");
-  const baseEl = document.getElementById("basedate");
-  baseEl.innerHTML = "갱신 <b>" + (payload.fetched_at || "—") + "</b>";
-
-  const quotes = payload.quotes || [];
-  if (!quotes.length) {
-    grid.innerHTML = '<div class="empty">데이터 없음</div>';
-    return;
-  }
-
-  grid.innerHTML = quotes.map(q => {
-    const dir = q.change > 0 ? "up" : (q.change < 0 ? "down" : "flat");
-    const st = STATE_LABEL[q.state] || { text: q.state || "—", cls: "closed" };
-    const badge = q.delayed
-      ? '<span class="card-badge delayed">15분 지연</span>'
-      : '<span class="card-badge realtime">실시간</span>';
-    return `
-      <div class="card">
-        ${badge}
-        <div class="card-name">${escapeHtml(q.name)}</div>
-        <div class="card-meta">
-          <b>${escapeHtml(q.symbol)}</b><span class="dot">·</span>
-          ${escapeHtml(q.exchange)}<span class="dot">·</span>
-          <span class="state ${st.cls}">${st.text}</span>
-        </div>
-        <div class="card-price">${fmtPrice(q.price)}</div>
-        <div class="card-change ${dir}">${fmtChange(q.change)} &nbsp; ${fmtPct(q.change_pct)}</div>
-      </div>
-    `;
-  }).join("");
-}
-
+// (우리 카드/WSS 코드 제거 — 모든 종목 TradingView Single Quote 위젯으로 통일)
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 }
 
-// ============================================================
-// state — K200 야간 (WSS 실시간) 만 우리 카드. 미국 선물은 TradingView 위젯.
-// ============================================================
-let k200Quote = null;
-let lastFetchedAt = "—";
-
-function mergeAndRender() {
-  const merged = k200Quote ? [k200Quote] : [];
-  render({ fetched_at: lastFetchedAt, quotes: merged });
-}
-
-// ============================================================
-// K200 야간선물 WSS 직결 (Lightsail KIS H0MFCNT0)
-// ============================================================
-const NGT_WSS = "wss://ip-172-26-1-188.tail6e4c31.ts.net/ngt";
-const K200_META = {
-  key: "K200",
-  name: "K200 야간선물",
-  symbol: "1A01609",
-  exchange: "KRX 야간",
-  delayed: false,
-};
-let ngtWs = null;
-let ngtPrev = null;  // 전일 종가 (tick 에 없으므로 첫 tick 의 price - vrss 로 추정)
+// (K200 WSS 직결 제거 — TradingView 위젯으로 통일)
 
 function connectNgt() {
   try {
