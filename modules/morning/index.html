@@ -10,13 +10,17 @@
   --bg:#f8fafc; --card:#ffffff; --thead:#f1f5f9; --line:#e2e8f0; --line-soft:#eef2f6;
   --text:#1a1d24; --text-strong:#0f172a; --muted:#64748b; --muted-2:#94a3b8;
   --accent:#0ea5e9; --accent-soft:rgba(14,165,233,.10);
-  --up:#dc2626; --down:#2563eb;
+  --up:#ef2d2d; --down:#1d6cff;   /* 더 쨍한 빨강/파랑 */
+  --live:#16a34a; --live-bg:rgba(22,163,74,.12);
+  --closed:#94a3b8; --closed-bg:rgba(148,163,184,.12);
 }
 :root[data-theme="dark"], body.theme-dark {
   --bg:#0b1220; --card:#121a2b; --thead:#0f1626; --line:#1f2a44; --line-soft:#192238;
   --text:#cbd5e1; --text-strong:#f1f5f9; --muted:#94a3b8; --muted-2:#64748b;
   --accent:#00d4a4; --accent-soft:rgba(0,212,164,.12);
-  --up:#f87171; --down:#60a5fa;
+  --up:#ff4d4f; --down:#4d8bff;
+  --live:#22c55e; --live-bg:rgba(34,197,94,.14);
+  --closed:#94a3b8; --closed-bg:rgba(148,163,184,.10);
 }
 :root[data-theme="green"], body.theme-green {
   --bg:#ecfdf5; --card:#ffffff; --thead:#f0fdf4; --line:#a7f3d0; --line-soft:#d1fae5;
@@ -90,12 +94,14 @@ footer a { color:var(--accent); text-decoration:none; }
 .empty { text-align:center; color:var(--muted); font-size:13px; padding:40px 20px; }
 
 /* 섹션 (글로벌 선물 / 달러 · 환율 · 금) */
-.cards-section { margin-top:24px; }
-.cards-section:first-of-type { margin-top:18px; }
-.section-title { font-size:15px; font-weight:700; color:var(--text-strong);
-  margin:0 0 2px 0; letter-spacing:-.005em; }
-.section-desc { color:var(--muted); font-size:12px; margin:0 0 12px 0; }
-.tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+.cards-section { margin-top:28px; }
+.cards-section:first-of-type { margin-top:20px; }
+.section-header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.section-title { font-size:16px; font-weight:700; color:var(--text-strong);
+  margin:0 0 3px 0; letter-spacing:-.005em; }
+.section-desc { color:var(--muted); font-size:12px; margin:0; }
+.section-count { color:var(--muted); font-size:12px; flex-shrink:0; align-self:flex-start; padding-top:2px; }
+.tv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
 .tv-card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px;
   box-shadow:0 1px 3px rgba(15,23,42,.04); overflow:hidden; min-height:140px; }
 .tv-card .tradingview-widget-container { min-height:130px; }
@@ -104,12 +110,15 @@ footer a { color:var(--accent); text-decoration:none; }
 .our-card-inner { padding:12px 14px 10px; }
 .our-card-head { display:flex; align-items:center; justify-content:space-between; }
 .our-card-name { font-size:15px; font-weight:700; color:var(--text-strong); letter-spacing:-.005em; }
-.our-card-tag { font-size:10px; font-weight:600; color:#16a34a; letter-spacing:.02em; white-space:nowrap; }
-.our-card-tag-delayed { color:var(--muted); }
-.our-card-ticker { color:var(--muted); font-size:11px; margin-top:2px; letter-spacing:.01em; }
-/* 옛 class 호환 (혹시 잔존) */
+.our-card-tag { font-size:10px; font-weight:700; letter-spacing:.02em; white-space:nowrap;
+  padding:3px 8px; border-radius:999px; border:1px solid transparent; }
+.our-card-tag.live { color:var(--live); background:var(--live-bg); border-color:var(--live-bg); }
+.our-card-tag.closed { color:var(--closed); background:var(--closed-bg); border-color:var(--closed-bg); }
+.our-card-ticker { color:var(--muted); font-size:11px; margin-top:3px; letter-spacing:.01em; }
+/* 옛 class 호환 */
 .our-card-symbol { font-size:15px; font-weight:700; color:var(--text-strong); }
 .our-card-sub { color:var(--muted); font-size:11px; margin-top:2px; }
+.our-card-tag-delayed { color:var(--closed); }
 .our-card-price { font-size:28px; font-weight:700; color:var(--text-strong);
   font-variant-numeric:tabular-nums; margin-top:14px; letter-spacing:-.01em; line-height:1; }
 .our-card-change { margin-top:6px; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
@@ -131,8 +140,13 @@ footer a { color:var(--accent); text-decoration:none; }
 
   <!-- 섹션 1: 글로벌 선물 -->
   <section class="cards-section">
-    <h2 class="section-title">글로벌 선물</h2>
-    <p class="section-desc">K200 야간선물 + 미국 야간 선물 — 한국 시장 방향성</p>
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">글로벌 선물</h2>
+        <p class="section-desc">코스피 야간선물 + 미국 선물</p>
+      </div>
+      <span class="section-count">3개 종목</span>
+    </div>
     <div class="tv-grid">
       <div class="tv-card" id="k200-card"><div class="empty-card">K200 야간선물 연결 중…</div></div>
       <div class="tv-card" id="us-card-NQ"><div class="empty-card">로딩 중…</div></div>
@@ -142,8 +156,13 @@ footer a { color:var(--accent); text-decoration:none; }
 
   <!-- 섹션 2: 달러 · 환율 · 금 -->
   <section class="cards-section">
-    <h2 class="section-title">달러 · 환율 · 금</h2>
-    <p class="section-desc">달러 인덱스 + 원/달러 환율 + 금 — 매크로 흐름</p>
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">달러 · 환율 · 금</h2>
+        <p class="section-desc">달러 인덱스 + 원/달러 환율 + 금</p>
+      </div>
+      <span class="section-count">3개 종목</span>
+    </div>
     <div class="tv-grid">
       <div class="tv-card" id="us-card-DXY"><div class="empty-card">로딩 중…</div></div>
       <div class="tv-card" id="us-card-KRW"><div class="empty-card">로딩 중…</div></div>
