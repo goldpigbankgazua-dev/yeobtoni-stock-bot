@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-15 04:25:03",
+  "fetched_at": "2026-06-15 04:30:04",
   "count": 5,
   "quotes": [
     {
@@ -8,9 +8,9 @@
       "symbol": "NQ=F",
       "exchange": "CME",
       "price": 29662.0,
-      "previous": 29464.75,
-      "change": 197.25,
-      "change_pct": 0.67,
+      "previous": 29662.0,
+      "change": 0.0,
+      "change_pct": 0.0,
       "state": "REGULAR",
       "market_ts": 1781297997,
       "source": "yahoo (via CF Worker)",
@@ -22,9 +22,9 @@
       "symbol": "ES=F",
       "exchange": "CME",
       "price": 7435.0,
-      "previous": 7396.0,
-      "change": 39.0,
-      "change_pct": 0.53,
+      "previous": 7435.0,
+      "change": 0.0,
+      "change_pct": 0.0,
       "state": "REGULAR",
       "market_ts": 1781297999,
       "source": "yahoo (via CF Worker)",
