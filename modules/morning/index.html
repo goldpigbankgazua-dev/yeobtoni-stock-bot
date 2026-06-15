@@ -254,6 +254,13 @@ function renderK200(q) {
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
   `;
+  // 깜박 효과 — K200 도 us 카드처럼 1.5초마다 미세 nudge + flash
+  liveBase["K200"] = {
+    price: q.price,
+    change: q.change,
+    change_pct: q.change_pct,
+    closed: tag.cls === "closed",
+  };
 }
 
 function loadNgt() {
