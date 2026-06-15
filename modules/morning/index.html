@@ -299,6 +299,9 @@ function makeTag(q) {
 
 // 깜박 효과용 base 값 저장 (5분 fetch 마다 새 ground truth)
 const liveBase = {};  // {key: {price, change, change_pct, closed}}
+// 카드 key → DOM id 매핑 (us-card-* 가 기본, K200 만 별도)
+const CARD_ID_OVERRIDE = { K200: "k200-card" };
+function cardIdFor(k) { return CARD_ID_OVERRIDE[k] || ("us-card-" + k); }
 
 function renderUsCard(q) {
   const el = document.getElementById("us-card-" + q.key);
@@ -329,7 +332,7 @@ function tickLive() {
   for (const k of Object.keys(liveBase)) {
     const b = liveBase[k];
     if (!b || b.closed || b.price == null) continue;
-    const el = document.getElementById("us-card-" + k);
+    const el = document.getElementById(cardIdFor(k));
     if (!el) continue;
     const priceEl = el.querySelector(".our-card-price");
     const changeEl = el.querySelector(".our-card-change");
