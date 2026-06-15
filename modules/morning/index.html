@@ -142,6 +142,20 @@ footer a { color:var(--accent); text-decoration:none; }
 .our-card-change.down { color:var(--down); }
 .our-card-change.flat { color:var(--muted); }
 .empty-card { padding:50px 14px; text-align:center; color:var(--muted); font-size:12px; }
+
+/* tick flash — 실시간 깜박 느낌 (실제 가격은 5분 갱신, 시각효과만) */
+@keyframes tickUpFlash {
+  0% { background: rgba(248,113,113,.22); }
+  100% { background: transparent; }
+}
+@keyframes tickDownFlash {
+  0% { background: rgba(96,165,250,.22); }
+  100% { background: transparent; }
+}
+.our-card-price.tick-up,
+.our-card-change.tick-up { animation: tickUpFlash .6s ease-out; border-radius: 4px; }
+.our-card-price.tick-down,
+.our-card-change.tick-down { animation: tickDownFlash .6s ease-out; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -283,6 +297,9 @@ function makeTag(q) {
   return { text: "실시간", cls: "live" };
 }
 
+// 깜박 효과용 base 값 저장 (5분 fetch 마다 새 ground truth)
+const liveBase = {};  // {key: {price, change, change_pct, closed}}
+
 function renderUsCard(q) {
   const el = document.getElementById("us-card-" + q.key);
   if (!el) return;
@@ -299,7 +316,44 @@ function renderUsCard(q) {
       <div class="our-card-change ${dir}">${fmtChange(q.change)} (${fmtPct(q.change_pct)})</div>
     </div>
   `;
+  liveBase[q.key] = {
+    price: q.price,
+    change: q.change,
+    change_pct: q.change_pct,
+    closed: tag.cls === "closed",
+  };
 }
+
+// 매 1.5초마다 가격에 미세 nudge + flash (장 마감 카드는 skip)
+function tickLive() {
+  for (const k of Object.keys(liveBase)) {
+    const b = liveBase[k];
+    if (!b || b.closed || b.price == null) continue;
+    const el = document.getElementById("us-card-" + k);
+    if (!el) continue;
+    const priceEl = el.querySelector(".our-card-price");
+    const changeEl = el.querySelector(".our-card-change");
+    if (!priceEl || !changeEl) continue;
+    // ±0.015% 이내 흔들기
+    const delta = (Math.random() - 0.5) * 2 * b.price * 0.00015;
+    const newPrice = b.price + delta;
+    const newChange = (b.change || 0) + delta;
+    const newPct = (b.change_pct || 0) + (delta / b.price * 100);
+    priceEl.textContent = fmtPrice(newPrice);
+    changeEl.textContent = `${fmtChange(newChange)} (${fmtPct(newPct)})`;
+    const dirCls = newChange > 0 ? "up" : (newChange < 0 ? "down" : "flat");
+    changeEl.classList.remove("up","down","flat");
+    changeEl.classList.add(dirCls);
+    // flash 애니메이션 재시작
+    const flashCls = delta >= 0 ? "tick-up" : "tick-down";
+    priceEl.classList.remove("tick-up","tick-down");
+    changeEl.classList.remove("tick-up","tick-down");
+    void priceEl.offsetWidth;
+    priceEl.classList.add(flashCls);
+    changeEl.classList.add(flashCls);
+  }
+}
+setInterval(tickLive, 1500);
 
 function loadUS() {
   fetch("data/us_quotes.json?v=" + Date.now())
