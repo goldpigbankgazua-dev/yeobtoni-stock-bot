@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-18 06:55:03",
+  "fetched_at": "2026-06-18 07:00:05",
   "count": 5,
   "quotes": [
     {
@@ -35,12 +35,12 @@
       "name": "달러 지수",
       "symbol": "DX-Y.NYB",
       "exchange": "ICE",
-      "price": 100.38,
+      "price": 100.36,
       "previous": 99.54,
-      "change": 0.84,
-      "change_pct": 0.85,
+      "change": 0.82,
+      "change_pct": 0.83,
       "state": "REGULAR",
-      "market_ts": 1781732701,
+      "market_ts": 1781733003,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
