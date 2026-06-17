@@ -442,51 +442,12 @@ document.getElementById("retSel").addEventListener("change", function(e){
 
 // ─── 발견일 기간 필터 — 3 tbody 모두 (눌림목, 52주, 거래량 급증) ───
 function applyPeriodFilter(period) {
-  // "오늘" = 스크리닝 실행일 (basedate에서 추출)
-  const baseEl = document.querySelector("header .basedate b");
-  const today = (baseEl && baseEl.textContent.trim()) || new Date().toISOString().slice(0, 10);
-  const todayD = new Date(today + "T00:00:00");
-  let cutoff;
-  if (period === "today") {
-    cutoff = today;
-  } else if (period === "1w") {
-    const d = new Date(todayD); d.setDate(d.getDate() - 6); cutoff = d.toISOString().slice(0, 10);
-  } else if (period === "1m") {
-    const d = new Date(todayD); d.setDate(d.getDate() - 29); cutoff = d.toISOString().slice(0, 10);
-  } else {
-    cutoff = "0000-00-00";
-  }
-
-  // 각 tbody 별로 독립적으로 필터 + 번호 재매김 (1부터 다시)
-  ["tbody", "tbodyHigh", "tbodyVolume"].forEach(tbodyId => {
-    const tbody = document.getElementById(tbodyId);
-    if (!tbody) return;
-    const rows = Array.from(tbody.querySelectorAll("tr[data-first-seen]"));
-    rows.forEach(r => {
-      const fs = r.dataset.firstSeen;
-      const show = period === "today" ? fs === cutoff : fs >= cutoff;
-      r.dataset.periodHidden = show ? "0" : "1";
-      r.style.display = show ? "" : "none";
-    });
-    let n = 0;
-    rows.forEach(r => {
-      if (r.style.display === "none") return;
-      n++;
-      const idxCell = r.querySelector("td.idx");
-      if (idxCell) idxCell.textContent = n;
-    });
+  /* disabled by builder swap — 모든 tr 항상 visible */
+  document.querySelectorAll("#tbody tr[data-first-seen], #tbodyHigh tr[data-first-seen], #tbodyVolume tr[data-first-seen]").forEach(function(r){
+    r.dataset.periodHidden = "0";
+    r.style.display = "";
   });
 
-  // 탭 카운트 갱신
-  ["cntPullback", "cntW52", "cntVolSurge"].forEach((cntId, i) => {
-    const tbodyId = ["tbody","tbodyHigh","tbodyVolume"][i];
-    const tbody = document.getElementById(tbodyId);
-    const el = document.getElementById(cntId);
-    if (tbody && el) {
-      const visible = tbody.querySelectorAll('tr[data-first-seen]:not([style*="display: none"])').length;
-      el.textContent = visible;
-    }
-  });
 }
 
 const _periodSel = document.getElementById("periodSel");
