@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-18 06:20:04",
+  "fetched_at": "2026-06-18 06:25:03",
   "count": 5,
   "quotes": [
     {
@@ -38,9 +38,9 @@
       "price": 100.38,
       "previous": 99.54,
       "change": 0.84,
-      "change_pct": 0.85,
+      "change_pct": 0.84,
       "state": "REGULAR",
-      "market_ts": 1781730600,
+      "market_ts": 1781730900,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -54,7 +54,7 @@
       "change": 19.16,
       "change_pct": 1.27,
       "state": "REGULAR",
-      "market_ts": 1781730801,
+      "market_ts": 1781731291,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
