@@ -1283,18 +1283,32 @@ kisConnect();
       // replace trailing "— 종목" pattern with actual count
       bd.innerHTML = bd.innerHTML.replace(/· [^<]*종목/, "· " + data.total_count + "종목");
     }
-    // re-init period filter binding + activate default sub-tab + load default chart
+    // re-init period filter binding
     try { if (typeof applyPeriodFilter === "function") applyPeriodFilter(); } catch(_){}
-    try { if (typeof bindRowEvents === "function") bindRowEvents(); } catch(_){}
-    // Activate default pattern tab
+    // Re-bind row click handlers — original IIFE ran on empty skeleton, so rows that arrived via fetch have no listeners yet
+    document.querySelectorAll("#tbody tr[data-symbol], #tbodyHigh tr[data-symbol], #tbodyVolume tr[data-symbol]").forEach(function(row){
+      row.addEventListener("click", function(){
+        document.querySelectorAll("tr.sel").forEach(function(r){ r.classList.remove("sel"); });
+        row.classList.add("sel");
+        try { loadChart(row.dataset.symbol, row.dataset.name, row.dataset.code); } catch(_){}
+        if (row.dataset.code && typeof kisSubscribe === "function") {
+          try { kisSubscribe(row.dataset.code); } catch(_){}
+        }
+      });
+    });
+    // Activate default pattern tab (.pat-tab click handler was bound to button — safe to invoke)
     try {
       var firstBtn = document.querySelector(".pat-tab[data-pat=\"pullback\"]");
       if (firstBtn) firstBtn.click();
     } catch(_){}
-    // Trigger first row to render chart
+    // Auto-load chart for first row
     try {
       var firstRow = document.querySelector("#tbody tr[data-code]");
-      if (firstRow) firstRow.click();
+      if (firstRow) {
+        document.querySelectorAll("tr.sel").forEach(function(r){ r.classList.remove("sel"); });
+        firstRow.classList.add("sel");
+        if (typeof loadChart === "function") loadChart(firstRow.dataset.symbol, firstRow.dataset.name, firstRow.dataset.code);
+      }
     } catch(_){}
   } catch (err) {
     console.error("[chart] data load failed:", err);
