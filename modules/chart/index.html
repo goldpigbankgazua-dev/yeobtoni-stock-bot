@@ -661,7 +661,7 @@ function loadChart(symbol, name, code) {
   destroyLW();
   container.innerHTML = "";
   container.style.width = "100%";
-  container.style.height = (window.innerWidth <= 720 ? "400px" : "760px");
+  container.style.height = (window.innerWidth <= 720 ? "360px" : "640px");
   const data = STOCK_DATA[code];
   if (!data || !data.close || !data.close.length) {
     container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:'+cssVar('--muted')+';font-size:13px">차트 데이터 없음</div>';
@@ -679,7 +679,7 @@ function loadChart(symbol, name, code) {
   // 가격축 라벨이 우측 끝에 닿아 잘리는 거 방지 — viewport·container 두 기준 모두에서 안전마진
   const _reserve = _isMobile0 ? 80 : 50;
   const _w = Math.max(Math.min(_rawW, window.innerWidth) - _reserve, 280);
-  const _isMobile = window.innerWidth <= 720; const _defaultH = _isMobile ? 400 : 760; const _minH = _isMobile ? 320 : 520; const _h = Math.max(_rect0.height || container.clientHeight || _defaultH, _minH);
+  const _isMobile = window.innerWidth <= 720; const _defaultH = _isMobile ? 360 : 640; const _minH = _isMobile ? 280 : 460; const _h = Math.max(_rect0.height || container.clientHeight || _defaultH, _minH);
   lwChart = LightweightCharts.createChart(container, {
     width: _w, height: _h,
     autoSize: false,
@@ -783,7 +783,7 @@ function loadChart(symbol, name, code) {
     if (!lwChart || !container) return;
     const r = container.getBoundingClientRect();
     const w = Math.max(r.width || container.clientWidth || (window.innerWidth - 32) || 320, 1);
-    const _mobile2 = window.innerWidth <= 720; const _defH2 = _mobile2 ? 400 : 760; const h = Math.max(r.height || container.clientHeight || _defH2, 1);
+    const _mobile2 = window.innerWidth <= 720; const _defH2 = _mobile2 ? 360 : 640; const h = Math.max(r.height || container.clientHeight || _defH2, 1);
     try {
       lwChart.applyOptions({ width: w, height: h });
       // fitContent 제거 — 봉이 다시 압축되지 않도록
