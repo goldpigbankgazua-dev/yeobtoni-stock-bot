@@ -58,7 +58,7 @@ html,body { margin:0; padding:0; background:var(--bg); color:var(--ink);
   font-feature-settings:"tnum" 1; -webkit-font-smoothing:antialiased; line-height:1.55;
   -webkit-text-size-adjust:100%;
   transition:background .15s ease, color .15s ease; }
-.wrap { max-width:1240px; margin:0 auto; padding:20px 20px 64px; }
+.wrap { max-width:1480px; margin:0 auto; padding:20px 20px 64px; }
 
 header { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
 header .titles { flex:1; min-width:200px; }
@@ -677,7 +677,7 @@ function loadChart(symbol, name, code) {
   const _rawW = _rect0.width || container.clientWidth || container.parentElement?.clientWidth || window.innerWidth - 32;
   const _isMobile0 = window.innerWidth <= 720;
   // 가격축 라벨이 우측 끝에 닿아 잘리는 거 방지 — viewport·container 두 기준 모두에서 안전마진
-  const _reserve = _isMobile0 ? 120 : 100;
+  const _reserve = _isMobile0 ? 80 : 50;
   const _w = Math.max(Math.min(_rawW, window.innerWidth) - _reserve, 280);
   const _isMobile = window.innerWidth <= 720; const _defaultH = _isMobile ? 400 : 760; const _minH = _isMobile ? 320 : 520; const _h = Math.max(_rect0.height || container.clientHeight || _defaultH, _minH);
   lwChart = LightweightCharts.createChart(container, {
