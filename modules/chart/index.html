@@ -59,6 +59,11 @@ html,body { margin:0; padding:0; background:var(--bg); color:var(--ink);
   -webkit-text-size-adjust:100%;
   transition:background .15s ease, color .15s ease; }
 .wrap { max-width:1480px; margin:0 auto; padding:20px 20px 64px; }
+@media (max-width:720px) {
+  .wrap { padding:14px 6px 48px; }
+  .chart-card { border-radius:8px; }
+  .chart-head { padding:8px 10px; }
+}
 
 header { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
 header .titles { flex:1; min-width:200px; }
@@ -677,7 +682,7 @@ function loadChart(symbol, name, code) {
   const _rawW = _rect0.width || container.clientWidth || container.parentElement?.clientWidth || window.innerWidth - 32;
   const _isMobile0 = window.innerWidth <= 720;
   // 가격축 라벨이 우측 끝에 닿아 잘리는 거 방지 — viewport·container 두 기준 모두에서 안전마진
-  const _reserve = _isMobile0 ? 80 : 50;
+  const _reserve = _isMobile0 ? 24 : 50;
   const _w = Math.max(Math.min(_rawW, window.innerWidth) - _reserve, 280);
   const _isMobile = window.innerWidth <= 720; const _defaultH = _isMobile ? 360 : 640; const _minH = _isMobile ? 280 : 460; const _h = Math.max(_rect0.height || container.clientHeight || _defaultH, _minH);
   lwChart = LightweightCharts.createChart(container, {
@@ -693,8 +698,12 @@ function loadChart(symbol, name, code) {
       horzLines: { color: c.grid },
     },
     rightPriceScale: { borderColor: c.grid, scaleMargins: { top: 0.03, bottom: 0.22 }, autoScale: true, entireTextOnly: true },
-    timeScale: { borderColor: c.grid, timeVisible: false, secondsVisible: false, rightOffset: 9, barSpacing: 7 },
-    crosshair: { mode: 0 },
+    timeScale: { borderColor: c.grid, timeVisible: true, secondsVisible: false, rightOffset: 9, barSpacing: 7 },
+    crosshair: {
+      mode: 0,
+      vertLine: { labelVisible: true, labelBackgroundColor: cssVar('--ink') || '#0f172a' },
+      horzLine: { labelVisible: true, labelBackgroundColor: cssVar('--ink') || '#0f172a' }
+    },
   });
 
   // Build candle series (1D / 1W / 1M)
