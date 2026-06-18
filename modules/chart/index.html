@@ -1285,9 +1285,12 @@ kisConnect();
     }
     // re-init period filter binding
     try { if (typeof applyPeriodFilter === "function") applyPeriodFilter(); } catch(_){}
-    // Re-bind row click handlers — original IIFE ran on empty skeleton, so rows that arrived via fetch have no listeners yet
-    document.querySelectorAll("#tbody tr[data-symbol], #tbodyHigh tr[data-symbol], #tbodyVolume tr[data-symbol]").forEach(function(row){
-      row.addEventListener("click", function(){
+    // Delegated row click handler — robust against innerHTML replacements and rebinds
+    if (!window.__chartRowDelegated) {
+      window.__chartRowDelegated = true;
+      document.body.addEventListener("click", function(ev){
+        var row = ev.target.closest("#tbody tr[data-symbol], #tbodyHigh tr[data-symbol], #tbodyVolume tr[data-symbol]");
+        if (!row) return;
         document.querySelectorAll("tr.sel").forEach(function(r){ r.classList.remove("sel"); });
         row.classList.add("sel");
         try { loadChart(row.dataset.symbol, row.dataset.name, row.dataset.code); } catch(_){}
@@ -1295,7 +1298,7 @@ kisConnect();
           try { kisSubscribe(row.dataset.code); } catch(_){}
         }
       });
-    });
+    }
     // Activate default pattern tab (.pat-tab click handler was bound to button — safe to invoke)
     try {
       var firstBtn = document.querySelector(".pat-tab[data-pat=\"pullback\"]");
