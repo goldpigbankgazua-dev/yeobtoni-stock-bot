@@ -1,5 +1,17 @@
 [
   {
+    "file": "코스피_두산_AICCL전자BG_가스터빈원전지주_260620.html",
+    "market": "코스피",
+    "name": "두산",
+    "themes": [
+      "AICCL전자BG",
+      "가스터빈원전지주"
+    ],
+    "date": "2026-06-20",
+    "revision": false,
+    "pages": 1
+  },
+  {
     "file": "코스피_해성디에스_리드프레임차량용_DDR5패키지기판_260615.html",
     "market": "코스피",
     "name": "해성디에스",
