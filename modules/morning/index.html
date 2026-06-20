@@ -298,7 +298,7 @@ function isStale(q) {
 // 상태 → 라벨 결정
 function makeTag(q) {
   const stale = isStale(q);
-  const closed = stale || q.state === "CLOSED" || q.state === "POST" || q.state === "PREPRE" || q.state === "POSTPOST";
+  const closed = stale || q.state === "CLOSED" || q.state === "POST" || q.state === "PREPRE" || q.state === "POSTPOST" || q.market_status === "closed" || q.market_status === "CLOSED";
   if (closed) return { text: "장 마감", cls: "closed" };
   if (q.delayed) return { text: "실시간(15분 지연)", cls: "live" };
   return { text: "실시간", cls: "live" };
