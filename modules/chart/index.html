@@ -262,9 +262,9 @@ footer { margin-top:18px; color:var(--muted); font-size:11.5px; text-align:cente
   <div class="control">
     <label for="periodSel">기간</label>
     <select id="periodSel">
-      <option value="today">오늘만</option>
+      <option value="today" selected>오늘만</option>
       <option value="1w">최근 1주</option>
-      <option value="1m" selected>최근 1달</option>
+      <option value="1m">최근 1달</option>
       <option value="all">전체</option>
     </select>
   </div>
@@ -437,12 +437,36 @@ document.getElementById("retSel").addEventListener("change", function(e){
 
 // ─── 발견일 기간 필터 — 3 tbody 모두 (눌림목, 52주, 거래량 급증) ───
 function applyPeriodFilter(period) {
-  /* disabled by builder — 우리 builder 가 직접 cnt span swap, tr 항상 visible */
-  document.querySelectorAll("#tbody tr[data-first-seen], #tbodyHigh tr[data-first-seen], #tbodyVolume tr[data-first-seen]").forEach(r => {
-    r.dataset.periodHidden = "0";
-    r.style.display = "";
+  // local YYYY-MM-DD (UTC 변환 피함)
+  function ymd(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const dd = String(d.getDate()).padStart(2,'0');
+    return `${y}-${m}-${dd}`;
+  }
+  const today = new Date();
+  let cutoff = "0000-01-01";
+  if (period === "today") cutoff = ymd(today);
+  else if (period === "1w") { const d = new Date(today); d.setDate(today.getDate() - 6); cutoff = ymd(d); }
+  else if (period === "1m") { const d = new Date(today); d.setMonth(today.getMonth() - 1); cutoff = ymd(d); }
+  // "all" → cutoff 0000-01-01 (전체 visible)
+  const sections = [
+    {tid:"tbody",       cntId:"cntPullback"},
+    {tid:"tbodyHigh",   cntId:"cntW52"},
+    {tid:"tbodyVolume", cntId:"cntVolSurge"},
+  ];
+  sections.forEach(s => {
+    let visible = 0;
+    document.querySelectorAll("#" + s.tid + " tr[data-first-seen]").forEach(r => {
+      const fs = r.dataset.firstSeen || "";
+      const show = fs >= cutoff;
+      r.dataset.periodHidden = show ? "0" : "1";
+      r.style.display = show ? "" : "none";
+      if (show) visible++;
+    });
+    const cntEl = document.getElementById(s.cntId);
+    if (cntEl) cntEl.textContent = String(visible);
   });
-
 }
 
 const _periodSel = document.getElementById("periodSel");
