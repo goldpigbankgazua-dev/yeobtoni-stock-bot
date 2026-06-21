@@ -446,7 +446,15 @@ function applyPeriodFilter(period) {
   }
   const today = new Date();
   let cutoff = "0000-01-01";
-  if (period === "today") cutoff = ymd(today);
+  if (period === "today") {
+    // "오늘만" = 진짜 오늘이 아니라 마지막 데이터 영업일 (모든 행 중 가장 최근 first_seen)
+    let maxFs = "";
+    document.querySelectorAll("#tbody tr[data-first-seen], #tbodyHigh tr[data-first-seen], #tbodyVolume tr[data-first-seen]").forEach(r => {
+      const fs = r.dataset.firstSeen || "";
+      if (fs > maxFs) maxFs = fs;
+    });
+    cutoff = maxFs || ymd(today);
+  }
   else if (period === "1w") { const d = new Date(today); d.setDate(today.getDate() - 6); cutoff = ymd(d); }
   else if (period === "1m") { const d = new Date(today); d.setMonth(today.getMonth() - 1); cutoff = ymd(d); }
   // "all" → cutoff 0000-01-01 (전체 visible)
