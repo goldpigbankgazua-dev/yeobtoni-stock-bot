@@ -246,5 +246,16 @@
     "date": "2026-05-25",
     "revision": true,
     "pages": 22
+  },
+  {
+    "file": "밸류체인_레이아웃샘플_현대모비스.html",
+    "market": "밸류체인",
+    "name": "레이아웃샘플",
+    "themes": [
+      "현대모비스"
+    ],
+    "date": "",
+    "revision": false,
+    "pages": 1
   }
 ]

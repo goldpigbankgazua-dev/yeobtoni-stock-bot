@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>§2-2 밸류체인 강화안 - 3가지 레이아웃 샘플 (현대모비스 예시)</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.note{background:#fef9e7;border:1px solid #f39c12;padding:10px 14px;border-radius:6px;font-size:10pt;margin:10px 0}
+.src{font-size:8.5pt;color:#7f8c8d;font-style:italic}
+
+/* ===== 밸류체인 공통 ===== */
+.vc-legend{font-size:9pt;color:#555;margin:6px 0 14px}
+.vc-legend span{display:inline-block;margin-right:14px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.chip{display:inline-block;background:#eef2f7;border:1px solid #cfd8e3;border-radius:12px;padding:2px 9px;margin:3px 3px 3px 0;font-size:9pt;color:#2c3e50}
+.chip.captive{background:#e8f8f5;border-color:#1abc9c;color:#117a65;font-weight:bold}
+.chip.est{background:#f4f6f6;border-color:#bbb;color:#888;font-style:italic}
+.chip.key{background:#fef5e7;border-color:#e67e22;color:#b9560f;font-weight:bold}
+
+/* ===== A. 가로 흐름도 ===== */
+.vc-flow{display:flex;align-items:stretch;gap:0;margin:14px 0;flex-wrap:nowrap}
+.vc-col{flex:1;border-radius:8px;padding:12px;min-width:0}
+.vc-col.up{background:#fbeee6;border:2px solid #e67e22}
+.vc-col.self{background:#eaf2f8;border:2px solid #2980b9}
+.vc-col.down{background:#e8f8f5;border:2px solid #1abc9c}
+.vc-col-title{font-weight:bold;text-align:center;font-size:11pt;margin-bottom:4px}
+.vc-col.up .vc-col-title{color:#b9560f}
+.vc-col.self .vc-col-title{color:#1a5276}
+.vc-col.down .vc-col-title{color:#117a65}
+.vc-col-sub{text-align:center;font-size:8.5pt;color:#7f8c8d;margin-bottom:8px}
+.vc-node{background:white;border:1px solid #ddd;border-radius:6px;padding:8px 10px;margin:7px 0}
+.vc-node b{display:block;font-size:10pt;color:#2c3e50;margin-bottom:4px}
+.vc-arrow{display:flex;align-items:center;justify-content:center;font-size:26px;color:#7f8c8d;padding:0 4px;font-weight:bold}
+
+/* ===== B. 사업부 카드 ===== */
+.seg-card{border:2px solid #2980b9;border-radius:10px;padding:0;margin:16px 0;overflow:hidden}
+.seg-head{background:#2980b9;color:white;padding:10px 14px;font-weight:bold;font-size:11pt}
+.seg-head .rev{float:right;font-weight:normal;font-size:9.5pt;opacity:.9}
+.seg-body{display:flex;gap:0;align-items:stretch}
+.seg-cell{flex:1;padding:12px 14px;min-width:0}
+.seg-cell.up{background:#fdf3ec}
+.seg-cell.self{background:#f5f9fd}
+.seg-cell.down{background:#eefaf6}
+.seg-cell h5{margin:0 0 6px;font-size:9.5pt;letter-spacing:.5px}
+.seg-cell.up h5{color:#b9560f}
+.seg-cell.self h5{color:#1a5276}
+.seg-cell.down h5{color:#117a65}
+.seg-mini-arrow{display:flex;align-items:center;font-size:20px;color:#aaa;padding:0 2px}
+
+/* ===== C. 매입/매출처 표 ===== */
+.flow-tag{font-weight:bold}
+.flow-tag.buy{color:#e67e22}
+.flow-tag.sell{color:#1abc9c}
+
+@media(max-width:768px){
+ body{margin:12px;font-size:10pt}
+ .vc-flow{flex-direction:column}
+ .vc-arrow{transform:rotate(90deg);padding:4px 0}
+ .seg-body{flex-direction:column}
+ .seg-mini-arrow{transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>§2-2 밸류체인 강화안 — 3가지 레이아웃 샘플</h1>
+<div class="sub">예시 종목: 현대모비스 (012330.KS) · 사업부별 전·후방 산업 + 타사 + 주요 매입/매출처<br>※ 양식 검토용 데모 — 실데이터는 보고서 작성 시 DART·IR·증권사 리포트로 교차검증</div>
+</div>
+
+<div class="note">
+<b>공통 설계 원칙</b><br>
+① <b>후방산업(공급·매입처)</b> → <b>자사 사업부</b> → <b>전방산업(고객·매출처)</b> 3단 구조<br>
+② 각 단에 <b>경쟁/거래 타사명</b>을 칩으로 명시 — 캡티브(계열) <span class="chip captive" style="margin:0">초록</span> · 핵심 거래처 <span class="chip key" style="margin:0">주황</span> · 추정 <span class="chip est" style="margin:0">회색 이탤릭</span>으로 구분<br>
+③ <b>확인 가능한 거래처만</b> 기재, 불명확하면 '비공개/추정' 표기 + 출처 라인 필수
+</div>
+
+<!-- ============ 레이아웃 A ============ -->
+<h2>레이아웃 A — 가로 흐름도 (후방 → 자사 → 전방)</h2>
+<p style="font-size:10pt;color:#555">가장 직관적. 화살표로 산업 흐름을 한눈에. 사업부가 단순하거나 보고서 인쇄용으로 적합.</p>
+
+<div class="vc-legend">
+<span><span class="dot" style="background:#e67e22"></span>후방(매입)</span>
+<span><span class="dot" style="background:#2980b9"></span>자사</span>
+<span><span class="dot" style="background:#1abc9c"></span>전방(매출)</span>
+<span><span class="chip captive" style="margin:0;padding:1px 7px">계열/캡티브</span></span>
+<span><span class="chip key" style="margin:0;padding:1px 7px">핵심 거래처</span></span>
+<span><span class="chip est" style="margin:0;padding:1px 7px">추정</span></span>
+</div>
+
+<div class="vc-flow">
+  <div class="vc-col up">
+    <div class="vc-col-title">⬅ 후방산업 (공급·매입)</div>
+    <div class="vc-col-sub">자사가 사오는 원재료·부품</div>
+    <div class="vc-node"><b>배터리 셀</b>
+      <span class="chip captive">삼성SDI</span><span class="chip key">SK온</span><span class="chip key">LG에너지솔루션</span>
+    </div>
+    <div class="vc-node"><b>철강·비철금속</b>
+      <span class="chip captive">현대제철</span><span class="chip">POSCO</span><span class="chip est">고려아연</span>
+    </div>
+    <div class="vc-node"><b>반도체·전자부품</b>
+      <span class="chip est">인피니언</span><span class="chip est">NXP</span><span class="chip est">국내 팹리스</span>
+    </div>
+    <div class="vc-node"><b>화학소재(플라스틱)</b>
+      <span class="chip est">LG화학</span><span class="chip est">롯데케미칼</span>
+    </div>
+  </div>
+
+  <div class="vc-arrow">▶</div>
+
+  <div class="vc-col self">
+    <div class="vc-col-title">현대모비스 (자사)</div>
+    <div class="vc-col-sub">3대 사업부문</div>
+    <div class="vc-node"><b>모듈 및 핵심부품</b>
+      섀시·칵핏 모듈, 제동·조향·에어백
+    </div>
+    <div class="vc-node"><b>전동화(전기차 부품)</b>
+      구동모터, 배터리시스템(BSA), ICCU
+    </div>
+    <div class="vc-node"><b>A/S용 부품</b>
+      보수용 부품 글로벌 공급 (고마진)
+    </div>
+  </div>
+
+  <div class="vc-arrow">▶</div>
+
+  <div class="vc-col down">
+    <div class="vc-col-title">전방산업 (고객·매출) ➡</div>
+    <div class="vc-col-sub">자사 제품을 사가는 완성차</div>
+    <div class="vc-node"><b>캡티브 OEM</b>
+      <span class="chip captive">현대차</span><span class="chip captive">기아</span>
+    </div>
+    <div class="vc-node"><b>글로벌 OEM (비계열 수주)</b>
+      <span class="chip key">메르세데스-벤츠</span><span class="chip key">GM</span><span class="chip">폭스바겐</span><span class="chip">스텔란티스</span>
+    </div>
+    <div class="vc-node"><b>A/S 채널</b>
+      <span class="chip">현대차·기아 정비망</span><span class="chip est">글로벌 부품상</span>
+    </div>
+  </div>
+</div>
+<p class="src">📌 출처(예시): 현대모비스 사업보고서(DART, 2025) · 회사 IR 자료. 추정 항목은 회색 이탤릭으로 별도 표기.</p>
+
+<!-- ============ 레이아웃 B ============ -->
+<h2>레이아웃 B — 사업부별 카드 + 미니 흐름도</h2>
+<p style="font-size:10pt;color:#555">사업부가 2~3개로 뚜렷하고 사업부마다 전·후방이 다를 때 최적. 사업부별로 밸류체인이 분리돼 보임.</p>
+
+<div class="seg-card">
+  <div class="seg-head">① 모듈 및 핵심부품 <span class="rev">매출 비중 약 55% (예시)</span></div>
+  <div class="seg-body">
+    <div class="seg-cell up"><h5>◀ 후방 (매입)</h5>
+      <span class="chip captive">현대제철</span><span class="chip">POSCO</span><span class="chip est">알루미늄·플라스틱 소재사</span>
+    </div>
+    <div class="seg-mini-arrow">▶</div>
+    <div class="seg-cell self"><h5>자사 생산</h5>
+      섀시·칵핏 모듈 조립, 제동·조향·에어백 등 핵심부품. <span class="src">경쟁사: 만도·HL만도, 보쉬, 콘티넨탈, 덴소</span>
+    </div>
+    <div class="seg-mini-arrow">▶</div>
+    <div class="seg-cell down"><h5>전방 (매출) ▶</h5>
+      <span class="chip captive">현대차</span><span class="chip captive">기아</span><span class="chip key">글로벌 OEM 일부</span>
+    </div>
+  </div>
+</div>
+
+<div class="seg-card" style="border-color:#8e44ad">
+  <div class="seg-head" style="background:#8e44ad">② 전동화 (전기차 부품) <span class="rev">매출 비중 약 20%·고성장 (예시)</span></div>
+  <div class="seg-body">
+    <div class="seg-cell up"><h5>◀ 후방 (매입)</h5>
+      <span class="chip captive">삼성SDI</span><span class="chip key">SK온</span><span class="chip key">LG에너지솔루션</span><span class="chip est">전력반도체</span>
+    </div>
+    <div class="seg-mini-arrow">▶</div>
+    <div class="seg-cell self"><h5>자사 생산</h5>
+      구동모터, 배터리시스템(BSA), ICCU·인버터. <span class="src">경쟁사: LG마그나, 보쉬, 비테스코, 일본·중국 부품사</span>
+    </div>
+    <div class="seg-mini-arrow">▶</div>
+    <div class="seg-cell down"><h5>전방 (매출) ▶</h5>
+      <span class="chip captive">현대차·기아 E-GMP</span><span class="chip key">글로벌 OEM 수주</span>
+    </div>
+  </div>
+</div>
+
+<div class="seg-card" style="border-color:#1abc9c">
+  <div class="seg-head" style="background:#1abc9c">③ A/S용 부품 <span class="rev">매출 비중 약 25%·고마진 캐시카우 (예시)</span></div>
+  <div class="seg-body">
+    <div class="seg-cell up"><h5>◀ 후방 (매입)</h5>
+      <span class="chip">자사 생산분 + 외주 협력사</span><span class="chip est">중소 부품 협력사</span>
+    </div>
+    <div class="seg-mini-arrow">▶</div>
+    <div class="seg-cell self"><h5>자사 유통</h5>
+      전 세계 보수용 부품 물류·공급망 운영
+    </div>
+    <div class="seg-mini-arrow">▶</div>
+    <div class="seg-cell down"><h5>전방 (매출) ▶</h5>
+      <span class="chip captive">현대차·기아 글로벌 정비망</span><span class="chip est">해외 부품 도매상</span>
+    </div>
+  </div>
+</div>
+<p class="src">📌 출처(예시): 현대모비스 사업보고서(DART, 2025) 부문별 매출. 비중·경쟁사는 보고서 작성 시 실수치로 교체.</p>
+
+<!-- ============ 레이아웃 C ============ -->
+<h2>레이아웃 C — 흐름도 + 주요 매입/매출처 표</h2>
+<p style="font-size:10pt;color:#555">정보량 최대. 위에 흐름도(레이아웃 A 축약), 아래에 거래처·비중·관계·출처를 표로. 분석 깊이를 가장 중시할 때.</p>
+
+<div class="vc-flow" style="margin-bottom:8px">
+  <div class="vc-col up" style="padding:8px">
+    <div class="vc-col-title" style="font-size:10pt">후방 (매입)</div>
+    <span class="chip key">배터리셀 3사</span><span class="chip captive">현대제철</span><span class="chip est">반도체·소재</span>
+  </div>
+  <div class="vc-arrow" style="font-size:20px">▶</div>
+  <div class="vc-col self" style="padding:8px">
+    <div class="vc-col-title" style="font-size:10pt">현대모비스</div>
+    <span class="chip">모듈·핵심부품</span><span class="chip">전동화</span><span class="chip">A/S</span>
+  </div>
+  <div class="vc-arrow" style="font-size:20px">▶</div>
+  <div class="vc-col down" style="padding:8px">
+    <div class="vc-col-title" style="font-size:10pt">전방 (매출)</div>
+    <span class="chip captive">현대차·기아</span><span class="chip key">글로벌 OEM</span>
+  </div>
+</div>
+
+<h4>주요 매입처 (후방)</h4>
+<table>
+<tr><th>거래처</th><th>매입 품목</th><th>관계</th><th>추정 비중</th><th>출처</th></tr>
+<tr><td>삼성SDI</td><td>배터리 셀</td><td><span class="flow-tag buy">전동화 핵심</span></td><td>비공개</td><td>IR·업계</td></tr>
+<tr><td>SK온 / LG에너지솔루션</td><td>배터리 셀</td><td>복수 공급</td><td>비공개</td><td>업계 보도</td></tr>
+<tr><td>현대제철</td><td>철강(강판)</td><td><span class="chip captive" style="margin:0">계열</span></td><td>비공개</td><td>DART</td></tr>
+<tr><td style="color:#888;font-style:italic">반도체·소재사(추정)</td><td style="color:#888">전력반도체·플라스틱</td><td style="color:#888">추정</td><td style="color:#888">—</td><td style="color:#888">추정</td></tr>
+</table>
+
+<h4>주요 매출처 (전방)</h4>
+<table>
+<tr><th>거래처</th><th>공급 제품</th><th>관계</th><th>추정 비중</th><th>출처</th></tr>
+<tr><td>현대자동차</td><td>모듈·핵심부품·전동화·A/S</td><td><span class="chip captive" style="margin:0">캡티브</span></td><td class="positive">매우 높음</td><td>DART 사업보고서</td></tr>
+<tr><td>기아</td><td>모듈·핵심부품·전동화·A/S</td><td><span class="chip captive" style="margin:0">캡티브</span></td><td class="positive">높음</td><td>DART 사업보고서</td></tr>
+<tr><td>메르세데스-벤츠 / GM</td><td>전동화·핵심부품(수주)</td><td><span class="flow-tag sell">비계열 확대</span></td><td>증가 추세</td><td>회사 IR·보도</td></tr>
+<tr><td>폭스바겐 / 스텔란티스</td><td>부품 수주</td><td>비계열</td><td>비공개</td><td>보도</td></tr>
+</table>
+<p class="src">📌 출처(예시): DART 사업보고서(2025) 매출처 주석 · 현대모비스 IR · 언론 보도. '비공개'는 공시 미기재, '추정'은 업계 통념 기반 — 실제 보고서에선 확인분만 단정 기재.</p>
+
+<div class="footer" style="text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd">
+양식 검토용 데모 · 데이터는 예시이며 실제 수치 아님 · 표준 양식 픽스 검토용 — 2026.06.21
+</div>
+
+</body>
+</html>
