@@ -437,6 +437,10 @@ document.getElementById("retSel").addEventListener("change", function(e){
 
 // ─── 발견일 기간 필터 — 3 tbody 모두 (눌림목, 52주, 거래량 급증) ───
 function applyPeriodFilter(period) {
+  // 인자 없이 호출 시 periodSel 의 현재 값 사용 (디폴트 "today")
+  if (period === undefined || period === null) {
+    period = document.getElementById("periodSel")?.value || "today";
+  }
   // local YYYY-MM-DD (UTC 변환 피함)
   function ymd(d) {
     const y = d.getFullYear();
