@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>알테오젠 (196170.KQ) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>알테오젠 (196170.KQ)</h1>
+<div class="sub">ALT-B4 피하주사(SC) 변환 플랫폼 글로벌 독점 · 키트루다SC 로열티 인식 개시 · 할로자임 특허 분쟁 우호적 종결<br>증권사 컨센 BUY·평균 TP 566,667원 · 현재가 353,500원(컨센 대비 -37.6% 할인) · 분석일 2026.06.21</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/19)</span><span class="snapshot-value">353,500원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">18.9조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value negative">-4.33%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">53.0배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (F)</span><span class="snapshot-value">42.7배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">14.66%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value negative">-8.66%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">박순재 외 4인<br>20.33%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">393억<br>(OPM 54.9%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">520,000원<br>(+47.1%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">620,000원<br>(+75.4%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (3사)</span><span class="snapshot-value">566,667원<br>(+60.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">62개<br>(액티브 19 / 패시브 43)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (1개월)</span><span class="snapshot-value positive">17개 → 19개<br>(+2개)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">559,000 / 289,500<br>(고점 대비 -36.8%)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 액티브 19 + 패시브 43 = 62개 편입. 액티브는 1개월간 17→19개로 순증(마이티 바이오시밀러&CDMO·MIDAS 코스닥 신규 편입)했으나, 대형 바이오 액티브(RISE 바이오TOP10 227→174주, KoAct 바이오헬스케어 235→193주)는 6개월 -21% 약세 구간에서 보유를 축소. 수급의 핵심은 패시브 — TIGER 바이오TOP10(비중 28.0%)·TIGER 코스닥150바이오테크(23.3%)·SOL 코스닥TOP10(21.1%)·코스닥150 지수군이 시총 비중에 연동해 대량 보유. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.19 기준 — 상세 표는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 발간 리포트 9건(영문 중복 제외) 전수 매수 일색. 신한 620,000(탑픽·상향)·하나 580,000·대신 500,000(신규)·키움(TP 미표시). 컨센 평균 566,667원, 현재가 대비 +60.3% 괴리. (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> 할로자임 '600 특허 무효 최종 결정(5/12)·ALT-B4 유럽 물질특허 등록(6/9)으로 SC 플랫폼 글로벌 독점권이 확정됐고, 키트루다SC($1bn 잔여 마일스톤·2043년까지 로열티)의 미국 판매가 on-track인 가운데 2Q26부터 마일스톤 인식이 개시될 전망. 7개 빅파마 라이선스(누적 딜 $7.9B)에 10개+ 추가 논의 — 주가는 '로열티 2% 쇼크'·바이오 섹터 소외로 컨센 대비 37% 할인 상태.</div>
+</div>
+
+<h2 style="border:none;color:#1a5276">§0. 증권사 리포트 · 1차자료 · 외부검증</h2>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1a5276">📊 최근 3개월 증권사 리포트 전수 (FnGuide SearchReport 전 페이지 순회)</h3>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.06.02</td><td>대신증권<br>(홍가혜)</td><td>특허 리스크 Down, 신규 딜 가능성 Up</td><td>BUY</td><td>500,000</td><td class="positive">+41.4%</td></tr>
+<tr><td>26.05.21</td><td>하나증권<br>(김선아)</td><td>이제 실적만 보면 된다</td><td>BUY</td><td>580,000</td><td class="positive">+64.1%</td></tr>
+<tr><td>26.05.20</td><td>대신증권<br>(홍가혜)</td><td>검증된 플랫폼, 열려 있는 Upside (신규 커버)</td><td>BUY(신규)</td><td>500,000</td><td class="positive">+41.4%</td></tr>
+<tr><td>26.05.19</td><td>키움증권<br>(허혜민)</td><td>특허 불확실성 해소. 다음 모멘텀은?</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>26.05.14</td><td>신한투자증권<br>(엄민용)</td><td>탑픽인 이유 (TP 상향)</td><td>매수</td><td>620,000</td><td class="positive">+75.4%</td></tr>
+<tr><td>26.05.13</td><td>하나증권<br>(김선아)</td><td>바이오시밀러 대비 우수성을 입증할 기회</td><td>BUY</td><td>580,000</td><td class="positive">+64.1%</td></tr>
+<tr><td>26.05.11</td><td>신한투자증권<br>(엄민용)</td><td>이제 특허 이슈 해소만 남았다</td><td>매수</td><td>570,000</td><td class="positive">+61.2%</td></tr>
+<tr><td>26.03.27</td><td>신한투자증권<br>(엄민용)</td><td>한 분기에 2건 L/O 체결, 간담회 내용 정리</td><td>매수</td><td>570,000</td><td class="positive">+61.2%</td></tr>
+<tr><td>26.03.26</td><td>하나증권<br>(김선아)</td><td>진짜가 돌아온다, 아직 더 남은 호재 이벤트</td><td>BUY</td><td>580,000</td><td class="positive">+64.1%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold"><td colspan="3">컨센서스 (FnGuide, 추정기관 3사)</td><td>BUY (4.0)</td><td>566,667</td><td class="positive">+60.3%</td></tr>
+</table>
+<p style="font-size:9.5pt;color:#555;margin-bottom:0">※ 영문판(Alteogen)은 동일 리포트의 영문 버전으로 중복 제외. 동일 증권사 중복 제거 시 핵심 4사 = 신한(620k)·하나(580k)·대신(500k)·키움. 최근 3개월 발간 리포트 전건이 매수 의견.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#e67e22">🔥 신한투자증권 — "탑픽인 이유" <span class="tag-sk">TP 620,000 (상향, 최고치)</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목/일자</td><td>"탑픽인 이유" (2026.05.14, 엄민용·윤석현)</td><td>커버리지 내 최선호주</td></tr>
+<tr><td>투자의견 / TP</td><td>매수 / 620,000 (직전 570,000 → +8.8%)</td><td class="positive">현재가 대비 +75.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 할로자임 핵심 '600 특허(US 11,952,600) PTAB 무효 최종 결정(5/12) ② 바이오젠 Mid-single 로열티 공시로 '2% 쇼크' 희석 ③ 가파른 키트루다SC 전환 — 3대 할인 요인 모두 제거 ④ PGR 결과 기다린 파트너들의 다수 L/O 체결 전망</td><td>특허·로열티·전환 3중 불확실성 해소</td></tr>
+<tr><td>★ 밸류 근거</td><td>실적 추정치 유지 + Valuation '상향'. 특허 만료 이전 30~40% 전환율 달성 시 Mid-single 로열티 현금 유입, 컨센 전환율 8.8% 상회 시 기대 현금흐름 회복</td><td>리스크 제거 → 멀티플 정상화</td></tr>
+</table>
+<p style="margin-bottom:0"><b>[신한 핵심]</b> "특허·노틸러스·인천공항 3가지 우려 모두 제거. 이제 수급만 돌아오면 된다." 총 15건 PGR·3건 IPR 중 핵심 '600 특허 무효, 나머지 11건은 침해소송과 직결돼 기각 가능성 높음.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d">
+<h3 style="margin-top:0;color:#1f618d">📘 하나증권 — "이제 실적만 보면 된다" <span class="tag-sk" style="background:#1f618d">TP 580,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목/일자</td><td>"이제 실적만 보면 된다" (2026.05.21, 김선아·유창근)</td><td>특허 종결 → 실적 국면 전환</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 580,000 (유지)</td><td class="positive">현재가 대비 +64.1%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① PGR 기대(6/2)보다 2주 빠른 최종 무효심결 — 112(a)조 written description 위반 ② 잔여 16개 무효심판(13 PGR·3 IPR)도 Amino acid Position 313 관련, 무효 가능성 높음 ③ 침해소송도 Halozyme 패소 전망 ④ Qlex WAC 상승 중, TRx만 올라오면 됨</td><td>법적 리스크 사실상 종결</td></tr>
+<tr><td>★ FY 추정</td><td>2026E 매출 4,741억·영업이익 2,814억·EPS 5,214 / 2027E 매출 9,537억·영업이익 5,870억·EPS 9,430</td><td>2027 OP 2배 점프</td></tr>
+</table>
+<p style="margin-bottom:0"><b>[하나 핵심]</b> "결론은 괜찮다. 이제 실적만 보면 된다." Qlex sales milestone은 연 누적매출 $0.5B·$1.0B 달성 시 트리거 — 2Q~3Q26 중 1회 달성 전망.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a">
+<h3 style="margin-top:0;color:#1e6e3a">📗 대신증권 — "특허 리스크 Down, 신규 딜 가능성 Up" <span class="tag-sk" style="background:#1e6e3a">TP 500,000 (신규 커버)</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목/일자</td><td>"특허 리스크 Down, 신규 딜 가능성 Up" (2026.06.02, 홍가혜·이채리)</td><td>NDR(5/26~28) 후 발간, 가장 최신</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 500,000 (5.20 신규 커버 개시)</td><td class="positive">현재가 대비 +41.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 미국 핵심 특허 리스크 완화 확인(PTAB·USPTO 우호적 종결) ② 10개+ 잠재 파트너와 MTA 기반 논의 — 올해 중 추가 딜 클로징 ③ 키트루다SC 초기 판매 on-track(1Q26 $128M, 4월 J-code 후 MoM +76%) ④ 잔여 마일스톤 $1bn 3~4년 분할, 2Q26부터 인식</td><td>특허+딜+로열티 3박자</td></tr>
+<tr><td>★ 딜 단가</td><td>최근 딜 품목당 ~$300M+mid-single 로열티 (GSK $285M/1품목, Biogen $579M/2품목). 다수 Product 묶음 계약 시 대형화 여지</td><td>딜 단가 우상향</td></tr>
+</table>
+<p style="margin-bottom:0"><b>[대신 핵심]</b> "올해 초 일부 파트너 로열티율이 기대치를 하회했고 바이오 섹터 소외가 겹쳐 주가가 부진했으나, NDR을 통해 특허 리스크 완화와 추가 라이선스 모멘텀 가시화를 확인." Opdivo SC 대비 빠른 SC 전환율(4.1% vs 2.8%).</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d">
+<h3 style="margin-top:0;color:#7f8c8d">📄 키움증권 — "특허 불확실성 해소. 다음 모멘텀은?" <span class="tag-sk" style="background:#7f8c8d">TP 미표시</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목/일자</td><td>"특허 불확실성 해소. 다음 모멘텀은?" (2026.05.19, 허혜민)</td><td>특허 종결 인정, 다음 촉매 탐색</td></tr>
+<tr><td>투자의견 / TP</td><td>커버리지성 코멘트 (FnGuide상 TP 미표기)</td><td>컨센 평균 산출 제외</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 특허 불확실성 해소를 핵심 변화로 인식 ② 다음 모멘텀으로 추가 L/O·키트루다SC 판매 데이터·아일리아 바이오시밀러 출시를 지목</td><td>이벤트 드리븐 관점</td></tr>
+</table>
+<p style="margin-bottom:0"><b>[키움 핵심]</b> 특허 노이즈가 해소된 만큼, 주가 재평가는 '다음 카탈리스트(추가 딜·로열티 가시화)'의 등장 여부에 달려 있다는 균형 시각.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📋 1차자료 — DART 공시 · 기업 IR <span class="tag-disc">PRIMARY</span></h3>
+<ul style="margin-bottom:0">
+<li><b>1Q26 분기보고서 (연결):</b> 매출 716억·영업이익 393억(영업이익률 54.9%)·지배순이익 717억. 자산총계 7,295억·부채비율 42.2%·유보율 1,787%. 마일스톤 수령 시점차로 매출·이익은 YoY 감소했으나 분기 흑자·고마진 구조 유지.</li>
+<li><b>2025 연간 (연결):</b> 매출 2,159억(+109.8% YoY)·영업이익 1,069억(흑자 확대, OPM 49.5%)·지배순이익 1,417억·ROE 39.4%. 2024년 흑자전환 후 2년 연속 이익 급증.</li>
+<li><b>주주현황 (2026.03):</b> 박순재 외 4인 20.33%(최대주주, 최종변동 2025.09.17)·형인우 외 2인 5.08%·자사주 0.04%. 발행주식수 보통주 53,586,343주, 유동주식 79.63%.</li>
+<li><b>IR (2026.04.09 / 06.17):</b> "회사소개 및 주요 사업현황", "Company &amp; Business Overview" — Hybrozyme™(ALT-B4)·NexP™(지속형)·NexMab™(ADC) 3대 플랫폼, 7개 빅파마 라이선스 현황 공식 확인.</li>
+</ul>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#2874a6">🌐 외부검증 1 — 글로벌 피하주사(SC) 변환 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<ul>
+<li><b>SC 전환은 산업 메가트렌드:</b> IV→SC 전환율은 2026년 50%+ 도달 전망. 선행 사례 DARZALEX SC는 미국 전환율 96%까지 도달, 자가투여(Phesgo at-home) 라벨 확대가 가속.</li>
+<li><b>경쟁 플랫폼 Halozyme ENHANZE:</b> 10개 상업화 제품·100+ 시장·누적 100만+ 환자, 2026년 로열티 수입 $1bn 초과 전망(Roche·Takeda·Pfizer·Janssen·AbbVie 등). 알테오젠 ALT-B4는 이 시장의 사실상 유일한 2nd source — '복점(duopoly)' 구도.</li>
+<li><b>ALT-B4의 입지:</b> MSD 키트루다SC(Keytruda Qlex)가 ALT-B4 첫 상업화 제품으로 플랫폼을 입증. 현재 MSD·AstraZeneca·GSK·Biogen·Daiichi Sankyo·Intas 등 7개 빅파마가 라이선스 보유.</li>
+</ul>
+<div class="global-quote">"ENHANZE has touched more than one million patient lives through ten commercialized products … ENHANZE royalty revenue is expected to exceed $1 billion for the full year 2026." — Halozyme / PR Newswire (2026)</div>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 라이선스 딜 · 빅파마 채택 전략 <span class="tag-policy">DEALS/STRATEGY</span></h3>
+<ul>
+<li><b>1Q26 한 분기 2건 체결:</b> GSK/Tesaro($285M, 1월)·Biogen($579M, 3월). 분기당 복수 딜 체결은 플랫폼 채택이 가속 국면임을 시사.</li>
+<li><b>대형 딜 누적:</b> AstraZeneca($1.35B)·Daiichi Sankyo(Enhertu SC, $300M+)·Sandoz·Intas 등 — 누적 공개 딜 가치 $7.9B(11조원+).</li>
+<li><b>파이프라인:</b> 2026 JPM 헬스케어 컨퍼런스에서 전태연 CEO가 "10개+ 기업과 추가 라이선스 논의 중"이라 언급. 옵션 계약 1건은 2026년 내 본계약 행사 여부 결정 예정.</li>
+</ul>
+<div class="policy-quote">"In Q1 2026 alone, Alteogen closed two new licensing deals: GSK/Tesaro (up to $285M) in January and Biogen (up to $579M) in March … roughly 10 additional companies are in active licensing discussions." — KBR / FiercePharma (2026)</div>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 외부검증 3 — 최근 1개월(2026.05.12~06.19) 핵심 기사 <span class="tag-global" style="background:#8e44ad">NEWS</span></h3>
+<ul>
+<li><b>ALT-B4 유럽 물질특허 등록 결정:</b> EPO가 ALT-B4 물질특허 등록을 허여, SC 플랫폼 글로벌 독점권 강화. 도메인 스와핑 기술 기반. <span class="tag">📌 한국경제·머니투데이·아시아경제 2026.06.09</span></li>
+<li><b>USPTO, 할로자임의 ALT-B4 제조특허 IPR 기각:</b> "reasonable likelihood of success" 미충족으로 심리 개시 거부 — 알테오젠 제조특허 방어 성공. <span class="tag">📌 Seoul Economic Daily / Asia Business Daily 2026.05.15~18</span></li>
+<li><b>PTAB, 할로자임 '600 특허(US 11,952,600) 무효 최종:</b> claim 1–4, 8–21 전부 unpatentable — written description·enablement 요건 미충족. MDASE 근간 특허 무효. <span class="tag">📌 Seoul Economic Daily / Asia Business Daily 2026.05.12~13</span></li>
+<li><b>AstraZeneca, 알테오젠과 최대 $1.35B SC 딜:</b> 머크-할로자임 특허 분쟁 와중에도 빅파마 채택 지속. <span class="tag">📌 FiercePharma / Pharmaceutical-technology 2026.05</span></li>
+<li><b>키트루다SC 미국 판매 가속:</b> 1Q26 $128M(MSD 매출 기준), 4월 J-code 적용 후 처방 MoM +76%. MSD는 2027년 말까지 전환율 30~40% 목표 제시. <span class="tag">📌 BioPharma Dive / 코메디 2026.05~06</span></li>
+<li><b>"로열티 2% 쇼크" 잔존:</b> MSD 3Q25 공시상 키트루다SC 순매출 로열티율 2%로 확인(시장 기대 5% 하회) — 1월 -20% 급락의 근원, 현재까지 밸류 디스카운트 요인. <span class="tag">📌 바이오스펙테이터 / 네이트뉴스 2026.01~</span></li>
+</ul>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655">CALENDAR</span></h3>
+<table>
+<tr><th>시기</th><th>이벤트</th><th>주가 영향</th></tr>
+<tr><td>2026.07~08</td><td>2Q26 실적발표 — 키트루다SC 마일스톤 인식 개시 여부 첫 확인</td><td class="positive">🔥 핵심</td></tr>
+<tr><td>2026.2Q~3Q</td><td>키트루다SC 누적매출 $0.5B / $1.0B 마일스톤 트리거</td><td class="positive">🔥 핵심</td></tr>
+<tr><td>2026.하반기</td><td>옵션 계약 본계약 행사 결정 + 추가 L/O 딜 클로징(10개+ 논의)</td><td class="positive">🔥 상</td></tr>
+<tr><td>2026.하반기</td><td>아일리아 바이오시밀러 EYLUXVI(ALT-L9) 유럽 출시 본격화</td><td class="positive">상</td></tr>
+<tr><td>2026.하반기</td><td>할로자임 잔여 PGR/IPR 심결(Amino acid Position 313 관련)</td><td class="positive">중</td></tr>
+<tr><td>2026.하반기</td><td>키트루다SC 유럽(EC 승인 완료) 출시·타국 허가 확산</td><td class="positive">중</td></tr>
+<tr><td>2027.01</td><td>JP모건 헬스케어 컨퍼런스 2027 — 신규 딜·파이프라인 공개</td><td class="positive">상</td></tr>
+<tr><td>2027</td><td>키트루다SC 미국 전환율 30~40% 목표 구간 진입</td><td class="positive">🔥 핵심</td></tr>
+<tr><td>2029~2030</td><td>Dupixent·Imfinzi·Enhertu·Jemperli SC 순차 상업화 → 연 로열티 1조원+ 기대</td><td class="positive">🔥 장기</td></tr>
+</table>
+</div>
+
+</body>
+</html>
