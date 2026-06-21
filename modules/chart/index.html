@@ -397,12 +397,7 @@ th#thReturn, td.ret { display:none !important; }
   </div>
 </div>
 
-<div class="criteria">
-<b>패턴 조건(7)</b> — 고점 −20%↓ 하락 · 20일선 아래 10~50일 체류 후 회복·5일 이상 유지 ·
-회복일 종가 120일선 위 &amp; 고점~리클레임 구간 20일선이 120일선 위 유지 ·
-피크-리클레임 갭 25%↓ · 고점 거래대금 직전 3개월 평균의 2~4배 ·
-시가총액 3,000억↑ · ETF/ETN/우선주 제외
-</div>
+<div class="criteria" id="criteria"></div>
 
 <footer>매일 평일 18:30 자동 수집·스크리닝 후 결과 갱신 · 패턴 탐색 결과이며 매수 추천이 아닙니다</footer>
 </div>
@@ -926,7 +921,7 @@ document.querySelectorAll("tr[data-symbol]").forEach(function(row) {
 });
 
 // 거래량 증가 종목 검출 (오늘 거래량 / 최근 20일 평균 >= VOL_SURGE_MULT)
-const VOL_SURGE_MULT = 50;  // 평균 대비 N배
+const VOL_SURGE_MULT = 20;  // 평균 대비 N배
 (function buildVolumeSurge() {
   if (typeof STOCK_DATA === "undefined") return;
   const tbody = document.getElementById("tbodyVolume");
@@ -1050,6 +1045,8 @@ const VOL_SURGE_MULT = 50;  // 평균 대비 N배
     }
     // 모바일 그리드를 위해 body 클래스 토글
     document.body.classList.toggle("tab-high", pat !== "pullback");
+    // 패턴별 기준 설명 갱신
+    try { updateCriteria(pat); } catch(_){}
   }
 
   tabs.forEach(function(t) {
@@ -1367,5 +1364,18 @@ kisConnect();
     if (b) b.innerHTML = '<span style="color:#dc2626">데이터 로드 실패</span>';
   }
 })();
+
+// 패턴별 기준 설명 — sub-tab 클릭 시 .criteria 갈아끼움
+const PAT_CRITERIA = {
+  pullback: '<b>패턴 조건(7)</b> — 고점 −20%↓ 하락 · 20일선 아래 10~50일 체류 후 회복·5일 이상 유지 · 회복일 종가 120일선 위 & 고점~리클레임 구간 20일선이 120일선 위 유지 · 피크-리클레임 갭 25%↓ · 고점 거래대금 직전 3개월 평균의 2~4배 · 시가총액 200억↑ · 거래정지 제외 · ETF/ETN/우선주 제외',
+  w52: '<b>52주 신고가</b> — 오늘 장중 고가 ≥ 직전 52주(252영업일) 최고가 · 시가총액 200억↑ · 거래정지 제외 · ETF/ETN/우선주 제외',
+  vol_surge: '<b>거래량 급증</b> — 오늘 거래량 ≥ 직전 20영업일 평균의 20배 · 시가총액 200억↑ · 거래정지 제외 · ETF/ETN/우선주 제외',
+};
+function updateCriteria(pat) {
+  const el = document.getElementById("criteria");
+  if (el && PAT_CRITERIA[pat]) el.innerHTML = PAT_CRITERIA[pat];
+}
+// 초기 — 디폴트 pullback
+updateCriteria("pullback");
 </script>
 </body></html>
