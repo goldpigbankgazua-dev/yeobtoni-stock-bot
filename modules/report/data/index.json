@@ -1,5 +1,17 @@
 [
   {
+    "file": "코스닥_디앤디파마텍_MASH기술수출_DD01비만경구_260621.html",
+    "market": "코스닥",
+    "name": "디앤디파마텍",
+    "themes": [
+      "MASH기술수출",
+      "DD01비만경구"
+    ],
+    "date": "2026-06-21",
+    "revision": false,
+    "pages": 1
+  },
+  {
     "file": "코스피_두산_AICCL전자BG_가스터빈원전지주_260620.html",
     "market": "코스피",
     "name": "두산",
