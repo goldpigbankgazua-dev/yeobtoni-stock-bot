@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>서부T&D (006730) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>서부T&amp;D (006730.KQ)</h1>
+<div class="sub">서울드래곤시티 호텔 리오프닝 + 용산·신정동 개발 디벨로퍼 + 부동산 자산가치(2.7조) 트리플 스토리<br>컨센 BUY·TP 20,000원(5개사) · 현재가 9,650원(컨센 대비 +107%·PBR 0.59배) · 분석일 2026.06.25</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/24)</span><span class="snapshot-value">9,650원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">6,265억원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+3.21%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">12.8배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (현재)</span><span class="snapshot-value">0.59배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">19.50%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+5.7%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">엠와이에이치 외 14인 49.43%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value positive">178억 (+37.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP (컨센)</span><span class="snapshot-value">20,000원<br>(+107.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">21,000원<br>(+117.6%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (5사)</span><span class="snapshot-value">20,000원<br>(+107.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">24개<br>(액티브 6 / 패시브 18)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">부동산 자산(장부가)</span><span class="snapshot-value positive">2.7조원<br>(시총의 4.3배)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">18,580 /<br>8,350원</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 액티브 6개·패시브 18개 합산 24개 ETF 편입(KQ150). 소형주(시총 6,265억)로 ETF 비중은 낮음 — 패시브는 코스닥150(0.15%)·K엔터&amp;여행레저(RISE 1.01%)·경기소비재(KODEX 0.73%) 중심. 액티브는 K컬처·소비 테마(TIME K컬처 2,001주)가 보유. ETF 수급보다 <b>실적·개발 모멘텀·자산가치 재평가가 주가의 핵심 동력</b>. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.25 기준 — 상세 표는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 8개 리포트 전부 BUY, 컨센 TP 20,000원(5개사)으로 현재가(9,650원) 대비 <b>+107% 괴리</b>. SK·BNK는 TP 상향, IBK·삼성은 호텔 서프라이즈+용산 개발 허가 부각. (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> 서울드래곤시티(1,700객실 호텔플렉스·아코르 4개 브랜드·카지노)의 방한 관광 리오프닝 호황(1Q26 매출 +48%·흑전)에, 보유 부동산을 직접 개발하는 디벨로퍼 모델(용산 나진상가 2026.10 착공·신정동 1.4조 분양)이 더해진 트리플 스토리. 부동산 장부가 2.7조(+28%) vs 시총 0.63조·PBR 0.59배의 깊은 자산가치 디스카운트. 최근 3개월 -32% 조정은 개발 인식 시점 지연·소형주 수급 부진 탓이나, 호텔 실적·개발 착공·자산 재평가가 리레이팅 트리거. 개발 인허가·분양 일정 지연이 최대 리스크.</div>
+</div>
+
+<h2 style="border:none;color:#1a5276">§0. 멀티소스 교차검증 — 증권사·1차자료·외부검증</h2>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1f618d">📊 증권사 리포트 전수 (FnGuide SearchReport, 최근 3개월 · 8건+IR 1건)</h3>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.06.25</td><td>IBK투자</td><td>Developer!</td><td>매수 <span class="tag-new">NEW</span></td><td>18,000</td><td class="positive">+86.5%</td></tr>
+<tr><td>26.06.01</td><td>iM</td><td>최대 객실 레버리지 효과 및 자산가치 수익화 가속화</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.05.18</td><td>삼성</td><td>1Q review: 호텔 이익 서프라이즈에 용산 개발 건축 허가까지</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.05.18</td><td>NH투자</td><td>계획대로 되고 있다</td><td>BUY</td><td>21,000</td><td class="positive">+117.6%</td></tr>
+<tr><td>26.05.18</td><td>하나</td><td>호실적에 더해 나진상가 건축 허가도 획득</td><td>BUY</td><td>21,000</td><td class="positive">+117.6%</td></tr>
+<tr><td>26.04.29</td><td>삼성</td><td>NDR 후기: 2개 개발사업으로 퀀텀 점프</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.04.22</td><td>SK</td><td>호텔은 만실, 숨어있던 디벨로퍼 본능 꿈틀</td><td>매수(상향)</td><td>20,000 ▲</td><td class="positive">+107.3%</td></tr>
+<tr><td>26.04.17</td><td>BNK투자</td><td>K컬처 확산에 따른 호텔 성장세 지속</td><td>매수(상향)</td><td>18,000 ▲</td><td class="positive">+86.5%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold"><td colspan="3">FnGuide 컨센서스 (추정기관 5개사)</td><td>BUY (4.0)</td><td>20,000</td><td class="positive">+107.3%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ IR팀 발간 1건 제외. ▲=직전 대비 상향. 전 리포트 BUY 일관, TP 18,000~21,000원으로 <b>현재가(9,650원)를 86~118% 상회</b> — 시장 컨센은 큰 폭의 상승 여력을 제시.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#b9521a">🔥 SK (나승두) 2026.04.22 — "호텔은 만실, 숨어있던 디벨로퍼 본능 꿈틀" <span class="tag-sk">TP 상향 20,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"호텔 만실 + 디벨로퍼 재부각"</td><td>호텔+개발 듀얼 스토리</td></tr>
+<tr><td>투자의견 / TP</td><td>매수 / 20,000 (상향)</td><td>현재가 대비 +107.3%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 서울드래곤시티 호텔 만실에 가까운 가동률 ② 보유 부동산 직접 개발하는 '디벨로퍼' 본능 ③ 용산·신정동 개발로 자산가치 수익화 ④ 방한 관광 회복</td><td>호텔 현금흐름 + 개발 옵션</td></tr>
+<tr><td>★ Valuation</td><td>NAV(자산가치) + 호텔 이익 반영 TP 상향</td><td>자산가치 디스카운트 해소 기대</td></tr>
+</table>
+<p><b>[SK 핵심]</b> "단순 호텔주가 아닌, 보유 부동산을 직접 개발해 가치를 실현하는 디벨로퍼 — 숨어있던 본능이 꿈틀."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a">
+<h3 style="margin-top:0;color:#1e6e3a">📘 NH (이화정) 2026.05.18 — "계획대로 되고 있다" <span class="tag-sk">최고 TP 21,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"개발 계획 차질 없이 진행"</td><td>실행력 입증</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 21,000</td><td>현재가 대비 +117.6%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 호텔 호실적 지속 ② 용산·신정동 개발 일정 차질 없음 ③ 분양 매출 가시화 ④ 자산가치 대비 저평가</td><td>계획 실행이 밸류 트리거</td></tr>
+<tr><td>★ Valuation</td><td>호텔 + 개발 NAV 합산</td><td>—</td></tr>
+</table>
+<p><b>[NH 핵심]</b> "우려와 달리 개발 계획이 계획대로 진행 중 — 실행 리스크가 줄어드는 만큼 밸류 디스카운트도 축소."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d">
+<h3 style="margin-top:0;color:#1f618d">📙 하나 (이기훈·김현수) 2026.05.18 — "호실적에 더해 나진상가 건축 허가도 획득" <span class="tag-sk">개발 허가</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"호실적 + 나진상가 건축 허가 획득"</td><td>개발 가시성 확보</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 21,000</td><td>현재가 대비 +117.6%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 1Q 호텔 이익 서프라이즈 ② 용산 나진상가 건축 허가 획득 → 착공 가시화 ③ 개발 수익 인식 시작점 접근</td><td>인허가 = 개발 리스크 감소</td></tr>
+<tr><td>★ Valuation</td><td>개발 NAV 가산</td><td>—</td></tr>
+</table>
+<p><b>[하나 핵심]</b> "나진상가 건축 허가 획득으로 개발 사업의 실행 불확실성이 크게 낮아짐 — 자산가치 수익화의 첫 단추."</p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309">
+<h3 style="margin-top:0;color:#b45309">📙 IBK (남성현) 2026.06.25 → 삼성 NDR — "Developer!" / "2개 개발사업으로 퀀텀 점프" <span class="tag-sk">최신·개발</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>IBK 제목/TP</td><td>"Developer!" / 매수 18,000(신규)</td><td>디벨로퍼 정체성 강조</td></tr>
+<tr><td>삼성 NDR</td><td>"2개 개발사업으로 퀀텀 점프"</td><td>용산+신정동 동시 개발</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 용산 나진상가(2026.10 착공·오피스텔 분양 5,000억) ② 신정동 서부트럭터미널(899세대·분양 1.4조) ③ 호텔 현금흐름이 개발 자금 뒷받침 ④ 자산가치 수익화 가속</td><td>개발 매출 2027~ 본격 인식</td></tr>
+<tr><td>★ Valuation</td><td>호텔 + 2개 개발 NAV</td><td>퀀텀 점프 시나리오</td></tr>
+</table>
+<p><b>[IBK·삼성 핵심]</b> "호텔 운영사를 넘어 디벨로퍼로 — 용산·신정동 2개 개발사업이 동시에 진행되며 실적·자산가치의 퀀텀 점프 유발."</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d">
+<h3 style="margin-top:0;color:#5d6d7e">📰 삼성·iM·BNK — 컨센 요약 <span class="tag-sk">전수</span></h3>
+<table>
+<tr><th>증권사 / 일자</th><th>제목 · 포인트</th><th>핵심</th></tr>
+<tr><td>삼성 05.18</td><td>호텔 이익 서프라이즈 + 용산 건축 허가</td><td>호텔+개발 동반 호재</td></tr>
+<tr><td>iM 06.01</td><td>최대 객실 레버리지 + 자산가치 수익화 가속</td><td>객실 가동률·ASP 상승</td></tr>
+<tr><td>BNK 04.17</td><td>K컬처 확산 호텔 성장 · TP 18,000(상향)</td><td>방한 관광 구조적 수요</td></tr>
+</table>
+<p><b>[컨센 핵심]</b> 5개 추정기관 전부 BUY, TP 18,000~21,000원. 공통 논리 = ① 방한 관광 회복 호텔 호황 ② 용산·신정동 개발로 자산가치 수익화 ③ PBR 0.59배 깊은 저평가.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📋 1차자료 — 실적·공시 <span class="tag-disc">PRIMARY</span></h3>
+<p><b>최근 신호 공시·실적 (루틴 제외, 사업·자본·주주환원 3분류):</b></p>
+<table>
+<tr><th>분류</th><th>일자</th><th>내용 (신호)</th></tr>
+<tr><td rowspan="3" style="background:#eafaf1"><b>실적·<br>사업</b></td><td>2026.05</td><td>1Q26 실적 — 매출 661억(YoY +48.3%), 영업이익 178억(+37.3%), 당기순이익 흑자전환. 방한 외국인·카지노 오픈·브랜드 편입으로 호텔 호조</td></tr>
+<tr><td>2026 상반기</td><td>용산 나진상가 건축 허가 획득 — 2026.10 착공, 2030 완공, 아파트+하이엔드 오피스텔(분양 5,000억, 2027~ 인식)</td></tr>
+<tr><td>2026~2027</td><td>신정동 서부트럭터미널 개발 — 899세대 아파트, 2027.1 착공 예상, 분양 매출 약 1.4조</td></tr>
+<tr><td style="background:#fef5e7"><b>자산<br>재평가</b></td><td>2025 말</td><td>부동산 장부가액 2.7조원(+28% YoY) — 시총(6,265억)의 4.3배, PBR 0.59배 저평가 근거</td></tr>
+<tr><td style="background:#eaf2f8"><b>지배구조</b></td><td>2026.05.28</td><td>최대주주 엠와이에이치(외 14인) 49.43%(승만호 회장 지배) + 자사주 1.93%. 신용등급 A1</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 출처: 서부T&amp;D IR·공시 + 언론 종합. 5개 부동산투자회사(신한서부티엔디리츠 등)·코렐브랜드아시아홀딩스 산하 8개 종속회사 보유.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276">🌐 외부검증 1 — 방한 관광·호텔 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p>서부T&amp;D의 서울드래곤시티는 방한 관광 리오프닝의 직접 수혜처다.</p>
+<div class="global-quote">
+<b>방한 관광:</b> 2026년 방한 외국인 <b>2,200만명 전망(+16.2%, 2019년 대비 +25.7%)</b>. 중국 단체관광 무비자(2025.9.29~2026.6.30) 효과로 방한 중국인 671.9만명(+22.6%) 전망.<br><br>
+<b>K컬처 효과:</b> 2026.03 광화문 BTS 콘서트 외국인 방문 비중 44.7% — 대형 공연이 숙박·쇼핑·식음료 소비와 결합해 관광 지출 확대.<br><br>
+<b>프리미엄 호텔 집중:</b> 입국 문턱 완화로 숙박 수요가 <b>브랜드 신뢰도 높은 프리미엄·럭셔리 호텔로 집중</b>. 반면 펜션·1~2성급은 객실점유율 -25.6%로 양극화. 서울드래곤시티(아코르 4개 브랜드·1,700객실)는 프리미엄 집중의 수혜처.</p>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 한국관광공사·코리아비즈니스리뷰 방한 관광 2026 · 출입국·외국인정책본부 중국 무비자 · 이코노믹스 호텔 양극화</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 정책·도시개발 전략 <span class="tag-policy">POLICY/DEV</span></h3>
+<p><b>① 용산 국제업무지구·도시개발 — 입지 프리미엄</b></p>
+<div class="policy-quote">서울시는 용산을 국제업무지구·코어밸리 중심의 미래 도시로 개발 중. 서부T&amp;D의 서울드래곤시티·나진상가 부지는 용산역 인근 핵심 입지로, <b>용산 개발 호재가 보유 부동산 가치를 직접 끌어올리는</b> 구조. 2026년 용산 개발이 본격 궤도에 오르며 입지 프리미엄 부각.</div>
+<p><b>② 디벨로퍼 전환 — 운영자산화 모델</b></p>
+<div class="policy-quote">서부T&amp;D는 <b>보유 부동산을 운영자산(호텔)으로 전환하고, 추가 부지를 직접 개발하는 전문 디벨로퍼 모델</b>을 구현. 용산 터미널 부지를 서울드래곤시티로 개발한 성공 경험을 나진상가·신정동에 재현. 호텔 현금흐름이 개발 자금을 뒷받침하는 선순환.</div>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 서울Pn 용산 국제업무지구 2026 · 비즈니스포스트 승만호 디벨로퍼 모델 · 더벨 서울드래곤시티</p>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 외부검증 3 — 최근 1개월 핵심 기사 (2026.05.25~06.24) <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<p>① <b>IBK "Developer!" 신규 커버(6/25)</b> — 디벨로퍼 정체성·개발 모멘텀 부각. <span style="font-size:9pt;color:#7f8c8d">📌 IBK투자증권 2026.06.25</span></p>
+<p>② <b>"용산·신정동 착공 가시화로 사상 최대 실적"</b> — 개발 일정 구체화. <span style="font-size:9pt;color:#7f8c8d">📌 데일리인베스트 2026.06</span></p>
+<p>③ <b>iM "최대 객실 레버리지 + 자산가치 수익화 가속"(6/1)</b> — 객실 가동률·ASP 상승. <span style="font-size:9pt;color:#7f8c8d">📌 iM증권 2026.06.01</span></p>
+<p>④ <b>부동산 장부가 2.7조(+28%)</b> — 자산재평가로 PBR 0.59배 저평가 부각. <span style="font-size:9pt;color:#7f8c8d">📌 네이트뉴스 2025.12/언론</span></p>
+<p>⑤ <b>"드래곤시티 호황·용산 개발로 밸류 리레이팅 기대"</b> — 호텔+개발 듀얼 스토리. <span style="font-size:9pt;color:#7f8c8d">📌 데일리인베스트 2026</span></p>
+<p>⑥ <b>나진상가 건축 허가 획득</b> — 2026.10 착공·오피스텔 분양 5,000억(2027~). <span style="font-size:9pt;color:#7f8c8d">📌 하나증권·언론 2026.05</span></p>
+<p>⑦ <b>신정동 899세대·분양 1.4조</b> — 2027.1 착공 예상. <span style="font-size:9pt;color:#7f8c8d">📌 데일리인베스트 2026</span></p>
+<p>⑧ <b>중국 무비자·방한 관광 호조</b> — 1~2월 방한 중국인 +31%. <span style="font-size:9pt;color:#7f8c8d">📌 한국관광공사 2026</span></p>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<div class="warning-box">
+<b>🔥 단기 (2026 3Q)</b><br>
+• 2026.08 (예상) — 2Q26 실적 발표 (컨센 OP 224억, YoY +100%)<br>
+• 2026 3Q — 방한 관광 성수기 호텔 객실 가동률 정점<br>
+• 2026 3Q — 카지노 매출 기여 확대<br>
+• 2026 9~10월 — 중국 무비자 연장 여부 + 추석·국경절 관광
+</div>
+<b>중기 (2026 4Q)</b><br>
+• 2026.10 — <b>용산 나진상가 착공 (개발 본격화)</b><br>
+• 2026 하반기 — 나진상가 개발 수익 인식 시작점<br>
+• 2026 연간 — 사상 최대 실적(매출 +21%·OP +25%) 달성 여부<br>
+• 2026 4Q — 스카이킹덤 31층 대연회장 MICE 행사 유치<br><br>
+<b>장기 (2027~)</b><br>
+• 2027.1 — 신정동 서부트럭터미널 착공(899세대)<br>
+• 2027~ — 용산 오피스텔 분양 5,000억 매출 인식 시작<br>
+• 2027 하반기~ — 신정동 분양 1.4조 매출 인식<br>
+• 2030 — 용산 나진상가 완공<br>
+• 상시 — 부동산 자산재평가·NAV 디스카운트 해소
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① 서울드래곤시티 — 1,700객실 호텔플렉스 리오프닝</span><br>용산역 인근 국내 최대 호텔플렉스(아코르 4개 브랜드·1,700객실·컨벤션). 방한 관광 회복으로 만실에 가까운 가동률, 1Q26 매출 +48.3%·흑자전환. 프리미엄 호텔 수요 집중의 직접 수혜.</li>
+<li><span class="point-title">② 디벨로퍼 모델 — 용산 나진상가 개발</span><br>보유 부동산을 직접 개발하는 디벨로퍼. 용산 나진상가 건축 허가 획득 후 2026.10 착공·2030 완공. 아파트+하이엔드 오피스텔(분양 5,000억) 매출이 2027년부터 인식 — 호텔 운영을 넘는 개발 이익 레버리지.</li>
+<li><span class="point-title">③ 신정동 개발 — 1.4조 분양</span><br>신정동 서부트럭터미널에 899세대 아파트 개발(2027.1 착공 예상), 분양 매출 약 1.4조. 용산과 함께 '2개 개발사업으로 퀀텀 점프'(삼성). 개발 파이프라인이 중장기 실적을 증폭.</li>
+<li><span class="point-title">④ 부동산 자산가치 2.7조 vs PBR 0.59배</span><br>보유 부동산 장부가 2.7조원(+28%)으로 시총(6,265억)의 4.3배. PBR 0.59배의 깊은 자산가치 디스카운트. 개발·재평가로 자산가치가 수익화되면 NAV 갭 해소 여력.</li>
+<li><span class="point-title">⑤ 방한 관광 구조적 회복</span><br>2026 방한 외국인 2,200만명(+16%), 중국 무비자·K컬처 효과로 중국인 +22.6%. 프리미엄 호텔로 수요 집중되며 서울드래곤시티의 객실 단가·가동률 동반 상승.</li>
+<li><span class="point-title">⑥ 카지노·MICE 신규 모멘텀</span><br>카지노 오픈·브랜드 편입으로 호텔 매출 다각화. 스카이킹덤 31층 대연회장으로 럭셔리 웨딩·프리미엄 연회·MICE 유치 경쟁력 강화 — 호텔 ASP·수익성 제고.</li>
+<li><span class="point-title">⑦ 고수익성 호텔 운영 — OPM 28%</span><br>2025 영업이익률 28.3%, 2026E 30.0%. 객실 레버리지(고정비 구조)로 가동률·ASP 상승이 이익률 개선으로 증폭. 호텔업 평균을 크게 상회.</li>
+<li><span class="point-title">⑧ 컨센 +107% 괴리 — 만장일치 BUY</span><br>현재가 9,650원 vs 컨센 TP 20,000원(5개사)으로 +107% 괴리. 최근 3개월 8개 리포트 전부 BUY, TP 18,000~21,000원으로 현재가를 크게 상회. 시장이 보는 상승 여력이 큼.</li>
+<li><span class="point-title">⑨ 호텔 현금흐름이 개발 자금 뒷받침</span><br>안정적 호텔 영업현금흐름이 개발 사업의 자금을 조달하는 선순환. 외부 자금 의존을 줄여 개발 리스크를 완화하는 자기완결적 구조.</li>
+<li><span class="point-title">⑩ 인허가 진척 = 개발 리스크 감소</span><br>용산 나진상가 건축 허가 획득으로 개발 실행 불확실성이 크게 감소(하나·NH "계획대로"). 인허가→착공→분양으로 진행될수록 NAV 디스카운트 축소.</li>
+<li><span class="point-title">⑪ 안정적 지배구조·A1 신용</span><br>최대주주 엠와이에이치(승만호 회장) 49.43%로 경영권 안정. 신용등급 A1로 개발 자금 조달 여력. 자사주 1.93% 보유.</li>
+<li><span class="point-title">⑫ 3개월 -32% 조정 = 진입 기회</span><br>최근 3개월 -32% 조정은 개발 수익 인식 시점 지연·소형주 수급 부진 탓. 호텔 실적·개발 착공이 가시화되는 국면에서 깊은 저평가는 진입 기회로 평가.</li>
+<li><span class="point-title">⑬ 리오프닝+자산주+개발주 트리플 성격</span><br>호텔 리오프닝(실적), 부동산 자산주(NAV), 디벨로퍼(개발 성장)의 세 가지 성격을 동시 보유. 단일 테마 종목 대비 밸류 트리거가 다층적.</li>
+</ul>
+
+<h3>투자의견 종합</h3>
+<div class="update-box">
+<b>종합 BUY (자산가치 + 개발 모멘텀).</b> 부채비율 134%·개발 인허가/분양 일정 변동성·소형주 수급 부진의 약점에도, ① 서울드래곤시티 호텔 리오프닝 호황 ② 용산·신정동 개발의 자산가치 수익화 ③ 부동산 2.7조 vs PBR 0.59배 깊은 저평가 ④ 컨센 +107% 괴리를 종합하면 위험 대비 보상이 크게 우위. 다만 개발주 특성상 착공·분양 일정·부동산 경기에 실적이 연동되므로, <b>호텔 실적·개발 마일스톤(착공·분양) 확인하며 분할 매수</b>가 합리적. 핵심 트리거는 용산 착공(2026.10)·분양 성과.
+</div>
+
+<h3>시나리오별 목표주가</h3>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류 방법</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bull</b></td><td>호텔 호황 + 용산·신정동 개발 순항 + 분양 흥행 → NAV 디스카운트 해소</td><td>호텔 + 2개 개발 NAV 합산</td><td class="positive">21,000원</td><td class="positive">+117.6%</td></tr>
+<tr><td><b>Base</b></td><td>호텔 성장 지속 + 개발 일정대로 진행 (컨센)</td><td>호텔 이익 + 개발 NAV(컨센)</td><td class="positive">20,000원</td><td class="positive">+107.3%</td></tr>
+<tr><td><b>Bear</b></td><td>개발 인허가·분양 지연 + 부동산 경기 둔화</td><td>호텔 이익 위주 + NAV 할인</td><td class="positive">12,000원</td><td class="positive">+24.4%</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출 — SOTP(NAV) 개념]
+ ① 호텔(서울드래곤시티) 운영가치 : 영업이익 × 멀티플
+ ② 용산 나진상가 개발가치     : 분양 5,000억 × 마진 NPV
+ ③ 신정동 개발가치           : 분양 1.4조 × 마진 NPV
+ ④ 기타 부동산·리츠 지분가치
+ ─────────────────────────────
+ → SOTP 합산 ÷ 발행주식 64.3백만주 ≈ 컨센 20,000원
+ ※ 부동산 장부가 2.7조 대비 시총 0.63조 → NAV 디스카운트 큼
+   개발 진척 시 디스카운트 해소가 밸류 상단
+</div>
+
+<h2>2. 산업개요</h2>
+<h3>2-1. 호텔·관광 + 부동산 개발 시장 — TAM·SAM·SOM</h3>
+<table>
+<tr><th>구분</th><th>정의</th><th>규모 (추정)</th></tr>
+<tr><td><b>TAM</b></td><td>국내 호텔·관광 + 부동산 개발 시장</td><td>방한 관광 2,200만명(2026)</td></tr>
+<tr><td><b>SAM</b></td><td>서울 프리미엄 호텔 + 용산·서남권 개발</td><td>프리미엄 집중·용산 개발</td></tr>
+<tr><td><b>SOM</b></td><td>서울드래곤시티 + 용산/신정동 개발</td><td>2026E 매출 2,900~3,017억</td></tr>
+</table>
+<p>방한 관광이 구조적으로 회복되며 프리미엄 호텔 수요가 집중되는 한편, 용산 국제업무지구 개발로 보유 부동산의 입지 가치가 상승. 서부T&amp;D는 호텔 운영(현금흐름)과 부동산 개발(성장)을 결합한 디벨로퍼로, 두 시장의 교집합에서 가치를 창출한다.</p>
+
+<h3>2-2. 밸류체인 — 호텔 운영 + 디벨로퍼</h3>
+<table>
+<tr><th>단계</th><th>주체 / 파트너</th><th>서부T&amp;D 포지션</th></tr>
+<tr><td><b>[자산] 부동산 보유</b></td><td>용산·신정동 부지(장부가 2.7조)</td><td>토지·건물 직접 보유</td></tr>
+<tr><td><b>[핵심] 개발·운영</b></td><td><b>서부T&amp;D (디벨로퍼)</b></td><td><b>개발 기획 + 호텔 운영</b></td></tr>
+<tr><td><b>[운영] 호텔 위탁</b></td><td>아코르(4개 브랜드)</td><td>브랜드·운영 위탁, 자산 보유</td></tr>
+<tr><td><b>[수익] 분양·임대·객실</b></td><td>분양 고객·투숙객·리츠</td><td>분양 매출 + 호텔 매출 + 임대</td></tr>
+</table>
+<div class="bull-box"><b>밸류체인 핵심:</b> 부동산을 보유한 채 직접 개발(분양)하고 호텔로 운영해 <b>토지 가치 상승 + 개발 이익 + 운영 현금흐름을 모두 내부화</b>하는 구조. 단순 호텔 운영사나 시행사 대비 가치 포착 범위가 넓다. 단, 개발 사업은 인허가·분양·부동산 경기에 따라 수익 인식 시점·규모가 변동하는 양면성을 갖는다.</div>
+
+<h3>2-3. 산업 사이클 — 리오프닝 + 부동산 개발</h3>
+<p>호텔은 방한 관광 리오프닝의 상승 사이클(2025~2026 회복 정점). 개발은 인허가→착공→분양→완공의 다년 사이클로, 용산(2026 착공~2030 완공)·신정동(2027 착공~)이 2027~2030년 실적을 견인. 다만 부동산 경기·분양 시장 침체 시 개발 수익 인식이 지연·축소될 수 있어 거시 부동산 환경이 변수다.</p>
+
+<h3>2-4. Peer 비교</h3>
+<table>
+<tr><th>구분</th><th>서부T&amp;D</th><th>호텔신라</th><th>파라다이스</th></tr>
+<tr><td>BM</td><td>호텔+부동산 개발(디벨로퍼)</td><td>호텔·면세</td><td>외국인 카지노·호텔</td></tr>
+<tr><td>핵심 자산</td><td>서울드래곤시티+개발 부지</td><td>면세점·호텔</td><td>카지노 사업권</td></tr>
+<tr><td>밸류 포인트</td><td>NAV(자산가치)+개발</td><td>면세 회복</td><td>카지노 드롭액</td></tr>
+<tr><td>PBR</td><td>0.59배(저평가)</td><td>중간</td><td>중간</td></tr>
+<tr><td>특징</td><td>자산주+개발주+리오프닝</td><td>면세 의존</td><td>카지노 집중</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 정성 비교. 서부T&amp;D는 호텔 리오프닝주이자 부동산 자산·개발주로, 순수 호텔·카지노주와 차별화된 NAV 스토리를 보유.</p>
+
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>1979년 공용 화물자동차정류장 사업으로 설립, 1995년 코스닥 상장. 신한서부티엔디리츠 등 5개 부동산투자회사, 코렐브랜드아시아홀딩스 산하 8개 종속회사 보유. 관광호텔업·쇼핑몰운영·물류시설운영·식기류(코렐) 제조판매 영위. 핵심 자산 <b>서울드래곤시티</b>는 1,700객실 호텔플렉스로 아코르 4개 브랜드·컨벤션·카지노를 운영. 용산 터미널 부지를 호텔로 개발한 디벨로퍼 DNA를 보유.</p>
+
+<h3>3-2. BM 분해 — 사업 구조</h3>
+<table>
+<tr><th>부문</th><th>내용</th><th>특징</th></tr>
+<tr><td>호텔(서울드래곤시티)</td><td>1,700객실·아코르 4개 브랜드·카지노·컨벤션</td><td>핵심 현금흐름, 리오프닝 수혜</td></tr>
+<tr><td>부동산 개발</td><td>용산 나진상가·신정동 서부트럭터미널</td><td>2027~ 분양 매출 인식(성장축)</td></tr>
+<tr><td>쇼핑몰·물류·기타</td><td>쇼핑몰 운영·물류시설·식기류(코렐)</td><td>안정 매출</td></tr>
+<tr><td>리츠·부동산 투자</td><td>5개 부동산투자회사</td><td>자산 유동화</td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자</h3>
+<div class="bull-box">① <b>용산 핵심 입지 부동산</b> — 대체 불가 토지(장부가 2.7조). ② <b>디벨로퍼 실행력</b> — 서울드래곤시티 개발 성공 경험. ③ <b>아코르 브랜드</b> — 프리미엄 호텔 운영. ④ <b>호텔 현금흐름</b> — 개발 자금 자체 조달.</div>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><th>시기</th><th>이벤트</th></tr>
+<tr><td>1979 / 1995</td><td>설립(화물터미널) / 코스닥 상장</td></tr>
+<tr><td>2017~</td><td>용산 터미널 부지 → 서울드래곤시티 호텔플렉스 개발·운영</td></tr>
+<tr><td>2025~2026</td><td>방한 관광 리오프닝 호황, 카지노 오픈, 1Q26 흑전</td></tr>
+<tr><td>2026.05~10</td><td>용산 나진상가 건축 허가 → 10월 착공</td></tr>
+<tr><td>2027.1</td><td>신정동 서부트럭터미널 착공 예상</td></tr>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>엠와이에이치(외 14인)</td><td>49.43%</td><td>승만호 회장 (2026.05)</td></tr>
+<tr><td>자사주</td><td>1.93%</td><td>2026.01</td></tr>
+<tr><td>외국인</td><td>19.50%</td><td>—</td></tr>
+<tr><td>유동주식</td><td>48.63%</td><td>31,575,678주</td></tr>
+</table>
+
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>1,692</td><td>1,809</td><td>2,483</td><td>2,900</td></tr>
+<tr><td>영업이익</td><td>372</td><td>481</td><td>703</td><td>869</td></tr>
+<tr><td>지배순이익</td><td>1,383</td><td>344</td><td>791</td><td>449</td></tr>
+<tr><td>영업이익률</td><td>22.0%</td><td>26.6%</td><td>28.3%</td><td>30.0%</td></tr>
+<tr><td>ROE</td><td>18.0%</td><td>3.7%</td><td>7.7%</td><td>4.2%</td></tr>
+</table>
+<p>호텔 회복으로 매출·영업이익 우상향, OPM 28~30%로 개선. 순이익은 부동산 평가차익 등 일회성에 따라 변동(2023 순이익 급증은 평가차익 영향). 2027년부터 용산·신정동 분양 매출이 인식되면 외형이 한 단계 점프할 전망. 영업이익 기준 본업 수익성은 견조.</p>
+
+<h3>4-2. 분기 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2025.09</th><th>2025.12</th><th>2026.03</th><th>2026.06E</th></tr>
+<tr><td>매출액</td><td>701</td><td>791</td><td>661</td><td>766</td></tr>
+<tr><td>영업이익</td><td>212</td><td>249</td><td>178</td><td>224</td></tr>
+<tr><td>영업이익률</td><td>30.3%</td><td>31.5%</td><td>26.9%</td><td>29.2%</td></tr>
+</table>
+<p>1Q26 매출 661억(+48.3%)·영업익 178억(+37.3%)·당기순이익 흑전. 2Q26E OP 224억(YoY +100%). 방한 관광 성수기·카지노 기여로 하반기 실적 개선 지속 전망.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<tr><th>항목</th><th>2024</th><th>2025</th></tr>
+<tr><td>자본총계</td><td>12,409억</td><td>13,869억</td></tr>
+<tr><td>부채비율</td><td>133.3%</td><td>134.7%</td></tr>
+<tr><td>BPS</td><td>15,316원</td><td>16,479원</td></tr>
+<tr><td>부동산 장부가</td><td>—</td><td>2.7조(+28%)</td></tr>
+</table>
+<p>부채비율 134.7%는 부동산·개발 보유 특성상 높은 편이나, 호텔 현금흐름·신용등급 A1로 조달 여력 확보. BPS 16,479원 대비 현재가 9,650원으로 PBR 0.59배 — 자산가치 대비 깊은 저평가.</p>
+
+<h3>4-4. 자본구조·개발 자금 리스크</h3>
+<div class="risk-box">개발 사업(용산·신정동) 진행 시 PF·차입 확대로 부채비율 상승 가능. 다만 호텔 영업현금흐름과 분양 선수금이 자금을 뒷받침. 부동산 경기·분양 시장 침체 시 개발 자금 부담·수익 인식 지연이 핵심 리스크로, PF 조달 환경 모니터링 필요.</div>
+
+<h2>5. 주주환원</h2>
+<p>DPS 100원(2024~2025), 배당수익률 약 1.04%. 자사주 1.93% 보유. 개발 자금 소요가 큰 성장 국면이라 배당보다 자산가치 수익화·NAV 디스카운트 해소가 주주가치의 핵심. 개발 분양 매출이 본격화되는 2027년 이후 현금흐름 개선 시 배당 확대 여력. 자산주 특성상 NAV 대비 저평가 해소 자체가 가장 큰 주주가치 제고 경로.</p>
+
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교</h3>
+<p>현재 PER 8.0배(후행)·12M Fwd PER 12.8배, <b>PBR 0.59배</b>. 부동산 장부가 2.7조 대비 시총 0.63조로 NAV 디스카운트가 큼. 호텔 이익만으로도 저평가이며, 개발 NAV를 더하면 컨센 TP 20,000원(PBR 약 1.2배)이 도출. <b>자산가치(NAV) 기반 SOTP가 핵심 밸류 방법</b>으로, 개발 진척이 디스카운트 해소의 트리거.</p>
+
+<h3>6-2. 시나리오 산출</h3>
+<table>
+<tr><th>시나리오</th><th>목표주가</th><th>내재 PBR</th><th>핵심 트리거</th></tr>
+<tr><td>Bull</td><td class="positive">21,000원</td><td>약 1.27배</td><td>호텔 호황 + 개발 순항 + 분양 흥행</td></tr>
+<tr><td>Base</td><td class="positive">20,000원</td><td>약 1.21배</td><td>호텔 성장 + 개발 일정대로(컨센)</td></tr>
+<tr><td>Bear</td><td class="positive">12,000원</td><td>약 0.73배</td><td>개발 지연 + 부동산 경기 둔화</td></tr>
+</table>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="update-box"><b>진입:</b> 8,350~10,000원(52주 저점~현재) 구간 분할 매수 — PBR 0.6배 이하 깊은 자산가치 저평가 활용. <b>비중 확대:</b> 용산 착공(2026.10)·분양 성과·호텔 실적 서프라이즈 확인 시. <b>이탈/차익:</b> 18,000~20,000원(컨센) 도달 또는 개발 인허가·분양 지연·부동산 경기 악화 시. 자산·개발주는 마일스톤(착공·분양) 확인하며 단계적 대응.</div>
+
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<tr><th>지표</th><th>값</th></tr>
+<tr><td>현재가 (6/24)</td><td>9,650원</td></tr>
+<tr><td>52주 최고 / 최저</td><td>18,580 / 8,350원</td></tr>
+<tr><td>수익률 (1M/3M/6M/1Y)</td><td>-18.6% / -32.2% / -24.7% / +5.7%</td></tr>
+<tr><td>베타 (1년)</td><td>0.59 (낮은 시장 민감도)</td></tr>
+</table>
+<p>지난 1년 +5.7%로 보합권이나, 최근 3개월 -32% 조정. 2025년 자산재평가·개발 기대로 18,580원까지 상승 후, 개발 수익 인식 시점 지연·소형주 수급 부진으로 8,350원까지 하락. 6/24 +3.21% 반등은 IBK 신규 커버·개발 가시화 기대. 베타 0.59로 시장 변동 대비 방어적. 핵심 모멘텀은 용산 착공·호텔 성수기 실적.</p>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 편입 현황 요약</h3>
+<p>서부T&amp;D는 액티브 ETF 6개 + 패시브 ETF 18개 = 총 <b>24개 ETF</b>에 편입(2026.06.25). KQ150 구성종목이나 소형주(시총 6,265억)로 ETF 편입 비중은 낮은 편 — ETF 수급보다 펀더멘털·개발 모멘텀이 주가의 핵심 동력이다.</p>
+
+<h3>7-2-2. 액티브 ETF 동향</h3>
+<p>액티브 ETF 6개 편입. K컬처·소비·코스닥 테마 액티브가 소량 보유. 일부 소비 액티브(VITA MZ소비)가 비중을 정리.</p>
+<table>
+<tr><th>액티브 ETF</th><th>현재 비중</th><th>현재 보유(주)</th><th>방향</th></tr>
+<tr><td>TIME K컬처액티브</td><td>1.86%</td><td>2,001</td><td>유지</td></tr>
+<tr><td>KoAct 코스닥액티브</td><td>0.94%</td><td>520</td><td class="positive">+111(증가)</td></tr>
+<tr><td>KoAct 배당성장액티브</td><td>0.15%</td><td>206</td><td>유지</td></tr>
+<tr><td>PLUS 코스닥150액티브</td><td>0.15%</td><td>73</td><td>유지</td></tr>
+<tr><td>VITA MZ소비액티브</td><td>0.00%</td><td class="negative">매도(-3,640)</td><td>비중 정리</td></tr>
+</table>
+
+<h3>7-2-3. 패시브 ETF 편입 비중 상위</h3>
+<table>
+<tr><th>패시브 ETF</th><th>기초자산</th><th>서부T&amp;D 비중</th></tr>
+<tr><td>RISE K엔터&amp;여행레저</td><td>FnGuide K엔터&amp;여행레저</td><td>1.01%</td></tr>
+<tr><td>KODEX 경기소비재</td><td>KRX 경기소비재</td><td>0.73%</td></tr>
+<tr><td>KODEX 코스닥글로벌 / TIGER 코스닥글로벌</td><td>KOSDAQ 글로벌</td><td>0.33%</td></tr>
+<tr><td>코스닥150 다수(KODEX·TIGER·RISE 등)</td><td>KOSDAQ 150</td><td>약 0.15%</td></tr>
+</table>
+
+<h3>7-2-4. 수급 해석</h3>
+<div class="update-box">서부T&amp;D는 소형주로 ETF 편입 비중이 낮아 ETF가 주가를 끌어올리는 구조가 아니다. 그나마 RISE K엔터&amp;여행레저(1.01%)·경기소비재 등 <b>리오프닝·여행레저 테마 ETF</b>에서 소폭 비중. 외국인 19.5%·기관(삼성운용 등) 보유가 수급의 핵심으로, <b>개발 마일스톤·실적 서프라이즈 시 기관·외국인 재유입</b>이 주가 트리거가 된다. ETF 수급 의존도가 낮은 만큼 펀더멘털·NAV 재평가가 직접적으로 주가를 결정.</div>
+
+<h3>7-2-5. 종합 — 모멘텀 지속성 평가</h3>
+<p>24개 ETF 편입이지만 소형주 특성상 ETF 수급 레버리지는 제한적. 주가는 ETF보다 ① 호텔 실적 ② 개발 착공·분양 ③ 부동산 자산 재평가에 직접 연동된다. 코스닥150·여행레저 테마 패시브가 기본 수급을 받치나, 결국 개발 마일스톤과 호텔 실적이 외국인·기관 수급을 유인하는 핵심. 용산 착공(2026.10)·분양 성과가 수급·밸류 리레이팅의 분기점이다.</p>
+
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">① <b>개발 수익 인식 지연</b> — 분양 매출이 2027년부터 인식돼 단기 실적 기여 제한, 기대-현실 갭. ② <b>소형주 수급 부진</b> — 거래대금 적어 변동성·유동성 리스크.</div>
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box">③ <b>개발 인허가·착공 지연</b> — 용산·신정동 일정 지연 시 NAV 실현 지연. ④ <b>부동산·분양 경기</b> — 분양 시장 침체 시 개발 수익 축소. ⑤ <b>PF 조달 환경</b> — 금리·부동산 PF 경색 시 개발 자금 부담.</div>
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">⑥ <b>방한 관광 둔화</b> — 중국 무비자 종료(2026.6.30)·지정학 리스크 시 호텔 수요 위축. ⑦ <b>금리</b> — 부동산 보유·개발 기업으로 금리 민감.</div>
+<h3>8-4. 밸류에이션 리스크</h3>
+<div class="risk-box">⑧ <b>NAV 디스카운트 장기화</b> — 자산가치(2.7조)가 저평가돼 있어도, 개발 실현·실적 입증 없이는 PBR 0.6배 디스카운트가 장기화될 수 있음. 저평가가 곧 주가 반등을 보장하지 않음.</div>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>2026~2027 트리거</th><th>중장기 가치</th></tr>
+<tr><td><b>호텔(서울드래곤시티)</b></td><td>방한 관광 성수기·카지노</td><td>안정 현금흐름</td></tr>
+<tr><td><b>용산 나진상가</b></td><td>2026.10 착공·오피스텔 분양 5,000억</td><td>2027~ 개발 매출</td></tr>
+<tr><td><b>신정동 개발</b></td><td>2027.1 착공·분양 1.4조</td><td>2027 하반기~ 매출</td></tr>
+<tr><td><b>자산 재평가</b></td><td>부동산 2.7조 NAV</td><td>디스카운트 해소</td></tr>
+<tr><td><b>MICE·카지노</b></td><td>스카이킹덤 대연회장</td><td>호텔 ASP·수익 다각화</td></tr>
+</table>
+
+<h2>10. 결론</h2>
+<p>서부T&amp;D는 서울드래곤시티(1,700객실 호텔플렉스·아코르 4개 브랜드·카지노)의 방한 관광 리오프닝 호황에, 보유 부동산을 직접 개발하는 디벨로퍼 모델(용산 나진상가·신정동)이 결합된 트리플 스토리 종목이다. 1Q26 매출 +48%·흑자전환의 호텔 호조에, 용산 건축 허가 획득으로 개발 사업의 실행 불확실성이 크게 줄었다. 부동산 장부가 2.7조원은 시총(6,265억)의 4.3배로, PBR 0.59배의 깊은 자산가치 디스카운트가 핵심 투자 포인트다.</p>
+<p>최근 3개월 8개 리포트 전부 BUY, 컨센 TP 20,000원으로 현재가(9,650원) 대비 +107% 괴리. 부채비율 134%·개발 일정 변동성·소형주 수급 부진은 약점이나, 호텔 실적·용산 착공(2026.10)·자산 재평가가 NAV 디스카운트 해소의 트리거다. <b>PBR 0.6배 깊은 저평가 구간 분할 매수 → 개발 마일스톤·호텔 실적 확인 후 비중 확대</b> 전략이 합리적이며, 투자의견 <b>BUY · Base TP 20,000원(컨센) / Bull 21,000원 / Bear 12,000원</b>을 제시한다.</p>
+
+<div class="footer">
+<b>데이터 출처:</b> FnGuide Company Guide·SearchReport(증권사 리포트 전수, 2026.06.25 조회) · IBK·iM·삼성·NH·하나·SK·BNK 리포트 · ystreet ActiveETF/PassiveETF Tracker(2026.06.25) · 서부T&amp;D IR·공시 · 언론(데일리인베스트·아주경제·더벨·비즈니스포스트·서울Pn·한국관광공사 등)<br><br>
+<b>면책:</b> 본 보고서는 공개된 자료를 종합·정리한 참고용이며 투자 권유가 아닙니다. 목표주가·시나리오는 작성자의 가정에 기반한 추정으로 실제와 다를 수 있습니다. 부동산 개발·호텔업 특성상 인허가·분양·관광 경기 변화에 따라 변동성이 크며, 투자 판단과 책임은 투자자 본인에게 있습니다. 작성일 2026.06.25 기준.
+</div>
+
+</body>
+</html>
