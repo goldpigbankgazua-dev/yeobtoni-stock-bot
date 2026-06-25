@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리가켐바이오 (141080) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>리가켐바이오 (141080.KQ)</h1>
+<div class="sub">국내 유일 빅파마 검증 ADC 플랫폼 — TROP2(J&amp;J)·L1CAM(오노)·CLDN18.2(자체) 멀티 파이프라인 · 2026 임상·옵션 모멘텀의 해<br>컨센 BUY·TP 221,667원(6개사) · 현재가 152,600원(컨센 대비 +45%) · 분석일 2026.06.25</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/24)</span><span class="snapshot-value">152,600원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">5.65조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+10.58%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">N/A (적자)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (현재)</span><span class="snapshot-value">10.7배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">11.37%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+42.1%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">팬오리온 외 8인 29.24%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">-374억 (적자지속)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">221,667원<br>(+45.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">280,000원<br>(+83.5%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (6사)</span><span class="snapshot-value">221,667원<br>(+45.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">47개<br>(액티브 15 / 패시브 32)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (1개월)</span><span class="snapshot-value negative">17개 → 15개<br>(-2개)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">213,500 /<br>108,900원</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 액티브 15개·패시브 32개 합산 47개 ETF 편입. 1개월간 액티브 ETF는 17→15개로 2개 감소했으나, 바이오 특화 액티브(마이티 바이오시밀러&amp;CDMO +112주, KoAct 바이오헬스케어 +18주, MIDAS 코스닥 +20주)는 순매수. 반면 RISE 바이오TOP10 -44주·PLUS 코스닥150 -18주 차익실현. 패시브는 TIGER 코스닥150바이오테크(6.27%)·RISE 헬스케어(5.08%)·코스닥글로벌(4.3%) 등 바이오·헬스케어 인덱스 비중 상위. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.25 기준 — 상세 표는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 11개 증권사 리포트 전부 BUY(신한은 Not Rated 커버 개시), 컨센 TP 221,667원(6개사). 6월 미래에셋 NEW BUY 230,000·다올 240,000으로 TP 상향, 메리츠·교보도 상향. 목표주가는 임상·L/O 모멘텀이 응축된 2026 하반기를 겨냥. (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> 19년 이후 매년 ADC 기술이전을 성사시킨 국내 유일의 '빅파마 검증' ADC 플랫폼. LCB84(TROP2)의 J&amp;J 옵션 행사(2억달러)·글로벌 2상 진입, LCB02A(CLDN18.2) 첫 환자 투여, ROR1·B7-H4 임상 데이터가 모두 2026 하반기에 몰려 있어 '임상 모멘텀의 해'. 적자·기술이전 매출 변동성·PBR 10.7배는 부담이나, 컨센 대비 45% 괴리·코스닥 프리미엄 편입 수급이 하방을 받친다.</div>
+</div>
+
+<h2 style="border:none;color:#1a5276">§0. 멀티소스 교차검증 — 증권사·1차자료·외부검증</h2>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1f618d">📊 증권사 리포트 전수 (FnGuide SearchReport, 최근 3개월 · 2026.03.26~06.23)</h3>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.06.23</td><td>신한투자</td><td>AI TOP2보다 TROP2</td><td>Not Rated<br>(커버 개시)</td><td>-</td><td>-</td></tr>
+<tr><td>26.06.19</td><td>한국IR협의회</td><td>조급할 필요 없는 시기, Sublicense는 이제부터</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>26.06.15</td><td>미래에셋</td><td>26년 임상결과에 주목</td><td>매수 <span class="tag-new">NEW</span></td><td>230,000</td><td class="positive">+50.7%</td></tr>
+<tr><td>26.06.15</td><td>DS투자</td><td>격변하는 1차 치료제, 어떤 파이를 가져올 것인가</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.06.09</td><td>NH투자</td><td>ASCO 빅파마 관점에서 바라본 L/O 가능성</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.06.02</td><td>다올투자</td><td>기다림의 끝이 보인다</td><td>BUY(유지)</td><td>240,000</td><td class="positive">+57.3%</td></tr>
+<tr><td>26.05.29</td><td>메리츠</td><td>뜸들일 시간, 그러나 방향성은 유효</td><td>BUY</td><td>210,000 ▲</td><td class="positive">+37.6%</td></tr>
+<tr><td>26.05.21</td><td>하나</td><td>대기만성</td><td>BUY(유지)</td><td>220,000</td><td class="positive">+44.2%</td></tr>
+<tr><td>26.05.21</td><td>iM</td><td>흔들리는 것은 마음일 뿐이다</td><td>BUY(유지)</td><td>200,000</td><td class="positive">+31.1%</td></tr>
+<tr><td>26.05.11</td><td>IBK투자</td><td>임상과 기술이전 더블 모멘텀</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.05.07</td><td>한국투자</td><td>하반기 임상 결과로 승부</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.04.01</td><td>교보</td><td>ADC는 여전히 뜨겁다</td><td>BUY</td><td>230,000 ▲</td><td class="positive">+50.7%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold"><td colspan="3">FnGuide 컨센서스 (추정기관 6개사)</td><td>BUY (4.0)</td><td>221,667</td><td class="positive">+45.3%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ IR팀 발간 3건(회사소개·1Q26 실적발표·Company Overview)은 증권사 분석이 아니므로 위 표에서 제외. 신한·DS·NH·IBK·한투는 목표주가 미제시 또는 Not Rated. ▲=직전 대비 상향.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#b9521a">🔥 신한투자 (이호철·엄민용) 2026.06.23 — "AI TOP2보다 TROP2" <span class="tag-sk">커버 개시</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"빅파마 검증 ADC, 옵션 행사 모멘텀 지속"</td><td>국내 유일 빅파마향 TROP2 ADC 기술이전 기업</td></tr>
+<tr><td>투자의견 / TP</td><td>Not Rated (커버리지 개시) / TP 미제시</td><td>현재가(6/22) 133,900원</td></tr>
+<tr><td>★ 핵심 논거</td><td>① LCB84(TROP2-MMAE) J&amp;J L/O, 계약금 1억달러·총 17억달러 ② 26년 하반기 글로벌 2상 진입 + J&amp;J 잔여옵션 2억달러 행사 가능성 ③ 경쟁약물은 모두 Topo-I 페이로드, LCB84만 MMAE 채택해 포화구간 차별화 ④ ConjuALL 플랫폼 위치특이적 결합으로 균일 DAR → 안전성 차별</td><td>TROP2는 32년 예상 매출 상위 10개 ADC 중 3개 차지 대형 타깃</td></tr>
+<tr><td>★ 후속 모멘텀</td><td>LCB97(L1CAM, 오노) 글로벌 1상 개시 + LCB02A(CLDN18.2) 3Q 글로벌 임상 진입 + 코스닥 승강제 1부 편입 수급</td><td>L/O·임상·수급 3박자</td></tr>
+</table>
+<p><b>[신한 핵심]</b> "빅파마가 검증한 TROP2 ADC를 보유한 유일한 국내 기업. J&amp;J의 옵션 행사가 2상 종료 전 이뤄지면 대규모 자금 유입. ① 시총 ② 빅파마 기술이전 이력 ③ 실적 가시성 → 코스닥 프리미엄(상위 70종목) 편입 유력."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a">
+<h3 style="margin-top:0;color:#1e6e3a">📘 미래에셋 (김승민) 2026.06.15 — "26년 임상결과에 주목" <span class="tag-new">TP 상향</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"2026년은 임상 모멘텀의 해"</td><td>L/O→임상 가치입증 국면 전환</td></tr>
+<tr><td>투자의견 / TP</td><td>매수 / 230,000 (17만 → 23만, +35%)</td><td>현재가 대비 +50.7%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① LCB02A(CLDN18.2) FDA IND 제출, 26년 중순 첫 환자 투여 ② B7-H4 ADC PoC + ROR1 ADC 1상 중간결과 공개 예정 → 추가 L/O 가능성 ③ LCB14(HER2) 26년 중국 허가 신청 ④ LCB84 연내 1상 종료, 옵션 행사 시 2억달러</td><td>임상 데이터가 밸류 트리거</td></tr>
+<tr><td>★ Valuation</td><td>파이프라인 rNPV 기반 SOTP, 임상 진전 반영해 23만원 상향</td><td>마일스톤 현실화 가정</td></tr>
+</table>
+<p><b>[미래에셋 핵심]</b> "과거 2019년 이후 매년 ADC 기술이전을 이어온 트랙레코드. 자체 임상(LCB02A) 진입으로 'L/O 전략' 너머 가치 입증 단계 진입."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d">
+<h3 style="margin-top:0;color:#1f618d">📙 다올투자 (이지수) 2026.06.02 — "기다림의 끝이 보인다" <span class="tag-sk">최고 TP</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"임상·옵션 이벤트 임박, 기다림의 보상 구간"</td><td>커버리지 내 최고 TP</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(유지) / 240,000</td><td>현재가 대비 +57.3%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① J&amp;J 옵션 행사 + 글로벌 2상 진입 ② 자체·파트너 파이프라인 다수 임상 단계 진입 ③ 추가 기술이전(서브라이선스·플랫폼딜) 파이프 충분</td><td>이벤트 드리븐 상승 여력</td></tr>
+<tr><td>★ Valuation</td><td>주요 파이프라인 rNPV 합산 + 플랫폼 가치</td><td>마일스톤 확률가중</td></tr>
+</table>
+<p><b>[다올 핵심]</b> "주가가 3개월간 25% 조정받으며 임상·옵션 이벤트 가치가 충분히 디스카운트된 구간."</p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309">
+<h3 style="margin-top:0;color:#b45309">📙 메리츠 (김준영) 2026.05.29 — "뜸들일 시간, 그러나 방향성은 유효" <span class="tag-sk">TP 상향</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"단기 이벤트 공백, 중기 방향성 유효"</td><td>단기 조정·중기 BUY</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 210,000 (상향)</td><td>현재가 대비 +37.6%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 1Q 이후 단기 모멘텀 공백 인정 ② 하반기 LCB84·LCB02A·ROR1 데이터 집중 ③ 기술이전 선순환 구조 지속</td><td>'뜸들이는' 구간 매집 유효</td></tr>
+<tr><td>★ Valuation</td><td>임상 진전 반영 TP 상향</td><td>—</td></tr>
+</table>
+<p><b>[메리츠 핵심]</b> "방향성은 명확하나 데이터 공개까지 시간 필요 — 변동성 활용 구간."</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d">
+<h3 style="margin-top:0;color:#5d6d7e">📘 하나 (김선아·유창근) 2026.05.21 — "대기만성" (21p In-depth) <span class="tag-sk">심층</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"대기만성 — 빅파마 검증 플랫폼의 시간"</td><td>21페이지 심층 분석</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(유지) / 220,000</td><td>현재가 대비 +44.2%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① ConjuALL·차세대 페이로드 원천기술 ② 13건+ 누적 기술이전·플랫폼딜 트랙레코드 ③ 자체 임상 본격화로 가치사슬 상향 ④ J&amp;J·오노 마일스톤 가시성</td><td>플랫폼 + 파이프라인 듀얼 밸류</td></tr>
+<tr><td>★ Valuation</td><td>SOTP(파이프라인 rNPV + 플랫폼 옵션가치)</td><td>—</td></tr>
+</table>
+<p><b>[하나 핵심]</b> "기술이전 모델은 시점 변동성이 크지만, 매년 딜을 성사시킨 실행력이 차별점."</p>
+</div>
+
+<div class="sk-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 NH·DS·iM·IBK·한투·교보 — 커버리지 컨센 요약 <span class="tag-sk">전수</span></h3>
+<table>
+<tr><th>증권사 / 일자</th><th>제목 · 의견</th><th>핵심 포인트</th></tr>
+<tr><td>NH투자 06.09</td><td>ASCO 빅파마 관점 L/O 가능성 · BUY</td><td>ASCO 데이터 기반 빅파마 추가 L/O 시나리오 점검</td></tr>
+<tr><td>DS투자 06.15</td><td>격변하는 1차 치료제 · BUY</td><td>TROP2 1차 치료제 시장 재편 수혜 파이 분석</td></tr>
+<tr><td>iM 05.21</td><td>흔들리는 것은 마음일 뿐 · BUY 200,000</td><td>주가 조정은 심리, 펀더멘털 유효</td></tr>
+<tr><td>IBK 05.11</td><td>임상과 기술이전 더블 모멘텀 · BUY</td><td>자체 임상 + L/O 동시 진행 강조</td></tr>
+<tr><td>한국투자 05.07</td><td>하반기 임상 결과로 승부 · BUY</td><td>하반기 데이터가 주가 분기점</td></tr>
+<tr><td>교보 04.01</td><td>ADC는 여전히 뜨겁다 · BUY 230,000(상향)</td><td>빅파마 ADC 수요 지속, 멀티플 상향</td></tr>
+</table>
+<p><b>[컨센 핵심]</b> 11개 증권사 모두 BUY 일관. TP 미제시 5개사도 방향성은 긍정. 디스아그리(매도·중립) 리포트는 최근 3개월 전무 — 컨센 강도 높음.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📋 1차자료 — DART 주요 공시 <span class="tag-disc">PRIMARY</span></h3>
+<p><b>최근 3개년 신호 공시 (루틴 제외, 사업·자본·주주환원 3분류):</b></p>
+<table>
+<tr><th>분류</th><th>일자</th><th>공시 내용 (신호)</th></tr>
+<tr><td rowspan="4" style="background:#fef5e7"><b>사업<br>(L/O·임상)</b></td><td>2023.12</td><td>LCB84(TROP2-MMAE) J&amp;J(얀센) 기술이전 — 총 17억달러(약 2.2조), 국내 역대 최대 규모. 계약금 1억달러</td></tr>
+<tr><td>2024 중</td><td>LCB97(L1CAM, ONO-7429) 오노약품 기술이전 — 약 1조원 규모</td></tr>
+<tr><td>2026.05.14</td><td>LCB02A(CLDN18.2-Topo1i) 미국 FDA 임상 1/2상 IND 승인 — 자체 개발 첫 글로벌 임상</td></tr>
+<tr><td>2026.05</td><td>오노 LCB97 글로벌 1상 개시 공식화 (마일스톤 유입 가능)</td></tr>
+<tr><td rowspan="2" style="background:#eaf2f8"><b>자본·<br>지배구조</b></td><td>2024.01~03</td><td>최대주주 변경 — 오리온그룹(팬오리온) 제3자배정 유상증자(신주 796만주)+구주 140만주 인수, 25.73% 취득(5,485억원)</td></tr>
+<tr><td>2026.03</td><td>최대주주 지분 변동 — 팬오리온 외 8인 29.24% (자사주 0.46%)</td></tr>
+<tr><td style="background:#eafaf1"><b>실적</b></td><td>2026.05.18</td><td>2026년 1분기 실적 — 매출 359억(YoY -30.4%), 영업이익 -374억(적자지속, L/O 매출 인식 시점 공백)</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 데이터 출처: DART 전자공시 + 회사 IR + 언론 공시 종합. 기술이전 계약은 단일판매·공급계약/기술이전 공시 기준. 정확한 계약금·마일스톤 세부는 원문 공시 참조.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276">🌐 외부검증 1 — 글로벌 ADC 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p>ADC(항체-약물 접합체)는 항암제 시장에서 가장 빠르게 성장하는 모달리티다. 빅파마는 특허 절벽 대응을 위해 ADC 자산을 대규모로 인수·도입하고 있으며, 리가켐바이오는 그 공급망의 핵심 'ADC 엔진' 위치에 있다.</p>
+<div class="global-quote">
+<b>시장 규모:</b> 글로벌 ADC 시장은 2030년 약 <b>459억달러(약 67조원)</b>, <b>연평균 27%+</b> 고성장 전망. 2024년 약 94억달러에서 5~6년 내 5배 확대.<br><br>
+<b>빅파마 ADC 인수·도입 트랙:</b> 길리어드 → 이뮤노메딕스 <b>210억달러</b>(트로델비, TROP2) · 화이자 → 시젠 <b>430억달러</b>(파드셉, Nectin-4) · 애브비 → 이뮤노젠 약 14조(엘라히어) · MSD ← 다이이찌산쿄 ADC 3종 약 30조 도입.<br><br>
+<b>TROP2 집중도:</b> 신한투자 분석 기준 <b>2032년 예상 매출 상위 10개 ADC 중 3개가 TROP2 타깃</b>(트로델비·다트로웨이·sac-TMT). 리가켐 LCB84는 이 대형 타깃을 빅파마(J&amp;J)와 공동개발 중인 유일 국내 ADC.</p>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 신한투자증권 리포트(블록버스터 ADC 목록, Evaluate Pharma 인용) 2026.06.23 · 바이오타임즈·더바이오 ADC 시장 전망 2026</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 정책·그룹 전략 <span class="tag-policy">POLICY/GROUP</span></h3>
+<p><b>① 코스닥 승강제(프리미엄 시장) 도입 — 직접적 수급 정책 모멘텀</b></p>
+<div class="policy-quote">한국거래소는 코스닥 시장을 <b>프리미엄·스탠다드·관리군</b>으로 재편하는 승강제를 추진. <b>7월 1일 코스닥 30주년 기념식에서 개편 방향 발표</b>, 9월 말~10월 초 '코리아 프리미엄 위크' 전후 최종안 공개 검토. 프리미엄 시장은 시총 상위 우량주 중심으로 별도 대표지수·ETF 개발 → 기관 자금 유입 확대. 리가켐바이오는 시총(5.65조)·글로벌 L/O 실적·실적 가시성 종합 시 <b>프리미엄(상위 70종목) 편입 유력 후보</b>로 평가.</div>
+<p><b>② 오리온그룹 바이오 전략의 핵심 자산</b></p>
+<div class="policy-quote">오리온은 2024년 식품 본업의 캐시카우를 바이오로 확장하는 전략으로 리가켐을 인수. 인수 초기 '식품-바이오 시너지' 회의론(오리온 주가 20% 하락)이 있었으나, 이후 리가켐의 연쇄 기술이전으로 모회사 지분가치가 매입가 대비 큰 폭 상승하며 '신의 한 수'로 재평가. 오리온의 <b>자금력 + 리가켐의 ADC 기술력</b> 결합이 R&amp;D 가속의 토대.</div>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 파이낸셜뉴스·서울경제 코스닥 승강제 2026.06.22 · 딜사이트·코메디닷컴 오리온 인수 분석</p>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 외부검증 3 — 최근 1개월 핵심 기사 (2026.05.25~06.24) <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<p>① <b>오노, LCB97 글로벌 1상 공식화</b> — 오노약품이 리가켐 도입 L1CAM ADC 'ONO-7429(LCB97)' 글로벌 임상 1상 개시를 처음 공식화. 임상 승인·첫 투여 시 마일스톤 유입 가능. <span style="font-size:9pt;color:#7f8c8d">📌 더바이오 2026.06</span></p>
+<p>② <b>LCB02A 미국 1/2상 승인(5/14)</b> — CLDN18.2 ADC 자체물질 LCB02A FDA IND 승인, 2031년 종료 목표·3Q 첫 환자 투여. 'L/O 전략 너머 자체 임상' 진입. <span style="font-size:9pt;color:#7f8c8d">📌 약사공론·데이터투자 2026.05.14</span></p>
+<p>③ <b>"차세대 ADC 4건 올해 1상 진입"</b> — 정철웅 소장, ADC 에셋 4건 IND 예고·뉴코(신규법인)·서브라이선스로 BD 모델 확대 천명. <span style="font-size:9pt;color:#7f8c8d">📌 더바이오 학회줌인 2026.06</span></p>
+<p>④ <b>미래에셋 TP 23만원 상향(6/15)</b> — 임상 모멘텀 본격화 반영, 17만→23만(+35%) 상향. <span style="font-size:9pt;color:#7f8c8d">📌 PRESS9 2026.06.15</span></p>
+<p>⑤ <b>"코스닥 1부 편입 기대"</b> — TROP2 ADC 2상 진입과 함께 코스닥 프리미엄 편입 유력주로 거론. <span style="font-size:9pt;color:#7f8c8d">📌 서울경제 Why바이오 2026.06</span></p>
+<p>⑥ <b>ASCO·J&amp;J 모멘텀</b> — ASCO 데이터·J&amp;J 옵션 기대감으로 ADC 기술이전 기대 확대. <span style="font-size:9pt;color:#7f8c8d">📌 약사공론 2026.06</span></p>
+<p>⑦ <b>"오리온이 준 2년의 시간, ADC 데이터로 가치 입증"</b> — 인수 2년차, 임상 데이터로 펀더멘털 증명 국면. <span style="font-size:9pt;color:#7f8c8d">📌 뉴스웨이 2026.05.19</span></p>
+<p>⑧ <b>"포모 끝, 빅파마 ADC 라이선스 딜 선별 국면"</b> — ADC L/O 시장이 옥석가리기로 전환, 검증된 플랫폼에 유리. <span style="font-size:9pt;color:#7f8c8d">📌 더바이오 2026.06</span></p>
+<p>⑨ <b>LCB14(HER2) 중국 첫 상업화 기대</b> — 중국 권리 파트너의 내년 첫 상업화(허가 신청) 기대. <span style="font-size:9pt;color:#7f8c8d">📌 다음/언론 2026.06</span></p>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<div class="warning-box">
+<b>🔥 단기 (2026 3Q)</b><br>
+• 2026.07.01 — 코스닥 30주년 기념식, 승강제 개편 방향 발표<br>
+• 2026 3Q — LCB02A(CLDN18.2) 첫 환자 투여 (자체 임상)<br>
+• 2026 3Q — 오노 LCB97 1상 진전 마일스톤 가능<br>
+• 2026 여름 — LCB84 J&amp;J 글로벌 1상 종료 임박
+</div>
+<b>중기 (2026 4Q)</b><br>
+• 2026 하반기 — LCB84 글로벌 2상 진입 + <b>J&amp;J 잔여옵션 2억달러 행사 여부 구체화</b> (최대 이벤트)<br>
+• 2026 하반기 — ROR1 ADC(LCB71/CS5001) 임상 1상 중간결과 공개<br>
+• 2026 하반기 — B7-H4 ADC(LCB41A/LNCB74) PoC 데이터 (NextCure 공동)<br>
+• 2026 9~10월 — 코스닥 승강제 최종안 + 프리미엄 시장 편입 확정<br><br>
+<b>장기 (2027~)</b><br>
+• 2026~2027 — LCB14(HER2) 중국 허가 신청·첫 상업화 (로열티 발생 시작)<br>
+• 2027 — LCB84 글로벌 2상 데이터 + 추가 마일스톤<br>
+• 상시 — 신규 ADC 플랫폼딜·서브라이선스(2019년 이후 매년 성사 트랙)<br>
+• 중장기 — 자체 임상 파이프라인 PoC 후 직접 L/O로 계약 규모 상향
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① 국내 유일 '빅파마 검증' ADC 플랫폼</span><br>리가켐은 2019년 이후 매년 ADC 플랫폼·파이프라인 기술이전을 성사시킨 국내 유일의 ADC 전문기업. 2023년 12월 LCB84(TROP2)를 J&amp;J에 총 17억달러(약 2.2조)에 기술이전하며 국내 역대 최대 L/O 기록. 빅파마가 자사 ADC 자산을 검증·도입했다는 점 자체가 플랫폼 신뢰도의 객관적 증거다.</li>
+<li><span class="point-title">② LCB84 — 2026 하반기 J&amp;J 옵션(2억달러) + 글로벌 2상 진입</span><br>TROP2는 2032년 예상 매출 상위 10개 ADC 중 3개를 차지하는 초대형 타깃. LCB84는 1상 데이터가 우수할 경우 J&amp;J가 2상 종료 전 잔여옵션 2억달러를 행사할 수 있어, 옵션 행사 시 대규모 일시 자금 유입 + 밸류 재평가 트리거가 된다.</li>
+<li><span class="point-title">③ MMAE 페이로드 차별화 + ConjuALL 균일 DAR</span><br>경쟁 TROP2 ADC(트로델비·다트로웨이·sac-TMT)가 모두 Topo-I 페이로드인 반면 LCB84는 MMAE를 채택해 포화 구간에서 차별적 포지셔닝. 독자 플랫폼 ConjuALL의 위치특이적 결합으로 균일한 DAR을 구현, 안전성에서도 차별화.</li>
+<li><span class="point-title">④ 자체 임상 진입 — L/O 전략 너머 가치사슬 상향</span><br>LCB02A(CLDN18.2)가 2026.05.14 미국 1/2상 IND 승인, 3Q 첫 환자 투여 예정. 자체 임상 진전으로 초기 L/O 대비 계약 규모를 키울 수 있는 단계로 진입. PoC 후 직접 L/O는 계약금·마일스톤 레버리지가 크다.</li>
+<li><span class="point-title">⑤ 멀티 파이프라인 — 단일 물질 의존도 낮음</span><br>TROP2(J&amp;J)·L1CAM(오노)·ROR1(시스톤)·HER2(중국·익수다)·B7-H4(NextCure)·CLDN18.2(자체) 등 타깃·파트너가 분산. 한 파이프라인 임상 실패가 전체 가치를 무너뜨리지 않는 포트폴리오 구조.</li>
+<li><span class="point-title">⑥ 2026 = '임상 모멘텀의 해' — 데이터 집중 분출</span><br>LCB84 옵션·2상, LCB02A 투여, ROR1 1상 중간, B7-H4 PoC, LCB14 중국 허가가 모두 2026 하반기에 집중. 분기마다 밸류 트리거가 대기.</li>
+<li><span class="point-title">⑦ 오리온 모회사 = 자금·신뢰 안정판</span><br>최대주주 오리온그룹(29.24%)의 자금력으로 적자 R&amp;D 기간 유상증자 의존도가 낮음. 식품 캐시카우 기반의 장기 R&amp;D 투자 여력이 바이오텍 특유의 자금 리스크를 완화.</li>
+<li><span class="point-title">⑧ 코스닥 승강제 프리미엄 편입 수급 모멘텀</span><br>9~10월 코스닥 프리미엄 시장 편입 시 별도 대표지수·ETF 신규 자금 유입. 시총·L/O 실적 기준 상위 70종목 편입 유력 후보로, 정책 수급이 주가 하방을 받친다.</li>
+<li><span class="point-title">⑨ 빅파마 ADC 수요 구조적 — 특허 절벽 대응</span><br>글로벌 빅파마가 특허 절벽 대응으로 ADC 자산을 대규모 도입 중. 시장이 2030년 67조로 CAGR 27%+ 성장하는 가운데, 검증된 ADC 엔진은 지속적 L/O 수요의 수혜자.</li>
+<li><span class="point-title">⑩ '선별 국면'에서 검증 플랫폼이 유리</span><br>ADC L/O 시장이 '포모(FOMO)'에서 옥석가리기로 전환되는 국면. 임상·딜 트랙레코드가 검증된 리가켐은 차별적 선택지로, 오히려 신규 진입자 대비 협상력이 강화.</li>
+<li><span class="point-title">⑪ 컨센 대비 큰 폭 괴리 — 밸류 갭</span><br>현재가 152,600원 vs 컨센 TP 221,667원(6개사)으로 +45% 괴리. 최근 3개월 11개 증권사 전부 BUY, 매도·중립 리포트 전무. 컨센 강도 대비 주가는 디스카운트.</li>
+<li><span class="point-title">⑫ 3개월 -25% 조정 = 이벤트 전 매집 구간</span><br>3개월 -25.2% 조정으로 임상·옵션 이벤트 가치가 상당 부분 디스카운트. 다올·iM 등은 "주가 조정은 심리, 펀더멘털 유효"로 진입 기회 평가.</li>
+<li><span class="point-title">⑬ 서브라이선스·플랫폼딜 BD 모델 확장</span><br>뉴코(신규법인)·서브라이선스 등 BD 모델 다각화로 단발성 L/O를 넘어 지속 로열티·플랫폼 수익 구조 구축. ADC 에셋 4건 추가 IND 예고로 딜 파이프 풍부.</li>
+</ul>
+
+<h3>투자의견 종합</h3>
+<div class="update-box">
+<b>종합 BUY.</b> 적자·기술이전 매출 변동성·PBR 10.7배의 부담에도, ① 빅파마 검증 ADC 플랫폼의 희소성 ② 2026 하반기 임상·옵션 이벤트 집중 ③ 컨센 대비 +45% 괴리 ④ 코스닥 프리미엄 수급을 종합하면 위험 대비 보상이 우위. 다만 바이오텍 특성상 단일 임상 데이터·옵션 행사 여부에 주가 변동성이 크므로, <b>이벤트 분산 매집 + 데이터 확인 후 비중 확대</b> 전략이 합리적. 핵심 트리거는 LCB84 J&amp;J 옵션 행사(2026 하반기).
+</div>
+
+<h3>시나리오별 목표주가</h3>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류 방법</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bull</b></td><td>J&amp;J 옵션 행사 + 추가 L/O 1건 + 코스닥 프리미엄 편입 + 자체 임상 PoC 긍정</td><td>SOTP rNPV (마일스톤 확률 상향)</td><td class="positive">280,000원</td><td class="positive">+83.5%</td></tr>
+<tr><td><b>Base</b></td><td>L/O 마일스톤 정상 유입 + LCB84 2상 진입 + 자체 임상 순항 (컨센 평균)</td><td>SOTP rNPV (6개사 컨센)</td><td>221,667원</td><td class="positive">+45.3%</td></tr>
+<tr><td><b>Bear</b></td><td>임상 지연·옵션 미행사 + 신규 L/O 부재 + 바이오 멀티플 축소</td><td>핵심 파이프라인만 rNPV</td><td class="negative">130,000원</td><td class="negative">-14.8%</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출 — SOTP rNPV 개념]
+ 핵심 파이프라인 rNPV 합산:
+  · LCB84 (TROP2, J&J)      : 계약금+마일스톤 17억달러 × 단계별 성공확률 가중
+  · LCB97 (L1CAM, 오노)      : 약 1조 계약 × 1상 진입 확률
+  · LCB14 (HER2, 중국/익수다) : 허가임박 + 로열티 NPV
+  · 자체(LCB02A·ROR1·B7-H4)  : 임상단계 확률가중 rNPV
+  · ConjuALL 플랫폼 옵션가치   : 향후 신규 L/O 기대값
+ ─────────────────────────────
+ → SOTP 합산 ÷ 발행주식 37.0백만주 ≈ 컨센 221,667원
+ ※ 바이오 rNPV는 성공확률·할인율 가정에 민감 → 시나리오 밴드 광범위
+</div>
+
+<h2>2. 산업개요</h2>
+<h3>2-1. ADC 시장 규모 — TAM·SAM·SOM</h3>
+<table>
+<tr><th>구분</th><th>정의</th><th>규모 (추정)</th></tr>
+<tr><td><b>TAM</b></td><td>글로벌 항암제 시장 전체</td><td>2,000억달러+ (2030)</td></tr>
+<tr><td><b>SAM</b></td><td>글로벌 ADC(항체-약물 접합체) 시장</td><td>459억달러(약 67조), 2030 · CAGR 27%+</td></tr>
+<tr><td><b>SOM</b></td><td>리가켐 ADC 플랫폼 도달 가능 — L/O 계약금·마일스톤·로열티 + 자체 임상 가치</td><td>파이프라인별 rNPV 합산(SOTP)</td></tr>
+</table>
+<p>ADC는 항체의 표적성과 세포독성 약물의 강력함을 결합한 차세대 항암제. 빅파마가 특허 절벽 대응으로 ADC 자산을 공격적으로 인수·도입하면서, ADC '엔진'(플랫폼·페이로드·링커)을 보유한 기업의 전략적 가치가 급등했다. 리가켐은 자체 ConjuALL 플랫폼과 차세대 페이로드(MMAE·pPBD·Topo-I)를 보유해 다수 타깃에 ADC를 빠르게 생성·L/O하는 사업모델을 갖췄다.</p>
+
+<h3>2-2. 밸류체인 — ADC 개발·기술이전 구조</h3>
+<table>
+<tr><th>단계 (전방 ← 리가켐 → 후방)</th><th>주체 / 파트너</th><th>리가켐 포지션</th></tr>
+<tr><td><b>[전방] 항체·타깃 발굴</b></td><td>항체 파트너·자체 발굴</td><td>타깃 선정·항체 확보</td></tr>
+<tr><td><b>[핵심] ADC 엔진 (플랫폼·링커·페이로드)</b></td><td><b>리가켐 ConjuALL</b></td><td><b>원천기술 보유 — 가치사슬 중심</b></td></tr>
+<tr><td><b>[중간] 전임상·초기 임상</b></td><td>리가켐 자체 또는 공동</td><td>PoC 확보 → 계약 규모 상향</td></tr>
+<tr><td><b>[후방] 글로벌 임상·허가·상업화</b></td><td>J&amp;J·오노·시스톤·중국 파트너·익수다·NextCure</td><td>기술이전 후 마일스톤·로열티 수취</td></tr>
+</table>
+<div class="bull-box"><b>밸류체인 핵심:</b> 리가켐은 ADC 가치사슬에서 '엔진'(플랫폼)을 쥐고, 비용·리스크가 큰 후기 임상·상업화는 빅파마에 위임하는 자본효율적 모델. 단, 후방을 위임하는 만큼 가치 실현이 파트너의 임상 진척·옵션 결정에 종속되는 양면성이 있다. <b>자체 임상(LCB02A) 확대는 이 종속성을 줄이고 가치사슬을 후방으로 넓히는 전략적 행보.</b></div>
+
+<h3>2-3. 산업 사이클 — ADC L/O '선별 국면'</h3>
+<p>2020~2023년 빅파마의 ADC '포모(FOMO)' 도입 러시 이후, 2025~2026년은 데이터 기반 옥석가리기 '선별 국면'으로 전환. 검증된 플랫폼·임상 데이터를 가진 기업에 딜이 집중되는 구조로, 트랙레코드가 두터운 리가켐에 우호적. 동시에 ADC 임상의 51%가 중국발이라는 공급 과잉 우려도 존재해, 차별적 페이로드·안전성 데이터가 협상력의 관건이 됐다.</p>
+
+<h3>2-4. Peer 비교</h3>
+<table>
+<tr><th>구분</th><th>리가켐바이오</th><th>알테오젠</th><th>에이비엘바이오</th></tr>
+<tr><td>플랫폼</td><td>ADC (ConjuALL)</td><td>SC 변환(하이브로자임)</td><td>이중항체·ADC</td></tr>
+<tr><td>대표 L/O</td><td>J&amp;J(TROP2 2.2조)·오노(L1CAM)</td><td>MSD(키트루다 SC)</td><td>사노피(이중항체)</td></tr>
+<tr><td>수익 모델</td><td>계약금+마일스톤+로열티</td><td>로열티 중심</td><td>마일스톤+로열티</td></tr>
+<tr><td>흑자 가시성</td><td>L/O 시점 의존(변동성)</td><td>로열티 본격화</td><td>마일스톤 의존</td></tr>
+<tr><td>PBR</td><td>10.7배</td><td>고평가 영역</td><td>고평가 영역</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ Peer는 비즈니스 모델 비교 목적의 정성 비교. 플랫폼 바이오텍은 적자·로열티 구조상 PER 비교가 무의미해 PBR·파이프라인 가치로 평가.</p>
+
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>2006년 합성신약 R&amp;D 목적으로 설립, 2013년 코스닥 상장. 의약화학 기반 글로벌 신약 R&amp;D에 주력하며 자체 차세대 ADC 원천기술(ConjuALL)과 오픈이노베이션 전략으로 ADC 항암제를 개발·기술이전. 사업영역은 ADC, 합성신약, 의료기기·의료소모품 판매로 구성. 2024년 사명을 레고켐바이오 → <b>리가켐바이오(LigaChem Biosciences)</b>로 변경, 최대주주가 오리온그룹으로 변경됐다.</p>
+
+<h3>3-2. BM 분해 — ADC 파이프라인 (공식)</h3>
+<table>
+<tr><th>프로그램</th><th>타깃-페이로드</th><th>적응증</th><th>단계</th><th>파트너</th></tr>
+<tr><td>Caxmotabart Entudotin (LCB14)</td><td>HER2-MMAF</td><td>유방·위·난소암</td><td>중국 3상(T-DM1 비교)</td><td>중국 포순 / 익수다(중국 외)</td></tr>
+<tr><td>LCB71 (CS5001)</td><td>ROR1-pPBD</td><td>혈액암·고형암</td><td>Phase 1</td><td>시스톤(CStone)</td></tr>
+<tr><td><b>LCB84</b></td><td><b>TROP2-MMAE</b></td><td>고형암</td><td><b>Phase 1→2(26 하반기)</b></td><td><b>J&amp;J(얀센)</b></td></tr>
+<tr><td>LCB73</td><td>CD19-pPBD</td><td>혈액암</td><td>전임상~1상</td><td>—</td></tr>
+<tr><td>LCB41A (LNCB74)</td><td>B7H4-MMAE</td><td>고형암</td><td>Phase 1(PoC)</td><td>NextCure 공동</td></tr>
+<tr><td>LCB97 (ONO-7429)</td><td>L1CAM</td><td>고형암</td><td>글로벌 Phase 1</td><td>오노약품</td></tr>
+<tr><td><b>LCB02A</b></td><td>CLDN18.2-Topo1i</td><td>고형암</td><td><b>1/2상 IND 승인(자체)</b></td><td>자체개발</td></tr>
+<tr><td>IKS04</td><td>CA242-pPBD</td><td>고형암</td><td>전임상~1상</td><td>익수다</td></tr>
+<tr><td>SOT106</td><td>LRRC15-MMAE</td><td>고형암</td><td>플랫폼딜 파트너 개발</td><td>플랫폼 파트너</td></tr>
+<tr><td>LCB36</td><td>CD20×CD22-pPBD</td><td>혈액암</td><td>전임상</td><td>—</td></tr>
+<tr><td>IKS012</td><td>FOLR1</td><td>고형암</td><td>플랫폼딜 파트너 개발</td><td>익수다</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: 리가켐바이오 공식 파이프라인(ligachembio.com) 2026.06 기준. 단계·적응증은 회사 공시 기준이며 세부는 변동 가능.</p>
+
+<h3>3-3. 경쟁 해자</h3>
+<div class="bull-box">① <b>ConjuALL 원천 플랫폼</b> — 위치특이적 결합·균일 DAR로 안전성·균질성 차별. ② <b>차세대 페이로드 다양성</b>(MMAE·pPBD·Topo-I) — 타깃별 최적 조합 가능. ③ <b>빅파마 검증 트랙레코드</b> — J&amp;J·오노 등 13건+ 누적 딜은 신규 진입자가 단기간에 복제 불가. ④ <b>오리온 자본력</b> — 장기 R&amp;D 투자 여력.</div>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><th>시기</th><th>이벤트</th></tr>
+<tr><td>2006 / 2013</td><td>설립 / 코스닥 상장</td></tr>
+<tr><td>2019~</td><td>매년 ADC 플랫폼·파이프라인 기술이전 본격화</td></tr>
+<tr><td>2023.12</td><td>LCB84(TROP2) J&amp;J 기술이전 — 총 17억달러, 국내 역대 최대</td></tr>
+<tr><td>2024.03</td><td>오리온그룹 최대주주 등극(팬오리온), 사명 리가켐바이오로 변경</td></tr>
+<tr><td>2024</td><td>LCB97(L1CAM) 오노약품 기술이전 (약 1조)</td></tr>
+<tr><td>2026.05</td><td>LCB02A(CLDN18.2) 미국 1/2상 IND 승인 — 자체 첫 글로벌 임상</td></tr>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>팬 오리온 코프 리미티드(외 8인)</td><td>29.24%</td><td>오리온그룹 (2026.03 기준)</td></tr>
+<tr><td>국민연금공단</td><td>5.96%</td><td>2025.09 기준</td></tr>
+<tr><td>자사주</td><td>0.46%</td><td>2026.03</td></tr>
+<tr><td>외국인</td><td>11.37%</td><td>—</td></tr>
+<tr><td>유동주식</td><td>70.30%</td><td>26,023,689주</td></tr>
+</table>
+
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>341</td><td>1,259</td><td>1,416</td><td>2,059</td></tr>
+<tr><td>영업이익</td><td class="negative">-808</td><td class="negative">-209</td><td class="negative">-1,065</td><td class="negative">-650</td></tr>
+<tr><td>지배순이익</td><td class="negative">-737</td><td class="positive">78</td><td class="negative">-743</td><td class="negative">-442</td></tr>
+<tr><td>영업이익률</td><td>-236.7%</td><td>-16.6%</td><td>-75.2%</td><td>-31.6%</td></tr>
+<tr><td>ROE</td><td>-40.1%</td><td>2.0%</td><td>-13.2%</td><td>-8.8%</td></tr>
+</table>
+<p>매출은 기술이전 마일스톤 인식에 따라 변동. 2024년은 L/O 마일스톤 유입으로 순이익 흑자 전환했으나, 2025년은 R&amp;D 비용 확대·마일스톤 공백으로 적자 폭 확대. 2026E 매출 2,059억은 마일스톤·로열티 가정 반영. <b>흑자 가시성은 L/O 인식 시점에 좌우되는 구조적 변동성을 내포.</b></p>
+
+<h3>4-2. 분기 추정 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2025.09</th><th>2025.12</th><th>2026.03</th></tr>
+<tr><td>매출액</td><td>414</td><td>160</td><td>359</td></tr>
+<tr><td>영업이익</td><td class="negative">-232</td><td class="negative">-731</td><td class="negative">-374</td></tr>
+<tr><td>지배순이익</td><td class="negative">-156</td><td class="negative">-546</td><td class="negative">-373</td></tr>
+</table>
+<p>1Q26 매출 359억(YoY -30.4%), 영업이익 -374억으로 적자지속. 이는 대형 L/O 마일스톤 인식 공백 구간으로, 2026 하반기 J&amp;J 옵션·오노 마일스톤 유입 시 실적 변곡 가능.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<tr><th>항목</th><th>2024</th><th>2025</th></tr>
+<tr><td>자본총계</td><td>6,160억</td><td>5,411억</td></tr>
+<tr><td>부채총계</td><td>1,224억</td><td>1,607억</td></tr>
+<tr><td>부채비율</td><td>19.9%</td><td>29.7%</td></tr>
+<tr><td>BPS</td><td>17,504원</td><td>14,246원</td></tr>
+</table>
+<p>부채비율 29.7%로 재무구조 양호. 오리온 인수 시 제3자배정 유상증자로 확보한 자본이 적자 R&amp;D 기간 버퍼 역할. 다만 적자 지속으로 자본총계는 점진 감소 중.</p>
+
+<h3>4-4. 유상증자·자본구조 리스크</h3>
+<div class="risk-box">2024년 오리온 인수 시 대규모 제3자배정 유상증자(신주 796만주)로 기존 주주 희석은 이미 반영. 향후 적자 지속 시 추가 자본확충 가능성은 있으나, 오리온 모회사 자금력으로 시장성 유상증자 의존도는 낮은 편. 단, 임상 비용 확대 국면에서 자본 소진 속도는 모니터링 필요.</div>
+
+<h2>5. 주주환원</h2>
+<p>현재 무배당(적자 단계). 자사주 0.46% 보유. 플랫폼 바이오텍 특성상 당분간 R&amp;D·임상 재투자가 우선이며, 주주환원보다는 L/O 마일스톤·로열티의 실적 전환과 파이프라인 가치 상승이 주주가치 제고의 핵심 경로. 중장기 흑자 안정화 시점에 배당·자사주 정책 도입 여지.</p>
+
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교</h3>
+<p>적자 플랫폼 바이오텍으로 PER 적용 불가. 시장은 <b>PBR(현재 10.7배)·파이프라인 SOTP rNPV</b>로 평가. PBR 10.7배는 일반 제약 대비 높으나, 빅파마 검증 ADC 플랫폼의 옵션가치·L/O 잠재력을 반영한 프리미엄. 컨센 TP 221,667원은 BPS 14,246원 대비 PBR 약 15.6배 수준을 내포 — 마일스톤 현실화를 가정한 밸류.</p>
+
+<h3>6-2. 시나리오 산출</h3>
+<table>
+<tr><th>시나리오</th><th>목표주가</th><th>내재 PBR</th><th>핵심 트리거</th></tr>
+<tr><td>Bull</td><td class="positive">280,000원</td><td>약 19.7배</td><td>J&amp;J 옵션 행사 + 신규 L/O + 프리미엄 편입</td></tr>
+<tr><td>Base</td><td>221,667원</td><td>약 15.6배</td><td>마일스톤 정상 + 2상 진입(컨센)</td></tr>
+<tr><td>Bear</td><td class="negative">130,000원</td><td>약 9.1배</td><td>임상 지연·옵션 미행사·멀티플 축소</td></tr>
+</table>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="update-box"><b>진입:</b> 130,000~150,000원(Bear~현재가) 구간 분할 매집 — 이벤트 전 디스카운트 활용. <b>비중 확대:</b> LCB84 1상 데이터·J&amp;J 옵션 행사 확인 시. <b>이탈/차익:</b> 250,000원 이상(컨센 상회) 또는 핵심 임상 실패·옵션 미행사 확정 시. 바이오텍은 데이터 이벤트에 갭 변동이 크므로 분할 대응 원칙.</div>
+
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<tr><th>지표</th><th>값</th></tr>
+<tr><td>현재가 (6/24)</td><td>152,600원</td></tr>
+<tr><td>52주 최고 / 최저</td><td>213,500 / 108,900원</td></tr>
+<tr><td>수익률 (1M/3M/6M/1Y)</td><td>-3.0% / -25.2% / -11.5% / +42.1%</td></tr>
+<tr><td>베타 (1년)</td><td>1.13</td></tr>
+</table>
+<p>지난 1년 +42% 상승했으나 최근 3개월은 -25% 조정. 2025년 하반기 L/O 기대감으로 급등 후, 2026년 상반기 마일스톤 공백·임상 데이터 대기 국면에서 차익실현 출회. 6/24 +10.58% 급반등은 임상·옵션 모멘텀 재부각과 코스닥 승강제 기대가 반영된 것으로 해석. 핵심 모멘텀은 2026 하반기 LCB84 옵션·2상에 집중.</p>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 편입 현황 요약</h3>
+<p>리가켐바이오는 액티브 ETF 15개 + 패시브 ETF 32개 = 총 <b>47개 ETF</b>에 편입(2026.06.25 기준). 패시브는 코스닥150·바이오·헬스케어 인덱스 ETF 중심이고, 액티브는 바이오·코스닥 특화 펀드가 핵심 보유.</p>
+
+<h3>7-2-2. 액티브 ETF 1개월 변화</h3>
+<p>액티브 ETF 편입 수는 1개월간 <b>17개 → 15개(-2개)</b>로 소폭 감소. 주가 조정 국면에서 일부 코스닥 일반 액티브가 비중을 축소했으나, <b>바이오 특화 액티브는 순매수</b>로 차별화.</p>
+<table>
+<tr><th>액티브 ETF</th><th>현재 보유(주)</th><th>1개월 변화</th><th>방향</th></tr>
+<tr><td>KoAct 바이오헬스케어액티브</td><td>501</td><td class="positive">+18</td><td>순매수</td></tr>
+<tr><td>마이티 바이오시밀러&amp;CDMO액티브</td><td>303</td><td class="positive">+112</td><td>적극 순매수</td></tr>
+<tr><td>MIDAS 코스닥액티브</td><td>128</td><td class="positive">+20</td><td>순매수</td></tr>
+<tr><td>HANARO 바이오코리아액티브</td><td>394</td><td>0</td><td>유지</td></tr>
+<tr><td>TIME K바이오액티브</td><td>299</td><td class="negative">-2</td><td>소폭 축소</td></tr>
+<tr><td>RISE 바이오TOP10액티브</td><td>395</td><td class="negative">-44</td><td>차익실현</td></tr>
+<tr><td>PLUS 코스닥150액티브</td><td>7</td><td class="negative">-18</td><td>축소</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: ystreet ActiveETF Tracker, 2026-05-22 대비 2026-06-25. 액티브 ETF 보유 주식수는 절대량이 작아(합산 수천 주) 가격 결정력은 제한적이나, 바이오 특화 액티브의 순매수 방향성은 의미 있는 시그널.</p>
+
+<h3>7-2-3. 패시브 ETF 편입 비중 상위</h3>
+<table>
+<tr><th>패시브 ETF</th><th>기초자산</th><th>리가켐 비중</th></tr>
+<tr><td>TIGER 코스닥150바이오테크</td><td>코스닥150 헬스케어</td><td>6.27%</td></tr>
+<tr><td>RISE 헬스케어</td><td>FnGuide 헬스케어</td><td>5.08%</td></tr>
+<tr><td>KODEX 코스닥글로벌</td><td>KOSDAQ 글로벌</td><td>4.29%</td></tr>
+<tr><td>TIGER 코스닥글로벌</td><td>KOSDAQ 글로벌</td><td>4.26%</td></tr>
+<tr><td>TIGER 바이오TOP10</td><td>KRX 바이오 TOP10</td><td>3.09%</td></tr>
+<tr><td>TIGER 헬스케어 / KODEX 헬스케어</td><td>KRX 헬스케어</td><td>3.03% / 3.02%</td></tr>
+<tr><td>KODEX 바이오</td><td>FnGuide 바이오</td><td>2.35%</td></tr>
+<tr><td>코스닥150 4종(KODEX·TIGER·RISE·PLUS 등)</td><td>KOSDAQ 150</td><td>약 2.0%</td></tr>
+</table>
+
+<h3>7-2-4. 수급 해석</h3>
+<div class="update-box">패시브 편입은 코스닥150·바이오·헬스케어 인덱스에 광범위하게 분포해, 코스닥150·바이오 지수 자금 흐름이 주가에 직접 영향. <b>코스닥 승강제로 프리미엄 시장·신규 대표지수가 출범하면, 리가켐은 시총 상위 바이오 대표주로 신규 ETF 편입 수혜가 기대</b>된다. 액티브에서는 바이오 특화 펀드(마이티·KoAct·MIDAS)가 조정 국면에 순매수해 '스마트머니'의 저가 매집 신호로 읽힌다. 반면 RISE 바이오TOP10 등 일부 대형 바이오 액티브의 차익실현은 단기 차익 욕구를 반영.</div>
+
+<h3>7-2-5. 종합 — 모멘텀 지속성 평가</h3>
+<p>액티브 ETF 절대 보유량은 작아 ETF가 주가를 끌어올리는 구조는 아니지만, 패시브(코스닥150·바이오·헬스케어) 비중이 높아 <b>지수 자금·정책(승강제) 수급에 레버리지</b>가 걸려 있다. 9~10월 프리미엄 시장 편입이 확정되면 패시브 신규 편입이 추가 수급으로 작용할 수 있어, 임상·옵션 펀더멘털 모멘텀과 정책 수급이 겹치는 2026 하반기가 수급의 분기점이다.</p>
+
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">① <b>마일스톤 공백</b> — L/O 인식 시점에 따라 분기 실적이 크게 출렁이며 적자 지속. ② <b>이벤트 대기 변동성</b> — 데이터 공개 전까지 모멘텀 공백으로 주가 횡보·조정 가능(메리츠 "뜸들일 시간").</div>
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box">③ <b>J&amp;J 옵션 미행사</b> — 1상 데이터 부진 시 옵션 미행사로 2억달러 유입 무산 + 밸류 하향. ④ <b>임상 실패</b> — 자체·파트너 임상 실패는 해당 파이프라인 가치 소멸. ⑤ <b>L/O 시장 과열·중국 경쟁</b> — ADC 임상 51%가 중국발, 공급 과잉 시 신규 L/O 단가 하락.</div>
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">⑥ <b>바이오 섹터 멀티플</b> — 금리·헬스케어 정책 변화 시 적자 바이오 멀티플 축소. ⑦ <b>환율</b> — 달러 기반 마일스톤 수취 구조로 환율 변동이 원화 실적에 영향.</div>
+<h3>8-4. 밸류에이션 리스크</h3>
+<div class="risk-box">⑧ <b>PBR 10.7배 부담</b> — 컨센 TP는 PBR 15.6배를 내포해 마일스톤 미스 시 디레이팅 폭이 큼. 바이오텍 rNPV는 성공확률·할인율 가정에 민감해 밸류 밴드가 광범위.</div>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>2026 트리거</th><th>중장기 가치</th></tr>
+<tr><td><b>LCB84 (TROP2, J&amp;J)</b></td><td>1상 데이터·옵션 행사(2억달러)·2상 진입</td><td>총 17억달러 마일스톤 + 로열티</td></tr>
+<tr><td><b>자체 임상 (LCB02A)</b></td><td>3Q 첫 환자 투여</td><td>PoC 후 직접 L/O로 계약 규모 상향</td></tr>
+<tr><td><b>L1CAM (오노)</b></td><td>글로벌 1상 마일스톤</td><td>약 1조 계약 단계별 유입</td></tr>
+<tr><td><b>ROR1·B7-H4</b></td><td>1상 중간·PoC 데이터</td><td>긍정 시 추가 L/O</td></tr>
+<tr><td><b>LCB14 (HER2, 중국)</b></td><td>중국 허가 신청</td><td>로열티 발생 시작</td></tr>
+<tr><td><b>플랫폼딜·BD</b></td><td>ADC 에셋 4건 추가 IND</td><td>지속 플랫폼 수익·서브라이선스</td></tr>
+</table>
+
+<h2>10. 결론</h2>
+<p>리가켐바이오는 <b>2019년 이후 매년 ADC 기술이전을 성사시킨 국내 유일의 '빅파마 검증' ADC 플랫폼</b>이다. 핵심 자산 LCB84(TROP2)는 J&amp;J와 공동개발 중이며, 2026 하반기 J&amp;J 옵션 행사(2억달러)·글로벌 2상 진입이 최대 밸류 트리거다. 여기에 LCB02A 자체 임상 진입, ROR1·B7-H4 데이터, LCB14 중국 허가가 모두 하반기에 집중돼 2026년은 '임상 모멘텀의 해'로 평가된다.</p>
+<p>최근 3개월 11개 증권사 전부 BUY, 컨센 TP 221,667원으로 현재가(152,600원) 대비 +45% 괴리. 적자·기술이전 매출 변동성·PBR 10.7배는 분명한 부담이나, ① 빅파마 검증 플랫폼의 희소성 ② 멀티 파이프라인 분산 ③ 오리온 모회사 자금력 ④ 코스닥 프리미엄 편입 수급이 하방을 받친다. <b>이벤트 전 분할 매집 → 데이터·옵션 확인 후 비중 확대</b> 전략이 합리적이며, 투자의견 <b>BUY · Base TP 221,667원(컨센) / Bull 280,000원 / Bear 130,000원</b>을 제시한다.</p>
+
+<div class="footer">
+<b>데이터 출처:</b> FnGuide Company Guide·SearchReport(증권사 리포트 전수, 2026.06.25 조회) · 신한투자·미래에셋·다올·메리츠·하나·NH·DS·iM·IBK·한국투자·교보 리포트 · ystreet ActiveETF/PassiveETF Tracker(2026.06.25) · DART 전자공시 · 리가켐바이오 공식 파이프라인 · 언론(더바이오·약사공론·PRESS9·서울경제·파이낸셜뉴스·딜사이트 등)<br><br>
+<b>면책:</b> 본 보고서는 공개된 자료를 종합·정리한 참고용이며 투자 권유가 아닙니다. 목표주가·시나리오는 작성자의 가정에 기반한 추정으로 실제와 다를 수 있습니다. 바이오텍 특성상 임상 결과·기술이전 시점에 따라 가치가 급변할 수 있으며, 투자 판단과 책임은 투자자 본인에게 있습니다. 작성일 2026.06.25 기준.
+</div>
+
+</body>
+</html>

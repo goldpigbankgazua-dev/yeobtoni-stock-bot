@@ -1,5 +1,17 @@
 [
   {
+    "file": "코스닥_리가켐바이오_ADC기술수출_TROP2파이프라인_260625.html",
+    "market": "코스닥",
+    "name": "리가켐바이오",
+    "themes": [
+      "ADC기술수출",
+      "TROP2파이프라인"
+    ],
+    "date": "2026-06-25",
+    "revision": false,
+    "pages": 11
+  },
+  {
     "file": "코스닥_알테오젠_ALT-B4피하주사플랫폼_키트루다SC로열티_260621.html",
     "market": "코스닥",
     "name": "알테오젠",
