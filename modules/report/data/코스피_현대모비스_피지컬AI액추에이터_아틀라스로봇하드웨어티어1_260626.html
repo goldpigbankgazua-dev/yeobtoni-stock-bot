@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>현대모비스 (012330) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.peer-box{background:#eef7f0;border:2px solid #1e8449;padding:14px;margin:12px 0;border-radius:6px}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box,.peer-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>현대모비스 (012330.KS)</h1>
+<div class="sub">자동차 부품사 → Physical AI 밸류체인 핵심 — 보스턴다이내믹스 Atlas 휴머노이드 액추에이터 공급사·로봇 하드웨어 Tier-1<br>컨센 BUY·TP 786,800원(25개사, 최근 상향 러시 850k~1.2M) · 현재가 509,000원 · 분석일 2026.06.26</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/24)</span><span class="snapshot-value">509,000원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">46.2조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value negative">-0.20%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">10.5배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (현재)</span><span class="snapshot-value">0.93배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">36.83%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+78.6%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">기아 외 7인 32.70%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value positive">8,026억 (+3.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP (컨센)</span><span class="snapshot-value">786,800원<br>(+54.6%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP (KB)</span><span class="snapshot-value">1,200,000원<br>(+135.8%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (25사)</span><span class="snapshot-value">786,800원<br>(+54.6%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">768,000 /<br>283,500원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">배당수익률 / 신용</span><span class="snapshot-value">1.28% / AA+</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자사주</span><span class="snapshot-value positive">2.44% (소각 중)</span></div>
+</div>
+<div class="snapshot-core"><b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 72개 리포트 전부 BUY, <b>대부분 Physical AI/로봇 액추에이터 테마로 TP 일제 상향</b>. KB 1,200,000(적정 시총 111조)·삼성 950,000·미래에셋 920,000 등 최근 TP는 850k~1.2M로, FnGuide 컨센 786,800원(25사)을 크게 상회 — 컨센이 재평가 속도를 못 따라가는 중. (상세는 §0)<br><br>
+<b>밸류 한 줄:</b> 현재 PBR 0.93배·12M Fwd PER 10.5배의 전통 자동차부품 밸류. <b>Physical AI(로봇 액추에이터) 재평가가 시작 단계</b>로, 로봇 사업가치가 멀티플에 본격 반영되면 리레이팅 여력. 피어(HL만도·현대위아) 대비 규모·수익성·신용(AA+) 우위. (피어 밸류 비교는 §2-4)<br><br>
+<b>핵심 한줄:</b> 현대모비스는 샤시·전장·제동·조향 자동차부품 1위에서 <b>Physical AI 밸류체인의 핵심 '액추에이터(구동장치)' 공급사</b>로 변신 중. CES 2026 보스턴다이내믹스 휴머노이드 'Atlas'에 액추에이터 공급을 공식화 — 액추에이터는 휴머노이드 원가의 60%를 차지하는 핵심 부품이다. 현대차그룹 피지컬AI 전략(보스턴다이내믹스=몸, 북미 3만대 로봇공장)의 하드웨어 축. 로봇 매출은 2027년 본격 반영 예정이나, 본업(자동차부품)이 안정적 현금흐름·AA+·자사주 소각으로 하방을 받친다. 로봇 매출 가시화 시점·밸류 부담이 변수.</div>
+</div>
+
+<h2 style="border:none;color:#1a5276">§0. 멀티소스 교차검증 — 증권사·1차자료·외부검증</h2>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1f618d">📊 증권사 리포트 전수 (FnGuide SearchReport, 최근 3개월 · 총 72건, Physical AI 테마 1page 발췌)</h3>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.06.24</td><td>한화투자</td><td>짙어지는 로보틱스 사업자의 면모</td><td>BUY(상향)</td><td>810,000 ▲</td><td class="positive">+59.1%</td></tr>
+<tr><td>26.06.16</td><td>유안타</td><td>로봇 하드웨어 Tier-1 공급자의 길</td><td>BUY(상향)</td><td>870,000 ▲</td><td class="positive">+70.9%</td></tr>
+<tr><td>26.06.12</td><td>흥국</td><td>로봇 액추에이터 매출 가시화</td><td>BUY(상향)</td><td>850,000 ▲</td><td class="positive">+67.0%</td></tr>
+<tr><td>26.06.09</td><td>IBK투자</td><td>로봇 매출 27년 본격 반영 시작</td><td>매수(상향)</td><td>760,000 ▲</td><td class="positive">+49.3%</td></tr>
+<tr><td>26.06.05</td><td>미래에셋</td><td>아틀라스 핵심 공급사, 미국 액추에이터 공장 주목</td><td>매수(상향)</td><td>920,000 ▲</td><td class="positive">+80.7%</td></tr>
+<tr><td>26.06.02</td><td>메리츠</td><td>특별한 협력 · 새로운 가치</td><td>BUY(상향)</td><td>900,000 ▲</td><td class="positive">+76.8%</td></tr>
+<tr><td>26.06.02</td><td>KB</td><td>고부가 액추에이터, 적정 시총 111조원의 동력원</td><td>BUY(상향)</td><td>1,200,000 ▲</td><td class="positive">+135.8%</td></tr>
+<tr><td>26.05.29</td><td>유진</td><td>로봇/모빌리티 핵심 부품 공급사로 재평가</td><td>BUY(상향)</td><td>910,000 ▲</td><td class="positive">+78.8%</td></tr>
+<tr><td>26.05.28</td><td>신한투자</td><td>자동차 부품사를 넘어 Physical AI 밸류체인으로</td><td>매수(상향)</td><td>900,000 ▲</td><td class="positive">+76.8%</td></tr>
+<tr><td>26.05.27</td><td>삼성</td><td>하반기 전망: 액추에이터 기술, 로봇 열까지 잡는다</td><td>BUY(상향)</td><td>950,000 ▲</td><td class="positive">+86.6%</td></tr>
+<tr><td>26.05.27</td><td>LS</td><td>단순 부품사를 넘어 대장으로</td><td>BUY(상향)</td><td>870,000 ▲</td><td class="positive">+70.9%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold"><td colspan="3">FnGuide 컨센서스 (추정기관 25개사, 일부 미갱신)</td><td>BUY (4.0)</td><td>786,800</td><td class="positive">+54.6%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 최근 3개월 72건 전부 BUY. <b>5~6월 Physical AI·로봇 액추에이터 테마로 TP 일제 상향(▲)</b> — 최근 TP는 760k~1,200k로 컨센(786,800)을 상회. 컨센은 일부 미갱신 리포트 포함으로 재평가 속도 미반영.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#b9521a">🔥 KB (강성진·김지윤) 2026.06.02 — "고부가 액추에이터, 적정 시총 111조원의 동력원" <span class="tag-sk">최고 TP 1,200,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"액추에이터가 시총 111조의 동력"</td><td>현 시총 46조의 2.4배 제시</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(상향) / 1,200,000</td><td>현재가 대비 +135.8%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 휴머노이드 액추에이터 = 고부가 핵심 부품(원가 60%) ② 보스턴다이내믹스 Atlas 공급 ③ 자동차부품 본업 안정 + 로봇 옵션가치 ④ 미국 액추에이터 공장</td><td>로봇 사업가치 본격 반영</td></tr>
+<tr><td>★ Valuation</td><td>본업 SOTP + 로봇 액추에이터 사업가치 가산</td><td>적정 시총 111조</td></tr>
+</table>
+<p><b>[KB 핵심]</b> "고부가가치 액추에이터가 현대모비스를 시총 111조원 기업으로 만들 동력 — 자동차부품 멀티플로는 설명 불가."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a">
+<h3 style="margin-top:0;color:#1e6e3a">📘 신한 (박광래) 2026.05.28 — "자동차 부품사를 넘어 Physical AI 밸류체인으로" <span class="tag-sk">테마 정의</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"Physical AI 밸류체인 진입"</td><td>밸류 프레임 전환</td></tr>
+<tr><td>투자의견 / TP</td><td>매수(상향) / 900,000</td><td>현재가 대비 +76.8%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 자동차부품 → Physical AI 하드웨어 ② 액추에이터·센서·전장 통합 역량 ③ 보스턴다이내믹스 시너지 ④ 로봇 매출 성장축</td><td>모달리티 확장</td></tr>
+<tr><td>★ Valuation</td><td>Physical AI 밸류체인 프리미엄</td><td>—</td></tr>
+</table>
+<p><b>[신한 핵심]</b> "AI가 물리세계와 상호작용하는 Physical AI 시대, 현대모비스는 그 '몸'을 움직이는 액추에이터 공급사."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d">
+<h3 style="margin-top:0;color:#1f618d">📙 미래에셋 (김진석) 2026.06.05 — "아틀라스 핵심 공급사, 미국 액추에이터 공장 주목" <span class="tag-sk">Atlas</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"Atlas 핵심 공급사 + 미국 공장"</td><td>실체 있는 공급 계약</td></tr>
+<tr><td>투자의견 / TP</td><td>매수(상향) / 920,000</td><td>현재가 대비 +80.7%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 보스턴다이내믹스 Atlas 액추에이터 공급 확정 ② 미국 액추에이터 공장 신설 ③ 북미 로봇 생산 허브 ④ 로봇 매출 가시화</td><td>생산 capacity 확보</td></tr>
+<tr><td>★ Valuation</td><td>로봇 매출 본격화 반영</td><td>—</td></tr>
+</table>
+<p><b>[미래에셋 핵심]</b> "미국 액추에이터 공장은 로봇 매출이 컨셉이 아닌 실제 생산·납품 단계로 진입했다는 증거."</p>
+</table>
+<p><b>[미래에셋 핵심]</b> "미국 액추에이터 공장 신설로 Atlas 공급이 실체화 — 로봇 매출 가시성 확대."</p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309">
+<h3 style="margin-top:0;color:#b45309">📙 삼성 (임은영·김현지) 2026.05.27 — "액추에이터 기술, 로봇 열까지 잡는다" <span class="tag-sk">하반기 전망</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"액추에이터 기술이 로봇 열기 주도"</td><td>하반기 모멘텀 핵심</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(상향) / 950,000</td><td>현재가 대비 +86.6%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 자동차 구동·제동 액추에이터 기술의 로봇 전이 ② 보스턴다이내믹스 협업 ③ 본업 견조(고부가 차종)</td><td>기술 내재화 = 진입장벽</td></tr>
+<tr><td>★ Valuation</td><td>본업 + 로봇 옵션가치</td><td>—</td></tr>
+</table>
+<p><b>[삼성 핵심]</b> "자동차 액추에이터 기술이 휴머노이드 로봇으로 전이 — 기술 내재화가 차별적 진입장벽."</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d">
+<h3 style="margin-top:0;color:#5d6d7e">📰 IBK·유안타·메리츠·유진·LS·한화·흥국 — 컨센 요약 <span class="tag-sk">전수</span></h3>
+<table>
+<tr><th>증권사 / 일자</th><th>제목 · TP</th><th>핵심 포인트</th></tr>
+<tr><td>IBK 06.09</td><td>로봇 매출 27년 본격 반영 · 760,000</td><td>2027년 로봇 매출 인식 시작</td></tr>
+<tr><td>유안타 06.16</td><td>로봇 HW Tier-1 공급자의 길 · 870,000</td><td>로봇 하드웨어 1차 벤더</td></tr>
+<tr><td>메리츠 06.02</td><td>특별한 협력·새로운 가치 · 900,000</td><td>보스턴다이내믹스 협력 가치</td></tr>
+<tr><td>유진 05.29</td><td>로봇/모빌리티 핵심 부품 재평가 · 910,000</td><td>부품사 멀티플 탈피</td></tr>
+<tr><td>LS 05.27</td><td>단순 부품사를 넘어 대장으로 · 870,000</td><td>섹터 대장주 재평가</td></tr>
+<tr><td>한화 06.24</td><td>짙어지는 로보틱스 면모 · 810,000</td><td>로보틱스 사업자 전환</td></tr>
+</table>
+<p><b>[컨센 핵심]</b> 최근 3개월 72개 리포트 전부 BUY. 공통 논리 = ① 자동차부품 → Physical AI/로봇 액추에이터 ② 보스턴다이내믹스 Atlas 공급 ③ 본업 안정 + 로봇 옵션가치 ④ 2027 로봇 매출 본격화. TP 일제 상향.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📋 최근 3개년 주요 공시 (DART, 신호공시·루틴 제외) <span class="tag-disc">PRIMARY</span></h3>
+
+<h4 style="color:#1e6e3a;margin:6px 0">① 사업관련 공시</h4>
+<table>
+<tr><th>접수일자</th><th>공시</th><th>핵심 수치 / 의미</th></tr>
+<tr><td>2026.05.21</td><td>타법인 주식 및 출자증권 취득결정 (자율공시)</td><td>미래기술·로보틱스 관련 투자 (Physical AI 밸류체인 확장)</td></tr>
+<tr><td>2025.01.23</td><td>매출액·손익구조 30% 이상 변경</td><td>고부가 차종·A/S 부품으로 FY 영업이익 33,575억(+9%)</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:0 0 8px">※ CES 2026 보스턴다이내믹스 Atlas 액추에이터 공급·미국 액추에이터 공장은 IR·언론(공정공시 외). 신용등급 AA+.</p>
+
+<h4 style="color:#b9521a;margin:6px 0">② 주주환원 공시 (대표 밸류업주 — 자사주 취득·소각·배당)</h4>
+<table>
+<tr><th>접수일자</th><th>공시</th><th>핵심 수치 / 의미</th></tr>
+<tr><td>2025.08.27</td><td>기업가치제고계획 (밸류업)</td><td>주주환원 정책·이행현황 공시</td></tr>
+<tr><td>2026.04.24 / 2025.10.24 / 2025.06.02</td><td>주식소각 결정</td><td>자기주식 이익소각 (3년간 다회) — EPS·주주가치 제고</td></tr>
+<tr><td>2026.04.24 / 2025.07.25 / 2025.02.13</td><td>자기주식 취득결정</td><td>자사주 매입 (현 자사주 2.44%)</td></tr>
+<tr><td>2026.03.20 / 2025.08.11 / 2025.03.24</td><td>현금·현물배당 결정</td><td>DPS 2025 6,500원 (배당수익률 약 1.3%)</td></tr>
+<tr><td>2026.02.10 / 2025.12.12 / 10.31 / 2024.12.13</td><td>자기주식 처분 결정</td><td>임직원 보상·교환 등 처분</td></tr>
+</table>
+
+<h4 style="color:#8e44ad;margin:6px 0">③ 자본관련 공시</h4>
+<table>
+<tr><th>접수일자</th><th>공시</th><th>핵심 수치 / 의미</th></tr>
+<tr><td colspan="3" style="text-align:center;color:#7f8c8d">최근 3개년 유증·CB·합병 등 자본 신호 공시 없음 — 부채비율 43%·AA+의 우량 재무</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 출처: DART 회사별 검색(주요사항보고+거래소공시, 2023.06~2026.06). 최대주주 기아 외 7인 32.70%. 자사주 취득·소각·밸류업 등 적극적 주주환원.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276">🌐 외부검증 1 — Physical AI·휴머노이드 로봇 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p>현대모비스는 'Physical AI'(AI가 물리세계와 상호작용)의 핵심 하드웨어 '액추에이터' 공급사로 부상했다.</p>
+<div class="global-quote">
+<b>로봇 시장:</b> 글로벌 로봇 시장은 현재 약 <b>75조원 → 2040년 800조원대</b>(CAGR ~17%). 휴머노이드는 2030년 152억달러(24조)·2035년 380억달러(59조), <b>CAGR 30%+</b>(골드만삭스·마켓앤마켓).<br><br>
+<b>액추에이터 = 핵심 부품:</b> 액추에이터(구동장치)는 <b>휴머노이드 제조원가의 55~60%</b>를 차지하는 최핵심 부품. 휴머노이드 1대당 25~50개 사용. 현대모비스는 자동차 구동·제동·조향 액추에이터 기술을 로봇으로 전이.<br><br>
+<b>피지컬 AI 선언:</b> 엔비디아 젠슨 황 "다음 AI의 프론티어는 Physical AI"(CES 2025). 테슬라 옵티머스 2026년 5만~10만대 양산 목표 — 휴머노이드 양산 원년 진입.</p>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 현대차그룹·오토일렉트로닉스 CES 2026 · 파이낸셜뉴스 옵티머스 공급망 · 골드만삭스·마켓앤마켓 휴머노이드 시장</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 현대차그룹 Physical AI 전략 <span class="tag-policy">GROUP STRATEGY</span></h3>
+<p><b>① 보스턴다이내믹스 Atlas — 그룹 Physical AI의 '몸'</b></p>
+<div class="policy-quote">CES 2026에서 현대모비스는 현대차그룹 자회사 보스턴다이내믹스의 차세대 휴머노이드 <b>'Atlas'에 액추에이터 공급</b>을 공식 발표. 보스턴다이내믹스는 그룹 Physical AI 전략에서 '몸(로봇)'으로 제조를 담당하고, 현대모비스가 그 '근육(액추에이터)'을 공급하는 수직계열 구조.</div>
+<p><b>② 북미 로봇 생산 허브 + 미국 액추에이터 공장</b></p>
+<div class="policy-quote">현대차그룹은 <b>북미에 3만대 규모 로봇공장을 신설</b>해 로봇 생산 허브로 운영할 계획. 현대모비스는 미국 액추에이터 공장을 신설해 Atlas·로봇 액추에이터를 현지 생산·공급 — 로봇 매출은 2027년부터 본격 반영 전망.</div>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 현대차그룹 뉴스룸 CES 2026 AI로보틱스 · 딜사이트 Atlas 액추에이터 공급 · 미래에셋증권 미국 공장</p>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 외부검증 3 — 최근 1개월 핵심 기사 (2026.05.26~06.25) <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<p>① <b>CES 2026 보스턴다이내믹스 Atlas 액추에이터 공급 공식화</b> — Physical AI 하드웨어 진입. <span style="font-size:9pt;color:#7f8c8d">📌 딜사이트·오토일렉트로닉스 2026.06</span></p>
+<p>② <b>KB "적정 시총 111조" TP 120만원(6/2)</b> — 액추에이터 사업가치 본격 반영. <span style="font-size:9pt;color:#7f8c8d">📌 KB증권 2026.06.02</span></p>
+<p>③ <b>미래에셋 "미국 액추에이터 공장 주목"(6/5)</b> — 로봇 매출 실체화. <span style="font-size:9pt;color:#7f8c8d">📌 미래에셋 2026.06.05</span></p>
+<p>④ <b>"자동차 부품주가 로봇주로 완전 변신"(6/15)</b> — 밸류 프레임 전환. <span style="font-size:9pt;color:#7f8c8d">📌 핀릿 2026.06.15</span></p>
+<p>⑤ <b>한화 "짙어지는 로보틱스 사업자 면모"(6/24)</b> — 로보틱스 전환 가속. <span style="font-size:9pt;color:#7f8c8d">📌 한화투자 2026.06.24</span></p>
+<p>⑥ <b>로봇 매출 2027년 본격 반영(IBK)</b> — 매출 가시화 시점. <span style="font-size:9pt;color:#7f8c8d">📌 IBK 2026.06.09</span></p>
+<p>⑦ <b>자사주 소각·취득(4/24) + 밸류업</b> — 주주환원 강화. <span style="font-size:9pt;color:#7f8c8d">📌 DART 2026.04.24</span></p>
+<p>⑧ <b>1Q26 영업익 8,026억(+3.3%)</b> — 고부가 차종·A/S로 본업 견조. <span style="font-size:9pt;color:#7f8c8d">📌 IR 2026.04</span></p>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<div class="warning-box">
+<b>🔥 단기 (2026 하반기)</b><br>
+• 2026.07 (예상) — 2Q26 실적 발표 (컨센 OP 9,151억, YoY +5%)<br>
+• 2026 하반기 — 보스턴다이내믹스 Atlas 양산·액추에이터 납품 진전<br>
+• 2026 하반기 — 미국 액추에이터 공장 건설·가동 일정<br>
+• 2026 하반기 — 자사주 추가 취득·소각(밸류업)
+</div>
+<b>중기 (2027)</b><br>
+• 2027 — <b>로봇 액추에이터 매출 본격 반영 시작</b> (IBK·흥국)<br>
+• 2027 — 북미 3만대 로봇공장 가동<br>
+• 2027 — 테슬라 옵티머스·휴머노이드 양산 확대 → 액추에이터 수요<br>
+• 2027 — 자동차부품 본업(전동화·SDV) 성장<br><br>
+<b>장기 (2028~)</b><br>
+• 2028~ — 휴머노이드 시장 본격 개화(CAGR 30%+)<br>
+• 중장기 — 액추에이터 글로벌 고객 다변화(Atlas 외 휴머노이드)<br>
+• 중장기 — Physical AI 밸류체인 멀티플 리레이팅<br>
+• 상시 — 코리아 밸류업·자사주 소각 지속
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① Physical AI 핵심 — 휴머노이드 액추에이터 공급사</span><br>AI가 물리세계와 상호작용하는 Physical AI 시대, 현대모비스는 로봇을 움직이는 '액추에이터(구동장치)' 공급사. 액추에이터는 <b>휴머노이드 제조원가의 55~60%</b>를 차지하는 최핵심 부품으로, 자동차부품을 넘는 새 성장축이다.</li>
+<li><span class="point-title">② 보스턴다이내믹스 Atlas 핵심 공급</span><br>CES 2026에서 현대차그룹 자회사 보스턴다이내믹스의 휴머노이드 'Atlas'에 액추에이터 공급을 공식화. 그룹 Physical AI 전략의 '몸(로봇)'에 '근육(액추에이터)'을 공급하는 수직계열 구조로, 안정적 captive 수요를 확보.</li>
+<li><span class="point-title">③ 자동차 액추에이터 기술의 로봇 전이</span><br>자동차 구동·제동·조향 액추에이터 기술을 휴머노이드 로봇으로 전이. 정밀 구동·내구·양산 노하우는 신규 진입자가 단기간에 복제 불가한 진입장벽. 기술 내재화가 차별점(삼성증권).</li>
+<li><span class="point-title">④ 미국 액추에이터 공장 — 로봇 매출 실체화</span><br>미국에 액추에이터 공장을 신설해 Atlas·로봇 액추에이터를 현지 생산. 현대차그룹 북미 3만대 로봇공장과 연계. 로봇 매출이 컨셉이 아닌 실제 생산·납품 단계로 진입(미래에셋).</li>
+<li><span class="point-title">⑤ 본업 안정 — 자동차부품 1위·고부가</span><br>샤시·칵핏·FEM 모듈, 제동·조향·전장 부품 1위. 1Q26 영업익 8,026억(+3.3%), 고부가 차종·A/S 부품·우호적 환율로 견조. 본업의 안정적 현금흐름이 로봇 투자·하방을 받친다.</li>
+<li><span class="point-title">⑥ 거대한 TAM — 로봇 75조→800조</span><br>글로벌 로봇 시장 75조→2040 800조(CAGR 17%), 휴머노이드 CAGR 30%+. 테슬라 옵티머스 2026 양산 원년. 액추에이터 수요가 구조적으로 폭증하는 초입.</li>
+<li><span class="point-title">⑦ PBR 0.93배·12M Fwd PER 10.5배 — 부품 밸류</span><br>현재 밸류는 전통 자동차부품 수준(PBR 0.93·선행 PER 10.5배). <b>로봇 사업가치가 멀티플에 거의 미반영</b>된 상태로, Physical AI 재평가가 본격화되면 리레이팅 여력(KB 적정 시총 111조).</li>
+<li><span class="point-title">⑧ 증권가 일제 TP 상향 — 만장일치 BUY</span><br>최근 3개월 72개 리포트 전부 BUY, 5~6월 Physical AI 테마로 TP 일제 상향(760k~1,200k). KB 1,200,000 최고. 컨센 786,800원이 재평가 속도를 못 따라가는 중.</li>
+<li><span class="point-title">⑨ 적극적 주주환원 — 자사주 소각·밸류업</span><br>기업가치제고계획(밸류업) + 자사주 취득·소각(3년 다회)·배당(DPS 6,500). 자사주 2.44% 보유. 코리아 밸류업 대표주로 EPS·주주가치 제고가 하방을 지지.</li>
+<li><span class="point-title">⑩ AA+·무차입급 우량 재무</span><br>신용등급 AA+, 부채비율 43%로 자본 여력 충분. 로봇 액추에이터 공장 등 대규모 미래 투자를 자체 현금흐름으로 감당 가능 — 외부 자본 의존 없는 성장.</li>
+<li><span class="point-title">⑪ 외국인 36.8% — 글로벌 재평가</span><br>외국인 지분율 36.8%로 높음. Physical AI 테마로 글로벌 기관의 한국 로봇 밸류체인 관심이 집중되며, 1년 +78.6% 상승. 재평가 사이클의 수급 수혜.</li>
+<li><span class="point-title">⑫ 전동화·SDV 본업 동시 성장</span><br>로봇 외에도 전동화(구동·배터리시스템)·SDV·자율주행 부품으로 본업이 구조적 성장. 단일 테마가 아닌 멀티 성장축(로봇+전동화+자율주행)을 보유.</li>
+<li><span class="point-title">⑬ 1개월 -21% 조정 = 진입 기회</span><br>최근 1개월 -21.2% 조정(고점 768,000 대비)으로 Physical AI 모멘텀 대비 밸류 부담 완화. 로봇 매출 가시화(2027)를 앞둔 중장기 진입 구간.</li>
+</ul>
+
+<h3>투자의견 종합</h3>
+<div class="update-box">
+<b>종합 BUY (Physical AI 재평가 + 본업 안정).</b> 로봇 매출 본격 반영이 2027년으로 시차가 있고 단기 밸류 부담·기대 선반영 리스크는 있으나, ① Physical AI 핵심 액추에이터 공급사(원가 60%) ② 보스턴다이내믹스 Atlas captive 수요 ③ 본업 자동차부품 1위 안정 현금흐름 ④ PBR 0.93배·선행 PER 10.5배의 미반영 밸류 ⑤ AA+·자사주 소각을 종합하면 위험 대비 보상이 우위. 로봇 사업가치의 멀티플 반영이 핵심 트리거. <b>조정 시 분할 매수 → 로봇 매출 가시화·미국 공장 진전 확인 후 비중 확대</b>가 합리적.
+</div>
+
+<h3>시나리오별 목표주가</h3>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류 방법</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bull</b></td><td>로봇 액추에이터 매출 본격화 + 글로벌 고객 다변화 + Physical AI 리레이팅</td><td>본업 + 로봇 사업가치 SOTP (KB)</td><td class="positive">1,200,000원</td><td class="positive">+135.8%</td></tr>
+<tr><td><b>Base</b></td><td>본업 견조 + 로봇 옵션가치 일부 반영 (컨센, 최근 상향분 ~900k)</td><td>26F EPS 45,280 × PER ~17배</td><td class="positive">786,800원<br>(최근 ~900,000)</td><td class="positive">+54.6%</td></tr>
+<tr><td><b>Bear</b></td><td>로봇 매출 지연·기대 후퇴 + 자동차 업황 둔화</td><td>본업 자동차부품 멀티플(PBR ~1.1배)</td><td>600,000원</td><td class="positive">+17.9%</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출]
+ 26F EPS 45,280원 × PER ~17배(부품 본업 + 로봇 옵션 일부) ≈ 786,800원(컨센)
+ ※ 최근 1개월 증권사 TP는 850k~1,200k로 상향 — 로봇 사업가치 반영 가속
+ ※ KB Bull: 본업 SOTP + 액추에이터 사업가치 = 적정 시총 111조 → 1,200,000원
+ ※ 현 PBR 0.93배 → 로봇 재평가 시 멀티플 확장 여력
+</div>
+
+<h2>2. 산업개요</h2>
+<h3>2-1. Physical AI·로봇 + 자동차부품 — TAM·SAM·SOM</h3>
+<table>
+<tr><th>구분</th><th>정의</th><th>규모 (추정)</th></tr>
+<tr><td><b>TAM</b></td><td>글로벌 로봇 + 자동차부품 시장</td><td>로봇 75조→800조(2040), 자동차부품 수백조</td></tr>
+<tr><td><b>SAM</b></td><td>휴머노이드 액추에이터 + 전동화·자율주행 부품</td><td>휴머노이드 CAGR 30%+, 액추에이터 원가 60%</td></tr>
+<tr><td><b>SOM</b></td><td>현대모비스 액추에이터(Atlas)+자동차부품</td><td>2026E 매출 65.2조 + 로봇(2027~)</td></tr>
+</table>
+<p>Physical AI 시대 휴머노이드 양산이 본격화되며 액추에이터 수요가 폭증. 현대모비스는 자동차부품 1위 기반의 정밀 구동 기술로 로봇 액추에이터 시장에 진입, 보스턴다이내믹스 Atlas를 거점으로 글로벌 휴머노이드 공급망 확대를 노린다.</p>
+
+<h3>2-2. 밸류체인 — Physical AI 하드웨어</h3>
+<table>
+<tr><th>단계 (후방 → 현대모비스 → 전방)</th><th>주체 / 파트너</th><th>현대모비스 포지션</th></tr>
+<tr><td><b>[후방] 부품·소재·구동 모터</b></td><td>모터·감속기·센서 협력사</td><td>액추에이터 통합 설계·생산</td></tr>
+<tr><td><b>[핵심] 액추에이터·전장·모듈</b></td><td><b>현대모비스 (구동·제동·조향 기술)</b></td><td><b>Physical AI '근육' = 핵심</b></td></tr>
+<tr><td><b>[전방-로봇] 휴머노이드</b></td><td>보스턴다이내믹스(Atlas), 글로벌 로봇사</td><td>액추에이터 공급(원가 60%)</td></tr>
+<tr><td><b>[전방-차] 완성차</b></td><td>현대차·기아·글로벌 OEM</td><td>모듈·전장·A/S 부품</td></tr>
+</table>
+<div class="bull-box"><b>밸류체인 핵심:</b> 자동차부품(샤시·전장·제동·조향)의 정밀 구동 기술을 휴머노이드 액추에이터로 전이하는 <b>'기술 전이형' 신사업</b>. 보스턴다이내믹스라는 그룹 내 captive 고객을 확보해 초기 매출·레퍼런스를 안정적으로 쌓고, 미국 공장으로 글로벌 휴머노이드 고객 확대를 모색. 단, 로봇 매출은 2027년부터 본격 인식돼 단기 실적 기여는 제한적이며, 현 주가는 기대를 일부 선반영.</div>
+
+<h3>2-3. 산업 사이클 — Physical AI 개화기</h3>
+<p>엔비디아 "다음 AI 프론티어는 Physical AI"(CES 2025) 선언 후, 2026년 테슬라 옵티머스 양산 원년·휴머노이드 상용화 초입. 로봇 액추에이터 수요가 구조적으로 폭증하는 사이클 진입. 동시에 자동차부품 본업은 전동화·SDV·자율주행으로 고부가화. 두 사이클이 겹치며 현대모비스의 성장축이 다변화된다.</p>
+
+<h3>2-4. Peer 비교 (정성)</h3>
+<table>
+<tr><th>구분</th><th>현대모비스</th><th>HL만도</th><th>현대위아</th><th>현대오토에버</th></tr>
+<tr><td>주력</td><td>샤시·전장·제동+로봇 액추에이터</td><td>제동·조향·자율주행</td><td>구동·공작기계·로봇</td><td>SDV SW·IT서비스</td></tr>
+<tr><td>Physical AI 포지션</td><td>액추에이터(HW '근육')</td><td>자율주행 부품</td><td>구동·로봇</td><td>SDV·SW('두뇌')</td></tr>
+<tr><td>규모/신용</td><td>최대(46조)·AA+</td><td>중형·AA</td><td>중형</td><td>대형(15조)</td></tr>
+<tr><td>특징</td><td>본업 안정+로봇 옵션</td><td>자율주행 성장</td><td>저PBR·구동</td><td>고밸류 SW 성장</td></tr>
+</table>
+
+<div class="peer-box">
+<h3 style="margin-top:0;color:#1e8449">📊 Peer 밸류에이션 비교 (자동차부품·모빌리티, FnGuide 2026.06.25 기준)</h3>
+<table>
+<tr><th>종목</th><th>시가총액</th><th>매출액</th><th>OPM</th><th>ROE</th><th>PER</th><th>12M Fwd PER</th><th>PBR</th><th>EV/EBITDA</th><th>배당수익률</th></tr>
+<tr style="background:#eafaf1;font-weight:bold"><td>현대모비스</td><td>46.2조</td><td>611,181억</td><td>5.5%</td><td>7.7%</td><td>12.8배</td><td>10.5배</td><td>0.93배</td><td>7.5배</td><td>1.28%</td></tr>
+<tr><td>HL만도</td><td>2.39조</td><td>94,548억</td><td>3.8%</td><td>3.8%</td><td>23.9배</td><td>10.8배</td><td>0.88배</td><td>5.8배</td><td>1.47%</td></tr>
+<tr><td>현대위아</td><td>1.77조</td><td>84,816억</td><td>2.4%</td><td>2.8%</td><td>17.8배</td><td>9.8배</td><td>0.48배</td><td>5.3배</td><td>1.85%</td></tr>
+<tr><td>현대오토에버(SDV)</td><td>14.9조</td><td>42,521억</td><td>6.0%</td><td>10.3%</td><td>81.8배</td><td>61.6배</td><td>8.08배</td><td>21.1배</td><td>0.35%</td></tr>
+</table>
+<p style="margin:8px 0 0"><b>한 줄 결론:</b> 현대모비스는 자동차부품 HW 피어(HL만도·현대위아)와 <b>선행 PER(10.5배)·PBR(0.93배)이 유사</b>하나, <b>OPM(5.5%)·ROE(7.7%)·신용(AA+)은 우위</b>다. 즉 현재는 '전통 부품주' 밸류에 머물러 있다. 반면 같은 그룹의 SDV SW 축인 현대오토에버는 PER 61.6배·PBR 8.1배의 'SW 성장주' 멀티플을 받는다. <b>현대모비스가 로봇 액추에이터(Physical AI HW) 사업가치를 인정받으면, 부품주(PER 10배)에서 로봇·성장주 멀티플로 리레이팅될 여지가 핵심</b>(KB 적정 시총 111조 = 현 2.4배). 단, 순수 로봇주(레인보우로보틱스·두산로보틱스 등은 PER 수십~수백배)와 달리 본업 비중이 커 리레이팅은 점진적일 가능성. 배당·안정성은 현대모비스, 단기 SW 성장 모멘텀은 오토에버 우위.</p>
+</div>
+
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>1977년 설립된 현대자동차그룹 자동차부품 전문기업, 45개 종속회사 보유. 샤시모듈·칵핏모듈·FEM을 조립·생산해 현대차·기아 등에 공급하고, 제동·조향·전장 부품을 글로벌 완성차에 제공. A/S 부품 사업도 영위. 자율주행·전동화에 R&amp;D를 지속하며, <b>로보틱스(액추에이터)를 차세대 성장 영역으로 육성</b> — 보스턴다이내믹스 Atlas 액추에이터 공급으로 Physical AI 밸류체인에 진입.</p>
+
+<h3>3-2. BM 분해 — 부문 구조</h3>
+<table>
+<tr><th>부문</th><th>내용</th><th>특징</th></tr>
+<tr><td>모듈·부품제조</td><td>샤시·칵핏·FEM 모듈, 제동·조향·전장</td><td>현대차·기아 + 글로벌 OEM</td></tr>
+<tr><td>A/S 부품</td><td>보수용 부품</td><td>고마진·안정적(보유대수 증가)</td></tr>
+<tr><td>로보틱스(신성장)</td><td>휴머노이드 액추에이터(Atlas)</td><td>2027~ 매출 본격화(Physical AI)</td></tr>
+<tr><td>미래기술</td><td>전동화·자율주행·SDV 부품</td><td>구조적 성장</td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자</h3>
+<div class="bull-box">① <b>액추에이터 기술 내재화</b> — 자동차 구동·제동 기술의 로봇 전이. ② <b>보스턴다이내믹스 captive 고객</b> — 그룹 내 수직계열. ③ <b>자동차부품 1위 규모·양산 노하우</b>. ④ <b>AA+·자체 투자여력</b>.</div>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><th>시기</th><th>이벤트</th></tr>
+<tr><td>1977</td><td>설립(현대차그룹 부품)</td></tr>
+<tr><td>2021</td><td>현대차그룹 보스턴다이내믹스 인수</td></tr>
+<tr><td>2024~2025</td><td>로보틱스 차세대 성장축 육성·밸류업·자사주 소각</td></tr>
+<tr><td>2026.01 (CES)</td><td>보스턴다이내믹스 Atlas 액추에이터 공급 공식화</td></tr>
+<tr><td>2026~2027</td><td>미국 액추에이터 공장 → 로봇 매출 본격 반영</td></tr>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>기아(외 7인)</td><td>32.70%</td><td>현대차그룹 (2026.02)</td></tr>
+<tr><td>국민연금공단</td><td>9.51%</td><td>2026.01</td></tr>
+<tr><td>미래에셋자산운용(외 9인)</td><td>5.33%</td><td>2021.11</td></tr>
+<tr><td>자사주</td><td>2.44%</td><td>2026.06 (소각 진행)</td></tr>
+<tr><td>외국인</td><td>36.83%</td><td>—</td></tr>
+</table>
+
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>592,544</td><td>572,370</td><td>611,181</td><td>651,824</td></tr>
+<tr><td>영업이익</td><td>22,953</td><td>30,735</td><td>33,575</td><td>37,166</td></tr>
+<tr><td>지배순이익</td><td>34,226</td><td>40,556</td><td>36,558</td><td>41,086</td></tr>
+<tr><td>영업이익률</td><td>3.9%</td><td>5.4%</td><td>5.5%</td><td>5.7%</td></tr>
+<tr><td>ROE</td><td>8.7%</td><td>9.4%</td><td>7.7%</td><td>8.1%</td></tr>
+</table>
+<p>매출 60조원대 안정 성장, 영업이익률 3.9→5.7%로 개선. 본업(자동차부품)이 견조한 현금흐름을 창출. 로봇 매출은 2027년부터 반영 예정으로 현 추정에는 미포함 — 로봇 본격화 시 추가 상향 여력.</p>
+
+<h3>4-2. 분기 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2025.09</th><th>2025.12</th><th>2026.03</th><th>2026.06E</th></tr>
+<tr><td>매출액</td><td>150,319</td><td>153,979</td><td>155,605</td><td>167,533</td></tr>
+<tr><td>영업이익</td><td>7,803</td><td>9,305</td><td>8,026</td><td>9,151</td></tr>
+<tr><td>영업이익률</td><td>5.2%</td><td>6.0%</td><td>5.2%</td><td>5.5%</td></tr>
+</table>
+<p>1Q26 매출 155,605억(+5.5%)·영업익 8,026억(+3.3%). 고부가 차종·A/S·환율로 견조. 2Q26E OP 9,151억(+5%). 본업 실적은 안정적이며, 주가 모멘텀은 로봇 액추에이터 신사업이 주도.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<tr><th>항목</th><th>2024</th><th>2025</th></tr>
+<tr><td>자본총계</td><td>461,182억</td><td>492,128억</td></tr>
+<tr><td>부채비율</td><td>44.4%</td><td>43.1%</td></tr>
+<tr><td>BPS</td><td>501,648원</td><td>545,787원</td></tr>
+<tr><td>DPS</td><td>6,000원</td><td>6,500원</td></tr>
+</table>
+<p>부채비율 43%·신용 AA+의 최우량 재무. BPS 545,787원 대비 현재가 509,000원으로 PBR 0.93배 — 순자산 하회. 자체 현금흐름으로 로봇 공장 등 미래 투자 감당 가능, 동시에 배당·자사주 소각 병행.</p>
+
+<h3>4-4. 자본구조·투자 리스크</h3>
+<div class="risk-box">자본구조는 매우 견고(부채비율 43%·AA+). 로봇 액추에이터 공장·R&amp;D 등 대규모 미래 투자가 단기 비용·감가상각으로 수익성을 일부 압박할 수 있으나, 본업 현금흐름으로 자체 조달 가능해 재무 리스크는 낮음. 로봇 매출이 투자 회수 기대에 못 미칠 경우 재평가 되돌림 리스크.</div>
+
+<h2>5. 주주환원</h2>
+<p>대표적 코리아 밸류업주. 기업가치제고계획(밸류업) 공시 + 자사주 취득·소각(3년 다회)·배당(DPS 6,500원, 수익률 1.3%) 병행. 자사주 2.44% 보유·소각 진행으로 EPS·주주가치 제고. 본업의 안정적 현금흐름을 기반으로 한 적극적 주주환원이 PBR 0.93배 저평가 국면의 하방을 지지하며, 로봇 재평가와 함께 주주가치 제고의 두 축을 형성.</p>
+
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교 (Peer 대비)</h3>
+<p>현재 PER 12.8배(별도 9.4배)·<b>12M Fwd PER 10.5배</b>·PBR 0.93배로 자동차부품 피어(HL만도·현대위아) 수준. OPM·ROE·신용은 피어 우위(§2-4). <b>핵심은 로봇 액추에이터(Physical AI) 사업가치가 멀티플에 거의 미반영</b>됐다는 점 — 그룹 SDV SW 축 현대오토에버가 PER 61배를 받는 것과 대비된다. 로봇 재평가 시 부품주(PER 10배)에서 성장주 멀티플로 리레이팅 여지(KB 적정 시총 111조).</p>
+
+<h3>6-2. 시나리오 산출</h3>
+<table>
+<tr><th>시나리오</th><th>목표주가</th><th>밸류 근거</th><th>핵심 트리거</th></tr>
+<tr><td>Bull</td><td class="positive">1,200,000원</td><td>본업 SOTP + 로봇 사업가치(KB)</td><td>로봇 매출 본격화·글로벌 고객</td></tr>
+<tr><td>Base</td><td class="positive">786,800원~900,000원</td><td>26F EPS × PER ~17배(컨센·최근 상향)</td><td>본업 견조 + 로봇 옵션 일부 반영</td></tr>
+<tr><td>Bear</td><td>600,000원</td><td>부품 본업 멀티플(PBR ~1.1배)</td><td>로봇 지연·자동차 업황 둔화</td></tr>
+</table>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="update-box"><b>진입:</b> 480,000~550,000원(최근 조정 구간) 분할 매수 — PBR 0.9배·선행 PER 10배의 본업 밸류 하단. <b>비중 확대:</b> 로봇 액추에이터 매출 가시화·미국 공장 가동·Atlas 양산 확인 시. <b>이탈/차익:</b> 900,000~1,200,000원(로봇 재평가 반영) 또는 로봇 매출 지연·자동차 업황 악화 시. Physical AI 재평가는 매출 마일스톤(2027~) 확인하며 단계적 대응.</div>
+
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<tr><th>지표</th><th>값</th></tr>
+<tr><td>현재가 (6/24)</td><td>509,000원</td></tr>
+<tr><td>52주 최고 / 최저</td><td>768,000 / 283,500원</td></tr>
+<tr><td>수익률 (1M/3M/6M/1Y)</td><td>-21.2% / +29.7% / +39.5% / +78.6%</td></tr>
+<tr><td>베타 (1년)</td><td>0.94</td></tr>
+</table>
+<p>지난 1년 +78.6% 상승 — 283,500원에서 768,000원까지 급등 후 현재 509,000원으로 조정. Physical AI·로봇 액추에이터 재평가가 상승을 주도(CES 2026·보스턴다이내믹스 Atlas). 최근 1개월 -21.2%는 고점 차익실현·밸류 부담. 핵심 모멘텀은 로봇 매출 가시화(2027)·미국 공장·자사주 소각. 컨센 대비 +55%, 최근 TP 상향분 기준 더 큰 여력.</p>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 편입 현황 요약</h3>
+<p>현대모비스는 KOSPI200 대형주로 대부분의 코스피200·자동차·밸류업·로봇 테마 ETF에 광범위하게 편입(수백 개). 시총 46조의 핵심 대형주로 패시브 기본 수급이 두텁고, 최근 로봇·Physical AI 테마 ETF의 신규·비중 확대 편입이 더해진다.</p>
+
+<h3>7-2-2. 액티브 ETF 동향</h3>
+<p>로봇·AI·밸류업 액티브 ETF가 Physical AI 테마로 현대모비스를 핵심 편입. 자동차부품에서 로봇주로의 재평가가 진행되며 액티브 펀드의 비중 확대가 관찰된다.</p>
+<table>
+<tr><th>구분</th><th>내용</th></tr>
+<tr><td>주요 편입 테마</td><td>로봇·AI·자동차·밸류업·코스피200 액티브</td></tr>
+<tr><td>방향</td><td>Physical AI 테마로 비중 확대 추세</td></tr>
+</table>
+
+<h3>7-2-3. 패시브 ETF 편입 비중 상위</h3>
+<table>
+<tr><th>패시브 ETF 유형</th><th>비중 특징</th></tr>
+<tr><td>KOSPI200 (KODEX·TIGER·RISE 등)</td><td>시총 비례 핵심 편입</td></tr>
+<tr><td>자동차·운송장비 테마</td><td>섹터 대표주 고비중</td></tr>
+<tr><td>로봇·AI·미래차 테마</td><td>Physical AI 재평가로 편입 확대</td></tr>
+<tr><td>코리아 밸류업</td><td>밸류업 대표주 편입</td></tr>
+</table>
+
+<h3>7-2-4. 수급 해석</h3>
+<div class="update-box">대형주로 KOSPI200 패시브가 기본 수급을 두텁게 받치고, <b>로봇·AI 테마 ETF의 신규·비중 확대 편입이 Physical AI 재평가 수급을 더한다</b>. 외국인 36.8%의 높은 지분과 자사주 소각(유통주식 감소)이 수급 우호 요인. 자동차 ETF(전통)와 로봇 ETF(신규)에 동시 편입돼 두 테마 자금을 모두 받는 구조다.</div>
+
+<h3>7-2-5. 종합 — 모멘텀 지속성 평가</h3>
+<p>현대모비스는 KOSPI200 핵심 대형주로 패시브 수급이 안정적이며, 로봇·AI 테마 ETF 편입 확대로 Physical AI 재평가 수급이 추가된다. 자사주 소각에 따른 유통주식 감소·높은 외국인 비중·밸류업 정책이 수급을 받친다. 로봇 매출 가시화(2027)가 다가올수록 테마 ETF·외국인 자금 유입이 강화될 여지가 크며, 본업 안정성이 하방을 받쳐 수급 변동성은 순수 로봇주 대비 낮다.</p>
+
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">① <b>기대 선반영·밸류 부담</b> — 1년 +78.6% 급등으로 Physical AI 기대 일부 선반영, 고점 차익실현. ② <b>로봇 매출 시차</b> — 본격 매출이 2027년이라 단기 실적 기여 제한, 기대-현실 갭.</div>
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box">③ <b>로봇 매출 지연·경쟁</b> — 휴머노이드 양산 지연·글로벌 액추에이터 경쟁(테슬라 내재화·중국) 시 매출 기대 후퇴. ④ <b>자동차 업황</b> — 본업이 여전히 매출의 대부분, 전기차·완성차 수요 둔화 시 실적 압박.</div>
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">⑤ <b>관세·무역</b> — 미국 자동차·부품 관세, 글로벌 공급망 변화. ⑥ <b>환율</b> — 우호적 환율이 실적을 지지했으나 원화 강세 전환 시 부담.</div>
+<h3>8-4. 밸류에이션 리스크</h3>
+<div class="risk-box">⑦ <b>리레이팅 되돌림</b> — 로봇 사업가치가 기대만큼 실현되지 않으면 부품주 멀티플(PER 10배)로 회귀. Physical AI 프리미엄은 매출 입증이 전제.</div>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>2026~2027 트리거</th><th>중장기 가치</th></tr>
+<tr><td><b>로봇 액추에이터</b></td><td>Atlas 공급·미국 공장·2027 매출</td><td>휴머노이드 시장 CAGR 30%+</td></tr>
+<tr><td><b>전동화</b></td><td>구동·배터리시스템 부품</td><td>전기차 전환 수혜</td></tr>
+<tr><td><b>자율주행·SDV</b></td><td>센서·전장·통합 부품</td><td>SDV 전환</td></tr>
+<tr><td><b>A/S 부품</b></td><td>보유대수 증가</td><td>고마진 안정 캐시카우</td></tr>
+<tr><td><b>주주환원</b></td><td>자사주 소각·밸류업</td><td>EPS·주주가치 제고</td></tr>
+</table>
+
+<h2>10. 결론</h2>
+<p>현대모비스는 자동차부품 1위에서 <b>Physical AI 밸류체인의 핵심 '액추에이터' 공급사</b>로 변신 중이다. CES 2026 보스턴다이내믹스 휴머노이드 'Atlas' 액추에이터 공급을 공식화했고, 액추에이터는 휴머노이드 원가의 60%를 차지하는 최핵심 부품이다. 현대차그룹 Physical AI 전략(보스턴다이내믹스=몸, 북미 3만대 로봇공장)의 하드웨어 축으로, 미국 액추에이터 공장과 함께 로봇 매출이 2027년부터 본격 반영될 전망이다.</p>
+<p>Peer 밸류(§2-4)에서 보듯 현재는 자동차부품 피어와 유사한 PBR 0.93배·선행 PER 10.5배로, <b>로봇 사업가치가 멀티플에 거의 미반영</b>됐다. 같은 그룹 SDV SW 축 현대오토에버가 PER 61배를 받는 것과 대비되며, 로봇 재평가 시 리레이팅 여지가 크다(KB 적정 시총 111조). 본업 안정 현금흐름·AA+·자사주 소각이 하방을 받치고, 72개 리포트 전부 BUY·TP 일제 상향(760k~1,200k)이 이를 뒷받침한다. 로봇 매출 시차·밸류 부담은 리스크다. <b>조정 시 분할 매수 → 로봇 매출 가시화 확인 후 비중 확대</b> 전략이 합리적이며, 투자의견 <b>BUY · Base TP 786,800원(컨센, 최근 ~900,000) / Bull 1,200,000원 / Bear 600,000원</b>을 제시한다.</p>
+
+<div class="footer">
+<b>데이터 출처:</b> FnGuide Company Guide·SearchReport(증권사 리포트 전수 + Peer 밸류, 2026.06.25 조회) · KB·삼성·미래에셋·신한·메리츠·유진·유안타·LS·한화·흥국·IBK 리포트 · DART 회사별 검색(2023.06~2026.06) · 현대차그룹·현대모비스 IR·공시 · 언론(딜사이트·오토일렉트로닉스·파이낸셜뉴스·골드만삭스/마켓앤마켓 등)<br><br>
+<b>면책:</b> 본 보고서는 공개된 자료를 종합·정리한 참고용이며 투자 권유가 아닙니다. 목표주가·시나리오는 작성자의 가정에 기반한 추정으로 실제와 다를 수 있습니다. 신성장(로봇) 사업은 매출화 시점·경쟁에 따라 가치가 급변할 수 있으며, 투자 판단과 책임은 투자자 본인에게 있습니다. 작성일 2026.06.26 기준.
+</div>
+
+</body>
+</html>
