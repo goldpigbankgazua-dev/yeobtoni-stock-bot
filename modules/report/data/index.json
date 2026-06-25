@@ -1,5 +1,17 @@
 [
   {
+    "file": "코스피_현대오토에버_피지컬AI두뇌SDV소프트웨어_로봇SI그룹captive_260626.html",
+    "market": "코스피",
+    "name": "현대오토에버",
+    "themes": [
+      "피지컬AI두뇌SDV소프트웨어",
+      "로봇SI그룹captive"
+    ],
+    "date": "2026-06-26",
+    "revision": false,
+    "pages": 10
+  },
+  {
     "file": "코스피_현대모비스_피지컬AI액추에이터_아틀라스로봇하드웨어티어1_260626.html",
     "market": "코스피",
     "name": "현대모비스",
