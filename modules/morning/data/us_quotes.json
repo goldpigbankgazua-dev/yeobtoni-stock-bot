@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-26 02:50:03",
+  "fetched_at": "2026-06-26 02:55:03",
   "count": 5,
   "quotes": [
     {
@@ -7,12 +7,12 @@
       "name": "나스닥 100 선물",
       "symbol": "NQ=F",
       "exchange": "CME",
-      "price": 29767.5,
+      "price": 29732.5,
       "previous": 29514.25,
-      "change": 253.25,
-      "change_pct": 0.86,
+      "change": 218.25,
+      "change_pct": 0.74,
       "state": "REGULAR",
-      "market_ts": 1782409201,
+      "market_ts": 1782409501,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -21,12 +21,12 @@
       "name": "S&P 500 선물",
       "symbol": "ES=F",
       "exchange": "CME",
-      "price": 7428.25,
+      "price": 7421.0,
       "previous": 7428.25,
-      "change": 0.0,
-      "change_pct": 0.0,
+      "change": -7.25,
+      "change_pct": -0.1,
       "state": "REGULAR",
-      "market_ts": 1782409201,
+      "market_ts": 1782409501,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -38,9 +38,9 @@
       "price": 101.43,
       "previous": 101.61,
       "change": -0.18,
-      "change_pct": -0.17,
+      "change_pct": -0.18,
       "state": "REGULAR",
-      "market_ts": 1782409201,
+      "market_ts": 1782409498,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -54,7 +54,7 @@
       "change": 6.06,
       "change_pct": 0.39,
       "state": "REGULAR",
-      "market_ts": 1782409799,
+      "market_ts": 1782410095,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -68,7 +68,7 @@
       "change": 40.3,
       "change_pct": 1.01,
       "state": "REGULAR",
-      "market_ts": 1782409197,
+      "market_ts": 1782409503,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
