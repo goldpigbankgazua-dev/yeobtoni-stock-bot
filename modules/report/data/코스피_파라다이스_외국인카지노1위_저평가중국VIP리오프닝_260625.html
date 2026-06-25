@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파라다이스 (034230) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>파라다이스 (034230.KS)</h1>
+<div class="sub">외국인전용 카지노 1위(워커힐·파라다이스시티) — 중국 VIP 귀환·고환율 리오프닝 + 호텔 외형 확장 + 깊은 저평가<br>컨센 BUY·TP 22,667원(12개사) · 현재가 12,680원(52주 최저권·컨센 대비 +79%·PBR 0.67) · 분석일 2026.06.25</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/24)</span><span class="snapshot-value">12,680원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">1.17조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value negative">-1.40%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">10.9배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (현재)</span><span class="snapshot-value">0.67배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">6.09%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value negative">-14.7%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">파라다이스글로벌 외 7인 45.15%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value negative">373억 (-34.9%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP (컨센)</span><span class="snapshot-value">22,667원<br>(+78.8%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">25,000원<br>(+97.2%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (12사)</span><span class="snapshot-value">22,667원<br>(+78.8%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">77개<br>(액티브 7 / 패시브 70)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">패시브 최고 비중 ETF</span><span class="snapshot-value positive">TIGER 여행레저<br>8.71%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">23,650 /<br>12,680원</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 액티브 7개·패시브 70개 합산 77개 ETF 편입(K200). 액티브 편입 비중은 낮으나(주가 부진 반영), 패시브는 여행레저·소비 테마에 비중(TIGER 여행레저 8.71%, 중국소비테마 4.07%, RISE K엔터&amp;여행레저 1.90%, 경기소비재 1.32%) + KOSPI200 다수. <b>중국 관광·여행레저 테마 자금이 리오프닝 모멘텀과 함께 수급을 좌우</b>. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.25 기준 — 상세 표는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 22개 리포트 전부 BUY, 컨센 TP 22,667원(12개사)으로 현재가(12,680원) 대비 <b>+79% 괴리</b>. 키움 "현시점 가장 저평가된 외인 카지노사", 하나 "바닥이 맞습니다"(TP 25,000 최고), 삼성 "호텔 멀티플을 향한 여정". (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> 워커힐·파라다이스시티 등 외국인전용 카지노 4개를 운영하는 1위 사업자. 방한 관광·중국 VIP 귀환·고환율로 드롭액 성장(1Q26 +3.6%·매스 +16.8%) 중이나, 3월 홀드율 급락(7.5%, 운 요인)으로 1Q 영업이익 -35% '예상 가능했던 쇼크'. 5월 역대 최대 월매출로 회복, 하얏트 인수(객실 1,270실)·메종글래드 제주 인수설로 호텔·제주 확장. PBR 0.67배·52주 최저권의 깊은 저평가에 컨센 +79% 괴리. 홀드율 변동성·비용 부담이 리스크나, 성수기·중국 VIP가 회복 트리거.</div>
+</div>
+
+<h2 style="border:none;color:#1a5276">§0. 멀티소스 교차검증 — 증권사·1차자료·외부검증</h2>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1f618d">📊 증권사 리포트 전수 (FnGuide SearchReport, 최근 3개월 · 총 22건, 국문 발췌)</h3>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.06.15</td><td>삼성</td><td>호텔 멀티플을 향한 여정</td><td>BUY <span class="tag-new">NEW</span></td><td>19,000</td><td class="positive">+49.8%</td></tr>
+<tr><td>26.06.10</td><td>iM</td><td>성수기 하얏트 인수 효과 본격화 기대</td><td>BUY <span class="tag-new">NEW</span></td><td>23,000</td><td class="positive">+81.4%</td></tr>
+<tr><td>26.06.09</td><td>KB</td><td>제주도 메종글래드 인수설 관련 코멘트</td><td>BUY</td><td>-</td><td>-</td></tr>
+<tr><td>26.06.05</td><td>NH투자</td><td>역대 최대 월매출</td><td>BUY</td><td>23,000</td><td class="positive">+81.4%</td></tr>
+<tr><td>26.05.28</td><td>유안타</td><td>주가 부진에 가려진 복합 리조트 성장세</td><td>BUY</td><td>20,000</td><td class="positive">+57.7%</td></tr>
+<tr><td>26.05.28</td><td>다올투자</td><td>호텔 부문 강화 중</td><td>BUY(하향)</td><td>18,000 ▼</td><td class="positive">+42.0%</td></tr>
+<tr><td>26.05.26</td><td>키움</td><td>현시점 가장 저평가된 외인 카지노사</td><td>BUY</td><td>23,000</td><td class="positive">+81.4%</td></tr>
+<tr><td>26.05.11</td><td>키움</td><td>우호적 매크로 지속, 기대해볼 2분기</td><td>BUY</td><td>23,000</td><td class="positive">+81.4%</td></tr>
+<tr><td>26.05.07</td><td>유진</td><td>비수기 끝났다</td><td>BUY</td><td>23,000</td><td class="positive">+81.4%</td></tr>
+<tr><td>26.05.07</td><td>NH투자</td><td>예상 가능했던 쇼크</td><td>BUY</td><td>23,000</td><td class="positive">+81.4%</td></tr>
+<tr><td>26.05.07</td><td>KB</td><td>외형 성장 우선</td><td>BUY(하향)</td><td>21,000 ▼</td><td class="positive">+65.6%</td></tr>
+<tr><td>26.05.07</td><td>하나</td><td>바닥이 맞습니다</td><td>BUY</td><td>25,000</td><td class="positive">+97.2%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold"><td colspan="3">FnGuide 컨센서스 (추정기관 12개사)</td><td>BUY (4.0)</td><td>22,667</td><td class="positive">+78.8%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 영문 동일 리포트는 1건으로 집계. ▼=하향. 전 리포트 BUY 일관, TP 18,000~25,000원으로 현재가(12,680원)를 42~97% 상회. 1Q 어닝쇼크에도 컨센은 강한 상승 여력 유지.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#b9521a">🔥 하나 (이기훈·김현수) 2026.05.07 — "바닥이 맞습니다" <span class="tag-sk">최고 TP 25,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"실적 바닥 통과 확신"</td><td>커버리지 내 최고 TP</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 25,000</td><td>현재가 대비 +97.2%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 1Q 부진은 홀드율 일시 급락(운 요인), 펀더멘털(드롭액) 견조 ② 2Q부터 회복 ③ 중국 VIP·방한 관광 구조적 성장 ④ 저평가</td><td>일시 부진 = 진입 기회</td></tr>
+<tr><td>★ Valuation</td><td>정상 홀드율 가정 시 이익 정상화</td><td>—</td></tr>
+</table>
+<p><b>[하나 핵심]</b> "1Q 어닝쇼크는 홀드율(카지노 승률) 일시 하락 탓 — 드롭액(베팅액)은 늘어 펀더멘털은 견조, 지금이 바닥."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a">
+<h3 style="margin-top:0;color:#1e6e3a">📘 키움 (임수진·박정현) 2026.05.26 — "현시점 가장 저평가된 외인 카지노사" <span class="tag-sk">밸류 강조</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"외인 카지노 3사 중 최저평가"</td><td>밸류 매력 부각</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 23,000</td><td>현재가 대비 +81.4%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① PBR 0.67배·52주 최저권 저평가 ② 우호적 매크로(중국 VIP·고환율) 지속 ③ 2분기 회복 기대 ④ 복합리조트 성장</td><td>밸류+회복 더블</td></tr>
+<tr><td>★ Valuation</td><td>Peer(롯데관광·GKL) 대비 저평가</td><td>—</td></tr>
+</table>
+<p><b>[키움 핵심]</b> "외인 카지노 3사 중 가장 저평가 — 우호적 매크로가 지속되는 2분기를 기대."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d">
+<h3 style="margin-top:0;color:#1f618d">📙 삼성 (이혜인) 2026.06.15 — "호텔 멀티플을 향한 여정" <span class="tag-sk">재평가 논리</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"카지노에서 호텔로 멀티플 재평가"</td><td>밸류 프레임 전환</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(신규) / 19,000</td><td>현재가 대비 +49.8%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 하얏트 인수로 호텔 외형 확장(1,270실) ② 카지노 변동성 대비 호텔 안정 현금흐름 ③ 복합리조트 멀티플 상향 여지</td><td>안정성 → 멀티플 리레이팅</td></tr>
+<tr><td>★ Valuation</td><td>호텔 멀티플 적용 시 밸류 상향</td><td>보수적 TP 19,000</td></tr>
+</table>
+<p><b>[삼성 핵심]</b> "카지노 홀드율 변동성을 호텔 안정 현금흐름이 보완 — 복합리조트 멀티플로의 여정."</p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309">
+<h3 style="margin-top:0;color:#b45309">📙 iM·NH·KB — 하얏트·메종글래드·월매출 <span class="tag-sk">M&A·실적</span></h3>
+<table>
+<tr><th>증권사 / 일자</th><th>제목 · TP</th><th>핵심 포인트</th></tr>
+<tr><td>iM 06.10</td><td>성수기 하얏트 인수 효과 본격화 · 23,000</td><td>객실 1,270실 외형 확장</td></tr>
+<tr><td>NH 06.05</td><td>역대 최대 월매출 · 23,000</td><td>5월 최대 실적, 회복 확인</td></tr>
+<tr><td>KB 06.09</td><td>메종글래드 인수설 코멘트</td><td>제주 카지노 시너지 기대</td></tr>
+<tr><td>유안타 05.28</td><td>주가 부진에 가려진 복합리조트 성장 · 20,000</td><td>성장이 주가에 미반영</td></tr>
+<tr><td>유진 05.07</td><td>비수기 끝났다 · 23,000</td><td>계절성 저점 통과</td></tr>
+</table>
+<p><b>[컨센 핵심]</b> 12개 추정기관 전부 BUY, TP 18,000~25,000원. 공통 논리 = ① 1Q 부진은 홀드율 일시 요인 ② 드롭액·방문객 견조 ③ 5월 역대 최대 월매출로 회복 ④ 하얏트·메종글래드로 외형 확장 ⑤ PBR 0.67배 저평가.</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d">
+<h3 style="margin-top:0;color:#5d6d7e">⚠️ 1Q26 어닝쇼크 해부 — 홀드율 변동성 <span class="tag-sk">주의</span></h3>
+<table>
+<tr><th>지표</th><th>1Q26</th><th>해석</th></tr>
+<tr><td>드롭액(베팅액)</td><td class="positive">1.76조 (+3.6%), 매스 +16.8%</td><td>방문·베팅 펀더멘털 견조</td></tr>
+<tr><td>홀드율(카지노 승률)</td><td class="negative">1월 13.7%→2월 15.7%→3월 7.5%</td><td>3월 급락 = 운(luck) 일시 요인</td></tr>
+<tr><td>영업이익</td><td class="negative">373억 (-34.9%)</td><td>홀드율 하락 + 비용 부담</td></tr>
+<tr><td>순이익</td><td class="negative">-47.1%</td><td>—</td></tr>
+</table>
+<p><b>[어닝쇼크 해부]</b> '카지노 손님 대박의 아이러니' — 손님·베팅액(드롭액)은 늘었으나, 3월 홀드율(승률)이 7.5%로 급락하며 이익이 일시 감소. 홀드율은 분기별로 정상화(통상 13~16%)되는 운 요인이므로, <b>드롭액 성장이 견조한 한 이익은 2분기부터 정상화</b> 전망(하나 "바닥이 맞습니다"). 다만 홀드율은 통제 불가 변수로 분기 실적 변동성의 원천.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📋 1차자료 — 실적·공시 <span class="tag-disc">PRIMARY</span></h3>
+<p><b>최근 신호 공시·실적 (루틴 제외, 사업·자본·주주환원 3분류):</b></p>
+<table>
+<tr><th>분류</th><th>일자</th><th>내용 (신호)</th></tr>
+<tr><td rowspan="3" style="background:#eafaf1"><b>실적·<br>사업</b></td><td>2026.05</td><td>1Q26 실적 — 매출 2,940억(YoY +3.8%), 영업이익 373억(-34.9%), 순이익 -47.1%. 드롭액 1.76조(+3.6%)이나 3월 홀드율 7.5% 급락이 이익 부진 원인</td></tr>
+<tr><td>2026.03</td><td>하얏트 리젠시 인천 파라다이스시티 개관 — 그랜드 하얏트 인천 웨스트타워 인수, 객실 501실 추가(총 1,270실)</td></tr>
+<tr><td>2026.06</td><td>메종글래드 제주 인수 추진 — 코람코운용과 MOU·정밀실사(몸값 2,500억, 메종글래드 매출 1,105억·OP 342억). 제주 카지노 확장</td></tr>
+<tr><td style="background:#eaf2f8"><b>지배구조</b></td><td>2026.06.04</td><td>최대주주 파라다이스글로벌(외 7인) 45.15%(전필립 회장) + 국민연금 11.60% + 자사주 5.26%</td></tr>
+<tr><td style="background:#fef5e7"><b>주주<br>환원</b></td><td>2025 결산</td><td>DPS 150원, 배당수익률 약 1.18%. 자사주 5.26% 보유(주주환원 여력)</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 출처: 파라다이스 IR·공시 + 언론 종합. 신용등급 A+. 카지노(워커힐·인천·부산·제주)+호텔(부산·올랜도)+복합리조트(파라다이스시티) 구성.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276">🌐 외부검증 1 — 외국인 카지노·방한 관광 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p>파라다이스는 방한 관광·중국 VIP 귀환의 직접 수혜처인 외국인전용 카지노 1위 사업자다.</p>
+<div class="global-quote">
+<b>외인 카지노 3사 동반 성장:</b> 파라다이스·롯데관광개발·GKL 모두 2026년 초 매출·드롭액 동반 성장. <b>중국 무비자(2025.9~2026.6)·한중일 황금연휴 특수로 5월 역대 최대 월매출</b>.<br><br>
+<b>중국 VIP 귀환·고환율:</b> "中 VIP 돌아온다 — 소외됐던 카지노주 다시 판 열린다". 고환율로 외국인 베팅액(드롭액) 증가 → K카지노 수혜.<br><br>
+<b>파라다이스 1~2월:</b> 누적 카지노 매출 1,812억(+26.1%), 드롭액 1.17조(+5.7%). <b>가을(중국 국경절·일본 연휴)이 전통 성수기</b>로 하반기 개선 기대.<br><br>
+<b>제주 시장:</b> 제주 외인 카지노 2025 매출 6,465억(+40.8%). 현 점유율 롯데관광 80%·파라다이스 3% — 메종글래드 인수 시 제주 확장 여지.</p>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 네이트뉴스·서울경제 외인 카지노 2026 · 이데일리 중국 VIP 귀환 · 머니투데이 외인 카지노 3사 1Q</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 정책·그룹 전략 <span class="tag-policy">POLICY/GROUP</span></h3>
+<p><b>① 중국 무비자·방한 관광 진흥 — 직접 수혜</b></p>
+<div class="policy-quote">중국 단체관광 무비자(2025.9.29~2026.6.30)와 K컬처 확산으로 방한 외국인 2,200만명(2026) 전망. 외국인전용 카지노는 방한 관광·중국 VIP의 직접 수혜처로, 무비자 연장 여부가 하반기 수요의 핵심 변수.</div>
+<p><b>② 호텔·제주 확장 전략 — 카지노 변동성 보완</b></p>
+<div class="policy-quote">전필립 회장 주도로 <b>하얏트 리젠시 인천 인수(객실 1,270실)·메종글래드 제주 인수 추진</b>. 카지노 홀드율 변동성을 호텔 안정 현금흐름으로 보완하고, 제주(롯데관광 독주)에 진입해 사업 다각화. '호텔 멀티플을 향한 여정'(삼성)으로 밸류 리레이팅 모색.</div>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 비즈니스포스트 전필립 하얏트 인수 · 블로터 파라다이스 제주 진출 · 파이낸셜뉴스 메종글래드 시너지</p>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 외부검증 3 — 최근 1개월 핵심 기사 (2026.05.25~06.24) <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<p>① <b>한중일 황금연휴 특수, 5월 역대 최대 월매출</b> — 외인 카지노 회복 확인. <span style="font-size:9pt;color:#7f8c8d">📌 네이트뉴스 2026.06.06</span></p>
+<p>② <b>"中 VIP 돌아온다, 소외됐던 카지노주 다시 판 열린다"</b> — 중국 VIP 귀환 모멘텀. <span style="font-size:9pt;color:#7f8c8d">📌 이데일리 2026.06</span></p>
+<p>③ <b>메종글래드 제주 인수 추진(6/10)</b> — 코람코운용 MOU, 제주 카지노 시너지(KB). <span style="font-size:9pt;color:#7f8c8d">📌 파이낸셜뉴스 2026.06.10</span></p>
+<p>④ <b>"8년 만에 제주 다시 노린다 — 롯데관광 독주 흔들까"</b> — 제주 진출 전략. <span style="font-size:9pt;color:#7f8c8d">📌 블로터 2026.06</span></p>
+<p>⑤ <b>삼성 "호텔 멀티플을 향한 여정" 신규 커버(6/15)</b> — 하얏트 인수 호텔 재평가. <span style="font-size:9pt;color:#7f8c8d">📌 삼성증권 2026.06.15</span></p>
+<p>⑥ <b>고환율에 웃는 K카지노</b> — 외국인 판돈(드롭액) 증가. <span style="font-size:9pt;color:#7f8c8d">📌 서울경제 2026.06</span></p>
+<p>⑦ <b>1Q 어닝쇼크 — 3월 홀드율 급락</b> — 손님 늘었으나 승률 하락. <span style="font-size:9pt;color:#7f8c8d">📌 다음/언론 2026.04~05</span></p>
+<p>⑧ <b>하얏트 리젠시 인천 개관 — 객실 1,270실</b> — 호텔 외형 확장. <span style="font-size:9pt;color:#7f8c8d">📌 더벨 2026</span></p>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<div class="warning-box">
+<b>🔥 단기 (2026 3Q)</b><br>
+• 2026.08 (예상) — 2Q26 실적 발표 (컨센 OP 517억, YoY +20.5%·홀드율 정상화 기대)<br>
+• 2026 6/30 — 중국 단체관광 무비자 종료(연장 여부 관건)<br>
+• 2026 3Q — 메종글래드 제주 인수 본계약 여부<br>
+• 2026 여름 — 방한 관광 성수기 드롭액 확대
+</div>
+<b>중기 (2026 4Q)</b><br>
+• 2026 9~10월 — <b>중국 국경절·일본 연휴 성수기 (전통 카지노 성수기)</b><br>
+• 2026 4Q — 하얏트 인수 효과 본격화(호텔 객실 1,270실)<br>
+• 2026 연간 — 영업이익 1,881억(+21%) 회복 여부<br>
+• 2026 하반기 — 메종글래드 제주 카지노 시너지 가시화<br><br>
+<b>장기 (2027~)</b><br>
+• 2027 — 제주 카지노 점유율 확대(현 3% → 메종글래드 추가)<br>
+• 2027~ — 복합리조트(파라다이스시티) 호텔·MICE 외형 성장<br>
+• 중장기 — 중국 직항·단체관광 정상화 시 VIP 회복<br>
+• 상시 — 여행레저·중국소비 테마 수급 + 자사주(5.26%) 활용
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① 외국인전용 카지노 1위 — 4개 사업장</span><br>서울 워커힐·인천·부산·제주 4개 외국인전용 카지노 운영. 인천 영종도 복합리조트 파라다이스시티(카지노+호텔+엔터)가 핵심. 방한 외국인·중국 VIP의 직접 수혜처로 외인 카지노 1위 지위.</li>
+<li><span class="point-title">② 중국 VIP 귀환·고환율 리오프닝</span><br>중국 무비자·한중일 황금연휴로 5월 역대 최대 월매출. "中 VIP 돌아온다". 고환율로 외국인 베팅액(드롭액) 증가 — K카지노 구조적 수혜 국면.</li>
+<li><span class="point-title">③ 드롭액 견조 — 펀더멘털 성장</span><br>1Q26 드롭액 1.76조(+3.6%)·매스(일반) 드롭액 +16.8%. 방문·베팅 펀더멘털은 견조. 1Q 이익 부진은 3월 홀드율(승률) 일시 급락(7.5%)이라는 운 요인으로, 2분기 정상화 전망.</li>
+<li><span class="point-title">④ 호텔 외형 확장 — 하얏트 인수</span><br>그랜드 하얏트 인천 인수로 '하얏트 리젠시 인천 파라다이스시티' 개관, 객실 501실 추가(총 1,270실). 카지노 변동성을 호텔 안정 현금흐름으로 보완 — '호텔 멀티플을 향한 여정'(삼성).</li>
+<li><span class="point-title">⑤ 제주 진출 — 메종글래드 인수설</span><br>코람코운용과 메종글래드 제주 인수 MOU·정밀실사(몸값 2,500억, 매출 1,105억·OP 342억). 롯데관광 독주(점유율 80%)인 제주에 진입해 사업 다각화. 인수 성사 시 카지노 시너지(KB).</li>
+<li><span class="point-title">⑥ PBR 0.67배·52주 최저권 — 깊은 저평가</span><br>현재가 12,680원은 52주 최저(12,680) 부근, PBR 0.67배·12M Fwd PER 10.9배. "현시점 가장 저평가된 외인 카지노사"(키움). Peer(롯데관광·GKL) 대비 디스카운트.</li>
+<li><span class="point-title">⑦ 컨센 +79% 괴리 — 만장일치 BUY</span><br>현재가 12,680원 vs 컨센 TP 22,667원(12개사)으로 +79% 괴리. 1Q 어닝쇼크에도 22개 리포트 전부 BUY, TP 18,000~25,000원으로 현재가를 크게 상회.</li>
+<li><span class="point-title">⑧ 5월 역대 최대 월매출 — 회복 확인</span><br>NH "역대 최대 월매출", 유진 "비수기 끝났다". 4~5월 매출 회복으로 1Q 바닥 통과 시그널(하나 "바닥이 맞습니다"). 가을 성수기로 추가 개선 기대.</li>
+<li><span class="point-title">⑨ 가을 성수기 모멘텀</span><br>중국 국경절·일본 연휴가 집중되는 가을이 전통 카지노 성수기. 2026 하반기 방한 관광 성수기·중국 VIP로 드롭액·홀드율 동반 개선 시 실적 반등.</li>
+<li><span class="point-title">⑩ 자사주 5.26% — 주주환원 여력</span><br>자사주 5.26% 보유로 주주환원·소각 여력. 배당수익률 1.18%. 깊은 저평가 국면에서 자사주 활용·배당 확대가 주가 하방 지지.</li>
+<li><span class="point-title">⑪ 미쉐린·프리미엄 호텔 경쟁력</span><br>아트파라디소 미쉐린 1스타, 하얏트 리젠시 프리미엄 라인업으로 복합리조트 경쟁력 강화. 비카지노(호텔·F&amp;B·MICE) 매출 다각화로 카지노 의존도 완화.</li>
+<li><span class="point-title">⑫ 안정적 지배구조·A+ 신용</span><br>최대주주 파라다이스글로벌(전필립 회장) 45.15%, 국민연금 11.60%. 신용등급 A+로 M&amp;A(하얏트·메종글래드) 자금 조달 여력. 베타 0.41로 시장 대비 방어적.</li>
+<li><span class="point-title">⑬ 여행레저·중국소비 테마 수급</span><br>77개 ETF 편입, TIGER 여행레저(8.71%)·중국소비테마(4.07%) 등 리오프닝 테마 ETF 비중. 중국 관광·여행레저 테마 자금 유입에 레버리지.</li>
+</ul>
+
+<h3>투자의견 종합</h3>
+<div class="update-box">
+<b>종합 BUY (저평가 + 리오프닝 회복).</b> 카지노 홀드율 변동성(분기 실적 출렁)·1Q 비용 부담의 약점에도, ① 외인 카지노 1위 + 중국 VIP·고환율 리오프닝 ② 드롭액 견조(이익 부진은 일시 운 요인) ③ 5월 역대 최대 월매출 회복 ④ 하얏트·메종글래드 외형 확장 ⑤ PBR 0.67배·52주 최저권 저평가 + 컨센 +79% 괴리를 종합하면 위험 대비 보상이 우위. 다만 홀드율은 통제 불가 변수이므로, <b>저평가 구간 분할 매수 → 2Q 실적·가을 성수기 회복 확인 후 비중 확대</b>가 합리적. 핵심 트리거는 2Q 홀드율 정상화·중국 VIP.
+</div>
+
+<h3>시나리오별 목표주가</h3>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류 방법</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bull</b></td><td>홀드율 정상화 + 중국 VIP 본격 회복 + 하얏트·메종글래드 시너지</td><td>정상 이익 × Peer 멀티플</td><td class="positive">25,000원</td><td class="positive">+97.2%</td></tr>
+<tr><td><b>Base</b></td><td>드롭액 성장 + 홀드율 정상화로 이익 회복 (컨센)</td><td>26F EPS 1,021 × PER ~22배/PBR ~1.2배</td><td class="positive">22,667원</td><td class="positive">+78.8%</td></tr>
+<tr><td><b>Bear</b></td><td>홀드율 변동성 지속·중국 둔화 + 비용 부담</td><td>PBR ~0.75배 (보수적)</td><td class="positive">14,000원</td><td class="positive">+10.4%</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출]
+ 26F 지배순이익 946억 / 발행주식 92.6백만주 ≈ EPS 1,021원
+ 적정 PER ≈ 22배 (외인 카지노 정상 이익·리오프닝 프리미엄, 12사 컨센)
+ 또는 BPS 18,895원 × 목표 PBR 1.2배 ≈ 22,700원
+ → 컨센 TP 22,667원
+ ※ 현 PBR 0.67배 → 정상 멀티플(1.0~1.2배) 복귀가 밸류 상단
+   홀드율 정상화가 이익·멀티플 동반 회복의 전제
+</div>
+
+<h2>2. 산업개요</h2>
+<h3>2-1. 외국인 카지노·복합리조트 시장 — TAM·SAM·SOM</h3>
+<table>
+<tr><th>구분</th><th>정의</th><th>규모 (추정)</th></tr>
+<tr><td><b>TAM</b></td><td>국내 관광·레저 + 카지노 시장</td><td>방한 관광 2,200만명(2026)</td></tr>
+<tr><td><b>SAM</b></td><td>외국인전용 카지노(파라다이스·롯데관광·GKL)</td><td>3사 매출·드롭액 동반 성장</td></tr>
+<tr><td><b>SOM</b></td><td>파라다이스 4개 카지노 + 복합리조트·호텔</td><td>2026E 매출 1.27조</td></tr>
+</table>
+<p>외국인전용 카지노는 방한 관광·중국 VIP·고환율에 직접 연동. 중국 무비자·K컬처로 방문객이 늘고, 복합리조트(카지노+호텔+MICE)로 체류·소비가 확대되는 구조. 파라다이스는 워커힐·파라다이스시티로 외인 카지노 1위이며, 호텔·제주 확장으로 사업을 다각화 중.</p>
+
+<h3>2-2. 밸류체인 — 복합리조트 구조</h3>
+<table>
+<tr><th>부문</th><th>주체 / 파트너</th><th>파라다이스 포지션</th></tr>
+<tr><td><b>[핵심] 카지노</b></td><td>워커힐·인천·부산·제주(외국인전용)</td><td>드롭액×홀드율 = 카지노 매출</td></tr>
+<tr><td><b>[확장] 호텔</b></td><td>파라다이스시티·하얏트 리젠시·부산·올랜도</td><td>객실·F&amp;B·MICE 안정 매출</td></tr>
+<tr><td><b>[복합] 엔터·리조트</b></td><td>파라다이스시티(아트·엔터)</td><td>체류·소비 확대</td></tr>
+<tr><td><b>[고객] 방한 외국인</b></td><td>중국·일본 VIP·매스</td><td>관광·무비자 수혜</td></tr>
+</table>
+<div class="bull-box"><b>밸류체인 핵심:</b> 카지노(고마진·고변동)와 호텔·리조트(안정)를 결합한 복합리조트 모델. 카지노 매출은 <b>드롭액(베팅액)×홀드율(승률)</b>로 결정되는데, 드롭액은 방문·관광에 연동(성장 추세)되나 홀드율은 운에 좌우되어 분기 변동. <b>호텔·제주 확장으로 카지노 변동성을 완화</b>하는 것이 전략 방향. 단, 카지노 의존도가 여전히 높아 홀드율·중국 변수에 민감.</div>
+
+<h3>2-3. 산업 사이클 — 리오프닝 회복 + 성수기</h3>
+<p>코로나 이후 방한 관광 리오프닝 회복 사이클. 중국 무비자(2025.9~2026.6)·한중일 황금연휴로 2026 상반기 매출·드롭액 동반 성장. 가을(중국 국경절·일본 연휴)이 전통 성수기로 하반기 개선 기대. 다만 중국 직항·단체관광 정상화 속도, 무비자 연장 여부, 홀드율 변동이 사이클의 변수다.</p>
+
+<h3>2-4. Peer 비교</h3>
+<table>
+<tr><th>구분</th><th>파라다이스</th><th>롯데관광개발</th><th>GKL</th></tr>
+<tr><td>주력</td><td>외인 카지노+복합리조트</td><td>제주드림타워 카지노</td><td>외인 카지노(세븐럭)</td></tr>
+<tr><td>1Q26 성과</td><td>드롭액+·홀드율 부진</td><td>가장 강한 성장(드롭액 +47%)</td><td>매출 +11.8%</td></tr>
+<tr><td>밸류 포인트</td><td>저평가+호텔 확장</td><td>제주 독주(점유율 80%)</td><td>공기업·배당</td></tr>
+<tr><td>PBR</td><td>0.67배(최저평가)</td><td>중간</td><td>중간</td></tr>
+<tr><td>특징</td><td>1위·복합리조트</td><td>제주 고성장</td><td>안정·배당</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 정성 비교. 1Q26은 롯데관광이 가장 강했으나, 파라다이스는 1위 규모·복합리조트·최저평가가 차별점. 키움은 3사 중 파라다이스를 최저평가로 평가.</p>
+
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>1972년 설립된 외국인전용 카지노 운영기업, 2024년 KOSPI 이전상장. 서울·인천·부산·제주 4개 외국인전용 카지노 운영. 호텔부문은 해운대 5성급 '파라다이스호텔 부산'·미국 올랜도 'Embassy Suites'. 복합리조트 '<b>파라다이스시티</b>'(인천 영종도)는 카지노·호텔·엔터를 결합. 2026년 하얏트 리젠시 인천 인수로 호텔 라인업 강화, 메종글래드 제주 인수를 추진 중.</p>
+
+<h3>3-2. BM 분해 — 부문 구조</h3>
+<table>
+<tr><th>부문</th><th>내용</th><th>특징</th></tr>
+<tr><td>카지노(외국인전용)</td><td>워커힐·인천·부산·제주</td><td>드롭액×홀드율, 핵심 이익</td></tr>
+<tr><td>복합리조트(파라다이스시티)</td><td>카지노+호텔+엔터(영종도)</td><td>체류·소비 확대</td></tr>
+<tr><td>호텔</td><td>파라다이스호텔 부산·올랜도·하얏트 리젠시</td><td>안정 현금흐름</td></tr>
+<tr><td>F&amp;B·MICE</td><td>아트파라디소(미쉐린 1스타)·연회</td><td>프리미엄 경쟁력</td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자</h3>
+<div class="bull-box">① <b>외인 카지노 1위·사업권</b> — 진입장벽(허가). ② <b>워커힐·파라다이스시티 입지</b> — 서울·영종도 핵심. ③ <b>복합리조트 통합</b> — 카지노+호텔+엔터 시너지. ④ <b>프리미엄 브랜드</b> — 하얏트·미쉐린.</div>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><th>시기</th><th>이벤트</th></tr>
+<tr><td>1972</td><td>설립(외국인전용 카지노)</td></tr>
+<tr><td>2017</td><td>파라다이스시티(영종도 복합리조트) 개장</td></tr>
+<tr><td>2024</td><td>KOSPI 이전상장</td></tr>
+<tr><td>2026.03</td><td>하얏트 리젠시 인천 파라다이스시티 개관(객실 1,270실)</td></tr>
+<tr><td>2026.06</td><td>메종글래드 제주 인수 추진(MOU·실사)</td></tr>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>파라다이스글로벌(외 7인)</td><td>45.15%</td><td>전필립 회장 (2026.06)</td></tr>
+<tr><td>국민연금공단</td><td>11.60%</td><td>2026.03</td></tr>
+<tr><td>자사주</td><td>5.26%</td><td>2025.07</td></tr>
+<tr><td>외국인</td><td>6.09%</td><td>—</td></tr>
+<tr><td>유동주식</td><td>49.59%</td><td>45,932,832주</td></tr>
+</table>
+
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>9,942</td><td>10,721</td><td>11,499</td><td>12,742</td></tr>
+<tr><td>영업이익</td><td>1,458</td><td>1,361</td><td>1,558</td><td>1,881</td></tr>
+<tr><td>지배순이익</td><td>626</td><td>756</td><td>944</td><td>946</td></tr>
+<tr><td>영업이익률</td><td>14.7%</td><td>12.7%</td><td>13.6%</td><td>14.8%</td></tr>
+<tr><td>ROE</td><td>4.5%</td><td>5.0%</td><td>5.6%</td><td>5.4%</td></tr>
+</table>
+<p>리오프닝으로 매출 우상향(2023 9,942→2026E 12,742억), 영업이익 2026E 1,881억(+21%) 회복 전망. ROE는 5%대로 자산(부동산·리조트) 대비 낮으나, 카지노 회복·호텔 확장으로 개선 여지. 외형은 견조하나 홀드율·비용이 이익률 변수.</p>
+
+<h3>4-2. 분기 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2025.09</th><th>2025.12</th><th>2026.03</th><th>2026.06E</th></tr>
+<tr><td>매출액</td><td>2,882</td><td>2,939</td><td>2,940</td><td>3,207</td></tr>
+<tr><td>영업이익</td><td>395</td><td>162</td><td>373</td><td>517</td></tr>
+<tr><td>영업이익률</td><td>13.7%</td><td>5.5%</td><td>12.7%</td><td>16.1%</td></tr>
+</table>
+<p>분기 영업이익률이 홀드율에 따라 5~16%로 출렁(2025/12 5.5%, 2026/06E 16.1%). 1Q26 OP 373억(-34.9%)은 3월 홀드율 급락 탓. 2Q26E OP 517억(+20.5%)으로 회복 전망 — 5월 역대 최대 월매출이 이를 뒷받침.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<tr><th>항목</th><th>2024</th><th>2025</th></tr>
+<tr><td>자본총계</td><td>20,752억</td><td>22,127억</td></tr>
+<tr><td>부채비율</td><td>89.6%</td><td>84.4%</td></tr>
+<tr><td>BPS</td><td>18,092원</td><td>18,895원</td></tr>
+<tr><td>DPS</td><td>150원</td><td>150원</td></tr>
+</table>
+<p>부채비율 84.4%로 복합리조트 보유 기업 치고 양호. 신용등급 A+로 M&amp;A 자금 조달 여력. BPS 18,895원 대비 현재가 12,680원으로 PBR 0.67배 — 순자산 대비 저평가.</p>
+
+<h3>4-4. 자본구조·M&amp;A 자금 리스크</h3>
+<div class="risk-box">하얏트 인수·메종글래드 인수(2,500억) 등 M&amp;A 자금 소요로 차입·부채 증가 가능. 다만 A+ 신용·호텔 현금흐름으로 조달 여력 확보. M&amp;A 성과(시너지)가 기대에 못 미치거나 카지노 회복이 지연되면 자본효율(ROE 5%대) 개선이 늦어질 수 있음.</div>
+
+<h2>5. 주주환원</h2>
+<p>DPS 150원, 배당수익률 약 1.18%. 자사주 5.26% 보유로 소각·환원 여력. 카지노 회복·M&amp;A 투자 국면이라 배당 확대보다 외형 성장이 우선이나, 깊은 저평가(PBR 0.67배) 국면에서 자사주 활용은 주가 하방을 지지. 이익 정상화(홀드율 회복) 시 ROE 개선과 함께 주주환원 확대 여력.</p>
+
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교</h3>
+<p>현재 PER 12.5배(후행)·12M Fwd PER 10.9배, <b>PBR 0.67배</b>. 52주 최저권에서 순자산(BPS 18,895원) 대비 깊은 디스카운트. 외인 카지노 Peer(롯데관광·GKL) 대비 최저평가(키움). 컨센 TP 22,667원은 PBR 약 1.2배·정상 이익 PER 22배를 내포 — 홀드율 정상화·리오프닝 회복을 가정한 멀티플 복귀.</p>
+
+<h3>6-2. 시나리오 산출</h3>
+<table>
+<tr><th>시나리오</th><th>목표주가</th><th>내재 PBR</th><th>핵심 트리거</th></tr>
+<tr><td>Bull</td><td class="positive">25,000원</td><td>약 1.32배</td><td>홀드율 정상화 + 중국 VIP + M&amp;A 시너지</td></tr>
+<tr><td>Base</td><td class="positive">22,667원</td><td>약 1.20배</td><td>드롭액 성장 + 이익 정상화(컨센)</td></tr>
+<tr><td>Bear</td><td class="positive">14,000원</td><td>약 0.74배</td><td>홀드율 변동성·중국 둔화</td></tr>
+</table>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="update-box"><b>진입:</b> 12,680~14,000원(52주 저점~Bear) 구간 분할 매수 — PBR 0.7배 이하 깊은 저평가 활용. <b>비중 확대:</b> 2Q 홀드율 정상화·중국 VIP 회복·가을 성수기 실적 확인 시. <b>이탈/차익:</b> 22,000원 이상(컨센) 또는 중국 관광 둔화·홀드율 구조적 악화 시. 카지노는 분기 홀드율 변동이 크므로 추세 확인하며 단계적 대응.</div>
+
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<tr><th>지표</th><th>값</th></tr>
+<tr><td>현재가 (6/24)</td><td>12,680원</td></tr>
+<tr><td>52주 최고 / 최저</td><td>23,650 / 12,680원</td></tr>
+<tr><td>수익률 (1M/3M/6M/1Y)</td><td>-13.7% / -29.2% / -22.8% / -14.7%</td></tr>
+<tr><td>베타 (1년)</td><td>0.41 (낮은 시장 민감도)</td></tr>
+</table>
+<p>지난 1년 -14.7%, 최근 3개월 -29.2%로 약세 지속, 현재가는 52주 최저(12,680) 부근. 1Q 어닝쇼크(홀드율 급락)·비용 부담이 주가를 끌어내림. 다만 5월 역대 최대 월매출로 실적 바닥 통과 신호. 베타 0.41로 방어적. 핵심 모멘텀은 2Q 홀드율 정상화·가을 성수기·중국 VIP·M&amp;A(하얏트·메종글래드).</p>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 편입 현황 요약</h3>
+<p>파라다이스는 액티브 ETF 7개 + 패시브 ETF 70개 = 총 <b>77개 ETF</b>에 편입(2026.06.25). KOSPI200 구성종목으로 패시브 편입이 광범위하나, 주가 부진으로 액티브 편입 비중은 낮다.</p>
+
+<h3>7-2-2. 액티브 ETF 동향</h3>
+<p>액티브 ETF 7개 편입이나 비중이 낮음(대부분 0.0x%). KOSPI200 액티브가 소량 보유, 일부 소비 액티브(VITA MZ소비)는 비중 정리.</p>
+<table>
+<tr><th>액티브 ETF</th><th>현재 비중</th><th>현재 보유(주)</th><th>방향</th></tr>
+<tr><td>PLUS ESG성장주액티브</td><td>0.07%</td><td>75</td><td>유지</td></tr>
+<tr><td>MIDAS 코스피액티브</td><td>0.05%</td><td>213</td><td>유지</td></tr>
+<tr><td>KODEX 200액티브 / 1Q 200액티브</td><td>0.01%</td><td>35 / 63</td><td>유지</td></tr>
+<tr><td>VITA MZ소비액티브</td><td>0.00%</td><td class="negative">매도(-1,729)</td><td>비중 정리</td></tr>
+</table>
+
+<h3>7-2-3. 패시브 ETF 편입 비중 상위</h3>
+<table>
+<tr><th>패시브 ETF</th><th>기초자산</th><th>파라다이스 비중</th></tr>
+<tr><td>TIGER 여행레저</td><td>WISE 여행레저</td><td>8.71%</td></tr>
+<tr><td>TIGER 중국소비테마</td><td>FnGuide 중국내수</td><td>4.07%</td></tr>
+<tr><td>RISE K엔터&amp;여행레저</td><td>FnGuide K엔터&amp;여행레저</td><td>1.90%</td></tr>
+<tr><td>ACE Fn성장소비주도주</td><td>FnGuide 성장소비주도</td><td>1.80%</td></tr>
+<tr><td>KODEX 경기소비재 / TIGER 200 경기소비재</td><td>경기소비재</td><td>1.32% / 0.59%</td></tr>
+<tr><td>KOSPI200 다수(KODEX 200·TIGER 200 등)</td><td>KOSPI 200</td><td>약 0.01%</td></tr>
+</table>
+
+<h3>7-2-4. 수급 해석</h3>
+<div class="update-box">파라다이스는 <b>여행레저·중국소비 테마 ETF의 핵심 비중 종목</b>(TIGER 여행레저 8.71%, 중국소비테마 4.07%)이자 KOSPI200 구성종목. 중국 관광·리오프닝 테마로 자금이 유입되면 여행레저·중국소비 ETF가 직접 매수. 다만 주가 부진으로 액티브 ETF·외국인(6.09%) 보유가 낮아진 상태로, <b>중국 VIP 회복·실적 반등 시 액티브·외국인 재유입이 강한 수급 트리거</b>가 될 수 있다. 낮아진 외국인 지분은 회복 시 업사이드 여력.</div>
+
+<h3>7-2-5. 종합 — 모멘텀 지속성 평가</h3>
+<p>77개 ETF 편입이나 K200 패시브 외에는 여행레저·중국소비 테마 의존도가 높다. 중국 관광·리오프닝 모멘텀이 강해지면 테마 ETF 신규 자금이 유입되는 반면, 중국 둔화·홀드율 부진 시 테마 환매가 작동. 현재 외국인·액티브 비중이 낮은 만큼 회복 시 수급 개선 여력이 크며, 2Q 실적·가을 성수기·중국 VIP가 수급·밸류 리레이팅의 분기점이다.</p>
+
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">① <b>홀드율 변동성</b> — 카지노 승률(홀드율)은 운 요인으로 분기 실적이 크게 출렁(1Q OP -35%). ② <b>비용 부담</b> — 마케팅·인건비·M&amp;A 통합 비용이 단기 수익성 제한.</div>
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box">③ <b>중국 무비자 종료(2026.6.30)</b> — 연장 무산 시 방문객 둔화. ④ <b>중국 직항·단체관광 회복 속도</b> — 지정학·한중 관계 변수. ⑤ <b>M&amp;A 시너지 불확실</b> — 하얏트·메종글래드 통합 성과 미달 가능.</div>
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">⑥ <b>환율</b> — 고환율은 드롭액에 우호적이나, 원화 강세 전환 시 외국인 베팅 위축. ⑦ <b>경기·소비</b> — 글로벌 경기 둔화 시 VIP·매스 수요 감소.</div>
+<h3>8-4. 밸류에이션 리스크</h3>
+<div class="risk-box">⑧ <b>저평가 장기화</b> — PBR 0.67배여도 ROE 5%대·홀드율 변동성으로 멀티플 정상화가 지연될 수 있음. 이익 정상화 입증 없이는 디스카운트 해소가 느릴 수 있음.</div>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>2026 트리거</th><th>중장기 가치</th></tr>
+<tr><td><b>카지노(드롭액)</b></td><td>중국 VIP·고환율·성수기</td><td>1위 사업자 매출 견인</td></tr>
+<tr><td><b>호텔(하얏트)</b></td><td>객실 1,270실 운영 본격화</td><td>안정 현금흐름·멀티플 재평가</td></tr>
+<tr><td><b>제주(메종글래드)</b></td><td>인수 본계약 여부</td><td>제주 카지노 확장(점유율↑)</td></tr>
+<tr><td><b>복합리조트</b></td><td>파라다이스시티 MICE·엔터</td><td>비카지노 매출 다각화</td></tr>
+<tr><td><b>중국 VIP</b></td><td>직항·단체관광 정상화</td><td>VIP 드롭액 회복</td></tr>
+</table>
+
+<h2>10. 결론</h2>
+<p>파라다이스는 워커힐·파라다이스시티 등 외국인전용 카지노 4개를 운영하는 1위 사업자로, 방한 관광·중국 VIP 귀환·고환율 리오프닝의 직접 수혜처다. 1Q26 영업이익 -35%는 3월 홀드율 급락(7.5%)이라는 운 요인 탓이며, 드롭액(+3.6%)·매스(+16.8%) 펀더멘털은 견조하다. 5월 역대 최대 월매출로 바닥을 통과했고, 하얏트 인수(객실 1,270실)·메종글래드 제주 인수설로 호텔·제주 외형을 확장 중이다.</p>
+<p>현재가(12,680원)는 52주 최저권·PBR 0.67배의 깊은 저평가로, "현시점 가장 저평가된 외인 카지노사"(키움)다. 22개 리포트 전부 BUY, 컨센 TP 22,667원으로 +79% 괴리. 홀드율 변동성·중국 변수·M&amp;A 불확실성은 리스크이나, 2Q 홀드율 정상화·가을 성수기·중국 VIP가 회복 트리거다. <b>저평가 구간 분할 매수 → 2Q 실적·성수기 회복 확인 후 비중 확대</b> 전략이 합리적이며, 투자의견 <b>BUY · Base TP 22,667원(컨센) / Bull 25,000원 / Bear 14,000원</b>을 제시한다.</p>
+
+<div class="footer">
+<b>데이터 출처:</b> FnGuide Company Guide·SearchReport(증권사 리포트 전수, 2026.06.25 조회) · 하나·키움·삼성·iM·NH·KB·유안타·다올·유진 리포트 · ystreet ActiveETF/PassiveETF Tracker(2026.06.25) · 파라다이스 IR·공시 · 언론(머니투데이·네이트뉴스·이데일리·서울경제·블로터·파이낸셜뉴스·비즈니스포스트 등)<br><br>
+<b>면책:</b> 본 보고서는 공개된 자료를 종합·정리한 참고용이며 투자 권유가 아닙니다. 목표주가·시나리오는 작성자의 가정에 기반한 추정으로 실제와 다를 수 있습니다. 카지노업 특성상 홀드율·중국 관광·환율 변화에 따라 실적 변동성이 크며, 투자 판단과 책임은 투자자 본인에게 있습니다. 작성일 2026.06.25 기준.
+</div>
+
+</body>
+</html>
