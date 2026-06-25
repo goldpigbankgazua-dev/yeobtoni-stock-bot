@@ -272,6 +272,17 @@ th#thReturn, td.ret { display:none !important; }
     </select>
   </div>
   <div class="control">
+    <label for="capSel">시총</label>
+    <select id="capSel">
+      <option value="0">제한 없음</option>
+      <option value="1000" selected>1,000억 이상</option>
+      <option value="5000">5,000억 이상</option>
+      <option value="10000">1조 이상</option>
+      <option value="50000">5조 이상</option>
+      <option value="100000">10조 이상</option>
+    </select>
+  </div>
+  <div class="control">
     <label for="retSel">수익률 기간</label>
     <select id="retSel">
       <option value="r1m">1개월</option>
@@ -434,11 +445,26 @@ document.getElementById("retSel").addEventListener("change", function(e){
 });
 
 // ─── 발견일 기간 필터 — 3 tbody 모두 (눌림목, 52주, 거래량 급증) ───
+// 시총 텍스트 ("7,512억" 또는 "179.20조") → 억 단위 숫자
+function parseCapEok(text) {
+  if (!text) return 0;
+  const s = String(text).replace(/[\s,]/g, "");
+  let m = s.match(/^([\d.]+)조/);
+  if (m) return parseFloat(m[1]) * 10000;
+  m = s.match(/^([\d.]+)억/);
+  if (m) return parseFloat(m[1]);
+  m = s.match(/^([\d.]+)$/);
+  if (m) return parseFloat(m[1]);
+  return 0;
+}
+
 function applyPeriodFilter(period) {
   // 인자 없이 호출 시 periodSel 의 현재 값 사용 (디폴트 "today")
   if (period === undefined || period === null) {
     period = document.getElementById("periodSel")?.value || "today";
   }
+  // 시총 최소 (억 단위)
+  const capMin = parseFloat(document.getElementById("capSel")?.value || "0") || 0;
   // local YYYY-MM-DD (UTC 변환 피함)
   function ymd(d) {
     const y = d.getFullYear();
@@ -469,7 +495,17 @@ function applyPeriodFilter(period) {
     let visible = 0;
     document.querySelectorAll("#" + s.tid + " tr[data-first-seen]").forEach(r => {
       const fs = r.dataset.firstSeen || "";
-      const show = fs >= cutoff;
+      // 시총 td — pullback 표는 td idx 5 (#·발견·종목·시장·섹터·시총), 52w/vol 표는 td idx 마지막
+      let capText = "";
+      if (s.tid === "tbody") {
+        capText = r.children[5]?.textContent || "";
+      } else {
+        capText = r.children[r.children.length - 1]?.textContent || "";
+      }
+      const cap = parseCapEok(capText);
+      const showByPeriod = fs >= cutoff;
+      const showByCap = capMin === 0 || cap >= capMin;
+      const show = showByPeriod && showByCap;
       r.dataset.periodHidden = show ? "0" : "1";
       r.style.display = show ? "" : "none";
       if (show) visible++;
@@ -486,6 +522,14 @@ if (_periodSel) {
   });
   applyPeriodFilter(_periodSel.value);
 }
+// 시총 필터 change event
+const _capSel = document.getElementById("capSel");
+if (_capSel) {
+  _capSel.addEventListener("change", function(){
+    applyPeriodFilter();
+  });
+}
+
 
 // ─── 종목명·코드 검색 — 3 tbody 모두 ───
 function applySearchFilter(q) {
