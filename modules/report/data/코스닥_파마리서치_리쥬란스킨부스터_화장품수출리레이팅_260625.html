@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파마리서치 (214450) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>파마리서치 (214450.KQ)</h1>
+<div class="sub">리쥬란 PN/PDRN 스킨부스터 1위 — 의료기기+화장품 쌍발 엔진 · OPM 40%·ROE 27% 고수익 · 주가 -36% 디레이팅 후 리레이팅 변곡점<br>컨센 BUY·TP 480,714원(14개사) · 현재가 304,500원(컨센 대비 +58%) · 분석일 2026.06.25</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/24)</span><span class="snapshot-value">304,500원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">3.16조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+8.75%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">14.8배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (현재)</span><span class="snapshot-value">5.1배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">8.49%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value negative">-35.9%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">정상수 외 7인 34.92%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value positive">573억 (+28.1%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">480,714원<br>(+57.9%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">620,000원<br>(+103.6%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (14사)</span><span class="snapshot-value">480,714원<br>(+57.9%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">60개<br>(액티브 14 / 패시브 46)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">패시브 최고 비중 ETF</span><span class="snapshot-value positive">TIGER 의료기기<br>11.84%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">711,000 /<br>259,000원</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 액티브 14개·패시브 46개 합산 60개 ETF 편입(KQ150). 패시브는 의료기기·화장품·K뷰티 테마에 고비중(TIGER 의료기기 11.84%, TIGER 화장품 10.94%, SOL 의료기기소부장 10.68%, HANARO K-뷰티 9.62%) + 코스닥150·헬스케어·코리아밸류업. 액티브는 K컬처·수출·바이오 테마(더제이 중소형, TIME K컬처)가 보유하며 전 종목 비중 증가. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.25 기준 — 상세 표는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 31개 리포트 전부 BUY 유지(매도·중립 전무), 컨센 TP 480,714원(14개사). 다만 주가 부진을 반영해 TP는 혼조 — 6/25 다올 540,000 상향 vs 6/24 삼성 400,000 하향, 대신 620,000(최고)~삼성 400,000(최저). '바닥 확인·리쥬란 건재'(미래에셋) vs '디레이팅 해소엔 2Q 실적 입증 필요'(DB)로 시각 차. (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> PN/PDRN 스킨부스터 '리쥬란'으로 의료미용 1위, 톡신(리엔톡스)·필러까지 포트폴리오 완성. 1Q26 매출 1,461억(+25%)·영업이익 573억(+28%)·OPM 39%의 고수익에도, PN/PDRN 경쟁제품 난립·피크아웃 우려로 주가는 고점 대비 -57%, 1년 -36% 디레이팅. 12M Fwd PER 14.8배는 과거 평균 대비 크게 낮은 저평가 구간으로, 화장품 +51%·수출 +30% 성장과 유럽 회복이 확인되면 리레이팅 여력. 경쟁 심화가 최대 리스크.</div>
+</div>
+
+<h2 style="border:none;color:#1a5276">§0. 멀티소스 교차검증 — 증권사·1차자료·외부검증</h2>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1f618d">📊 증권사 리포트 전수 (FnGuide SearchReport, 최근 3개월 · 총 31건, 1page 발췌)</h3>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.06.25</td><td>다올투자</td><td>설명할 시간이 없어, 어서 타!</td><td>BUY(상향)</td><td>540,000 ▲</td><td class="positive">+77.3%</td></tr>
+<tr><td>26.06.24</td><td>삼성</td><td>의료관광이 받치고 화장품이 얹어주고</td><td>BUY(하향)</td><td>400,000 ▼</td><td class="positive">+31.4%</td></tr>
+<tr><td>26.06.19</td><td>KB</td><td>오리지널의 가치는 영원하다</td><td>BUY <span class="tag-new">NEW</span></td><td>430,000</td><td class="positive">+41.2%</td></tr>
+<tr><td>26.05.27</td><td>DB</td><td>2분기 실적 개선을 입증해야 디레이팅 해소</td><td>BUY</td><td>460,000</td><td class="positive">+51.1%</td></tr>
+<tr><td>26.05.26</td><td>대신</td><td>코스닥을 담는다면 이런 종목부터</td><td>BUY</td><td>620,000</td><td class="positive">+103.6%</td></tr>
+<tr><td>26.05.18</td><td>키움</td><td>화장품 성장, 오히려 좋을지도</td><td>BUY</td><td>440,000</td><td class="positive">+44.5%</td></tr>
+<tr><td>26.05.18</td><td>상상인</td><td>화장품 부문 매출 성장 확대</td><td>BUY(하향)</td><td>540,000 ▼</td><td class="positive">+77.3%</td></tr>
+<tr><td>26.05.11</td><td>미래에셋</td><td>바닥은 확인했고, 리쥬란은 건재하다</td><td>매수</td><td>600,000</td><td class="positive">+97.0%</td></tr>
+<tr><td>26.05.11</td><td>삼성</td><td>낯설게 보기가 필요한 시점</td><td>BUY(하향)</td><td>500,000 ▼</td><td class="positive">+64.2%</td></tr>
+<tr><td>26.05.11</td><td>현대차</td><td>1Q26 Review: 화장품이 캐리</td><td>BUY</td><td>430,000</td><td class="positive">+41.2%</td></tr>
+<tr><td>26.05.11</td><td>유안타</td><td>화장품 성장 지속, 의료기기 회복이 관건</td><td>BUY(하향)</td><td>450,000 ▼</td><td class="positive">+47.8%</td></tr>
+<tr><td>26.05.11</td><td>신한투자</td><td>리쥬란 브랜드 위상 증명</td><td>매수</td><td>430,000</td><td class="positive">+41.2%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold"><td colspan="3">FnGuide 컨센서스 (추정기관 14개사)</td><td>BUY (4.0)</td><td>480,714</td><td class="positive">+57.9%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 최근 3개월 총 31건(3페이지). 위는 최신·핵심 발췌. 전 리포트 BUY 유지하나 TP는 혼조 — ▲상향(다올) / ▼하향(삼성·상상인·유안타) 병존. TP 레인지 400,000~620,000원으로 시각 차 큼.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#b9521a">🔥 다올투자 (박종현) 2026.06.25 — "설명할 시간이 없어, 어서 타!" <span class="tag-sk">TP 상향·최신</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"지금이 매수 타이밍 — 디레이팅 과도"</td><td>적극 매수 시그널</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 540,000 (상향)</td><td>현재가 대비 +77.3%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 화장품·수출 고성장이 의료기기 둔화 상쇄 ② 동남아·유럽 채널 확장 ③ PER 15배 저평가 ④ 경쟁 우려 과도 반영된 주가</td><td>밸류 갭 = 기회</td></tr>
+<tr><td>★ FY EPS 가정</td><td>26F EPS 18,546원 × 리레이팅 PER</td><td>이익 성장 유지</td></tr>
+</table>
+<p><b>[다올 핵심]</b> "주가 디레이팅이 과도. 실적 성장과 채널 확장을 감안하면 지금이 진입 적기."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a">
+<h3 style="margin-top:0;color:#1e6e3a">📘 미래에셋 (김충현) 2026.05.11 — "바닥은 확인했고, 리쥬란은 건재하다" <span class="tag-sk">High TP 600,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"바닥 확인, 리쥬란 브랜드 견고"</td><td>저점 매수 논리</td></tr>
+<tr><td>투자의견 / TP</td><td>매수 / 600,000</td><td>현재가 대비 +97.0%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 경쟁 우려에도 리쥬란 브랜드·점유율 견고 ② 화장품·수출 성장 지속 ③ 주가 바닥 통과 ④ 고마진(OPM 40%) 유지</td><td>브랜드 = 해자</td></tr>
+<tr><td>★ Valuation</td><td>이익 성장 + 리레이팅 가정</td><td>저평가 매력</td></tr>
+</table>
+<p><b>[미래에셋 핵심]</b> "PN/PDRN 경쟁 제품이 쏟아져도 리쥬란의 임상 데이터·브랜드 신뢰는 대체 불가."</p>
+</div>
+
+<div class="sk-box" style="border-color:#b45309">
+<h3 style="margin-top:0;color:#b45309">📙 대신 (한송협) 2026.05.26 — "코스닥을 담는다면 이런 종목부터" <span class="tag-sk">최고 TP 620,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"코스닥 우량주 top pick"</td><td>커버리지 내 최고 TP</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY / 620,000</td><td>현재가 대비 +103.6%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 고ROE·고OPM 우량 펀더멘털 ② 리쥬란 글로벌 확장 ③ 화장품 채널 성장 ④ 밸류 매력 + 브랜드 투자(옥외광고)</td><td>코스닥 대표 우량주</td></tr>
+<tr><td>★ Valuation</td><td>우량주 프리미엄 PER</td><td>—</td></tr>
+</table>
+<p><b>[대신 핵심]</b> "리쥬란 옥외광고 확대는 비용이 아닌 브랜드 투자 — 장기 점유율 방어 전략."</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d">
+<h3 style="margin-top:0;color:#5d6d7e">⚖️ 삼성 (정동희) 2026.06.24 — "의료관광이 받치고 화장품이 얹어주고" <span class="tag-sk">TP 하향</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"의료기기 둔화, 화장품이 보완"</td><td>TP 하향 (보수적)</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(하향) / 400,000</td><td>현재가 대비 +31.4% (최저 TP)</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 의료기기(리쥬란) 내수 성장 둔화 우려 ② 방한 의료관광이 하방 지지 ③ 화장품이 성장 견인하나 의료기기 회복이 관건</td><td>의료기기 모멘텀이 핵심 변수</td></tr>
+<tr><td>★ Valuation</td><td>의료기기 둔화 반영 TP 하향</td><td>보수적 멀티플</td></tr>
+</table>
+<p><b>[삼성 핵심]</b> "화장품 성장은 인정하나, 핵심 의료기기(리쥬란) 회복 없이는 디레이팅 해소 제한적." (커버리지 내 최저 TP)</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d">
+<h3 style="margin-top:0;color:#1f618d">📰 KB·DB·키움·현대차·유안타·신한 — 컨센 요약 <span class="tag-sk">전수</span></h3>
+<table>
+<tr><th>증권사 / 일자</th><th>제목 · TP</th><th>핵심 포인트</th></tr>
+<tr><td>KB 06.19</td><td>오리지널의 가치는 영원하다 · 430,000(신규)</td><td>리쥬란 오리지널 브랜드 가치 강조</td></tr>
+<tr><td>DB 05.27</td><td>2Q 입증해야 디레이팅 해소 · 460,000</td><td>2Q 실적이 주가 분기점</td></tr>
+<tr><td>키움 05.18</td><td>화장품 성장, 오히려 좋을지도 · 440,000</td><td>화장품 믹스 개선 긍정</td></tr>
+<tr><td>현대차 05.11</td><td>화장품이 캐리 · 430,000</td><td>화장품이 의료기기 둔화 상쇄</td></tr>
+<tr><td>유안타 05.11</td><td>화장품 성장·의료기기 회복 관건 · 450,000(하향)</td><td>의료기기 회복이 변수</td></tr>
+<tr><td>신한 05.11</td><td>리쥬란 브랜드 위상 증명 · 430,000</td><td>브랜드 점유율 방어</td></tr>
+</table>
+<p><b>[컨센 핵심]</b> 14개 추정기관 전부 BUY 유지. 공통 관전 포인트 = ① 화장품·수출 고성장(긍정 일치) ② 의료기기(리쥬란 내수) 회복 여부(시각 차) ③ 2Q 실적이 디레이팅 해소의 분기점.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📋 1차자료 — 실적·공시 <span class="tag-disc">PRIMARY</span></h3>
+<p><b>최근 신호 공시·실적 (루틴 제외, 사업·자본·주주환원 3분류):</b></p>
+<table>
+<tr><th>분류</th><th>일자</th><th>내용 (신호)</th></tr>
+<tr><td rowspan="3" style="background:#eafaf1"><b>실적·<br>사업</b></td><td>2026.05.08</td><td>1Q26 실적 — 매출 1,461억(YoY +25.0%), 영업이익 573억(+28.1%), OPM 39.2%. 분기 최대. 의료기기 795억(+14.5%)·화장품 422억(+51%)·수출 588억(+30%, 비중 40%)</td></tr>
+<tr><td>2024~2025</td><td>리엔톡주100단위 품목허가(2024) → 2025년 국내 판매 개시. 톡신·필러·스킨부스터 포트폴리오 완성</td></tr>
+<tr><td>2026 상반기</td><td>리쥬란코스메틱 동남아 확장 — 쇼피 말레이시아 5개월 매출 6배, 말레이시아 K뷰티 1위</td></tr>
+<tr><td style="background:#eaf2f8"><b>지배구조</b></td><td>2026 상반기</td><td>인적분할 논란 종결 — 리쥬란發 전략적 투자 지속 방침</td></tr>
+<tr><td style="background:#fef5e7"><b>주주<br>환원</b></td><td>2025 결산</td><td>DPS 3,700원으로 대폭 확대(2024 1,100원 → 2025 3,700원), 배당수익률 약 1.2%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 출처: 파마리서치 IR·공시 + 언론 종합. 종속회사 파마리서치바이오(톡신) 운영.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276">🌐 외부검증 1 — 글로벌 스킨부스터·PDRN 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p>파마리서치는 PN/PDRN 스킨부스터 '리쥬란'으로 글로벌 의료미용 재생시장을 개척한 선도기업이다.</p>
+<div class="global-quote">
+<b>스킨부스터 시장:</b> 글로벌 스킨부스터 시장은 <b>연평균 9.3% 성장해 2030년 21억달러(약 2.7조원)</b> 전망(Grand View Research).<br><br>
+<b>PDRN 시장:</b> 글로벌 PDRN 시장은 2022년 44.7억달러 → 2024년 76.8억달러(약 9.8조원)로 1.7배 급증(해양수산부). PDRN 활용 뷰티 시장은 2030년 2조원+ 전망.<br><br>
+<b>파마리서치 포지션:</b> 2014년 PN 스킨부스터 '리쥬란 힐러' 출시 이후 PDRN·PN 원천기술로 의료기기·화장품·주사제 전 제형 상용화. 리쥬란은 필러·톡신의 '보완재'에서 '대체재'로 자리매김. 다만 PN/PDRN 경쟁제품이 쏟아지는 '스킨부스터 춘추전국' 진입으로 점유율 방어가 과제.</p>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 바이오타임즈 PDRN/스킨부스터 시장 2026 · 서울경제 스킨부스터 춘추전국 · 팜이데일리 리쥬란 경쟁 분석</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 정책·채널 전략 <span class="tag-policy">POLICY/CHANNEL</span></h3>
+<p><b>① 의료관광·K뷰티 수출 — 정책 수혜</b></p>
+<div class="policy-quote">방한 외국인 의료관광객 증가가 리쥬란 의료기기 내수를 지지(삼성증권 "의료관광이 받치고"). 정부의 K뷰티·의료관광 진흥 정책과 K-콘텐츠 후광이 화장품 수출(1Q26 +55.8%)을 뒷받침. 수출 비중은 2025년 39% → 2026년 46% → 2027년 52%로 확대 전망.</div>
+<p><b>② 브랜드 투자 — 리쥬란 옥외광고 확대</b></p>
+<div class="policy-quote">파마리서치는 리쥬란 옥외광고를 확대 중이며, 대신증권은 이를 <b>"단순 비용이 아닌 브랜드 투자"</b>로 평가. 경쟁제품 난립 국면에서 브랜드 파워로 점유율을 방어하는 전략. 동남아(말레이시아·싱가포르)에서 리쥬란코스메틱이 K뷰티 1~2위에 오르며 글로벌 브랜드화 진행.</div>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 대신증권 리쥬란 브랜드 투자 · 이투데이 리쥬란코스메틱 동남아 · 삼성증권 의료관광 2026.06</p>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 외부검증 3 — 최근 1개월 핵심 기사 (2026.05.25~06.24) <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<p>① <b>다올 "어서 타!" TP 540,000 상향(6/25)</b> — 디레이팅 과도, 매수 적기. <span style="font-size:9pt;color:#7f8c8d">📌 다올투자 2026.06.25</span></p>
+<p>② <b>삼성 TP 400,000 하향(6/24)</b> — 의료기기 둔화 우려 반영, 의료관광이 하방 지지. <span style="font-size:9pt;color:#7f8c8d">📌 삼성증권 2026.06.24</span></p>
+<p>③ <b>"경쟁제품 우려에도 믿을 구석은 리쥬란"</b> — PN/PDRN 난립 속 브랜드 신뢰가 차별점. <span style="font-size:9pt;color:#7f8c8d">📌 데일리인베스트 2026.06</span></p>
+<p>④ <b>리쥬란코스메틱 동남아 고공행진</b> — 쇼피 말레이시아 5개월 6배, 말레이시아 K뷰티 1위. <span style="font-size:9pt;color:#7f8c8d">📌 이투데이 2026.06</span></p>
+<p>⑤ <b>수출 2026 +55% 전망</b> — 수출 3,200억, 비중 39%→46%. <span style="font-size:9pt;color:#7f8c8d">📌 언론 종합 2026.06</span></p>
+<p>⑥ <b>KB "오리지널의 가치는 영원하다"(6/19)</b> — 신규 커버 BUY 430,000. <span style="font-size:9pt;color:#7f8c8d">📌 KB증권 2026.06.19</span></p>
+<p>⑦ <b>인적분할 논란 종결</b> — 리쥬란發 전략적 투자 지속. <span style="font-size:9pt;color:#7f8c8d">📌 시사저널e 2026.06</span></p>
+<p>⑧ <b>"PER 15배 = 과거 평균 대비 저평가"</b> — 유럽 회복·화장품 채널 확장 시 리레이팅. <span style="font-size:9pt;color:#7f8c8d">📌 언론 종합 2026.06</span></p>
+<p>⑨ <b>1Q26 분기 최대 실적에도 주가 약세</b> — 경쟁·피크아웃 우려가 실적 호조 상쇄. <span style="font-size:9pt;color:#7f8c8d">📌 토큰포스트·인사이트 2026.05</span></p>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<div class="warning-box">
+<b>🔥 단기 (2026 3Q)</b><br>
+• 2026.08 (예상) — <b>2Q26 실적 발표 (디레이팅 해소의 분기점, 컨센 OP 657억)</b><br>
+• 2026 3Q — 의료기기(리쥬란) 내수 회복 여부 확인<br>
+• 2026 3Q — 동남아(말레이시아·싱가포르) 화장품 매출 확대<br>
+• 2026 여름 — 방한 의료관광 성수기 리쥬란 시술 수요
+</div>
+<b>중기 (2026 4Q)</b><br>
+• 2026 하반기 — 유럽 수출 회복 여부 (리레이팅 핵심 트리거)<br>
+• 2026 하반기 — 리엔톡스(톡신) 아시아 수출 확대<br>
+• 2026 연간 — 수출 3,200억·비중 46% 달성 여부<br>
+• 2026 하반기 — 신규 PN/PDRN 화장품·의료기기 라인업<br><br>
+<b>장기 (2027~)</b><br>
+• 2027 — 수출 비중 52% 목표, 글로벌 매출 본격화<br>
+• 2027 — 톡신(리엔톡스) 북미·아시아 시장 진출 확대<br>
+• 중장기 — PN/PDRN 원천기술 기반 신제형(점안액·주사제) 확장<br>
+• 상시 — 코리아 밸류업·헬스케어 정책 수급 + 배당 확대
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① 리쥬란 = PN/PDRN 스킨부스터 1위 브랜드</span><br>2014년 PN 스킨부스터 '리쥬란 힐러' 출시 이후 의료미용 재생시장을 개척. 필러·톡신의 보완재에서 '대체재'로 자리매김하며 임상 데이터·브랜드 신뢰를 축적. 경쟁제품 난립에도 "믿을 구석은 리쥬란"으로 평가받는 원조 브랜드 파워.</li>
+<li><span class="point-title">② 의료기기+화장품 쌍발 엔진</span><br>의료기기(리쥬란 시술)와 화장품(리쥬란코스메틱)의 듀얼 구조. 1Q26 의료기기 795억(+14.5%)·화장품 422억(+51%)으로, 의료기기 성장이 둔화돼도 화장품이 캐리하는 균형. 동일 브랜드(리쥬란)의 의료기기→화장품 후광 효과.</li>
+<li><span class="point-title">③ OPM 40%·ROE 27% — 압도적 수익성</span><br>2025 영업이익률 40.0%, ROE 26.9%. PN/PDRN 원천기술 기반 고마진 구조로, 외형 성장이 곧 이익으로 직결. 부채비율 44%·유보율 13,000%대의 견고한 재무.</li>
+<li><span class="point-title">④ 수출 고성장 — 글로벌 브랜드화</span><br>1Q26 수출 588억(+30%), 비중 40%. 2026년 수출 3,200억(+55%) 전망, 비중 39%→46%→52%(27)로 확대. 리쥬란코스메틱 동남아(말레이시아 K뷰티 1위)·유럽으로 글로벌화 진행.</li>
+<li><span class="point-title">⑤ 톡신·필러까지 포트폴리오 완성</span><br>2024 리엔톡주100단위 허가 후 2025 국내 판매 개시. 스킨부스터(리쥬란)+톡신(리엔톡스)+필러로 미용의료 풀라인업 구축. 톡신은 수출 중심으로 아시아 성장.</li>
+<li><span class="point-title">⑥ 12M Fwd PER 14.8배 — 역사적 저평가</span><br>고점 대비 -57%, 1년 -36% 디레이팅으로 선행 PER 14.8배까지 하락 — 과거 평균(20~30배) 대비 크게 낮은 구간. 고성장·고마진 우량주가 경쟁 우려로 과도하게 디스카운트된 밸류 갭.</li>
+<li><span class="point-title">⑦ 컨센 +58% 괴리 — 만장일치 BUY 유지</span><br>현재가 304,500원 vs 컨센 TP 480,714원(14개사)으로 +58% 괴리. 주가 부진으로 일부 TP 하향에도 14개 추정기관 전부 BUY 유지, 매도·중립 전무.</li>
+<li><span class="point-title">⑧ 2Q 실적 = 디레이팅 해소 트리거</span><br>DB·삼성 등은 "2Q 실적 개선 입증 시 디레이팅 해소"로 평가. 2Q26E 영업이익 657억(YoY +17.5%) 달성·의료기기 회복 확인 시 주가 반등 모멘텀.</li>
+<li><span class="point-title">⑨ 의료관광·K뷰티 정책 수혜</span><br>방한 외국인 의료관광객 증가가 리쥬란 내수를 지지. K뷰티 수출 호조와 의료관광 진흥 정책이 구조적 수요 기반.</li>
+<li><span class="point-title">⑩ 브랜드 투자 — 옥외광고로 점유율 방어</span><br>리쥬란 옥외광고 확대를 대신증권은 "브랜드 투자"로 평가. 경쟁 난립 국면에서 브랜드 파워로 점유율을 지키는 선제적 마케팅.</li>
+<li><span class="point-title">⑪ 배당 확대 — 주주환원 강화</span><br>DPS 2024 1,100원 → 2025 3,700원으로 대폭 확대. 코리아 밸류업 편입 종목으로 주주환원 강화 유인. 고ROE 기반 배당 여력 충분.</li>
+<li><span class="point-title">⑫ 의료기기·화장품 테마 ETF 수급</span><br>60개 ETF 편입, 의료기기·화장품·K뷰티 테마 ETF에 고비중(TIGER 의료기기 11.84%, TIGER 화장품 10.94%). 의료미용·K뷰티 테마 자금 유입에 레버리지.</li>
+<li><span class="point-title">⑬ 인적분할 논란 종결 — 불확실성 해소</span><br>지배구조 관련 인적분할 논란이 종결되며 거버넌스 불확실성 해소. 리쥬란 중심 전략적 투자 지속 방침으로 사업 방향성 명확.</li>
+</ul>
+
+<h3>투자의견 종합</h3>
+<div class="update-box">
+<b>종합 BUY (밸류 매력 + 리레이팅 베팅).</b> PN/PDRN 경쟁제품 난립·의료기기 내수 둔화 우려가 주가를 고점 대비 -57% 디레이팅시켰으나, ① OPM 40%·ROE 27%의 고수익 펀더멘털 ② 화장품 +51%·수출 +30% 성장 ③ 12M Fwd PER 14.8배 역사적 저평가 ④ 컨센 +58% 괴리를 종합하면 위험 대비 보상이 우위. 다만 디레이팅 해소는 <b>2Q 실적·의료기기 회복·유럽 수출 확인이 전제</b>이므로, 실적 확인하며 분할 매수가 합리적. 핵심 트리거는 2Q26 실적(8월).
+</div>
+
+<h3>시나리오별 목표주가</h3>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류 방법</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bull</b></td><td>의료기기 회복 + 화장품·수출 고성장 + 유럽 회복 → 리레이팅</td><td>26F EPS × PER ~33배(우량주)</td><td class="positive">620,000원</td><td class="positive">+103.6%</td></tr>
+<tr><td><b>Base</b></td><td>화장품·수출 성장 지속 + 의료기기 완만 회복 (컨센)</td><td>26F EPS 18,546 × PER ~26배</td><td>480,714원</td><td class="positive">+57.9%</td></tr>
+<tr><td><b>Bear</b></td><td>경쟁 심화·의료기기 둔화 지속 + 멀티플 추가 축소</td><td>26F EPS × PER ~15배</td><td class="negative">280,000원</td><td class="negative">-8.0%</td></tr>
+</table>
+<div class="calc-box">
+[Base TP 산출]
+ 26F 지배순이익 2,145억 / 발행주식 10.39백만주(보통주) ≈ EPS 18,546원
+ 적정 PER ≈ 26배 (고ROE·고OPM 우량주, 14개사 컨센 평균)
+ → 18,546원 × 26배 ≈ 480,714원 (컨센 TP)
+ ※ 현 12M Fwd PER 14.8배 → 리레이팅 시 상단(Bull 33배) 여력
+</div>
+
+<h2>2. 산업개요</h2>
+<h3>2-1. 의료미용·스킨부스터 시장 — TAM·SAM·SOM</h3>
+<table>
+<tr><th>구분</th><th>정의</th><th>규모 (추정)</th></tr>
+<tr><td><b>TAM</b></td><td>글로벌 의료미용(medical aesthetics) 시장</td><td>수백억 달러, 2030까지 성장</td></tr>
+<tr><td><b>SAM</b></td><td>글로벌 스킨부스터 + PDRN 시장</td><td>스킨부스터 2030 21억달러(CAGR 9.3%), PDRN 2024 76.8억달러</td></tr>
+<tr><td><b>SOM</b></td><td>파마리서치 리쥬란(의료기기+화장품)+톡신 글로벌 매출</td><td>2026E 매출 6,620억</td></tr>
+</table>
+<p>의료미용은 안티에이징·재생 트렌드로 구조적 성장. PDRN/PN 기반 스킨부스터는 필러·톡신을 보완·대체하는 신성장 카테고리로, 리쥬란이 원조 브랜드. 다만 PN/PDRN 경쟁제품이 빠르게 진입하며 시장이 '춘추전국'으로 전환 중.</p>
+
+<h3>2-2. 밸류체인 — 리쥬란 듀얼 구조</h3>
+<table>
+<tr><th>단계 (후방 → 파마리서치 → 전방)</th><th>주체 / 채널</th><th>파마리서치 포지션</th></tr>
+<tr><td><b>[후방] PN/PDRN 원료·GMP 생산</b></td><td>강릉 GMP 공장·자체 원천기술</td><td>원료~완제 수직계열화</td></tr>
+<tr><td><b>[핵심] 리쥬란 브랜드·R&D</b></td><td><b>파마리서치 (리쥬란·리엔톡스)</b></td><td><b>브랜드·임상 데이터 = 해자</b></td></tr>
+<tr><td><b>[전방] 의료기관·화장품 유통</b></td><td>피부과·성형외과(의료기기) / 이커머스·면세·수출(화장품)</td><td>의료채널 + D2C·글로벌 채널</td></tr>
+</table>
+<div class="bull-box"><b>밸류체인 핵심:</b> PN/PDRN 원료를 강릉 GMP에서 직접 생산해 의료기기(시술)와 화장품(리쥬란코스메틱)으로 동시 판매. <b>의료기기로 브랜드 권위를 쌓고 화장품으로 대중 시장·수출을 확장하는 구조</b>가 순수 화장품사 대비 진입장벽. 단, 의료기기 내수가 시술 트렌드·경쟁에 민감한 양면성.</div>
+
+<h3>2-3. 산업 사이클 — '스킨부스터 춘추전국'</h3>
+<p>2014년 리쥬란이 PN 스킨부스터를 개척한 이래, PN/PDRN 경쟁제품이 대거 진입하며 시장이 고성장하는 동시에 경쟁이 심화. '매출 10배 리쥬란 신화'를 깨려는 도전자들이 등장하며 점유율 방어가 핵심 과제로 부상. 원조 브랜드·임상 데이터·수출 채널을 가진 리쥬란이 프리미엄을 유지하나, 가격·마케팅 경쟁 압력이 멀티플 디레이팅의 배경.</p>
+
+<h3>2-4. Peer 비교</h3>
+<table>
+<tr><th>구분</th><th>파마리서치</th><th>휴젤(톡신/필러)</th><th>클래시스(미용 의료기기)</th></tr>
+<tr><td>주력</td><td>리쥬란(스킨부스터)+톡신</td><td>보툴렉스(톡신)·필러</td><td>슈링크(HIFU 장비)</td></tr>
+<tr><td>OPM</td><td>40%</td><td>30%대</td><td>40%대</td></tr>
+<tr><td>수출 비중</td><td>40%(확대 중)</td><td>높음</td><td>높음</td></tr>
+<tr><td>최근 주가</td><td>1년 -36% 디레이팅</td><td>상대적 견조</td><td>상대적 견조</td></tr>
+<tr><td>PER(12M Fwd)</td><td>14.8배(저평가)</td><td>중간</td><td>중간</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 정성 비교. 파마리서치는 고마진 미용의료 우량주이나, 스킨부스터 경쟁 우려로 동종업체 대비 멀티플이 더 큰 폭으로 조정됨.</p>
+
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>2001년 의약품·의료기기 인허가 컨설팅으로 설립, 2013년 강릉 GMP 공장에서 재생의학 제품 상용화 성공. 종속회사 <b>파마리서치바이오</b>를 통해 보툴리눔 톡신(리엔톡스) 사업 운영. PN/PDRN 재생의학 기술 기반으로 <b>의료기기(리쥬란)·화장품(리쥬란코스메틱)·의약품</b> 연구·판매. 2024년 리엔톡주100단위 허가 후 2025년 국내 판매 개시로 스킨부스터·톡신·필러 풀라인업 완성.</p>
+
+<h3>3-2. BM 분해 — 부문별 매출 (1Q26)</h3>
+<table>
+<tr><th>부문</th><th>1Q26 매출</th><th>YoY</th><th>특징</th></tr>
+<tr><td>의료기기 (리쥬란 시술)</td><td>795억</td><td class="positive">+14.5%</td><td>내수 584억(+20.9%)</td></tr>
+<tr><td>화장품 (리쥬란코스메틱)</td><td>422억</td><td class="positive">+51.0%</td><td>비중 29%, 수출 269억(+55.8%)</td></tr>
+<tr><td><b>수출 합계</b></td><td>588억</td><td class="positive">+30.0%</td><td>비중 40% (확대 중)</td></tr>
+<tr><td>톡신·필러 등 기타</td><td>—</td><td>—</td><td>리엔톡스 아시아 수출</td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자</h3>
+<div class="bull-box">① <b>리쥬란 원조 브랜드</b> — PN 스킨부스터 최초 개척, 임상·신뢰 축적. ② <b>PN/PDRN 원천기술</b> — 강릉 GMP 수직계열화. ③ <b>의료기기→화장품 후광</b> — 동일 브랜드 시너지. ④ <b>풀라인업</b> — 스킨부스터+톡신+필러.</div>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><th>시기</th><th>이벤트</th></tr>
+<tr><td>2001 / 2013</td><td>설립 / 강릉 GMP 재생의학 상용화</td></tr>
+<tr><td>2014</td><td>리쥬란 힐러(PN 스킨부스터) 출시</td></tr>
+<tr><td>2024</td><td>리엔톡주100단위(톡신) 품목허가</td></tr>
+<tr><td>2025</td><td>리엔톡스 국내 판매 개시, 풀라인업 완성</td></tr>
+<tr><td>2026.05</td><td>1Q26 분기 최대 실적 (매출 1,461억)</td></tr>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>정상수(외 7인)</td><td>34.92%</td><td>창업자·특수관계인 (2025.10)</td></tr>
+<tr><td>임원</td><td>0.01%</td><td>2026.04</td></tr>
+<tr><td>우리사주조합</td><td>0.04%</td><td>2025.06</td></tr>
+<tr><td>외국인</td><td>8.49%</td><td>—</td></tr>
+<tr><td>유동주식</td><td>65.04%</td><td>6,757,465주(보통주)</td></tr>
+</table>
+
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>2,610</td><td>3,501</td><td>5,363</td><td>6,620</td></tr>
+<tr><td>영업이익</td><td>923</td><td>1,261</td><td>2,144</td><td>2,655</td></tr>
+<tr><td>지배순이익</td><td>766</td><td>920</td><td>1,651</td><td>2,145</td></tr>
+<tr><td>영업이익률</td><td>35.4%</td><td>36.0%</td><td>40.0%</td><td>40.1%</td></tr>
+<tr><td>ROE</td><td>19.7%</td><td>18.9%</td><td>26.9%</td><td>27.7%</td></tr>
+</table>
+<p>매출은 3년간 2배 이상 성장(2,610→5,363억), 2026E 6,620억으로 +23% 추가 성장 전망. 영업이익률은 35%→40%로 개선. 실적은 견고한데 주가만 디레이팅된 '실적-주가 괴리'가 투자 포인트.</p>
+
+<h3>4-2. 분기 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2025.09</th><th>2025.12</th><th>2026.03</th><th>2026.06E</th></tr>
+<tr><td>매출액</td><td>1,354</td><td>1,433</td><td>1,461</td><td>1,628</td></tr>
+<tr><td>영업이익</td><td>619</td><td>519</td><td>573</td><td>657</td></tr>
+<tr><td>영업이익률</td><td>45.7%</td><td>36.2%</td><td>39.2%</td><td>40.4%</td></tr>
+</table>
+<p>1Q26 매출 1,461억(YoY +25%)·영업익 573억(+28%)으로 분기 최대. 2Q26E OP 657억(+17.5%). <b>2Q 실적이 디레이팅 해소의 핵심 분기점</b>으로, 의료기기 회복·화장품 성장 동반 확인이 관건.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<tr><th>항목</th><th>2024</th><th>2025</th></tr>
+<tr><td>자본총계</td><td>5,694억</td><td>7,239억</td></tr>
+<tr><td>부채비율</td><td>50.3%</td><td>44.2%</td></tr>
+<tr><td>BPS</td><td>46,558원</td><td>59,603원</td></tr>
+<tr><td>DPS</td><td>1,100원</td><td>3,700원</td></tr>
+</table>
+<p>고ROE로 자본 빠르게 축적, 부채비율 44%로 건전. DPS 3,700원으로 배당 대폭 확대해 주주환원 강화. 현금창출력 대비 재무 부담 낮음.</p>
+
+<h3>4-4. 자본구조·증자 리스크</h3>
+<div class="risk-box">안정적 지배구조(창업자 34.92%), 인적분할 논란도 종결돼 거버넌스 불확실성 해소. 고마진 현금창출로 외부 자본 의존 없음. 다만 경쟁 대응 마케팅비(옥외광고 등)·해외 확장 투자 확대가 단기 비용 부담 요인.</div>
+
+<h2>5. 주주환원</h2>
+<p>DPS를 2024년 1,100원에서 2025년 3,700원으로 3배 이상 확대, 배당수익률 약 1.2%. 고ROE·고현금흐름 기반으로 배당 확대 여력 충분. 코리아 밸류업 지수 편입 종목으로 주주환원 강화 유인이 크다. 주가 디레이팅 국면에서 배당 확대는 하방 지지·밸류 매력 요인.</p>
+
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교</h3>
+<p>현재 PER 21.4배(후행), <b>12M Fwd PER 14.8배</b>, PBR 5.1배. 고점 대비 -57% 디레이팅으로 선행 PER이 과거 평균(20~30배) 대비 크게 낮아진 역사적 저평가 구간. 고ROE(27%)·고OPM(40%) 우량주가 경쟁 우려로 과도하게 디스카운트. 컨센 TP 480,714원은 26F EPS 18,546원 기준 PER 약 26배를 내포 — 정상 멀티플 복귀를 가정.</p>
+
+<h3>6-2. 시나리오 산출</h3>
+<table>
+<tr><th>시나리오</th><th>목표주가</th><th>내재 PER(26F)</th><th>핵심 트리거</th></tr>
+<tr><td>Bull</td><td class="positive">620,000원</td><td>약 33배</td><td>의료기기 회복 + 유럽 회복 → 리레이팅</td></tr>
+<tr><td>Base</td><td>480,714원</td><td>약 26배</td><td>화장품·수출 성장 + 완만 회복(컨센)</td></tr>
+<tr><td>Bear</td><td class="negative">280,000원</td><td>약 15배</td><td>경쟁 심화·의료기기 둔화 지속</td></tr>
+</table>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="update-box"><b>진입:</b> 260,000~310,000원(52주 저점~현재) 구간 분할 매수 — 12M Fwd PER 15배 이하 역사적 저평가 활용. <b>비중 확대:</b> 2Q26 실적 개선·의료기기 회복·유럽 수출 확인 시. <b>이탈/차익:</b> 480,000원 이상(컨센 도달) 또는 경쟁 심화로 점유율·OPM 훼손 확인 시. 디레이팅 해소는 실적 입증이 전제이므로 어닝 확인 후 비중 확대.</div>
+
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<tr><th>지표</th><th>값</th></tr>
+<tr><td>현재가 (6/24)</td><td>304,500원</td></tr>
+<tr><td>52주 최고 / 최저</td><td>711,000 / 259,000원</td></tr>
+<tr><td>수익률 (1M/3M/6M/1Y)</td><td>-0.2% / -2.6% / -23.1% / -35.9%</td></tr>
+<tr><td>베타 (1년)</td><td>0.93</td></tr>
+</table>
+<p>고점 711,000원(2025) 대비 현재 304,500원으로 -57%, 1년 -36%의 큰 폭 디레이팅. PN/PDRN 경쟁제품 난립·의료기기 피크아웃 우려가 실적 호조에도 주가를 끌어내림. 최근 1개월은 저점(259,000) 부근에서 -0.2%로 바닥 다지기, 6/24 +8.75% 반등은 다올 TP 상향·밸류 매력 부각 영향. 핵심 모멘텀은 2Q 실적·의료기기 회복·유럽 수출.</p>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 편입 현황 요약</h3>
+<p>파마리서치는 액티브 ETF 14개 + 패시브 ETF 46개 = 총 <b>60개 ETF</b>에 편입(2026.06.25). KQ150 구성종목으로 코스닥150 패시브에 기본 편입되며, 의료기기·화장품·K뷰티 테마 ETF에서 고비중을 차지한다.</p>
+
+<h3>7-2-2. 액티브 ETF 동향</h3>
+<p>액티브 ETF 14개 편입, 최근 전 종목 비중 증가(감소 0개). K컬처·수출·바이오·중소형 테마 액티브가 핵심 보유.</p>
+<table>
+<tr><th>액티브 ETF</th><th>현재 비중</th><th>현재 보유(주)</th><th>방향</th></tr>
+<tr><td>ACE K수출핵심TOP10산업액티브</td><td>4.73%</td><td>89</td><td>비중 증가</td></tr>
+<tr><td>더제이 중소형포커스액티브</td><td>4.41%</td><td>101</td><td>비중 증가</td></tr>
+<tr><td>TIME K컬처액티브</td><td>4.39%</td><td>150</td><td>비중 증가</td></tr>
+<tr><td>KoAct 바이오헬스케어액티브</td><td>3.29%</td><td>90</td><td>비중 증가</td></tr>
+<tr><td>HANARO 바이오코리아액티브</td><td>3.00%</td><td>62</td><td>비중 증가</td></tr>
+<tr><td>KoAct 글로벌K컬처밸류체인</td><td>2.86%</td><td>43</td><td>비중 증가</td></tr>
+</table>
+
+<h3>7-2-3. 패시브 ETF 편입 비중 상위</h3>
+<table>
+<tr><th>패시브 ETF</th><th>기초자산</th><th>파마리서치 비중</th></tr>
+<tr><td>TIGER 의료기기</td><td>FnGuide 의료기기</td><td>11.84%</td></tr>
+<tr><td>TIGER 화장품</td><td>WISE 화장품</td><td>10.94%</td></tr>
+<tr><td>SOL 의료기기소부장Fn</td><td>FnGuide 의료기기 소부장</td><td>10.68%</td></tr>
+<tr><td>HANARO K-뷰티</td><td>FnGuide K-뷰티</td><td>9.62%</td></tr>
+<tr><td>TIGER 중국소비테마</td><td>FnGuide 중국내수</td><td>5.03%</td></tr>
+<tr><td>TIGER 코스닥150바이오테크 / RISE 헬스케어</td><td>코스닥150 헬스케어/헬스케어</td><td>3.28% / 2.55%</td></tr>
+<tr><td>KODEX 코스닥글로벌 / 바이오</td><td>코스닥글로벌/바이오</td><td>2.26% / 2.20%</td></tr>
+<tr><td>코스닥150 다수(KODEX·TIGER·RISE 등)</td><td>KOSDAQ 150</td><td>약 1.0%</td></tr>
+</table>
+
+<h3>7-2-4. 수급 해석</h3>
+<div class="update-box">파마리서치는 <b>의료기기·화장품·K뷰티 테마 ETF의 핵심 비중 종목</b>(TIGER 의료기기 11.84%, TIGER 화장품 10.94%, SOL 의료기기소부장 10.68%)이자 KQ150·헬스케어·코리아밸류업 구성종목. 의료미용·K뷰티 테마 자금이 유입되면 테마 ETF가 직접 매수하고, 코스닥150 패시브가 시총 비례로 보유. 액티브 14개가 최근 전부 비중을 늘린 점은 디레이팅 국면의 저가 매집 신호. 다만 외국인 지분 8.5%로 낮아, 외국인 복귀가 추가 수급 트리거가 될 수 있다.</div>
+
+<h3>7-2-5. 종합 — 모멘텀 지속성 평가</h3>
+<p>60개 ETF 편입으로 코스닥150 패시브가 기본 수급을 받치고, 의료기기·화장품 테마 ETF 고비중이 테마 모멘텀에 레버리지를 건다. 의료미용·K뷰티 수출 모멘텀이 유지되는 한 테마 ETF 수급은 우호적이나, 경쟁 우려로 테마 심리가 위축되면 역방향 작동 가능. 액티브 ETF의 비중 증가와 낮은 외국인 지분(8.5%)은 향후 외국인·기관 복귀 시 수급 개선 여력을 시사한다. 결국 2Q 실적이 수급·심리의 전환점이다.</p>
+
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">① <b>의료기기 내수 둔화</b> — 리쥬란 시술 성장 둔화 우려가 디레이팅의 핵심 배경(삼성 TP 하향). ② <b>2Q 실적 미스</b> — 2Q 개선 입증 실패 시 디레이팅 장기화.</div>
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box">③ <b>PN/PDRN 경쟁 심화</b> — '스킨부스터 춘추전국'으로 점유율·가격 경쟁. ④ <b>피크아웃 논란</b> — 고성장 기저효과 부담. ⑤ <b>해외 규제·인허가</b> — 수출 확대 과정의 국가별 인허가·규제 리스크.</div>
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">⑥ <b>의료관광·소비 경기</b> — 방한 관광·미용 소비 둔화 시 내수 위축. ⑦ <b>환율·지정학</b> — 수출 비중 확대로 환율·교역 환경 민감도 상승.</div>
+<h3>8-4. 밸류에이션 리스크</h3>
+<div class="risk-box">⑧ <b>리레이팅 지연</b> — 저평가(PER 15배)여도 실적·경쟁 우려 해소 없이는 멀티플 정상화가 지연될 수 있음. 밸류 매력이 곧 주가 반등을 보장하지 않음.</div>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>2026 트리거</th><th>중장기 가치</th></tr>
+<tr><td><b>화장품(리쥬란코스메틱)</b></td><td>동남아·유럽 채널 확장</td><td>수출 비중 52%(27) 목표</td></tr>
+<tr><td><b>수출</b></td><td>2026 +55%, 비중 46%</td><td>글로벌 브랜드화</td></tr>
+<tr><td><b>의료기기(리쥬란)</b></td><td>내수 회복 + 의료관광</td><td>원조 브랜드 점유율 방어</td></tr>
+<tr><td><b>톡신(리엔톡스)</b></td><td>아시아 수출 확대</td><td>풀라인업 시너지</td></tr>
+<tr><td><b>신제형</b></td><td>PN/PDRN 점안액·주사제</td><td>적응증 확장</td></tr>
+</table>
+
+<h2>10. 결론</h2>
+<p>파마리서치는 PN/PDRN 스킨부스터 '리쥬란'으로 의료미용 재생시장을 개척한 원조 1위 기업으로, 의료기기+화장품 쌍발 엔진과 톡신·필러 풀라인업을 갖췄다. 1Q26 매출 1,461억(+25%)·영업이익 573억(+28%)·OPM 39%의 고수익에 화장품 +51%·수출 +30% 성장이 더해졌다. 그럼에도 PN/PDRN 경쟁제품 난립·의료기기 피크아웃 우려로 주가는 고점 대비 -57%, 1년 -36% 디레이팅됐다.</p>
+<p>이 괴리가 투자 포인트다. 12M Fwd PER 14.8배는 과거 평균 대비 역사적 저평가이고, 14개 추정기관 전부 BUY를 유지하며 컨센 TP 480,714원은 현재가 대비 +58% 괴리. 다만 디레이팅 해소는 <b>2Q 실적·의료기기 회복·유럽 수출 확인</b>이 전제이며, 경쟁 심화가 최대 리스크다. <b>역사적 저평가 구간 분할 매수 → 2Q 실적(8월) 확인 후 비중 확대</b> 전략이 합리적이며, 투자의견 <b>BUY · Base TP 480,714원(컨센) / Bull 620,000원 / Bear 280,000원</b>을 제시한다.</p>
+
+<div class="footer">
+<b>데이터 출처:</b> FnGuide Company Guide·SearchReport(증권사 리포트 전수, 2026.06.25 조회) · 다올·삼성·KB·DB·대신·키움·상상인·유안타·미래에셋·현대차·신한 리포트 · ystreet ActiveETF/PassiveETF Tracker(2026.06.25) · 파마리서치 IR·공시 · 언론(한국경제·인사이트·이투데이·데일리인베스트·바이오타임즈·서울경제·팜이데일리 등)<br><br>
+<b>면책:</b> 본 보고서는 공개된 자료를 종합·정리한 참고용이며 투자 권유가 아닙니다. 목표주가·시나리오는 작성자의 가정에 기반한 추정으로 실제와 다를 수 있습니다. 의료미용 산업 특성상 경쟁·규제·소비 트렌드 변화에 따라 변동성이 크며, 투자 판단과 책임은 투자자 본인에게 있습니다. 작성일 2026.06.25 기준.
+</div>
+
+</body>
+</html>
