@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>키스트론 (475430) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>키스트론 (475430.KQ)</h1>
+<div class="sub">국내 유일 Cu/Fe 바이메탈 와이어 제조사 · MLCC 슈퍼사이클 리드와이어 수혜 · 비철금속(알루미늄) 신사업 옵션 · 고려제강 순환출자 해소<br>증권사 커버리지 신한 단독(Not Rated) · 현재가 6,610원 vs 자체 Base TP 7,800원(+18%) · 분석일 2026.06.27</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/26)</span><span class="snapshot-value">6,610원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">1,180억원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+5.25%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">11.2배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (트레일링)</span><span class="snapshot-value">0.62배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">0.88%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+1.23%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">홍영철 외 6인<br>63.64%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">21억<br>(+14% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Base TP</span><span class="snapshot-value">7,800원<br>(+18.0%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Bull TP</span><span class="snapshot-value">10,000원<br>(+51.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">증권사 컨센 TP</span><span class="snapshot-value">N/A<br>(신한 Not Rated)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value negative">0개<br>(액티브 0 / 패시브 0)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (1개월)</span><span class="snapshot-value">0개 → 0개<br>(변화 없음)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전체 ETF 노출 (현재)</span><span class="snapshot-value negative">약 0원<br>(시총 0.00%)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 와이스트릿 Active/Passive ETF Tracker(2026.06.26 기준) 조회 결과 키스트론은 <b>액티브·패시브 ETF 어디에도 편입되어 있지 않다(0개)</b>. 즉 상장 1년차 코스닥 소형주로서 ETF 자금의 기계적 지지가 전혀 없으며, 최근 급등은 100% 개인·기관·외국인의 직접 수급과 MLCC 테마 재평가에 의한 것이다. 향후 시총·유동성 확대로 코스닥150·반도체소부장 ETF 편입 가능성이 잠재 모멘텀이나 현재로선 미반영. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 크로스체크 2026.06.26 — 상세는 §7-2 참조)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 1년 발간 리포트는 <b>신한투자증권 2건이 전부</b>이며(2025.12.23 상장 초기 분석, 2026.06.22 업데이트) 모두 <b>Not Rated(목표가 미제시·스몰캡)</b>. 정식 컨센서스가 존재하지 않아 본 보고서의 목표주가는 자체 산출이다. (상세는 §0 증권사 박스 참조)<br><br>
+<b>핵심 한줄:</b> 일본 캐패시터 3사 내 리드와이어 점유율 약 60%·글로벌 18%를 쥔 <b>MLCC 밸류체인 상류 독점 소재주</b>로, AI 서버발 MLCC 슈퍼사이클의 낙수 수혜와 2027~2029년 비철금속(알루미늄) 신사업이라는 두 개의 성장축을 보유. 2026E PER 약 11배·PBR 0.6배로 콘덴서 피어(PER 20~24배) 대비 대폭 할인 상태이나, ROE 5%대·유동주식 36%·순환출자 정리 진행이라는 디스카운트 요인을 동반.</div>
+</div>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#2980b9;">📊 증권사 리포트 전수 (최근 1년 · FnGuide SearchReport 전 페이지 순회)</h3>
+<p style="font-size:10pt;margin:6px 0;">FnGuide 리포트 통합검색에서 '종목: 키스트론' 필터 적용 후 3개월·1년 전수 순회. 키스트론은 상장 1년차 스몰캡으로 <b>신한투자증권 단독 커버리지</b>이며, 두 리포트 모두 <b>투자의견·목표주가 미제시(Not Rated)</b>이다. 따라서 통상의 '컨센서스 평균 TP'는 산출 불가하며, 정량 추정치(매출·이익)만 컨센 대용으로 활용한다.</p>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>의견</th><th>목표주가</th><th>발간시 주가</th></tr>
+<tr><td>2026.06.22</td><td>신한투자증권<br>(김예성·박현우)</td><td>체력 증명 성공</td><td>Not Rated</td><td>-</td><td>4,700원<br>(6/19 종가)</td></tr>
+<tr><td>2025.12.23</td><td>신한투자증권<br>(김형태·박현우)</td><td>국내 유일 바이메탈 와이어 제조사</td><td>Not Rated</td><td>-</td><td>5,060원<br>(12/22 종가)</td></tr>
+<tr style="background:#eaf2f8;"><td colspan="3" style="text-align:right;font-weight:bold;">정량 컨센(신한 2026F 기준)</td><td colspan="3" style="font-weight:bold;">매출 812억 · 영업이익 91억 · 지배순이익 100억 · 2026F PER 8.4배</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:6px 0 0;">※ 발간 이후 주가가 4,700원(6/19) → 6,610원(6/26)으로 약 +41% 급등(6/22 +30% 상한가 포함)하여, 발간시 'PER 8.4배 저평가' 논리 대비 현재 밸류는 일정 부분 정상화. 현재가 기준 2026E PER은 약 11.2배(12M Fwd).</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#e67e22;">🔥 신한투자증권 — "체력 증명 성공" <span class="tag-sk">2026.06.22</span> <span class="tag">최신</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"체력 증명 성공" — 묵묵하게 성장</td><td>본업 펀더멘털이 분기 최대 실적으로 입증되었다는 메시지</td></tr>
+<tr><td>투자의견 / TP</td><td>Not Rated / 목표가 미제시 (스몰캡)</td><td>발간시 주가 4,700원(6/19)</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 1Q26 매출 198억(+16% YoY)·영업이익 21억(+14%, OPM 10.5%)으로 <b>분기 최대 실적</b> ② 캐패시터용 와이어 확대로 가동률 급상승(리드와이어 62%→73%, 케이블 70%→87%) ③ 일본 캐패시터 3사 내 리드와이어 점유율 약 60% ④ 2027년 비철금속 진입 시 전방 산업 4배 확장</td><td>본업(MLCC 리드와이어)의 가동률·점유율이 슈퍼사이클 수혜의 핵심 동력</td></tr>
+<tr><td>★ 추정·밸류 가정</td><td>2026F 매출 812억(+17%)·영업이익 91억(+23%, OPM 11.2%). 2026F PER 8.4배를 "건조한 체력 대비 저평가 구간"으로 판단. 2027F 영업익 102억, 2028F 121억까지 상향</td><td>동(銅) 원재료 상승은 고객사 공급단가에 일부 연동되어 마진 방어. 신제품·비철 확장 불확실성 해소 시 밸류 재평가 기대</td></tr>
+</table>
+<p style="margin:8px 0 0;"><b>[신한 핵심]</b> 6/22 리포트는 직전 12월 추정 대비 이익 전망을 큰 폭 상향(2027F 영업익 7.7십억 → 10.2십억)하며 '본업 체력 입증 + 신사업 옵션 유효'를 재확인. 다만 여전히 Not Rated로 목표가는 제시하지 않음.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d;background:#ebf5fb;">
+<h3 style="margin-top:0;color:#1f618d;">📘 신한투자증권 — "국내 유일 바이메탈 와이어 제조사" <span class="tag-sk" style="background:#1f618d;">2025.12.23</span> <span class="tag">상장 초기 분석</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"국내 유일 바이메탈 와이어 제조사" — 안정적인 본업과 기대되는 신사업</td><td>상장 후 첫 정식 커버리지(기업 분석 개시)</td></tr>
+<tr><td>투자의견 / TP</td><td>Not Rated / 목표가 미제시</td><td>발간시 주가 5,060원(12/22)</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 국내 유일 Cu/Fe 바이메탈 와이어 제조, 리드와이어 글로벌 점유율 18% ② 케이블 와이어 2021~24년 CAGR 22% ③ 자동차용 MCF·모터권선 CCA·용접 와이어 글로벌 톱티어와 공동개발 ④ 스틸→바이메탈→비철금속 포트폴리오 다각화, 베트남 공장 2027 완공</td><td>본업 안정성 + 신사업 다각화의 '투 트랙' 스토리 제시</td></tr>
+<tr><td>★ 추정·밸류 가정</td><td>2026F PER 11.7배(업계 평균 수준). Capa 2024년 1.1만톤 → 2030년 5.1만톤. 단기 수익성 둔화 불가피, 장기적 관점 접근 권고</td><td>베트남 capex·신제품 R&D로 2027~28년 수익성 일시 둔화 가능. 신제품 양산 시점 2029년</td></tr>
+</table>
+<p style="margin:8px 0 0;"><b>[신한 핵심]</b> 상장 직후 분석으로, 본업의 글로벌 독점적 지위와 비철금속 메이커로의 비전을 처음 정리. "순환출자 해소 과정에서 관계사 배당금 수취 규모가 2029년까지 단계적 축소"될 점을 리스크로 명시.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e;">📋 1차자료 — DART 최근 3개년 주요 공시 <span class="tag-disc">PRIMARY</span></h3>
+<p style="font-size:10pt;margin:6px 0;">DART 회사별검색(키스트론 475430, 2023.06~2026.06, 전 42건) 전수 확인. 키스트론은 2025년 6월 신규상장한 기업으로 사업 신호공시(단일판매·공급계약, 시설투자 결정 등)는 아직 없으며, 신호 공시는 <b>주주환원·자본/지배구조</b>에 집중된다. 루틴 공시(정기보고서·주총·감사보고서)는 제외.</p>
+<table>
+<tr><th>접수일자</th><th>공시 (상대방)</th><th>핵심 수치 / 의미</th></tr>
+<tr><td colspan="3" style="background:#fff3cd;font-weight:bold;">① 사업관련공시</td></tr>
+<tr><td>—</td><td>해당 없음</td><td>최근 3개년 단일판매·공급계약·신규 시설투자 등 사업 신호공시 미발생. 본업은 일본 캐패시터 3사·삼성전기 등과의 장기 공급 구조로 개별 계약 공시 의무 미해당. 베트남 비철 신사업 투자는 아직 주요사항보고 단계 미도달(2026 인허가·설계 단계)</td></tr>
+<tr><td colspan="3" style="background:#fff3cd;font-weight:bold;">② 주주환원공시</td></tr>
+<tr><td>2026.02.25</td><td>현금·현물배당 결정 (키스트론)</td><td>상장 후 첫 결산배당. 2025년 주당배당금(DPS) 50원(FnGuide 기준), 시가배당률 약 1.0%. 배당 신설로 주주환원 정책 가동 신호</td></tr>
+<tr><td>2025.12.12</td><td>현금배당 위한 주주명부폐쇄(기준일) 결정</td><td>위 배당 집행을 위한 기준일 설정(절차적 선행 공시)</td></tr>
+<tr><td colspan="3" style="background:#fff3cd;font-weight:bold;">③ 자본·지배구조공시</td></tr>
+<tr><td>2026.06.26</td><td>임원·주요주주 특정증권등 거래계획보고서 (키스트론홀딩스 외 4개 주체)</td><td><b>특수관계인 간 주식양수도</b>. 키스트론홀딩스가 홍덕산업 등으로부터 장외매수(+) 총 1,522,409주를 @6,280원에 취득(약 95.6억원), 지분 11.36%→<b>19.89%</b>로 확대. 거래기간 2026.07.27~08.25. 고려제강 순환출자 해소·지주사 지배력 강화 목적(시장 매도가 아님)</td></tr>
+<tr><td>2025.12 / 2026.01</td><td>임원·주요주주 거래계획·소유상황 보고서 다수</td><td>위 지배구조 정리의 선행 절차. 최대주주 홍영철 외 특수관계인 합계 63.64% 유지</td></tr>
+<tr><td>2025.05.20~27</td><td>증권신고서(지분증권)·투자설명서·증권발행실적보고서 (키스트론)</td><td><b>코스닥 신규상장(2025.06.02)</b>. 공모가 3,600원(희망밴드 상단), 기관 수요예측 경쟁률 1,140.95:1. 구주매출을 통해 고려제강 순환출자 해소 추진</td></tr>
+<tr><td>2025.12.24 / 2026.03.27</td><td>대표이사 변경 (신재명·권대희 각자 대표이사 체제)</td><td>지배구조 항목. 상장 전후 경영체제 정비(참고용, 신호 강도 낮음)</td></tr>
+</table>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#2874a6;">🌐 외부검증 1 — 글로벌 MLCC·캐패시터 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p style="font-size:10pt;">키스트론의 본업 수요는 전방 MLCC(적층세라믹콘덴서)·전해콘덴서의 생산량에 직결된다. 2026년 글로벌 MLCC 산업은 AI 서버·전장(전기차/자율주행) 수요를 축으로 구조적 슈퍼사이클에 진입했다는 진단이 지배적이다.</p>
+<div class="global-quote">"일본 무라타제작소와 한국 삼성전기의 공장 가동률이 가격 상승 임계점인 <b>90%를 일제히 돌파</b>했으며, 초고부가 하이엔드 제품을 중심으로 가격 인상과 공급 부족 징후가 뚜렷해지고 있다." — Finance Scope, 2026.05.26</div>
+<ul style="font-size:10pt;">
+<li><b>시장 구도:</b> AI 서버용 MLCC는 무라타 약 45%, 삼성전기 약 40% 점유. 선도사들의 수주잔고/매출(BB) 비율이 꾸준히 1 이상으로 공급자 우위 지속.</li>
+<li><b>가격 사이클:</b> 3Q26 후반 CSP 주도 ASIC 프로젝트 램프업 시 고부가 MLCC 공급 부족 심화 → 하반기 가격 안정→소폭 인상 국면 전환 전망.</li>
+<li><b>키스트론 함의:</b> MLCC는 리드와이어(리드탭)를 핵심 부자재로 사용. 전방 MLCC·전해콘덴서 가동률이 90%대로 상승하면 리드와이어 수요·키스트론 가동률(1Q26 리드와이어 73%)이 동반 상승하는 <b>상류 낙수 수혜</b> 구조. 키스트론은 일본 3사 내 60%·글로벌 18% 점유로 그 수혜를 직접 흡수한다.</li>
+</ul>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e;">🏛 외부검증 2 — 그룹 전략·지배구조·신사업 정책 <span class="tag-policy">GROUP/STRATEGY</span></h3>
+<p style="font-size:10pt;">키스트론은 와이어로프 세계 1위 <b>고려제강(키스와이어) 그룹</b> 계열사로, 상장 자체가 그룹 지배구조 재편과 맞물려 있다.</p>
+<div class="policy-quote">"키스트론은 상장·구주매출을 통해 고려제강 순환출자를 해소한다… 2027년을 기점으로 모기업 베트남 공장 유휴부지를 활용해 알루미늄 시장에 진출, <b>글로벌 비철금속 메이커로 성장</b>하겠다." — DealSite·월요신문, 2025.05</div>
+<ul style="font-size:10pt;">
+<li><b>순환출자 해소:</b> 2026.06.26 키스트론홀딩스의 특수관계인 지분 장외매수(지분 11.36%→19.89%)는 그룹 출자구조 단순화·지주 지배력 강화의 일환. 시장 오버행이 아닌 내부 정리.</li>
+<li><b>비철금속 신사업:</b> 베트남 공장 — 2026년 인허가·사업설계, 2027년 설비 도입·시운전, 2029년 본격 양산. 연간 Capa 2024년 1.1만톤 → 2030년 <b>5.1만톤(4배+)</b>. 모회사 유휴부지 활용으로 인프라 비용 약 115억원 절감(베트남 추가 소요 5억원)하여 자본효율 확보.</li>
+<li><b>리스크 명시:</b> 신한 리포트는 "순환출자 해소 과정에서 관계사로부터의 배당금 수취 규모가 2029년까지 단계적으로 축소"될 것으로 전망 — 별도 순이익 일부에 영향 가능.</li>
+</ul>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad;">
+<h3 style="margin-top:0;color:#8e44ad;">📰 외부검증 3 — 최근 1개월(2026.05.27~06.27) 핵심 기사 <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<ul style="font-size:10pt;">
+<li><b>키스트론 6/22 상한가(+30%)</b> — MLCC 공급 대란 기대에 급등. 삼성전기에 커패시터용 리드와이어·정밀선재를 공급하며 글로벌 리드와이어 점유율 약 18%로 재평가. 📌 컨슈머타임스, 2026.06.22</li>
+<li><b>"견조한 체력 대비 저평가"…키스트론 7%↑</b> — 증권가(신한) 분기 최대 실적·2026F 영업익 91억 전망에 강세. 📌 다음/뉴스, 2026.06.22</li>
+<li><b>키스트론, 美 데이터센터 전력소재 비용 95조 전망에 강세</b> — 데이터센터 전력 인프라 확대 → 전력·케이블 소재 수요 증가 기대. 📌 데이터투자, 2026.04.30</li>
+<li><b>한·일 MLCC 가동률 90% 돌파</b> — "AI·전장 슈퍼사이클 도래", 하반기 MLCC 가격 인상 전망(밸류체인 전반 재평가). 📌 Finance Scope, 2026.05.26</li>
+<li><b>삼성전기, AI 서버발 MLCC 특수…증권가 연간 영업익 눈높이 상향</b> — 전방 고객사 실적 상향은 리드와이어 수요의 선행지표. 📌 청년일보, 2026.02</li>
+<li><b>삼화콘덴서, MLCC 호황 기대에 상한가·52주 최고가</b> — 콘덴서 피어 동반 급등(시총 1조 클럽 진입). 키스트론은 상류 소재로 같은 테마. 📌 다음/네이트, 2026.05.22</li>
+<li><b>키스트론, 안정적 본업에 신사업 모멘텀…중장기 성장 주목-신한</b> — 본업+비철 신사업 투트랙 재확인. 📌 인포스탁데일리/인베스팅, 2026.06</li>
+</ul>
+</div>
+
+<div class="global-box" style="border-color:#0e6655;">
+<h3 style="margin-top:0;color:#0e6655;">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<table>
+<tr><th>시점</th><th>이벤트</th><th>주가 영향</th></tr>
+<tr style="background:#fff3cd;"><td>2026.07.27~08.25</td><td>🔥 키스트론홀딩스 특수관계인 지분 장외매수(거래계획) 집행</td><td>지배구조 정리 진행 — 시장 물량 출회 아님(중립~긍정)</td></tr>
+<tr><td>2026.08 (예상)</td><td>🔥 2Q26 잠정실적 발표</td><td>분기 최대 실적 연속 여부 확인(핵심)</td></tr>
+<tr style="background:#fff3cd;"><td>2026.3Q 후반</td><td>🔥 글로벌 MLCC 가격 인상 가시화(CSP ASIC 램프업)</td><td>전방 가동률·키스트론 리드와이어 수요 가속</td></tr>
+<tr><td>2026 하반기</td><td>베트남 공장 인허가·사업설계 완료</td><td>비철 신사업 진척도 첫 확인</td></tr>
+<tr><td>2026.11 (예상)</td><td>3Q26 실적</td><td>가동률 추가 상승·연간 가이던스 점검</td></tr>
+<tr><td>2027.02~03 (예상)</td><td>2026 연간 실적·배당 결정</td><td>DPS 확대 여부(2026F DPS 84원 전망)</td></tr>
+<tr style="background:#fff3cd;"><td>2027</td><td>🔥 베트남 공장 설비 도입·시운전 / 비철금속 진입</td><td>전방 산업 4배 확장 스토리 가시화</td></tr>
+<tr><td>2027 하반기</td><td>비철 진입 후 단계적 매출 발생 시작</td><td>신사업 매출 첫 기여</td></tr>
+<tr><td>2028</td><td>비철 매출 본격 증대(신한 28F 영업익 121억)</td><td>이익 레벨업 구간</td></tr>
+<tr style="background:#fff3cd;"><td>2029</td><td>🔥 신제품(MCF·CCA) 본격 양산 체제 진입</td><td>제품 포트폴리오 다각화 완성</td></tr>
+<tr><td>2030</td><td>연간 Capa 5.1만톤 달성 목표(2024년 4배+)</td><td>글로벌 비철금속 메이커 비전 완성</td></tr>
+<tr><td>상시</td><td>코스닥150·반도체 소부장 ETF 편입 가능성</td><td>시총·유동성 확대 시 패시브 자금 유입 잠재 모멘텀</td></tr>
+</table>
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① MLCC 밸류체인 상류의 '독점 소재' — 일본 캐패시터 3사 내 점유율 약 60%</span><br>
+키스트론의 본업은 적층세라믹콘덴서(MLCC)·전해콘덴서의 핵심 부자재인 <b>리드와이어(리드탭)</b>다. 국내에서 유일하게 Cu(구리)/Fe(철) 바이메탈 와이어를 양산하며, 글로벌 리드와이어 시장 점유율 약 18%, 특히 세계 MLCC를 좌우하는 일본 캐패시터 3사(무라타·TDK·다이요유덴 계열) 내부에서는 점유율 약 60%에 달한다. 전방 MLCC가 슈퍼사이클로 증산할수록 상류 소재인 리드와이어 수요가 직접 늘어나는 구조여서, 완제품 콘덴서 업체의 가격·물량 변동성을 일부 흡수하면서도 수혜를 공유하는 위치다.</li>
+
+<li><span class="point-title">② AI 서버발 MLCC 슈퍼사이클의 낙수 수혜 — 가동률이 증명</span><br>
+무라타·삼성전기 가동률이 가격 임계점인 90%를 동반 돌파하며 MLCC 공급 부족이 가시화되는 국면이다. 이 수요는 곧바로 키스트론 가동률로 전이됐다. 리드와이어 가동률은 2024년 58% → 2025년 61% → 1Q26 73%, 케이블와이어는 70%→87%로 급상승했고, 그 결과 <b>1Q26 매출 198억(+16% YoY)·영업이익 21억(+14%, OPM 10.5%)으로 분기 최대 실적</b>을 기록했다. 가동률 상승은 고정비 레버리지로 이어져 마진을 끌어올리는 핵심 동력이다.</li>
+
+<li><span class="point-title">③ 본업 마진의 구조적 개선 — OPM 6.7%(2023) → 10.7%(2025) → 11.2%(2026E)</span><br>
+영업이익률이 3년 연속 우상향하고 있다. 제품 믹스가 고부가 캐패시터용 와이어로 이동하고 가동률이 오르면서 수익성이 체질적으로 개선됐다. 동(銅) 등 원재료 가격 상승분은 고객사 공급단가에 일부 연동되어 마진을 방어한다. 2026E 영업이익은 91억(+23%)으로 전망되며, 이는 단순 물량 증가가 아니라 '가동률+믹스+가격연동'이 동시에 작동한 결과다.</li>
+
+<li><span class="point-title">④ 제2의 성장축 — 비철금속(알루미늄) 신사업과 베트남 공장</span><br>
+키스트론은 '스틸 → 바이메탈 → 비철금속'으로 제품 포트폴리오를 확장 중이다. 2027년 모회사 베트남 유휴부지를 활용해 알루미늄 시장에 진입하며, 연간 Capa를 2024년 1.1만톤에서 2030년 <b>5.1만톤(4배+)</b>으로 키운다. 회사는 비철 진입 시 전방 산업 규모가 약 4배 확장될 것으로 추정한다. 유휴부지 활용으로 인프라 비용 약 115억원을 절감해 자본효율을 확보한 점도 긍정적이다.</li>
+
+<li><span class="point-title">⑤ 신제품 파이프라인 — 자동차용 MCF·모터권선 CCA</span><br>
+케이블와이어 영역에서 자동차용 MCF(금속코팅탄소섬유), 모터권선용 CCA(구리코팅알루미늄), 모터권선 용접 와이어 등을 글로벌 톱티어 업체들과 공동개발 중이다. 전기차·모터 시장을 겨냥한 이들 신제품은 2029년 본격 양산을 목표로 하며, 케이블와이어 고객사 다변화의 핵심이다. 케이블와이어는 2021~24년 연평균 22% 성장한 캐시플로우 축이기도 하다.</li>
+
+<li><span class="point-title">⑥ 콘덴서 피어 대비 큰 폭의 밸류 할인</span><br>
+2026E PER 약 11배·PBR 0.62배는 콘덴서 피어(삼화콘덴서 PER 24배·PBR 3.8배, 삼화전기 PER 20배·PBR 1.9배) 대비 현저히 낮다. 신한투자증권은 발간시(6/19) 2026F PER 8.4배를 "건조한 체력 대비 저평가 구간"으로 판단했다. 같은 MLCC 테마 안에서 완제품 콘덴서주가 먼저 리레이팅된 반면, 상류 소재인 키스트론은 재평가 초입에 있다는 해석이 가능하다.</li>
+
+<li><span class="point-title">⑦ 수출 중심·환율 우호 — 매출의 80~90%가 해외</span><br>
+매출의 약 80~90%가 수출(2024년 90%)로, 원화 약세 국면에서 환산 매출·마진이 우호적으로 작동한다. 글로벌 캐패시터 고객 기반에 직접 납품하므로 내수 경기 둔화 노출이 작고, 일본·미국 등 선진 시장 수요에 연동된다는 점이 방어적이다.</li>
+
+<li><span class="point-title">⑧ 지배구조 정리 = 오버행이 아닌 '내부 양수도'</span><br>
+2026.06.26 5개 특수관계 주체의 거래계획보고서는 시장 매도가 아니라 <b>키스트론홀딩스가 사들이는 장외 양수도</b>다(11.36%→19.89%, @6,280원). 고려제강 순환출자 해소·지주 지배력 강화 과정으로, 통상 우려하는 상장 직후 대주주 매도 오버행과는 성격이 정반대다. 매수 단가 6,280원은 현재가 부근의 '내부자 인정 가격'으로도 해석할 수 있다.</li>
+
+<li><span class="point-title">⑨ 주주환원 정책 가동 — 상장 첫해 배당 신설</span><br>
+상장 첫 결산(2025)에서 현금배당을 신설(DPS 50원)했고, 신한은 2026F DPS 84원(시가배당률 약 1.7%)을 전망한다. 이익 성장과 함께 배당이 점증하는 구조로, 소형 성장주임에도 주주환원 의지를 보였다는 점이 밸류 하단을 지지한다.</li>
+
+<li><span class="point-title">⑩ 낮은 재무 리스크 — 부채비율 13%·유보율 2,000%대</span><br>
+2025년 부채비율 13.04%, 유보율 약 2,026%로 재무구조가 매우 견조하다. 자본총계 1,897억으로 베트남 capex를 자체 현금흐름·낮은 레버리지로 감당할 여력이 있다. 유증 등 자본조달 리스크가 낮다는 점이 신사업 추진의 안정판이다.</li>
+
+<li><span class="point-title">⑪ 안정적 베타·낮은 시장 민감도</span><br>
+1년 베타 약 0.71로 시장 대비 변동성이 낮은 편이다(다만 최근 테마 급등 구간에서는 단기 변동성 확대). 본업이 장기 공급 계약 기반이어서 경기 민감도가 상대적으로 낮고, 실적 가시성이 높은 편이다.</li>
+
+<li><span class="point-title">⑫ ETF 미편입 = 잠재 패시브 모멘텀(현재는 디스카운트 요인)</span><br>
+현재 액티브·패시브 ETF 편입이 0개로 ETF 자금의 지지가 전무하다. 이는 단기 디스카운트 요인이나, 시총·유동성이 확대되어 코스닥150·반도체 소부장 ETF에 편입될 경우 신규 패시브 자금이 유입되는 '비대칭 상방' 잠재력으로도 작동한다.</li>
+
+<li><span class="point-title">⑬ 두 개의 옵션을 가진 소재주 — 슈퍼사이클(단기)+비철 신사업(중장기)</span><br>
+결론적으로 키스트론은 ①MLCC 슈퍼사이클이라는 단기 이익 모멘텀과 ②비철금속·신제품이라는 중장기 성장 옵션을 동시에 보유한 상류 소재주다. 두 축이 시차를 두고 작동하므로, 슈퍼사이클이 둔화해도 신사업이 다음 성장을 이어받는 구조적 헤지가 내재한다.</li>
+</ul>
+
+<h3>투자의견 종합</h3>
+<div class="update-box">
+키스트론은 <b>MLCC 밸류체인 상류의 독점적 소재주</b>로, 전방 슈퍼사이클의 낙수 수혜가 가동률·마진으로 이미 입증되고 있다. 콘덴서 피어 대비 큰 폭의 밸류 할인, 견조한 재무, 비철 신사업 옵션을 감안하면 중장기 매력이 높다. 다만 ① 증권사 정식 커버리지가 신한 1곳(Not Rated)뿐이라 컨센서스 부재, ② ROE 5%대로 자본효율이 낮고, ③ 유동주식 36%·ETF 미편입으로 수급이 얇으며, ④ 최근 단기 급등(6/19→6/26 +41%)으로 밸류 정상화가 진행된 점은 유의해야 한다. <b>중장기 비중 확대 관점이 유효하되, 단기 과열 구간에서는 분할 접근·눌림목 대응이 바람직</b>하다.
+</div>
+
+<h3>시나리오별 목표주가 산출</h3>
+<p style="font-size:10pt;">신한이 Not Rated이라 컨센 TP가 없으므로, 신한 추정 EPS와 피어 멀티플을 결합한 자체 시나리오를 제시한다. 적용 EPS는 신한 추정(2026F 지배순이익 100억→EPS 약 560원, 2027F 111억→약 622원, 2028F 129억→약 723원, 발행주식 17,848천주 기준).</p>
+<div class="calc-box">
+[Bear]  2026E EPS 560원 × PER 9.0배  = 5,040원  (-23.8%)
+        └ MLCC 슈퍼사이클 조기 둔화 + 신사업 지연, 피어 하단·소형주 할인 적용
+
+[Base]  2027F EPS 622원 × PER 12.5배 = 7,775원 → 7,800원 (+18.0%)
+        └ 본업 견조 + 가동률 상승 지속, 피어 대비 ROE·유동성 할인 일부 유지
+
+[Bull]  2028F EPS 723원 × PER 14.0배 = 10,122원 → 10,000원 (+51.3%)
+        └ MLCC 가격인상 본격화 + 비철 신사업 가시화로 멀티플 리레이팅
+</div>
+<table>
+<tr><th>시나리오</th><th>적용 EPS</th><th>적용 PER</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>Bear</td><td>560원 (2026E)</td><td>9.0배</td><td>5,040원</td><td class="negative">-23.8%</td></tr>
+<tr style="background:#eaf2f8;"><td><b>Base</b></td><td>622원 (2027F)</td><td>12.5배</td><td><b>7,800원</b></td><td class="positive"><b>+18.0%</b></td></tr>
+<tr><td>Bull</td><td>723원 (2028F)</td><td>14.0배</td><td>10,000원</td><td class="positive">+51.3%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 본 목표주가는 신한 추정치 기반 자체 산출이며 증권사 컨센서스가 아니다. 키스트론은 정식 투자의견·목표가가 공표된 적이 없는 스몰캡임에 유의.</p>
+
+<h2>2. 산업개요</h2>
+
+<h3>2-1. TAM·SAM·SOM — 리드와이어와 MLCC 전방시장</h3>
+<p>키스트론의 1차 전방은 글로벌 MLCC·전해콘덴서 시장이다. MLCC는 AI 서버·스마트폰·전장에 필수적으로 탑재되는 수동소자로, 서버 1대·전기차 1대당 탑재량이 구조적으로 증가한다. MLCC 자체 시장(TAM의 전방)은 수십조 원 규모이며, 그 안에서 리드와이어가 핵심 부자재로 쓰이는 리드형 콘덴서·전해콘덴서·특수 콘덴서 영역이 키스트론의 SAM에 해당한다.</p>
+<table>
+<tr><th>구분</th><th>정의</th><th>키스트론 포지션</th></tr>
+<tr><td>TAM (전방)</td><td>글로벌 MLCC·전해/리드형 콘덴서 + 전선·케이블 소재 시장</td><td>AI·전장 슈퍼사이클로 구조적 성장</td></tr>
+<tr><td>SAM</td><td>캐패시터용 리드와이어 + 케이블/특수 와이어 시장</td><td>글로벌 리드와이어 점유율 약 18%</td></tr>
+<tr><td>SOM</td><td>일본 캐패시터 3사 등 핵심 고객 내 공급분</td><td>일본 3사 내 점유율 약 60%(사실상 과점)</td></tr>
+</table>
+<p>여기에 2027년부터 진입하는 비철금속(알루미늄)은 키스트론의 TAM을 약 4배로 확장시키는 새로운 축이다. 즉 본업 SAM의 점유율 심화(슈퍼사이클)와 TAM 자체의 확장(비철 진입)이 병행되는 구조다.</p>
+
+<h3>2-2. 밸류체인 — 키스트론은 어디에 있나</h3>
+<p>키스트론은 원재료(동·철·알루미늄 선재) → <b>바이메탈 와이어 가공(키스트론)</b> → 콘덴서 리드탭/케이블 제조 → MLCC·전해콘덴서·전선 완제품 → 세트(AI 서버, 전기차, 가전)로 이어지는 사슬에서 <b>상류 소재 단계</b>에 위치한다.</p>
+<table>
+<tr><th>단계</th><th>플레이어</th><th>키스트론과의 관계</th></tr>
+<tr><td>① 원재료(전·후방)</td><td>동·철·알루미늄 선재 공급사</td><td>매입처. 동가 상승분은 고객 공급단가에 일부 연동</td></tr>
+<tr><td>② 소재 가공 <b>(키스트론)</b></td><td>키스트론(국내 유일 Cu/Fe 바이메탈 와이어)</td><td>리드와이어·케이블와이어·특수(뇌관·Trace·접지선)</td></tr>
+<tr><td>③ 부품 제조(전방 1차)</td><td>일본 캐패시터 3사, 삼성전기, 전해콘덴서·케이블 업체</td><td>매출처. 리드탭·케이블로 가공하여 콘덴서·전선 생산</td></tr>
+<tr><td>④ 완제품(전방 2차)</td><td>MLCC·전해콘덴서·전선 완제품</td><td>AI 서버·전장·가전에 탑재</td></tr>
+</table>
+<div class="bull-box">
+<b>신사업 예상 카드 — 비철금속(알루미늄) 수직 확장:</b> 키스트론은 ②단계에서 '바이메탈'에 머물지 않고 알루미늄 선재까지 가공 범위를 넓혀, 모터권선용 CCA(구리코팅알루미늄)·자동차용 MCF 등으로 ③단계 고객군(전기차 모터·자동차 부품)을 신규 확보하려 한다. 이는 기존 캐패시터 의존도를 낮추고 전장·모빌리티로 밸류체인을 다변화하는 전략이다.
+</div>
+
+<h3>2-3. 산업 사이클 — MLCC 슈퍼사이클의 위치</h3>
+<p>현재 MLCC 산업은 가동률 90% 돌파·BB비율 1 이상·가격 인상 임박이라는 '공급자 우위' 국면에 있다. 과거 MLCC 사이클은 2~3년 주기로 호황·조정을 반복했으나, 이번 사이클은 AI 서버라는 구조적 신규 수요가 더해져 '슈퍼사이클'로 규정된다. 키스트론 같은 상류 소재는 전방 가동률 상승 → 부자재 발주 증가의 시차를 두고 수혜가 누적되며, 통상 사이클 중후반까지 가동률 고공 행진이 이어진다.</p>
+
+<h3>2-4. Peer 정성 비교</h3>
+<table>
+<tr><th>기업</th><th>사업 모델</th><th>밸류체인 위치</th><th>특징</th></tr>
+<tr><td><b>키스트론</b></td><td>바이메탈 리드/케이블 와이어 소재</td><td>상류 소재</td><td>일본 3사 60%·글로벌 18%, 비철 신사업</td></tr>
+<tr><td>삼화콘덴서</td><td>MLCC·DCLC 완제품</td><td>중류 부품</td><td>국내 대표 MLCC주, 전장·산업용 강점</td></tr>
+<tr><td>삼화전기</td><td>전해콘덴서·MLCC</td><td>중류 부품</td><td>전해콘덴서 강자, AI 전원부 수혜</td></tr>
+<tr><td>아비코전자</td><td>인덕터·칩저항 등 수동소자</td><td>중류 부품</td><td>수동소자 다변화, 코스닥 소형</td></tr>
+</table>
+<p style="font-size:10pt;">키스트론은 위 콘덴서·수동소자 완제품 업체들의 <b>공통 상류 공급사</b> 성격이어서, 어느 콘덴서사가 점유율을 가져가든 리드와이어 수요는 유지되는 '곡괭이·삽(picks &amp; shovels)' 포지션이다. 정량 밸류 비교는 §6-1 참조.</p>
+
+<h2>3. 기업개요</h2>
+
+<h3>3-1. 회사 프로필</h3>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>설립 / 상장</td><td>1992년 설립 / 2025.06.02 코스닥 상장(공모가 3,600원)</td></tr>
+<tr><td>지배구조</td><td>고려제강(키스와이어) 그룹 계열. 최대주주 홍영철 외 6인 63.64%</td></tr>
+<tr><td>주력 제품</td><td>리드와이어(48%), 케이블와이어(45%), 기타(7%) — 1Q26 매출 기준</td></tr>
+<tr><td>사업부</td><td>제조사업부(와이어), 전력사업부(태양광·REC 매각), 임대사업부(부동산)</td></tr>
+<tr><td>수출 비중</td><td>약 80~90% (2024년 90%)</td></tr>
+<tr><td>2025 실적(별도)</td><td>매출 693억 · 영업이익 74억(OPM 10.7%) · 순이익 88억</td></tr>
+</table>
+
+<h3>3-2. 비즈니스 모델(BM) 분해</h3>
+<p>키스트론의 수익은 크게 세 갈래다. <b>(1) 리드와이어</b>는 MLCC·전해콘덴서의 리드탭 소재로 일본 3사·삼성전기 등에 공급하는 고부가 핵심 캐시카우, <b>(2) 케이블와이어</b>는 에너지·건설·전장용으로 2021~24년 CAGR 22%의 성장 축, <b>(3) 특수·전력·임대</b>는 뇌관(Detonator)·지중관 추적용 Trace·낙뢰 접지선과 태양광 발전(REC 매각)·부동산 임대 등 안정적 보조 수익이다. 제품 믹스가 고부가 캐패시터용으로 이동할수록 마진이 개선되는 구조이며, 1Q26 기준 리드+케이블이 매출의 93%를 차지한다.</p>
+
+<h3>3-3. 경쟁 해자(Moat)</h3>
+<p>키스트론의 해자는 <b>① 국내 유일 Cu/Fe 바이메탈 와이어 양산 기술</b>(전량 수입에 의존하던 리드와이어 국산화 성공), <b>② 일본 캐패시터 3사 내 약 60% 점유라는 검증된 공급 레퍼런스</b>, <b>③ 콘덴서 리드탭은 신뢰성·인증 장벽이 높아 신규 진입이 어렵다는 점</b>에 있다. 콘덴서는 불량 시 세트 전체 신뢰성에 영향을 주므로 소재 교체가 보수적이며, 수십 년 거래 관계가 진입장벽으로 작동한다. 이 때문에 전방 슈퍼사이클의 과실을 안정적으로 흡수할 수 있다.</p>
+
+<h3>3-4. 연혁 · 주요 이정표</h3>
+<table>
+<tr><th>시점</th><th>내용</th></tr>
+<tr><td>1992</td><td>키스트론 설립(고려제강 그룹 와이어 소재 계열)</td></tr>
+<tr><td>~2020년대</td><td>리드와이어 국산화·일본 캐패시터 3사 공급 확대, 케이블와이어 CAGR 22% 성장</td></tr>
+<tr><td>2025.06</td><td>코스닥 상장 — 구주매출로 고려제강 순환출자 해소 추진</td></tr>
+<tr><td>2026.02</td><td>상장 후 첫 결산배당 신설(DPS 50원)</td></tr>
+<tr><td>2026.06</td><td>MLCC 슈퍼사이클 테마로 주가 급등(6/22 +30% 상한가) / 키스트론홀딩스 지분 양수도</td></tr>
+<tr><td>2027~2029</td><td>(예정) 베트남 비철금속 공장 시운전→양산, 신제품(MCF·CCA) 양산</td></tr>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>홍영철 외 6인(최대주주 등)</td><td>63.64%</td><td>2026.01.19 기준. 키스트론홀딩스·홍덕산업·키스와이어홀딩스 등 특수관계</td></tr>
+<tr><td>유동주식</td><td>36.36%</td><td>약 648.9만주. 소형주로 수급이 얇음</td></tr>
+<tr><td>외국인</td><td>0.88%</td><td>외국인 보유 매우 낮음(상장 1년차)</td></tr>
+</table>
+<p style="font-size:10pt;">2026.07~08월 키스트론홀딩스의 장외 양수도(11.36%→19.89%)가 집행되면 지주 지배력이 강화되고 순환출자 구조가 단순화된다. 시장 유통물량 변화는 제한적(내부 거래)이다.</p>
+
+<h2>4. 재무분석</h2>
+
+<h3>4-1. 연간 실적 추이 (별도)</h3>
+<table>
+<tr><th>구분</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액(억)</td><td>559</td><td>690</td><td>693</td><td>812</td></tr>
+<tr><td>영업이익(억)</td><td>37</td><td>59</td><td>74</td><td>91</td></tr>
+<tr><td>영업이익률(%)</td><td>6.67</td><td>8.56</td><td>10.67</td><td>11.21</td></tr>
+<tr><td>순이익(억)</td><td>24</td><td>88</td><td>88</td><td>100</td></tr>
+<tr><td>ROE(%)</td><td>1.55</td><td>5.66</td><td>5.16</td><td>5.22</td></tr>
+<tr><td>EPS(원)</td><td>179</td><td>662</td><td>545</td><td>560</td></tr>
+<tr><td>DPS(원)</td><td>106</td><td>198</td><td>50</td><td>84</td></tr>
+</table>
+<p style="font-size:10pt;">매출은 완만하나 영업이익률이 6.7%→11.2%로 구조적으로 개선되는 점이 핵심이다. 2024년 순이익이 급증(YoY +270%)한 것은 일회성·관계사 배당 등 영업외 요인이 일부 반영된 것으로, 순이익보다 영업이익 추세가 본업의 실체를 더 잘 보여준다. 신한 추정으로는 2027F 영업익 102억, 2028F 121억까지 우상향한다.</p>
+
+<h3>4-2. 분기 실적 (별도)</h3>
+<table>
+<tr><th>구분</th><th>2025/09</th><th>2025/12</th><th>2026/03</th></tr>
+<tr><td>매출액(억)</td><td>166</td><td>165</td><td>198</td></tr>
+<tr><td>영업이익(억)</td><td>20</td><td>14</td><td>21</td></tr>
+<tr><td>순이익(억)</td><td>21</td><td>30</td><td>30</td></tr>
+</table>
+<p style="font-size:10pt;">1Q26 매출 198억은 분기 최대치로, 전년동기 대비 +15.7%(별도)·전분기 대비 +20% 증가했다. 가동률 상승이 매출·이익에 동시 반영되며 분기 실적 모멘텀이 살아있다. 2Q26(8월 발표 예정)에서 분기 최대 실적이 연속될지가 단기 핵심 체크포인트다.</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<tr><th>항목</th><th>2024</th><th>2025</th><th>의미</th></tr>
+<tr><td>자산총계(억)</td><td>1,799</td><td>2,144</td><td>상장 공모자금 유입</td></tr>
+<tr><td>부채총계(억)</td><td>280</td><td>247</td><td>차입 부담 낮음</td></tr>
+<tr><td>자본총계(억)</td><td>1,519</td><td>1,897</td><td>자본 확충</td></tr>
+<tr><td>부채비율(%)</td><td>18.41</td><td>13.04</td><td>매우 건전</td></tr>
+<tr><td>유보율(%)</td><td>2,191</td><td>2,026</td><td>내부 유보 풍부</td></tr>
+</table>
+<p style="font-size:10pt;">부채비율 13%·유보율 2,000%대로 재무는 업종 최상위 수준의 안정성을 보인다. 베트남 비철 capex를 자체 현금과 낮은 레버리지로 소화할 수 있어, 신사업 추진 과정에서 외부 자본조달(유증) 압력이 낮다는 점이 중요한 안정판이다.</p>
+
+<h3>4-4. 자본구조 리스크</h3>
+<p>전환사채(CB)·신주인수권부사채(BW) 등 잠재 희석 증권 발행 이력은 확인되지 않으며, 발행주식 17,848,110주(액면 500원)로 자본구조가 단순하다. 다만 ① 베트남 신사업이 예상보다 자본집약적일 경우 중장기 조달 가능성, ② 신한이 지적한 '순환출자 해소 과정의 관계사 배당금 수취 축소(2029년까지)'가 별도 순이익에 점진적 부담으로 작용할 수 있다는 점은 모니터링 대상이다.</p>
+
+<h2>5. 주주환원</h2>
+<p>키스트론은 상장 첫 결산(2025)부터 현금배당을 신설했다. 2025년 DPS 50원(시가배당률 약 1.0%)에서 신한 추정 기준 2026F DPS 84원(약 1.7%), 2027F·2028F로 갈수록 배당수익률이 2.0%대로 점증할 전망이다. 소형 성장주로서는 비교적 적극적인 주주환원 의지로 해석된다. 다만 순환출자 해소 과정에서 관계사 배당 수취가 줄어들 경우 배당 재원에 영향을 줄 수 있어, 이익 성장이 배당 확대의 전제 조건이다. 자사주 매입·소각 등 추가 환원책은 아직 없다.</p>
+<table>
+<tr><th>구분</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>DPS(원)</td><td>198</td><td>50</td><td>84</td></tr>
+<tr><td>시가배당률(%)</td><td>—</td><td>약 1.0</td><td>약 1.7</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 2024년 DPS 198원은 상장 전 기준치로 직접 비교에 유의(상장 후 주식수·기준가 변동).</p>
+
+<h2>6. 밸류에이션</h2>
+
+<h3>6-1. 피어그룹 정량 밸류에이션 비교</h3>
+<p style="font-size:10pt;">2026.06.26 FnGuide 업종비교·스냅샷 기준. 키스트론은 상류 소재, 피어는 중류 콘덴서·수동소자 완제품으로 사업 단계는 다르나 동일 MLCC 밸류체인·전기전자 업종에 속한다.</p>
+<table>
+<tr><th>종목(코드)</th><th>시가총액<br>(억)</th><th>매출<br>(억)</th><th>OPM<br>(%)</th><th>ROE<br>(%)</th><th>PER<br>(배)</th><th>PBR<br>(배)</th><th>EV/EBITDA<br>(배)</th><th>배당<br>(%)</th></tr>
+<tr style="background:#eaf2f8;"><td><b>키스트론(475430)</b></td><td>1,180</td><td>693</td><td><b>10.7</b></td><td>5.2</td><td><b>12.1</b></td><td><b>0.62</b></td><td>7.5</td><td>0.8~1.0</td></tr>
+<tr><td>삼화콘덴서(001820)</td><td>13,576</td><td>2,945</td><td>4.4</td><td>4.6</td><td>24.3</td><td>3.78</td><td>10.1</td><td>1.7</td></tr>
+<tr><td>삼화전기(009470)</td><td>1,799</td><td>2,301</td><td>5.2</td><td>10.4</td><td>20.5</td><td>1.91</td><td>13.5</td><td>2.1</td></tr>
+<tr><td>아비코전자(036010)</td><td>1,103</td><td>1,339</td><td>6.2</td><td>8.5</td><td>9.9</td><td>0.95</td><td>6.2</td><td>0.4</td></tr>
+<tr style="background:#f4f6f7;"><td><b>피어 평균(키스트론 제외)</b></td><td>5,493</td><td>2,195</td><td>5.3</td><td>7.8</td><td><b>18.2</b></td><td><b>2.21</b></td><td>9.9</td><td>1.4</td></tr>
+</table>
+<div class="update-box">
+<b>한 줄 결론:</b> 키스트론은 <b>OPM 10.7%로 피어 최상위</b>의 수익성을 갖췄음에도 PER 12.1배·PBR 0.62배로 피어 평균(PER 18.2배·PBR 2.21배) 대비 <b>30~70% 할인</b> 상태다. 할인의 정당화 요인은 ① ROE 5.2%로 자본효율이 낮고(2024년 일회성 순이익으로 자본이 두툼해진 영향), ② 시총 1,180억·유동 36%·외인 0.9%로 수급이 얇으며, ③ 순환출자 정리·신사업 불확실성이 존재한다는 점이다. 그러나 마진·재무 우위와 슈퍼사이클 수혜를 감안하면, 콘덴서 완제품주가 먼저 리레이팅된 데 비해 상류 소재의 할인은 과도하며 재평가 여지가 있다고 판단된다.
+</div>
+
+<h3>6-2. 시나리오 산출 (재정리)</h3>
+<p>§1의 산출을 요약하면, Bear 5,040원(-23.8%) / Base 7,800원(+18.0%) / Bull 10,000원(+51.3%)이다. Base는 2027F EPS 622원에 PER 12.5배(피어 대비 ROE·유동성 할인 일부 유지)를, Bull은 2028F EPS 723원에 PER 14배(슈퍼사이클+신사업 리레이팅)를 적용했다. 현재가 6,610원은 Bear와 Base 사이로, 단기 급등으로 저평가 메리트가 일부 소진된 위치다.</p>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<table>
+<tr><th>구분</th><th>가격대</th><th>근거</th></tr>
+<tr><td>적극 매수</td><td>5,000~5,500원</td><td>2026E PER 9~10배, Bear 하단 부근 — 저평가 매력 복원</td></tr>
+<tr><td>분할 매수</td><td>5,500~6,600원</td><td>Base 대비 상승여력 구간, 눌림목 분할 접근</td></tr>
+<tr><td>보유·관망</td><td>6,600~7,800원</td><td>Base 목표 접근 구간, 추격 자제</td></tr>
+<tr><td>차익·비중축소</td><td>7,800원 이상</td><td>Base 초과, Bull은 슈퍼사이클·신사업 가시화 확인 필요</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;">※ 소형주 특성상 테마 수급에 따라 변동성이 크다. 위 가격대는 펀더멘털 기준이며 단기 트레이딩과 별개다.</p>
+
+<h2>7. 주가 히스토리</h2>
+
+<h3>7-1. 1년 주가 흐름 및 핵심 모멘텀</h3>
+<p>키스트론은 2025년 6월 상장 첫날 공모가(3,600원)의 3배 가까이 급등(장중 1만원대) 후, 단기 차익 매물로 조정을 거쳐 2026년 3월 저점 약 3,985원까지 하락했다. 이후 MLCC 슈퍼사이클 테마가 부각되며 재평가가 시작됐고, 2026년 6월 22일 +30% 상한가를 포함해 6월 19일 4,700원 → 6월 26일 6,610원으로 약 +41% 급등했다. 12개월 수익률은 +1.23%로 상장 초기 급등분을 반납했다가 최근 회복한 모양새다.</p>
+<table>
+<tr><th>시점</th><th>이벤트</th><th>주가 반응</th></tr>
+<tr><td>2025.06.02</td><td>코스닥 상장(공모가 3,600원)</td><td>상장일 장중 1만원대(+165~180%)</td></tr>
+<tr><td>2025.12.23</td><td>신한 첫 커버리지(Not Rated)</td><td>5,060원 부근</td></tr>
+<tr><td>2026.03</td><td>조정 저점</td><td>약 3,985원</td></tr>
+<tr><td>2026.04.30</td><td>美 데이터센터 전력소재 테마</td><td>강세</td></tr>
+<tr><td>2026.06.22</td><td>MLCC 공급대란·신한 업데이트</td><td><span class="positive">+30% 상한가</span></td></tr>
+<tr><td>2026.06.26</td><td>—</td><td>6,610원(+5.25%)</td></tr>
+</table>
+<div class="warning-box">
+<b>52주 신고가 기준 명시:</b> FnGuide 기준 52주 최고가는 6,980원(장중)이며, 6/26 종가는 6,610원으로 <b>종가 기준으로는 52주 신고가에 미달</b>한다. 즉 현재는 "장중 52주 신고가(6,980원) 부근이나 종가 기준 신고가는 아직 미경신" 상태로, 신고가 돌파 시도 구간으로 해석하는 것이 정확하다.
+</div>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<p style="font-size:10pt;">와이스트릿 ActiveETF/PassiveETF Tracker(2026.06.26 기준)를 직접 조회한 결과를 정리한다. 결론부터 말하면 키스트론은 <b>액티브·패시브 ETF 어디에도 편입되어 있지 않다.</b></p>
+
+<h3>7-2-1. 액티브 ETF 편입 현황</h3>
+<p>액티브 ETF Tracker에서 종목코드 475430·'키스트론'으로 검색했으나 <b>매칭되는 종목이 없어 편입 액티브 ETF는 0개</b>다. 상장 1년차 코스닥 소형주(시총 1,180억)로서 액티브 운용사들의 편입 대상에 아직 포함되지 않았음을 의미한다.</p>
+
+<h3>7-2-2. 패시브 ETF 편입 현황</h3>
+<p>패시브 ETF Tracker(전체 837개 ETF)의 종목검색에서도 475430·키스트론이 검색되지 않아 <b>편입 패시브 ETF 0개</b>다. 코스닥150 등 주요 지수 미편입 상태로, 패시브 자금의 기계적 매수 기반이 없다.</p>
+
+<h3>7-2-3. 1개월 ETF 자금 순유입</h3>
+<p>편입 ETF가 0개이므로 최근 1개월 ETF를 통한 자금 순유입·순유출은 <b>0원(변화 없음)</b>이다. 따라서 6월의 주가 급등은 ETF 자금이 아니라 100% 개인·기관·외국인의 직접 매매와 테마 수급에 의한 것으로 확정할 수 있다.</p>
+
+<h3>7-2-4. 수급 구조 해석</h3>
+<div class="bull-box">
+ETF 미편입은 <b>양면적</b>이다. <b>(단기 부정)</b> 2026년 한국 시장은 ETF 자금이 주가를 떠받치는 구조인데, 키스트론은 그 지지가 전무해 수급이 얇고 변동성이 크다. 외국인 지분율 0.88%도 기관 수급 부재를 방증한다. <b>(중장기 긍정)</b> 반대로 시총·일평균 거래대금(최근 1,664억으로 급증)이 확대되어 코스닥150·반도체 소부장·MLCC 테마 ETF에 신규 편입될 경우, 현재 0원인 패시브 노출이 새로 생기며 비대칭적 매수 모멘텀이 발생할 수 있다. 즉 '편입 0'은 현재의 약점이자 미래의 옵션이다.
+</div>
+
+<h3>7-2-5. 종합 — ETF 관점 투자 시사점</h3>
+<p>키스트론은 ETF 자금 지지가 없는 순수 펀더멘털·테마 수급 종목이다. 따라서 ① ETF 패시브 매수라는 하방 쿠션이 없어 테마 소멸 시 변동성이 크고, ② 향후 지수·테마 ETF 편입 여부가 중장기 수급의 분기점이 된다. 투자자는 거래대금·시총 추이와 코스닥150 정기변경(통상 연 2회) 편입 가능성을 모니터링할 필요가 있다.</p>
+<p style="font-size:9pt;color:#7f8c8d;">데이터 출처: ystreet ActiveETF/PassiveETF Tracker 2026.06.26 기준 직접 조회(편입 0 확인).</p>
+
+<h2>8. 리스크 분석</h2>
+
+<h3>8-1. 단기 리스크</h3>
+<p><b>① 단기 급등에 따른 밸류 부담:</b> 6/19→6/26 +41% 급등으로 2026E PER이 8.4배→약 11배로 정상화됐다. 테마 과열이 식으면 단기 조정 가능. <b>② 얇은 수급·높은 변동성:</b> 유동주식 36%·외인 0.9%·ETF 0개로 수급 기반이 취약해 급등락이 반복될 수 있다. <b>③ 2Q26 실적 눈높이:</b> 분기 최대 실적이 연속되지 않으면 모멘텀이 약화될 수 있다.</p>
+
+<h3>8-2. 중장기 리스크</h3>
+<p><b>① 신사업 지연·집행 리스크:</b> 베트남 비철 공장은 2027 시운전·2029 양산으로 가시화까지 시간이 길고, capex·수율 확보 과정에서 단기 수익성이 둔화될 수 있다(신한도 명시). <b>② 신제품 불확실성:</b> MCF·CCA 등은 글로벌 톱티어와 공동개발 단계로 양산·고객 확보가 확정되지 않았다. <b>③ 관계사 배당 축소:</b> 순환출자 해소 과정에서 2029년까지 관계사 배당 수취가 줄어 별도 순이익에 부담.</p>
+
+<h3>8-3. 거시·산업 리스크</h3>
+<p><b>① MLCC 사이클 둔화:</b> AI 서버 투자 속도 조절·소비자 IT 부진이 겹치면 전방 가동률이 꺾여 리드와이어 발주가 줄 수 있다. <b>② 원재료(동·알루미늄) 가격:</b> 공급단가 연동에 시차가 있어 급등 시 일시적 마진 압박. <b>③ 환율:</b> 수출 비중이 높아 원화 강세 전환 시 환산 매출·마진에 부정적.</p>
+
+<h3>8-4. 밸류에이션·커버리지 리스크</h3>
+<p><b>① 컨센서스 부재:</b> 정식 커버리지가 신한 1곳(Not Rated)뿐이라 시장 합의 목표가가 없고, 본 보고서 TP도 자체 추정이다. 추정의 신뢰구간이 넓다. <b>② 낮은 ROE:</b> ROE 5%대는 PBR 디스카운트의 근본 원인으로, 자본효율 개선 없이는 멀티플 상단이 제한될 수 있다.</p>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축 정리</h3>
+<table>
+<tr><th>성장축</th><th>내용</th><th>시점</th><th>임팩트</th></tr>
+<tr><td>① MLCC 슈퍼사이클</td><td>전방 가동률 90%+·가격인상 → 리드와이어 수요·가동률 상승</td><td>2026~2027</td><td>본업 이익 모멘텀(단기 핵심)</td></tr>
+<tr><td>② 케이블와이어 확장</td><td>자동차용 MCF·모터권선 CCA 신제품, 고객 다변화</td><td>2026~2029</td><td>전장·모빌리티 신규 매출</td></tr>
+<tr><td>③ 비철금속(알루미늄)</td><td>베트남 공장, Capa 1.1만→5.1만톤, 전방 4배 확장</td><td>2027~2030</td><td>TAM 확장·이익 레벨업(중장기 핵심)</td></tr>
+<tr><td>④ 주주환원·재평가</td><td>배당 점증, ETF 편입·커버리지 확대 가능성</td><td>상시</td><td>밸류 디스카운트 축소</td></tr>
+</table>
+<p style="font-size:10pt;">키스트론의 투자 매력은 이 네 축이 <b>시차를 두고 작동</b>한다는 데 있다. 단기는 MLCC 슈퍼사이클이 이익을 끌어올리고, 중장기는 비철금속·신제품이 다음 성장을 이어받는다. 슈퍼사이클이 둔화해도 신사업이 헤지 역할을 하는 구조적 분산이 내재한다.</p>
+
+<h2>10. 결론</h2>
+<div class="update-box">
+<p>키스트론은 <b>MLCC 밸류체인 상류의 독점적 소재주</b>다. 일본 캐패시터 3사 내 약 60%·글로벌 18%의 리드와이어 점유율을 바탕으로 AI 서버발 MLCC 슈퍼사이클의 낙수 수혜를 가동률(리드와이어 1Q26 73%)과 분기 최대 실적(1Q26 매출 198억·영업익 21억)으로 이미 입증하고 있다. 영업이익률은 6.7%(2023)→11.2%(2026E)로 구조적으로 개선되며, 부채비율 13%의 견조한 재무 위에 2027~2030년 비철금속(알루미늄) 신사업이라는 중장기 성장 옵션을 얹었다.</p>
+<p>밸류에이션은 2026E PER 약 11배·PBR 0.62배로 콘덴서 피어(PER 18~24배) 대비 큰 폭 할인 상태다. 마진·재무 우위를 감안하면 상류 소재의 할인은 과도한 측면이 있으나, ROE 5%대·유동주식 36%·외인 0.9%·ETF 0개라는 수급·자본효율 디스카운트가 상존한다. 또한 증권사 정식 커버리지가 신한 1곳(Not Rated)뿐이라 컨센서스가 없고, 최근 단기 +41% 급등으로 저평가 메리트가 일부 소진됐다.</p>
+<p><b>투자전략:</b> 중장기 비중확대 관점은 유효하되 단기 과열을 감안해 <b>5,500~6,600원 분할 매수·눌림목 대응</b>을 권한다. 자체 시나리오는 Bear 5,040원 / <b>Base 7,800원(+18.0%)</b> / Bull 10,000원(+51.3%). 핵심 체크포인트는 ① 2Q26 분기 최대 실적 연속, ② 3Q26 MLCC 가격인상 가시화, ③ 베트남 신사업 진척, ④ ETF 편입·커버리지 확대 여부다.</p>
+</div>
+
+<div class="footer">
+<b>데이터 출처</b><br>
+시세·재무·업종비교·피어 멀티플: FnGuide Company Guide 스냅샷(2026.06.26 기준) · FnGuide 리포트 통합검색<br>
+증권사 리포트: 신한투자증권 「체력 증명 성공」(2026.06.22), 「국내 유일 바이메탈 와이어 제조사」(2025.12.23) — 모두 Not Rated<br>
+1차자료: DART 전자공시(회사별검색 2023.06~2026.06, 42건 전수) · 거래계획보고서(2026.06.26, rcpNo 20260626000590 등)<br>
+ETF: ystreet ActiveETF/PassiveETF Tracker(2026.06.26 직접 조회, 편입 0 확인)<br>
+산업·뉴스: Finance Scope, 청년일보, 컨슈머타임스, DealSite, 월요신문, 데이터투자 등(2026.04~06)<br><br>
+<b>면책:</b> 본 보고서는 공개된 정보와 자체 분석에 기반한 참고자료이며, 투자 권유나 매매 추천이 아니다. 키스트론은 정식 증권사 투자의견·목표주가가 공표되지 않은 스몰캡으로, 본문의 목표주가는 신한 추정치와 피어 멀티플을 결합한 작성자 자체 산출이다. 투자 판단과 그 결과의 책임은 투자자 본인에게 있다. 작성일 2026.06.27.
+</div>
+
+</body>
+</html>
