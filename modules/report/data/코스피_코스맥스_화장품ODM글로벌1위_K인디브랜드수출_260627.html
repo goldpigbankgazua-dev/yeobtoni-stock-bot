@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>코스맥스 (192820) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>코스맥스 (192820.KS)</h1>
+<div class="sub">화장품 ODM 글로벌 1위 · 고객 4,000개·국내외 32개 종속사 · K-인디브랜드 동반성장 + 미국·중국·유럽 글로벌 확장<br>증권사 20곳 커버·컨센 Buy 4.0·목표가 248,150원(+71.3%) · 현재가 144,900원(52주 최저) · 1년 −47% 디레이팅 · 분석일 2026.06.27</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/26)</span><span class="snapshot-value">144,900원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">1.64조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value negative">−2.16%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">10.1배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (트레일링)</span><span class="snapshot-value">2.94배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">38.31%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value negative">−46.92%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">코스맥스비티아이<br>외 10인 27.51%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">530억<br>(+3% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Base TP</span><span class="snapshot-value">185,000원<br>(+27.7%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Bull TP</span><span class="snapshot-value">220,000원<br>(+51.8%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (20사)</span><span class="snapshot-value">248,150원<br>(+71.3%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">99개<br>(액티브 11 / 패시브 88)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ROE / OPM (2025)</span><span class="snapshot-value positive">23.9% / 8.2%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고 대비</span><span class="snapshot-value negative">−48%<br>(279,500→144,900)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 와이스트릿 Active/Passive ETF Tracker(2026.06.26) 조회 결과 코스맥스는 <b>액티브 11개 + 패시브 88개 = 약 99개 ETF에 편입</b>된 코스피200 대형주다. 패시브는 코스피200 ETF 다수(~0.02%), 코리아밸류업(~0.07%), FnGuide 성장소비주도(1.90%)·화장품 테마 ETF에 두루 포함된다. 글로벌 SWF(국민연금 11.2%, GIC 6.3%, 싱가포르정부 5.4%, Norges 5.0%)가 대거 보유해 기관·외국인 수급 기반이 두텁다. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.26 — 상세 §7-2)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 <b>12건·20개 증권사 전수 커버리지</b>, 컨센 Buy(4.0)·목표가 248,150원(+71.3%). 1Q26 실적(5/13) 직후 TP 상향 다수, 6월 들어 삼성·하나 일부 하향. TP 범위 200,000~270,000원. (상세 §0)<br><br>
+<b>핵심 한줄:</b> 전세계 4,000여 고객사에 화장품을 ODM(주문자개발생산)하는 <b>글로벌 1위 화장품 위탁개발생산 기업</b>이다. K-뷰티 인디브랜드의 폭발적 성장을 'ODM 동반성장' 구조로 흡수하며, 미국(직수출 20.4%)·중국(중국법인 6,327억)·유럽으로 확장 중이다. OPM 8%대의 박마진 ODM이지만 ROE 24%·매출 2.4조의 규모의 경제를 갖췄고, 컨센 TP가 +71% 괴리될 만큼 펀더멘털 신뢰가 높다. 다만 2025년 화장품 수급이 브랜드사 중심으로 이동하며 ODM주가 소외돼 고점 대비 −48% 디레이팅(현재 52주 최저)됐다. 평택 증설·태국 신공장(9월)·케미노바(이탈리아 ODM) 인수로 생산능력을 확충하는 가운데, 디레이팅 해소의 트리거가 필요한 국면이다.</div>
+</div>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#2980b9;">📊 증권사 리포트 전수 (최근 3개월 12건 · 20개 증권사 · FnGuide SearchReport 전 페이지 순회)</h3>
+<p style="font-size:10pt;margin:6px 0;">20개 증권사가 모두 BUY/매수를 유지한다. 1Q26 실적(5/13) 직후 다수가 TP를 상향(NH·교보·미래에셋·SK)했으나, 6월 들어 삼성·하나·유진 등이 일부 하향했다. 그럼에도 투자의견은 전원 매수이며 컨센 TP 248,150원은 현재가 대비 +71.3% 괴리가 있다.</p>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>의견</th><th>목표주가</th><th>방향</th></tr>
+<tr><td>2026.06.24</td><td>삼성증권 (정동희)</td><td>BUY</td><td>200,000</td><td class="negative">▼ 하향</td></tr>
+<tr><td>2026.06.17</td><td>흥국증권</td><td>BUY</td><td>250,000</td><td>=</td></tr>
+<tr><td>2026.06.09</td><td>하나증권 (김다혜)</td><td>BUY</td><td>240,000</td><td class="negative">▼</td></tr>
+<tr><td>2026.06.09</td><td>LS증권</td><td>BUY</td><td>250,000</td><td>=</td></tr>
+<tr><td>2026.06.02</td><td>한화투자증권</td><td>BUY</td><td>250,000</td><td>=</td></tr>
+<tr><td>2026.05.26</td><td>유안타증권</td><td>BUY</td><td>230,000</td><td>=</td></tr>
+<tr><td>2026.05.18</td><td>유진투자증권</td><td>BUY</td><td>250,000</td><td class="negative">▼</td></tr>
+<tr><td>2026.05.14</td><td>신영증권</td><td>매수</td><td>240,000</td><td>=</td></tr>
+<tr><td>2026.05.14</td><td>SK증권</td><td>매수</td><td>250,000</td><td class="positive">▲</td></tr>
+<tr><td>2026.05.13</td><td>NH투자증권</td><td>BUY</td><td>250,000</td><td class="positive">▲</td></tr>
+<tr><td>2026.05.13</td><td>교보증권</td><td>BUY</td><td>260,000</td><td class="positive">▲</td></tr>
+<tr><td>2026.05.13</td><td>미래에셋증권</td><td>매수</td><td>270,000</td><td class="positive">▲ (최고 TP)</td></tr>
+<tr style="background:#eaf2f8;"><td colspan="2" style="text-align:right;font-weight:bold;">컨센서스 (20사 평균)</td><td style="font-weight:bold;">Buy 4.0</td><td style="font-weight:bold;">248,150</td><td class="positive" style="font-weight:bold;">+71.3%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:6px 0 0;">※ TP 범위 200,000(삼성)~270,000원(미래에셋). 6월 일부 하향에도 최저 TP(200,000)가 현재가 대비 +38%. 1Q26 호실적(순익 +411%)에 5월 다수 상향 후, 화장품 섹터 수급 약화로 6월 일부 조정.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#e67e22;">🔥 삼성증권 — "K-뷰티의 요람에서 글로벌 뷰티의 산실로" <span class="tag-sk">2026.06.24</span> <span class="tag">최신</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>의견 / TP</td><td>BUY 유지, 목표주가 235,000 → <b>200,000원 하향(−14.9%)</b></td><td>발간시 주가 152,500원, 상승여력 +31.1%</td></tr>
+<tr><td>★ 핵심 논거</td><td>K-인디 브랜드 수출 성장 중심으로 미국/중국/유럽 인디 브랜드 수주 증가. 글로벌 MNC 직수출 +30%(1Q26). 중국 상해/광저우 법인 각각 7%+ 흑자</td><td>K-뷰티 동반성장 + 글로벌 다변화</td></tr>
+<tr><td>★ 성장 모멘텀</td><td>2H26 한국 평택 공장 증설(600억, 스킨케어 라인) + 태국 신공장 가동(9월, Capa 1억→2.3억개). 케미노바(이탈리아 ODM, 연매출 150억) 인수 연결 반영 가능</td><td>생산능력 확충·유럽 진출</td></tr>
+<tr><td>★ 추정 (십억)</td><td>매출 2025 2,399 → 26E 2,709 → 27E 3,058 → 28E 3,479 / 영업익 196 → 224 → 260 → 306 / EPS 10,843 → 13,121 → 15,415 → 18,471</td><td>OPM 8%대(목표 10%), ROE 24%</td></tr>
+</table>
+<p style="margin:8px 0 0;"><b>[삼성 핵심]</b> "ODM 상장사 중 글로벌 1위 지위 대비 부담없는 밸류, 다변화된 고객사, 실적 하방 경직성 고려 시 매력적." 단기 수급(브랜드사 중심 이동)으로 TP는 낮췄으나 BUY 유지. 미국/중국 법인 수익성 개선에 따른 영업 레버리지 기대.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;">📘 증권가 1Q26 시각 — TP 상향 클러스터 (NH·교보·미래에셋) <span class="tag-sk" style="background:#1e6e3a;">2026.05.13</span> <span class="tag">실적 반응</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>1Q26 실적</td><td>매출 +15.9% YoY·영업익 +3.3%·<b>순익 +411.3%</b> (한국 법인 매출 4,232억 +16.7%)</td><td>인디브랜드 수주·중국 법인 흑자로 순익 급증</td></tr>
+<tr><td>TP 상향</td><td>미래에셋 270,000(최고)·교보 260,000·NH 250,000·SK 250,000</td><td>호실적에 다수 TP 상향</td></tr>
+<tr><td>성장 동력</td><td>온라인 인디브랜드 확대 + 규제 강화로 대형 ODM 선호, 신속한 제품 개발·공급 능력</td><td>'인디브랜드 성공 = ODM 성공' 동반성장</td></tr>
+</table>
+<p style="margin:8px 0 0;"><b>[증권가 핵심]</b> 1Q26 순익 +411%의 호실적과 인디브랜드 동반성장 구조 확인으로 5월 TP 상향 클러스터(250~270k) 형성. 이후 화장품 섹터 수급 약화로 주가가 빠지며 컨센과 괴리 확대.</p>
+</div>
