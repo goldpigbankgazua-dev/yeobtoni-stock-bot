@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파마리서치 (214450) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>파마리서치 (214450.KQ)</h1>
+<div class="sub">PDRN/PN 재생의학 1위 · 리쥬란 스킨부스터로 국내 의료관광 최대 수혜 · 화장품 수출·보툴리눔 톡신으로 포트폴리오 확장<br>증권사 14곳 커버·컨센 Buy 4.0·목표가 481,429원(+48.6%) · 현재가 324,000원 · 1년 −35% 디레이팅 · 분석일 2026.06.27</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/26)</span><span class="snapshot-value">324,000원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">3.37조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+0.47%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">15.7배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (트레일링)</span><span class="snapshot-value">5.44배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">8.31%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value negative">−35.14%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">정상수 외 7인<br>34.92%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">573억<br>(+28% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Base TP</span><span class="snapshot-value">430,000원<br>(+32.7%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Bull TP</span><span class="snapshot-value">530,000원<br>(+63.6%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (14사)</span><span class="snapshot-value">481,429원<br>(+48.6%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">60개<br>(액티브 14 / 패시브 46)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">액티브 ETF 변화 (1개월)</span><span class="snapshot-value positive">13개 → 14개<br>(+1개, 보유 +43%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고 대비</span><span class="snapshot-value negative">−54%<br>(711,000→324,000)</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 와이스트릿 Active/Passive ETF Tracker(2026.06.26) 조회 결과 파마리서치는 <b>액티브 14개 + 패시브 46개 = 약 60개 ETF에 편입</b>된 코스닥 대표 우량주다. 패시브는 코스닥150 ETF(ACE·HANARO·IBK 등 비중 ~1.1%)와 <b>HANARO K-뷰티 ETF(비중 10.13%로 최대 편입)</b>, 다수 코리아밸류업 ETF에 두루 포함된다. 액티브 ETF는 최근 1개월 13개→14개로 1개 늘고 보유 주식수도 524주→약 750주(+43%)로 증가(TIME K컬처 97→150주, HANARO 바이오코리아 38→62주 등 순매수). 키스트론(ETF 0개)과 정반대로 <b>두터운 패시브 수급 지지</b>가 디레이팅 국면의 하방을 받친다. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.26 — 상세 §7-2)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 <b>31건·14개 증권사 전수 커버리지</b>. 컨센서스 투자의견 Buy(4.0), 목표주가 481,429원(+48.6%). 1Q26 실적 발표(5/8) 직후 5/11 12개사 집중 발간, 최근 다올(6/25 540k 상향)·삼성(6/24 400k 하향)·KB(6/19 430k 신규개시)로 시각이 엇갈린다. (상세는 §0 증권사 박스)<br><br>
+<b>핵심 한줄:</b> 리쥬란(PN 스킨부스터)으로 국내 피부과 시술 시장을 사실상 개척·장악한 <b>재생의학 1위</b>로, 방한 의료관광 급증(4·5월 피부과 소비 역대 최고)과 화장품 수출 폭증(미국 세포라·아마존)이 동시에 작동하는 OPM 40%·ROE 27%의 고수익 성장주다. 다만 2025년 인적분할(지주사 전환) 시도→철회로 촉발된 거버넌스 불신과 경쟁 우려로 주가가 고점 대비 −54% 디레이팅된 상태이며, 2Q26 실적 입증이 재평가의 분수령이다.</div>
+</div>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#2980b9;">📊 증권사 리포트 전수 (최근 3개월 31건 · 14개 증권사 · FnGuide SearchReport 전 페이지 순회)</h3>
+<p style="font-size:10pt;margin:6px 0;">FnGuide 리포트 통합검색 '종목: 파마리서치' 필터 후 3개월·1년 전수 순회. 14개 증권사가 모두 BUY/매수를 유지하나 목표주가는 400,000~620,000원으로 분산돼 있다. 1Q26 실적(5/8 IR) 직후 5/11 하루에만 12개사가 발간했고, 이후 6월 들어 다올 상향·삼성 하향·KB 신규개시로 단기 시각이 엇갈린다.</p>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>의견</th><th>목표주가</th><th>방향</th></tr>
+<tr><td>2026.06.25</td><td>다올투자증권 (박종현)</td><td>BUY</td><td>540,000</td><td class="positive">▲ 상향</td></tr>
+<tr><td>2026.06.24</td><td>삼성증권 (정동희)</td><td>BUY</td><td>400,000</td><td class="negative">▼ 하향</td></tr>
+<tr><td>2026.06.19</td><td>KB증권 (손민영)</td><td>BUY</td><td>430,000</td><td><span class="tag-new">신규개시</span></td></tr>
+<tr><td>2026.05.27</td><td>DB증권 (김지은)</td><td>BUY</td><td>460,000</td><td>=</td></tr>
+<tr><td>2026.05.26</td><td>대신증권 (한송협)</td><td>BUY</td><td>620,000</td><td>= (최고 TP)</td></tr>
+<tr><td>2026.05.18</td><td>키움증권 (신민수)</td><td>BUY</td><td>440,000</td><td>=</td></tr>
+<tr><td>2026.05.18</td><td>상상인증권 (하태기)</td><td>BUY</td><td>540,000</td><td class="negative">▼</td></tr>
+<tr><td>2026.05.11</td><td>미래에셋 (김충현)</td><td>매수</td><td>600,000</td><td>=</td></tr>
+<tr><td>2026.05.11</td><td>대신증권 (한송협)</td><td>BUY</td><td>620,000</td><td>=</td></tr>
+<tr><td>2026.05.11</td><td>현대차증권 (김현석)</td><td>BUY</td><td>430,000</td><td>=</td></tr>
+<tr><td>2026.05.11</td><td>신한투자 (김지영)</td><td>매수</td><td>430,000</td><td>=</td></tr>
+<tr><td>2026.05.11</td><td>하나증권 (김다혜)</td><td>BUY</td><td>480,000</td><td>=</td></tr>
+<tr><td>2026.05.11</td><td>LS증권 (조은애)</td><td>BUY</td><td>500,000</td><td class="negative">▼</td></tr>
+<tr><td>2026.05.11</td><td>유안타 (이승은)</td><td>BUY</td><td>450,000</td><td class="negative">▼</td></tr>
+<tr><td>2026.05.11</td><td>한국투자 (강은지)</td><td>매수</td><td>420,000</td><td>=</td></tr>
+<tr style="background:#eaf2f8;"><td colspan="2" style="text-align:right;font-weight:bold;">컨센서스 (14사 평균)</td><td style="font-weight:bold;">Buy 4.0</td><td style="font-weight:bold;">481,429</td><td class="positive" style="font-weight:bold;">+48.6%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:6px 0 0;">※ 5/11 집중 발간은 1Q26 호실적(매출 +25%·영업익 +28%) 반응. 이후 주가가 하락하며 일부 증권사가 TP를 낮췄으나(삼성 500→400k, 상상인·LS·유안타 하향) 투자의견은 전원 매수 유지. 컨센 TP 481,429원은 현재가 대비 +48.6% 괴리.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#e67e22;">🔥 다올투자증권 — "설명할 시간이 없어, 어서 타!" <span class="tag-sk">2026.06.25</span> <span class="tag">최신·상향</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목 / 의견</td><td>"설명할 시간이 없어, 어서 타!" — BUY 유지, 적정주가 530,000 → <b>540,000원</b> 상향</td><td>발간시 주가 304,500원 기준 상승여력 +77.3%</td></tr>
+<tr><td>★ 2Q26 Preview</td><td>매출 <b>1,758억(YoY +25%, QoQ +20%)</b>, 영업이익 <b>675억(YoY +21%, QoQ +18%)</b> — 매출 컨센 상회, 영업익 부합</td><td>2Q25 의료진 파업 전 박리다매 기저에도 YoY 성장</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 4·5월 의료관광 피부과 소비 1,408억·1,452억(YoY +63%, +86%) 역대 최고 ② 의료기기 수출 267억(+10% YoY, +26% QoQ) 유럽 확장 ③ 화장품 수출 400억(+105% YoY, +49% QoQ) 미국·중국 세포라 입점·채널 확장</td><td>마케팅 투자로 OPM 38.4%(−1.3%p)이나 영업 레버리지로 점진 개선</td></tr>
+<tr><td>★ 밸류 가정</td><td>2026E PER 15.5배·PBR 4.3배·EV/EBITDA 9.6배. 추정치 상향으로 적정주가 54만원 상향</td><td>화장품 비중 증가로 GPM 75.6% 전망</td></tr>
+</table>
+<p style="margin:8px 0 0;"><b>[다올 핵심]</b> 의료관광·화장품 수출이라는 두 성장축이 동시에 강해지며 시장 기대치를 상회하는 매출을 전망. '실적 모멘텀이 강하니 지금 들어가라'는 가장 공격적 최신 뷰.</p>
+</div>
+
+<div class="sk-box" style="border-color:#e74c3c;background:#fdedec;">
+<h3 style="margin-top:0;color:#e74c3c;">⚖️ 삼성증권 — "의료관광이 받치고 화장품이 얹어주고" <span class="tag-sk" style="background:#e74c3c;">2026.06.24</span> <span class="tag">TP 하향</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목 / 의견</td><td>BUY 유지, 목표주가 500,000 → <b>400,000원 하향(−20%)</b></td><td>"수급·단기 모멘텀 공백으로 눈높이 조정해도 여전히 매력적 밸류"</td></tr>
+<tr><td>★ 하향 사유</td><td>1분기 실적 발표 전후 단기 모멘텀 공백 + 대형주 중심 수급 이동 지속 → 멀티플 25% 할인, 12MF EBITDA 기반 TP 40만원</td><td>실적이 아닌 '수급·심리' 문제로 TP 하향</td></tr>
+<tr><td>★ 추정 (십억)</td><td>매출 2025 536 → 26E 663 → 27E 818 → 28E 950 / 영업익 214 → 270 → 346 → 407 / EPS 14,209 → 18,834 → 24,041 → 28,814</td><td>EBITDA margin 43~45%, ROE 27~29% 고수익 유지</td></tr>
+<tr><td>★ 파이프라인</td><td>2H26 EBD(마이크로니들RF+리쥬란 주입) 출시, 2027~28 고농축 리쥬란. 수출: 우크라이나 950만$(+167%), 호주 430만$(+348%), 서유럽 MOQ 선적</td><td>중장기 수출 모멘텀 확보</td></tr>
+</table>
+<p style="margin:8px 0 0;"><b>[삼성 핵심]</b> 펀더멘털은 견조하나 단기 수급·모멘텀 공백을 반영해 TP를 낮춤. 체크포인트는 ①서유럽 선적 ②허가국 증가 ③의료관광 내수 반등 ④화장품 채널 확대. 최근 베어 시각의 대표.</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a;background:#eafaf1;">
+<h3 style="margin-top:0;color:#1e6e3a;">📘 KB증권 — "오리지널의 가치는 영원하다" <span class="tag-sk" style="background:#1e6e3a;">2026.06.19</span> <span class="tag-new">신규 커버리지 개시</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>의견 / TP</td><td>BUY 신규개시, 목표주가 430,000원</td><td>커버리지 추가 = 시장 관심 확대 신호</td></tr>
+<tr><td>★ 3대 투자포인트</td><td>① PN 기반 스킨부스터 <b>오리지널리티</b>(원조 프리미엄) ② 글로벌 허가 확대 ③ 화장품으로의 선순환</td><td>경쟁 심화 우려에 대한 '오리지널 해자' 방어 논리</td></tr>
+<tr><td>★ 추정</td><td>2026년 영업이익 2,592억(+20.9% YoY, OPM 38.7%) 전망</td><td>본업 고수익성 지속</td></tr>
+</table>
+<p style="margin:8px 0 0;"><b>[KB 핵심]</b> '리쥬란은 PDRN/PN 스킨부스터의 원조'라는 점을 핵심 해자로 강조. 후발 경쟁·제네릭 우려에도 오리지널 브랜드의 가치가 유지된다는 시각.</p>
+</div>
