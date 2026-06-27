@@ -24,6 +24,18 @@
     "pages": 30
   },
   {
+    "file": "코스닥_클래시스_HIFU슈링크볼뉴머EBD_브라질중남미직영_260627.html",
+    "market": "코스닥",
+    "name": "클래시스",
+    "themes": [
+      "HIFU슈링크볼뉴머EBD",
+      "브라질중남미직영"
+    ],
+    "date": "2026-06-27",
+    "revision": false,
+    "pages": 2
+  },
+  {
     "file": "코스피_현대오토에버_피지컬AI두뇌SDV소프트웨어_로봇SI그룹captive_260626.html",
     "market": "코스피",
     "name": "현대오토에버",
