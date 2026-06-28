@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>달바글로벌 (483650) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>달바글로벌 (483650.KS)</h1>
+<div class="sub">프리미엄 비건 뷰티 브랜드사 · 화이트 트러플 미스트세럼 글로벌 히어로 SKU + Veganery 이너뷰티 + 홈뷰티 디바이스 · '국내 마케팅 머신 → 글로벌 브랜드사로 재평가'<br>증권사 12곳 커버·컨센 Buy 4.0·목표가 285,545원(+20.2%) · 현재가 237,500원(52주 최고 근접) · 1Q26 해외매출 +85% · 분석일 2026.06.28</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/26)</span><span class="snapshot-value">237,500원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">2.97조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value positive">+2.37%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">19.8배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (Fwd 2026E)</span><span class="snapshot-value">10.2배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">38.39%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1년 수익률</span><span class="snapshot-value positive">+28.38%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">반성연 외 10인<br>25.82%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value">451억<br>(+50% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Base TP</span><span class="snapshot-value">270,000원<br>(+13.7%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자체 Bull TP</span><span class="snapshot-value">340,000원<br>(+43.2%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (12사)</span><span class="snapshot-value">285,545원<br>(+20.2%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ETF 편입 (액티브+패시브)</span><span class="snapshot-value positive">79개<br>(액티브 8 / 패시브 71)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">ROE / OPM (2026E)</span><span class="snapshot-value positive">52.4% / 21.7%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 범위</span><span class="snapshot-value">121,200<br>~260,000원</span></div>
+</div>
+<div class="snapshot-core"><b>ETF 수급 한 줄:</b> 와이스트릿 Active/Passive ETF Tracker(2026.06.26) 조회 결과 달바글로벌은 <b>액티브 8개 + 패시브 71개 = 약 79개 ETF에 편입</b>됐다. 특히 <b>TIGER 화장품 ETF에서 14.49%로 편입 1순위(최상위 비중)</b>, SOL 화장품TOP3플러스 10.47%, HANARO K-뷰티 9.72% 등 화장품·K-뷰티 테마 패시브 ETF의 핵심 종목이다. 즉 달바 주가는 K-뷰티 테마 ETF로의 자금 유입에 직접 연동되는 구조다. 반면 액티브 ETF 편입 비중·주식수는 작아(TIME K컬처 200주 등), 패시브·외국인(38.4%)이 수급의 주력이다. <i>(데이터: ystreet ActiveETF/PassiveETF Tracker 2026.06.26 — 상세 §7-2)</i><br><br>
+<b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 <b>30건·12개 증권사 전수 커버리지</b>, 컨센 Buy(4.0)·목표가 285,545원(+20.2%). 4월 TP 220~260K → 1Q26 서프라이즈 후 5월 275~340K로 <b>일제히 상향</b>(목표주가 상향 러시), 6월 삼성 신규개시 270K. 전 증권사 매수 일색. (상세 §0)<br><br>
+<b>핵심 한줄:</b> 달바글로벌은 '화이트 트러플 미스트세럼'이라는 단일 히어로 SKU를 <b>국내 홈쇼핑·라이브커머스 마케팅으로 키운 뒤, 그 현금흐름을 북미(코스트코·ULTA)·유럽(아마존) 오프라인/온라인 글로벌 확장에 재투자</b>하는 프리미엄 비건 브랜드사다. 1Q26 매출 1,712억(+50%)·OP 451억(+50%)·<b>해외매출 +85%·해외비중 69%</b>로 'K-뷰티 글로벌 브랜드사'로의 재평가가 진행 중이다. 다만 ① 미스트·선케어 등 소수 SKU 의존(미스트 43%), ② 12MF PER 19.8배로 피어(실리콘투 8배) 대비 프리미엄, ③ 상반기 글로벌 채널 투자에 따른 마진 변동성이 리스크다. 가이던스(매출 7,000억·OPM 21%) 달성 여부와 신규 SKU·카테고리(디바이스·이너뷰티) 다변화가 멀티플 정당화의 관건이다.</div>
+</div>
