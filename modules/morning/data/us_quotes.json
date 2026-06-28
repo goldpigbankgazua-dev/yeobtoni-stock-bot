@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-29 02:30:05",
+  "fetched_at": "2026-06-29 02:35:03",
   "count": 5,
   "quotes": [
     {
@@ -54,7 +54,7 @@
       "change": -9.48,
       "change_pct": -0.61,
       "state": "REGULAR",
-      "market_ts": 1782654815,
+      "market_ts": 1782667902,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
