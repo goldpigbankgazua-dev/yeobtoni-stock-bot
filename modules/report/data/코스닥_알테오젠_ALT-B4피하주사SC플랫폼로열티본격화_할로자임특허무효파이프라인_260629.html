@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>알테오젠 (196170.KQ) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+.disc td:first-child,.disc th:first-child{white-space:nowrap}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.pipe-box{background:#eafaf1;border:2px solid #16a085;padding:14px;margin:12px 0;border-radius:6px}
+.tag-pipe{background:#16a085;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-clin{background:#9b59b6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box,.pipe-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>알테오젠 (196170.KQ)</h1>
+<div class="sub">ALT-B4 피하주사(SC) 플랫폼 로열티 본격화 · 할로자임 특허 무효 · 파이프라인 에셋별 임상 점검</div>
+<div class="sub">전문 애널리스트 멀티소스 리서치 보고서 · 작성일 2026.06.29 · 시세 기준 2026.06.26 종가</div>
+</div>
+
+<div class="snapshot">
+<h3 style="margin-top:0">📌 핵심 스냅샷 (2026.06.26 종가 / 06.29 ETF·수급 기준)</h3>
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">종가</span><span class="snapshot-value">343,500원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value negative">-8.40%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">18.4조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">569,000 / 286,000</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value">130.45 (51.52)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR</span><span class="snapshot-value">41.60</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분</span><span class="snapshot-value">15.00%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 베타</span><span class="snapshot-value">0.37</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센서스 목표주가</span><span class="snapshot-value">566,667원</span></div>
+</div>
+<div class="snapshot-core">
+<b>한 줄 요약 —</b> 알테오젠은 자체 개발한 인간 히알루로니다제 <b>ALT-B4(Hybrozyme™)</b>를 무기로 글로벌 빅파마의 정맥주사(IV)→피하주사(SC) 제형 전환 시장을 사실상 독점하는 플랫폼 기업이다. 최대 고객 MSD의 <b>키트루다SC(키트루다 큐렉스)</b>가 2025년 9월 미국 FDA 허가를 받아 시판되면서 2026년부터 판매 로열티·마일스톤이 본격 인식되는 <b>실적주 전환의 원년</b>에 진입했다. 2026년 5월 미국 특허심판원(PTAB)이 경쟁사 할로자임의 핵심 특허(MDASE)를 무효로 판단하면서 그동안 주가를 짓눌렀던 <b>특허 리스크가 완화</b>됐고, ALT-L9 아일리아 바이오시밀러·테르가제 등 자체 제품의 글로벌 허가도 연쇄적으로 나오고 있다. 다만 1Q26 마일스톤 인식 지연으로 단기 실적 변동성이 크고 PER 130배의 고밸류 부담이 상존한다. 9월 코스피 이전상장이 수급의 분기점이 될 전망이다.
+</div>
+</div>
+
+<h2>§0. 증권사 리포트 · 1차자료 · 외부검증</h2>
+<p>본 보고서는 FnGuide 증권사 리포트 전수(최근 3개월), FnGuide Snapshot·컨센서스·재무 데이터, 와이스트릿 ETF 트래커(액티브·패시브), DART 전자공시, 그리고 다수의 1차 기사·기업 IR을 교차 검증해 작성했다. 단일 출처에 의존하지 않고 정량(밸류·수급·재무)과 정성(파이프라인·임상·특허)을 이중으로 대조하는 것이 핵심 원칙이다.</p>
+
+<h3>📊 최근 3개월 증권사 리포트 전수 (FnGuide SearchReport 전 페이지 순회)</h3>
+<p>2026년 3월 말~6월 말 구간에서 알테오젠을 다룬 증권사·기업 리포트는 총 11건이 검색됐다(IR 자료 2건 포함). 커버리지 증권사는 신한투자·하나·대신·키움 4개사로, 코스피 대형주 대비 추정기관 수(컨센서스 3개)가 적은 편이다. 이는 곧 <b>실적 가시성이 확인되면 신규 커버리지 유입 여지가 크다</b>는 의미이기도 하다. 4개사 모두 투자의견 매수(BUY)를 유지했으며, 5월 할로자임 특허 무효 판정 직후 목표주가를 일제히 상향한 점이 특징이다.</p>
+
+<table>
+<tr><th>발간일</th><th>제공사</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>작성자</th></tr>
+<tr><td>26.06.02</td><td>대신증권</td><td>특허 리스크 Down, 신규 딜 가능성 Up</td><td>BUY</td><td>500,000</td><td>홍가혜·이채리</td></tr>
+<tr><td>26.05.21</td><td>하나증권</td><td>이제 실적만 보면 된다</td><td>BUY</td><td>580,000</td><td>김선아·유창근</td></tr>
+<tr><td>26.05.20</td><td>대신증권</td><td>검증된 플랫폼, 열려 있는 Upside</td><td>BUY(신규)</td><td>500,000</td><td>홍가혜·이채리</td></tr>
+<tr><td>26.05.19</td><td>키움증권</td><td>특허 불확실성 해소. 다음 모멘텀은?</td><td>매수</td><td>—</td><td>허혜민</td></tr>
+<tr><td>26.05.14</td><td>신한투자증권</td><td>탑픽인 이유</td><td>매수</td><td>620,000(상향)</td><td>엄민용·윤석현</td></tr>
+<tr><td>26.05.13</td><td>하나증권</td><td>바이오시밀러 대비 우수성을 입증할 기회</td><td>BUY</td><td>580,000</td><td>김선아·유창근</td></tr>
+<tr><td>26.05.11</td><td>신한투자증권</td><td>이제 특허 이슈 해소만 남았다</td><td>매수</td><td>570,000</td><td>엄민용·윤석현</td></tr>
+<tr><td>26.06.17</td><td>해당기업(IR)</td><td>Company &amp; Business Overview</td><td>—</td><td>—</td><td>IR팀</td></tr>
+<tr><td>26.04.09</td><td>해당기업(IR)</td><td>회사소개 및 주요 사업현황</td><td>—</td><td>—</td><td>IR팀</td></tr>
+</table>
+<p>목표주가 분포는 신한 620,000원(최고)~대신 500,000원(최저)으로 컨센서스 평균 566,667원이며, 현재가(343,500원) 대비 <span class="positive">약 65% 상단 여력</span>을 시사한다. 다만 모든 리포트가 키트루다SC 로열티 가정에 기반한 미래 실적을 현재가치로 끌어온 수치인 만큼, 마일스톤 인식 시점과 전환율 가정에 따라 목표주가의 민감도가 크다는 점은 유의해야 한다.</p>
+
+<div class="broker-box">
+<b>🔥 신한투자증권 — "탑픽인 이유" (2026.05.14, 엄민용·윤석현) · 목표주가 620,000원(상향)</b>
+<p>섹터 탑픽으로 제시. 5월 11일 보고서("이제 특허 이슈 해소만 남았다", TP 570,000)에서 사흘 만에 목표주가를 620,000원으로 9% 상향했다. 핵심 논리는 (1) 미국 PTAB의 할로자임 MDASE 특허 무효 판정으로 ALT-B4를 둘러싼 법적 불확실성이 해소됐고, (2) 키트루다SC의 빠른 침투에 따라 2026년 하반기부터 로열티가 실적에 가시화되며, (3) 아스트라제네카 등 추가 기술이전 후보(임핀지·볼루스토미그·올레클루맙)가 차기 모멘텀이라는 것이다. 신한은 빅파마의 IV→SC 전환을 "구조적 메가트렌드"로 규정하며 알테오젠을 그 트렌드의 핵심 수혜주로 봤다.</p>
+</div>
+
+<div class="sk-box">
+<b>📘 하나증권 — "이제 실적만 보면 된다" (2026.05.21, 김선아·유창근) · 목표주가 580,000원</b>
+<p>제목 그대로 "특허·기술이전 같은 모멘텀 단계를 지나 이제는 숫자(실적)로 증명할 국면"이라는 메시지다. 하나증권은 2026년 매출 4,712억원(+133% YoY), 영업이익 3,082억원, 로열티 본격화 구간 영업이익률 65% 상회를 추정했다. 5월 13일 보고서("바이오시밀러 대비 우수성을 입증할 기회")에서는 ALT-L9 아일리아 바이오시밀러가 단순 시밀러를 넘어 SC 플랫폼과 결합할 때의 차별성을 강조했다.</p>
+</div>
+
+<div class="sk-box">
+<b>📗 대신증권 — "특허 리스크 Down, 신규 딜 가능성 Up" (2026.06.02, 홍가혜·이채리) · 목표주가 500,000원</b>
+<p>가장 최근(6월 2일) 리포트로, 5월 20일 신규 커버리지("검증된 플랫폼, 열려 있는 Upside") 개시 후 2주 만의 업데이트다. 특허 리스크 하락과 신규 라이선스 딜 가능성 상승이라는 두 축을 균형 있게 제시하면서도 목표주가는 500,000원으로 가장 보수적이다. 이는 마일스톤·로열티의 인식 시점을 보수적으로 가정한 결과로 해석된다.</p>
+</div>
+
+<div class="sk-box">
+<b>📄 키움증권 — "특허 불확실성 해소. 다음 모멘텀은?" (2026.05.19, 허혜민)</b>
+<p>특허 이슈 해소를 확인하면서도 "다음 모멘텀은 무엇인가"라는 질문을 던졌다. 키움은 단기적으로 키트루다SC 침투율 데이터, 중기적으로 추가 빅파마 기술이전, 장기적으로 자체 제품(테르가제·아일리아 시밀러)의 글로벌 상업화를 단계별 촉매로 제시했다.</p>
+</div>
+
+<div class="disclosure-box">
+<b>📋 1차자료 — DART 공시 · 기업 IR</b>
+<p>① <b>코스피 이전상장</b>: 임시 주주총회에서 코스닥 조건부 상장폐지 및 유가증권시장 이전상장 안건을 가결, 2026년 6월 말 한국거래소에 예비심사를 청구하고 약 2~3개월 심사를 거쳐 9월 코스피 상장을 목표로 한다. ② <b>키트루다SC 마일스톤</b>: ALT-B4 적용 키트루다SC의 유럽 허가에 따른 마일스톤 1,500만 달러 수령(2026). ③ <b>2025년 확정 실적</b>: 매출 2,158억원·영업이익 1,069억원(영업이익률 49.5%). ④ <b>물질특허</b>: ALT-B4 미국 물질특허 등록(존속 2043년 초까지), 유럽 물질특허 등록 결정(2026.06). 본 절의 공시·IR 데이터는 §3-6 공시 분석에서 신호 공시 기준으로 재정리한다.</p>
+</div>
