@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>현대오토에버 (307950) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.peer-box{background:#eef7f0;border:2px solid #1e8449;padding:14px;margin:12px 0;border-radius:6px}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box,.peer-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>현대오토에버 (307950.KS)</h1>
+<div class="sub">현대차그룹 SDV·차량 SW + IT서비스 — Physical AI 시대 모빌리티·로봇의 '두뇌(소프트웨어)' · 그룹 captive 성장<br>컨센 BUY·TP 665,938원(16개사) · 현재가 544,000원(컨센 대비 +22%) · 분석일 2026.06.26</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (6/24)</span><span class="snapshot-value">544,000원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">14.9조원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">전일대비</span><span class="snapshot-value negative">-1.09%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PER (12M Fwd)</span><span class="snapshot-value negative">61.6배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PBR (현재)</span><span class="snapshot-value negative">8.08배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">외국인 지분율</span><span class="snapshot-value">2.15%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">+196.1%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">현대자동차 외 4인 75.29%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 영업이익</span><span class="snapshot-value negative">212억 (-20.7%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP (컨센)</span><span class="snapshot-value">665,938원<br>(+22.4%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP (한투)</span><span class="snapshot-value">950,000원<br>(+74.6%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (16사)</span><span class="snapshot-value">665,938원<br>(+22.4%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 최고/최저</span><span class="snapshot-value">938,000 /<br>148,600원</span></div>
+<div class="snapshot-item"><span class="snapshot-label">유동주식비율 / 신용</span><span class="snapshot-value">24.5% / AA-</span></div>
+<div class="snapshot-item"><span class="snapshot-label">투자의견(평균)</span><span class="snapshot-value">3.8 (일부 HOLD·매도)</span></div>
+</div>
+<div class="snapshot-core"><b>증권사 한 줄 (FnGuide 전수 재확인):</b> 최근 3개월 33개 리포트, 다수 BUY·TP 상향(한투 950,000·IBK/유진 880,000)이나 <b>의견이 갈린다</b> — 키움 UNDERPERFORM 450,000(매도)·상상인 HOLD. 컨센 TP 665,938원(16사)·투자의견 3.8. 강세론은 'Physical AI/로봇 SI 수혜', 약세론은 '차량용 SW 부진·고밸류'. (상세는 §0)<br><br>
+<b>밸류 한 줄:</b> PER 81.8배(12M Fwd 61.6배)·PBR 8.08배로 IT서비스 피어(삼성SDS PER 19배) 대비 4배 프리미엄. SDV·로봇 SI 성장 기대가 크게 선반영된 <b>고밸류 성장주</b> — 성장 입증이 전제. (피어 밸류 비교는 §2-4)<br><br>
+<b>핵심 한줄:</b> 현대오토에버는 현대차그룹 IT서비스(SI/ITO)와 차량용 SW(SDV 플랫폼·내비)를 담당하는 그룹 SW 핵심. Physical AI 시대 모빌리티·로봇이 'AI 두뇌(소프트웨어)'를 필요로 하면서, 현대모비스(액추에이터=몸)와 대비되는 <b>SW·SI 축의 수혜주</b>로 부각. 현대차그룹 75% 지배의 안정적 captive 매출(앱 운영·SI 계약)이 외형 성장을 받친다. 다만 1Q26 영업익 -20.7%(차량 SW 투자·인건비)와 PER 60배+ 고밸류, 일부 매도·HOLD 의견이 명확한 리스크다.</div>
+</div>
+
+<h2 style="border:none;color:#1a5276">§0. 멀티소스 교차검증 — 증권사·1차자료·외부검증</h2>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#1f618d">📊 증권사 리포트 전수 (FnGuide SearchReport, 최근 3개월 · 총 33건, 1page 발췌)</h3>
+<table>
+<tr><th>발간일</th><th>증권사</th><th>제목</th><th>투자의견</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td>26.06.09</td><td>IBK투자</td><td>미래를 이식하는 회사</td><td>매수(상향)</td><td>880,000 ▲</td><td class="positive">+61.8%</td></tr>
+<tr><td>26.06.08</td><td>한국투자</td><td>현대차그룹의 성장 = 현대오토에버의 급성장</td><td>BUY <span class="tag-new">NEW</span></td><td>950,000</td><td class="positive">+74.6%</td></tr>
+<tr><td>26.05.29</td><td>유진</td><td>변함없는 로보틱스 최대 수혜주</td><td>BUY(상향)</td><td>880,000 ▲</td><td class="positive">+61.8%</td></tr>
+<tr><td>26.05.27</td><td>LS</td><td>숲을 보자</td><td>BUY(상향)</td><td>755,000 ▲</td><td class="positive">+38.8%</td></tr>
+<tr><td>26.05.22</td><td>NH투자</td><td>그룹사 신사업 기대치 상향</td><td>BUY(상향)</td><td>770,000 ▲</td><td class="positive">+41.5%</td></tr>
+<tr><td>26.05.20</td><td>대신</td><td>시대에 순행하는 주식</td><td>BUY(상향)</td><td>720,000 ▲</td><td class="positive">+32.4%</td></tr>
+<tr><td>26.05.20</td><td>키움</td><td>차량용 SW 부진, 수익성 회복에 난항 예상</td><td class="negative">UNDERPERFORM ▼</td><td class="negative">450,000 ▼</td><td class="negative">-17.3%</td></tr>
+<tr><td>26.05.19</td><td>현대차</td><td>기술 선도기업의 전략적 동반자</td><td>BUY(상향)</td><td>730,000 ▲</td><td class="positive">+34.2%</td></tr>
+<tr><td>26.05.14</td><td>상상인</td><td>스마트팩토리와 휴머노이드 투입의 연결고리</td><td>HOLD</td><td>700,000</td><td class="positive">+28.7%</td></tr>
+<tr><td>26.05.06</td><td>DB</td><td>차량용 SW 부진은 과도기, AI·SDV 확장 초입</td><td>BUY</td><td>560,000</td><td class="positive">+2.9%</td></tr>
+<tr><td>26.05.06</td><td>흥국</td><td>내비는 천천히, 로봇은 가까이</td><td>BUY</td><td>520,000</td><td class="negative">-4.4%</td></tr>
+<tr style="background:#d6eaf8;font-weight:bold"><td colspan="3">FnGuide 컨센서스 (추정기관 16개사)</td><td>BUY (3.8)</td><td>665,938</td><td class="positive">+22.4%</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 최근 3개월 33건. ▲상향(로봇/SDV 강세론) / ▼하향(키움 UNDERPERFORM·매도). <b>의견이 명확히 갈리는 종목</b> — 투자의견 평균 3.8(4.0 미만), TP 레인지 450,000~950,000원으로 분산. 디스아그리 리포트(키움 매도)도 빠짐없이 수록.</p>
+</div>
+
+<div class="sk-box">
+<h3 style="margin-top:0;color:#b9521a">🔥 한국투자 (김창호·전유나) 2026.06.08 — "현대차그룹의 성장 = 현대오토에버의 급성장" <span class="tag-sk">최고 TP 950,000</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"그룹 성장이 곧 오토에버 급성장"</td><td>커버리지 내 최고 TP</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(신규) / 950,000</td><td>현재가 대비 +74.6%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 현대차그룹 SDV·자율주행·로봇 SW 수요 급증 ② 그룹 captive 매출 구조적 성장 ③ AI·SDV 확장 초입 ④ 로봇 SI 신사업</td><td>그룹 디지털 전환 독점 수혜</td></tr>
+<tr><td>★ Valuation</td><td>SDV/AI SW 성장 프리미엄</td><td>고멀티플 정당화</td></tr>
+</table>
+<p><b>[한투 핵심]</b> "현대차그룹의 SDV·로봇·AI 전환이 가속될수록 그룹 SW를 독점하는 오토에버가 급성장 — 그룹과 운명 공동체."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1e6e3a">
+<h3 style="margin-top:0;color:#1e6e3a">📘 유진 (이재일) 2026.05.29 — "변함없는 로보틱스 최대 수혜주" <span class="tag-sk">로봇 SI</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"로보틱스 최대 수혜주(SW/SI)"</td><td>로봇 SW 축 강조</td></tr>
+<tr><td>투자의견 / TP</td><td>BUY(상향) / 880,000</td><td>현재가 대비 +61.8%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 스마트팩토리+휴머노이드 투입 SI ② 로봇 SW·시스템 통합 ③ 그룹 로봇공장 디지털화 ④ SDV 플랫폼</td><td>Physical AI '두뇌' 포지션</td></tr>
+<tr><td>★ Valuation</td><td>로봇 SI 성장 반영</td><td>—</td></tr>
+</table>
+<p><b>[유진 핵심]</b> "로봇은 하드웨어(모비스)뿐 아니라 이를 운영·통합하는 SW/SI(오토에버)가 필수 — 로보틱스 SW 최대 수혜주."</p>
+</div>
+
+<div class="sk-box" style="border-color:#1f618d">
+<h3 style="margin-top:0;color:#1f618d">📙 상상인 (유민기) 2026.05.14 — "스마트팩토리와 휴머노이드 투입의 연결고리" <span class="tag-sk">HOLD</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"스마트팩토리-휴머노이드 연결고리"</td><td>역할 인정·밸류 중립</td></tr>
+<tr><td>투자의견 / TP</td><td>HOLD / 700,000</td><td>현재가 대비 +28.7%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 그룹 스마트팩토리에 휴머노이드 투입 시 SI 역할 ② 다만 밸류·수익성은 중립 ③ 차량 SW 수익성 회복 필요</td><td>성장 인정·밸류 부담</td></tr>
+<tr><td>★ Valuation</td><td>고밸류 감안 중립</td><td>HOLD</td></tr>
+</table>
+<p><b>[상상인 핵심]</b> "역할은 분명하나 현 밸류는 성장을 상당 부분 반영 — 중립 관점."</p>
+</div>
+
+<div class="sk-box" style="border-color:#e74c3c">
+<h3 style="margin-top:0;color:#e74c3c">⚠️ 키움 (신윤철·권용일) 2026.05.20 — "차량용 SW 부진, 수익성 회복에 난항" <span class="tag-sk" style="background:#e74c3c">UNDERPERFORM·매도</span></h3>
+<table>
+<tr><th>구분</th><th>핵심 코멘트</th><th>해석</th></tr>
+<tr><td>제목</td><td>"차량 SW 부진·수익성 회복 난항"</td><td>커버리지 유일 매도</td></tr>
+<tr><td>투자의견 / TP</td><td class="negative">UNDERPERFORM(하향) / 450,000</td><td>현재가 대비 -17.3%</td></tr>
+<tr><td>★ 핵심 논거</td><td>① 차량용 SW 부문 수익성 부진 ② 디지털 전환 투자·인건비로 마진 압박(1Q26 OP -20.7%) ③ PER 60배+ 고밸류 부담 ④ 로봇 SI 매출 기여 불확실</td><td>실적 대비 과도한 밸류</td></tr>
+<tr><td>★ Valuation</td><td>실적·수익성 기준 하향</td><td>TP 450,000(현재가 하회)</td></tr>
+</table>
+<p><b>[키움 핵심]</b> "차량용 SW 수익성 회복이 난항이고 밸류는 이미 높다 — 로봇 기대만으로 PER 60배는 과도." (반대 의견·디스아그리)</p>
+</div>
+
+<div class="sk-box" style="border-color:#7f8c8d">
+<h3 style="margin-top:0;color:#5d6d7e">📰 NH·LS·대신·현대차·DB·흥국 — 컨센 요약 <span class="tag-sk">전수</span></h3>
+<table>
+<tr><th>증권사 / 일자</th><th>제목 · 의견 · TP</th><th>핵심 포인트</th></tr>
+<tr><td>NH 05.22</td><td>그룹사 신사업 기대치 상향 · BUY 770,000</td><td>로봇·SDV 신사업 기대</td></tr>
+<tr><td>LS 05.27</td><td>숲을 보자 · BUY 755,000</td><td>단기 부진보다 장기 그림</td></tr>
+<tr><td>대신 05.20</td><td>시대에 순행하는 주식 · BUY 720,000</td><td>AI·SDV 시대 순행</td></tr>
+<tr><td>현대차 05.19</td><td>기술 선도기업의 전략적 동반자 · BUY 730,000</td><td>그룹 디지털 파트너</td></tr>
+<tr><td>DB 05.06</td><td>차량 SW 부진은 과도기 · BUY 560,000</td><td>과도기 후 AI·SDV 확장</td></tr>
+<tr><td>흥국 05.06</td><td>내비는 천천히, 로봇은 가까이 · BUY 520,000</td><td>로봇 SI가 더 가까운 모멘텀</td></tr>
+</table>
+<p><b>[컨센 핵심]</b> 강세론(다수) = ① 그룹 SDV·로봇 SW captive 수혜 ② AI·SDV 확장 초입 ③ 로봇 SI 신사업. 약세론(키움·상상인) = ① 차량 SW 수익성 부진 ② PER 60배+ 고밸류. <b>성장은 공감, 밸류는 이견.</b></p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📋 최근 3개년 주요 공시 (DART, 신호공시·루틴 제외) <span class="tag-disc">PRIMARY</span></h3>
+
+<h4 style="color:#1e6e3a;margin:6px 0">① 사업관련 공시 (그룹 SI/SW captive 계약)</h4>
+<table>
+<tr><th>접수일자</th><th>공시 (상대방)</th><th>핵심 수치 / 의미</th></tr>
+<tr><td>2025.11.28 / 2025.07.31 / 2024.12.03 / 2023.11.15</td><td>단일판매·공급계약 체결</td><td>그룹 SI/SW 대형 계약 다수 — captive 매출 기반</td></tr>
+<tr><td>2025.11.28 / 2024.10.02</td><td>기타경영사항 — 현대자동차 애플리케이션 운영 서비스 계약</td><td>그룹 ITO 운영 매출(안정적 반복 매출)</td></tr>
+<tr><td>2025.02.03 / 2024.01.26</td><td>매출액·손익구조 30% 이상 변경</td><td>SDV·IT서비스로 외형 성장(FY25 매출 4.25조)</td></tr>
+<tr><td>2024.05.17</td><td>타법인 주식 및 출자증권 취득결정 (자율)</td><td>SW·SDV 관련 투자/자회사</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:0 0 8px">※ 로봇 SI·SDV 플랫폼은 그룹 사업으로 IR·언론 다수. 단일판매·공급계약 상당수가 현대차·기아 그룹사 captive.</p>
+
+<h4 style="color:#b9521a;margin:6px 0">② 주주환원 공시</h4>
+<table>
+<tr><th>접수일자</th><th>공시</th><th>핵심 수치 / 의미</th></tr>
+<tr><td>2026.01.29 / 2025.02.03 / 2024.01.26</td><td>현금·현물배당 결정</td><td>DPS 2025 1,900원 (배당수익률 약 0.35%, 성장 재투자 우선)</td></tr>
+<tr><td>2026.02.26</td><td>자기주식 처분 결정</td><td>임직원 보상 등 처분</td></tr>
+</table>
+
+<h4 style="color:#8e44ad;margin:6px 0">③ 자본관련 공시</h4>
+<table>
+<tr><th>접수일자</th><th>공시</th><th>핵심 수치 / 의미</th></tr>
+<tr><td colspan="3" style="text-align:center;color:#7f8c8d">최근 3개년 유증·CB·합병 등 자본 신호 공시 없음 — 부채비율 92%이나 그룹 신용(AA-)·현금흐름 기반 안정</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">※ 출처: DART 회사별 검색(주요사항보고+거래소공시, 2023.06~2026.06). 최대주주 현대자동차 외 4인 75.29%(유동주식 24.5%).</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#1a5276">🌐 외부검증 1 — Physical AI·SDV·로봇 SW 산업 데이터 <span class="tag-global">GLOBAL</span></h3>
+<p>Physical AI 시대, 로봇·모빌리티가 물리세계에서 작동하려면 하드웨어(모비스 액추에이터)뿐 아니라 이를 제어·통합하는 'SW/SI 두뇌'가 필수다. 현대오토에버가 그 축이다.</p>
+<div class="global-quote">
+<b>SDV 전환:</b> 차량이 'Software Defined Vehicle(SDV)'로 전환되며 차량용 SW·OS·OTA·내비·커넥티비티의 중요성이 급증. 현대차그룹은 SDV·SDx 전략을 추진하며, 현대오토에버가 차량 SW 플랫폼을 담당.<br><br>
+<b>로봇 SI:</b> 글로벌 로봇 시장 75조→2040 800조. 휴머노이드를 스마트팩토리에 투입하려면 <b>로봇 운영·시스템 통합(SI)·디지털트윈 SW</b>가 필요 — 현대오토에버가 그룹 로봇공장 디지털화를 담당하는 SI 수혜.<br><br>
+<b>Physical AI 양축:</b> 엔비디아 "다음 AI 프론티어는 Physical AI". 현대차그룹은 보스턴다이내믹스(로봇 몸)·현대모비스(액추에이터 근육)·<b>현대오토에버(SW 두뇌)</b>로 Physical AI 수직계열을 구축.</p>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 스터닝밸류·핀릿 AI/로보틱스 SW 분석 · 한국투자·유진 로봇 SI · 골드만삭스 로봇 시장</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 현대차그룹 디지털 전환 전략 <span class="tag-policy">GROUP STRATEGY</span></h3>
+<p><b>① 그룹 SW 내재화 — captive 성장</b></p>
+<div class="policy-quote">현대차그룹은 SDV·자율주행·로봇 SW를 그룹 내부에서 개발·운영하는 전략. 현대오토에버가 그룹 IT서비스(SI/ITO)·차량 SW를 독점적으로 담당 — 현대자동차 75.29% 지배 하에 <b>그룹 애플리케이션 운영·SI 계약(captive 매출)</b>이 구조적으로 성장. 그룹의 디지털 전환 투자가 곧 오토에버 매출.</div>
+<p><b>② Physical AI 수직계열의 SW 축</b></p>
+<div class="policy-quote">그룹 Physical AI 전략에서 보스턴다이내믹스(로봇)·현대모비스(액추에이터)가 '몸/근육'이라면, 현대오토에버는 이를 제어·통합하는 <b>'SW 두뇌'</b>. 스마트팩토리에 휴머노이드를 투입·운영하는 SI, SDV 플랫폼, 디지털트윈이 신성장축(스터닝밸류·유진).</div>
+<p style="font-size:9pt;color:#7f8c8d;margin:5px 0 0">📌 출처: 한국투자 그룹 성장=오토에버 · KB 로봇 SI 포지션 · 현대차증권 SDx 전략</p>
+</div>
+
+<div class="ter-box" style="border-color:#8e44ad">
+<h3 style="margin-top:0;color:#8e44ad">📰 외부검증 3 — 최근 1개월 핵심 기사 (2026.05.26~06.25) <span class="tag-global" style="background:#8e44ad;">NEWS</span></h3>
+<p>① <b>한투 "그룹 성장=오토에버 급성장" TP 950,000(6/8)</b> — 최고 TP 신규 커버. <span style="font-size:9pt;color:#7f8c8d">📌 한국투자 2026.06.08</span></p>
+<p>② <b>"AI/로보틱스 시대의 핵심 두뇌, 디지털 전환 중심"(6/18)</b> — SW 두뇌 포지션. <span style="font-size:9pt;color:#7f8c8d">📌 스터닝밸류 2026.06.18</span></p>
+<p>③ <b>"휴머노이드 양산 뒤 진짜 수혜주"(6/15)</b> — 로봇 SI/SW 수혜. <span style="font-size:9pt;color:#7f8c8d">📌 핀릿 2026.06.15</span></p>
+<p>④ <b>IBK "미래를 이식하는 회사" TP 880,000(6/9)</b> — SDV·로봇 SW. <span style="font-size:9pt;color:#7f8c8d">📌 IBK 2026.06.09</span></p>
+<p>⑤ <b>⚠️ 키움 UNDERPERFORM TP 450,000(5/20)</b> — 차량 SW 부진·고밸류 매도 의견. <span style="font-size:9pt;color:#7f8c8d">📌 키움증권 2026.05.20</span></p>
+<p>⑥ <b>현대차 앱 운영 서비스 계약 체결</b> — 그룹 captive ITO 매출. <span style="font-size:9pt;color:#7f8c8d">📌 DART 2025.11.28</span></p>
+<p>⑦ <b>1Q26 영업익 212억(-20.7%)</b> — 차량 SW 투자·인건비로 수익성 부진. <span style="font-size:9pt;color:#7f8c8d">📌 IR 2026.04</span></p>
+<p>⑧ <b>배당 결정(1/29)</b> — DPS 1,900원. <span style="font-size:9pt;color:#7f8c8d">📌 DART 2026.01.29</span></p>
+</div>
+
+<div class="global-box" style="border-color:#0e6655">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655;">CALENDAR</span></h3>
+<div class="warning-box">
+<b>🔥 단기 (2026 하반기)</b><br>
+• 2026.07 (예상) — 2Q26 실적 발표 (컨센 OP 798억, 차량 SW 수익성 회복 관건)<br>
+• 2026 하반기 — 그룹 SDV 플랫폼·OTA 적용 확대<br>
+• 2026 하반기 — 그룹사 SI/앱 운영 계약 갱신·확대<br>
+• 2026 하반기 — 로봇공장 디지털화·스마트팩토리 SI
+</div>
+<b>중기 (2027)</b><br>
+• 2027 — SDV 전환 본격화에 따른 차량 SW 매출 성장<br>
+• 2027 — 그룹 휴머노이드 투입 확대 시 로봇 SI 매출 가시화<br>
+• 2027 — 차량 SW 수익성 회복 여부(밸류 정당화 핵심)<br>
+• 2027 — 자율주행·커넥티비티 SW 확장<br><br>
+<b>장기 (2028~)</b><br>
+• 2028~ — Physical AI/로봇 SI 본격 개화<br>
+• 중장기 — 그룹 외부(비현대차) 매출 다변화 여부<br>
+• 중장기 — SDV SW 글로벌 경쟁력 확보<br>
+• 상시 — 그룹 디지털 전환 투자 = captive 성장
+</div>
+
+<h2>1. 투자포인트</h2>
+<ul class="points">
+<li><span class="point-title">① Physical AI '두뇌(SW)' — 모빌리티·로봇 SW 핵심</span><br>Physical AI 시대 로봇·차량이 물리세계에서 작동하려면 제어·통합 SW가 필수. 현대오토에버는 현대모비스(액추에이터=몸)와 대비되는 <b>SW/SI 축</b>으로, SDV 플랫폼·로봇 SI·디지털트윈을 담당한다.</li>
+<li><span class="point-title">② 그룹 captive 매출 — 구조적 성장</span><br>현대자동차 75.29% 지배 하에 그룹 IT서비스(SI/ITO)·차량 SW를 독점 담당. 현대차 앱 운영·SI 단일판매계약 등 captive 매출이 그룹 디지털 전환 투자와 함께 구조적으로 성장(한국투자 "그룹 성장=오토에버 급성장").</li>
+<li><span class="point-title">③ SDV 전환 수혜 — 차량 SW 중요성 급증</span><br>차량이 SDV(Software Defined Vehicle)로 전환되며 차량 OS·OTA·내비·커넥티비티 SW 수요 급증. 현대오토에버가 그룹 차량 SW 플랫폼을 담당해 SDV 전환의 직접 수혜.</li>
+<li><span class="point-title">④ 로봇 SI 신성장 — 스마트팩토리+휴머노이드</span><br>그룹이 휴머노이드를 스마트팩토리에 투입하려면 로봇 운영·시스템 통합(SI)·디지털화 SW가 필요. 현대오토에버가 그룹 로봇공장 디지털화를 담당하는 '로보틱스 SW 수혜주'(유진).</li>
+<li><span class="point-title">⑤ 안정적 외형 성장 — 매출 4.8조 전망</span><br>매출 2023 3.07조 → 2026E 4.76조로 꾸준한 성장. ITO 운영 수요·핵심 시스템 구축 수요가 안정적 반복 매출을 형성. ROE 10.3%로 IT서비스 평균 수준.</li>
+<li><span class="point-title">⑥ 거대 TAM — 로봇·SDV SW 시장</span><br>로봇 시장 75조→800조, SDV SW 시장 급성장. Physical AI·SDV 전환의 SW 수요가 구조적으로 폭증하는 초입으로, 그룹 내 독점 SW 사업자의 장기 성장 잠재력.</li>
+<li><span class="point-title">⑦ 그룹 Physical AI 수직계열의 일원</span><br>보스턴다이내믹스(로봇)·현대모비스(액추에이터)·현대오토에버(SW)로 이어지는 그룹 Physical AI 수직계열. 그룹 차원의 로봇·SDV 투자가 오토에버 SW·SI 매출로 직결되는 구조.</li>
+<li><span class="point-title">⑧ 다수 증권사 BUY·TP 상향</span><br>최근 3개월 다수 리포트 BUY·TP 상향(한투 950,000·IBK/유진 880,000). Physical AI·로봇 SI 테마로 재평가. 컨센 TP 665,938원으로 현재가 대비 +22%.</li>
+<li><span class="point-title">⑨ AA- 신용·그룹 backing</span><br>신용등급 AA-, 현대차그룹 backing으로 안정적 자금 조달·사업 기반. 그룹 디지털 전환의 핵심 파트너로서 사업 지속성·안정성 높음.</li>
+<li><span class="point-title">⑩ [주의] 1Q26 수익성 부진 — OP -20.7%</span><br>1Q26 영업익 212억(-20.7%). 차량용 SW 부문 수익성 부진, 디지털 전환 투자·인건비 증가로 마진 압박. 수익성 회복이 밸류 정당화의 핵심 과제(키움 매도 근거).</li>
+<li><span class="point-title">⑪ [주의] PER 60배+ 고밸류 — 의견 분분</span><br>PER 81.8배(12M Fwd 61.6배)·PBR 8.08배로 IT서비스 피어(삼성SDS PER 19배) 대비 4배 프리미엄. 키움 UNDERPERFORM(450,000)·상상인 HOLD 등 밸류 부담 지적. 성장 입증이 전제.</li>
+<li><span class="point-title">⑫ [주의] 낮은 유동성·1년 +196% 급등</span><br>현대차 75% 지배로 유동주식 24.5%·외국인 2.15%로 낮아 변동성 큼. 1년 +196% 급등으로 기대 선반영. 단기 조정·고밸류 되돌림 리스크.</li>
+<li><span class="point-title">⑬ 차량 SW 수익성 회복 시 레버리지</span><br>현 수익성 부진은 SDV 전환 초기 투자 영향(DB "과도기"). SDV·로봇 SW 매출이 본궤도에 오르면 SW 특유의 고마진 레버리지로 수익성이 점프할 잠재력.</li>
+</ul>
+
+<h3>투자의견 종합</h3>
+<div class="update-box">
+<b>종합 BUY(성장) · 밸류 주의.</b> 현대오토에버는 그룹 Physical AI/SDV의 'SW 두뇌'로 구조적 성장축을 보유하나, ① 1Q26 영업익 -20.7%의 수익성 부진 ② PER 60배+·PBR 8배의 고밸류 ③ 키움 매도·상상인 HOLD 등 명확한 반대 의견이 공존한다. 성장 스토리(SDV·로봇 SI·그룹 captive)는 매력적이나, <b>차량 SW 수익성 회복과 로봇 SI 매출 가시화가 고밸류를 정당화하는 전제</b>다. 공격적 진입보다 <b>2Q 수익성 회복·SDV 매출 확인 후 분할 접근</b>이 합리적이며, 단기적으로는 밸류 부담·변동성을 감안해야 한다. (그룹 안정성·SW 성장성을 중시하면 매수, 밸류·수익성을 중시하면 관망 — 시각에 따라 갈림)
+</div>
+
+<h3>시나리오별 목표주가</h3>
+<table>
+<tr><th>시나리오</th><th>핵심 가정</th><th>밸류 방법</th><th>목표주가</th><th>현재가 대비</th></tr>
+<tr><td><b>Bull</b></td><td>SDV·로봇 SI 매출 본격화 + 수익성 회복 + 그룹 투자 가속</td><td>SW 성장 프리미엄 PER(한투)</td><td class="positive">950,000원</td><td class="positive">+74.6%</td></tr>
+<tr><td><b>Base</b></td><td>그룹 captive 성장 지속 + 수익성 완만 회복 (컨센)</td><td>26F EPS 7,603 × PER ~88배(컨센)</td><td class="positive">665,938원</td><td class="positive">+22.4%</td></tr>
+<tr><td><b>Bear</b></td><td>차량 SW 수익성 부진 지속 + 고밸류 디레이팅 (키움)</td><td>실적·수익성 기준 PER 축소</td><td class="negative">450,000원</td><td class="negative">-17.3%</td></tr>
+</table>
+<div class="calc-box">
+[밸류에이션 특이사항 — 고밸류 성장주]
+ 26F EPS 7,603원 × 컨센 PER ~88배 ≈ 665,938원 (컨센 TP)
+ ※ IT서비스 피어(삼성SDS PER 19배) 대비 4배+ 프리미엄
+ ※ Bull(한투) 950,000 = SDV·로봇 SI 성장 본격 반영
+ ※ Bear(키움) 450,000 = 수익성 부진·고밸류 디레이팅
+ → 성장 입증 여부에 따라 밸류 밴드 매우 광범위(450k~950k)
+</div>
+
+<h2>2. 산업개요</h2>
+<h3>2-1. SDV·로봇 SW + IT서비스 — TAM·SAM·SOM</h3>
+<table>
+<tr><th>구분</th><th>정의</th><th>규모 (추정)</th></tr>
+<tr><td><b>TAM</b></td><td>글로벌 IT서비스 + 차량 SW + 로봇 SI</td><td>수백조원, 고성장</td></tr>
+<tr><td><b>SAM</b></td><td>현대차그룹 SDV·SW·SI + 로봇 디지털화</td><td>그룹 디지털 전환 투자 연동</td></tr>
+<tr><td><b>SOM</b></td><td>현대오토에버 IT서비스+차량 SW 매출</td><td>2026E 매출 4.76조</td></tr>
+</table>
+<p>차량의 SDV 전환과 로봇의 Physical AI화로 SW·SI 수요가 급증. 현대오토에버는 그룹 내 독점 SW 사업자로서 SDV 플랫폼·차량 OS·로봇 SI를 담당, 그룹 디지털 전환 투자에 비례해 성장한다.</p>
+
+<h3>2-2. 밸류체인 — 그룹 SW/SI 허브</h3>
+<table>
+<tr><th>단계</th><th>주체 / 파트너</th><th>현대오토에버 포지션</th></tr>
+<tr><td><b>[수요] 그룹 디지털 전환</b></td><td>현대차·기아·그룹사</td><td>SI/ITO/앱 운영 captive 수요</td></tr>
+<tr><td><b>[핵심] SW·SI·SDV 플랫폼</b></td><td><b>현대오토에버 (SW 두뇌)</b></td><td><b>그룹 SW 독점 사업자</b></td></tr>
+<tr><td><b>[연계] Physical AI HW</b></td><td>현대모비스(액추에이터)·보스턴다이내믹스(로봇)</td><td>로봇 운영·SI SW 제공</td></tr>
+<tr><td><b>[제품] 차량 SW</b></td><td>현대차·기아 차량</td><td>SDV OS·내비·OTA</td></tr>
+</table>
+<div class="bull-box"><b>밸류체인 핵심:</b> 현대차그룹 75% 지배 하의 <b>captive SW/SI 사업자</b>로, 그룹 디지털 전환·SDV·로봇 투자가 곧 매출로 연결되는 안정적 구조. Physical AI 수직계열에서 '두뇌(SW)'를 담당. 단, 그룹 의존도가 높아 외부(비현대차) 매출 다변화가 과제이며, 차량 SW 부문은 초기 투자로 수익성이 아직 낮은 양면성.</div>
+
+<h3>2-3. 산업 사이클 — SDV·Physical AI 전환 초입</h3>
+<p>차량 SDV 전환과 로봇 Physical AI화가 동시 진행되는 SW 수요 확대 초입. 단기적으로는 SDV 플랫폼 개발·전환 투자로 비용이 선행(수익성 부진)되나, 중장기적으로 SW 매출이 본궤도에 오르면 고마진 레버리지가 작동. 사이클의 핵심 변수는 SDV·로봇 SW의 매출화·수익성 회복 시점이다.</p>
+
+<h3>2-4. Peer 비교 (정성)</h3>
+<table>
+<tr><th>구분</th><th>현대오토에버</th><th>삼성SDS</th><th>포스코DX</th><th>현대모비스</th></tr>
+<tr><td>주력</td><td>그룹 SI+차량 SW(SDV)</td><td>IT서비스·물류·클라우드</td><td>스마트팩토리·물류자동화</td><td>액추에이터(Physical AI HW)</td></tr>
+<tr><td>Physical AI 포지션</td><td>SW '두뇌'(SDV·로봇 SI)</td><td>클라우드·AI 인프라</td><td>공장 자동화·로봇 SI</td><td>액추에이터 '근육'</td></tr>
+<tr><td>고객</td><td>현대차그룹 captive 75%</td><td>삼성그룹 + 외부</td><td>포스코그룹 + 외부</td><td>현대차·글로벌 OEM</td></tr>
+<tr><td>특징</td><td>고성장·고밸류</td><td>대형·안정·저밸류</td><td>자동화·고밸류</td><td>본업안정+로봇옵션</td></tr>
+</table>
+
+<div class="peer-box">
+<h3 style="margin-top:0;color:#1e8449">📊 Peer 밸류에이션 비교 (IT서비스·SW·Physical AI, FnGuide 2026.06.25 기준)</h3>
+<table>
+<tr><th>종목</th><th>시가총액</th><th>매출액</th><th>OPM</th><th>ROE</th><th>PER</th><th>12M Fwd PER</th><th>PBR</th><th>EV/EBITDA</th><th>배당수익률</th></tr>
+<tr style="background:#eafaf1;font-weight:bold"><td>현대오토에버</td><td>14.9조</td><td>42,521억</td><td>6.0%</td><td>10.3%</td><td>81.8배</td><td>61.6배</td><td>8.08배</td><td>21.1배</td><td>0.35%</td></tr>
+<tr><td>삼성SDS</td><td>14.7조</td><td>139,299억</td><td>6.9%</td><td>7.9%</td><td>19.3배</td><td>18.6배</td><td>1.48배</td><td>8.6배</td><td>1.68%</td></tr>
+<tr><td>포스코DX</td><td>3.39조</td><td>10,752억</td><td>5.6%</td><td>9.5%</td><td>65.1배</td><td>—</td><td>5.94배</td><td>58.7배</td><td>0.56%</td></tr>
+<tr><td>현대모비스(Physical AI HW)</td><td>46.2조</td><td>611,181억</td><td>5.5%</td><td>7.7%</td><td>12.8배</td><td>10.5배</td><td>0.93배</td><td>7.5배</td><td>1.28%</td></tr>
+</table>
+<p style="margin:8px 0 0"><b>한 줄 결론:</b> 현대오토에버는 <b>PER 81.8배(12M 61.6배)·PBR 8.08배로 IT서비스 대표주 삼성SDS(PER 19배·PBR 1.5배) 대비 약 4배 프리미엄</b>이다. 매출 규모(4.25조 vs 삼성SDS 13.9조)는 1/3인데 시총은 유사 — SDV·로봇 SI 성장 기대가 크게 선반영됐다. 자동화·로봇 SI 성격이 유사한 포스코DX(PER 65배)와는 비슷한 고밸류대. ROE(10.3%)는 피어 중 가장 높아 수익성은 양호하나, 절대 밸류는 성장을 상당 부분 반영한 수준이다. 같은 그룹의 Physical AI HW축 현대모비스(PER 10.5배)와 극명히 대비 — <b>SW 성장주 프리미엄 vs HW 가치주</b>. 성장·SDV 모멘텀을 중시하면 오토에버, 밸류·안정·배당을 중시하면 삼성SDS·현대모비스가 합리적 선택. <b>오토에버의 고밸류는 SDV·로봇 SI 매출의 실제 성장으로 입증돼야 유지된다.</b></p>
+</div>
+
+<h2>3. 기업개요</h2>
+<h3>3-1. 회사 프로필</h3>
+<p>2000년 설립된 현대자동차그룹 IT서비스 전문기업, 11개 비상장 종속회사 보유. IT 컨설팅·구축·운영·유지보수의 IT서비스업(SI·ITO)과 <b>차량용 SW(SDV 플랫폼·내비게이션 SW)</b> 사업을 영위. 차량용 SW 부문은 SDV 전환으로 중요성이 지속 확대. 현대차그룹 Physical AI 전략의 'SW 두뇌'로 SDV·로봇 SI를 담당.</p>
+
+<h3>3-2. BM 분해 — 부문 구조</h3>
+<table>
+<tr><th>부문</th><th>내용</th><th>특징</th></tr>
+<tr><td>IT서비스(SI)</td><td>그룹 시스템 구축</td><td>프로젝트성, 그룹 captive</td></tr>
+<tr><td>IT서비스(ITO)</td><td>그룹 시스템 운영·유지보수</td><td>안정적 반복 매출</td></tr>
+<tr><td>차량용 SW</td><td>SDV 플랫폼·OS·내비</td><td>SDV 전환 성장축(초기 투자)</td></tr>
+<tr><td>로봇 SI(신성장)</td><td>스마트팩토리·로봇 디지털화</td><td>Physical AI SW 수혜</td></tr>
+</table>
+
+<h3>3-3. 경쟁 해자</h3>
+<div class="bull-box">① <b>그룹 captive 독점</b> — 현대차 75% 지배, SW 내재화. ② <b>SDV 플랫폼 선점</b> — 그룹 차량 SW 표준. ③ <b>로봇 SI 그룹 연계</b> — 보스턴다이내믹스·모비스 시너지. ④ <b>안정적 반복 매출(ITO)</b>.</div>
+
+<h3>3-4. 연혁</h3>
+<table>
+<tr><th>시기</th><th>이벤트</th></tr>
+<tr><td>2000</td><td>설립(현대차그룹 IT서비스)</td></tr>
+<tr><td>2019</td><td>현대오트론 차량SW·현대엠엔소프트 합병(차량 SW 강화)</td></tr>
+<tr><td>2024~2025</td><td>SDV·SDx 전략, 차량 SW 확대</td></tr>
+<tr><td>2026 상반기</td><td>Physical AI·로봇 SI 테마 재평가(1년 +196%)</td></tr>
+</table>
+
+<h3>3-5. 주주구성</h3>
+<table>
+<tr><th>주주</th><th>지분율</th><th>비고</th></tr>
+<tr><td>현대자동차(외 4인)</td><td>75.29%</td><td>현대차그룹 (2026.03)</td></tr>
+<tr><td>국민연금공단</td><td>8.22%</td><td>2025.06</td></tr>
+<tr><td>외국인</td><td>2.15%</td><td>낮음(유동주식 적음)</td></tr>
+<tr><td>유동주식</td><td>24.53%</td><td>6,727,309주</td></tr>
+</table>
+
+<h2>4. 재무분석</h2>
+<h3>4-1. 연간 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2023</th><th>2024</th><th>2025</th><th>2026E</th></tr>
+<tr><td>매출액</td><td>30,650</td><td>37,136</td><td>42,521</td><td>47,618</td></tr>
+<tr><td>영업이익</td><td>1,814</td><td>2,244</td><td>2,553</td><td>2,782</td></tr>
+<tr><td>지배순이익</td><td>1,378</td><td>1,708</td><td>1,825</td><td>2,085</td></tr>
+<tr><td>영업이익률</td><td>5.9%</td><td>6.0%</td><td>6.0%</td><td>5.8%</td></tr>
+<tr><td>ROE</td><td>9.0%</td><td>10.4%</td><td>10.3%</td><td>10.8%</td></tr>
+</table>
+<p>매출 3.07조→4.76조(2026E)로 꾸준한 외형 성장. 다만 영업이익률은 6%대로 횡보 — SDV·차량 SW 전환 투자·인건비가 수익성 개선을 제약. ROE 10%대는 IT서비스 평균 수준. 외형 성장 대비 수익성 레버리지가 아직 약한 점이 밸류 논쟁의 핵심.</p>
+
+<h3>4-2. 분기 추이 (연결)</h3>
+<table>
+<tr><th>항목(억원)</th><th>2025.09</th><th>2025.12</th><th>2026.03</th><th>2026.06E</th></tr>
+<tr><td>매출액</td><td>10,543</td><td>13,227</td><td>9,357</td><td>11,676</td></tr>
+<tr><td>영업이익</td><td>708</td><td>765</td><td>212</td><td>798</td></tr>
+<tr><td>영업이익률</td><td>6.7%</td><td>5.8%</td><td>2.3%</td><td>6.8%</td></tr>
+</table>
+<p>1Q26 매출 9,357억(+12.3%)이나 영업익 212억(-20.7%, OPM 2.3%로 급락). 차량용 SW 투자·인건비 증가가 수익성을 압박. 2Q26E OP 798억으로 회복 전망이나, <b>수익성 회복 입증이 고밸류 정당화의 관건</b>(키움 매도 근거).</p>
+
+<h3>4-3. 현금흐름·재무건전성</h3>
+<table>
+<tr><th>항목</th><th>2024</th><th>2025</th></tr>
+<tr><td>자본총계</td><td>17,305억</td><td>18,747억</td></tr>
+<tr><td>부채비율</td><td>93.6%</td><td>92.3%</td></tr>
+<tr><td>BPS</td><td>62,191원</td><td>67,358원</td></tr>
+<tr><td>DPS</td><td>1,780원</td><td>1,900원</td></tr>
+</table>
+<p>부채비율 92%(IT서비스 운전자본 특성)이나 그룹 신용(AA-)·현금흐름으로 안정. BPS 67,358원 대비 현재가 544,000원으로 PBR 8.08배 — 순자산 대비 매우 높은 프리미엄(성장 기대 반영).</p>
+
+<h3>4-4. 자본구조·투자 리스크</h3>
+<div class="risk-box">자본구조는 그룹 backing·AA-로 안정적이나, SDV·차량 SW R&amp;D·인건비 투자가 단기 수익성을 압박. 투자 회수(SW 매출화)가 지연되면 고밸류(PER 60배+) 정당화가 어려워져 디레이팅 리스크. 그룹 의존도가 높아 그룹 IT 투자 축소 시 매출 영향.</div>
+
+<h2>5. 주주환원</h2>
+<p>DPS 1,900원, 배당수익률 0.35%(주가 급등으로 낮음). 성장 재투자 우선 단계로 배당 매력은 제한적. 자기주식 처분(임직원 보상)도 환원보다 운영 성격. 현 국면의 주주가치는 배당보다 <b>SDV·로봇 SI 성장을 통한 이익·멀티플 확대</b>에 달려 있다. 흑자 안정·성장 정착 시 배당 확대 여지.</p>
+
+<h2>6. 밸류에이션</h2>
+<h3>6-1. 멀티플 비교 (Peer 대비)</h3>
+<p>PER 81.8배(12M Fwd 61.6배)·PBR 8.08배로 <b>IT서비스 대표주 삼성SDS(PER 19배) 대비 약 4배 프리미엄</b>(§2-4). 매출 규모는 삼성SDS의 1/3인데 시총은 유사 — SDV·로봇 SI 성장이 크게 선반영. 자동화·로봇 SI 성격의 포스코DX(PER 65배)와 유사한 고밸류대. ROE 10.3%로 수익성은 양호하나, 절대 밸류는 부담스러운 수준으로 의견이 갈린다(키움 매도·상상인 HOLD).</p>
+
+<h3>6-2. 시나리오 산출</h3>
+<table>
+<tr><th>시나리오</th><th>목표주가</th><th>밸류 근거</th><th>핵심 트리거</th></tr>
+<tr><td>Bull</td><td class="positive">950,000원</td><td>SDV·로봇 SI 성장 프리미엄(한투)</td><td>SW 매출 본격화·수익성 회복</td></tr>
+<tr><td>Base</td><td class="positive">665,938원</td><td>26F EPS × PER ~88배(컨센)</td><td>그룹 captive 성장 지속</td></tr>
+<tr><td>Bear</td><td class="negative">450,000원</td><td>수익성 부진·디레이팅(키움)</td><td>차량 SW 수익성 회복 실패</td></tr>
+</table>
+
+<h3>6-3. 진입·이탈 기준</h3>
+<div class="update-box"><b>진입:</b> 고밸류 감안 보수적 접근 — 450,000~520,000원(Bear·흥국 TP 부근) 분할이 안전마진. <b>비중 확대:</b> 차량 SW 수익성 회복·SDV 매출 성장·로봇 SI 수주 확인 시. <b>이탈/차익:</b> 800,000원 이상(성장 본격 반영) 또는 수익성 부진 지속·고밸류 디레이팅 시. 의견이 갈리는 고밸류 성장주이므로 실적(수익성) 확인 후 대응이 핵심.</div>
+
+<h2>7. 주가 히스토리</h2>
+<h3>7-1. 1년 주가 흐름 + 핵심 모멘텀</h3>
+<table>
+<tr><th>지표</th><th>값</th></tr>
+<tr><td>현재가 (6/24)</td><td>544,000원</td></tr>
+<tr><td>52주 최고 / 최저</td><td>938,000 / 148,600원</td></tr>
+<tr><td>수익률 (1M/3M/6M/1Y)</td><td>-13.8% / +34.2% / +89.2% / +196.1%</td></tr>
+<tr><td>베타 (1년)</td><td>1.01</td></tr>
+</table>
+<p>지난 1년 +196.1% 폭등 — 148,600원에서 938,000원까지 급등 후 현재 544,000원으로 조정. Physical AI·SDV·로봇 SI 재평가가 상승을 주도. 최근 1개월 -13.8%는 고점 차익실현·1Q 수익성 부진·고밸류 부담. 유동주식 24.5%로 변동성 큼. 핵심 모멘텀은 SDV 매출·로봇 SI 수주·수익성 회복.</p>
+
+<h2>7-2. ETF 자금 유입 분석</h2>
+<h3>7-2-1. 편입 현황 요약</h3>
+<p>현대오토에버는 KOSPI200 구성종목으로 코스피200·IT·AI·로봇 테마 ETF에 광범위하게 편입. 다만 유동주식 24.5%로 적어 패시브 실제 보유는 제한적이며, AI·로봇·SDV 테마 ETF의 비중이 주가 모멘텀과 연동된다.</p>
+
+<h3>7-2-2. 액티브 ETF 동향</h3>
+<p>AI·로봇·성장주 액티브 ETF가 Physical AI/SDV 테마로 현대오토에버를 편입. 1년 +196% 급등 과정에서 테마 ETF 매수가 동반됐으며, 조정 국면에서는 차익실현도 관찰된다.</p>
+<table>
+<tr><th>구분</th><th>내용</th></tr>
+<tr><td>주요 편입 테마</td><td>AI·로봇·SW·성장주·코스피200 액티브</td></tr>
+<tr><td>특징</td><td>테마 모멘텀에 민감(고밸류 성장주)</td></tr>
+</table>
+
+<h3>7-2-3. 패시브 ETF 편입 비중 상위</h3>
+<table>
+<tr><th>패시브 ETF 유형</th><th>비중 특징</th></tr>
+<tr><td>KOSPI200 (KODEX·TIGER·RISE 등)</td><td>시총 비례(유동주식 적어 제한적)</td></tr>
+<tr><td>IT·소프트웨어 테마</td><td>SW 대표주 편입</td></tr>
+<tr><td>AI·로봇 테마</td><td>Physical AI 재평가로 편입 확대</td></tr>
+<tr><td>코리아 밸류업·성장주</td><td>그룹 성장주 편입</td></tr>
+</table>
+
+<h3>7-2-4. 수급 해석</h3>
+<div class="update-box">KOSPI200 패시브가 기본 수급을 받치나 유동주식 24.5%·외국인 2.15%로 절대 유통물량이 적어 <b>수급에 따라 변동성이 큰 구조</b>. AI·로봇·SW 테마 ETF의 신규·비중 편입이 모멘텀을 키우는 한편, 테마가 식으면 환매가 변동성을 증폭한다. 낮은 외국인 비중은 향후 외국인 유입 시 업사이드 여력이나, 동시에 기관·테마 자금 의존도가 높음을 의미.</div>
+
+<h3>7-2-5. 종합 — 모멘텀 지속성 평가</h3>
+<p>유동주식이 적어 ETF·테마 수급이 주가에 미치는 영향이 크다. AI·로봇·SDV 테마가 강할 때 급등하고, 식으면 급락하는 고변동 구조. 결국 SDV·로봇 SI 매출·수익성이라는 펀더멘털이 테마 수급의 지속성을 결정한다. 그룹 captive 매출의 안정성은 하방을 일부 받치나, 고밸류 특성상 실적 모멘텀이 약해지면 수급도 빠르게 되돌려질 수 있다.</p>
+
+<h2>8. 리스크 분석</h2>
+<h3>8-1. 단기 리스크</h3>
+<div class="risk-box">① <b>수익성 부진</b> — 1Q26 OP -20.7%(OPM 2.3%), 차량 SW 투자·인건비. 2Q 회복 실패 시 실망. ② <b>고밸류 디레이팅</b> — PER 60배+, 1년 +196% 급등 후 조정 압력(키움 매도).</div>
+<h3>8-2. 중장기 리스크</h3>
+<div class="risk-box">③ <b>SW 매출화 지연</b> — SDV·로봇 SI 매출이 기대만큼 성장하지 않으면 고밸류 정당화 실패. ④ <b>그룹 의존도</b> — 현대차 captive 75%, 그룹 IT 투자 축소 시 매출 영향, 외부 매출 다변화 과제.</div>
+<h3>8-3. 거시 리스크</h3>
+<div class="risk-box">⑤ <b>현대차그룹 업황</b> — 그룹 완성차 판매·투자 둔화 시 SI/SW 수요 영향. ⑥ <b>IT 인건비·경쟁</b> — 개발 인력 비용 상승.</div>
+<h3>8-4. 밸류에이션 리스크</h3>
+<div class="risk-box">⑦ <b>의견 분분·밸류 밴드 광범위</b> — TP 450,000(키움 매도)~950,000(한투)로 분산. 성장 입증 없이는 PER 60배 정당화 어려움. 고밸류 성장주는 실적 미스 시 하락폭이 큼.</div>
+
+<h2>9. 미래 모멘텀</h2>
+<h3>9-1. 성장축</h3>
+<table>
+<tr><th>성장축</th><th>2026~2027 트리거</th><th>중장기 가치</th></tr>
+<tr><td><b>차량 SW(SDV)</b></td><td>SDV 플랫폼·OTA 적용 확대</td><td>SW 고마진 레버리지</td></tr>
+<tr><td><b>로봇 SI</b></td><td>스마트팩토리·휴머노이드 투입 SI</td><td>Physical AI SW 수혜</td></tr>
+<tr><td><b>그룹 captive</b></td><td>SI/앱 운영 계약 확대</td><td>안정적 반복 매출</td></tr>
+<tr><td><b>자율주행·커넥티비티</b></td><td>SW·데이터 사업</td><td>모빌리티 SW 확장</td></tr>
+<tr><td><b>수익성 회복</b></td><td>차량 SW 흑자화</td><td>밸류 정당화 핵심</td></tr>
+</table>
+
+<h2>10. 결론</h2>
+<p>현대오토에버는 현대차그룹 IT서비스(SI/ITO)와 차량용 SW(SDV)를 담당하는 그룹 SW 핵심으로, Physical AI 시대 모빌리티·로봇의 <b>'SW 두뇌'</b>로 부각됐다. 현대모비스(액추에이터=몸)와 대비되는 SW·SI 축으로, 그룹 75% 지배의 안정적 captive 매출과 SDV·로봇 SI 성장축을 보유한다. 같은 그룹 Physical AI 수직계열의 일원으로 그룹 디지털 전환 투자가 곧 매출로 연결된다.</p>
+<p>다만 이 종목은 <b>의견이 명확히 갈린다</b>. 강세론(한투·IBK·유진)은 'SDV·로봇 SI 성장'으로 TP 880k~950k를 제시하나, 약세론(키움 UNDERPERFORM 450k·상상인 HOLD)은 '차량 SW 수익성 부진(1Q26 OP -20.7%)·PER 60배+ 고밸류'를 지적한다. Peer 비교(§2-4)에서 삼성SDS(PER 19배) 대비 4배 프리미엄으로, <b>SDV·로봇 SI 매출과 수익성 회복이 고밸류를 정당화하는 전제</b>다. <b>고밸류·수익성 부진을 감안해 보수적·분할 접근, 2Q 수익성·SDV 매출 확인 후 대응</b>이 합리적이며, 투자의견 <b>BUY(성장) · 밸류 주의 · Base TP 665,938원(컨센) / Bull 950,000원 / Bear 450,000원</b>을 제시한다.</p>
+
+<div class="footer">
+<b>데이터 출처:</b> FnGuide Company Guide·SearchReport(증권사 리포트 전수 + Peer 밸류, 2026.06.25 조회) · 한국투자·IBK·유진·NH·LS·대신·현대차·키움·상상인·DB·흥국 리포트 · DART 회사별 검색(2023.06~2026.06) · 현대차그룹·현대오토에버 IR·공시 · 언론(스터닝밸류·핀릿 등)<br><br>
+<b>면책:</b> 본 보고서는 공개된 자료를 종합·정리한 참고용이며 투자 권유가 아닙니다. 목표주가·시나리오는 작성자의 가정에 기반한 추정으로 실제와 다를 수 있습니다. 고밸류 성장주 특성상 실적·수익성·테마에 따라 변동성이 크며(증권사 의견도 매수~매도로 분분), 투자 판단과 책임은 투자자 본인에게 있습니다. 작성일 2026.06.26 기준.
+</div>
+
+</body>
+</html>
