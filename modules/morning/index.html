@@ -344,6 +344,8 @@ function tickLive() {
   for (const k of Object.keys(liveBase)) {
     const b = liveBase[k];
     if (!b || b.closed || b.price == null) continue;
+    // K200 은 이미 실시간 push (1분 마다 매번 fresh) 이라 fake nudge 불필요 — 옛 5분 fetch 시절 flash 효과
+    if (k === "K200") continue;
     const el = document.getElementById(cardIdFor(k));
     if (!el) continue;
     const priceEl = el.querySelector(".our-card-price");
