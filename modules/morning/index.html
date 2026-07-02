@@ -270,7 +270,7 @@ function loadNgt() {
     .catch(() => renderK200(null));  // 404 등 실패 시 placeholder (장 마감) 표시
 }
 loadNgt();
-setInterval(loadNgt, 60 * 1000);  // 1분마다
+setInterval(loadNgt, 30 * 1000);  // 30초마다
 
 // ============================================================
 // 미국 선물 (NQ/ES/GC/DXY) — us_quotes.json (Yahoo via CF Worker, 5분 갱신)
