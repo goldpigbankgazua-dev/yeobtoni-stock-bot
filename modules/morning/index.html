@@ -264,7 +264,7 @@ function renderK200(q) {
 }
 
 function loadNgt() {
-  fetch("data/ngt_quote.json?v=" + Date.now())
+  fetch("data/ngt_quote.json?v=" + Date.now(), {cache:"no-store"})
     .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
     .then(renderK200)
     .catch(() => renderK200(null));  // 404 등 실패 시 placeholder (장 마감) 표시
