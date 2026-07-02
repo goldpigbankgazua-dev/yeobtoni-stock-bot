@@ -264,7 +264,7 @@ function renderK200(q) {
 }
 
 function loadNgt() {
-  fetch("data/ngt_quote.json?v=" + Date.now(), {cache:"no-store"})
+  fetch("https://raw.githubusercontent.com/goldpigbankgazua-dev/yeobtoni-stock-bot/main/modules/morning/data/ngt_quote.json?_=" + Date.now(), {cache:"no-store"})
     .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
     .then(renderK200)
     .catch(() => renderK200(null));  // 404 등 실패 시 placeholder (장 마감) 표시
@@ -374,7 +374,7 @@ function tickLive() {
 setInterval(tickLive, 1500);
 
 function loadUS() {
-  fetch("data/us_quotes.json?v=" + Date.now())
+  fetch("https://raw.githubusercontent.com/goldpigbankgazua-dev/yeobtoni-stock-bot/main/modules/morning/data/us_quotes.json?_=" + Date.now(), {cache:"no-store"})
     .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
     .then(p => {
       const quotes = p.quotes || [];
