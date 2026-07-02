@@ -341,10 +341,11 @@ function renderUsCard(q) {
 
 // 매 1.5초마다 가격에 미세 nudge + flash (장 마감 카드는 skip)
 function tickLive() {
+  // 모든 카드 fake nudge skip — 실제 값만 표시 (K200: 1분 push, US: 5분 Yahoo)
+  return;
   for (const k of Object.keys(liveBase)) {
     const b = liveBase[k];
     if (!b || b.closed || b.price == null) continue;
-    // K200 은 이미 실시간 push (1분 마다 매번 fresh) 이라 fake nudge 불필요 — 옛 5분 fetch 시절 flash 효과
     if (k === "K200") continue;
     const el = document.getElementById(cardIdFor(k));
     if (!el) continue;
@@ -389,7 +390,7 @@ function loadUS() {
     });
 }
 loadUS();
-setInterval(loadUS, 5 * 60 * 1000);
+setInterval(loadUS, 30 * 1000);  // 30초마다 (CF Worker 는 5분 갱신)
 
 // 허브 테마 신호 수신
 function _normalizeHubTheme(t) {
