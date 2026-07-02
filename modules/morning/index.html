@@ -297,6 +297,11 @@ function isStale(q) {
 
 // 상태 → 라벨 결정
 function makeTag(q) {
+  // state 가 명시적으로 REGULAR / 24h 이면 실시간 (isStale 무시). Yahoo delayed 데이터는 market_ts 가 15분+ 늦어서 오탐 발생.
+  if (q.state === "REGULAR" || q.state === "24h") {
+    if (q.delayed) return { text: "실시간(15분 지연)", cls: "live" };
+    return { text: "실시간", cls: "live" };
+  }
   const stale = isStale(q);
   const closed = stale || q.state === "CLOSED" || q.state === "POST" || q.state === "PREPRE" || q.state === "POSTPOST" || q.market_status === "closed" || q.market_status === "CLOSED";
   if (closed) return { text: "장 마감", cls: "closed" };
