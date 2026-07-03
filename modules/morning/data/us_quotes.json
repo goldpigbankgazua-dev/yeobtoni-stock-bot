@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-04 03:00:04",
+  "fetched_at": "2026-07-04 03:05:04",
   "count": 5,
   "quotes": [
     {
@@ -35,12 +35,12 @@
       "name": "달러 지수",
       "symbol": "DX-Y.NYB",
       "exchange": "ICE",
-      "price": 100.83,
+      "price": 100.84,
       "previous": 100.86,
       "change": -0.02,
       "change_pct": -0.02,
       "state": "REGULAR",
-      "market_ts": 1783101001,
+      "market_ts": 1783101302,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -49,12 +49,12 @@
       "name": "원/달러 환율",
       "symbol": "KRW=X",
       "exchange": "FX",
-      "price": 1529.54,
+      "price": 1529.63,
       "previous": 1537.97,
-      "change": -8.43,
-      "change_pct": -0.55,
+      "change": -8.34,
+      "change_pct": -0.54,
       "state": "REGULAR",
-      "market_ts": 1783101592,
+      "market_ts": 1783101900,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
