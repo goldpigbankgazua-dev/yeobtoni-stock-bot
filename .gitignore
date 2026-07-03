@@ -19,3 +19,9 @@ package-lock.json
 modules/etfstatus/data/_debug_*.log
 # 시스템
 .DS_Store
+
+# data files pushed to 'data' branch, not main
+modules/morning/data/ngt_quote.json
+modules/morning/data/us_quotes.json
+modules/macro/data/macro.json
+modules/market/data/*.json
