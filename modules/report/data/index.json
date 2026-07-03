@@ -1,5 +1,17 @@
 [
   {
+    "file": "NASDAQ_아스테라랩스_AI커넥티비티_스코피오스케일업_260703.html",
+    "market": "NASDAQ",
+    "name": "아스테라랩스",
+    "themes": [
+      "AI커넥티비티",
+      "스코피오스케일업"
+    ],
+    "date": "2026-07-03",
+    "revision": false,
+    "pages": 1
+  },
+  {
     "file": "코스피_현대오토에버_피지컬AI두뇌SDV소프트웨어_그룹captive휴머노이드SI_260629.html",
     "market": "코스피",
     "name": "현대오토에버",
