@@ -796,11 +796,12 @@ function loadChart(symbol, name, code) {
   const candles = resampleCandles(data, currentTF);
   lwCandle.setData(candles);
   // 일봉/주봉/월봉 공통 — 마지막 40봉만 보이도록 visible range 설정
-  if (candles.length > 0) {
-    const _toIdx = candles.length - 1;
-    const _fromIdx = Math.max(0, _toIdx - 39);
-    try { lwChart.timeScale().setVisibleLogicalRange({ from: _fromIdx, to: _toIdx + 5 }); } catch(_) {}
-  }
+  const _fitView = function(){
+    if (!candles.length) return;
+    const t = candles.length - 1;
+    try { lwChart.timeScale().setVisibleLogicalRange({ from: Math.max(0, t - 39), to: t + 3 }); } catch(_) {}
+  };
+  _fitView();
 
   // 거래량 히스토그램 — 하단 20% 영역 overlay
   if (data.volume && data.volume.length) {
@@ -876,7 +877,7 @@ function loadChart(symbol, name, code) {
     const _mobile2 = window.innerWidth <= 720; const _defH2 = _mobile2 ? 360 : 640; const h = Math.max(r.height || container.clientHeight || _defH2, 1);
     try {
       lwChart.applyOptions({ width: w, height: h });
-      // fitContent 제거 — 봉이 다시 압축되지 않도록
+      _fitView();
     } catch(_) {}
   };
   requestAnimationFrame(_resizeChart);
