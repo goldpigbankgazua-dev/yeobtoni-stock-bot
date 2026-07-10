@@ -766,6 +766,7 @@ function loadChart(symbol, name, code) {
   lwChart = LightweightCharts.createChart(container, {
     width: _w, height: _h,
     autoSize: false,
+    localization: { priceFormatter: function(p){ return Math.round(p).toLocaleString('ko-KR'); } },
     layout: {
       background: { type: "solid", color: cssVar("--chart-bg") || (c.isDark ? "#0f1626" : "#fafbfc") },
       textColor: c.muted,
@@ -775,7 +776,7 @@ function loadChart(symbol, name, code) {
       vertLines: { color: c.grid },
       horzLines: { color: c.grid },
     },
-    rightPriceScale: { borderColor: c.grid, scaleMargins: { top: 0.03, bottom: 0.22 }, autoScale: true, entireTextOnly: true },
+    rightPriceScale: { borderColor: c.grid, scaleMargins: { top: 0.05, bottom: 0.10 }, autoScale: true, entireTextOnly: true, minimumWidth: _isMobile0 ? 62 : 72 },
     timeScale: { borderColor: c.grid, timeVisible: true, secondsVisible: false, rightOffset: 9, barSpacing: 7 },
     crosshair: {
       mode: 0,
@@ -807,7 +808,7 @@ function loadChart(symbol, name, code) {
       color: 'rgba(148, 163, 184, 0.6)',
     });
     lwChart.priceScale('volume').applyOptions({
-      scaleMargins: { top: 0.82, bottom: 0 },
+      scaleMargins: { top: 0.90, bottom: 0 },
     });
     // candle index → volume mapping
     const volData = [];
