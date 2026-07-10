@@ -760,7 +760,7 @@ function loadChart(symbol, name, code) {
   const _rawW = _rect0.width || container.clientWidth || container.parentElement?.clientWidth || window.innerWidth - 32;
   const _isMobile0 = window.innerWidth <= 720;
   // 가격축 라벨이 우측 끝에 닿아 잘리는 거 방지 — viewport·container 두 기준 모두에서 안전마진
-  const _reserve = _isMobile0 ? 24 : 50;
+  const _reserve = _isMobile0 ? 64 : 74;
   const _w = Math.max(Math.min(_rawW, window.innerWidth) - _reserve, 280);
   const _isMobile = window.innerWidth <= 720; const _defaultH = _isMobile ? 360 : 640; const _minH = _isMobile ? 280 : 460; const _h = Math.max(_rect0.height || container.clientHeight || _defaultH, _minH);
   lwChart = LightweightCharts.createChart(container, {
