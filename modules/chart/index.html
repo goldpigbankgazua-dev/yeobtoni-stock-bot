@@ -777,7 +777,7 @@ function loadChart(symbol, name, code) {
       vertLines: { color: c.grid },
       horzLines: { color: c.grid },
     },
-    leftPriceScale: { visible: false },
+    leftPriceScale: { visible: false, minimumWidth: 0 },
     rightPriceScale: { borderColor: c.grid, scaleMargins: { top: 0.05, bottom: 0.10 }, autoScale: true, entireTextOnly: true, minimumWidth: _isMobile0 ? 120 : 120 },
     timeScale: { borderColor: c.grid, timeVisible: true, secondsVisible: false, rightOffset: 2, barSpacing: 7 },
     crosshair: {
