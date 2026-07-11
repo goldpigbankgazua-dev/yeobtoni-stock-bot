@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iridium Communications (IRDM.US) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1b2631,#2874a6);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.deal-box{background:#eef7ff;border:2px solid #2471a3;padding:16px;margin:14px 0;border-radius:8px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#2471a3}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2874a6;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#2471a3;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.ceo-box{background:#f5eef8;border:2px solid #8e44ad;padding:16px;margin:14px 0;border-radius:8px}
+.ceo-box h4{color:#6c3483;margin-top:0}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box,.ceo-box,.deal-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Iridium Communications (IRDM.US)</h1>
+<div class="sub">전 세계 유일의 진정한 글로벌 커버리지 상업용 저궤도(LEO) L-band 위성통신 사업자 · 66기 위성망 + 우주 크로스링크 메쉬 · 해양·항공·국방·IoT·PNT<br>⭐ 2026.06.29 Rocket Lab이 주당 $54(현금+주식)에 인수 합의 — 사실상 M&A 차익거래(딜 아비트라지) 국면 · 현재가 약 $53.7 · 분석일 2026.07.11</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (7월 초)</span><span class="snapshot-value">약 $53.7</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">약 $57억<br>(≈7.9조원)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">발행주식수</span><span class="snapshot-value">약 1.05억주</span></div>
+<div class="snapshot-item"><span class="snapshot-label">⭐ 인수 제안가</span><span class="snapshot-value positive">$54.00/주<br>($27 현금+RKLB주식)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">딜 스프레드</span><span class="snapshot-value">약 +0.6%<br>(현재가 대비)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">기업가치(EV)</span><span class="snapshot-value">약 $80억<br>(≈11조원)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">FY2025 매출</span><span class="snapshot-value">$871.7M<br>(+5% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">FY2025 OEBITDA</span><span class="snapshot-value positive">$495.3M<br>(+5%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">FY2025 순이익</span><span class="snapshot-value positive">$114.4M<br>(EPS $1.06)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Pro forma FCF</span><span class="snapshot-value positive">약 $300M</span></div>
+<div class="snapshot-item"><span class="snapshot-label">2026 OEBITDA 가이드</span><span class="snapshot-value">$480~490M</span></div>
+<div class="snapshot-item"><span class="snapshot-label">기관 지분율</span><span class="snapshot-value">약 96.8%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주(개인)</span><span class="snapshot-value">Baralonco<br>12.5%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">예상 종료 시점</span><span class="snapshot-value">2027년 중반</span></div>
+<div class="snapshot-item"><span class="snapshot-label">RKLB 주식 칼라</span><span class="snapshot-value">$67.5~$112.5</span></div>
+</div>
+<div class="snapshot-core"><b>딜 한 줄:</b> 2026년 6월 29일 <b>Rocket Lab(로켓랩)이 Iridium을 주당 $54(총 지분가치 약 $59억, EV 약 $80억)에 인수하는 확정 합의를 발표</b>했다. 대가는 <b>현금 $27 + Rocket Lab 주식(교환비율, 칼라 $67.5~$112.5)</b>의 현금·주식 혼합. 종료는 2027년 중반 목표(주주총회 승인·규제 승인 조건). 현재 주가 $53.7은 딜가 $54를 약 0.6% 하회 — 시장은 딜 성사를 높게 보되 규제·시간·RKLB 주가 변동 리스크를 소폭 반영. 이 종목은 이제 <b>스탠드얼론 성장주가 아니라 M&A 차익거래(딜 아비트라지) 성격</b>으로 봐야 한다.<br><br>
+<b>월가 한 줄:</b> 딜 발표 전 컨센서스는 "Hold~Buy" 혼재였으나, 발표 후 대부분 목표가를 딜가 $54 부근으로 수렴시켰다. 관건은 딜 성사 확률과 최종 수령가치(현금 $27 + 받게 될 RKLB 주식의 미래가치)다.<br><br>
+<b>핵심 한줄:</b> Iridium은 <b>66기 LEO 위성으로 전 지구를 빈틈없이 커버하는 유일한 상업용 L-band 위성통신 사업자</b>다. 해양·항공·국방·긴급구조·IoT·PNT(측위·항법·시각)에서 지상망이 닿지 않는 영역을 독점적으로 채운다. 연 $8.7억 매출·$4.95억 OEBITDA·$3억 FCF의 강력한 현금창출력과 미 정부·국방 수요가 밑단을 받친다. 여기에 <b>Project Stardust(직접연결 D2D)·PNT(GPS 백업)·우주 수직계열화</b>라는 우주 최대 테마가 겹치면서, 발사·위성제조 강자 Rocket Lab이 "발사+제조+통신망"의 완전 수직계열 우주기업을 만들기 위해 인수에 나섰다.</div>
+</div>
+
+<div class="deal-box">
+<h3 style="margin-top:0;color:#2471a3">⭐ 최우선 이슈 — Rocket Lab의 Iridium 인수 (2026.06.29 발표)</h3>
+<p>이 보고서의 모든 판단은 <b>2026년 6월 29일 발표된 Rocket Lab(NASDAQ: RKLB)의 Iridium 인수 확정 합의</b>를 중심으로 재편된다. 딜의 구조와 조건을 먼저 명확히 한다.</p>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>인수 주체</td><td>Rocket Lab Corporation (발사체·위성 제조 수직계열 우주기업)</td></tr>
+<tr><td>주당 인수가</td><td class="positive"><b>$54.00 / 주</b></td></tr>
+<tr><td>대가 구조</td><td>현금 <b>$27.00</b> + Rocket Lab 보통주(교환비율, 칼라 적용)</td></tr>
+<tr><td>RKLB 주가 칼라</td><td>$67.50 ~ $112.50 (이 범위 안에서 교환비율 조정)</td></tr>
+<tr><td>총 지분가치</td><td>약 $59억 (≈8.2조원)</td></tr>
+<tr><td>기업가치(EV)</td><td>약 $80억 (≈11조원)</td></tr>
+<tr><td>예상 종료</td><td>2027년 중반 (mid-2027)</td></tr>
+<tr><td>선결 조건</td><td>Iridium 주주총회 승인 + 규제(반독점·CFIUS 등) 승인 + 통상 종결조건</td></tr>
+<tr><td>전략적 논리</td><td>발사(Rocket Lab)+위성제조+Iridium의 글로벌 LEO 통신망·스펙트럼·500+ 파트너 생태계 → 설계·제조·발사·운용을 모두 내재화한 완전 수직계열 우주기업 창출</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: Rocket Lab·Iridium 공동 보도자료(2026.06.29), SEC 8-K/Form 425(CIK 0001418819·0001819994), Bloomberg·PRNewswire·GovConWire. 딜 조건은 확정 합의 기준이며, 종료 전 규제·주주 절차가 남아 있음.</p>
+</div>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#2980b9">📊 월가 애널리스트 커버리지 (딜 발표 전후)</h3>
+<p>Iridium은 위성통신 대표주로 다수 하우스가 커버해 왔다. 그러나 2026년 6월 말 Rocket Lab 인수 합의 이후, 밸류에이션 논쟁은 사실상 <b>"딜가 $54 vs 딜 성사 확률·최종 수령가치"</b>로 이동했다. 스탠드얼론 목표가는 참고치로만 유효하다.</p>
+<h4 style="margin-top:0;color:#2980b9">목표가·투자의견 컨센서스 요약 (집계)</h4>
+<table>
+<tr><th>지표</th><th>값</th><th>현재가($53.7) 대비</th></tr>
+<tr><td>컨센서스 등급</td><td>Hold 중심(딜 반영)</td><td>—</td></tr>
+<tr><td>인수 제안가</td><td>$54.00</td><td class="positive">+0.6%(스프레드)</td></tr>
+<tr><td>딜 발표 전 컨센 TP</td><td>약 $30~$40대</td><td>스탠드얼론 참고</td></tr>
+<tr><td>FY2025 EPS(GAAP)</td><td>$1.06</td><td>딜 전 PER 약 50배 수준</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ MarketBeat·StockAnalysis·Public.com·Simply Wall St 집계 종합(2026.07). 딜 발표로 주가가 스탠드얼론 목표가를 크게 상회하며 딜가에 수렴. 이제 목표가보다 "딜 아비트라지 수익률"이 핵심 지표.</p>
+</div>
+
+<div class="sk-box">
+<h4 style="margin-top:0;color:#e67e22"><span class="tag-sk">HOUSE VIEW 1</span> 실체 — 전 지구 커버 유일 LEO L-band 위성통신 독점</h4>
+<p>Iridium의 첫 번째 매력은 <b>대체 불가능한 글로벌 인프라</b>다. 66기의 저궤도 위성이 <b>우주 크로스링크 메쉬</b>로 연결돼, 극지·대양·항공로·분쟁지역 등 지상망이 닿지 않는 지구 전역을 빈틈없이 커버하는 <b>유일한 상업용 L-band 사업자</b>다. L-band는 소형 안테나로도 악천후에 강인하게 연결되는 특성이 있어, 해양·항공·국방·긴급구조에서 사실상 표준이다. 위성망 재구축에는 수십억 달러와 10년 이상이 걸려, 신규 진입 장벽이 극단적으로 높다.</p>
+</div>
+
+<div class="sk-box">
+<h4 style="margin-top:0;color:#e67e22"><span class="tag-sk">HOUSE VIEW 2</span> 스토리 — D2D·PNT·우주 수직계열화라는 시대 테마</h4>
+<p>두 번째는 <b>내러티브</b>다. (1) <b>직접연결(D2D, Direct-to-Device)</b> — 스마트폰·IoT 기기가 위성과 직접 통신하는 흐름이 우주 최대 테마로 부상했고, Iridium은 표준 기반 NTN·Project Stardust로 참전한다. (2) <b>PNT(측위·항법·시각)</b> — GPS 재밍·스푸핑이 안보 이슈가 되면서 "GPS 백업" 수요가 커지고, Iridium은 이 대체 인프라의 유력 후보다. (3) <b>우주 수직계열화</b> — Rocket Lab이 발사·제조·통신망을 한 회사로 묶으려는 것이 이 테마의 정점이며, 인수의 근본 동인이다.</p>
+</div>
+
+<div class="sk-box">
+<h4 style="margin-top:0;color:#e67e22"><span class="tag-sk">HOUSE VIEW 3</span> 촉매 — Rocket Lab 인수라는 결정적 변곡점</h4>
+<p>세 번째는 <b>M&A 촉매</b>다. 2026년 6월 29일 Rocket Lab이 주당 $54(현금 $27+RKLB 주식)에 인수를 확정하면서, 주가는 딜가에 수렴했다. 이제 투자 판단은 "스탠드얼론 성장"이 아니라 <b>딜 성사 확률·타임라인·최종 수령가치(특히 받게 될 RKLB 주식의 미래가치)</b>로 압축된다. 딜이 성사되면 $27 현금 + RKLB 지분을, 무산되면 스탠드얼론 가치($30~40대 추정)로 되돌아갈 위험을 함께 안는다.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#b9770e">📁 SEC 공시 기반 1차 데이터 (FY2025 10-K / 8-K)</h3>
+<p>본 보고서의 재무 수치는 Iridium이 SEC에 제출한 FY2025(2025년 12월 31일 종료) 연차보고서(10-K)와 실적발표 8-K를 1차 출처로 한다. Iridium은 12월 결산이다.</p>
+<table>
+<tr><th>항목</th><th>FY2025</th><th>FY2024</th><th>비고</th></tr>
+<tr><td>총매출</td><td class="positive">$871.7M</td><td>약 $830M</td><td>+5% YoY</td></tr>
+<tr><td>서비스 매출</td><td>$634.0M</td><td>약 $617M</td><td>매출의 안정적 코어</td></tr>
+<tr><td>OEBITDA(운영)</td><td class="positive">$495.3M</td><td>약 $472M</td><td>+5%, 마진 57%대</td></tr>
+<tr><td>순이익</td><td class="positive">$114.4M</td><td>—</td><td>EPS $1.06(희석)</td></tr>
+<tr><td>Pro forma FCF</td><td class="positive">약 $300M</td><td>—</td><td>배당·투자 재원</td></tr>
+<tr><td>정부 서비스 매출</td><td>$108.0M</td><td>$106.3M</td><td>미 국방 장기계약</td></tr>
+<tr><td>장비 매출</td><td>$81.1M</td><td>$91.4M</td><td>−11%(−$10.3M)</td></tr>
+<tr><td>2026 가이드 OEBITDA</td><td>$480~490M</td><td>—</td><td>보상제도 변경 $17M 반영</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: SEC EDGAR CIK 0001418819, Iridium FY2025 10-K 및 실적 8-K(2026.02.12 발표), 2026 Q1 8-K(2026.04.23). 일부 FY2024 수치는 공개 집계 기반 근사. 정밀치는 10-K 원문 우선.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#2874a6">🌐 외부검증 1 — 글로벌·산업 데이터 (위성통신·D2D 시장)</h3>
+<div class="global-quote">Iridium은 <b>66기 운용 위성 + 궤도 예비위성</b>으로 지구 전역을 커버하는 유일한 상업용 사업자다. 해양·항공·국방·IoT·긴급구조가 핵심 시장. <span class="tag-global">NETWORK</span></div>
+<div class="global-quote">직접연결(D2D) 위성통신은 스마트폰·IoT의 "음영지역 제로" 수요로 우주 최대 성장 테마로 부상. Starlink(SpaceX)·AST SpaceMobile·Apple-Globalstar와 함께 Iridium이 표준 기반 NTN(Project Stardust)으로 참전. <span class="tag-global">D2D</span></div>
+<div class="global-quote">GPS 재밍·스푸핑이 안보 위협이 되며 <b>PNT(측위·항법·시각) 대체·백업 인프라</b> 수요 급증. Iridium STL(Satellite Time and Location)이 유력 대안. <span class="tag-global">PNT</span></div>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: Iridium IR·10-K, 업계 추정 종합. D2D·PNT는 성장 잠재 시장이며 매출화 속도는 별개.</p>
+</div>
+
+<div class="policy-box">
+<h3 style="margin-top:0;color:#b9770e">🏛 외부검증 2 — 정책·규제 (M&A 승인·국방)</h3>
+<div class="policy-quote">Rocket Lab-Iridium 딜은 <b>주주총회 승인 + 규제 승인(반독점 HSR, 외국인투자 CFIUS, FCC 면허 이전 등)</b>을 거쳐 2027년 중반 종료 목표. 국방·위성 인프라 특성상 규제 심사가 딜 타임라인의 핵심 변수. <span class="tag-policy">M&A</span></div>
+<div class="policy-quote">Iridium은 미 국방부와 장기 게이트웨이·통신 계약(EMSS 등)을 보유. 국가안보 인프라로서 정부 수요가 안정적 밑단을 형성하며, 딜 심사에서도 안보 연속성이 고려 대상. <span class="tag-policy">DEFENSE</span></div>
+<div class="policy-quote">우주 자산·스펙트럼의 외국인·타사 이전은 FCC·국가안보 검토를 수반. Rocket Lab(미국 상장·미국 기반)이라는 점이 승인 가능성에 우호적 요소. <span class="tag-policy">SPECTRUM</span></div>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: SEC Form 425, 딜 보도자료, 산업 관행 기반 추정. 실제 심사 결과는 규제당국 판단에 따름.</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#2874a6">📰 외부검증 3 — 최근 주요 뉴스·이벤트</h3>
+<div class="global-quote"><b>2026.06.29</b> — Rocket Lab, Iridium을 주당 $54(현금 $27+RKLB 주식, EV 약 $80억)에 인수하는 확정 합의 발표. 완전 수직계열 우주기업 창출 목표. <span class="tag-global">M&A</span></div>
+<div class="global-quote"><b>2026.04.23</b> — Q1 2026 실적. 매출 $218.8M(+2%), OEBITDA $116.3M(−5% YoY), EPS 컨센 하회로 프리마켓 주가 하락. 연간 가이던스 재확인. <span class="tag-global">EARNINGS</span></div>
+<div class="global-quote"><b>2026.02.12</b> — FY2025 실적. 매출 $871.7M(+5%), OEBITDA $495.3M(+5%), 순이익 $114.4M. 2026 OEBITDA $480~490M 가이드(보상제도 변경 $17M 영향). <span class="tag-global">EARNINGS</span></div>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: Iridium IR, PRNewswire, Motley Fool, Investing.com, GovConWire(2026).</p>
+</div>
+
+<div class="global-box">
+<h3 style="margin-top:0;color:#0e6655">📅 외부검증 4 — 향후 핵심 이벤트 캘린더 (2026.07~) <span class="tag-global" style="background:#0e6655">CALENDAR</span></h3>
+<table>
+<tr><th>시점</th><th>이벤트</th><th>관전 포인트</th></tr>
+<tr><td>2026 하반기</td><td>Iridium 주주총회(딜 승인)</td><td>주주 승인율·반대 여부</td></tr>
+<tr><td>2026~2027</td><td>규제 심사(HSR·CFIUS·FCC)</td><td>승인 지연·조건부 여부</td></tr>
+<tr><td>2026 하반기</td><td>Project Stardust(D2D) 테스트</td><td>표준 기반 NTN 진척</td></tr>
+<tr><td>2027 중반</td><td>딜 종료(목표)</td><td>최종 현금+RKLB 주식 수령</td></tr>
+<tr><td>분기별</td><td>Iridium 실적 발표</td><td>딜 종료까지 스탠드얼론 성과</td></tr>
+</table>
+<p style="font-size:9pt;color:#7f8c8d">※ 출처: 딜 보도자료·IR 캘린더. 일정은 규제·절차에 따라 변동 가능.</p>
+</div>
+
+<h2>1. 투자포인트</h2>
+<p>Iridium에 대한 투자 논리는 이제 "저궤도 위성통신 성장주"가 아니라 <b>Rocket Lab 인수를 전제로 한 M&A 차익거래 + 무산 시 스탠드얼론 가치라는 이중 구조</b>로 요약된다. 아래 13개 포인트는 이를 딜·자산·재무·수급·리스크 축으로 세분한 것이다.</p>
+<ul class="points">
+<li><span class="point-title">① Rocket Lab 인수 확정 — 주당 $54, 현재가 대비 얇은 스프레드</span><br>
+2026년 6월 29일 Rocket Lab이 주당 <b>$54</b>에 인수를 확정했다. 현재가 $53.7은 딜가를 약 0.6% 하회 — 시장이 딜 성사를 높게 보되 규제·시간 리스크를 소폭 반영한 <b>전형적 차익거래 스프레드</b>다. 스탠드얼론 논쟁은 부차적이 됐고, 핵심은 "딜이 예정대로 닫히느냐"다.</li>
+<li><span class="point-title">② 대가 구조 — 현금 $27 + Rocket Lab 주식(칼라 $67.5~$112.5)</span><br>
+$54 중 <b>절반($27)은 현금으로 확정</b>, 나머지는 Rocket Lab 주식으로 교환비율(칼라 적용)에 따라 지급된다. 즉 딜 성사 시 주주는 <b>현금 반 + RKLB 지분 반</b>을 받게 되어, 최종 수령가치는 종료 시점 RKLB 주가에 연동된다. 칼라는 이 변동을 일정 범위로 제한한다(§6·§9 상술).</li>
+<li><span class="point-title">③ 스탠드얼론 자산 — 전 지구 커버 유일 LEO L-band 독점</span><br>
+66기 위성의 크로스링크 메쉬로 <b>지구 전역을 커버하는 유일한 상업용 L-band 사업자</b>. 극지·대양·항공로·분쟁지역 등 지상망 공백을 독점적으로 메운다. 이 대체 불가능성이 Rocket Lab이 인수에 나선 근본 이유이자, 딜 무산 시에도 가치를 받치는 하방 지지선이다.</li>
+<li><span class="point-title">④ 강력한 현금창출 — OEBITDA $495M·FCF $300M</span><br>
+FY2025 매출 $871.7M(+5%), OEBITDA $495.3M(마진 57%대), 순이익 $114.4M, pro forma FCF 약 $300M. 위성망 재구축(Iridium NEXT)을 이미 완료해 대규모 capex 부담이 지난 <b>고마진 현금창출 국면</b>이다. 이 캐시플로우가 배당·자사주·딜 밸류의 근거다.</li>
+<li><span class="point-title">⑤ 미 정부·국방 수요 — 안정적 밑단</span><br>
+정부 서비스 매출 $108.0M(FY2025)으로 미 국방부와 장기 게이트웨이·통신 계약(EMSS 등)을 보유. 국가안보 인프라로서 경기·상업 사이클과 무관한 <b>예측 가능한 매출 기반</b>을 형성하며, 딜 심사에서 안보 연속성이 고려된다.</li>
+<li><span class="point-title">⑥ Project Stardust(D2D) — 우주 최대 테마 참전</span><br>
+스마트폰·IoT 기기가 위성과 직접 통신하는 <b>직접연결(D2D)</b>은 우주 최대 성장 테마다. Iridium은 3GPP 표준 기반 NTN·Project Stardust로 참전, 2025~2026 테스트를 진행한다. Starlink·AST·Apple-Globalstar와 경쟁하되, <b>기존 글로벌망·스펙트럼·파트너 생태계</b>라는 자산이 차별점이다.</li>
+<li><span class="point-title">⑦ 딜 리스크 — 규제·주주승인·타임라인</span><br>
+딜은 <b>Iridium 주주총회 승인 + 반독점(HSR)·외국인투자(CFIUS)·FCC 면허 이전 등 규제 승인</b>을 거쳐 2027년 중반 종료가 목표다. 심사 지연·조건부 승인·무산 가능성이 존재한다. 위성·국방 인프라 특성상 심사가 딜의 최대 변수다.</li>
+<li><span class="point-title">⑧ 칼라 메커니즘 — RKLB 하락 보호·상승 참여</span><br>
+대가 중 주식분은 Rocket Lab 주가 <b>$67.5~$112.5</b> 범위에서 교환비율이 조정되는 칼라 구조다. 이는 RKLB 주가가 크게 빠져도 일정 가치를 보호하고, 오르면 상방에 참여하게 하는 장치다. 다만 칼라 밴드를 벗어난 극단적 변동에는 주주가 노출된다.</li>
+<li><span class="point-title">⑨ 배당·자사주 — 딜 종료까지 정책 유지 여부</span><br>
+Iridium은 성장하는 <b>배당</b>과 자사주 매입으로 주주환원을 해왔다. 딜 계약상 종료 전 배당·자사주 정책이 어떻게 제한·유지되는지가 보유 기간 총수익에 영향을 준다(합병계약의 통상 조항 확인 필요).</li>
+<li><span class="point-title">⑩ CEO Matt Desch — 검증된 장기 실행력</span><br>
+2006년 취임 후 파산자산이던 Iridium을 흑자·현금창출 기업으로 재건하고, $30억+ 규모 Iridium NEXT 위성 교체를 정시·예산 내 완수한 <b>엔지니어 출신 규율형 경영자</b>. 딜 협상·종료까지의 실행 신뢰도가 높다(§3 상술).</li>
+<li><span class="point-title">⑪ 극단적 기관 지분 + Baralonco 12.5%</span><br>
+기관 지분율 약 <b>96.8%</b>로 매우 높고, 개인 최대주주 Baralonco Ltd가 12.5%를 보유(BlackRock ~10%·Vanguard ~8.8%). 주주 승인 표결에서 대형 기관·최대주주의 찬성 여부가 결정적이다(§7-2 상술).</li>
+<li><span class="point-title">⑫ 밸류에이션 — 딜가가 상단 캡, 수익원은 차익거래</span><br>
+주가는 딜가 $54에 수렴해 스탠드얼론 상승 여력은 사실상 <b>딜가가 상한선</b>이다. 남은 수익원은 (1) 얇은 차익거래 스프레드(+0.6%)와 (2) 종료 시 받게 될 RKLB 주식의 미래 상승분이다. 단기 급등 여지는 제한적.</li>
+<li><span class="point-title">⑬ 딜 무산 시 다운사이드 — 스탠드얼론 되돌림</span><br>
+딜이 규제·주주 반대로 무산되면 주가는 딜 발표 전 스탠드얼론 수준($30~40대 추정)으로 되돌아갈 위험이 크다. 즉 현재가 진입은 "얇은 상방 vs 두꺼운 하방"의 비대칭 — 차익거래 특유의 리스크 프로파일이다(§8·§9 상술).</li>
+</ul>
+
+<h4>13개 포인트의 3축 그룹핑 — 딜·자산·리스크</h4>
+<table>
+<tr><th>축</th><th>해당 포인트</th><th>한 줄 요지</th></tr>
+<tr><td><b>딜(M&A) 축</b></td><td>①②⑦⑧⑫</td><td>$54 확정·현금반+주식반·규제/주주 조건·칼라·딜가 상단 캡</td></tr>
+<tr><td><b>자산·펀더멘털 축</b></td><td>③④⑤⑥⑩</td><td>유일 글로벌 LEO·강력 FCF·정부수요·D2D 테마·검증된 CEO</td></tr>
+<tr><td><b>수급·리스크 축</b></td><td>⑨⑪⑬</td><td>환원정책·기관96.8%/최대주주·무산 시 되돌림</td></tr>
+</table>
+
+<h4>차익거래 관점 촉매 가중치</h4>
+<table>
+<tr><th>촉매</th><th>방향</th><th>가중치</th><th>비고</th></tr>
+<tr><td>규제 승인(HSR·CFIUS·FCC)</td><td>긍정(성사)</td><td>★★★★★</td><td>딜 성사의 최대 관문</td></tr>
+<tr><td>주주총회 승인</td><td>긍정(성사)</td><td>★★★★☆</td><td>기관96.8%·최대주주 표결</td></tr>
+<tr><td>Rocket Lab(RKLB) 주가</td><td>양방</td><td>★★★★☆</td><td>최종 수령가치 결정, 칼라 완충</td></tr>
+<tr><td>딜 무산·조건 악화</td><td>부정(하방)</td><td>★★★☆☆</td><td>스탠드얼론 되돌림 위험</td></tr>
+<tr><td>스탠드얼론 실적</td><td>중립</td><td>★★☆☆☆</td><td>종료 전까지 관성적 영향</td></tr>
+</table>
+
+<h4>투자자 유형별 적합도(요약)</h4>
+<table>
+<tr><th>투자자 유형</th><th>적합도</th><th>비고</th></tr>
+<tr><td>이벤트 드리븐·차익거래</td><td class="positive">높음</td><td>스프레드+RKLB 주식 상방, 딜 리스크 관리 가능</td></tr>
+<tr><td>Rocket Lab 우주테마 장기</td><td>중간~높음</td><td>RKLB 주식 수령 통한 간접 노출 원할 때</td></tr>
+<tr><td>안정 인컴·가치</td><td>낮음</td><td>딜 종료 시 현금화·주식전환, 인컴 연속성 불확실</td></tr>
+<tr><td>단기 모멘텀</td><td>낮음</td><td>딜가 상단 캡으로 급등 여력 제한</td></tr>
+</table>
+
+<h4>시나리오별 가치 (딜 성사 확률 기반)</h4>
+<table>
+<tr><th>시나리오</th><th>결과</th><th>주당 가치(개략)</th><th>현재가 대비</th></tr>
+<tr><td>Bull — 예정대로 종료 + RKLB 강세</td><td>$27 현금 + RKLB 주식가치 상승</td><td>$58~65+</td><td class="positive">+8~21%</td></tr>
+<tr><td>Base — 예정대로 종료 + RKLB 횡보</td><td>$54 부근 실현</td><td>약 $54</td><td class="positive">+0.6%</td></tr>
+<tr><td>Bear — 딜 무산·지연</td><td>스탠드얼론 되돌림</td><td>$32~42</td><td class="negative">−22~−40%</td></tr>
+</table>
+
+<div class="bull-box"><b>3문장 요약:</b><br>
+1) <b>실체:</b> Iridium은 전 지구를 커버하는 유일 LEO L-band 위성 독점 + 연 $3억 FCF의 현금창출 기업으로, 2026.06.29 Rocket Lab이 주당 $54(현금 반+주식 반)에 인수를 확정했다.<br>
+2) <b>국면:</b> 주가는 딜가에 수렴해, 이 종목은 이제 <b>M&A 차익거래(성사 시 $54+RKLB 상방, 무산 시 스탠드얼론 되돌림)</b> 성격이다.<br>
+3) <b>판단:</b> 얇은 스프레드(+0.6%)와 RKLB 주식 상방을 노리되, 규제·주주·타임라인 리스크와 무산 시 −22~−40% 하방을 함께 감안한 <b>이벤트 드리븐 접근</b>이 적합하다.</div>
+
+<!--END-->
+</body>
+</html>
