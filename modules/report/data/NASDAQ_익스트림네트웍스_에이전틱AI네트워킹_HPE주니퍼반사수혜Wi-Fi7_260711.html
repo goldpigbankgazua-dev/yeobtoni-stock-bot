@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extreme Networks (EXTR.US) 종목 리서치 보고서</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.ceo-box{background:#f5eef8;border:2px solid #8e44ad;padding:16px;margin:14px 0;border-radius:8px}
+.ceo-box h4{color:#6c3483;margin-top:0}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box,.ceo-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Extreme Networks (EXTR.US)</h1>
+<div class="sub">에이전틱 AI 네트워킹 순수 플레이어 · Platform ONE/Agent ONE · Wi-Fi 7 교체수요 · HPE-주니퍼 통합 반사수혜<br>월가 Strong Buy 우세 · 현재가 $32.97 (52주 신고가 −0.4%) · 분석일 2026.07.11</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">현재가 (7/9)</span><span class="snapshot-value">$32.97</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">약 $43억<br>(≈5.9조원)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">52주 위치</span><span class="snapshot-value positive">신고가 −0.4%<br>($13.48~$33.10)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Fwd PER (Non-GAAP)</span><span class="snapshot-value">약 30배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">PSR (FY26E)</span><span class="snapshot-value">약 3.4배</span></div>
+<div class="snapshot-item"><span class="snapshot-label">기관 지분율</span><span class="snapshot-value">92.6%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">12개월 수익률</span><span class="snapshot-value positive">약 +140%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">BlackRock·Vanguard<br>(Starboard 6.9%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">3Q FY26 매출</span><span class="snapshot-value">$317M<br>(+11% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Base TP</span><span class="snapshot-value">$35<br>(+6.2%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Bull TP</span><span class="snapshot-value">$42<br>(+27.4%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">컨센 TP (8인)</span><span class="snapshot-value">약 $30~33<br>(범위 $24~$36)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">SaaS ARR 성장</span><span class="snapshot-value positive">+29% YoY</span></div>
+<div class="snapshot-item"><span class="snapshot-label">순현금</span><span class="snapshot-value positive">+$51.7M<br>(순부채→순현금)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">자사주 프로그램</span><span class="snapshot-value positive">$200M<br>(3년, 25.7~)</span></div>
+</div>
+<div class="snapshot-core"><b>인덱스·기관 수급 한 줄:</b> 기관 지분율 92.6%로 사실상 기관 지배 종목. S&P SmallCap 600·Russell 2000 편입 종목으로 iShares Core S&P Small-Cap ETF(IJR)가 대량 보유, BlackRock 1,900만주·Vanguard 1,833만주가 양대 축. 행동주의 펀드 Starboard Value가 약 6.9%(928만주)를 쥔 최대 개별 주주로, 자본배분·M&A 규율의 압력원. <i>(데이터: SEC 13F·fintel 크로스체크 2026.07 — 상세는 §7-2 참조)</i><br><br>
+<b>월가 한 줄:</b> 커버 애널 7~8인 중 Strong Buy/Buy 우세. 다만 주가가 1년 새 3배 넘게 뛰며 일부 목표가($18~24)를 이미 상회 — 컨센 목표가 상향 조정이 진행 중인 국면. (상세는 §0 애널리스트 박스 참조)<br><br>
+<b>핵심 한줄:</b> "죽어가던 하드웨어 회사"에서 <b>SaaS ARR +29%·5개 분기 연속 두 자릿수 성장·순현금 전환</b>의 턴어라운드 스토리로 재평가. 여기에 <b>Platform ONE→Agent ONE(에이전틱 AI)</b>이라는 시대 테마와 <b>HPE-주니퍼 합병 혼란</b>이라는 점유율 탈취 기회가 겹치며 밸류에이션 리레이팅이 진행 중.</div>
+</div>
+
+<!--END--></body></html>
