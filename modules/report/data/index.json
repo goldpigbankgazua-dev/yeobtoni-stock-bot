@@ -48,6 +48,18 @@
     "pages": 23
   },
   {
+    "file": "코스닥_HPSP_고압수소어닐링독점_GAA선단공정하이브리드본딩신사업_260711.html",
+    "market": "코스닥",
+    "name": "HPSP",
+    "themes": [
+      "고압수소어닐링독점",
+      "GAA선단공정하이브리드본딩신사업"
+    ],
+    "date": "2026-07-11",
+    "revision": false,
+    "pages": 3
+  },
+  {
     "file": "NASDAQ_아스테라랩스_AI커넥티비티_스코피오스케일업_260703.html",
     "market": "NASDAQ",
     "name": "아스테라랩스",
