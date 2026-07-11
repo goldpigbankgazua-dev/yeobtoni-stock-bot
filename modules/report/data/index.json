@@ -12,6 +12,18 @@
     "pages": 25
   },
   {
+    "file": "NYSE_에이텐네트웍스_AI인프라보안DDoS_ADC애플리케이션딜리버리_260711.html",
+    "market": "NYSE",
+    "name": "에이텐네트웍스",
+    "themes": [
+      "AI인프라보안DDoS",
+      "ADC애플리케이션딜리버리"
+    ],
+    "date": "2026-07-11",
+    "revision": false,
+    "pages": 2
+  },
+  {
     "file": "NASDAQ_아스테라랩스_AI커넥티비티_스코피오스케일업_260703.html",
     "market": "NASDAQ",
     "name": "아스테라랩스",
