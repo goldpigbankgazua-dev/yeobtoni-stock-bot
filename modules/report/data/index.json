@@ -12,6 +12,18 @@
     "pages": 27
   },
   {
+    "file": "NASDAQ_브라이트스프링_스페셜티약국홈케어_세그먼트실적_260712.html",
+    "market": "NASDAQ",
+    "name": "브라이트스프링",
+    "themes": [
+      "스페셜티약국홈케어",
+      "세그먼트실적"
+    ],
+    "date": "2026-07-12",
+    "revision": false,
+    "pages": 6
+  },
+  {
     "file": "NASDAQ_익스트림네트웍스_에이전틱AI네트워킹_HPE주니퍼반사수혜Wi-Fi7_260711.html",
     "market": "NASDAQ",
     "name": "익스트림네트웍스",

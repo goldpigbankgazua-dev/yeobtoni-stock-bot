@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NASDAQ_브라이트스프링_스페셜티약국홈케어_세그먼트실적_260712</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>BrightSpring Health Services (BTSG.US · NASDAQ)</h1>
+<div class="sub">미국 최대 지역기반 헬스케어 — 스페셜티·인퓨전 약국 + 재택케어 통합 플랫폼 · Q1 2026 매출 +26%·조정EBITDA +45% 서프라이즈 · Community Living 매각으로 스토리 집중·디레버리징<br>애널리스트 17사 Strong Buy · 목표주가 상향 릴레이(BTIG $90·UBS $85·TD Cowen $81) · Q1 실적 당일 +10% 급등 · 분석일 2026.07.12</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">상장 시장 / 티커</span><span class="snapshot-value">NASDAQ<br>BTSG</span></div>
+<div class="snapshot-item"><span class="snapshot-label">상장일</span><span class="snapshot-value">2024.01<br>(IPO)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최근 주가동력</span><span class="snapshot-value positive">Q1 실적 서프라이즈<br>+10% 급등</span></div>
+<div class="snapshot-item"><span class="snapshot-label">FY2025 매출</span><span class="snapshot-value">$129억<br>(+28% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Q1'26 매출</span><span class="snapshot-value positive">$36억<br>(+26% YoY)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Q1'26 조정EBITDA</span><span class="snapshot-value positive">$1.90억<br>(+45%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Pharmacy 세그먼트</span><span class="snapshot-value">$32억/분기<br>(전체 88%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Provider 세그먼트</span><span class="snapshot-value">$4.42억/분기<br>(전체 12%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">Q1'26 GAAP EPS</span><span class="snapshot-value positive">$0.67<br>(컨센 $0.27)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">FY2026 매출 가이던스</span><span class="snapshot-value">$147억~$152억<br>(상향)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">순레버리지</span><span class="snapshot-value positive">2.27x<br>(매각 후 개선)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">애널리스트 컨센</span><span class="snapshot-value positive">Strong Buy<br>(17사)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최고 목표주가</span><span class="snapshot-value">$90<br>(BTIG)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최대주주</span><span class="snapshot-value">KKR<br>(~43.7%)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">핵심 자산</span><span class="snapshot-value">Onco360<br>(LDD 116종)</span></div>
+</div>
+<div class="snapshot-core">
+<b>주가 급등 동력 한 줄:</b> 2026년 5월 1일 Q1 실적에서 매출 $36억(+26%, 컨센 6.3% 상회)·GAAP EPS $0.67(컨센 $0.27의 2.5배)·조정EBITDA $1.90억(+45%)로 전 부문 서프라이즈를 내고 연간 가이던스를 상향하자 <b>당일 +10.1% 급등</b>. 이후 BTIG($65→$90)·UBS($63→$85)·TD Cowen($65→$81) 등 목표가 릴레이 상향.<br><br>
+<b>재무 한 줄:</b> FY2025 매출 $129억(+28%)·조정EBITDA $618M(+34%). 2026.3월 ResCare Community Living을 Sevita에 $811M에 매각해 순레버리지를 2.99x→2.27x로 낮추고, 스토리를 <b>스페셜티 약국 + 재택케어</b>로 집중.<br><br>
+<b>핵심 한 줄:</b> KKR이 대주주인 미국 최대 지역기반(home & community) 헬스케어 기업. Pharmacy Solutions(스페셜티 Onco360·인퓨전 Amerita·지역약국 PharMerica)와 Provider Services(재택간호·개인케어·재활)의 2개 세그먼트로, 고령화·재택전환·스페셜티 신약 출시라는 구조적 성장에 올라탄 규모의 플랫폼.
+</div>
+</div>
+
+<p style="font-size:9pt;color:#7f8c8d;margin-top:4px"><b>[일러두기]</b> 주가·시가총액 등 일부 실시간 수치는 분석일(2026.07.12) 기준 최신 공개자료를 바탕으로 하며, 재무·세그먼트 수치는 회사 공시(Q1 2026 실적·FY2025 10-K·8-K, IR 자료)에 근거합니다. 요구사항 2번(사업부별 매출)은 §2·§4에 <b>Pharmacy Solutions·Provider Services 세그먼트별 매출·성장률·EBITDA</b>로 정밀 기재했고, 요구사항 4번(헬스케어 핵심자산)은 §3-3에 <b>Onco360 등 스페셜티 약국 자산·LDD 포트폴리오</b>로 상세히 다룹니다.</p>
+
+<div class="broker-box">
+<h3 style="margin-top:0;color:#2980b9">📊 애널리스트 커버리지 (Q1 2026 실적 직후, 2026.05)</h3>
+<p style="font-size:10pt;margin:4px 0">Q1 서프라이즈와 가이던스 상향 이후 주요 IB들이 목표주가를 릴레이 상향했다. 17개 기관이 커버하며 컨센서스 <b>Strong Buy</b>다. 목표가 밴드가 넓은 것은 스페셜티 성장 지속성·M&A 실행력에 대한 견해차 때문이다.</p>
+<table>
+<tr><th>증권사</th><th>투자의견</th><th>목표가(신)</th><th>이전</th><th>논거</th></tr>
+<tr><td><b>BTIG</b></td><td>Buy</td><td class="positive">$90 (최고)</td><td>$65</td><td>스페셜티·인퓨전 36% 성장, 가이던스 상향</td></tr>
+<tr><td><b>UBS</b></td><td>Buy</td><td>$85</td><td>$63</td><td>재택케어 통합(Amedisys·LHC)·마진 개선</td></tr>
+<tr><td><b>TD Cowen</b></td><td>Buy</td><td>$81</td><td>$65</td><td>LDD 파이프라인·디레버리징</td></tr>
+<tr><td>컨센서스(17사)</td><td class="positive">Strong Buy</td><td>$67(평균)</td><td>-</td><td>상향 릴레이 진행 중 — 평균은 후행</td></tr>
+</table>
+<p style="font-size:10pt;margin:4px 0"><b>[해석]</b> 평균 목표가($67)가 최고가($90)와 크게 벌어진 것은 목표가 상향이 순차 반영 중이기 때문이다. 선두 하우스(BTIG·UBS)는 이미 스페셜티 성장과 재택케어 통합 시너지를 반영해 $85~90을 제시했다.</p>
+</div>
+
+<div class="disclosure-box">
+<h3 style="margin-top:0;color:#e67e22">🏛️ 주요 공시·이벤트 (SEC 10-Q/10-K/8-K 기준)</h3>
+<table>
+<tr><th>분류</th><th>내용</th><th>시점</th></tr>
+<tr><td>사업(M&A)</td><td>Amedisys·LHC 재택간호 지점 인수(Q1 매출 +$79M 기여)</td><td>2025 4Q</td></tr>
+<tr><td>사업(매각)</td><td>ResCare Community Living을 <b>Sevita</b>에 $811M 매각 → 디레버리징</td><td>2026.03.31</td></tr>
+<tr><td>자본</td><td>순레버리지 2.99x → 2.27x 개선(매각 대금 상환)</td><td>2026 1Q</td></tr>
+<tr><td>지배구조</td><td>Walgreens 지분 전량 처분·KKR 세컨더리로 "controlled company" 지위 종료</td><td>2025</td></tr>
+<tr><td>가이던스</td><td>FY2026 매출 $147~152억·조정EBITDA ~$810M 중간값으로 상향</td><td>2026.05.01</td></tr>
+</table>
+</div>
+
+<div class="global-box">
+<span class="tag-global">GLOBAL</span> <b>산업 환경 — 스페셜티 약국·재택케어 구조적 성장</b>
+<div class="global-quote">미국 헬스케어는 병원 중심에서 <b>재택·지역기반(home & community)</b>으로 이동 중이며, 동시에 고가 스페셜티 신약(항암·희귀질환)의 출시가 가속되고 있다. BrightSpring은 이 두 물결(재택전환 + 스페셜티 신약)의 교차점에 서 있는 미국 최대 규모의 통합 플랫폼이다.</div>
+</div>
+
+<div class="policy-box">
+<span class="tag-policy">POLICY</span> <b>정책 환경 — 약가·메디케어·제네릭</b>
+<div class="policy-quote">IRA(인플레이션 감축법) 약가협상·메디케어 정책은 스페셜티 약국 마진에 양방향으로 작용한다. 다만 BrightSpring은 <b>바이오시밀러·프라이빗라벨 노출이 낮고</b> 제네릭 활용 증가가 오히려 마진에 우호적이라, 경영진은 정책 리스크가 제한적이라고 평가한다.</div>
+</div>
+
+<div class="ter-box">
+<span class="tag-sk">NEWS</span> <b>최근 뉴스 흐름 (2026)</b>
+<p style="font-size:10pt">📌 <b>[Benzinga 2026.05]</b> "BrightSpring, 견조한 Q1과 상향된 FY2026 전망으로 랠리 연장." 📌 <b>[McKnight's Home Care 2026.05]</b> "재택간호·스페셜티 처방이 Q1 어닝을 견인." 📌 <b>[Investor Day 2026.03]</b> "디레버리징 계획 + $20억 M&A 실탄 제시."</p>
+</div>
+
+<h2>1. 투자 포인트</h2>
+<p>BrightSpring Health Services는 <b>미국 최대 지역기반(home & community-based) 헬스케어 플랫폼</b>으로, 고가 스페셜티 약국과 재택케어를 하나로 묶은 규모의 사업자다. 투자 논리는 ① 스페셜티·인퓨전 약국의 고성장, ② 재택케어로의 구조적 전환, ③ 최근 실적 서프라이즈와 가이던스 상향, ④ Community Living 매각을 통한 스토리 집중·디레버리징, ⑤ KKR 백업과 M&A 실행력으로 요약된다. 아래 13개 포인트로 상세히 정리한다.</p>
+
+<ul class="points">
+<li><span class="point-title">① 미국 최대 지역기반 헬스케어 — "재택전환"의 구조적 수혜</span><br>
+BrightSpring은 병원 밖(재택·지역)에서 약국과 케어를 통합 제공하는 미국 최대급 플랫폼이다. 미국 헬스케어의 큰 흐름인 <b>병원 → 재택·지역기반 이동</b>은 비용절감·환자선호 양면에서 되돌리기 어려운 추세이며, BrightSpring은 이 전환의 직접 수혜자다. 고령화(베이비부머 고령 진입)와 만성질환 증가가 이 수요를 구조적으로 뒷받침한다.</li>
+
+<li><span class="point-title">② 스페셜티·인퓨전 약국 +36% 고성장 — 성장 엔진</span><br>
+Q1 2026 Pharmacy Solutions 매출 $32억(+25%) 중 <b>스페셜티·인퓨전이 $26억으로 +36% 성장</b>했다. 고가 항암·희귀질환 신약이 계속 출시되고, BrightSpring의 스페셜티 약국(Onco360)이 이들의 국가 유통 파트너로 선정되면서 성장이 가속된다. 이는 단순 규모 성장이 아니라 <b>신약 출시 사이클에 올라탄 구조적 성장</b>이다.</li>
+
+<li><span class="point-title">③ Q1 2026 전 부문 서프라이즈 — 실적이 논리를 입증</span><br>
+Q1 매출 $36억(+26%, 컨센 6.3% 상회), GAAP EPS $0.67(컨센 $0.27의 2.5배), 조정EBITDA $1.90억(+45%, 컨센 11% 상회)로 <b>매출·이익·마진 모두 기대를 넘었다</b>. 조정EBITDA 마진도 5.3%로 전년비 70bp 개선됐다. 성장과 수익성이 동시에 좋아지는, 질 높은 실적이다.</li>
+
+<li><span class="point-title">④ 가이던스 상향 — 경영진 자신감의 신호</span><br>
+회사는 Q1 직후 FY2026 매출 가이던스를 $147~152억(중간값 $149.8억)으로, 조정EBITDA를 ~$810M 중간값으로 <b>상향</b>했다. 연초 가이던스($760~790M)보다 높인 것으로, 경영진이 남은 분기의 성장 지속을 확신한다는 신호다. 가이던스 상향은 통상 주가 재평가의 촉매다.</li>
+
+<li><span class="point-title">⑤ Community Living 매각 — 스토리 집중 + 디레버리징 동시 달성</span><br>
+2026년 3월 ResCare Community Living을 <b>Sevita에 $811M</b>에 매각했다. 이로써 (1) 저성장·저마진 사업을 덜어내 스토리를 <b>스페셜티 약국 + 재택케어</b>로 집중하고, (2) 순레버리지를 2.99x→2.27x로 낮춰 재무 유연성을 확보했다. 포트폴리오를 성장·고마진 쪽으로 재편하는 전략적 결정이다.</li>
+
+<li><span class="point-title">⑥ 재택간호 M&A 통합(Amedisys·LHC) — 즉시 매출 기여</span><br>
+2025년 4분기 인수한 Amedisys·LHC 재택간호 지점이 Q1에 <b>$79M 매출을 즉시 기여</b>하며 Provider Services 성장(+28%)을 견인했다. 재택간호는 재택전환 흐름의 핵심 축으로, BrightSpring은 M&A로 이 역량을 빠르게 확대하고 있다.</li>
+
+<li><span class="point-title">⑦ Onco360 — LDD 116종의 스페셜티 해자 (핵심자산)</span><br>
+스페셜티 약국 Onco360은 <b>116종의 제한유통의약품(LDD, Limited Distribution Drug)</b> 포트폴리오를 보유한다. LDD는 제조사가 소수 약국에만 유통을 허가하는 고가 신약으로, 여기에 선정되면 해당 약물의 <b>50~100% 점유</b>를 확보한다. 신약이 출시될 때마다 파트너로 반복 선정되는 것이 Onco360의 구조적 해자다(§3-3 상세).</li>
+
+<li><span class="point-title">⑧ KKR 백업 + $20억 M&A 실탄 — 성장 자본과 규율</span><br>
+최대주주 KKR(~43.7%)은 헬스케어 대형 사모펀드로, BrightSpring의 M&A 전략과 자본 배분에 규율을 제공한다. 2026 Investor Day에서 회사는 디레버리징과 함께 <b>$20억 규모 M&A 실탄</b>을 제시했다. 성장 자본이 확보돼 있어 재택·약국 인수를 통한 확장을 이어갈 수 있다.</li>
+
+<li><span class="point-title">⑨ 규모의 경제 + 마진 개선 궤적</span><br>
+조정EBITDA 마진이 FY2024 4.6% → FY2025 4.8% → Q1 2026 5.3%로 <b>꾸준히 상승</b>하고 있다. 스페셜티 볼륨 확대, 제네릭 활용 증가, 재택케어 통합 시너지가 마진을 끌어올린다. 저마진 사업(Community Living) 제거도 믹스 개선에 기여한다. 규모가 커질수록 마진이 좋아지는 선순환이다.</li>
+
+<li><span class="point-title">⑩ 검증된 경영진 — Princeton·Harvard 출신 CEO의 10년 재편</span><br>
+CEO Jon Rousseau는 Princeton 학사·Harvard MBA 출신으로, Morgan Stanley·사모펀드·Medtronic·Mylan·Kindred를 거쳐 2016년부터 BrightSpring을 이끌며 ResCare에서 현재의 약국·클리니컬 중심 기업으로 <b>10년에 걸쳐 재편</b>했다. IPO(2024)와 대형 M&A를 실행해온 검증된 리더다(§3-4 상세).</li>
+
+<li><span class="point-title">⑪ 낮은 정책·경쟁 노출 — 방어적 성장 프로파일</span><br>
+경영진에 따르면 포트폴리오는 <b>바이오시밀러·프라이빗라벨 노출이 낮고</b>, 리스크가 믹스에서 중심이 아닌 주사제에 국한된다. 제네릭 활용 증가는 오히려 마진에 우호적이다. 즉 약가 정책·경쟁 압력에 상대적으로 방어적인 성장 프로파일을 갖췄다.</li>
+
+<li><span class="point-title">⑫ 컨센서스 Strong Buy + 목표가 릴레이 상향</span><br>
+17개 기관이 커버하며 컨센서스는 <b>Strong Buy</b>다. Q1 이후 BTIG($90)·UBS($85)·TD Cowen($81) 등이 목표가를 대폭 상향했다. 평균 목표가($67)는 후행 지표로, 선두 하우스의 상향이 순차 반영되는 중이다.</li>
+
+<li><span class="point-title">⑬ 밸류에이션 — 성장 대비 합리적 EV/EBITDA</span><br>
+BrightSpring은 무매출 바이오텍과 달리 <b>실제 매출·EBITDA·EPS가 있는 수익 기업</b>이라 EV/EBITDA·PER로 평가 가능하다. 30%대 매출 성장과 개선되는 마진을 감안하면, 헬스케어 서비스·유통 피어 대비 밸류에이션은 성장성을 반영해도 과도하지 않다는 것이 강세론의 근거다(§6 상세).</li>
+</ul>
+
+<div class="bull-box"><b>투자포인트 요약:</b> ① 재택전환 구조적 수혜 ② 스페셜티·인퓨전 +36% ③ Q1 전부문 서프라이즈 ④ 가이던스 상향 ⑤ Community Living 매각(집중+디레버리징) ⑥ 재택간호 M&A 즉시 기여 ⑦ Onco360 LDD 116종 해자 ⑧ KKR·$20억 M&A 실탄 ⑨ 마진 개선 궤적 ⑩ 검증된 경영진 ⑪ 낮은 정책 노출 ⑫ Strong Buy 컨센 ⑬ 합리적 밸류.</div>
+
+<h4>투자포인트 3축 그룹핑</h4>
+<table>
+<tr><th>축</th><th>해당 포인트</th><th>핵심 메시지</th><th>상태</th></tr>
+<tr><td><b>A. 성장</b></td><td>①②⑥⑦</td><td>재택전환 + 스페셜티 신약 + M&A 통합</td><td class="positive">가속 중</td></tr>
+<tr><td><b>B. 수익성·재무</b></td><td>③④⑤⑨</td><td>서프라이즈·가이던스 상향·마진 개선·디레버리징</td><td class="positive">개선 중</td></tr>
+<tr><td><b>C. 밸류·기타</b></td><td>⑧⑩⑪⑫⑬</td><td>KKR·경영진·낮은 정책노출·Strong Buy·합리적 밸류</td><td>우호적</td></tr>
+</table>
+
+<h4>투자자 유형별 적합도</h4>
+<table>
+<tr><th>투자자 유형</th><th>적합도</th><th>근거</th></tr>
+<tr><td>성장주 투자자</td><td class="positive">적합</td><td>30%대 매출 성장 + 마진 개선</td></tr>
+<tr><td>헬스케어 섹터 투자자</td><td class="positive">적합</td><td>재택전환·스페셜티 구조적 테마 순수 노출</td></tr>
+<tr><td>가치·배당 투자자</td><td>조건부</td><td>무배당·레버리지 존재 — 성장이 전제</td></tr>
+<tr><td>저변동 보수적</td><td class="negative">부적합</td><td>M&A·정책·상장 초기 변동성</td></tr>
+</table>
+
+<h2>2. 산업 개요</h2>
+
+<h3>2-1. TAM·SAM·SOM — 재택케어·스페셜티 약국 시장</h3>
+<p>BrightSpring이 속한 시장은 두 개의 대형 성장 시장이 겹친다. 하나는 <b>재택·지역기반 케어(home & community-based care)</b>, 다른 하나는 <b>스페셜티 약국(specialty pharmacy)</b>이다. 두 시장 모두 고령화·만성질환·고가 신약이라는 구조적 동력으로 성장한다.</p>
+<table>
+<tr><th>구분</th><th>범위</th><th>BrightSpring 관점</th></tr>
+<tr><td>TAM (전체시장)</td><td>미국 재택·지역케어 + 스페셜티/인퓨전/지역약국 시장 (수천억 달러)</td><td>2개 세그먼트로 다중 진입</td></tr>
+<tr><td>SAM (유효시장)</td><td>고령·만성·희귀질환 환자의 재택케어·고가 약물 수요</td><td>Onco360·Amerita·PharMerica·재택간호</td></tr>
+<tr><td>SOM (수임시장)</td><td>규모·네트워크·LDD 접근성으로 확보 가능한 점유</td><td>LDD 116종·전국 네트워크로 침투</td></tr>
+</table>
+<p>핵심은 두 시장이 모두 <b>병원 밖으로의 이동</b>이라는 같은 방향성을 갖는다는 점이다. 재택케어는 케어 장소의 이동이고, 스페셜티 약국은 고가 약물 조제·관리의 전문화다. BrightSpring은 이 둘을 한 지붕 아래 통합해, 환자 한 명에게 약과 케어를 동시에 제공하는 규모의 사업자다.</p>
+
+<h4>미국 헬스케어 구조 변화 — 왜 재택·지역기반인가</h4>
+<p>미국 헬스케어 비용의 지속 상승은 지불자(메디케어·보험사)로 하여금 <b>더 저렴하고 환자가 선호하는 장소</b>인 재택·지역케어로의 전환을 압박한다. 병원 입원 하루 비용 대비 재택케어는 훨씬 저렴하며, 환자 만족도도 높다. 이 구조적 압력이 BrightSpring 사업의 장기 순풍이다.</p>
+<table>
+<tr><th>동력</th><th>내용</th><th>BrightSpring 수혜 경로</th></tr>
+<tr><td>고령화</td><td>베이비부머 고령 진입, 65세+ 인구 급증</td><td>재택간호·개인케어·지역약국 수요 증가</td></tr>
+<tr><td>비용 압력</td><td>병원 대비 저렴한 재택케어로 전환</td><td>지불자가 재택케어 선호 → 볼륨 증가</td></tr>
+<tr><td>스페셜티 신약</td><td>항암·희귀질환 고가 신약 출시 가속</td><td>Onco360 LDD 파트너 선정 → 고성장</td></tr>
+<tr><td>만성질환</td><td>당뇨·심혈관 등 만성질환 유병률 상승</td><td>인퓨전·지역약국 처방 증가</td></tr>
+</table>
+<p>이 네 동력은 모두 <b>장기·구조적</b>이며 경기 순환과 무관하다. 즉 BrightSpring의 성장은 경기가 아니라 인구·정책·의약 혁신이라는 느리지만 확실한 변수에 기반한다. 이것이 헬스케어 서비스 기업의 방어적 성장 매력이다.</p>
+
+<h3>2-2. 사업부문별 매출 구조 — 요구사항 2번 (세그먼트 실적)</h3>
+<p>BrightSpring은 <b>Pharmacy Solutions</b>와 <b>Provider Services</b> 2개 보고 세그먼트로 공시한다. 아래는 SEC 공시 기준 세그먼트별 매출·성장률이다. 요구사항 2번(사업부별 매출 정확히)에 직접 대응한다.</p>
+<table>
+<tr><th>세그먼트</th><th>Q1 2026 매출</th><th>YoY 성장</th><th>FY2025 매출</th><th>YoY 성장</th><th>비중(Q1)</th></tr>
+<tr><td><b>Pharmacy Solutions</b></td><td class="positive">$32억</td><td>+25%</td><td>$114억</td><td>+31%</td><td>약 88%</td></tr>
+<tr><td>ㄴ 스페셜티·인퓨전</td><td class="positive">$26억</td><td>+36%</td><td>-</td><td>-</td><td>(핵심 성장)</td></tr>
+<tr><td><b>Provider Services</b></td><td>$4.42억</td><td>+28%</td><td>$15억</td><td>+11%</td><td>약 12%</td></tr>
+<tr><td>ㄴ Amedisys·LHC 기여</td><td>+$79M</td><td>(M&A)</td><td>-</td><td>-</td><td>(통합 효과)</td></tr>
+<tr><td><b>합계</b></td><td class="positive">$36억</td><td>+26%</td><td>$129억</td><td>+28%</td><td>100%</td></tr>
+</table>
+<p>세그먼트 구조가 보여주는 핵심은 <b>Pharmacy Solutions가 매출의 약 88%를 차지하는 압도적 주력</b>이며, 그 안에서 스페셜티·인퓨전이 +36%로 가장 빠르게 성장한다는 점이다. Provider Services는 비중은 작지만 재택간호 M&A로 +28% 성장하며, 재택전환 테마의 성장축 역할을 한다. 즉 BrightSpring은 "스페셜티 약국이 규모와 성장을 이끌고, 재택케어가 테마와 시너지를 더하는" 구조다.</p>
+
+<h4>세그먼트별 사업 내용 상세</h4>
+<table>
+<tr><th>세그먼트 / 사업</th><th>브랜드</th><th>내용</th></tr>
+<tr><td><b>Pharmacy: 스페셜티</b></td><td>Onco360(항암)·CareMed(희귀·오르판)</td><td>고가 항암·희귀질환 약물 조제·관리, LDD 유통</td></tr>
+<tr><td><b>Pharmacy: 인퓨전</b></td><td>Amerita</td><td>재택·외래 정맥주사(인퓨전) 치료 서비스</td></tr>
+<tr><td><b>Pharmacy: 지역약국</b></td><td>PharMerica 등</td><td>장기요양시설·지역사회 대상 조제·배송</td></tr>
+<tr><td><b>Provider: 재택간호</b></td><td>Home Health(Amedisys·LHC 통합)</td><td>재택 방문 간호·의료 서비스</td></tr>
+<tr><td><b>Provider: 개인케어</b></td><td>Personal Care</td><td>일상생활 지원·비의료 재택 돌봄</td></tr>
+<tr><td><b>Provider: 재활</b></td><td>Rehab Therapy</td><td>물리·작업·언어 치료 서비스</td></tr>
+</table>
+<p>주목할 점은 이 사업들이 <b>같은 환자군(고령·만성·재택 환자)을 공유</b>한다는 것이다. 한 환자에게 지역약국 처방·재택간호·인퓨전을 동시에 제공할 수 있어 교차판매·환자 유지 측면에서 시너지가 크다. 이 통합성이 단일 사업자 대비 BrightSpring의 차별점이다.</p>
+
+<h3>2-3. 산업 사이클 — 재택전환·스페셜티 성장기</h3>
+<p>재택케어·스페셜티 약국 산업은 현재 <b>구조적 성장기</b>의 한가운데 있다. 고령화와 신약 출시가 수요를 밀어올리고, 지불자의 비용절감 압력이 재택전환을 가속한다. 다만 M&A 경쟁 심화·약가 정책·인건비 상승이라는 역풍도 공존한다.</p>
+<table>
+<tr><th>사이클 국면</th><th>특징</th><th>BrightSpring 함의</th></tr>
+<tr><td>확장 초기(2020~2023)</td><td>재택전환·스페셜티 성장 시작, PE 주도 통합</td><td>ResCare→BrightSpring 재편, KKR 투자</td></tr>
+<tr><td>성장·상장기(2024~2026)</td><td>IPO, 대형 M&A, 스페셜티 신약 사이클</td><td class="positive">현재 — 매출 30%대 성장·마진 개선</td></tr>
+<tr><td>규모·재편기(2027~)</td><td>대형 사업자 중심 통합, 정책 정착</td><td>규모의 리더로 점유 확대·M&A 지속</td></tr>
+</table>
+<p>BrightSpring은 현재 <b>성장·상장기</b>에서 규모와 마진을 동시에 키우고 있다. 이 국면에서는 M&A 실행력과 스페셜티 파트너십 확보가 밸류를 좌우한다. 회사는 KKR 백업과 $20억 M&A 실탄으로 규모·재편기에 리더 지위를 굳히려 한다.</p>
+
+<h3>2-4. Peer 비교 — 헬스케어 서비스·유통 경쟁 지형</h3>
+<table>
+<tr><th>기업 (경쟁/피어)</th><th>주력 영역</th><th>BrightSpring 대비 포지션</th></tr>
+<tr><td><b>Option Care Health (OPCH)</b></td><td>재택 인퓨전 전문</td><td>인퓨전 순수 경쟁 — Amerita와 경합</td></tr>
+<tr><td><b>Amedisys / UnitedHealth(Optum)</b></td><td>재택간호·호스피스</td><td>재택간호 경쟁 — 일부 지점은 BTSG가 인수</td></tr>
+<tr><td><b>CVS Health / Cigna(Evernorth)</b></td><td>대형 PBM·스페셜티 약국</td><td>스페셜티 유통 대형 경쟁자</td></tr>
+<tr><td><b>Pennant Group / Addus</b></td><td>재택·개인케어</td><td>Provider 세그먼트 피어</td></tr>
+<tr><td><b>BrightSpring (BTSG)</b></td><td>스페셜티 약국 + 재택케어 통합</td><td class="positive">통합 규모 — 약국+케어 동시 제공</td></tr>
+</table>
+<p>BrightSpring의 경쟁 포지션은 <b>"약국과 케어를 통합한 규모의 사업자"</b>다. 순수 인퓨전(Option Care)이나 순수 재택간호(Amedisys)와 달리, 스페셜티 약국·인퓨전·지역약국·재택케어를 한 지붕 아래 제공한다. 이 통합성과 규모가 대형 지불자와의 협상력·교차판매에서 차별점을 만든다. 정량 밸류 비교는 §6에 정리했다.</p>
+
+<h4>피어 정량 밸류에이션 비교</h4>
+<p>수익 기업이므로 EV/EBITDA·PER 등 배수 비교가 가능하다. 아래는 헬스케어 서비스·유통 피어와의 개념적 포지셔닝이다(정확한 배수는 시점별 변동).</p>
+<table>
+<tr><th>기업</th><th>밸류 성격</th><th>성장률</th><th>마진</th><th>BTSG 대비</th></tr>
+<tr><td><b>BrightSpring (BTSG)</b></td><td class="positive">고성장·마진개선</td><td>매출 +26~28%</td><td>EBITDA 5%대</td><td>기준</td></tr>
+<tr><td>Option Care (OPCH)</td><td>인퓨전 순수</td><td>중간 성장</td><td>상대적 고마진</td><td>인퓨전 비교</td></tr>
+<tr><td>Amedisys(피인수)</td><td>재택간호</td><td>안정</td><td>중간</td><td>재택 비교</td></tr>
+<tr><td>대형 PBM(CVS/Cigna)</td><td>규모·저성장</td><td>한자릿수</td><td>낮은 유통마진</td><td>스페셜티 규모 비교</td></tr>
+</table>
+<p>BrightSpring은 유통업 특성상 <b>매출 대비 마진(EBITDA 5%대)은 낮지만 성장률(+26~28%)이 피어 대비 높다</b>. 따라서 밸류에이션은 매출배수보다 EV/EBITDA와 성장 대비 배수(EV/EBITDA ÷ 성장률)로 봐야 하며, 고성장을 감안하면 프리미엄이 정당화된다는 것이 강세론이다. 반대로 유통업 저마진·레버리지를 강조하면 할인 요인이 된다.</p>
+
+</body>
+</html>
