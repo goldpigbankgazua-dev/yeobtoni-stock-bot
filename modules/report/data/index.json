@@ -1,5 +1,17 @@
 [
   {
+    "file": "NASDAQ_스파이어_궤양성대장염항체_SKYLINE임상데이터_260712.html",
+    "market": "NASDAQ",
+    "name": "스파이어",
+    "themes": [
+      "궤양성대장염항체",
+      "SKYLINE임상데이터"
+    ],
+    "date": "2026-07-12",
+    "revision": false,
+    "pages": 1
+  },
+  {
     "file": "NASDAQ_익스트림네트웍스_에이전틱AI네트워킹_HPE주니퍼반사수혜Wi-Fi7_260711.html",
     "market": "NASDAQ",
     "name": "익스트림네트웍스",

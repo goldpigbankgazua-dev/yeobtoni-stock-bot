@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NASDAQ_스파이어_궤양성대장염항체_SKYLINE임상데이터_260712</title>
+<style>
+body{font-family:'Noto Sans KR',sans-serif;font-size:11pt;line-height:1.7;margin:40px;color:#333}
+h1{color:#1a5276;border-bottom:3px solid #1a5276;padding-bottom:8px}
+h2{color:#2c3e50;border-bottom:1px solid #bdc3c7;padding-bottom:5px;margin-top:30px}
+h3{color:#2c3e50;margin-top:20px}
+h4{color:#34495e;margin-top:15px}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th{background:#2c3e50;color:white;padding:8px;text-align:center;font-size:10pt}
+td{border:1px solid #ddd;padding:7px;font-size:10pt;vertical-align:top}
+tr:nth-child(even){background:#f8f9fa}
+.header{text-align:center;padding:22px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:8px;margin-bottom:20px}
+.header h1{color:white;border:none;margin:0}
+.header .sub{font-size:11pt;margin-top:8px;opacity:0.9}
+.positive{color:#2980b9;font-weight:bold}
+.negative{color:#e74c3c;font-weight:bold}
+.bull-box{background:#e8f8f5;border-left:4px solid #1abc9c;padding:12px;margin:10px 0;border-radius:4px}
+.risk-box{background:#fdedec;border-left:4px solid #e74c3c;padding:12px;margin:10px 0;border-radius:4px}
+.update-box{background:#eaf2f8;border-left:4px solid #2980b9;padding:12px;margin:10px 0;border-radius:4px}
+.warning-box{background:#fff3cd;border:2px solid #ffc107;padding:12px;margin:10px 0;border-radius:4px}
+.snapshot{background:#f8f9fa;border:2px solid #2c3e50;border-radius:8px;padding:18px;margin:16px 0}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.snapshot-item{background:white;border:1px solid #ddd;border-radius:6px;padding:10px;text-align:center}
+.snapshot-label{font-size:9pt;color:#7f8c8d;display:block;margin-bottom:4px}
+.snapshot-value{font-size:13pt;font-weight:bold;color:#1a5276}
+.snapshot-core{background:#eaf2f8;border-left:4px solid #2980b9;padding:10px;margin-top:10px;border-radius:4px;font-size:11pt}
+.footer{text-align:center;color:#7f8c8d;font-size:9pt;margin-top:40px;padding-top:15px;border-top:1px solid #ddd}
+.point-title{font-weight:bold;color:#1a5276;font-size:12pt}
+.calc-box{background:#f4f6f7;border:1px dashed #7f8c8d;padding:14px;margin:12px 0;border-radius:6px;font-family:'Courier New',monospace;font-size:10pt;line-height:1.8}
+.disclosure-box{background:#fef9e7;border:2px solid #f39c12;padding:14px;margin:12px 0;border-radius:6px}
+.broker-box{background:#f0f7ff;border:2px solid #2980b9;padding:14px;margin:12px 0;border-radius:6px}
+.sk-box{background:#fff5f0;border:2px solid #e67e22;padding:14px;margin:12px 0;border-radius:6px}
+.ter-box{background:#f4ecf7;border:2px solid #8e44ad;padding:14px;margin:12px 0;border-radius:6px}
+.policy-box{background:#fef5e7;border:2px solid #d68910;padding:14px;margin:12px 0;border-radius:6px}
+.policy-quote{background:#fff;border-left:4px solid #d68910;padding:10px 14px;margin:10px 0;color:#7d4f00;border-radius:4px;font-size:10pt}
+.tag-policy{background:#d68910;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.global-box{background:#e8f4fd;border:2px solid #2874a6;padding:14px;margin:12px 0;border-radius:6px}
+.global-quote{background:#fff;border-left:4px solid #2874a6;padding:10px 14px;margin:10px 0;color:#1a5276;border-radius:4px;font-size:10pt}
+.tag-global{background:#2874a6;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+ul.points{list-style:none;padding-left:0}
+ul.points li{margin-bottom:15px}
+.tag{background:#eee;border-radius:3px;padding:1px 5px;font-size:9pt;color:#555}
+.tag-disc{background:#f39c12;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-new{background:#27ae60;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+.tag-sk{background:#e67e22;color:white;border-radius:3px;padding:1px 5px;font-size:9pt;font-weight:bold}
+@page{size:A4;margin:14mm}
+h2{page-break-after:avoid}
+h3,h4{page-break-after:avoid}
+table,.calc-box,.bull-box,.risk-box,.warning-box{page-break-inside:avoid}
+.broker-box,.ter-box,.policy-box,.global-box,.disclosure-box{page-break-inside:avoid}
+@media(max-width:768px){body{margin:12px;font-size:10pt} table{font-size:9pt} .snapshot-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Spyre Therapeutics (SYRE.US · NASDAQ)</h1>
+<div class="sub">차세대 장기지속형 IBD 항체 플랫폼 — SKYLINE Phase 2 SPY001·SPY002 연속 Best-in-Class 데이터 · 2026년 6건의 POC 리드아웃 카탈리스트 · $12억 현금·2029년 하반기 런웨이<br>애널리스트 12사 만장일치 Strong Buy · 목표주가 $100~$135 · 최근 1개월 +35% 급등 · 분석일 2026.07.12</div>
+</div>
+
+<div class="snapshot">
+<div class="snapshot-grid">
+<div class="snapshot-item"><span class="snapshot-label">주가 (2026.06.22)</span><span class="snapshot-value">$101.50</span></div>
+<div class="snapshot-item"><span class="snapshot-label">시가총액</span><span class="snapshot-value">약 $76억<br>(late June)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최근 1개월 수익률</span><span class="snapshot-value positive">약 +35%</span></div>
+<div class="snapshot-item"><span class="snapshot-label">상장 시장</span><span class="snapshot-value">NASDAQ<br>Global Select</span></div>
+<div class="snapshot-item"><span class="snapshot-label">발행주식수</span><span class="snapshot-value">86.84백만주<br>(2026.07.01)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">기업 단계</span><span class="snapshot-value">임상 2상<br>(무매출)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">현금성자산 (Pro forma)</span><span class="snapshot-value positive">$12억<br>(2026.03.31)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">현금 런웨이</span><span class="snapshot-value positive">2029년 하반기</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 순손실</span><span class="snapshot-value negative">$69.0M<br>(YoY 적자확대)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">1Q26 R&D 비용</span><span class="snapshot-value">$60.4M</span></div>
+<div class="snapshot-item"><span class="snapshot-label">애널리스트 컨센</span><span class="snapshot-value positive">Strong Buy<br>(12사)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">최고 목표주가</span><span class="snapshot-value">$135<br>(Deutsche Bank)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">핵심 파이프라인</span><span class="snapshot-value">SPY001·002·003<br>+ 병용</span></div>
+<div class="snapshot-item"><span class="snapshot-label">리드 적응증</span><span class="snapshot-value">궤양성대장염<br>(UC)</span></div>
+<div class="snapshot-item"><span class="snapshot-label">2026 카탈리스트</span><span class="snapshot-value positive">6건 POC<br>리드아웃</span></div>
+</div>
+<div class="snapshot-core">
+<b>주가 급등 동력 한 줄:</b> 4월 SPY001(anti-α4β7)에 이어 6월 15일 SPY002(anti-TL1A)까지 SKYLINE Phase 2 Part A에서 연속으로 "Best-in-Class 잠재력" 데이터를 발표(Robarts 조직병리지수 -10.7점, p&lt;0.0001)하며 애널리스트들이 목표가를 앞다투어 상향, 1개월 만에 +35% 급등.<br><br>
+<b>재무 한 줄:</b> 무매출 임상단계 바이오텍이나 2026.3월말 $12억 현금(2026년 4월 $463M 유상증자 포함)으로 2029년 하반기까지 런웨이 확보 — 6건의 임상 리드아웃을 자금 걱정 없이 통과할 수 있는 위치.<br><br>
+<b>핵심 한 줄:</b> Paragon Therapeutics에서 분사한 "장기지속형(반감기 연장) 항체" 플랫폼 기업. α4β7·TL1A·IL-23 3개 검증된 타깃을 단독 및 병용으로 개발해 8주·12주 투약간격의 편의성과 병용 고효능을 동시에 노리는 IBD 차세대 주자. Merck·Roche·Teva/Sanofi가 경쟁하는 TL1A 레이스의 유력 후발주자.
+</div>
+</div>
+
+<p style="font-size:9pt;color:#7f8c8d;margin-top:4px"><b>[일러두기]</b> Spyre Therapeutics는 제품 매출이 없는 임상 2상 단계 바이오텍입니다. 따라서 통상적 "사업부별 매출"은 존재하지 않으며, 본 보고서는 요구사항 2번을 <b>파이프라인(자산)별 R&D 비용 배분 및 라이선스 구조(§3-2, §4-2)</b>로 대체·정밀 기재했습니다. 요구사항 4번(핵심 연구자산)은 §3-3·§9에서 자산별로 상세히 다룹니다.</p>
+
+</body>
+</html>
