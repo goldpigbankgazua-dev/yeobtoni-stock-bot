@@ -1,5 +1,17 @@
 [
   {
+    "file": "NYSE_아지론헬스_가치기반케어_턴어라운드흑자전환_260712.html",
+    "market": "NYSE",
+    "name": "아지론헬스",
+    "themes": [
+      "가치기반케어",
+      "턴어라운드흑자전환"
+    ],
+    "date": "2026-07-12",
+    "revision": false,
+    "pages": 4
+  },
+  {
     "file": "NASDAQ_스파이어_궤양성대장염항체_SKYLINE임상데이터_260712.html",
     "market": "NASDAQ",
     "name": "스파이어",
