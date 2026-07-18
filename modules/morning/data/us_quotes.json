@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-18 10:30:05",
+  "fetched_at": "2026-07-18 10:35:03",
   "count": 5,
   "quotes": [
     {
@@ -36,7 +36,7 @@
       "symbol": "DX-Y.NYB",
       "exchange": "ICE",
       "price": 100.75,
-      "previous": 100.76,
+      "previous": 100.77,
       "change": -0.01,
       "change_pct": -0.01,
       "state": "REGULAR",
