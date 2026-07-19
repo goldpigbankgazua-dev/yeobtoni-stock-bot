@@ -1,5 +1,17 @@
 [
   {
+    "file": "코스피_한화오션_미중조선패권_MASGA핵잠MRO_260719.html",
+    "market": "코스피",
+    "name": "한화오션",
+    "themes": [
+      "미중조선패권",
+      "MASGA핵잠MRO"
+    ],
+    "date": "2026-07-19",
+    "revision": false,
+    "pages": 8
+  },
+  {
     "file": "NYSE_아지론헬스_가치기반케어_턴어라운드흑자전환_260712.html",
     "market": "NYSE",
     "name": "아지론헬스",
