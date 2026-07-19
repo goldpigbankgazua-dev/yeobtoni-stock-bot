@@ -123,8 +123,14 @@ table { width:100%; border-collapse:separate; border-spacing:0; font-size:13.5px
 col.c-idx{width:44px;} col.c-disc{width:120px;} col.c-name{width:200px;} col.c-mkt{width:82px;}
 col.c-sec{width:140px;} col.c-cap{width:100px;} col.c-ret{width:112px;}
 col.c-dec{width:90px;} col.c-below{width:104px;} col.c-rec{width:120px;}
-col.c-gap{width:72px;} col.c-vol{width:90px;}
+col.c-gap{width:36px;} col.c-vol{width:90px;}   /* 갭: 72px 대비 절반 */
 td.discovered, th:nth-child(2) { color:var(--ink); font-weight:600; }
+/* 눌림목 표 하락폭·20MA↓체류·회복일·갭·거래대금(8~12번째 셀) 가운데 정렬 */
+[data-tab="pullback"] tbody td:nth-child(8),
+[data-tab="pullback"] tbody td:nth-child(9),
+[data-tab="pullback"] tbody td:nth-child(10),
+[data-tab="pullback"] tbody td:nth-child(11),
+[data-tab="pullback"] tbody td:nth-child(12) { text-align:center; }
 td.discovered { text-align:center; }
 thead th { background:var(--thead); color:var(--muted); font-weight:600; font-size:12px;
   text-align:center; padding:9px 11px; border-bottom:1px solid var(--line); white-space:nowrap; }
