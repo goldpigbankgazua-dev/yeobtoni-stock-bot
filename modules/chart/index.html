@@ -117,11 +117,11 @@ header .basedate b { color:var(--accent); }
   margin:12px 0 22px; box-shadow:0 1px 3px rgba(15,23,42,.04);
   max-height:260px;      /* 헤더 + 5행 */
   overscroll-behavior:contain; }  /* 부모로 스크롤 전파 막음 */
-.tbl-card table { width:100%; min-width:1240px; }   /* 1240px 미만이면 가로 스크롤 */
+.tbl-card table { width:100%; min-width:1120px; }   /* 숨김컬럼 회수: 1240 -> 1120 */
 .tbl-card thead th { position:sticky; top:0; z-index:2; }  /* 헤더 고정 */
 table { width:100%; border-collapse:separate; border-spacing:0; font-size:13.5px; table-layout:fixed; }
 col.c-idx{width:44px;} col.c-disc{width:120px;} col.c-name{width:200px;} col.c-mkt{width:82px;}
-col.c-sec{width:140px;} col.c-cap{width:100px;} col.c-ret{width:112px;}
+col.c-sec{width:140px;} col.c-cap{width:100px;} col.c-ret{width:0;}   /* 3개월 수익률 숨김 컬럼 폭 회수 */
 col.c-dec{width:90px;} col.c-below{width:104px;} col.c-rec{width:120px;}
 col.c-gap{width:36px;} col.c-vol{width:90px;}   /* 갭: 72px 대비 절반 */
 td.discovered, th:nth-child(2) { color:var(--ink); font-weight:600; }
