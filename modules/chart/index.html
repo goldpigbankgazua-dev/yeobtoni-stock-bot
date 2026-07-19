@@ -252,7 +252,7 @@ footer { margin-top:18px; color:var(--muted); font-size:11.5px; text-align:cente
 }
 /* 사용자 요청: 수익률 칼럼 + 선택 컨트롤 숨김 */
 .control:has(#retSel) { display:none !important; }
-th#thReturn, td.ret { display:none !important; }
+td.ret { display:none !important; }   /* 3개월 수익률 데이터셀 숨김 (헤더/컬럼은 삭제됨) */
 </style>
 </head><body>
 <div class="wrap">
@@ -313,7 +313,7 @@ th#thReturn, td.ret { display:none !important; }
 <table>
   <colgroup>
     <col class="c-idx"><col class="c-disc"><col class="c-name"><col class="c-mkt"><col class="c-sec">
-    <col class="c-cap"><col class="c-ret">
+    <col class="c-cap">
     <col class="c-dec"><col class="c-below"><col class="c-rec">
     <col class="c-gap"><col class="c-vol">
   </colgroup>
@@ -325,7 +325,6 @@ th#thReturn, td.ret { display:none !important; }
       <th class="center">시장</th>
       <th class="left">섹터</th>
       <th>시총</th>
-      <th id="thReturn">3개월 수익률</th>
       <th>하락폭</th>
       <th>20MA↓체류</th>
       <th>회복일</th>
@@ -436,7 +435,7 @@ function fmtReturn(v) {
 }
 
 function applyReturnPeriod(key) {
-  document.getElementById("thReturn").textContent = RET_LABELS[key] + " 수익률";
+  var _thR = document.getElementById("thReturn"); if (_thR) _thR.textContent = RET_LABELS[key] + " 수익률";
   document.querySelectorAll("#tbody tr[data-r1m]").forEach(function(row) {
     const cell = row.querySelector("td.ret");
     if (!cell) return;
