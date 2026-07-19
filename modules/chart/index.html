@@ -233,12 +233,10 @@ footer { margin-top:18px; color:var(--muted); font-size:11.5px; text-align:cente
 .tbl-card-high col.c-h-price,
 .tbl-card-high col.c-h-chg,
 .tbl-card-high col.c-h-52w,
-.tbl-card-high col.c-h-cap { width:114px; }   /* 163px 대비 70% */
-.tbl-card-high table { width:100%; min-width:1044px; }   /* 586 첫5컬럼 + 114*4 */
+.tbl-card-high col.c-h-cap { width:163px; }   /* (1240 - 586 첫5컬럼) / 4 ≈ 163 */
+.tbl-card-high table { width:100%; min-width:1240px; }
 .tbl-card-high td.name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tbl-card-high td.sec { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-/* 4개 데이터 컬럼(종가 / 등락률·배수 / 신고가·거래량 / 시총) 가운데 정렬 (# · 발견일 제외) */
-.tbl-card-high tbody td.num:not(.idx):not(.date) { text-align:center; }
 
 @media (max-width:720px) {
   .pat-tab { font-size:12px; padding:0 6px; }
