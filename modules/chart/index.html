@@ -123,14 +123,8 @@ table { width:100%; border-collapse:separate; border-spacing:0; font-size:13.5px
 col.c-idx{width:44px;} col.c-disc{width:120px;} col.c-name{width:200px;} col.c-mkt{width:82px;}
 col.c-sec{width:140px;} col.c-cap{width:100px;} col.c-ret{width:112px;}
 col.c-dec{width:90px;} col.c-below{width:104px;} col.c-rec{width:120px;}
-col.c-gap{width:36px;} col.c-vol{width:90px;}   /* 갭: 72px 대비 절반 */
+col.c-gap{width:72px;} col.c-vol{width:90px;}
 td.discovered, th:nth-child(2) { color:var(--ink); font-weight:600; }
-/* 눌림목 표 하락폭·20MA↓체류·회복일·갭·거래대금(8~12번째 셀) 가운데 정렬 */
-[data-tab="pullback"] tbody td:nth-child(8),
-[data-tab="pullback"] tbody td:nth-child(9),
-[data-tab="pullback"] tbody td:nth-child(10),
-[data-tab="pullback"] tbody td:nth-child(11),
-[data-tab="pullback"] tbody td:nth-child(12) { text-align:center; }
 td.discovered { text-align:center; }
 thead th { background:var(--thead); color:var(--muted); font-weight:600; font-size:12px;
   text-align:center; padding:9px 11px; border-bottom:1px solid var(--line); white-space:nowrap; }
@@ -239,12 +233,10 @@ footer { margin-top:18px; color:var(--muted); font-size:11.5px; text-align:cente
 .tbl-card-high col.c-h-price,
 .tbl-card-high col.c-h-chg,
 .tbl-card-high col.c-h-52w,
-.tbl-card-high col.c-h-cap { width:114px; }   /* 163px 대비 70% */
-.tbl-card-high table { width:100%; min-width:1044px; }   /* 586 첫5컬럼 + 114*4 */
+.tbl-card-high col.c-h-cap { width:163px; }   /* (1240 - 586 첫5컬럼) / 4 ≈ 163 */
+.tbl-card-high table { width:100%; min-width:1240px; }
 .tbl-card-high td.name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tbl-card-high td.sec { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-/* 4개 데이터 컬럼(종가 / 등락률·배수 / 신고가·거래량 / 시총) 가운데 정렬 (# · 발견일 제외) */
-.tbl-card-high tbody td.num:not(.idx):not(.date) { text-align:center; }
 
 @media (max-width:720px) {
   .pat-tab { font-size:12px; padding:0 6px; }
