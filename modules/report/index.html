@@ -222,6 +222,18 @@ async function load() {
     ALL = await resp.json();
     if (!Array.isArray(ALL)) ALL = [];
     ALL.forEach(r => { r._market = normalizeMarket(r.market || ''); });
+    // 실제 렌더 페이지수 교정: index.json의 페이지수는 글자수 추정치라
+    // 표 중심 보고서는 낮게 나온다. pages_cache.json(weasyprint 실제값)으로 덮어씀.
+    try {
+      const cres = await fetch('data/pages_cache.json?v=' + Date.now(), { cache: 'no-store' });
+      if (cres.ok) {
+        const cache = await cres.json();
+        ALL.forEach(r => {
+          const hit = cache && r.file ? cache[r.file] : null;
+          if (hit && hit.pages) r.pages = hit.pages;
+        });
+      }
+    } catch (_) { /* 캐시 없으면 기존 추정치 유지 */ }
     render();
   } catch (e) {
     ALL = [];
