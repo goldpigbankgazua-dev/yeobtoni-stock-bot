@@ -42,28 +42,52 @@ python3 - "$DST" <<'PY' >> "$LOG" 2>&1
 import os, json, re, sys
 DST = sys.argv[1]
 
-def estimate_pages(filepath):
-    """HTML 본문 텍스트 글자 수로 A4 페이지 수 추정.
-    사양서 기준: A4 14mm 마진 + 11pt + 한글 line-height 1.7
-    → 한 페이지에 한글 약 1800자 (그래프/표 영역 보정 포함)."""
+# 실제 렌더 페이지수 캐시 (파일명 -> {pages, size}). 크기가 같으면 재렌더 안 함.
+CACHE_PATH = os.path.join(DST, '.pages_cache.json')
+try:
+    with open(CACHE_PATH, encoding='utf-8') as f:
+        PAGES_CACHE = json.load(f)
+except Exception:
+    PAGES_CACHE = {}
+
+def _render_pages(filepath):
+    """weasyprint 실제 A4 렌더 페이지수. 없거나 실패하면 None."""
+    try:
+        from weasyprint import HTML
+        return len(HTML(filepath).render().pages)
+    except Exception:
+        return None
+
+def _heuristic_pages(filepath):
+    """폴백: 본문 글자수 기반 추정 (표·박스 많은 양식 보정)."""
     try:
         with open(filepath, encoding='utf-8', errors='replace') as f:
             html = f.read()
     except Exception:
         return 1
-    # <style>·<script> 블록 통째로 제거
     html = re.sub(r'<style[^>]*>.*?</style>', ' ', html, flags=re.S|re.I)
     html = re.sub(r'<script[^>]*>.*?</script>', ' ', html, flags=re.S|re.I)
-    # 태그 제거
     text = re.sub(r'<[^>]+>', ' ', html)
-    # 엔티티/공백 정리
     text = re.sub(r'&[a-z#0-9]+;', ' ', text)
     text = re.sub(r'\s+', ' ', text).strip()
-    char_count = len(text)
-    if char_count == 0:
-        return 1
-    # 표·박스가 많으므로 페이지당 1800자로 보정
-    return max(1, round(char_count / 1800))
+    return max(1, round(len(text) / 1100)) if text else 1
+
+def estimate_pages(filepath):
+    """실제 렌더 페이지수 우선. 캐시(크기 일치) → weasyprint → 휴리스틱 순."""
+    fn = os.path.basename(filepath)
+    try:
+        size = os.path.getsize(filepath)
+    except Exception:
+        size = -1
+    hit = PAGES_CACHE.get(fn)
+    if hit and hit.get('size') == size and hit.get('pages'):
+        return hit['pages']
+    pages = _render_pages(filepath)
+    if pages is None:
+        pages = _heuristic_pages(filepath)
+    else:
+        PAGES_CACHE[fn] = {'pages': pages, 'size': size}
+    return pages
 
 files = sorted([f for f in os.listdir(DST) if f.endswith('.html')])
 arr = []
@@ -95,6 +119,14 @@ for fn in files:
 arr.sort(key=lambda x: (x['date'] or '', x['name'] or ''), reverse=True)
 with open(os.path.join(DST, 'index.json'), 'w', encoding='utf-8') as f:
     json.dump(arr, f, ensure_ascii=False, indent=2)
+# 캐시 저장 (삭제된 파일 정리 후)
+existing = set(files)
+PAGES_CACHE = {k: v for k, v in PAGES_CACHE.items() if k in existing}
+try:
+    with open(CACHE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(PAGES_CACHE, f, ensure_ascii=False)
+except Exception:
+    pass
 print(f"  indexed {len(arr)} reports")
 PY
 
