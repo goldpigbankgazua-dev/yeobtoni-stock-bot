@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-22 07:00:04",
+  "fetched_at": "2026-07-22 07:05:03",
   "count": 5,
   "quotes": [
     {
@@ -40,7 +40,7 @@
       "change": 0.23,
       "change_pct": 0.23,
       "state": "REGULAR",
-      "market_ts": 1784670596,
+      "market_ts": 1784670899,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -49,12 +49,12 @@
       "name": "원/달러 환율",
       "symbol": "KRW=X",
       "exchange": "FX",
-      "price": 1480.22,
+      "price": 1480.07,
       "previous": 1475.41,
-      "change": 4.81,
-      "change_pct": 0.33,
+      "change": 4.66,
+      "change_pct": 0.32,
       "state": "REGULAR",
-      "market_ts": 1784671202,
+      "market_ts": 1784671495,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
