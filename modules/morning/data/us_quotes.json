@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-23 06:10:03",
+  "fetched_at": "2026-07-23 06:15:03",
   "count": 5,
   "quotes": [
     {
@@ -21,12 +21,12 @@
       "name": "S&P 500 선물",
       "symbol": "ES=F",
       "exchange": "CME",
-      "price": 7542.5,
+      "price": 7541.0,
       "previous": 7545.75,
-      "change": -3.25,
-      "change_pct": -0.04,
+      "change": -4.75,
+      "change_pct": -0.06,
       "state": "REGULAR",
-      "market_ts": 1784753988,
+      "market_ts": 1784753999,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -40,7 +40,7 @@
       "change": -0.05,
       "change_pct": -0.05,
       "state": "REGULAR",
-      "market_ts": 1784754001,
+      "market_ts": 1784754288,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
