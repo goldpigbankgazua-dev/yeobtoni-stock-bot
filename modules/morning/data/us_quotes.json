@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-24 06:35:03",
+  "fetched_at": "2026-07-24 06:40:04",
   "count": 5,
   "quotes": [
     {
@@ -37,10 +37,10 @@
       "exchange": "ICE",
       "price": 101.44,
       "previous": 101.12,
-      "change": 0.31,
+      "change": 0.32,
       "change_pct": 0.31,
       "state": "REGULAR",
-      "market_ts": 1784841899,
+      "market_ts": 1784842196,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -54,7 +54,7 @@
       "change": -2.44,
       "change_pct": -0.17,
       "state": "REGULAR",
-      "market_ts": 1784842389,
+      "market_ts": 1784842689,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
