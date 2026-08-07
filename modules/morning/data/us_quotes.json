@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-08 06:10:03",
+  "fetched_at": "2026-08-08 06:15:03",
   "count": 5,
   "quotes": [
     {
@@ -54,7 +54,7 @@
       "change": -15.24,
       "change_pct": -1.07,
       "state": "REGULAR",
-      "market_ts": 1786136390,
+      "market_ts": 1786137113,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -63,12 +63,12 @@
       "name": "금 선물",
       "symbol": "GC=F",
       "exchange": "COMEX",
-      "price": 4401.2,
+      "price": 4401.3,
       "previous": 4299.6,
-      "change": 101.6,
-      "change_pct": 2.36,
+      "change": 101.7,
+      "change_pct": 2.37,
       "state": "REGULAR",
-      "market_ts": 1786136393,
+      "market_ts": 1786136395,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
