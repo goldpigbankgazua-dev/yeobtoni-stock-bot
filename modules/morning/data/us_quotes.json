@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-15 10:20:03",
+  "fetched_at": "2026-08-15 10:25:03",
   "count": 5,
   "quotes": [
     {
@@ -36,9 +36,9 @@
       "symbol": "DX-Y.NYB",
       "exchange": "ICE",
       "price": 99.64,
-      "previous": 99.96,
-      "change": -0.33,
-      "change_pct": -0.33,
+      "previous": 99.67,
+      "change": -0.03,
+      "change_pct": -0.03,
       "state": "REGULAR",
       "market_ts": 1786741199,
       "source": "yahoo (via CF Worker)",
