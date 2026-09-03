@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04 06:10:03",
+  "fetched_at": "2026-09-04 06:15:03",
   "count": 5,
   "quotes": [
     {
@@ -40,7 +40,7 @@
       "change": -0.6,
       "change_pct": -0.6,
       "state": "REGULAR",
-      "market_ts": 1788469191,
+      "market_ts": 1788469481,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -49,12 +49,12 @@
       "name": "원/달러 환율",
       "symbol": "KRW=X",
       "exchange": "FX",
-      "price": 1356.0,
+      "price": 1355.97,
       "previous": 1358.61,
-      "change": -2.61,
+      "change": -2.64,
       "change_pct": -0.19,
       "state": "REGULAR",
-      "market_ts": 1788469744,
+      "market_ts": 1788469977,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -63,12 +63,12 @@
       "name": "금 선물",
       "symbol": "GC=F",
       "exchange": "COMEX",
-      "price": 4519.9,
+      "price": 4520.3,
       "previous": 4414.6,
-      "change": 105.3,
+      "change": 105.7,
       "change_pct": 2.39,
       "state": "REGULAR",
-      "market_ts": 1788469189,
+      "market_ts": 1788469200,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
