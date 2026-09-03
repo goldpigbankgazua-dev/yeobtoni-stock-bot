@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04 06:50:03",
+  "fetched_at": "2026-09-04 06:55:03",
   "count": 5,
   "quotes": [
     {
@@ -8,9 +8,9 @@
       "symbol": "NQ=F",
       "exchange": "CME",
       "price": 29502.25,
-      "previous": 29186.25,
-      "change": 316.0,
-      "change_pct": 1.08,
+      "previous": 29524.75,
+      "change": -22.5,
+      "change_pct": -0.08,
       "state": "REGULAR",
       "market_ts": 1788469198,
       "source": "yahoo (via CF Worker)",
@@ -38,9 +38,9 @@
       "price": 99.0,
       "previous": 99.6,
       "change": -0.59,
-      "change_pct": -0.59,
+      "change_pct": -0.6,
       "state": "REGULAR",
-      "market_ts": 1788471600,
+      "market_ts": 1788471899,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -49,12 +49,12 @@
       "name": "원/달러 환율",
       "symbol": "KRW=X",
       "exchange": "FX",
-      "price": 1355.86,
+      "price": 1355.83,
       "previous": 1358.61,
-      "change": -2.75,
+      "change": -2.78,
       "change_pct": -0.2,
       "state": "REGULAR",
-      "market_ts": 1788471813,
+      "market_ts": 1788472485,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
