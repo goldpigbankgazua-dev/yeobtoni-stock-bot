@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-07 07:50:03",
+  "fetched_at": "2026-09-07 07:55:03",
   "count": 5,
   "quotes": [
     {
@@ -12,7 +12,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788734400,
+      "market_ts": 1788734681,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -26,7 +26,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788734388,
+      "market_ts": 1788734676,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -35,12 +35,12 @@
       "name": "달러 지수",
       "symbol": "DX-Y.NYB",
       "exchange": "ICE",
-      "price": 99.17,
+      "price": 99.16,
       "previous": 99.18,
       "change": -0.01,
       "change_pct": -0.01,
       "state": "REGULAR",
-      "market_ts": 1788734401,
+      "market_ts": 1788734700,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -54,7 +54,7 @@
       "change": -10.26,
       "change_pct": -0.76,
       "state": "REGULAR",
-      "market_ts": 1788735000,
+      "market_ts": 1788735302,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -68,7 +68,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788734366,
+      "market_ts": 1788734674,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
