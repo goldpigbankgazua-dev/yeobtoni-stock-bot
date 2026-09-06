@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-07 07:25:03",
+  "fetched_at": "2026-09-07 07:30:03",
   "count": 5,
   "quotes": [
     {
@@ -12,7 +12,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788732888,
+      "market_ts": 1788733200,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -26,7 +26,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788732892,
+      "market_ts": 1788733189,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -40,7 +40,7 @@
       "change": -0.02,
       "change_pct": -0.02,
       "state": "REGULAR",
-      "market_ts": 1788732896,
+      "market_ts": 1788733199,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -54,7 +54,7 @@
       "change": -10.71,
       "change_pct": -0.79,
       "state": "REGULAR",
-      "market_ts": 1788732144,
+      "market_ts": 1788733744,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -68,7 +68,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788732888,
+      "market_ts": 1788733184,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
