@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-07 19:10:03",
+  "fetched_at": "2026-09-07 19:15:03",
   "count": 5,
   "quotes": [
     {
@@ -12,7 +12,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788775201,
+      "market_ts": 1788775492,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -26,7 +26,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788775200,
+      "market_ts": 1788775500,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -35,12 +35,12 @@
       "name": "달러 지수",
       "symbol": "DX-Y.NYB",
       "exchange": "ICE",
-      "price": 98.95,
+      "price": 98.94,
       "previous": 99.18,
-      "change": -0.22,
-      "change_pct": -0.22,
+      "change": -0.23,
+      "change_pct": -0.23,
       "state": "REGULAR",
-      "market_ts": 1788775202,
+      "market_ts": 1788775501,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -49,12 +49,12 @@
       "name": "원/달러 환율",
       "symbol": "KRW=X",
       "exchange": "FX",
-      "price": 1345.2,
+      "price": 1345.38,
       "previous": 1345.99,
-      "change": -0.79,
-      "change_pct": -0.06,
+      "change": -0.61,
+      "change_pct": -0.05,
       "state": "REGULAR",
-      "market_ts": 1788775794,
+      "market_ts": 1788776099,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -68,7 +68,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1788775188,
+      "market_ts": 1788775490,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
