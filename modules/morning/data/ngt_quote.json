@@ -1,11 +1,11 @@
 {
-  "fetched_at": "2026-09-09 02:45:01",
+  "fetched_at": "2026-09-09 02:50:02",
   "name": "코스피200 야간선물",
   "symbol": "K2I1!",
   "exchange": "KRX Night",
-  "price": 1113.65,
-  "change": 15.25,
-  "change_pct": 1.3883831026948286,
+  "price": 1114.45,
+  "change": 16.049999999999955,
+  "change_pct": 1.4612163146394712,
   "market_status": "open",
   "source": "jusikbot.com/api/quotes"
 }
