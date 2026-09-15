@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-16 04:35:03",
+  "fetched_at": "2026-09-16 04:40:03",
   "count": 5,
   "quotes": [
     {
@@ -7,12 +7,12 @@
       "name": "나스닥 100 선물",
       "symbol": "NQ=F",
       "exchange": "CME",
-      "price": 29236.0,
+      "price": 29236.75,
       "previous": 29449.5,
-      "change": -213.5,
+      "change": -212.75,
       "change_pct": -0.72,
       "state": "REGULAR",
-      "market_ts": 1789500294,
+      "market_ts": 1789500601,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -21,12 +21,12 @@
       "name": "S&P 500 선물",
       "symbol": "ES=F",
       "exchange": "CME",
-      "price": 7653.5,
+      "price": 7652.25,
       "previous": 7692.75,
-      "change": -39.25,
-      "change_pct": -0.51,
+      "change": -40.5,
+      "change_pct": -0.53,
       "state": "REGULAR",
-      "market_ts": 1789500300,
+      "market_ts": 1789500601,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -37,10 +37,10 @@
       "exchange": "ICE",
       "price": 99.64,
       "previous": 99.39,
-      "change": 0.24,
+      "change": 0.25,
       "change_pct": 0.25,
       "state": "REGULAR",
-      "market_ts": 1789500299,
+      "market_ts": 1789500599,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -49,12 +49,12 @@
       "name": "원/달러 환율",
       "symbol": "KRW=X",
       "exchange": "FX",
-      "price": 1360.01,
+      "price": 1360.74,
       "previous": 1346.82,
-      "change": 13.19,
-      "change_pct": 0.98,
+      "change": 13.92,
+      "change_pct": 1.03,
       "state": "REGULAR",
-      "market_ts": 1789500899,
+      "market_ts": 1789501193,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -68,7 +68,7 @@
       "change": -11.0,
       "change_pct": -0.25,
       "state": "REGULAR",
-      "market_ts": 1789500294,
+      "market_ts": 1789500591,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
