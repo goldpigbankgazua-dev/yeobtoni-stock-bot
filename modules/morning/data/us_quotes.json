@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-21 02:15:03",
+  "fetched_at": "2026-09-21 02:20:03",
   "count": 5,
   "quotes": [
     {
@@ -37,8 +37,8 @@
       "exchange": "ICE",
       "price": 100.22,
       "previous": 100.22,
-      "change": 0.0,
-      "change_pct": 0.0,
+      "change": -0.01,
+      "change_pct": -0.01,
       "state": "REGULAR",
       "market_ts": 1789765199,
       "source": "yahoo (via CF Worker)",
