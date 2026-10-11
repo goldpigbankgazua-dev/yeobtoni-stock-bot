@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12 07:10:03",
+  "fetched_at": "2026-10-12 07:15:03",
   "count": 5,
   "quotes": [
     {
@@ -12,7 +12,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1791756001,
+      "market_ts": 1791756301,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -26,7 +26,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1791756000,
+      "market_ts": 1791756300,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -38,9 +38,9 @@
       "price": 102.3,
       "previous": 102.21,
       "change": 0.09,
-      "change_pct": 0.09,
+      "change_pct": 0.08,
       "state": "REGULAR",
-      "market_ts": 1791756001,
+      "market_ts": 1791756299,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -68,7 +68,7 @@
       "change": 0.0,
       "change_pct": 0.0,
       "state": "REGULAR",
-      "market_ts": 1791756001,
+      "market_ts": 1791756299,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
