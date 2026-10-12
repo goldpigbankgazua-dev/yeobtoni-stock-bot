@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12 20:35:02",
+  "fetched_at": "2026-10-12 20:40:03",
   "count": 5,
   "quotes": [
     {
@@ -7,12 +7,12 @@
       "name": "나스닥 100 선물",
       "symbol": "NQ=F",
       "exchange": "CME",
-      "price": 31063.0,
+      "price": 31064.75,
       "previous": 31108.75,
-      "change": -45.75,
-      "change_pct": -0.15,
+      "change": -44.0,
+      "change_pct": -0.14,
       "state": "REGULAR",
-      "market_ts": 1791804292,
+      "market_ts": 1791804593,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -26,7 +26,7 @@
       "change": 4.0,
       "change_pct": 0.05,
       "state": "REGULAR",
-      "market_ts": 1791804299,
+      "market_ts": 1791804601,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -38,9 +38,9 @@
       "price": 102.43,
       "previous": 102.21,
       "change": 0.22,
-      "change_pct": 0.22,
+      "change_pct": 0.21,
       "state": "REGULAR",
-      "market_ts": 1791804295,
+      "market_ts": 1791804600,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -49,12 +49,12 @@
       "name": "원/달러 환율",
       "symbol": "KRW=X",
       "exchange": "FX",
-      "price": 1333.29,
+      "price": 1333.28,
       "previous": 1340.02,
-      "change": -6.73,
+      "change": -6.74,
       "change_pct": -0.5,
       "state": "REGULAR",
-      "market_ts": 1791804892,
+      "market_ts": 1791805199,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -63,12 +63,12 @@
       "name": "금 선물",
       "symbol": "GC=F",
       "exchange": "COMEX",
-      "price": 4195.2,
+      "price": 4195.1,
       "previous": 4216.3,
-      "change": -21.1,
+      "change": -21.2,
       "change_pct": -0.5,
       "state": "REGULAR",
-      "market_ts": 1791804300,
+      "market_ts": 1791804601,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
