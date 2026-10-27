@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28 07:05:02",
+  "fetched_at": "2026-10-28 07:10:03",
   "count": 5,
   "quotes": [
     {
@@ -7,12 +7,12 @@
       "name": "나스닥 100 선물",
       "symbol": "NQ=F",
       "exchange": "CME",
-      "price": 29803.0,
+      "price": 29830.25,
       "previous": 29812.0,
-      "change": -9.0,
-      "change_pct": -0.03,
+      "change": 18.25,
+      "change_pct": 0.06,
       "state": "REGULAR",
-      "market_ts": 1793134799,
+      "market_ts": 1793138401,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -21,12 +21,12 @@
       "name": "S&P 500 선물",
       "symbol": "ES=F",
       "exchange": "CME",
-      "price": 7756.75,
+      "price": 7761.25,
       "previous": 7758.25,
-      "change": -1.5,
-      "change_pct": -0.02,
+      "change": 3.0,
+      "change_pct": 0.04,
       "state": "REGULAR",
-      "market_ts": 1793134799,
+      "market_ts": 1793138401,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -37,10 +37,10 @@
       "exchange": "ICE",
       "price": 102.35,
       "previous": 101.96,
-      "change": 0.4,
+      "change": 0.39,
       "change_pct": 0.39,
       "state": "REGULAR",
-      "market_ts": 1793138099,
+      "market_ts": 1793138392,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
