@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28 06:20:03",
+  "fetched_at": "2026-10-28 06:25:03",
   "count": 5,
   "quotes": [
     {
@@ -38,9 +38,9 @@
       "price": 102.36,
       "previous": 101.96,
       "change": 0.4,
-      "change_pct": 0.4,
+      "change_pct": 0.39,
       "state": "REGULAR",
-      "market_ts": 1793135398,
+      "market_ts": 1793135700,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
