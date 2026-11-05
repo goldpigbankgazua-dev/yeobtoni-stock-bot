@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06 07:10:03",
+  "fetched_at": "2026-11-06 07:15:03",
   "count": 5,
   "quotes": [
     {
@@ -35,12 +35,12 @@
       "name": "달러 지수",
       "symbol": "DX-Y.NYB",
       "exchange": "ICE",
-      "price": 101.59,
+      "price": 101.58,
       "previous": 101.57,
-      "change": 0.03,
-      "change_pct": 0.03,
+      "change": 0.02,
+      "change_pct": 0.02,
       "state": "REGULAR",
-      "market_ts": 1793915991,
+      "market_ts": 1793916295,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -63,12 +63,12 @@
       "name": "금 선물",
       "symbol": "GC=F",
       "exchange": "COMEX",
-      "price": 4098.1,
+      "price": 4097.9,
       "previous": 4073.0,
-      "change": 25.1,
-      "change_pct": 0.62,
+      "change": 24.9,
+      "change_pct": 0.61,
       "state": "REGULAR",
-      "market_ts": 1793915990,
+      "market_ts": 1793915999,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     }
