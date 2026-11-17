@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18 07:45:03",
+  "fetched_at": "2026-11-18 07:50:03",
   "count": 5,
   "quotes": [
     {
@@ -8,9 +8,9 @@
       "symbol": "NQ=F",
       "exchange": "CME",
       "price": 27126.0,
-      "previous": 27284.25,
-      "change": -158.25,
-      "change_pct": -0.58,
+      "previous": 27075.5,
+      "change": 50.5,
+      "change_pct": 0.19,
       "state": "REGULAR",
       "market_ts": 1794952799,
       "source": "yahoo (via CF Worker)",
@@ -40,7 +40,7 @@
       "change": 0.01,
       "change_pct": 0.01,
       "state": "REGULAR",
-      "market_ts": 1794954900,
+      "market_ts": 1794955198,
       "source": "yahoo (via CF Worker)",
       "delayed": true
     },
@@ -64,9 +64,9 @@
       "symbol": "GC=F",
       "exchange": "COMEX",
       "price": 3851.9,
-      "previous": 3853.0,
-      "change": -1.1,
-      "change_pct": -0.03,
+      "previous": 3864.2,
+      "change": -12.3,
+      "change_pct": -0.32,
       "state": "REGULAR",
       "market_ts": 1794952799,
       "source": "yahoo (via CF Worker)",
