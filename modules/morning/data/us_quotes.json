@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-23 05:20:03",
+  "fetched_at": "2026-11-23 05:25:03",
   "count": 5,
   "quotes": [
     {
@@ -64,9 +64,9 @@
       "symbol": "GC=F",
       "exchange": "COMEX",
       "price": 3515.4,
-      "previous": 3685.5,
-      "change": -170.1,
-      "change_pct": -4.62,
+      "previous": 3515.4,
+      "change": 0.0,
+      "change_pct": 0.0,
       "state": "REGULAR",
       "market_ts": 1795211997,
       "source": "yahoo (via CF Worker)",
